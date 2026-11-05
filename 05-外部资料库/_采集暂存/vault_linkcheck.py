@@ -65,6 +65,19 @@ for p in docs:
                 table_pipe += 1
                 bad.append('%s  表格内未转义的链接竖线: %s' % (rel, line.strip()[:90]))
                 break
+    raw = p.read_bytes()
+    if raw.startswith(b'\xef\xbb\xbf'):
+        bad.append('%s  带 BOM' % rel)
+    try:
+        raw.decode('utf-8')
+    except UnicodeDecodeError:
+        bad.append('%s  不是合法 UTF-8' % rel)
+    prose = re.split(r'```[^\n]*\n.*?\n```', text, flags=re.S)
+    h1 = [l for chunk in prose for l in chunk.splitlines() if l.startswith('# ')]
+    if len(h1) != 1:
+        bad.append('%s  一级标题数量=%d（应为 1，代码围栏内的 # 不计）' % (rel, len(h1)))
+    if text.count('```') % 2:
+        bad.append('%s  代码围栏 %d 个（奇数，未配对）' % (rel, text.count('```')))
 
 print('版本化 Markdown %d 份，检查内部链接 %d 处' % (len(docs), total))
 print('失效链接 %d 处' % len(bad))
