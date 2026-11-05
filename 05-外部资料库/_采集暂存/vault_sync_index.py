@@ -28,14 +28,15 @@ text = text[:hit.start()] + new_table + text[hit.end():]
 head_old = re.compile(r'> 更新时间：[^\n]*\n')
 mb = tot['bytes'] // 2**20
 head_new = ('> 更新时间：%s（`_采集暂存/vault_scale.py` 全树复测）｜**%d 个仓库目录、%s 个文件、%d MB ≈ %.2f GB**。'
-            '全部公开可下载，无付费资源。三轮采集：第一轮 81、第二轮 89、第三轮（鸿蒙与跨端）7；'
+            '全部公开可下载，无付费资源。四轮采集：第一轮 81、第二轮 89、第三轮（鸿蒙与跨端）7、'
+            '第四轮（uni-app 与 uni-app x 官方文档与示例，计划新增专项后补入）7；'
             '因时效证据删除 7 个。另有本地派生视图 8,202 个文件不计入本表。\n'
             % (scale['measured'], tot['repos'], format(tot['files'], ','), mb, tot['bytes'] / 2**30))
 if not head_old.search(text):
     raise SystemExit('找不到更新时间行，仅替换了分类表')
 text = head_old.sub(head_new, text, count=1)
 
-text = text.replace('# 外部资料库索引（GitHub 公开镜像，两轮采集）',
-                    '# 外部资料库索引（GitHub 公开镜像，三轮采集）', 1)
+text = re.sub(r'^# 外部资料库索引（GitHub 公开镜像，[^\n]*?采集）',
+              '# 外部资料库索引（GitHub 公开镜像，四轮采集）', text, count=1)
 idx.write_text(text, encoding='utf-8', newline='\n')
 print('资料索引.md 已更新：表体 %d 行，头部时间 %s' % (len(rows), scale['measured']))

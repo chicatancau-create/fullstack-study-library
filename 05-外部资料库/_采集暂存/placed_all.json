@@ -7,7 +7,7 @@
   "tarball_mb": 3,
   "fetched": "2026-11-04 20:03",
   "files": 168,
-  "bytes": 4527662,
+  "bytes": 4527800,
   "mb": 4,
   "top_extensions": {
    ".md": 155,
@@ -77,7 +77,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 19,
-  "bytes": 82028,
+  "bytes": 82166,
   "mb": 0,
   "top_extensions": {
    ".md": 17,
@@ -102,7 +102,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 404,
-  "bytes": 758021,
+  "bytes": 758161,
   "mb": 0,
   "top_extensions": {
    ".js": 136,
@@ -571,7 +571,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 128,
-  "bytes": 1201947,
+  "bytes": 1202087,
   "mb": 1,
   "top_extensions": {
    ".md": 69,
@@ -599,7 +599,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 164,
-  "bytes": 1396765,
+  "bytes": 1396906,
   "mb": 1,
   "top_extensions": {
    ".md": 135,
@@ -713,7 +713,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 120,
-  "bytes": 3688380,
+  "bytes": 3688586,
   "mb": 3,
   "top_extensions": {
    ".md": 102,
@@ -789,7 +789,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 148,
-  "bytes": 10026469,
+  "bytes": 10026739,
   "mb": 9,
   "top_extensions": {
    ".png": 104,
@@ -864,7 +864,7 @@
   "tarball_mb": 107,
   "fetched": "2026-11-04 20:03",
   "files": 3243,
-  "bytes": 124243565,
+  "bytes": 124243709,
   "mb": 118,
   "top_extensions": {
    ".test": 1143,
@@ -1105,7 +1105,7 @@
   "tarball_mb": 6,
   "fetched": "2026-11-04 20:03",
   "files": 81,
-  "bytes": 7764266,
+  "bytes": 7764489,
   "mb": 7,
   "top_extensions": {
    ".md": 33,
@@ -1136,7 +1136,7 @@
   "archive_sha256": "d972859990f66ca1cb64f1408518202257fc80923a397d332fe3639ff3f8a762",
   "fetched": "2026-11-05 16:53",
   "files": 128,
-  "bytes": 28564684,
+  "bytes": 28564804,
   "mb": 27,
   "license_files": [
    "LICENSE.md",
@@ -1162,7 +1162,7 @@
   "tarball_mb": 8,
   "fetched": "2026-11-04 20:03",
   "files": 70,
-  "bytes": 9880765,
+  "bytes": 9880904,
   "mb": 9,
   "top_extensions": {
    ".png": 57,
@@ -1190,7 +1190,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 3,
-  "bytes": 106278,
+  "bytes": 106414,
   "mb": 0,
   "top_extensions": {
    ".go": 1,
@@ -1213,7 +1213,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 226,
-  "bytes": 7833423,
+  "bytes": 7833697,
   "mb": 7,
   "top_extensions": {
    ".md": 111,
@@ -1245,7 +1245,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 538,
-  "bytes": 2373048,
+  "bytes": 2373189,
   "mb": 2,
   "top_extensions": {
    ".csv": 537
@@ -1267,7 +1267,7 @@
   "tarball_mb": 1,
   "fetched": "2026-11-04 20:03",
   "files": 2353,
-  "bytes": 5883288,
+  "bytes": 5883431,
   "mb": 5,
   "top_extensions": {
    ".csv": 2350,
@@ -1291,7 +1291,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 1647,
-  "bytes": 4347622,
+  "bytes": 4347764,
   "mb": 4,
   "top_extensions": {
    ".csv": 1640,
@@ -1317,7 +1317,7 @@
   "tarball_mb": 1,
   "fetched": "2026-11-04 20:03",
   "files": 835,
-  "bytes": 3265821,
+  "bytes": 3265962,
   "mb": 3,
   "top_extensions": {
    ".mdx": 430,
@@ -1346,7 +1346,7 @@
   "tarball_mb": 1,
   "fetched": "2026-11-04 20:03",
   "files": 214,
-  "bytes": 1577530,
+  "bytes": 1577670,
   "mb": 1,
   "top_extensions": {
    ".json": 101,
@@ -1375,7 +1375,7 @@
   "tarball_mb": 2,
   "fetched": "2026-11-04 20:03",
   "files": 80,
-  "bytes": 4209083,
+  "bytes": 4209302,
   "mb": 4,
   "top_extensions": {
    ".md": 36,
@@ -1405,7 +1405,7 @@
   "tarball_mb": 5,
   "fetched": "2026-11-04 20:03",
   "files": 729,
-  "bytes": 21129974,
+  "bytes": 21130113,
   "mb": 20,
   "top_extensions": {
    ".js": 198,
@@ -1436,7 +1436,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-05 11:12",
   "files": 51,
-  "bytes": 1976338,
+  "bytes": 1976449,
   "mb": 1,
   "top_extensions": {
    ".md": 47,
@@ -1620,7 +1620,7 @@
   "tarball_mb": 68,
   "fetched": "2026-11-04 20:03",
   "files": 871,
-  "bytes": 78758173,
+  "bytes": 78758314,
   "mb": 75,
   "top_extensions": {
    ".md": 544,
@@ -1701,7 +1701,7 @@
   "tarball_mb": 72,
   "fetched": "2026-11-04 20:03",
   "files": 39073,
-  "bytes": 287063568,
+  "bytes": 287063713,
   "mb": 273,
   "top_extensions": {
    ".md": 8734,
@@ -1778,7 +1778,7 @@
   "tarball_mb": 140,
   "fetched": "2026-11-04 20:03",
   "files": 6685,
-  "bytes": 544507047,
+  "bytes": 544507190,
   "mb": 519,
   "top_extensions": {
    ".md": 2554,
@@ -1811,7 +1811,7 @@
   "tarball_mb": 1,
   "fetched": "2026-11-05 11:12",
   "files": 74,
-  "bytes": 3146194,
+  "bytes": 3146259,
   "mb": 3,
   "top_extensions": {
    ".md": 65,
@@ -1901,7 +1901,7 @@
   "tarball_mb": 2,
   "fetched": "2026-11-04 20:03",
   "files": 7833,
-  "bytes": 10817995,
+  "bytes": 10818137,
   "mb": 10,
   "top_extensions": {
    ".cpp": 3698,
@@ -1934,7 +1934,7 @@
   "tarball_mb": 18,
   "fetched": "2026-11-04 20:03",
   "files": 555,
-  "bytes": 20412859,
+  "bytes": 20413000,
   "mb": 19,
   "top_extensions": {
    ".java": 515,
@@ -2008,7 +2008,7 @@
   "tarball_mb": 4,
   "fetched": "2026-11-04 20:03",
   "files": 4673,
-  "bytes": 24853472,
+  "bytes": 24853614,
   "mb": 23,
   "top_extensions": {
    ".md": 929,
@@ -2181,7 +2181,7 @@
   "tarball_mb": 1,
   "fetched": "2026-11-04 20:03",
   "files": 3446,
-  "bytes": 4245189,
+  "bytes": 4245331,
   "mb": 4,
   "top_extensions": {
    ".cpp": 1879,
@@ -2212,7 +2212,7 @@
   "tarball_mb": 3,
   "fetched": "2026-11-04 20:03",
   "files": 1222,
-  "bytes": 202015522,
+  "bytes": 202015665,
   "mb": 192,
   "top_extensions": {
    ".png": 793,
@@ -2341,7 +2341,7 @@
   "tarball_mb": 5,
   "fetched": "2026-11-04 20:03",
   "files": 430,
-  "bytes": 6999519,
+  "bytes": 6999660,
   "mb": 6,
   "top_extensions": {
    ".md": 295,
@@ -2467,8 +2467,8 @@
   "category": "题库/鸿蒙与跨端",
   "branch": "main",
   "fetched": "2026-11-05 18:24",
-  "files": 191,
-  "bytes": 13700899,
+  "files": 192,
+  "bytes": 13701872,
   "mb": 13,
   "top_extensions": {
    ".png": 92,
@@ -2500,7 +2500,8 @@
    "pushed": "2025-07-01"
   },
   "fingerprint_note": "本机内容指纹；上游压缩包未保留，可复现性以来源URL+分支+采集日期为准",
-  "content_fingerprint": "5710e86a9990ce56b7878b2448eb98a76da154dec4009deaa150479bdace1f6b"
+  "content_fingerprint": "5710e86a9990ce56b7878b2448eb98a76da154dec4009deaa150479bdace1f6b",
+  "ledger_refreshed": "补图/改名后重算：191 文件 -> 192 文件"
  },
  {
   "repo": "https://github.com/adongwanai/AgentGuide",
@@ -2661,7 +2662,7 @@
   "tarball_mb": 162,
   "fetched": "2026-11-04 20:03",
   "files": 2587,
-  "bytes": 194988784,
+  "bytes": 194988927,
   "mb": 185,
   "top_extensions": {
    ".py": 1141,
@@ -2694,7 +2695,7 @@
   "tarball_mb": 123,
   "fetched": "2026-11-04 20:03",
   "files": 344,
-  "bytes": 158901946,
+  "bytes": 158902087,
   "mb": 151,
   "top_extensions": {
    ".png": 260,
@@ -2823,7 +2824,7 @@
   "tarball_mb": 41,
   "fetched": "2026-11-04 20:03",
   "files": 695,
-  "bytes": 48764653,
+  "bytes": 48764728,
   "mb": 46,
   "top_extensions": {
    ".py": 387,
@@ -2904,7 +2905,7 @@
   "tarball_mb": 85,
   "fetched": "2026-11-04 20:03",
   "files": 132,
-  "bytes": 106444434,
+  "bytes": 106444573,
   "mb": 101,
   "top_extensions": {
    ".ipynb": 45,
@@ -2935,7 +2936,7 @@
   "tarball_mb": 1446,
   "fetched": "2026-11-04 20:03",
   "files": 13697,
-  "bytes": 1973530477,
+  "bytes": 1973530622,
   "mb": 1882,
   "top_extensions": {
    ".webp": 6480,
@@ -2968,7 +2969,7 @@
   "tarball_mb": 1070,
   "fetched": "2026-11-04 20:03",
   "files": 15714,
-  "bytes": 1499129741,
+  "bytes": 1499129886,
   "mb": 1429,
   "top_extensions": {
    ".webp": 10010,
@@ -3001,7 +3002,7 @@
   "tarball_mb": 907,
   "fetched": "2026-11-04 20:03",
   "files": 17445,
-  "bytes": 1221822207,
+  "bytes": 1221822352,
   "mb": 1165,
   "top_extensions": {
    ".webp": 8635,
@@ -3085,7 +3086,7 @@
   "tarball_mb": 3,
   "fetched": "2026-11-04 20:03",
   "files": 1729,
-  "bytes": 5788370,
+  "bytes": 5788513,
   "mb": 5,
   "top_extensions": {
    ".jsonl": 661,
@@ -3166,7 +3167,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 5,
-  "bytes": 73494,
+  "bytes": 73632,
   "mb": 0,
   "top_extensions": {
    ".md": 2,
@@ -3190,7 +3191,7 @@
   "tarball_mb": 24,
   "fetched": "2026-11-04 20:03",
   "files": 19802,
-  "bytes": 84456005,
+  "bytes": 84456151,
   "mb": 80,
   "top_extensions": {
    ".md": 17037,
@@ -3223,7 +3224,7 @@
   "tarball_mb": 3,
   "fetched": "2026-11-04 20:03",
   "files": 1056,
-  "bytes": 10293419,
+  "bytes": 10293561,
   "mb": 9,
   "top_extensions": {
    ".md": 998,
@@ -3254,7 +3255,7 @@
   "tarball_mb": 468,
   "fetched": "2026-11-04 20:03",
   "files": 13865,
-  "bytes": 571903656,
+  "bytes": 571903801,
   "mb": 545,
   "top_extensions": {
    ".webp": 7865,
@@ -3287,7 +3288,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 5,
-  "bytes": 45023,
+  "bytes": 45161,
   "mb": 0,
   "top_extensions": {
    ".md": 2,
@@ -3313,7 +3314,7 @@
   "tarball_mb": 2,
   "fetched": "2026-11-04 20:03",
   "files": 11330,
-  "bytes": 8029552,
+  "bytes": 8029698,
   "mb": 7,
   "top_extensions": {
    ".md": 11297,
@@ -3343,7 +3344,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 15,
-  "bytes": 234617,
+  "bytes": 234757,
   "mb": 0,
   "top_extensions": {
    ".yml": 6,
@@ -3413,7 +3414,7 @@
   "tarball_mb": 6,
   "fetched": "2026-11-04 20:03",
   "files": 364,
-  "bytes": 24472895,
+  "bytes": 24473034,
   "mb": 23,
   "top_extensions": {
    ".md": 187,
@@ -3446,7 +3447,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-05 11:12",
   "files": 288,
-  "bytes": 4669016,
+  "bytes": 4669188,
   "mb": 4,
   "top_extensions": {
    ".md": 236,
@@ -3540,7 +3541,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 10,
-  "bytes": 28137,
+  "bytes": 28277,
   "mb": 0,
   "top_extensions": {
    ".md": 8,
@@ -3614,7 +3615,7 @@
   "archive_sha256": "535891fe66cc44cee6dba42faf8b0b45eabf10805149cf7f1aceb215863b83b1",
   "fetched": "2026-11-05 16:52",
   "files": 1065,
-  "bytes": 19771806,
+  "bytes": 19771928,
   "mb": 18,
   "license_files": [
    "LICENSE",
@@ -3779,7 +3780,7 @@
   "tarball_mb": 616,
   "fetched": "2026-11-04 20:03",
   "files": 179,
-  "bytes": 730979534,
+  "bytes": 730979820,
   "mb": 697,
   "top_extensions": {
    ".pdf": 173,
@@ -3807,7 +3808,7 @@
   "tarball_mb": 41,
   "fetched": "2026-11-04 20:03",
   "files": 876,
-  "bytes": 100024307,
+  "bytes": 100024448,
   "mb": 95,
   "top_extensions": {
    ".md": 224,
@@ -3838,7 +3839,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 605,
-  "bytes": 98919796,
+  "bytes": 98920088,
   "mb": 94,
   "top_extensions": {
    ".jpg": 353,
@@ -3873,7 +3874,7 @@
   "tarball_mb": 7,
   "fetched": "2026-11-04 20:03",
   "files": 297,
-  "bytes": 10109661,
+  "bytes": 10109802,
   "mb": 9,
   "top_extensions": {
    ".png": 178,
@@ -3906,7 +3907,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 346,
-  "bytes": 1911054,
+  "bytes": 1911194,
   "mb": 1,
   "top_extensions": {
    ".md": 331,
@@ -3931,7 +3932,7 @@
   "tarball_mb": 9,
   "fetched": "2026-11-04 20:03",
   "files": 758,
-  "bytes": 12890750,
+  "bytes": 12890892,
   "mb": 12,
   "top_extensions": {
    ".md": 653,
@@ -3964,7 +3965,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 85,
-  "bytes": 2140473,
+  "bytes": 2140612,
   "mb": 2,
   "top_extensions": {
    ".go": 75,
@@ -3993,7 +3994,7 @@
   "tarball_mb": 38,
   "fetched": "2026-11-04 20:03",
   "files": 1233,
-  "bytes": 53080130,
+  "bytes": 53080273,
   "mb": 50,
   "top_extensions": {
    ".md": 992,
@@ -4257,7 +4258,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 3,
-  "bytes": 830961,
+  "bytes": 831241,
   "mb": 0,
   "top_extensions": {
    ".md": 1,
@@ -4380,7 +4381,7 @@
   "tarball_mb": 17,
   "fetched": "2026-11-04 20:03",
   "files": 392,
-  "bytes": 24074456,
+  "bytes": 24074597,
   "mb": 22,
   "top_extensions": {
    ".md": 170,
@@ -4413,7 +4414,7 @@
   "tarball_mb": 186,
   "fetched": "2026-11-04 20:03",
   "files": 1140,
-  "bytes": 277154198,
+  "bytes": 277154340,
   "mb": 264,
   "top_extensions": {
    ".md": 727,
@@ -4446,7 +4447,7 @@
   "tarball_mb": 102,
   "fetched": "2026-11-04 20:03",
   "files": 12257,
-  "bytes": 274919008,
+  "bytes": 274919154,
   "mb": 262,
   "top_extensions": {
    ".svg": 2861,
@@ -4523,7 +4524,7 @@
   "tarball_mb": 8,
   "fetched": "2026-11-04 20:03",
   "files": 1738,
-  "bytes": 15684570,
+  "bytes": 15684714,
   "mb": 14,
   "top_extensions": {
    ".py": 1608,
@@ -4556,7 +4557,7 @@
   "tarball_mb": 7,
   "fetched": "2026-11-04 20:03",
   "files": 680,
-  "bytes": 10163319,
+  "bytes": 10163461,
   "mb": 9,
   "top_extensions": {
    ".js": 361,
@@ -4587,7 +4588,7 @@
   "tarball_mb": 1,
   "fetched": "2026-11-04 20:03",
   "files": 27,
-  "bytes": 1725616,
+  "bytes": 1725755,
   "mb": 1,
   "top_extensions": {
    ".java": 11,
@@ -4615,7 +4616,7 @@
   "tarball_mb": 1,
   "fetched": "2026-11-05 11:12",
   "files": 826,
-  "bytes": 444794516,
+  "bytes": 444794520,
   "mb": 424,
   "top_extensions": {
    ".md": 418,
@@ -4659,7 +4660,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 3,
-  "bytes": 211745,
+  "bytes": 212046,
   "mb": 0,
   "top_extensions": {
    ".md": 1,
@@ -4684,7 +4685,7 @@
   "tarball_mb": 11,
   "fetched": "2026-11-04 20:03",
   "files": 140,
-  "bytes": 13585518,
+  "bytes": 13585660,
   "mb": 12,
   "top_extensions": {
    ".png": 54,
@@ -4717,7 +4718,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 4,
-  "bytes": 228468,
+  "bytes": 228604,
   "mb": 0,
   "top_extensions": {
    "(none)": 1,
@@ -4743,7 +4744,7 @@
   "tarball_mb": 5,
   "fetched": "2026-11-04 20:03",
   "files": 55,
-  "bytes": 12585357,
+  "bytes": 12585496,
   "mb": 12,
   "top_extensions": {
    ".excalidraw": 43,
@@ -4855,7 +4856,7 @@
   "tarball_mb": 82,
   "fetched": "2026-11-04 20:03",
   "files": 1143,
-  "bytes": 94940081,
+  "bytes": 94940222,
   "mb": 90,
   "top_extensions": {
    ".png": 585,
@@ -4887,7 +4888,7 @@
   "archive_sha256": "30cf32e4d52e0c24128c9a93d59e4933802bfdd180eaa3ebfb10e7b3040870cf",
   "fetched": "2026-11-05 16:52",
   "files": 341,
-  "bytes": 40189541,
+  "bytes": 40189827,
   "mb": 38,
   "license_files": [
    "README.md"
@@ -4914,7 +4915,7 @@
   "tarball_mb": 407,
   "fetched": "2026-11-04 20:03",
   "files": 1810,
-  "bytes": 438914837,
+  "bytes": 438914979,
   "mb": 418,
   "top_extensions": {
    ".png": 971,
@@ -4944,7 +4945,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 24,
-  "bytes": 1067532,
+  "bytes": 1067672,
   "mb": 1,
   "top_extensions": {
    ".md": 20,
@@ -4969,7 +4970,7 @@
   "tarball_mb": 2,
   "fetched": "2026-11-04 20:03",
   "files": 47,
-  "bytes": 6714194,
+  "bytes": 6714334,
   "mb": 6,
   "top_extensions": {
    ".md": 33,
@@ -4997,7 +4998,7 @@
   "tarball_mb": 117,
   "fetched": "2026-11-04 20:03",
   "files": 628,
-  "bytes": 190065635,
+  "bytes": 190065774,
   "mb": 181,
   "top_extensions": {
    ".jpg": 499,
@@ -5029,7 +5030,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 39,
-  "bytes": 531776,
+  "bytes": 531916,
   "mb": 0,
   "top_extensions": {
    ".md": 22,
@@ -5060,7 +5061,7 @@
   "tarball_mb": 1,
   "fetched": "2026-11-04 20:03",
   "files": 165,
-  "bytes": 2519325,
+  "bytes": 2519465,
   "mb": 2,
   "top_extensions": {
    ".md": 160,
@@ -5087,7 +5088,7 @@
   "tarball_mb": 5,
   "fetched": "2026-11-04 20:03",
   "files": 2573,
-  "bytes": 184536827,
+  "bytes": 184536971,
   "mb": 175,
   "top_extensions": {
    ".png": 1809,
@@ -5120,7 +5121,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 1697,
-  "bytes": 192569863,
+  "bytes": 192570006,
   "mb": 183,
   "top_extensions": {
    ".png": 1151,
@@ -5226,8 +5227,8 @@
   "category": "知识库/课程与路线",
   "branch": "master",
   "fetched": "2026-11-05 18:24",
-  "files": 666,
-  "bytes": 18018975,
+  "files": 667,
+  "bytes": 18019982,
   "mb": 17,
   "top_extensions": {
    ".md": 644,
@@ -5259,7 +5260,8 @@
    "pushed": "2026-11-03"
   },
   "fingerprint_note": "本机内容指纹；上游压缩包未保留，可复现性以来源URL+分支+采集日期为准",
-  "content_fingerprint": "454a40c7df2086dafeb26de7cbb34370a8596bdbe833eef1185c1cafd828de20"
+  "content_fingerprint": "454a40c7df2086dafeb26de7cbb34370a8596bdbe833eef1185c1cafd828de20",
+  "ledger_refreshed": "补图/改名后重算：666 文件 -> 667 文件"
  },
  {
   "repo": "https://github.com/ctrlaltwill/LearnKit",
@@ -5832,8 +5834,8 @@
   "category": "知识库/资源目录",
   "branch": "master",
   "fetched": "2026-11-05 18:24",
-  "files": 2583,
-  "bytes": 64564614,
+  "files": 2584,
+  "bytes": 64565731,
   "mb": 61,
   "top_extensions": {
    ".c": 674,
@@ -5865,7 +5867,8 @@
   },
   "fingerprint_note": "本机内容指纹；上游压缩包未保留，可复现性以来源URL+分支+采集日期为准",
   "content_fingerprint": "01922d3daf739be1f92f40653b35a8bc9c178d89a706bc8ad806c47421104203",
-  "freshness_flag": "最后更新 2024-07，早于 HarmonyOS NEXT 当前 API；只当索引用，实现以本地官方文档镜像为准"
+  "freshness_flag": "最后更新 2024-07，早于 HarmonyOS NEXT 当前 API；只当索引用，实现以本地官方文档镜像为准",
+  "ledger_refreshed": "补图/改名后重算：2583 文件 -> 2584 文件"
  },
  {
   "repo": "https://github.com/doocs/technical-books",
@@ -5875,7 +5878,7 @@
   "tarball_mb": 3,
   "fetched": "2026-11-04 20:03",
   "files": 29,
-  "bytes": 5118099,
+  "bytes": 5118237,
   "mb": 4,
   "top_extensions": {
    ".png": 5,
@@ -5908,7 +5911,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 236,
-  "bytes": 2354939,
+  "bytes": 2355081,
   "mb": 2,
   "top_extensions": {
    ".md": 218,
@@ -5937,7 +5940,7 @@
   "tarball_mb": 0,
   "fetched": "2026-11-04 20:03",
   "files": 8,
-  "bytes": 430211,
+  "bytes": 430348,
   "mb": 0,
   "top_extensions": {
    ".md": 5,
@@ -5959,7 +5962,7 @@
   "archive_sha256": "059d8135418136f46ece6501b31c4729f8762c7751ecfb4d04e8390f14e67991",
   "fetched": "2026-11-05 16:54",
   "files": 9,
-  "bytes": 96084,
+  "bytes": 96202,
   "mb": 0,
   "license_files": [
    "LICENSE",
@@ -5984,7 +5987,7 @@
   "archive_sha256": "39ba16a8497dd9dbe45fde8c5c027109743779b6a4531300952c7829c46c63fc",
   "fetched": "2026-11-05 16:52",
   "files": 8,
-  "bytes": 868400,
+  "bytes": 868517,
   "mb": 0,
   "license_files": [
    "LICENSE",
@@ -6009,7 +6012,7 @@
   "archive_sha256": "035aaba938ffdeb9e05fad342c38c2aba486b22e37258c2ebc3ba37233901566",
   "fetched": "2026-11-05 16:52",
   "files": 4,
-  "bytes": 60285,
+  "bytes": 60402,
   "mb": 0,
   "license_files": [
    "LICENSE",
@@ -6128,7 +6131,7 @@
   "tarball_mb": 28,
   "fetched": "2026-11-05 11:12",
   "files": 3094,
-  "bytes": 173283593,
+  "bytes": 173283595,
   "mb": 165,
   "top_extensions": {
    ".json": 152,
@@ -6273,7 +6276,7 @@
   "tarball_mb": 14,
   "fetched": "2026-11-04 20:03",
   "files": 604,
-  "bytes": 21238178,
+  "bytes": 21238320,
   "mb": 20,
   "top_extensions": {
    ".tsx": 186,
@@ -6303,8 +6306,8 @@
   "category": "知识库/鸿蒙与跨端",
   "branch": "main",
   "fetched": "2026-11-05 18:24",
-  "files": 17,
-  "bytes": 223408,
+  "files": 18,
+  "bytes": 224291,
   "mb": 0,
   "top_extensions": {
    ".md": 16,
@@ -6330,15 +6333,462 @@
    "pushed": "2025-02-11"
   },
   "fingerprint_note": "本机内容指纹；上游压缩包未保留，可复现性以来源URL+分支+采集日期为准",
-  "content_fingerprint": "3a8c41186d582c62713f572449d4e9dfbe97ba3d00abaf15f9c39daf1e625841"
+  "content_fingerprint": "3a8c41186d582c62713f572449d4e9dfbe97ba3d00abaf15f9c39daf1e625841",
+  "ledger_refreshed": "补图/改名后重算：17 文件 -> 18 文件"
+ },
+ {
+  "repo": "https://github.com/dcloudio/hbuilderx-extension-docs",
+  "category": "知识库/鸿蒙与跨端",
+  "branch": "master",
+  "archive_sha256": "666919d5ba3625b00ae362c4bb58642f84feef8d85b572fb6dcf9b6fcd7136c0",
+  "fetched": "2026-11-05 20:23",
+  "files": 1248,
+  "bytes": 67229760,
+  "license_files": [
+   "LICENSE",
+   "README.md"
+  ],
+  "license_detected": "Apache-2.0",
+  "round": 4,
+  "selection": "HBuilderX 使用与插件开发文档（构建、打包、证书）",
+  "functions": [
+   "F1题面",
+   "F5图解"
+  ],
+  "measured": {
+   "md_n": 693,
+   "images": 517,
+   "code": 28,
+   "pushed": "2026-10-29",
+   "stars": 42,
+   "question_markers": null
+  },
+  "top_extensions": [
+   [
+    ".md",
+    693
+   ],
+   [
+    ".png",
+    316
+   ],
+   [
+    ".jpg",
+    100
+   ],
+   [
+    ".gif",
+    78
+   ],
+   [
+    ".jpeg",
+    23
+   ],
+   [
+    ".js",
+    21
+   ],
+   [
+    ".css",
+    4
+   ],
+   [
+    "(none)",
+    3
+   ]
+  ],
+  "extract_skipped_bulk": 0,
+  "upstream_description": "HBuilderX使用文档、以及插件开发文档",
+  "mb": 64
+ },
+ {
+  "repo": "https://github.com/dcloudio/hbuilderx-for-uniapp-test",
+  "category": "知识库/鸿蒙与跨端",
+  "branch": "main",
+  "archive_sha256": "668287691d035cda8e202e61317465233e1fd9ee516cbdf93d705e6532ea07be",
+  "fetched": "2026-11-05 20:23",
+  "files": 56,
+  "bytes": 858949,
+  "license_files": [
+   "README.md"
+  ],
+  "license_detected": null,
+  "round": 4,
+  "selection": "HBuilderX uni-app 自动化测试插件与用例",
+  "functions": [
+   "F4路线",
+   "F5图解"
+  ],
+  "measured": {
+   "md_n": 8,
+   "images": 5,
+   "code": 40,
+   "pushed": "2026-11-05",
+   "stars": 5,
+   "question_markers": null
+  },
+  "top_extensions": [
+   [
+    ".js",
+    30
+   ],
+   [
+    ".md",
+    8
+   ],
+   [
+    ".json",
+    7
+   ],
+   [
+    ".jpg",
+    3
+   ],
+   [
+    "(none)",
+    2
+   ],
+   [
+    ".css",
+    2
+   ],
+   [
+    ".yml",
+    1
+   ],
+   [
+    ".vue",
+    1
+   ]
+  ],
+  "extract_skipped_bulk": 21,
+  "upstream_description": "HBuilderX uni-app自动化测试插件",
+  "mb": 0
+ },
+ {
+  "repo": "https://github.com/dcloudio/hello-uni-app-x",
+  "category": "知识库/鸿蒙与跨端",
+  "branch": "alpha",
+  "archive_sha256": "4c9108362a35473d220107432729bc9518d5b0690e22086ecc710a1d5814ad25",
+  "fetched": "2026-11-05 20:23",
+  "files": 1316,
+  "bytes": 11246703,
+  "license_files": [
+   "readme.md"
+  ],
+  "license_detected": null,
+  "round": 4,
+  "selection": "uni-app x 官方演示工程：组件、API、模板可运行样例",
+  "functions": [
+   "F4路线",
+   "F3可运行"
+  ],
+  "measured": {
+   "md_n": 89,
+   "images": 64,
+   "code": 1085,
+   "pushed": "2026-08-11",
+   "stars": 42,
+   "question_markers": null
+  },
+  "top_extensions": [
+   [
+    ".uvue",
+    523
+   ],
+   [
+    ".js",
+    320
+   ],
+   [
+    ".json",
+    104
+   ],
+   [
+    ".uts",
+    95
+   ],
+   [
+    ".md",
+    89
+   ],
+   [
+    ".png",
+    51
+   ],
+   [
+    ".ts",
+    20
+   ],
+   [
+    ".wxss",
+    13
+   ]
+  ],
+  "extract_skipped_bulk": 3,
+  "upstream_description": "uni-app x 跨平台框架的演示示例，包括组件、API、模板等",
+  "mb": 10
+ },
+ {
+  "repo": "https://github.com/dcloudio/hello-uniapp",
+  "category": "知识库/鸿蒙与跨端",
+  "branch": "master",
+  "archive_sha256": "04efcbf3db1a378e6fe65836db133f9a2c0482ba172949889e3434dd65d1767b",
+  "fetched": "2026-11-05 20:23",
+  "files": 774,
+  "bytes": 3714984,
+  "license_files": [
+   "LICENSE",
+   "README.md"
+  ],
+  "license_detected": "MIT",
+  "round": 4,
+  "selection": "uni-app 官方演示工程：全端组件与 API 用例",
+  "functions": [
+   "F4路线",
+   "F3可运行"
+  ],
+  "measured": {
+   "md_n": 105,
+   "images": 95,
+   "code": 487,
+   "pushed": "2026-05-29",
+   "stars": 3051,
+   "question_markers": null
+  },
+  "top_extensions": [
+   [
+    ".vue",
+    231
+   ],
+   [
+    ".md",
+    105
+   ],
+   [
+    ".json",
+    102
+   ],
+   [
+    ".js",
+    96
+   ],
+   [
+    ".png",
+    94
+   ],
+   [
+    ".nvue",
+    43
+   ],
+   [
+    ".ts",
+    19
+   ],
+   [
+    ".scss",
+    14
+   ]
+  ],
+  "extract_skipped_bulk": 0,
+  "upstream_description": "uni-app框架演示示例",
+  "mb": 3
+ },
+ {
+  "repo": "https://github.com/dcloudio/unidocs-uni-app-x-zh",
+  "category": "知识库/鸿蒙与跨端",
+  "branch": "master",
+  "archive_sha256": "150b43fc4e553b16da03234d2db9ffc2a09e996ae9ceee4228b8dc2797d5b939",
+  "fetched": "2026-11-05 20:23",
+  "files": 593,
+  "bytes": 12777110,
+  "license_files": [
+   "README.md"
+  ],
+  "license_detected": null,
+  "round": 4,
+  "selection": "uni-app x 官方中文文档源码",
+  "functions": [
+   "F1题面",
+   "F5图解"
+  ],
+  "measured": {
+   "md_n": 534,
+   "images": 10,
+   "code": 39,
+   "pushed": "2026-07-28",
+   "stars": 4,
+   "question_markers": null
+  },
+  "top_extensions": [
+   [
+    ".md",
+    534
+   ],
+   [
+    ".js",
+    21
+   ],
+   [
+    ".json",
+    14
+   ],
+   [
+    ".png",
+    7
+   ],
+   [
+    ".html",
+    6
+   ],
+   [
+    "(none)",
+    3
+   ],
+   [
+    ".vue",
+    3
+   ],
+   [
+    ".jpg",
+    2
+   ]
+  ],
+  "extract_skipped_bulk": 0,
+  "upstream_description": "",
+  "mb": 12
+ },
+ {
+  "repo": "https://github.com/dcloudio/unidocs-unicloud-zh",
+  "category": "知识库/鸿蒙与跨端",
+  "branch": "master",
+  "archive_sha256": "7023bd2d1ade5e80982e590deb4f2b804262b8a1f025b57e53fed32c0b79983b",
+  "fetched": "2026-11-05 20:23",
+  "files": 194,
+  "bytes": 4008552,
+  "license_files": [
+   "README.md"
+  ],
+  "license_detected": null,
+  "round": 4,
+  "selection": "uniCloud 文档（云函数/数据库，数据与后端单元参考）",
+  "functions": [
+   "F4路线",
+   "F5图解"
+  ],
+  "measured": {
+   "md_n": 172,
+   "images": 1,
+   "code": 18,
+   "pushed": "2026-01-06",
+   "stars": 0,
+   "question_markers": null
+  },
+  "top_extensions": [
+   [
+    ".md",
+    172
+   ],
+   [
+    ".js",
+    15
+   ],
+   [
+    "(none)",
+    2
+   ],
+   [
+    ".vue",
+    2
+   ],
+   [
+    ".json",
+    1
+   ],
+   [
+    ".lock",
+    1
+   ],
+   [
+    ".svg",
+    1
+   ]
+  ],
+  "extract_skipped_bulk": 0,
+  "upstream_description": "",
+  "mb": 3
+ },
+ {
+  "repo": "https://github.com/dcloudio/unidocs-zh",
+  "category": "知识库/鸿蒙与跨端",
+  "branch": "master",
+  "archive_sha256": "0fc36d1a864bff7b88e271cb0e099357a2e35f78663a8018752da3123f04d3a5",
+  "fetched": "2026-11-05 20:23",
+  "files": 558,
+  "bytes": 8748928,
+  "license_files": [
+   "README.md"
+  ],
+  "license_detected": null,
+  "round": 4,
+  "selection": "uni-app 官方中文文档源码（框架/组件/API/条件编译/发布）",
+  "functions": [
+   "F1题面",
+   "F5图解"
+  ],
+  "measured": {
+   "md_n": 518,
+   "images": 2,
+   "code": 28,
+   "pushed": "2026-11-05",
+   "stars": 56,
+   "question_markers": null
+  },
+  "top_extensions": [
+   [
+    ".md",
+    518
+   ],
+   [
+    ".js",
+    20
+   ],
+   [
+    ".html",
+    6
+   ],
+   [
+    ".json",
+    4
+   ],
+   [
+    "(none)",
+    3
+   ],
+   [
+    ".vue",
+    3
+   ],
+   [
+    ".ts",
+    1
+   ],
+   [
+    ".lock",
+    1
+   ]
+  ],
+  "extract_skipped_bulk": 4,
+  "upstream_description": "uni-app官方文档",
+  "mb": 8
  },
  {
   "repo": "https://github.com/DengShiyingA/harmonyos-ai-skill",
   "category": "知识库/鸿蒙与跨端",
   "branch": "main",
   "fetched": "2026-11-05 18:24",
-  "files": 34,
-  "bytes": 313592,
+  "files": 35,
+  "bytes": 314578,
   "mb": 0,
   "top_extensions": {
    ".md": 19,
@@ -6371,15 +6821,16 @@
    "pushed": "2026-10-24"
   },
   "fingerprint_note": "本机内容指纹；上游压缩包未保留，可复现性以来源URL+分支+采集日期为准",
-  "content_fingerprint": "65b445f2d8a775c928ab47e6ced9bb0a05b70ae8c5eae76d255d40a28f7ab9a8"
+  "content_fingerprint": "65b445f2d8a775c928ab47e6ced9bb0a05b70ae8c5eae76d255d40a28f7ab9a8",
+  "ledger_refreshed": "补图/改名后重算：34 文件 -> 35 文件"
  },
  {
   "repo": "https://github.com/Explore-In-HMOS/hmos-index",
   "category": "知识库/鸿蒙与跨端",
   "branch": "main",
   "fetched": "2026-11-05 18:24",
-  "files": 10,
-  "bytes": 406520,
+  "files": 11,
+  "bytes": 407353,
   "mb": 0,
   "top_extensions": {
    ".md": 9,
@@ -6404,15 +6855,16 @@
    "pushed": "2026-10-16"
   },
   "fingerprint_note": "本机内容指纹；上游压缩包未保留，可复现性以来源URL+分支+采集日期为准",
-  "content_fingerprint": "481d6c998e49aa42d5eac6b288e1aaa7060551dbfb6914c55031427f45e9a70d"
+  "content_fingerprint": "481d6c998e49aa42d5eac6b288e1aaa7060551dbfb6914c55031427f45e9a70d",
+  "ledger_refreshed": "补图/改名后重算：10 文件 -> 11 文件"
  },
  {
   "repo": "https://github.com/liasica/harmonyos-skills",
   "category": "知识库/鸿蒙与跨端",
   "branch": "master",
   "fetched": "2026-11-05 18:24",
-  "files": 18354,
-  "bytes": 156666151,
+  "files": 18355,
+  "bytes": 156667306,
   "mb": 149,
   "top_extensions": {
    ".md": 18325,
@@ -6445,6 +6897,7 @@
    "pushed": "2026-11-05"
   },
   "fingerprint_note": "本机内容指纹；上游压缩包未保留，可复现性以来源URL+分支+采集日期为准",
-  "content_fingerprint": "fe2470257667e86a9d886cef7e86dda7fe6a2dc77a9e74448ed14053ee04c891"
+  "content_fingerprint": "fe2470257667e86a9d886cef7e86dda7fe6a2dc77a9e74448ed14053ee04c891",
+  "ledger_refreshed": "补图/改名后重算：18354 文件 -> 18355 文件"
  }
 ]

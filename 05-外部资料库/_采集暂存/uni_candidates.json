@@ -1,0 +1,3039 @@
+{
+ "queries": {
+  "uni-app 文档 in:name,description,readme": [
+   {
+    "full": "macrozheng/mall",
+    "stars": 85010,
+    "pushed": "2026-09-15",
+    "desc": "mall项目是一套电商系统，包括前台商城系统及后台管理系统，基于Spring Boot+MyBatis实现，采用Docker容器化部署。 前台商城系统包含首页门",
+    "lang": "Java",
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "justjavac/wechat-miniapp-radar",
+    "stars": 51179,
+    "pushed": "2026-10-02",
+    "desc": ":traffic_light:小程序雷达：AI 驱动的小程序技术选型、趋势追踪和迁移诊断工具",
+    "lang": "TypeScript",
+    "archived": false,
+    "license": "GPL-3.0"
+   },
+   {
+    "full": "dcloudio/uni-app",
+    "stars": 41626,
+    "pushed": "2026-11-05",
+    "desc": "A cross-platform framework using Vue.js",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "YunaiV/ruoyi-vue-pro",
+    "stars": 40259,
+    "pushed": "2026-11-04",
+    "desc": "🔥 官方推荐 🔥 RuoYi-Vue 全新 Pro 版本，优化重构所有功能。基于 Spring Boot + MyBatis Plus + Vue & Elem",
+    "lang": "Java",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "YunaiV/yudao-cloud",
+    "stars": 19754,
+    "pushed": "2026-11-03",
+    "desc": "ruoyi-vue-pro 全新 Cloud 版本，优化重构所有功能。基于 Spring Cloud Alibaba + MyBatis Plus + Vue ",
+    "lang": "Java",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "macrozheng/mall-swarm",
+    "stars": 13197,
+    "pushed": "2026-07-31",
+    "desc": "mall-swarm是一套微服务商城系统，采用了 Spring Cloud Alibaba、Spring Boot 3.5、Sa-Token、MyBatis、E",
+    "lang": "Java",
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "jd-opensource/nutui",
+    "stars": 6515,
+    "pushed": "2026-04-02",
+    "desc": "京东风格的移动端 Vue 组件库，支持多端小程序(A Vue.js UI Toolkit for Mobile Web)",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "gz-yami/mall4cloud",
+    "stars": 6171,
+    "pushed": "2026-11-02",
+    "desc": "⭐️⭐️⭐️微服务商城系统 springcloud微服务商城 小程序商城",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "AGPL-3.0"
+   },
+   {
+    "full": "201206030/novel",
+    "stars": 5846,
+    "pushed": "2026-11-01",
+    "desc": "novel 是一套基于时下最新 Java 技术栈 Spring Boot 3 + Vue 3 开发的前后端分离学习型小说项目，配备保姆级教程手把手教你从零开始开",
+    "lang": "Java",
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "xiangyuecn/Recorder",
+    "stars": 5643,
+    "pushed": "2026-07-30",
+    "desc": "html5 js 录音 mp3 wav ogg webm amr g711a g711u 格式，支持pc和Android、iOS部分Web浏览器、Hybrid ",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "wangyuan389/mall-cook",
+    "stars": 5617,
+    "pushed": "2026-05-25",
+    "desc": "商城低代码平台，可视化搭建H5、小程序多端商城",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "tnfe/TNT-Weekly",
+    "stars": 5391,
+    "pushed": "2024-12-03",
+    "desc": "🙈 🙉 🙊 为您甄选国内外前端领域的优质资讯，洞悉行业最新进展，助力技术成长之旅。",
+    "lang": null,
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "gz-yami/mall4j",
+    "stars": 5320,
+    "pushed": "2026-11-02",
+    "desc": "⭐️⭐️⭐️ 电商商城 小程序电商商城系统 PC商城 H5商城 APP商城 Java商城 O2O商城 跨境商城",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "AGPL-3.0"
+   },
+   {
+    "full": "woniudiancang/bee",
+    "stars": 4598,
+    "pushed": "2026-10-15",
+    "desc": "微信小程序-餐饮点餐外卖-开箱即用",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "NOASSERTION"
+   },
+   {
+    "full": "mescroll/mescroll",
+    "stars": 4450,
+    "pushed": "2024-03-11",
+    "desc": "精致的下拉刷新和上拉加载 js框架.支持vue,完美运行于移动端和主流PC浏览器 (JS framework for pull-refresh and pull",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "aben1188/awesome-wepy",
+    "stars": 4365,
+    "pushed": "2021-05-06",
+    "desc": "Awesome for wepy ! 微信小程序组件化开发框架wepy开发资源汇总",
+    "lang": null,
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "lilishop/lilishop",
+    "stars": 4340,
+    "pushed": "2026-10-10",
+    "desc": "Java 开源商城系统，基于 Spring Boot / Spring Cloud / Vue / Uniapp 的 B2B2C 多商户商城源码，支持小程序商城",
+    "lang": "Java",
+    "archived": false,
+    "license": "AGPL-3.0"
+   },
+   {
+    "full": "umicro/uView",
+    "stars": 4212,
+    "pushed": "2025-01-02",
+    "desc": "uView UI，是uni-app生态最优秀的UI框架，全面的组件和便捷的工具会让您信手拈来，如鱼得水",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "1024-lab/smart-admin",
+    "stars": 3933,
+    "pushed": "2026-07-01",
+    "desc": "SmartAdmin国内首个以「高质量代码」为核心，「简洁、高效、安全」快速开发平台；基于SpringBoot2/3 + Sa-Token + Mybatis-",
+    "lang": "Java",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "jones2000/HQChart",
+    "stars": 3425,
+    "pushed": "2026-10-08",
+    "desc": "HQChart - H5, 微信小程序 沪深/港股/数字货币/期货/美股 K线图(kline),走势图,缩放,拖拽,十字光标,画图工具,截图,筹码图. 分析家语",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "Apache-2.0"
+   }
+  ],
+  "uniapp docs in:name,description": [
+   {
+    "full": "cirosantilli/china-dictatorship",
+    "stars": 3316,
+    "pushed": "2026-02-05",
+    "desc": "反中共政治宣传库。Anti Chinese government propaganda. 住在中国真名用户的网友请别给星星，不然你要被警察请喝茶。常见问答集，新",
+    "lang": "HTML",
+    "archived": false,
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "full": "dingyong0214/ThorUI-uniapp",
+    "stars": 2776,
+    "pushed": "2024-05-30",
+    "desc": "ThorUI组件库，轻量、简洁的移动端组件库。组件文档地址：https://thorui.cn/doc  ",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "gege-circle/.github",
+    "stars": 2080,
+    "pushed": "2025-10-04",
+    "desc": "这里是GitHub的草场，也是戈戈圈爱好者的交流地，主要讨论动漫、游戏、科技、人文、生活等所有话题，欢迎各位小伙伴们在此讨论趣事。This is GitHub ",
+    "lang": null,
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "cirosantilli/china-dictatroship-7",
+    "stars": 384,
+    "pushed": "2026-02-05",
+    "desc": "反中共政治宣传库。Anti Chinese government propaganda. https://github.com/cirosantilli/chi",
+    "lang": "HTML",
+    "archived": false,
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "full": "mRFWq7LwNPZjaVv5v6eo/cihna-dictattorshrip-8",
+    "stars": 215,
+    "pushed": "2026-02-05",
+    "desc": "反中共政治宣传库。Anti Chinese government propaganda. https://github.com/cirosantilli/chi",
+    "lang": "HTML",
+    "archived": false,
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "full": "panbinibn/OpenPacketFix_",
+    "stars": 209,
+    "pushed": "2022-08-12",
+    "desc": "大陆修宪香港恶法台湾武统朝鲜毁约美中冷战等都是王沪宁愚弄习思想极左命运共同体的大策划中共窃国这半个多世纪所犯下的滔天罪恶，前期是毛泽东策划的，中期6.4前后是邓",
+    "lang": null,
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "zpc1314521/PCL2",
+    "stars": 132,
+    "pushed": "2022-08-12",
+    "desc": "[stays mad] 反PCL宣传库。Anti PCL propaganda. 大陆修宪香港恶法台湾武统朝鲜毁约美中冷战等都是王沪宁愚弄习思想极左命运共同体的",
+    "lang": null,
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "bkywksj/ruoyi-plus-uniapp-docs",
+    "stars": 50,
+    "pushed": "2026-11-05",
+    "desc": "ruoyi-plus-uniapp文档",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "sutras/sard-uniapp-docs",
+    "stars": 2,
+    "pushed": "2026-03-07",
+    "desc": "",
+    "lang": "HTML",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "xihuanxiaorang/docs",
+    "stars": 1,
+    "pushed": "2024-11-21",
+    "desc": "涵盖全栈开发所需的各种技术：前端（Vue3全家桶、TypeScript、Uniapp、微信小程序）和后端（Spring、SpringBoot、SpringClo",
+    "lang": null,
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "Hovxun/vz-ui-uniapp-docs",
+    "stars": 1,
+    "pushed": "2026-03-13",
+    "desc": "",
+    "lang": "HTML",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "gmcb-docs/uniapp",
+    "stars": 0,
+    "pushed": "2025-01-04",
+    "desc": "",
+    "lang": null,
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "uniapp-io/uniapp-en",
+    "stars": 0,
+    "pushed": "2021-08-20",
+    "desc": "uniapp english docs test",
+    "lang": null,
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "pargyropoulos/uniapp_docs",
+    "stars": 0,
+    "pushed": "2026-01-26",
+    "desc": "UniApp documentation",
+    "lang": "HTML",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "cfg-design/cfgd-uniapp3-docs",
+    "stars": 0,
+    "pushed": "2022-10-21",
+    "desc": "cfgd-uniapp3 文档",
+    "lang": "TypeScript",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "cinderzoe/docs-uniapp",
+    "stars": 0,
+    "pushed": "2025-05-14",
+    "desc": "",
+    "lang": null,
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "didaoktv/didaoui-uniapp-docs",
+    "stars": 0,
+    "pushed": "2026-11-03",
+    "desc": "didaoui-uniapp文档",
+    "lang": "Vue",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "chenshuangxinxi/hi-docs",
+    "stars": 0,
+    "pushed": "2024-08-20",
+    "desc": "hi-uniapp-ui 文档",
+    "lang": null,
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "uglyp/q-uniapp-docs",
+    "stars": 0,
+    "pushed": "2024-12-20",
+    "desc": "q-uniapp 文档中心",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "Xie-Yin/cms-uniapp-docs",
+    "stars": 0,
+    "pushed": "2021-12-24",
+    "desc": "CMS小程序端文档",
+    "lang": "SCSS",
+    "archived": false,
+    "license": null
+   }
+  ],
+  "uni-app x in:name,description": [
+   {
+    "full": "cirosantilli/china-dictatorship",
+    "stars": 3316,
+    "pushed": "2026-02-05",
+    "desc": "反中共政治宣传库。Anti Chinese government propaganda. 住在中国真名用户的网友请别给星星，不然你要被警察请喝茶。常见问答集，新",
+    "lang": "HTML",
+    "archived": false,
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "full": "gege-circle/.github",
+    "stars": 2080,
+    "pushed": "2025-10-04",
+    "desc": "这里是GitHub的草场，也是戈戈圈爱好者的交流地，主要讨论动漫、游戏、科技、人文、生活等所有话题，欢迎各位小伙伴们在此讨论趣事。This is GitHub ",
+    "lang": null,
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "climblee/uv-ui",
+    "stars": 1348,
+    "pushed": "2024-07-28",
+    "desc": "uv-ui 破釜沉舟之兼容vue3+2、app、h5、小程序等多端基于uni-app和uView2.x的生态框架，支持单独导入，开箱即用，利剑出击。",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "cirosantilli/china-dictatroship-7",
+    "stars": 384,
+    "pushed": "2026-02-05",
+    "desc": "反中共政治宣传库。Anti Chinese government propaganda. https://github.com/cirosantilli/chi",
+    "lang": "HTML",
+    "archived": false,
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "full": "cool-team-official/cool-unix",
+    "stars": 314,
+    "pushed": "2026-02-05",
+    "desc": "基于 Uni-App X 的 Vue3 组合式开发框架，完全开源免费。内置 Tailwind CSS、支持多主题切换与国际化，集成丰富高质量组件库与多样模板页面",
+    "lang": "TypeScript",
+    "archived": false,
+    "license": "NOASSERTION"
+   },
+   {
+    "full": "mRFWq7LwNPZjaVv5v6eo/cihna-dictattorshrip-8",
+    "stars": 215,
+    "pushed": "2026-02-05",
+    "desc": "反中共政治宣传库。Anti Chinese government propaganda. https://github.com/cirosantilli/chi",
+    "lang": "HTML",
+    "archived": false,
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "full": "panbinibn/OpenPacketFix_",
+    "stars": 209,
+    "pushed": "2022-08-12",
+    "desc": "大陆修宪香港恶法台湾武统朝鲜毁约美中冷战等都是王沪宁愚弄习思想极左命运共同体的大策划中共窃国这半个多世纪所犯下的滔天罪恶，前期是毛泽东策划的，中期6.4前后是邓",
+    "lang": null,
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "zpc1314521/PCL2",
+    "stars": 132,
+    "pushed": "2022-08-12",
+    "desc": "[stays mad] 反PCL宣传库。Anti PCL propaganda. 大陆修宪香港恶法台湾武统朝鲜毁约美中冷战等都是王沪宁愚弄习思想极左命运共同体的",
+    "lang": null,
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "swustscu/zscat-me-uniapp-app-springcloud-",
+    "stars": 82,
+    "pushed": "2023-12-16",
+    "desc": "基于springboot cloud构建的一个商城项目，包括前端，后端和h5应用，小程序，作为zscat应用实践的模板项目。基于SpringBoot2.x、Sp",
+    "lang": null,
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "P-Peaceful/wx-study-room",
+    "stars": 63,
+    "pushed": "2022-06-29",
+    "desc": "自习室预约平台微信小程序是基于uni-app+uView+HBuilder X开发的预约类小程序，目前小程序端的基础页面已经完成",
+    "lang": "Vue",
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "FirstUI/FirstUI-uvue",
+    "stars": 59,
+    "pushed": "2025-02-24",
+    "desc": "FirstUI（unix）组件库，一款适配 uni-app x 的轻量、简洁、高效、全面的移动端组件库。(FirstUI (unix) component li",
+    "lang": "CSS",
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "EgorBo/XamarinWithUnityApp",
+    "stars": 45,
+    "pushed": "2019-06-18",
+    "desc": "A Xamarin app (Android) with Unity as a library (aar)",
+    "lang": "C#",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "dcloudio/hello-uni-app-x",
+    "stars": 42,
+    "pushed": "2026-08-11",
+    "desc": "uni-app x 跨平台框架的演示示例，包括组件、API、模板等",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "MeIotCOM/CodingPlanQuota",
+    "stars": 40,
+    "pushed": "2026-09-14",
+    "desc": "Check AI coding-plan quotas (5h / weekly / monthly) on the go — Zhipu GLM, Kimi,",
+    "lang": "TypeScript",
+    "archived": false,
+    "license": "NOASSERTION"
+   },
+   {
+    "full": "uni-toolkit/uni-toolkit",
+    "stars": 32,
+    "pushed": "2026-10-22",
+    "desc": "uni-app(-x) tools and plugins",
+    "lang": "TypeScript",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "dcloudio/uni-app-x-ai-rules",
+    "stars": 32,
+    "pushed": "2026-05-11",
+    "desc": "",
+    "lang": null,
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "xlz122/nai-xue",
+    "stars": 29,
+    "pushed": "2024-08-20",
+    "desc": "基于Vue3.0 + Uni-App开发的奈雪の茶小程序模板",
+    "lang": "TypeScript",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "Lierbook/xmgread",
+    "stars": 28,
+    "pushed": "2021-03-17",
+    "desc": "一个小说阅读器，基于uni-app开发，兼容多端",
+    "lang": "Vue",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "guodongAndroid/uniappx-offline-for-android-template",
+    "stars": 27,
+    "pushed": "2025-12-12",
+    "desc": "uni-app x 离线打包 Android 模板工程",
+    "lang": "Kotlin",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "cloudsimpler/uni-ucs-design",
+    "stars": 26,
+    "pushed": "2025-12-30",
+    "desc": "uni-app / uni-app-x 多平台 vue3 版本 uts 编程语言开发的轻量高效、简洁全面的组件库",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   }
+  ],
+  "topic:uni-app stars:>30": [
+   {
+    "full": "dcloudio/uni-app",
+    "stars": 41626,
+    "pushed": "2026-11-05",
+    "desc": "A cross-platform framework using Vue.js",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "buuing/lucky-canvas",
+    "stars": 8785,
+    "pushed": "2026-07-30",
+    "desc": "🎖🎖🎖 基于 TS + Canvas 开发的【大转盘 / 九宫格 / 老虎机】抽奖插件，🌈 一套源码适配多端框架 JS / Vue / React / Taro",
+    "lang": "TypeScript",
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "jin-yufeng/mp-html",
+    "stars": 3754,
+    "pushed": "2026-04-19",
+    "desc": "小程序富文本组件，支持渲染和编辑 html，支持在微信、QQ、百度、支付宝、头条和 uni-app 平台使用",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "dcloudio/hello-uniapp",
+    "stars": 3051,
+    "pushed": "2026-05-29",
+    "desc": "uni-app框架演示示例",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "codercup/unibest",
+    "stars": 2864,
+    "pushed": "2026-03-28",
+    "desc": "unibest - 最好用的 uniapp 开发框架。unibest 是由 uniapp + Vue3 + Ts + Vite4 + UnoCss + UniU",
+    "lang": "TypeScript",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "dingyong0214/ThorUI-uniapp",
+    "stars": 2776,
+    "pushed": "2024-05-30",
+    "desc": "ThorUI组件库，轻量、简洁的移动端组件库。组件文档地址：https://thorui.cn/doc  ",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "feige996/unibest",
+    "stars": 2320,
+    "pushed": "2026-11-05",
+    "desc": "【这是新仓库，codercup那个进不去不维护了。】unibest - 最好用的 uniapp 开发框架。unibest 是由 uniapp + Vue3 + ",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "Moonofweisheng/wot-design-uni",
+    "stars": 2299,
+    "pushed": "2026-09-24",
+    "desc": "一个基于Vue3+TS开发的uni-app组件库，提供70+高质量组件，支持暗黑模式、国际化和自定义主题。",
+    "lang": "TypeScript",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "dcloudio/uni-ui",
+    "stars": 2090,
+    "pushed": "2026-11-05",
+    "desc": "基于uni-app的、全端兼容的、高性能UI框架",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "weapp-tailwindcss/weapp-tailwindcss",
+    "stars": 1864,
+    "pushed": "2026-11-05",
+    "desc": "Bring Tailwind CSS to every platform! 把 Tailwind CSS 的原子化开发体验带到全端！",
+    "lang": "TypeScript",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "raodv/captcha",
+    "stars": 1704,
+    "pushed": "2026-10-09",
+    "desc": "行为验证码(滑动拼图、点选文字)，前后端(java)交互，包含h5/Android/IOS/flutter/uni-app的源码和实现",
+    "lang": "Java",
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "ZainZhao/HIS",
+    "stars": 1637,
+    "pushed": "2025-02-24",
+    "desc": "HIS英文全称 hospital information system（医疗信息就诊系统），系统主要功能按照数据流量、流向及处理过程分为临床诊疗、药品管理、财务",
+    "lang": "Java",
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "SmileZXLee/uni-z-paging",
+    "stars": 1480,
+    "pushed": "2026-07-10",
+    "desc": "【uni-app下拉刷新、上拉加载】高性能，全平台兼容(ios、安卓、鸿蒙next、h5以及各家小程序)。支持vue、nvue、vue2、vue3，使用wxs+",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "1977474741/image-cropper",
+    "stars": 1447,
+    "pushed": "2021-12-17",
+    "desc": "💯一款功能强大的微信小程序图片裁剪插件",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "ITmonkey-cn/shopro-uniapp",
+    "stars": 1397,
+    "pushed": "2023-02-24",
+    "desc": "Shopro分销商城 uniapp前端开源代码，一款落地生产的 基于uni-app的多端商城。使用文档：https://gitee.com/itmonkey-c",
+    "lang": "Vue",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "xiaowang1314/uniapp-plugin-collections",
+    "stars": 1216,
+    "pushed": "2024-09-03",
+    "desc": "uni-app项目插件功能集合https://github.com/xiaowang1314/uniapp-plugin-collections",
+    "lang": "Vue",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "open-wxa/wxa-runner",
+    "stars": 999,
+    "pushed": "2026-11-05",
+    "desc": "在浏览器中用微信官方基础库运行小程序，支持 Chrome DevTools 调试与 Playwright E2E 测试",
+    "lang": "TypeScript",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "qiutiandefeng/yfexam-exam",
+    "stars": 998,
+    "pushed": "2025-03-28",
+    "desc": "在线考试系统/企业培训软件考试系统",
+    "lang": "Java",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "aben1188/awesome-uni-app",
+    "stars": 991,
+    "pushed": "2020-11-08",
+    "desc": "Awesome for uni-app！ 基于Vue.js的跨平台多端应用前端框架uni-app一站式开发资源汇总",
+    "lang": null,
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "xdmdcp/hospital",
+    "stars": 973,
+    "pushed": "2023-07-23",
+    "desc": "医院预约挂号微信小程序（Spring Boot、Vue、Uni-app）",
+    "lang": "Java",
+    "archived": false,
+    "license": "GPL-3.0"
+   }
+  ],
+  "topic:uniapp stars:>30": [
+   {
+    "full": "dcloudio/uni-app",
+    "stars": 41626,
+    "pushed": "2026-11-05",
+    "desc": "A cross-platform framework using Vue.js",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "weilanwl/coloruicss",
+    "stars": 12357,
+    "pushed": "2024-04-08",
+    "desc": "鲜亮的高饱和色彩，专注视觉的小程序组件库",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "JackJiang2011/MobileIMSDK",
+    "stars": 6095,
+    "pushed": "2026-10-28",
+    "desc": "原创全平台IM通信层框架，轻量级、高度提炼，历经10年、久经考验。可能是市面上唯一同时支持UDP+TCP+WebSocket三种协议的同类开源框架，支持 iOS",
+    "lang": "Objective-C",
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "lilishop/lilishop",
+    "stars": 4340,
+    "pushed": "2026-10-10",
+    "desc": "Java 开源商城系统，基于 Spring Boot / Spring Cloud / Vue / Uniapp 的 B2B2C 多商户商城源码，支持小程序商城",
+    "lang": "Java",
+    "archived": false,
+    "license": "AGPL-3.0"
+   },
+   {
+    "full": "umicro/uView",
+    "stars": 4212,
+    "pushed": "2025-01-02",
+    "desc": "uView UI，是uni-app生态最优秀的UI框架，全面的组件和便捷的工具会让您信手拈来，如鱼得水",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "alovajs/alova",
+    "stars": 4025,
+    "pushed": "2026-11-02",
+    "desc": "A fullstack request strategy library. It requests as scenarios, not single calls",
+    "lang": "TypeScript",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "Exrick/xboot",
+    "stars": 3891,
+    "pushed": "2023-06-14",
+    "desc": "基于Spring Boot 2.x的一站式前后端分离快速开发平台XBoot 微信小程序+Uniapp 前端：Vue+iView Admin 后端：Spring ",
+    "lang": "Java",
+    "archived": false,
+    "license": "GPL-3.0"
+   },
+   {
+    "full": "crmeb/crmeb_java",
+    "stars": 3085,
+    "pushed": "2026-09-11",
+    "desc": "Java商城 免费 开源 CRMEB商城JAVA版，SpringBoot + Maven + Swagger + Mybatis Plus + Redis + ",
+    "lang": "Vue",
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "dcloudio/hello-uniapp",
+    "stars": 3051,
+    "pushed": "2026-05-29",
+    "desc": "uni-app框架演示示例",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "codercup/unibest",
+    "stars": 2864,
+    "pushed": "2026-03-28",
+    "desc": "unibest - 最好用的 uniapp 开发框架。unibest 是由 uniapp + Vue3 + Ts + Vite4 + UnoCss + UniU",
+    "lang": "TypeScript",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "dingyong0214/ThorUI-uniapp",
+    "stars": 2776,
+    "pushed": "2024-05-30",
+    "desc": "ThorUI组件库，轻量、简洁的移动端组件库。组件文档地址：https://thorui.cn/doc  ",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "youlaitech/youlai-mall",
+    "stars": 2373,
+    "pushed": "2025-05-16",
+    "desc": "🚀基于 Spring Boot 3、Spring Cloud & Alibaba 2022、SAS OAuth2 、Vue3、Element-Plus、uni-",
+    "lang": "Java",
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "feige996/unibest",
+    "stars": 2320,
+    "pushed": "2026-11-05",
+    "desc": "【这是新仓库，codercup那个进不去不维护了。】unibest - 最好用的 uniapp 开发框架。unibest 是由 uniapp + Vue3 + ",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "bufanyun/hotgo",
+    "stars": 2061,
+    "pushed": "2026-11-02",
+    "desc": "HotGo 是AI 赋能企业级全栈前后端分离开发及移动应用基础平台，基于 Vue 和 GoFrame2.0 构建；内置 AI 开发规范、适配主流 AI 开发工具",
+    "lang": "Go",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "Thecosy/IceCMS",
+    "stars": 1917,
+    "pushed": "2025-09-20",
+    "desc": "🌈冰激凌内容管理系统🍦,实现MacWK资源站，社区图片视频圈子CMS，支持网页端移动端小程序🌟适合做 资讯商城，社区论坛，聊天交友 社区，博客，圈子，论坛，图片",
+    "lang": "Vue",
+    "archived": false,
+    "license": "AGPL-3.0"
+   },
+   {
+    "full": "netyouli/WHC_ConfuseSoftware",
+    "stars": 1799,
+    "pushed": "2026-10-12",
+    "desc": "iOS代码混淆工具，Uniapp代码混淆工具，react-native代码混淆, iOS代码混淆助手，Android代码混淆助手，Uniapp代码混淆助手，过机",
+    "lang": "Swift",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "Tencent/tdesign-miniprogram",
+    "stars": 1791,
+    "pushed": "2026-11-05",
+    "desc": "Wechat MiniProgram and Uniapp UI components lib for TDesign",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "stavyan/TinyShop-UniApp",
+    "stars": 1778,
+    "pushed": "2026-10-08",
+    "desc": "基于 RageFrame2 的一款免费开源的基础商城销售功能的开源微商城。",
+    "lang": "Vue",
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "izhaorui/Zr.Admin.NET",
+    "stars": 1659,
+    "pushed": "2026-10-31",
+    "desc": "🎉 ZR.Admin.NET —— 基于 .NET 8 + SqlSugar + Vue3 的前后端分离通用权限管理框架（RBAC），跨平台、开箱即用。内置 S",
+    "lang": "C#",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "jeecgboot/JeecgUniapp",
+    "stars": 1640,
+    "pushed": "2026-09-09",
+    "desc": "JeecgBoot配套APP移动解决方案，采用uniapp架构！一份代码多终端适配，同时支持APP、小程序、H5、鸿蒙！实现了与JeecgBoot平台完美对接，",
+    "lang": "Vue",
+    "archived": false,
+    "license": "Apache-2.0"
+   }
+  ],
+  "uniapp 教程 in:name,description": [
+   {
+    "full": "cirosantilli/china-dictatorship",
+    "stars": 3316,
+    "pushed": "2026-02-05",
+    "desc": "反中共政治宣传库。Anti Chinese government propaganda. 住在中国真名用户的网友请别给星星，不然你要被警察请喝茶。常见问答集，新",
+    "lang": "HTML",
+    "archived": false,
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "full": "gege-circle/.github",
+    "stars": 2080,
+    "pushed": "2025-10-04",
+    "desc": "这里是GitHub的草场，也是戈戈圈爱好者的交流地，主要讨论动漫、游戏、科技、人文、生活等所有话题，欢迎各位小伙伴们在此讨论趣事。This is GitHub ",
+    "lang": null,
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "cirosantilli/china-dictatroship-7",
+    "stars": 384,
+    "pushed": "2026-02-05",
+    "desc": "反中共政治宣传库。Anti Chinese government propaganda. https://github.com/cirosantilli/chi",
+    "lang": "HTML",
+    "archived": false,
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "full": "DaMaiCoding/uni-plus",
+    "stars": 276,
+    "pushed": "2025-03-14",
+    "desc": "一个超超超好用的 uniapp 开发框架：uni-plus 是由 Uniapp + Vue3 + TS + Vite + Pinia + Unocss + Wo",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "mRFWq7LwNPZjaVv5v6eo/cihna-dictattorshrip-8",
+    "stars": 215,
+    "pushed": "2026-02-05",
+    "desc": "反中共政治宣传库。Anti Chinese government propaganda. https://github.com/cirosantilli/chi",
+    "lang": "HTML",
+    "archived": false,
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "full": "panbinibn/OpenPacketFix_",
+    "stars": 209,
+    "pushed": "2022-08-12",
+    "desc": "大陆修宪香港恶法台湾武统朝鲜毁约美中冷战等都是王沪宁愚弄习思想极左命运共同体的大策划中共窃国这半个多世纪所犯下的滔天罪恶，前期是毛泽东策划的，中期6.4前后是邓",
+    "lang": null,
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "zpc1314521/PCL2",
+    "stars": 132,
+    "pushed": "2022-08-12",
+    "desc": "[stays mad] 反PCL宣传库。Anti PCL propaganda. 大陆修宪香港恶法台湾武统朝鲜毁约美中冷战等都是王沪宁愚弄习思想极左命运共同体的",
+    "lang": null,
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "bizzancodex/Blockchain_Exchange_PHP.UNIAPP",
+    "stars": 76,
+    "pushed": "2026-09-13",
+    "desc": "免费的全网真完整全开源运营版|Laravel框架Woo 区块链数字货币交易所源码|带期权/币币/合约/挖矿/认购,带搭建教程 Uinapp源码带H5",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "stardustys/uniLogin",
+    "stars": 35,
+    "pushed": "2019-04-03",
+    "desc": "uniApp, it is a demo for login and register.  With the server. //// uniApp手机号登录、",
+    "lang": "Vue",
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "666bears/FoodRecommend",
+    "stars": 35,
+    "pushed": "2025-12-17",
+    "desc": "基于SSM的美食推荐系统(源代码+数据库+配套论文+ppt) java毕业设计，基于微信小程序，基于安卓毕业设计，机器学习，大数据毕业设计，Python+Dja",
+    "lang": null,
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "xieyushi/jpress-uniapp",
+    "stars": 34,
+    "pushed": "2019-02-27",
+    "desc": "jpress+uniapp 傻瓜式教程,手把手从0开始编写",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "yexiyue/heima-shop",
+    "stars": 10,
+    "pushed": "2022-06-25",
+    "desc": "黑马教程uniapp项目",
+    "lang": "Vue",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "wenyiyimo/sousou",
+    "stars": 6,
+    "pushed": "2025-05-16",
+    "desc": "uniapp写一个爬虫影视app教程与学习笔记，采用vue3",
+    "lang": null,
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "shmily-yu/uniappLearn",
+    "stars": 3,
+    "pushed": "2022-12-06",
+    "desc": "uniapp教程代码",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "bysj-code/Campus-lost-and-found-system3",
+    "stars": 3,
+    "pushed": "2024-12-18",
+    "desc": "基于uniapp+springboot的校园失物招领系统，基于微信小程序+SpringBoot+MySQL开发，高分JAVA成品毕业设计，附带往届论文、启动教程",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "shuke-zhang/android-pugin-uniapp",
+    "stars": 1,
+    "pushed": "2026-03-13",
+    "desc": "安卓原生插件开发教程",
+    "lang": "Java",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "MontyZhao/HelloUniappAndroid",
+    "stars": 1,
+    "pushed": "2020-03-23",
+    "desc": "uni-app Android教程（创建uni-app Android最简工程 & 创建uni-app Android原生插件）",
+    "lang": null,
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "Jacob000-0/heima-shop-uniapp",
+    "stars": 1,
+    "pushed": "2024-03-10",
+    "desc": "黑马程序员uniapp小兔鲜儿微信小程序项目 uni-app小兔鲜小程序实战：黑马程序员前端项目uniapp小兔鲜儿微信小程序项目视频教程，基于Vue3+Ts+",
+    "lang": null,
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "mxjoselajahaookwwopqkwhsjqowoh-crypto/ren_wu_xuan_shang_ping",
+    "stars": 1,
+    "pushed": "2026-03-05",
+    "desc": "【任务悬赏平台源码】uniapp+Thinkphp悬赏任务源码+视频搭建教程",
+    "lang": null,
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "xmq1024/part_4",
+    "stars": 1,
+    "pushed": "2023-03-20",
+    "desc": "Python量化交易工程师养成实战-金融高薪领域,gp-P5:全栈测试Python自动化,BX谷-狂野大数据三期,体系课-轻松入门大数据玩转Flink，打造湖仓",
+    "lang": null,
+    "archived": false,
+    "license": null
+   }
+  ],
+  "uni-automator in:name,description": [
+   {
+    "full": "AliHammoud/UnityBuildAutomator",
+    "stars": 1,
+    "pushed": "2016-05-05",
+    "desc": "",
+    "lang": "Swift",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "RohiRIK/unix-update-automator",
+    "stars": 1,
+    "pushed": "2025-12-13",
+    "desc": "A powerful, cross-platform shell script to automate system and package updates f",
+    "lang": "Shell",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "anshdeepcodes/University-Result-Automator",
+    "stars": 1,
+    "pushed": "2026-02-22",
+    "desc": "",
+    "lang": "Python",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "AltarTosun/Unity-Asset-Automator",
+    "stars": 1,
+    "pushed": "2026-04-08",
+    "desc": "A Unity AssetPostprocessor tool that automatically applies optimized import sett",
+    "lang": "C#",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "Porphyri0n/Unity-Easy-Build-Automator",
+    "stars": 1,
+    "pushed": "2026-07-19",
+    "desc": "A custom Unity Editor tool that automates the build process, seamlessly manages ",
+    "lang": "C#",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "DomCristaldi/UnityBuildAutomator",
+    "stars": 0,
+    "pushed": "2016-06-07",
+    "desc": "",
+    "lang": "Python",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "U-LF/UnityBuildAutomator",
+    "stars": 0,
+    "pushed": "2026-01-28",
+    "desc": "",
+    "lang": "Python",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "Morandi2707/unifi-automator",
+    "stars": 0,
+    "pushed": "2026-02-26",
+    "desc": "automação de cadastro mac e vouchers da unifi",
+    "lang": "HTML",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "TheAutomationWizard/UnifiedAppsAutomator-master",
+    "stars": 0,
+    "pushed": "2021-05-18",
+    "desc": "",
+    "lang": "Java",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "bibhutideveloper/University-Attendance-Automator",
+    "stars": 0,
+    "pushed": "2026-10-08",
+    "desc": "",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "jonathanmouri/University-food-automator",
+    "stars": 0,
+    "pushed": "2025-09-16",
+    "desc": "",
+    "lang": null,
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "chandrakant987/ChromeUniversalAutomator",
+    "stars": 0,
+    "pushed": "2025-10-02",
+    "desc": "Automatically fill any form using json object.",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "magesh9529/UNIVERSITY-RESULT-AUTOMATOR",
+    "stars": 0,
+    "pushed": "2026-10-13",
+    "desc": "",
+    "lang": "Python",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "wyofalcon/Universal-Desktop-Automator",
+    "stars": 0,
+    "pushed": "2025-10-11",
+    "desc": "A universal bridge between command-line AI and a desktop GUI, enabling programma",
+    "lang": null,
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "guypridan/OpenUniversityIdAutomator",
+    "stars": 0,
+    "pushed": "2023-03-29",
+    "desc": "a google extension, automating the login proccess to the open university's Cours",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "0xZ3u5/unix-background-slide-automator",
+    "stars": 0,
+    "pushed": "2024-05-09",
+    "desc": "A Unix background slide automator written in python",
+    "lang": "Python",
+    "archived": false,
+    "license": "GPL-3.0"
+   },
+   {
+    "full": "Mithilesh9mk/University-Daily-Schedule-Automator",
+    "stars": 0,
+    "pushed": "2026-04-01",
+    "desc": "A full-stack administrative platform for automated timetable distribution. Built",
+    "lang": null,
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "zhenyuWang/uniapp-x-automator-ios",
+    "stars": 0,
+    "pushed": "2024-03-26",
+    "desc": "",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "DanielTMolloy919/University-Task-Automator-for-Todoist",
+    "stars": 0,
+    "pushed": "2021-10-10",
+    "desc": "",
+    "lang": "Python",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "MitchellSparrow/Stellenbosch-University-Python-Login-Automator",
+    "stars": 0,
+    "pushed": "2020-03-16",
+    "desc": "Launch and sign-in to Stellenbosch universities Inetkey and Sunlearn account",
+    "lang": "Python",
+    "archived": false,
+    "license": "MIT"
+   }
+  ],
+  "HBuilderX in:name,description": [
+   {
+    "full": "Light413/dctt_h5",
+    "stars": 136,
+    "pushed": "2020-06-04",
+    "desc": "xx头条【完整项目持续迭代中】基于HBuilderX ,MUI开发(一款本地生活信息发布APP，分享新鲜事、找人找对象等生活服务)仅供学习交流",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "dcloudio/HBuilderX",
+    "stars": 100,
+    "pushed": "2021-10-14",
+    "desc": "",
+    "lang": null,
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "Wscats/uni-app",
+    "stars": 45,
+    "pushed": "2026-03-30",
+    "desc": "Support commonly used code snippets in Hbuilder/HbuilderX.",
+    "lang": "Lua",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "dcloudio/hbuilderx-extension-docs",
+    "stars": 42,
+    "pushed": "2026-10-29",
+    "desc": "HBuilderX使用文档、以及插件开发文档",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "Hbuilderx/screen-adapter-demo",
+    "stars": 39,
+    "pushed": "2023-07-19",
+    "desc": "大屏适配demo",
+    "lang": "Vue",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "meooxx/uniapp-project-cli",
+    "stars": 34,
+    "pushed": "2022-01-05",
+    "desc": "近乎0成本 HBuilderX uniapp  转成 vue-cli 工程",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "hb0730/vscode-uniapp-run",
+    "stars": 31,
+    "pushed": "2026-11-04",
+    "desc": "基于HBuilderX uniapp cli启动 vscode插件",
+    "lang": "TypeScript",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "zhetengbiji/copilot-for-hbuilderx",
+    "stars": 30,
+    "pushed": "2025-10-01",
+    "desc": "",
+    "lang": "HTML",
+    "archived": false,
+    "license": "GPL-3.0"
+   },
+   {
+    "full": "Light413/dctt_uniapp",
+    "stars": 25,
+    "pushed": "2019-10-28",
+    "desc": "基于HBuilderX、VUE、uni-app 开发多平台APP(Demo)，支持小程序平台(持续更新)",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "uni-helper/hbuilderx-vanilla",
+    "stars": 23,
+    "pushed": "2025-08-26",
+    "desc": "优雅地在Linux环境下构建uni-app项目的wgt热更新包",
+    "lang": "JavaScript",
+    "archived": true,
+    "license": "MIT"
+   },
+   {
+    "full": "smalltee/robby-image-upload",
+    "stars": 22,
+    "pushed": "2020-06-05",
+    "desc": "An common control based on uni for HBuilderX. select image, delete image, drag i",
+    "lang": "Vue",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "dcloudio/hbuilderx-extension-samples",
+    "stars": 16,
+    "pushed": "2025-10-17",
+    "desc": "",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "UFDXD/HBuilderX-Light",
+    "stars": 14,
+    "pushed": "2023-04-25",
+    "desc": "思源笔记自用主题-HBuilderX-Light",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "GPL-3.0"
+   },
+   {
+    "full": "seasonZhu/UniAppPlayAndroid",
+    "stars": 13,
+    "pushed": "2026-03-17",
+    "desc": "基于Vue，使用HBuilderX编写的玩安卓",
+    "lang": "Vue",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "easy-git/easy-git",
+    "stars": 13,
+    "pushed": "2026-01-19",
+    "desc": "HBuilderX编辑器Git管理插件。vscode源代码管理工具风格，支持连接Github、gitee账号，支持搜索github，支持命令面板，支持克隆、提交",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "GPL-3.0"
+   },
+   {
+    "full": "wan-hx/hbuilderx-comment-pattern",
+    "stars": 12,
+    "pushed": "2024-04-25",
+    "desc": "HBuilderX编辑器 好看的注释图案",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "zimo0o0omiz/hbuilderx-wakatime",
+    "stars": 12,
+    "pushed": "2021-12-31",
+    "desc": "为hbuilderx写的wakatime插件",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "WEP-56/WePChat",
+    "stars": 12,
+    "pushed": "2026-07-27",
+    "desc": "简单轻量的LLM聊天客户端，基于Vue、HbuilderX。用于快速验证连通性，日常问答，图片生成，html制作与预览，简单的Javascript运行",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "icebreaker-template/uni-app-x-hbuilderx",
+    "stars": 11,
+    "pushed": "2026-05-04",
+    "desc": "weapp-tailwindcss & uni-app x 模板 ",
+    "lang": "SCSS",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "qinains/hbuilderx-soft-green",
+    "stars": 11,
+    "pushed": "2026-09-09",
+    "desc": "The healthiest theme for your eyes!",
+    "lang": "TypeScript",
+    "archived": false,
+    "license": "MIT"
+   }
+  ],
+  "dcloudio in:name stars:>20": [
+   {
+    "full": "dcloudio/uni-app",
+    "stars": 41626,
+    "pushed": "2026-11-05",
+    "desc": "A cross-platform framework using Vue.js",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "dcloudio/mui",
+    "stars": 13465,
+    "pushed": "2025-05-20",
+    "desc": "最接近原生APP体验的高性能框架",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "dcloudio/hello-uniapp",
+    "stars": 3051,
+    "pushed": "2026-05-29",
+    "desc": "uni-app框架演示示例",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "dcloudio/uni-ui",
+    "stars": 2090,
+    "pushed": "2026-11-05",
+    "desc": "基于uni-app的、全端兼容的、高性能UI框架",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "dcloudio/casecode",
+    "stars": 1447,
+    "pushed": "2026-10-21",
+    "desc": "DCloud开源项目集锦",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "dcloudio/test-framework",
+    "stars": 382,
+    "pushed": "2023-03-06",
+    "desc": "框架测试汇总",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "dcloudio/uni-preset-vue",
+    "stars": 374,
+    "pushed": "2026-11-02",
+    "desc": "uni-app preset for vue",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "dcloudio/uni-admin",
+    "stars": 312,
+    "pushed": "2026-11-05",
+    "desc": "基于 uni-app，uniCloud 的 admin 管理项目模板",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "dcloudio/H5P.Server",
+    "stars": 273,
+    "pushed": "2024-03-25",
+    "desc": "",
+    "lang": "PHP",
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "dcloudio/nml",
+    "stars": 272,
+    "pushed": "2018-07-13",
+    "desc": "",
+    "lang": null,
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "dcloudio/uni-template-news",
+    "stars": 267,
+    "pushed": "2023-10-30",
+    "desc": "基于uni-app开发的新闻/资讯类App模板",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "dcloudio/H5P.Android",
+    "stars": 258,
+    "pushed": "2021-01-28",
+    "desc": "HTML5 Plus for Android",
+    "lang": "Java",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "dcloudio/uni-template-login",
+    "stars": 241,
+    "pushed": "2026-01-20",
+    "desc": "基于uni-app框架的登录模板",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "dcloudio/uni-template-picture",
+    "stars": 218,
+    "pushed": "2021-11-23",
+    "desc": "基于uni-app框架的看图模板",
+    "lang": "Vue",
+    "archived": false,
+    "license": "MIT"
+   },
+   {
+    "full": "dcloudio/uni-migration",
+    "stars": 143,
+    "pushed": "2022-12-06",
+    "desc": "统一转换器，可实现将小程序项目转换为快应用项目",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "Apache-2.0"
+   },
+   {
+    "full": "dcloudio/H5P.Core",
+    "stars": 137,
+    "pushed": "2015-08-31",
+    "desc": "HTML5 plus runtime",
+    "lang": "HTML",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "dcloudio/uni-template-one",
+    "stars": 117,
+    "pushed": "2019-01-09",
+    "desc": "基于uni-app 的高仿「ONE·一个」",
+    "lang": "Vue",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "dcloudio/H5P.iOS",
+    "stars": 115,
+    "pushed": "2019-12-11",
+    "desc": "HTML5 Plus for iOS",
+    "lang": "Objective-C",
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "dcloudio/HBuilderX",
+    "stars": 100,
+    "pushed": "2021-10-14",
+    "desc": "",
+    "lang": null,
+    "archived": false,
+    "license": null
+   },
+   {
+    "full": "dcloudio/uni-ai-x",
+    "stars": 90,
+    "pushed": "2026-11-05",
+    "desc": "",
+    "lang": "JavaScript",
+    "archived": false,
+    "license": "Apache-2.0"
+   }
+  ]
+ },
+ "merged": {
+  "macrozheng/mall": {
+   "full": "macrozheng/mall",
+   "stars": 85010,
+   "pushed": "2026-09-15",
+   "desc": "mall项目是一套电商系统，包括前台商城系统及后台管理系统，基于Spring Boot+MyBatis实现，采用Docker容器化部署。 前台商城系统包含首页门",
+   "lang": "Java",
+   "archived": false,
+   "license": "Apache-2.0"
+  },
+  "justjavac/wechat-miniapp-radar": {
+   "full": "justjavac/wechat-miniapp-radar",
+   "stars": 51179,
+   "pushed": "2026-10-02",
+   "desc": ":traffic_light:小程序雷达：AI 驱动的小程序技术选型、趋势追踪和迁移诊断工具",
+   "lang": "TypeScript",
+   "archived": false,
+   "license": "GPL-3.0"
+  },
+  "dcloudio/uni-app": {
+   "full": "dcloudio/uni-app",
+   "stars": 41626,
+   "pushed": "2026-11-05",
+   "desc": "A cross-platform framework using Vue.js",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "Apache-2.0"
+  },
+  "YunaiV/ruoyi-vue-pro": {
+   "full": "YunaiV/ruoyi-vue-pro",
+   "stars": 40259,
+   "pushed": "2026-11-04",
+   "desc": "🔥 官方推荐 🔥 RuoYi-Vue 全新 Pro 版本，优化重构所有功能。基于 Spring Boot + MyBatis Plus + Vue & Elem",
+   "lang": "Java",
+   "archived": false,
+   "license": "MIT"
+  },
+  "YunaiV/yudao-cloud": {
+   "full": "YunaiV/yudao-cloud",
+   "stars": 19754,
+   "pushed": "2026-11-03",
+   "desc": "ruoyi-vue-pro 全新 Cloud 版本，优化重构所有功能。基于 Spring Cloud Alibaba + MyBatis Plus + Vue ",
+   "lang": "Java",
+   "archived": false,
+   "license": "MIT"
+  },
+  "macrozheng/mall-swarm": {
+   "full": "macrozheng/mall-swarm",
+   "stars": 13197,
+   "pushed": "2026-07-31",
+   "desc": "mall-swarm是一套微服务商城系统，采用了 Spring Cloud Alibaba、Spring Boot 3.5、Sa-Token、MyBatis、E",
+   "lang": "Java",
+   "archived": false,
+   "license": "Apache-2.0"
+  },
+  "jd-opensource/nutui": {
+   "full": "jd-opensource/nutui",
+   "stars": 6515,
+   "pushed": "2026-04-02",
+   "desc": "京东风格的移动端 Vue 组件库，支持多端小程序(A Vue.js UI Toolkit for Mobile Web)",
+   "lang": "Vue",
+   "archived": false,
+   "license": "MIT"
+  },
+  "gz-yami/mall4cloud": {
+   "full": "gz-yami/mall4cloud",
+   "stars": 6171,
+   "pushed": "2026-11-02",
+   "desc": "⭐️⭐️⭐️微服务商城系统 springcloud微服务商城 小程序商城",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "AGPL-3.0"
+  },
+  "201206030/novel": {
+   "full": "201206030/novel",
+   "stars": 5846,
+   "pushed": "2026-11-01",
+   "desc": "novel 是一套基于时下最新 Java 技术栈 Spring Boot 3 + Vue 3 开发的前后端分离学习型小说项目，配备保姆级教程手把手教你从零开始开",
+   "lang": "Java",
+   "archived": false,
+   "license": "Apache-2.0"
+  },
+  "xiangyuecn/Recorder": {
+   "full": "xiangyuecn/Recorder",
+   "stars": 5643,
+   "pushed": "2026-07-30",
+   "desc": "html5 js 录音 mp3 wav ogg webm amr g711a g711u 格式，支持pc和Android、iOS部分Web浏览器、Hybrid ",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "MIT"
+  },
+  "wangyuan389/mall-cook": {
+   "full": "wangyuan389/mall-cook",
+   "stars": 5617,
+   "pushed": "2026-05-25",
+   "desc": "商城低代码平台，可视化搭建H5、小程序多端商城",
+   "lang": "Vue",
+   "archived": false,
+   "license": "MIT"
+  },
+  "tnfe/TNT-Weekly": {
+   "full": "tnfe/TNT-Weekly",
+   "stars": 5391,
+   "pushed": "2024-12-03",
+   "desc": "🙈 🙉 🙊 为您甄选国内外前端领域的优质资讯，洞悉行业最新进展，助力技术成长之旅。",
+   "lang": null,
+   "archived": false,
+   "license": null
+  },
+  "gz-yami/mall4j": {
+   "full": "gz-yami/mall4j",
+   "stars": 5320,
+   "pushed": "2026-11-02",
+   "desc": "⭐️⭐️⭐️ 电商商城 小程序电商商城系统 PC商城 H5商城 APP商城 Java商城 O2O商城 跨境商城",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "AGPL-3.0"
+  },
+  "woniudiancang/bee": {
+   "full": "woniudiancang/bee",
+   "stars": 4598,
+   "pushed": "2026-10-15",
+   "desc": "微信小程序-餐饮点餐外卖-开箱即用",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "NOASSERTION"
+  },
+  "mescroll/mescroll": {
+   "full": "mescroll/mescroll",
+   "stars": 4450,
+   "pushed": "2024-03-11",
+   "desc": "精致的下拉刷新和上拉加载 js框架.支持vue,完美运行于移动端和主流PC浏览器 (JS framework for pull-refresh and pull",
+   "lang": "Vue",
+   "archived": false,
+   "license": "MIT"
+  },
+  "aben1188/awesome-wepy": {
+   "full": "aben1188/awesome-wepy",
+   "stars": 4365,
+   "pushed": "2021-05-06",
+   "desc": "Awesome for wepy ! 微信小程序组件化开发框架wepy开发资源汇总",
+   "lang": null,
+   "archived": false,
+   "license": null
+  },
+  "lilishop/lilishop": {
+   "full": "lilishop/lilishop",
+   "stars": 4340,
+   "pushed": "2026-10-10",
+   "desc": "Java 开源商城系统，基于 Spring Boot / Spring Cloud / Vue / Uniapp 的 B2B2C 多商户商城源码，支持小程序商城",
+   "lang": "Java",
+   "archived": false,
+   "license": "AGPL-3.0"
+  },
+  "umicro/uView": {
+   "full": "umicro/uView",
+   "stars": 4212,
+   "pushed": "2025-01-02",
+   "desc": "uView UI，是uni-app生态最优秀的UI框架，全面的组件和便捷的工具会让您信手拈来，如鱼得水",
+   "lang": "Vue",
+   "archived": false,
+   "license": "MIT"
+  },
+  "1024-lab/smart-admin": {
+   "full": "1024-lab/smart-admin",
+   "stars": 3933,
+   "pushed": "2026-07-01",
+   "desc": "SmartAdmin国内首个以「高质量代码」为核心，「简洁、高效、安全」快速开发平台；基于SpringBoot2/3 + Sa-Token + Mybatis-",
+   "lang": "Java",
+   "archived": false,
+   "license": "MIT"
+  },
+  "jones2000/HQChart": {
+   "full": "jones2000/HQChart",
+   "stars": 3425,
+   "pushed": "2026-10-08",
+   "desc": "HQChart - H5, 微信小程序 沪深/港股/数字货币/期货/美股 K线图(kline),走势图,缩放,拖拽,十字光标,画图工具,截图,筹码图. 分析家语",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "Apache-2.0"
+  },
+  "cirosantilli/china-dictatorship": {
+   "full": "cirosantilli/china-dictatorship",
+   "stars": 3316,
+   "pushed": "2026-02-05",
+   "desc": "反中共政治宣传库。Anti Chinese government propaganda. 住在中国真名用户的网友请别给星星，不然你要被警察请喝茶。常见问答集，新",
+   "lang": "HTML",
+   "archived": false,
+   "license": "CC-BY-SA-4.0"
+  },
+  "dingyong0214/ThorUI-uniapp": {
+   "full": "dingyong0214/ThorUI-uniapp",
+   "stars": 2776,
+   "pushed": "2024-05-30",
+   "desc": "ThorUI组件库，轻量、简洁的移动端组件库。组件文档地址：https://thorui.cn/doc  ",
+   "lang": "Vue",
+   "archived": false,
+   "license": "MIT"
+  },
+  "gege-circle/.github": {
+   "full": "gege-circle/.github",
+   "stars": 2080,
+   "pushed": "2025-10-04",
+   "desc": "这里是GitHub的草场，也是戈戈圈爱好者的交流地，主要讨论动漫、游戏、科技、人文、生活等所有话题，欢迎各位小伙伴们在此讨论趣事。This is GitHub ",
+   "lang": null,
+   "archived": false,
+   "license": null
+  },
+  "cirosantilli/china-dictatroship-7": {
+   "full": "cirosantilli/china-dictatroship-7",
+   "stars": 384,
+   "pushed": "2026-02-05",
+   "desc": "反中共政治宣传库。Anti Chinese government propaganda. https://github.com/cirosantilli/chi",
+   "lang": "HTML",
+   "archived": false,
+   "license": "CC-BY-SA-4.0"
+  },
+  "mRFWq7LwNPZjaVv5v6eo/cihna-dictattorshrip-8": {
+   "full": "mRFWq7LwNPZjaVv5v6eo/cihna-dictattorshrip-8",
+   "stars": 215,
+   "pushed": "2026-02-05",
+   "desc": "反中共政治宣传库。Anti Chinese government propaganda. https://github.com/cirosantilli/chi",
+   "lang": "HTML",
+   "archived": false,
+   "license": "CC-BY-SA-4.0"
+  },
+  "panbinibn/OpenPacketFix_": {
+   "full": "panbinibn/OpenPacketFix_",
+   "stars": 209,
+   "pushed": "2022-08-12",
+   "desc": "大陆修宪香港恶法台湾武统朝鲜毁约美中冷战等都是王沪宁愚弄习思想极左命运共同体的大策划中共窃国这半个多世纪所犯下的滔天罪恶，前期是毛泽东策划的，中期6.4前后是邓",
+   "lang": null,
+   "archived": false,
+   "license": "MIT"
+  },
+  "zpc1314521/PCL2": {
+   "full": "zpc1314521/PCL2",
+   "stars": 132,
+   "pushed": "2022-08-12",
+   "desc": "[stays mad] 反PCL宣传库。Anti PCL propaganda. 大陆修宪香港恶法台湾武统朝鲜毁约美中冷战等都是王沪宁愚弄习思想极左命运共同体的",
+   "lang": null,
+   "archived": false,
+   "license": "MIT"
+  },
+  "bkywksj/ruoyi-plus-uniapp-docs": {
+   "full": "bkywksj/ruoyi-plus-uniapp-docs",
+   "stars": 50,
+   "pushed": "2026-11-05",
+   "desc": "ruoyi-plus-uniapp文档",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": null
+  },
+  "sutras/sard-uniapp-docs": {
+   "full": "sutras/sard-uniapp-docs",
+   "stars": 2,
+   "pushed": "2026-03-07",
+   "desc": "",
+   "lang": "HTML",
+   "archived": false,
+   "license": null
+  },
+  "xihuanxiaorang/docs": {
+   "full": "xihuanxiaorang/docs",
+   "stars": 1,
+   "pushed": "2024-11-21",
+   "desc": "涵盖全栈开发所需的各种技术：前端（Vue3全家桶、TypeScript、Uniapp、微信小程序）和后端（Spring、SpringBoot、SpringClo",
+   "lang": null,
+   "archived": false,
+   "license": "MIT"
+  },
+  "Hovxun/vz-ui-uniapp-docs": {
+   "full": "Hovxun/vz-ui-uniapp-docs",
+   "stars": 1,
+   "pushed": "2026-03-13",
+   "desc": "",
+   "lang": "HTML",
+   "archived": false,
+   "license": null
+  },
+  "gmcb-docs/uniapp": {
+   "full": "gmcb-docs/uniapp",
+   "stars": 0,
+   "pushed": "2025-01-04",
+   "desc": "",
+   "lang": null,
+   "archived": false,
+   "license": null
+  },
+  "uniapp-io/uniapp-en": {
+   "full": "uniapp-io/uniapp-en",
+   "stars": 0,
+   "pushed": "2021-08-20",
+   "desc": "uniapp english docs test",
+   "lang": null,
+   "archived": false,
+   "license": null
+  },
+  "pargyropoulos/uniapp_docs": {
+   "full": "pargyropoulos/uniapp_docs",
+   "stars": 0,
+   "pushed": "2026-01-26",
+   "desc": "UniApp documentation",
+   "lang": "HTML",
+   "archived": false,
+   "license": null
+  },
+  "cfg-design/cfgd-uniapp3-docs": {
+   "full": "cfg-design/cfgd-uniapp3-docs",
+   "stars": 0,
+   "pushed": "2022-10-21",
+   "desc": "cfgd-uniapp3 文档",
+   "lang": "TypeScript",
+   "archived": false,
+   "license": null
+  },
+  "cinderzoe/docs-uniapp": {
+   "full": "cinderzoe/docs-uniapp",
+   "stars": 0,
+   "pushed": "2025-05-14",
+   "desc": "",
+   "lang": null,
+   "archived": false,
+   "license": null
+  },
+  "didaoktv/didaoui-uniapp-docs": {
+   "full": "didaoktv/didaoui-uniapp-docs",
+   "stars": 0,
+   "pushed": "2026-11-03",
+   "desc": "didaoui-uniapp文档",
+   "lang": "Vue",
+   "archived": false,
+   "license": null
+  },
+  "chenshuangxinxi/hi-docs": {
+   "full": "chenshuangxinxi/hi-docs",
+   "stars": 0,
+   "pushed": "2024-08-20",
+   "desc": "hi-uniapp-ui 文档",
+   "lang": null,
+   "archived": false,
+   "license": "MIT"
+  },
+  "uglyp/q-uniapp-docs": {
+   "full": "uglyp/q-uniapp-docs",
+   "stars": 0,
+   "pushed": "2024-12-20",
+   "desc": "q-uniapp 文档中心",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "MIT"
+  },
+  "Xie-Yin/cms-uniapp-docs": {
+   "full": "Xie-Yin/cms-uniapp-docs",
+   "stars": 0,
+   "pushed": "2021-12-24",
+   "desc": "CMS小程序端文档",
+   "lang": "SCSS",
+   "archived": false,
+   "license": null
+  },
+  "climblee/uv-ui": {
+   "full": "climblee/uv-ui",
+   "stars": 1348,
+   "pushed": "2024-07-28",
+   "desc": "uv-ui 破釜沉舟之兼容vue3+2、app、h5、小程序等多端基于uni-app和uView2.x的生态框架，支持单独导入，开箱即用，利剑出击。",
+   "lang": "Vue",
+   "archived": false,
+   "license": "MIT"
+  },
+  "cool-team-official/cool-unix": {
+   "full": "cool-team-official/cool-unix",
+   "stars": 314,
+   "pushed": "2026-02-05",
+   "desc": "基于 Uni-App X 的 Vue3 组合式开发框架，完全开源免费。内置 Tailwind CSS、支持多主题切换与国际化，集成丰富高质量组件库与多样模板页面",
+   "lang": "TypeScript",
+   "archived": false,
+   "license": "NOASSERTION"
+  },
+  "swustscu/zscat-me-uniapp-app-springcloud-": {
+   "full": "swustscu/zscat-me-uniapp-app-springcloud-",
+   "stars": 82,
+   "pushed": "2023-12-16",
+   "desc": "基于springboot cloud构建的一个商城项目，包括前端，后端和h5应用，小程序，作为zscat应用实践的模板项目。基于SpringBoot2.x、Sp",
+   "lang": null,
+   "archived": false,
+   "license": "Apache-2.0"
+  },
+  "P-Peaceful/wx-study-room": {
+   "full": "P-Peaceful/wx-study-room",
+   "stars": 63,
+   "pushed": "2022-06-29",
+   "desc": "自习室预约平台微信小程序是基于uni-app+uView+HBuilder X开发的预约类小程序，目前小程序端的基础页面已经完成",
+   "lang": "Vue",
+   "archived": false,
+   "license": "Apache-2.0"
+  },
+  "FirstUI/FirstUI-uvue": {
+   "full": "FirstUI/FirstUI-uvue",
+   "stars": 59,
+   "pushed": "2025-02-24",
+   "desc": "FirstUI（unix）组件库，一款适配 uni-app x 的轻量、简洁、高效、全面的移动端组件库。(FirstUI (unix) component li",
+   "lang": "CSS",
+   "archived": false,
+   "license": "Apache-2.0"
+  },
+  "EgorBo/XamarinWithUnityApp": {
+   "full": "EgorBo/XamarinWithUnityApp",
+   "stars": 45,
+   "pushed": "2019-06-18",
+   "desc": "A Xamarin app (Android) with Unity as a library (aar)",
+   "lang": "C#",
+   "archived": false,
+   "license": "MIT"
+  },
+  "dcloudio/hello-uni-app-x": {
+   "full": "dcloudio/hello-uni-app-x",
+   "stars": 42,
+   "pushed": "2026-08-11",
+   "desc": "uni-app x 跨平台框架的演示示例，包括组件、API、模板等",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": null
+  },
+  "MeIotCOM/CodingPlanQuota": {
+   "full": "MeIotCOM/CodingPlanQuota",
+   "stars": 40,
+   "pushed": "2026-09-14",
+   "desc": "Check AI coding-plan quotas (5h / weekly / monthly) on the go — Zhipu GLM, Kimi,",
+   "lang": "TypeScript",
+   "archived": false,
+   "license": "NOASSERTION"
+  },
+  "uni-toolkit/uni-toolkit": {
+   "full": "uni-toolkit/uni-toolkit",
+   "stars": 32,
+   "pushed": "2026-10-22",
+   "desc": "uni-app(-x) tools and plugins",
+   "lang": "TypeScript",
+   "archived": false,
+   "license": "MIT"
+  },
+  "dcloudio/uni-app-x-ai-rules": {
+   "full": "dcloudio/uni-app-x-ai-rules",
+   "stars": 32,
+   "pushed": "2026-05-11",
+   "desc": "",
+   "lang": null,
+   "archived": false,
+   "license": "Apache-2.0"
+  },
+  "xlz122/nai-xue": {
+   "full": "xlz122/nai-xue",
+   "stars": 29,
+   "pushed": "2024-08-20",
+   "desc": "基于Vue3.0 + Uni-App开发的奈雪の茶小程序模板",
+   "lang": "TypeScript",
+   "archived": false,
+   "license": "MIT"
+  },
+  "Lierbook/xmgread": {
+   "full": "Lierbook/xmgread",
+   "stars": 28,
+   "pushed": "2021-03-17",
+   "desc": "一个小说阅读器，基于uni-app开发，兼容多端",
+   "lang": "Vue",
+   "archived": false,
+   "license": null
+  },
+  "guodongAndroid/uniappx-offline-for-android-template": {
+   "full": "guodongAndroid/uniappx-offline-for-android-template",
+   "stars": 27,
+   "pushed": "2025-12-12",
+   "desc": "uni-app x 离线打包 Android 模板工程",
+   "lang": "Kotlin",
+   "archived": false,
+   "license": null
+  },
+  "cloudsimpler/uni-ucs-design": {
+   "full": "cloudsimpler/uni-ucs-design",
+   "stars": 26,
+   "pushed": "2025-12-30",
+   "desc": "uni-app / uni-app-x 多平台 vue3 版本 uts 编程语言开发的轻量高效、简洁全面的组件库",
+   "lang": "Vue",
+   "archived": false,
+   "license": "MIT"
+  },
+  "buuing/lucky-canvas": {
+   "full": "buuing/lucky-canvas",
+   "stars": 8785,
+   "pushed": "2026-07-30",
+   "desc": "🎖🎖🎖 基于 TS + Canvas 开发的【大转盘 / 九宫格 / 老虎机】抽奖插件，🌈 一套源码适配多端框架 JS / Vue / React / Taro",
+   "lang": "TypeScript",
+   "archived": false,
+   "license": "Apache-2.0"
+  },
+  "jin-yufeng/mp-html": {
+   "full": "jin-yufeng/mp-html",
+   "stars": 3754,
+   "pushed": "2026-04-19",
+   "desc": "小程序富文本组件，支持渲染和编辑 html，支持在微信、QQ、百度、支付宝、头条和 uni-app 平台使用",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "MIT"
+  },
+  "dcloudio/hello-uniapp": {
+   "full": "dcloudio/hello-uniapp",
+   "stars": 3051,
+   "pushed": "2026-05-29",
+   "desc": "uni-app框架演示示例",
+   "lang": "Vue",
+   "archived": false,
+   "license": "MIT"
+  },
+  "codercup/unibest": {
+   "full": "codercup/unibest",
+   "stars": 2864,
+   "pushed": "2026-03-28",
+   "desc": "unibest - 最好用的 uniapp 开发框架。unibest 是由 uniapp + Vue3 + Ts + Vite4 + UnoCss + UniU",
+   "lang": "TypeScript",
+   "archived": false,
+   "license": "MIT"
+  },
+  "feige996/unibest": {
+   "full": "feige996/unibest",
+   "stars": 2320,
+   "pushed": "2026-11-05",
+   "desc": "【这是新仓库，codercup那个进不去不维护了。】unibest - 最好用的 uniapp 开发框架。unibest 是由 uniapp + Vue3 + ",
+   "lang": "Vue",
+   "archived": false,
+   "license": "MIT"
+  },
+  "Moonofweisheng/wot-design-uni": {
+   "full": "Moonofweisheng/wot-design-uni",
+   "stars": 2299,
+   "pushed": "2026-09-24",
+   "desc": "一个基于Vue3+TS开发的uni-app组件库，提供70+高质量组件，支持暗黑模式、国际化和自定义主题。",
+   "lang": "TypeScript",
+   "archived": false,
+   "license": "MIT"
+  },
+  "dcloudio/uni-ui": {
+   "full": "dcloudio/uni-ui",
+   "stars": 2090,
+   "pushed": "2026-11-05",
+   "desc": "基于uni-app的、全端兼容的、高性能UI框架",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "MIT"
+  },
+  "weapp-tailwindcss/weapp-tailwindcss": {
+   "full": "weapp-tailwindcss/weapp-tailwindcss",
+   "stars": 1864,
+   "pushed": "2026-11-05",
+   "desc": "Bring Tailwind CSS to every platform! 把 Tailwind CSS 的原子化开发体验带到全端！",
+   "lang": "TypeScript",
+   "archived": false,
+   "license": "MIT"
+  },
+  "raodv/captcha": {
+   "full": "raodv/captcha",
+   "stars": 1704,
+   "pushed": "2026-10-09",
+   "desc": "行为验证码(滑动拼图、点选文字)，前后端(java)交互，包含h5/Android/IOS/flutter/uni-app的源码和实现",
+   "lang": "Java",
+   "archived": false,
+   "license": "Apache-2.0"
+  },
+  "ZainZhao/HIS": {
+   "full": "ZainZhao/HIS",
+   "stars": 1637,
+   "pushed": "2025-02-24",
+   "desc": "HIS英文全称 hospital information system（医疗信息就诊系统），系统主要功能按照数据流量、流向及处理过程分为临床诊疗、药品管理、财务",
+   "lang": "Java",
+   "archived": false,
+   "license": "Apache-2.0"
+  },
+  "SmileZXLee/uni-z-paging": {
+   "full": "SmileZXLee/uni-z-paging",
+   "stars": 1480,
+   "pushed": "2026-07-10",
+   "desc": "【uni-app下拉刷新、上拉加载】高性能，全平台兼容(ios、安卓、鸿蒙next、h5以及各家小程序)。支持vue、nvue、vue2、vue3，使用wxs+",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "MIT"
+  },
+  "1977474741/image-cropper": {
+   "full": "1977474741/image-cropper",
+   "stars": 1447,
+   "pushed": "2021-12-17",
+   "desc": "💯一款功能强大的微信小程序图片裁剪插件",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "MIT"
+  },
+  "ITmonkey-cn/shopro-uniapp": {
+   "full": "ITmonkey-cn/shopro-uniapp",
+   "stars": 1397,
+   "pushed": "2023-02-24",
+   "desc": "Shopro分销商城 uniapp前端开源代码，一款落地生产的 基于uni-app的多端商城。使用文档：https://gitee.com/itmonkey-c",
+   "lang": "Vue",
+   "archived": false,
+   "license": null
+  },
+  "xiaowang1314/uniapp-plugin-collections": {
+   "full": "xiaowang1314/uniapp-plugin-collections",
+   "stars": 1216,
+   "pushed": "2024-09-03",
+   "desc": "uni-app项目插件功能集合https://github.com/xiaowang1314/uniapp-plugin-collections",
+   "lang": "Vue",
+   "archived": false,
+   "license": null
+  },
+  "open-wxa/wxa-runner": {
+   "full": "open-wxa/wxa-runner",
+   "stars": 999,
+   "pushed": "2026-11-05",
+   "desc": "在浏览器中用微信官方基础库运行小程序，支持 Chrome DevTools 调试与 Playwright E2E 测试",
+   "lang": "TypeScript",
+   "archived": false,
+   "license": "MIT"
+  },
+  "qiutiandefeng/yfexam-exam": {
+   "full": "qiutiandefeng/yfexam-exam",
+   "stars": 998,
+   "pushed": "2025-03-28",
+   "desc": "在线考试系统/企业培训软件考试系统",
+   "lang": "Java",
+   "archived": false,
+   "license": "MIT"
+  },
+  "aben1188/awesome-uni-app": {
+   "full": "aben1188/awesome-uni-app",
+   "stars": 991,
+   "pushed": "2020-11-08",
+   "desc": "Awesome for uni-app！ 基于Vue.js的跨平台多端应用前端框架uni-app一站式开发资源汇总",
+   "lang": null,
+   "archived": false,
+   "license": null
+  },
+  "xdmdcp/hospital": {
+   "full": "xdmdcp/hospital",
+   "stars": 973,
+   "pushed": "2023-07-23",
+   "desc": "医院预约挂号微信小程序（Spring Boot、Vue、Uni-app）",
+   "lang": "Java",
+   "archived": false,
+   "license": "GPL-3.0"
+  },
+  "weilanwl/coloruicss": {
+   "full": "weilanwl/coloruicss",
+   "stars": 12357,
+   "pushed": "2024-04-08",
+   "desc": "鲜亮的高饱和色彩，专注视觉的小程序组件库",
+   "lang": "Vue",
+   "archived": false,
+   "license": "MIT"
+  },
+  "JackJiang2011/MobileIMSDK": {
+   "full": "JackJiang2011/MobileIMSDK",
+   "stars": 6095,
+   "pushed": "2026-10-28",
+   "desc": "原创全平台IM通信层框架，轻量级、高度提炼，历经10年、久经考验。可能是市面上唯一同时支持UDP+TCP+WebSocket三种协议的同类开源框架，支持 iOS",
+   "lang": "Objective-C",
+   "archived": false,
+   "license": "Apache-2.0"
+  },
+  "alovajs/alova": {
+   "full": "alovajs/alova",
+   "stars": 4025,
+   "pushed": "2026-11-02",
+   "desc": "A fullstack request strategy library. It requests as scenarios, not single calls",
+   "lang": "TypeScript",
+   "archived": false,
+   "license": "MIT"
+  },
+  "Exrick/xboot": {
+   "full": "Exrick/xboot",
+   "stars": 3891,
+   "pushed": "2023-06-14",
+   "desc": "基于Spring Boot 2.x的一站式前后端分离快速开发平台XBoot 微信小程序+Uniapp 前端：Vue+iView Admin 后端：Spring ",
+   "lang": "Java",
+   "archived": false,
+   "license": "GPL-3.0"
+  },
+  "crmeb/crmeb_java": {
+   "full": "crmeb/crmeb_java",
+   "stars": 3085,
+   "pushed": "2026-09-11",
+   "desc": "Java商城 免费 开源 CRMEB商城JAVA版，SpringBoot + Maven + Swagger + Mybatis Plus + Redis + ",
+   "lang": "Vue",
+   "archived": false,
+   "license": "Apache-2.0"
+  },
+  "youlaitech/youlai-mall": {
+   "full": "youlaitech/youlai-mall",
+   "stars": 2373,
+   "pushed": "2025-05-16",
+   "desc": "🚀基于 Spring Boot 3、Spring Cloud & Alibaba 2022、SAS OAuth2 、Vue3、Element-Plus、uni-",
+   "lang": "Java",
+   "archived": false,
+   "license": "Apache-2.0"
+  },
+  "bufanyun/hotgo": {
+   "full": "bufanyun/hotgo",
+   "stars": 2061,
+   "pushed": "2026-11-02",
+   "desc": "HotGo 是AI 赋能企业级全栈前后端分离开发及移动应用基础平台，基于 Vue 和 GoFrame2.0 构建；内置 AI 开发规范、适配主流 AI 开发工具",
+   "lang": "Go",
+   "archived": false,
+   "license": "MIT"
+  },
+  "Thecosy/IceCMS": {
+   "full": "Thecosy/IceCMS",
+   "stars": 1917,
+   "pushed": "2025-09-20",
+   "desc": "🌈冰激凌内容管理系统🍦,实现MacWK资源站，社区图片视频圈子CMS，支持网页端移动端小程序🌟适合做 资讯商城，社区论坛，聊天交友 社区，博客，圈子，论坛，图片",
+   "lang": "Vue",
+   "archived": false,
+   "license": "AGPL-3.0"
+  },
+  "netyouli/WHC_ConfuseSoftware": {
+   "full": "netyouli/WHC_ConfuseSoftware",
+   "stars": 1799,
+   "pushed": "2026-10-12",
+   "desc": "iOS代码混淆工具，Uniapp代码混淆工具，react-native代码混淆, iOS代码混淆助手，Android代码混淆助手，Uniapp代码混淆助手，过机",
+   "lang": "Swift",
+   "archived": false,
+   "license": null
+  },
+  "Tencent/tdesign-miniprogram": {
+   "full": "Tencent/tdesign-miniprogram",
+   "stars": 1791,
+   "pushed": "2026-11-05",
+   "desc": "Wechat MiniProgram and Uniapp UI components lib for TDesign",
+   "lang": "Vue",
+   "archived": false,
+   "license": "MIT"
+  },
+  "stavyan/TinyShop-UniApp": {
+   "full": "stavyan/TinyShop-UniApp",
+   "stars": 1778,
+   "pushed": "2026-10-08",
+   "desc": "基于 RageFrame2 的一款免费开源的基础商城销售功能的开源微商城。",
+   "lang": "Vue",
+   "archived": false,
+   "license": "Apache-2.0"
+  },
+  "izhaorui/Zr.Admin.NET": {
+   "full": "izhaorui/Zr.Admin.NET",
+   "stars": 1659,
+   "pushed": "2026-10-31",
+   "desc": "🎉 ZR.Admin.NET —— 基于 .NET 8 + SqlSugar + Vue3 的前后端分离通用权限管理框架（RBAC），跨平台、开箱即用。内置 S",
+   "lang": "C#",
+   "archived": false,
+   "license": "MIT"
+  },
+  "jeecgboot/JeecgUniapp": {
+   "full": "jeecgboot/JeecgUniapp",
+   "stars": 1640,
+   "pushed": "2026-09-09",
+   "desc": "JeecgBoot配套APP移动解决方案，采用uniapp架构！一份代码多终端适配，同时支持APP、小程序、H5、鸿蒙！实现了与JeecgBoot平台完美对接，",
+   "lang": "Vue",
+   "archived": false,
+   "license": "Apache-2.0"
+  },
+  "DaMaiCoding/uni-plus": {
+   "full": "DaMaiCoding/uni-plus",
+   "stars": 276,
+   "pushed": "2025-03-14",
+   "desc": "一个超超超好用的 uniapp 开发框架：uni-plus 是由 Uniapp + Vue3 + TS + Vite + Pinia + Unocss + Wo",
+   "lang": "Vue",
+   "archived": false,
+   "license": "MIT"
+  },
+  "bizzancodex/Blockchain_Exchange_PHP.UNIAPP": {
+   "full": "bizzancodex/Blockchain_Exchange_PHP.UNIAPP",
+   "stars": 76,
+   "pushed": "2026-09-13",
+   "desc": "免费的全网真完整全开源运营版|Laravel框架Woo 区块链数字货币交易所源码|带期权/币币/合约/挖矿/认购,带搭建教程 Uinapp源码带H5",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": null
+  },
+  "stardustys/uniLogin": {
+   "full": "stardustys/uniLogin",
+   "stars": 35,
+   "pushed": "2019-04-03",
+   "desc": "uniApp, it is a demo for login and register.  With the server. //// uniApp手机号登录、",
+   "lang": "Vue",
+   "archived": false,
+   "license": "Apache-2.0"
+  },
+  "666bears/FoodRecommend": {
+   "full": "666bears/FoodRecommend",
+   "stars": 35,
+   "pushed": "2025-12-17",
+   "desc": "基于SSM的美食推荐系统(源代码+数据库+配套论文+ppt) java毕业设计，基于微信小程序，基于安卓毕业设计，机器学习，大数据毕业设计，Python+Dja",
+   "lang": null,
+   "archived": false,
+   "license": null
+  },
+  "xieyushi/jpress-uniapp": {
+   "full": "xieyushi/jpress-uniapp",
+   "stars": 34,
+   "pushed": "2019-02-27",
+   "desc": "jpress+uniapp 傻瓜式教程,手把手从0开始编写",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": null
+  },
+  "yexiyue/heima-shop": {
+   "full": "yexiyue/heima-shop",
+   "stars": 10,
+   "pushed": "2022-06-25",
+   "desc": "黑马教程uniapp项目",
+   "lang": "Vue",
+   "archived": false,
+   "license": null
+  },
+  "wenyiyimo/sousou": {
+   "full": "wenyiyimo/sousou",
+   "stars": 6,
+   "pushed": "2025-05-16",
+   "desc": "uniapp写一个爬虫影视app教程与学习笔记，采用vue3",
+   "lang": null,
+   "archived": false,
+   "license": null
+  },
+  "shmily-yu/uniappLearn": {
+   "full": "shmily-yu/uniappLearn",
+   "stars": 3,
+   "pushed": "2022-12-06",
+   "desc": "uniapp教程代码",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": null
+  },
+  "bysj-code/Campus-lost-and-found-system3": {
+   "full": "bysj-code/Campus-lost-and-found-system3",
+   "stars": 3,
+   "pushed": "2024-12-18",
+   "desc": "基于uniapp+springboot的校园失物招领系统，基于微信小程序+SpringBoot+MySQL开发，高分JAVA成品毕业设计，附带往届论文、启动教程",
+   "lang": "Vue",
+   "archived": false,
+   "license": "MIT"
+  },
+  "shuke-zhang/android-pugin-uniapp": {
+   "full": "shuke-zhang/android-pugin-uniapp",
+   "stars": 1,
+   "pushed": "2026-03-13",
+   "desc": "安卓原生插件开发教程",
+   "lang": "Java",
+   "archived": false,
+   "license": null
+  },
+  "MontyZhao/HelloUniappAndroid": {
+   "full": "MontyZhao/HelloUniappAndroid",
+   "stars": 1,
+   "pushed": "2020-03-23",
+   "desc": "uni-app Android教程（创建uni-app Android最简工程 & 创建uni-app Android原生插件）",
+   "lang": null,
+   "archived": false,
+   "license": "MIT"
+  },
+  "Jacob000-0/heima-shop-uniapp": {
+   "full": "Jacob000-0/heima-shop-uniapp",
+   "stars": 1,
+   "pushed": "2024-03-10",
+   "desc": "黑马程序员uniapp小兔鲜儿微信小程序项目 uni-app小兔鲜小程序实战：黑马程序员前端项目uniapp小兔鲜儿微信小程序项目视频教程，基于Vue3+Ts+",
+   "lang": null,
+   "archived": false,
+   "license": null
+  },
+  "mxjoselajahaookwwopqkwhsjqowoh-crypto/ren_wu_xuan_shang_ping": {
+   "full": "mxjoselajahaookwwopqkwhsjqowoh-crypto/ren_wu_xuan_shang_ping",
+   "stars": 1,
+   "pushed": "2026-03-05",
+   "desc": "【任务悬赏平台源码】uniapp+Thinkphp悬赏任务源码+视频搭建教程",
+   "lang": null,
+   "archived": false,
+   "license": null
+  },
+  "xmq1024/part_4": {
+   "full": "xmq1024/part_4",
+   "stars": 1,
+   "pushed": "2023-03-20",
+   "desc": "Python量化交易工程师养成实战-金融高薪领域,gp-P5:全栈测试Python自动化,BX谷-狂野大数据三期,体系课-轻松入门大数据玩转Flink，打造湖仓",
+   "lang": null,
+   "archived": false,
+   "license": null
+  },
+  "AliHammoud/UnityBuildAutomator": {
+   "full": "AliHammoud/UnityBuildAutomator",
+   "stars": 1,
+   "pushed": "2016-05-05",
+   "desc": "",
+   "lang": "Swift",
+   "archived": false,
+   "license": null
+  },
+  "RohiRIK/unix-update-automator": {
+   "full": "RohiRIK/unix-update-automator",
+   "stars": 1,
+   "pushed": "2025-12-13",
+   "desc": "A powerful, cross-platform shell script to automate system and package updates f",
+   "lang": "Shell",
+   "archived": false,
+   "license": "MIT"
+  },
+  "anshdeepcodes/University-Result-Automator": {
+   "full": "anshdeepcodes/University-Result-Automator",
+   "stars": 1,
+   "pushed": "2026-02-22",
+   "desc": "",
+   "lang": "Python",
+   "archived": false,
+   "license": null
+  },
+  "AltarTosun/Unity-Asset-Automator": {
+   "full": "AltarTosun/Unity-Asset-Automator",
+   "stars": 1,
+   "pushed": "2026-04-08",
+   "desc": "A Unity AssetPostprocessor tool that automatically applies optimized import sett",
+   "lang": "C#",
+   "archived": false,
+   "license": "MIT"
+  },
+  "Porphyri0n/Unity-Easy-Build-Automator": {
+   "full": "Porphyri0n/Unity-Easy-Build-Automator",
+   "stars": 1,
+   "pushed": "2026-07-19",
+   "desc": "A custom Unity Editor tool that automates the build process, seamlessly manages ",
+   "lang": "C#",
+   "archived": false,
+   "license": "MIT"
+  },
+  "DomCristaldi/UnityBuildAutomator": {
+   "full": "DomCristaldi/UnityBuildAutomator",
+   "stars": 0,
+   "pushed": "2016-06-07",
+   "desc": "",
+   "lang": "Python",
+   "archived": false,
+   "license": null
+  },
+  "U-LF/UnityBuildAutomator": {
+   "full": "U-LF/UnityBuildAutomator",
+   "stars": 0,
+   "pushed": "2026-01-28",
+   "desc": "",
+   "lang": "Python",
+   "archived": false,
+   "license": null
+  },
+  "Morandi2707/unifi-automator": {
+   "full": "Morandi2707/unifi-automator",
+   "stars": 0,
+   "pushed": "2026-02-26",
+   "desc": "automação de cadastro mac e vouchers da unifi",
+   "lang": "HTML",
+   "archived": false,
+   "license": null
+  },
+  "TheAutomationWizard/UnifiedAppsAutomator-master": {
+   "full": "TheAutomationWizard/UnifiedAppsAutomator-master",
+   "stars": 0,
+   "pushed": "2021-05-18",
+   "desc": "",
+   "lang": "Java",
+   "archived": false,
+   "license": null
+  },
+  "bibhutideveloper/University-Attendance-Automator": {
+   "full": "bibhutideveloper/University-Attendance-Automator",
+   "stars": 0,
+   "pushed": "2026-10-08",
+   "desc": "",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": null
+  },
+  "jonathanmouri/University-food-automator": {
+   "full": "jonathanmouri/University-food-automator",
+   "stars": 0,
+   "pushed": "2025-09-16",
+   "desc": "",
+   "lang": null,
+   "archived": false,
+   "license": null
+  },
+  "chandrakant987/ChromeUniversalAutomator": {
+   "full": "chandrakant987/ChromeUniversalAutomator",
+   "stars": 0,
+   "pushed": "2025-10-02",
+   "desc": "Automatically fill any form using json object.",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": null
+  },
+  "magesh9529/UNIVERSITY-RESULT-AUTOMATOR": {
+   "full": "magesh9529/UNIVERSITY-RESULT-AUTOMATOR",
+   "stars": 0,
+   "pushed": "2026-10-13",
+   "desc": "",
+   "lang": "Python",
+   "archived": false,
+   "license": null
+  },
+  "wyofalcon/Universal-Desktop-Automator": {
+   "full": "wyofalcon/Universal-Desktop-Automator",
+   "stars": 0,
+   "pushed": "2025-10-11",
+   "desc": "A universal bridge between command-line AI and a desktop GUI, enabling programma",
+   "lang": null,
+   "archived": false,
+   "license": "MIT"
+  },
+  "guypridan/OpenUniversityIdAutomator": {
+   "full": "guypridan/OpenUniversityIdAutomator",
+   "stars": 0,
+   "pushed": "2023-03-29",
+   "desc": "a google extension, automating the login proccess to the open university's Cours",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": null
+  },
+  "0xZ3u5/unix-background-slide-automator": {
+   "full": "0xZ3u5/unix-background-slide-automator",
+   "stars": 0,
+   "pushed": "2024-05-09",
+   "desc": "A Unix background slide automator written in python",
+   "lang": "Python",
+   "archived": false,
+   "license": "GPL-3.0"
+  },
+  "Mithilesh9mk/University-Daily-Schedule-Automator": {
+   "full": "Mithilesh9mk/University-Daily-Schedule-Automator",
+   "stars": 0,
+   "pushed": "2026-04-01",
+   "desc": "A full-stack administrative platform for automated timetable distribution. Built",
+   "lang": null,
+   "archived": false,
+   "license": null
+  },
+  "zhenyuWang/uniapp-x-automator-ios": {
+   "full": "zhenyuWang/uniapp-x-automator-ios",
+   "stars": 0,
+   "pushed": "2024-03-26",
+   "desc": "",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": null
+  },
+  "DanielTMolloy919/University-Task-Automator-for-Todoist": {
+   "full": "DanielTMolloy919/University-Task-Automator-for-Todoist",
+   "stars": 0,
+   "pushed": "2021-10-10",
+   "desc": "",
+   "lang": "Python",
+   "archived": false,
+   "license": "MIT"
+  },
+  "MitchellSparrow/Stellenbosch-University-Python-Login-Automator": {
+   "full": "MitchellSparrow/Stellenbosch-University-Python-Login-Automator",
+   "stars": 0,
+   "pushed": "2020-03-16",
+   "desc": "Launch and sign-in to Stellenbosch universities Inetkey and Sunlearn account",
+   "lang": "Python",
+   "archived": false,
+   "license": "MIT"
+  },
+  "Light413/dctt_h5": {
+   "full": "Light413/dctt_h5",
+   "stars": 136,
+   "pushed": "2020-06-04",
+   "desc": "xx头条【完整项目持续迭代中】基于HBuilderX ,MUI开发(一款本地生活信息发布APP，分享新鲜事、找人找对象等生活服务)仅供学习交流",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "MIT"
+  },
+  "dcloudio/HBuilderX": {
+   "full": "dcloudio/HBuilderX",
+   "stars": 100,
+   "pushed": "2021-10-14",
+   "desc": "",
+   "lang": null,
+   "archived": false,
+   "license": null
+  },
+  "Wscats/uni-app": {
+   "full": "Wscats/uni-app",
+   "stars": 45,
+   "pushed": "2026-03-30",
+   "desc": "Support commonly used code snippets in Hbuilder/HbuilderX.",
+   "lang": "Lua",
+   "archived": false,
+   "license": null
+  },
+  "dcloudio/hbuilderx-extension-docs": {
+   "full": "dcloudio/hbuilderx-extension-docs",
+   "stars": 42,
+   "pushed": "2026-10-29",
+   "desc": "HBuilderX使用文档、以及插件开发文档",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "Apache-2.0"
+  },
+  "Hbuilderx/screen-adapter-demo": {
+   "full": "Hbuilderx/screen-adapter-demo",
+   "stars": 39,
+   "pushed": "2023-07-19",
+   "desc": "大屏适配demo",
+   "lang": "Vue",
+   "archived": false,
+   "license": null
+  },
+  "meooxx/uniapp-project-cli": {
+   "full": "meooxx/uniapp-project-cli",
+   "stars": 34,
+   "pushed": "2022-01-05",
+   "desc": "近乎0成本 HBuilderX uniapp  转成 vue-cli 工程",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": null
+  },
+  "hb0730/vscode-uniapp-run": {
+   "full": "hb0730/vscode-uniapp-run",
+   "stars": 31,
+   "pushed": "2026-11-04",
+   "desc": "基于HBuilderX uniapp cli启动 vscode插件",
+   "lang": "TypeScript",
+   "archived": false,
+   "license": "MIT"
+  },
+  "zhetengbiji/copilot-for-hbuilderx": {
+   "full": "zhetengbiji/copilot-for-hbuilderx",
+   "stars": 30,
+   "pushed": "2025-10-01",
+   "desc": "",
+   "lang": "HTML",
+   "archived": false,
+   "license": "GPL-3.0"
+  },
+  "Light413/dctt_uniapp": {
+   "full": "Light413/dctt_uniapp",
+   "stars": 25,
+   "pushed": "2019-10-28",
+   "desc": "基于HBuilderX、VUE、uni-app 开发多平台APP(Demo)，支持小程序平台(持续更新)",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "MIT"
+  },
+  "uni-helper/hbuilderx-vanilla": {
+   "full": "uni-helper/hbuilderx-vanilla",
+   "stars": 23,
+   "pushed": "2025-08-26",
+   "desc": "优雅地在Linux环境下构建uni-app项目的wgt热更新包",
+   "lang": "JavaScript",
+   "archived": true,
+   "license": "MIT"
+  },
+  "smalltee/robby-image-upload": {
+   "full": "smalltee/robby-image-upload",
+   "stars": 22,
+   "pushed": "2020-06-05",
+   "desc": "An common control based on uni for HBuilderX. select image, delete image, drag i",
+   "lang": "Vue",
+   "archived": false,
+   "license": null
+  },
+  "dcloudio/hbuilderx-extension-samples": {
+   "full": "dcloudio/hbuilderx-extension-samples",
+   "stars": 16,
+   "pushed": "2025-10-17",
+   "desc": "",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "MIT"
+  },
+  "UFDXD/HBuilderX-Light": {
+   "full": "UFDXD/HBuilderX-Light",
+   "stars": 14,
+   "pushed": "2023-04-25",
+   "desc": "思源笔记自用主题-HBuilderX-Light",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "GPL-3.0"
+  },
+  "seasonZhu/UniAppPlayAndroid": {
+   "full": "seasonZhu/UniAppPlayAndroid",
+   "stars": 13,
+   "pushed": "2026-03-17",
+   "desc": "基于Vue，使用HBuilderX编写的玩安卓",
+   "lang": "Vue",
+   "archived": false,
+   "license": null
+  },
+  "easy-git/easy-git": {
+   "full": "easy-git/easy-git",
+   "stars": 13,
+   "pushed": "2026-01-19",
+   "desc": "HBuilderX编辑器Git管理插件。vscode源代码管理工具风格，支持连接Github、gitee账号，支持搜索github，支持命令面板，支持克隆、提交",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "GPL-3.0"
+  },
+  "wan-hx/hbuilderx-comment-pattern": {
+   "full": "wan-hx/hbuilderx-comment-pattern",
+   "stars": 12,
+   "pushed": "2024-04-25",
+   "desc": "HBuilderX编辑器 好看的注释图案",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": null
+  },
+  "zimo0o0omiz/hbuilderx-wakatime": {
+   "full": "zimo0o0omiz/hbuilderx-wakatime",
+   "stars": 12,
+   "pushed": "2021-12-31",
+   "desc": "为hbuilderx写的wakatime插件",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": null
+  },
+  "WEP-56/WePChat": {
+   "full": "WEP-56/WePChat",
+   "stars": 12,
+   "pushed": "2026-07-27",
+   "desc": "简单轻量的LLM聊天客户端，基于Vue、HbuilderX。用于快速验证连通性，日常问答，图片生成，html制作与预览，简单的Javascript运行",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "MIT"
+  },
+  "icebreaker-template/uni-app-x-hbuilderx": {
+   "full": "icebreaker-template/uni-app-x-hbuilderx",
+   "stars": 11,
+   "pushed": "2026-05-04",
+   "desc": "weapp-tailwindcss & uni-app x 模板 ",
+   "lang": "SCSS",
+   "archived": false,
+   "license": null
+  },
+  "qinains/hbuilderx-soft-green": {
+   "full": "qinains/hbuilderx-soft-green",
+   "stars": 11,
+   "pushed": "2026-09-09",
+   "desc": "The healthiest theme for your eyes!",
+   "lang": "TypeScript",
+   "archived": false,
+   "license": "MIT"
+  },
+  "dcloudio/mui": {
+   "full": "dcloudio/mui",
+   "stars": 13465,
+   "pushed": "2025-05-20",
+   "desc": "最接近原生APP体验的高性能框架",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "MIT"
+  },
+  "dcloudio/casecode": {
+   "full": "dcloudio/casecode",
+   "stars": 1447,
+   "pushed": "2026-10-21",
+   "desc": "DCloud开源项目集锦",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": null
+  },
+  "dcloudio/test-framework": {
+   "full": "dcloudio/test-framework",
+   "stars": 382,
+   "pushed": "2023-03-06",
+   "desc": "框架测试汇总",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "MIT"
+  },
+  "dcloudio/uni-preset-vue": {
+   "full": "dcloudio/uni-preset-vue",
+   "stars": 374,
+   "pushed": "2026-11-02",
+   "desc": "uni-app preset for vue",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "Apache-2.0"
+  },
+  "dcloudio/uni-admin": {
+   "full": "dcloudio/uni-admin",
+   "stars": 312,
+   "pushed": "2026-11-05",
+   "desc": "基于 uni-app，uniCloud 的 admin 管理项目模板",
+   "lang": "Vue",
+   "archived": false,
+   "license": "MIT"
+  },
+  "dcloudio/H5P.Server": {
+   "full": "dcloudio/H5P.Server",
+   "stars": 273,
+   "pushed": "2024-03-25",
+   "desc": "",
+   "lang": "PHP",
+   "archived": false,
+   "license": "Apache-2.0"
+  },
+  "dcloudio/nml": {
+   "full": "dcloudio/nml",
+   "stars": 272,
+   "pushed": "2018-07-13",
+   "desc": "",
+   "lang": null,
+   "archived": false,
+   "license": null
+  },
+  "dcloudio/uni-template-news": {
+   "full": "dcloudio/uni-template-news",
+   "stars": 267,
+   "pushed": "2023-10-30",
+   "desc": "基于uni-app开发的新闻/资讯类App模板",
+   "lang": "Vue",
+   "archived": false,
+   "license": "MIT"
+  },
+  "dcloudio/H5P.Android": {
+   "full": "dcloudio/H5P.Android",
+   "stars": 258,
+   "pushed": "2021-01-28",
+   "desc": "HTML5 Plus for Android",
+   "lang": "Java",
+   "archived": false,
+   "license": null
+  },
+  "dcloudio/uni-template-login": {
+   "full": "dcloudio/uni-template-login",
+   "stars": 241,
+   "pushed": "2026-01-20",
+   "desc": "基于uni-app框架的登录模板",
+   "lang": "Vue",
+   "archived": false,
+   "license": "MIT"
+  },
+  "dcloudio/uni-template-picture": {
+   "full": "dcloudio/uni-template-picture",
+   "stars": 218,
+   "pushed": "2021-11-23",
+   "desc": "基于uni-app框架的看图模板",
+   "lang": "Vue",
+   "archived": false,
+   "license": "MIT"
+  },
+  "dcloudio/uni-migration": {
+   "full": "dcloudio/uni-migration",
+   "stars": 143,
+   "pushed": "2022-12-06",
+   "desc": "统一转换器，可实现将小程序项目转换为快应用项目",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "Apache-2.0"
+  },
+  "dcloudio/H5P.Core": {
+   "full": "dcloudio/H5P.Core",
+   "stars": 137,
+   "pushed": "2015-08-31",
+   "desc": "HTML5 plus runtime",
+   "lang": "HTML",
+   "archived": false,
+   "license": null
+  },
+  "dcloudio/uni-template-one": {
+   "full": "dcloudio/uni-template-one",
+   "stars": 117,
+   "pushed": "2019-01-09",
+   "desc": "基于uni-app 的高仿「ONE·一个」",
+   "lang": "Vue",
+   "archived": false,
+   "license": null
+  },
+  "dcloudio/H5P.iOS": {
+   "full": "dcloudio/H5P.iOS",
+   "stars": 115,
+   "pushed": "2019-12-11",
+   "desc": "HTML5 Plus for iOS",
+   "lang": "Objective-C",
+   "archived": false,
+   "license": null
+  },
+  "dcloudio/uni-ai-x": {
+   "full": "dcloudio/uni-ai-x",
+   "stars": 90,
+   "pushed": "2026-11-05",
+   "desc": "",
+   "lang": "JavaScript",
+   "archived": false,
+   "license": "Apache-2.0"
+  }
+ }
+}
