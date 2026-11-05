@@ -6,8 +6,8 @@ import re
 import sys
 
 sys.stdout.reconfigure(encoding='utf-8')
-ROOT = Path('E:/OBsidian/全栈工程师学习计划')
-BACKUP = Path('E:/OBsidian/.plan-backups/fullstack-20261104-f2291a90')
+ROOT = Path(__file__).resolve().parents[3]
+BACKUP = Path(__file__).resolve().parent
 
 
 def docs_at(root):

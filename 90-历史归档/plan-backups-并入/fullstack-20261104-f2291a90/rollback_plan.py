@@ -6,7 +6,7 @@ import shutil
 import sys
 
 sys.stdout.reconfigure(encoding='utf-8')
-ROOT = Path('E:/OBsidian/全栈工程师学习计划').resolve()
+ROOT = Path(__file__).resolve().parents[3]
 BACKUP = Path(__file__).resolve().parent
 
 

@@ -74,7 +74,9 @@ Thumbs.db
 # Obsidian 工作缓存
 .obsidian/workspace*
 .obsidian/cache
-.workbuddy/backups/
+
+# Python 运行缓存
+__pycache__/
 """
 open(os.path.join(V, "..", ".gitignore"), "w", encoding="utf-8", newline="\n").write(gi)
 print("材料清单.md 生成（%d 条），.gitignore 写入" % len(rows))

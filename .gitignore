@@ -27,4 +27,6 @@ Thumbs.db
 # Obsidian 工作缓存
 .obsidian/workspace*
 .obsidian/cache
-.workbuddy/backups/
+
+# Python 运行缓存
+__pycache__/
