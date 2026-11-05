@@ -1,0 +1,101 @@
+{
+ "知识库/系统设计/ByteByteGoHq/system-design-101": {
+  "external_unique": 403,
+  "attempted": 403,
+  "ok": 398,
+  "cached": 0,
+  "via_proxy": 3,
+  "upstream_404": 2,
+  "fail": 0,
+  "mb": 422,
+  "fail_top": {}
+ },
+ "题库/算法题解/itcharge/AlgoNote": {
+  "skipped": "目录不存在"
+ },
+ "知识库/前端与Node/febobo/web-interview": {
+  "external_unique": 669,
+  "attempted": 669,
+  "ok": 14,
+  "cached": 0,
+  "via_proxy": 0,
+  "upstream_404": 0,
+  "fail": 655,
+  "mb": 2,
+  "fail_top": {
+   "static.vue-js.com URLError:<urlopen error [SSL: ": 634,
+   "static001.infoq.cn URLError:<urlopen error [SSL: ": 9,
+   "www.runoob.com URLError:<urlopen error [SSL: ": 5,
+   "static.vue-js.com URLError:<urlopen error _ssl.c": 2,
+   "upload-images.jianshu.io URLError:<urlopen error [SSL: ": 2
+  }
+ },
+ "知识库/后端进阶/bin392328206/six-finger": {
+  "external_unique": 1387,
+  "attempted": 1387,
+  "ok": 481,
+  "cached": 0,
+  "via_proxy": 6,
+  "upstream_404": 0,
+  "fail": 900,
+  "mb": 44,
+  "fail_top": {
+   "user-gold-cdn.xitu.io URLError:<urlopen error [SSL: ": 672,
+   "p1-juejin.byteimg.com URLError:<urlopen error [SSL: ": 139,
+   "p3-juejin.byteimg.com URLError:<urlopen error [SSL: ": 54,
+   "imgconvert.csdnimg.cn URLError:<urlopen error [SSL: ": 14,
+   "p0-xtjj-private.juejin.cn URLError:<urlopen error [SSL: ": 11
+  }
+ },
+ "知识库/运维与云原生/NotHarshhaa/DevOps-Projects": {
+  "external_unique": 1250,
+  "attempted": 1250,
+  "ok": 104,
+  "cached": 0,
+  "via_proxy": 1068,
+  "upstream_404": 33,
+  "fail": 45,
+  "mb": 127,
+  "fail_top": {
+   "miro.medium.com URLError:<urlopen error [SSL: ": 31,
+   "github.com URLError:<urlopen error [SSL: ": 12,
+   "cdn.jsdelivr.net HTTPError:HTTP Error 403: Forb": 1,
+   "img.shields.i URLError:<urlopen error [SSL: ": 1
+  }
+ },
+ "知识库/计算机基础/LamberttLiu/CS-Basic-SelfLearning": {
+  "external_unique": 14,
+  "attempted": 14,
+  "ok": 14,
+  "cached": 0,
+  "via_proxy": 0,
+  "upstream_404": 0,
+  "fail": 0,
+  "mb": 0,
+  "fail_top": {}
+ },
+ "知识库/计算机基础/cunyu1943/JavaPark": {
+  "external_unique": 34,
+  "attempted": 34,
+  "ok": 9,
+  "cached": 0,
+  "via_proxy": 0,
+  "upstream_404": 1,
+  "fail": 24,
+  "mb": 1,
+  "fail_top": {
+   "jsd.cdn.zzko.cn URLError:<urlopen error [SSL: ": 24
+  }
+ },
+ "题库/算法题解/youngyangyang04/leetcode-master": {
+  "external_unique": 891,
+  "attempted": 891,
+  "ok": 0,
+  "cached": 891,
+  "via_proxy": 0,
+  "upstream_404": 0,
+  "fail": 0,
+  "mb": 186,
+  "fail_top": {}
+ }
+}

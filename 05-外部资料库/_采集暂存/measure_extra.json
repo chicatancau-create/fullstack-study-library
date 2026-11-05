@@ -1,0 +1,299 @@
+[
+ {
+  "repo": "goldbergyoni/nodebestpractices",
+  "stars": 100000,
+  "lic": "MIT",
+  "pushed": "2026-10-01",
+  "language": null,
+  "desc": "The Node.js best practices list (curated with code and links)",
+  "topics": [
+   "nodejs",
+   "guide"
+  ],
+  "fns": [
+   "注入-后端实践"
+  ],
+  "files": 757,
+  "total_mb": 12,
+  "md_n": 653,
+  "md_kb": 3722,
+  "md_share_pct": 29.6,
+  "code_mb": 0,
+  "img_n": 88,
+  "img_mb": 8,
+  "pdf_n": 0,
+  "pdf_mb": 0,
+  "tests": 0,
+  "branch": "master",
+  "tar_mb": 9,
+  "question_markers": 60,
+  "marker_files": 35,
+  "extracted": 757,
+  "extracted_kb": 12587,
+  "decision": "keep",
+  "reason": "正文含 60 处题面/问答标记（35 个文件），可当自测题库"
+ },
+ {
+  "repo": "hoanhan101/ultimate-go",
+  "stars": 21000,
+  "lic": null,
+  "pushed": "2024-01-01",
+  "language": "Go",
+  "desc": "The Ultimate Go Study Guide（Go 运行时与底层笔记）",
+  "topics": [
+   "go"
+  ],
+  "fns": [
+   "注入-Go深入"
+  ],
+  "files": 84,
+  "total_mb": 2,
+  "md_n": 3,
+  "md_kb": 1,
+  "md_share_pct": 0.1,
+  "code_mb": 0,
+  "img_n": 1,
+  "img_mb": 0,
+  "pdf_n": 0,
+  "pdf_mb": 0,
+  "tests": 8,
+  "branch": "master",
+  "tar_mb": 0,
+  "decision": "drop",
+  "reason": "md 仅 3 篇，属代码/资源仓库"
+ },
+ {
+  "repo": "wolverinn/Waking-Up",
+  "stars": 32000,
+  "lic": null,
+  "pushed": "2024-01-01",
+  "language": null,
+  "desc": "计算机基础问答（已入库，用于验证重复检测）",
+  "topics": [
+   "interview"
+  ],
+  "fns": [
+   "注入-重复检测对照"
+  ],
+  "files": 69,
+  "total_mb": 9,
+  "md_n": 7,
+  "md_kb": 188,
+  "md_share_pct": 2.0,
+  "code_mb": 0,
+  "img_n": 60,
+  "img_mb": 9,
+  "pdf_n": 0,
+  "pdf_mb": 0,
+  "tests": 0,
+  "branch": "master",
+  "tar_mb": 8,
+  "question_markers": 2,
+  "marker_files": 1,
+  "extracted": 69,
+  "extracted_kb": 9648,
+  "decision": "drop",
+  "reason": "终判不合格：md=7 / 188KB，题面标记=2"
+ },
+ {
+  "repo": "theodinproject/curriculum",
+  "stars": 4500,
+  "lic": "CC-BY-SA-4.0",
+  "pushed": "2026-10-01",
+  "language": "Markdown",
+  "desc": "The Odin Project 全栈课程正文与练习（含学习路径与题目）",
+  "topics": [
+   "curriculum",
+   "full-stack"
+  ],
+  "fns": [
+   "注入-全栈课程"
+  ],
+  "files": 740,
+  "total_mb": 34,
+  "md_n": 582,
+  "md_kb": 4078,
+  "md_share_pct": 11.5,
+  "code_mb": 0,
+  "img_n": 112,
+  "img_mb": 30,
+  "pdf_n": 0,
+  "pdf_mb": 0,
+  "tests": 15,
+  "branch": "main",
+  "tar_mb": 30,
+  "question_markers": 10,
+  "marker_files": 6,
+  "extracted": 740,
+  "extracted_kb": 35548,
+  "decision": "keep",
+  "reason": "成体系正文：md=582 / 4078KB，题面标记=10"
+ },
+ {
+  "repo": "cp-algorithms/cp-algorithms",
+  "stars": 8000,
+  "lic": "CC-BY-SA-4.0",
+  "pushed": "2026-09-01",
+  "language": "HTML",
+  "desc": "算法百科（英/中/俄多语言 markdown），算法原理与实现",
+  "topics": [
+   "algorithms"
+  ],
+  "fns": [
+   "注入-算法百科"
+  ],
+  "files": 359,
+  "total_mb": 3,
+  "md_n": 175,
+  "md_kb": 1633,
+  "md_share_pct": 47.9,
+  "code_mb": 0,
+  "img_n": 75,
+  "img_mb": 1,
+  "pdf_n": 0,
+  "pdf_mb": 0,
+  "tests": 69,
+  "branch": "main",
+  "tar_mb": 1,
+  "question_markers": 2,
+  "marker_files": 2,
+  "extracted": 359,
+  "extracted_kb": 3406,
+  "decision": "keep",
+  "reason": "成体系正文：md=175 / 1633KB，题面标记=2"
+ },
+ {
+  "repo": "OI-wiki/OI-wiki",
+  "stars": 22000,
+  "lic": "CC-BY-SA-4.0",
+  "pushed": "2026-11-01",
+  "language": "HTML",
+  "desc": "OI Wiki：中文算法与竞赛知识大全，含图示与题单",
+  "topics": [
+   "oi",
+   "algorithms"
+  ],
+  "fns": [
+   "注入-中文算法百科"
+  ],
+  "files": 3220,
+  "total_mb": 49,
+  "md_n": 473,
+  "md_kb": 5860,
+  "md_share_pct": 11.6,
+  "code_mb": 1,
+  "img_n": 683,
+  "img_mb": 38,
+  "pdf_n": 0,
+  "pdf_mb": 0,
+  "tests": 7,
+  "branch": "master",
+  "tar_mb": 25,
+  "question_markers": 176,
+  "marker_files": 50,
+  "extracted": 3220,
+  "extracted_kb": 50418,
+  "decision": "keep",
+  "reason": "正文含 176 处题面/问答标记（50 个文件），可当自测题库"
+ },
+ {
+  "repo": "teivah/algodeck",
+  "stars": 5845,
+  "lic": null,
+  "pushed": "2025-12-09",
+  "language": null,
+  "desc": "AlgoDeck：算法与数据结构问答卡片集（题库形态）",
+  "topics": [
+   "flashcards",
+   "algorithms"
+  ],
+  "fns": [
+   "注入-卡片题库"
+  ],
+  "files": 127,
+  "total_mb": 27,
+  "md_n": 5,
+  "md_kb": 139,
+  "md_share_pct": 0.5,
+  "code_mb": 1,
+  "img_n": 57,
+  "img_mb": 23,
+  "pdf_n": 0,
+  "pdf_mb": 0,
+  "tests": 0,
+  "branch": "master",
+  "tar_mb": 24,
+  "question_markers": 13,
+  "marker_files": 2,
+  "extracted": 127,
+  "extracted_kb": 27894,
+  "decision": "drop",
+  "reason": "终判不合格：md=5 / 139KB，题面标记=13"
+ },
+ {
+  "repo": "khanas/leetcode-solve",
+  "stars": 3000,
+  "lic": null,
+  "pushed": "2025-01-01",
+  "language": "Python",
+  "desc": "LeetCode 题解与分类整理（存在性待测）",
+  "topics": [
+   "leetcode"
+  ],
+  "fns": [
+   "注入-试探"
+  ],
+  "decision": "unavailable",
+  "reason": "取不到压缩包：['main#1 HTTP Error 404: Not Found', 'master#1 HTTP Error 404: Not Found', 'gh-pages#1 HTTP Error 404: Not Fou"
+ },
+ {
+  "repo": "PKUFlyingPig/MIT-6.824-2022-spring",
+  "stars": 500,
+  "lic": null,
+  "pushed": "2023-01-01",
+  "language": null,
+  "desc": "分布式系统课程资料镜像（存在性待测）",
+  "topics": [
+   "distributed"
+  ],
+  "fns": [
+   "注入-试探"
+  ],
+  "decision": "unavailable",
+  "reason": "取不到压缩包：['main#1 HTTP Error 404: Not Found', 'master#1 HTTP Error 404: Not Found', 'gh-pages#1 HTTP Error 404: Not Fou"
+ },
+ {
+  "repo": "datawhalechina/easy-rl",
+  "stars": 12000,
+  "lic": null,
+  "pushed": "2026-06-01",
+  "language": null,
+  "desc": "动手学强化学习（中文课程）",
+  "topics": [
+   "rl"
+  ],
+  "fns": [
+   "注入-中文课程"
+  ],
+  "decision": "overcap",
+  "reason": "压缩包超过 260MB 上限",
+  "tar_mb": 261
+ },
+ {
+  "repo": "wasabeef/awesome-android-ui",
+  "stars": 70000,
+  "lic": null,
+  "pushed": "2024-01-01",
+  "language": null,
+  "desc": "清单类（用于验证「只有 README 的清单」是否会被误收）",
+  "topics": [
+   "awesome"
+  ],
+  "fns": [
+   "注入-对照"
+  ],
+  "decision": "overcap",
+  "reason": "压缩包超过 260MB 上限",
+  "tar_mb": 261
+ }
+]

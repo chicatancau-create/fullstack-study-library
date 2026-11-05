@@ -1,0 +1,34 @@
+{
+ "removed": [],
+ "flagged": [
+  {
+   "repo": "Exely/CSAPP-Labs",
+   "flag": "2023-02 停更；CSAPP 实验本身版本稳定，可用，但需按教材第三版与当前工具链复核"
+  },
+  {
+   "repo": "checkcheckzz/system-design-interview",
+   "flag": "2023-04 停更，纯链接索引；系统设计正文以 system-design-primer 与 NEXT 时代资料为主"
+  },
+  {
+   "repo": "CoderLeixiaoshuai/java-eight-part",
+   "flag": "2023-11 停更，JDK 8 口径为主；新特性按 JDK 17/21 LTS 复核"
+  },
+  {
+   "repo": "zijing2333/CSView",
+   "flag": "2024-03 停更，多语言面试汇编；框架 API 需回官方文档核对"
+  },
+  {
+   "repo": "xingshaocheng/architect-awesome",
+   "flag": "2024-04 停更，架构清单索引（6万 star 但正文薄）；只当检查表用"
+  },
+  {
+   "repo": "0voice/from_coder_to_expert",
+   "flag": "2024-05 停更，697 MB 文章/PDF 堆，仅 1 篇 md；按需用，不进学习主线"
+  },
+  {
+   "repo": "crossoverJie/JCSprout",
+   "flag": "2024-05 有推送但正文为 2019 前后口径（JDK 8、旧 Spring）；只作历史参考"
+  }
+ ],
+ "at": "2026-11-05 18:38"
+}

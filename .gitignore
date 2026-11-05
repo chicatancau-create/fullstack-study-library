@@ -1,0 +1,30 @@
+# 系统与编辑器
+Thumbs.db
+.DS_Store
+*.tmp
+
+# 资料镜像正文（体积大，不进 Git；用 05-外部资料库/材料清单.md 复现）
+05-外部资料库/题库/
+05-外部资料库/知识库/
+
+# 采集暂存：只保留可复现所需的脚本与账本，压缩包/镜像/日志不入库
+05-外部资料库/_采集暂存/raw/
+05-外部资料库/_采集暂存/raw2/
+05-外部资料库/_采集暂存/text/
+05-外部资料库/_采集暂存/mirror/
+05-外部资料库/_采集暂存/mirror2/
+05-外部资料库/_采集暂存/*.log
+05-外部资料库/_采集暂存/__pycache__/
+05-外部资料库/_采集暂存/discover*.json
+05-外部资料库/_采集暂存/sweep*.json
+05-外部资料库/_采集暂存/shortlist*.json
+05-外部资料库/_采集暂存/screen2.json
+05-外部资料库/_采集暂存/assets.json
+05-外部资料库/_采集暂存/remote_urls.json
+05-外部资料库/_采集暂存/inventory.json
+05-外部资料库/_采集暂存/staleness.json
+
+# Obsidian 工作缓存
+.obsidian/workspace*
+.obsidian/cache
+.workbuddy/backups/

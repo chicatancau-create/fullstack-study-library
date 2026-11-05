@@ -1,0 +1,162 @@
+{
+  "000-学习总览.md": {
+    "sha256": "9143604a064ffd1b2e1f6e46b71351c712a1579b16b2a65efa0f993c3cfc8860",
+    "length": 10821
+  },
+  "01-阶段课程/专项-核心原理与深度实验.md": {
+    "sha256": "2b2108f9fcc4d6f3d6ef11ab9fd229b979fce375a41063d2e9207dc056ee6a25",
+    "length": 11719
+  },
+  "01-阶段课程/专项-算法与数据结构深度训练.md": {
+    "sha256": "67acb24d2e0bce3e72760b725e94e875b065072df4c950648e792f60f824ea4a",
+    "length": 8490
+  },
+  "01-阶段课程/专项-计算机系统与多语言深度.md": {
+    "sha256": "bf17d21ea6cae3c251f87f55ba606f610f1bcef043ce6ab4f4850f01b30ad559",
+    "length": 10570
+  },
+  "01-阶段课程/专项-高并发与系统设计.md": {
+    "sha256": "c49578b64ceb9ae961e6926aef81c72e47e093e858e4095d1a18ba5708005a2c",
+    "length": 7404
+  },
+  "01-阶段课程/阶段00-开发环境与工程习惯.md": {
+    "sha256": "04e7144374ca1f4da8ac073b7d69241166e8b8bf7946b350af4acbff896b9315",
+    "length": 4894
+  },
+  "01-阶段课程/阶段01-计算机与Web基础.md": {
+    "sha256": "d513b9dacd8ffa1dc3cf7b8a8ae7dfe1204c67766c27407d6304926d22a9ea55",
+    "length": 4603
+  },
+  "01-阶段课程/阶段02-JavaScript与TypeScript.md": {
+    "sha256": "11b316db96c845410ad71d5ea55cb7346c879bffc2c9d40e103928e4886bd0e3",
+    "length": 4179
+  },
+  "01-阶段课程/阶段03-React前端工程.md": {
+    "sha256": "4bb0f9b632cb54a065e907c42af832b0e2c050dddc92d280611dab9fd2aaa81f",
+    "length": 4205
+  },
+  "01-阶段课程/阶段04-Nodejs后端开发.md": {
+    "sha256": "a39f770e42b02c3ada19e0ecd26e1c1b2b7483904640067b32fca97602717047",
+    "length": 4498
+  },
+  "01-阶段课程/阶段05-数据库与缓存.md": {
+    "sha256": "8f8868dff824fac156f8f79389e414ae9231d8a6d60c3e78d2df2198e6887154",
+    "length": 4702
+  },
+  "01-阶段课程/阶段06-测试安全与性能.md": {
+    "sha256": "0e00d81d8d493a9f0d2a2061d214bde59478aab0e9c356bda45edd48f4474b8e",
+    "length": 6240
+  },
+  "01-阶段课程/阶段07-部署运维与系统设计.md": {
+    "sha256": "e513d8f0b29e93e014971450d70efa2f10f3bb5823285604019a288f9a0e89db",
+    "length": 5947
+  },
+  "01-阶段课程/阶段08-毕业项目与求职.md": {
+    "sha256": "6b7598f9b4717e58aca525463bca97b78f5987d2136b7978a948c14fbbf0c377",
+    "length": 6297
+  },
+  "01-阶段课程/阶段09-中线技术栈与多语言交付.md": {
+    "sha256": "8527e6327e43d46e777b6fcc970f1b339e53fa1ea1bac68bb176f8e660a91dba",
+    "length": 11526
+  },
+  "01-阶段课程/阶段10-长期扩展与专项深化.md": {
+    "sha256": "dbb876c865eac8be5d5717228efad8f75fddb0759ac94e3deceb445d5f7427c9",
+    "length": 8905
+  },
+  "02-项目实战/项目01-个人博客.md": {
+    "sha256": "8c8add9ac6aff2d3e21f714e4b7651a090b8a0b6d32a66b31c7be7689ff4123a",
+    "length": 4383
+  },
+  "02-项目实战/项目02-协作任务平台.md": {
+    "sha256": "2b2b3e0e75c3474c3c71e7dde0b65609fbb0026171625361d96fb04631a628d0",
+    "length": 3712
+  },
+  "02-项目实战/项目03-电商交易Demo.md": {
+    "sha256": "74af1a382aa6ae5922013a0a6c4f17340110fd6a42ce34654d31a582973e24b3",
+    "length": 5761
+  },
+  "02-项目实战/项目04-综合SaaS毕业项目.md": {
+    "sha256": "045200090d2ee855460ddc3ac770e89d6ca9eb2dc65fca6171f9a2530431e9d0",
+    "length": 6250
+  },
+  "02-项目实战/项目05-陌生系统接手与团队交付.md": {
+    "sha256": "7b49ee9b4fbdf0b104bc694962715369497d49608932056a17344e393a4e9c88",
+    "length": 5500
+  },
+  "02-项目实战/项目实战总览.md": {
+    "sha256": "5f6723963f57704dbd2690ed2fb5b65ddeb148848abe05ee1736d6e11810a8d5",
+    "length": 6810
+  },
+  "03-执行计划/36周执行计划.md": {
+    "sha256": "45a6d70c5ae0cb117b99cd5d20e8b12eb24d0d5b384894cd9b41c09b57a970a2",
+    "length": 7612
+  },
+  "03-执行计划/模板-学习日志.md": {
+    "sha256": "d089209f614ad0fe96c764ade9792bbb2e6f7543c56e1b8d4f875eceab508132",
+    "length": 883
+  },
+  "03-执行计划/模板-每周复盘.md": {
+    "sha256": "a83faa7e9ac332fb9fea051ea6edbc55df330443430cbe0212a5b0b2938ef262",
+    "length": 2249
+  },
+  "03-执行计划/模板-能力证据.md": {
+    "sha256": "58c22aa6b585be3283dc49fa48e34c2d9ae2558acdafd98e4258e25ede689a94",
+    "length": 2192
+  },
+  "03-执行计划/模板-阶段复盘.md": {
+    "sha256": "fceee74c518dcee2cba1a2cd92ab0d0beb1ff65edf2bb90cc16652524ea882ba",
+    "length": 2190
+  },
+  "03-执行计划/模板-项目复盘.md": {
+    "sha256": "3bf00c49b44a1fce0f037c4fda0696cf35ff6b710f9d3b646091569f62626593",
+    "length": 2004
+  },
+  "03-执行计划/深度路线与工时预算.md": {
+    "sha256": "7990c595d196f41e665fd0784f28b44bf6a7b43fe8530711e9ae730798c8dc73",
+    "length": 8385
+  },
+  "03-执行计划/进度看板.md": {
+    "sha256": "a75ded71f46fda9ed192f872a108581bee0b8d2396119aaf49fd3aacd672f5e4",
+    "length": 7232
+  },
+  "03-执行计划/长期学习路线.md": {
+    "sha256": "47e87c6544b2f1fa210409e896722287102e78847cd12c3fe6a7b6616c86e1b1",
+    "length": 4517
+  },
+  "04-资源与评估/官方学习资源.md": {
+    "sha256": "13220a489c56b50047c6b4da8f9cb841f2e842311325d76d13d31d723a4fce0f",
+    "length": 12499
+  },
+  "04-资源与评估/岗位能力矩阵与验收标准.md": {
+    "sha256": "051dad9a0e1c7baf5bf1633913dca4adde31c0eb5b73fb338b704ffc621c0d3a",
+    "length": 7551
+  },
+  "04-资源与评估/技术栈全景地图.md": {
+    "sha256": "abaa8c3f36a2f713e93e0594baf4f4c9c89936abf494be9b0e765b307d6e665b",
+    "length": 18412
+  },
+  "04-资源与评估/改版说明与文档验证.md": {
+    "sha256": "cb60d4f4c51f1e879a29a35d3a1937a860d737152f8a32ea970946b7fe80b8b8",
+    "length": 6547
+  },
+  "04-资源与评估/综合实操考核与上岗准入.md": {
+    "sha256": "7d3ddf143586541b46a4dea785e8a75260a6c6171e0b7e35aedd89ffca560c24",
+    "length": 8029
+  },
+  "04-资源与评估/能力自检清单.md": {
+    "sha256": "0e5c3bdee2262555ecdcc7794929481a1cd9da260b237fdb227a45406b5bdd16",
+    "length": 11398
+  },
+  "04-资源与评估/面试与作品集.md": {
+    "sha256": "70beab7842d8c6a9dc4590bdddaba089210a0dca3d366b5d5c084e1eb2621c8f",
+    "length": 5460
+  },
+  ".workbuddy/memory/2026-11-04.md": {
+    "sha256": "bdad3989811eb5c7384b09e2f9240e80b71fb0e24ec358057b4f3edf441ed35f",
+    "length": 6464
+  },
+  ".workbuddy/memory/MEMORY.md": {
+    "sha256": "7ad0f4c383cb3bc3662f581bc9e3184122ac9f47c1c1b3a227a9bb4383109819",
+    "length": 1400
+  }
+}

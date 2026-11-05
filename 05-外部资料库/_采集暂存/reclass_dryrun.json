@@ -1,0 +1,1186 @@
+[
+ {
+  "repo": "https://github.com/adongwanai/AgentGuide",
+  "from": "题库/AI与RAG",
+  "to": "知识库/AI与RAG",
+  "md": 175,
+  "signals": {
+   "AI": 1286,
+   "前端": 51,
+   "SQL与数据": 40,
+   "运维云原生": 17
+  }
+ },
+ {
+  "repo": "https://github.com/itcharge/AlgoNote",
+  "from": "题库/算法题解",
+  "to": "知识库/算法与数据结构",
+  "md": 1705,
+  "signals": {
+   "算法": 248,
+   "前端": 2,
+   "AI": 2,
+   "SQL与数据": 0
+  }
+ },
+ {
+  "repo": "https://github.com/LongxingTan/Machine-learning-interview",
+  "from": "题库/八股与基础",
+  "to": "知识库/算法与数据结构",
+  "md": 409,
+  "signals": {
+   "算法": 241,
+   "AI": 35,
+   "SQL与数据": 13,
+   "Node后端": 8
+  }
+ },
+ {
+  "repo": "https://github.com/envico801/Neetcode-150-and-Blind-75",
+  "from": "题库/算法题解",
+  "to": "知识库/算法与数据结构",
+  "md": 259,
+  "signals": {
+   "算法": 131,
+   "前端": 3,
+   "SQL与数据": 0,
+   "Node后端": 0
+  }
+ },
+ {
+  "repo": "https://github.com/apachecn/Interview",
+  "from": "题库/八股与基础",
+  "to": "KEEP-PLACE",
+  "md": 124,
+  "signals": {
+   "SQL与数据": 6,
+   "算法": 69,
+   "前端": 20,
+   "Node后端": 2,
+   "Java": 0,
+   "Go": 9,
+   "运维云原生": 6,
+   "安全": 0,
+   "AI": 2,
+   "系统基础": 0,
+   "系统设计": 0
+  }
+ },
+ {
+  "repo": "https://github.com/shfshanyue/Daily-Question",
+  "from": "题库/八股与基础",
+  "to": "题库/前端与Node",
+  "md": 1046,
+  "signals": {
+   "前端": 123,
+   "运维云原生": 21,
+   "Node后端": 9,
+   "SQL与数据": 7
+  }
+ },
+ {
+  "repo": "https://github.com/colinlet/PHP-Interview-QA",
+  "from": "题库/SQL与数据",
+  "to": "KEEP-PLACE",
+  "md": 163,
+  "signals": {
+   "SQL与数据": 41,
+   "算法": 10,
+   "前端": 27,
+   "Node后端": 0,
+   "Java": 3,
+   "Go": 1,
+   "运维云原生": 12,
+   "安全": 46,
+   "AI": 166,
+   "系统基础": 213,
+   "系统设计": 8
+  }
+ },
+ {
+  "repo": "https://github.com/ZhongYi-LinuxDriverDev/EmbeddedSoftwareEngineerInterview",
+  "from": "题库/八股与基础",
+  "to": "知识库/计算机基础",
+  "md": 22,
+  "signals": {
+   "系统基础": 122,
+   "算法": 14,
+   "AI": 10,
+   "Java": 7
+  }
+ },
+ {
+  "repo": "https://github.com/zkywsg/Daily-LLM",
+  "from": "题库/算法题解",
+  "to": "知识库/AI与RAG",
+  "md": 395,
+  "signals": {
+   "AI": 632,
+   "前端": 35,
+   "系统设计": 23,
+   "Go": 14
+  }
+ },
+ {
+  "repo": "https://github.com/inancgumus/learngo",
+  "from": "知识库/课程与路线",
+  "to": "KEEP-PLACE",
+  "md": 174,
+  "signals": {
+   "SQL与数据": 2,
+   "算法": 0,
+   "前端": 6,
+   "Node后端": 7,
+   "Java": 1,
+   "Go": 18,
+   "运维云原生": 8,
+   "安全": 0,
+   "AI": 9,
+   "系统基础": 2,
+   "系统设计": 0
+  }
+ },
+ {
+  "repo": "https://github.com/hello-java-maker/JavaInterview",
+  "from": "题库/算法题解",
+  "to": "KEEP-PLACE",
+  "md": 65,
+  "signals": {
+   "SQL与数据": 92,
+   "算法": 28,
+   "前端": 32,
+   "Node后端": 0,
+   "Java": 611,
+   "Go": 24,
+   "运维云原生": 3,
+   "安全": 7,
+   "AI": 5,
+   "系统基础": 416,
+   "系统设计": 31
+  }
+ },
+ {
+  "repo": "https://github.com/aasthas2022/SDE-Interview-and-Prep-Roadmap",
+  "from": "题库/八股与基础",
+  "to": "KEEP-PLACE",
+  "md": 47,
+  "signals": {
+   "SQL与数据": 180,
+   "算法": 5,
+   "前端": 16,
+   "Node后端": 7,
+   "Java": 14,
+   "Go": 0,
+   "运维云原生": 10,
+   "安全": 8,
+   "AI": 169,
+   "系统基础": 0,
+   "系统设计": 22
+  }
+ },
+ {
+  "repo": "https://github.com/ctrlaltwill/LearnKit",
+  "from": "知识库/课程与路线",
+  "to": "KEEP-PLACE",
+  "md": 60,
+  "signals": {
+   "SQL与数据": 7,
+   "算法": 0,
+   "前端": 35,
+   "Node后端": 11,
+   "Java": 0,
+   "Go": 0,
+   "运维云原生": 0,
+   "安全": 1,
+   "AI": 59,
+   "系统基础": 0,
+   "系统设计": 0
+  }
+ },
+ {
+  "repo": "https://github.com/ather-techie/rag-interview-system",
+  "from": "题库/八股与基础",
+  "to": "知识库/AI与RAG",
+  "md": 110,
+  "signals": {
+   "AI": 1506,
+   "前端": 71,
+   "SQL与数据": 48,
+   "运维云原生": 19
+  }
+ },
+ {
+  "repo": "https://github.com/JoshithReddyAleti/AI_Engineer_Interview_Prep",
+  "from": "题库/八股与基础",
+  "to": "知识库/AI与RAG",
+  "md": 89,
+  "signals": {
+   "AI": 1052,
+   "运维云原生": 63,
+   "前端": 58,
+   "SQL与数据": 36
+  }
+ },
+ {
+  "repo": "https://github.com/nomankhn9/devops-exercises",
+  "from": "题库/八股与基础",
+  "to": "题库/运维与DevOps",
+  "md": 290,
+  "signals": {
+   "运维云原生": 95,
+   "AI": 15,
+   "系统设计": 13,
+   "前端": 9
+  }
+ },
+ {
+  "repo": "https://github.com/mindcarver/91ai",
+  "from": "题库/AI与RAG",
+  "to": "知识库/AI与RAG",
+  "md": 1511,
+  "signals": {
+   "AI": 330,
+   "前端": 44,
+   "Node后端": 35,
+   "SQL与数据": 19
+  }
+ },
+ {
+  "repo": "https://github.com/cd-home/Root",
+  "from": "知识库/课程与路线",
+  "to": "KEEP-PLACE",
+  "md": 232,
+  "signals": {
+   "SQL与数据": 52,
+   "算法": 103,
+   "前端": 18,
+   "Node后端": 0,
+   "Java": 5,
+   "Go": 46,
+   "运维云原生": 124,
+   "安全": 8,
+   "AI": 31,
+   "系统基础": 53,
+   "系统设计": 5
+  }
+ },
+ {
+  "repo": "https://github.com/Ethan-Wang-dev/awesome-cs61a",
+  "from": "知识库/AI与RAG",
+  "to": "KEEP-PLACE",
+  "md": 25,
+  "signals": {
+   "SQL与数据": 4,
+   "算法": 0,
+   "前端": 0,
+   "Node后端": 169,
+   "Java": 74,
+   "Go": 0,
+   "运维云原生": 0,
+   "安全": 0,
+   "AI": 16,
+   "系统基础": 0,
+   "系统设计": 0
+  }
+ },
+ {
+  "repo": "https://github.com/shoujche/algorithm-notes",
+  "from": "题库/算法题解",
+  "to": "KEEP-PLACE",
+  "md": 13,
+  "signals": {
+   "SQL与数据": 26,
+   "算法": 23,
+   "前端": 69,
+   "Node后端": 30,
+   "Java": 5,
+   "Go": 0,
+   "运维云原生": 22,
+   "安全": 6,
+   "AI": 230,
+   "系统基础": 44,
+   "系统设计": 1
+  }
+ },
+ {
+  "repo": "https://github.com/Harsh-Belekar/LeetCode-SQL-50",
+  "from": "题库/算法题解",
+  "to": "KEEP-PLACE",
+  "md": 51,
+  "signals": {
+   "SQL与数据": 1,
+   "算法": 11,
+   "前端": 4,
+   "Node后端": 0,
+   "Java": 0,
+   "Go": 0,
+   "运维云原生": 0,
+   "安全": 0,
+   "AI": 36,
+   "系统基础": 0,
+   "系统设计": 0
+  }
+ },
+ {
+  "repo": "https://github.com/angel200109/blog",
+  "from": "知识库/AI与RAG",
+  "to": "KEEP-PLACE",
+  "md": 119,
+  "signals": {
+   "SQL与数据": 209,
+   "算法": 1,
+   "前端": 316,
+   "Node后端": 6,
+   "Java": 0,
+   "Go": 0,
+   "运维云原生": 0,
+   "安全": 0,
+   "AI": 5,
+   "系统基础": 27,
+   "系统设计": 4
+  }
+ },
+ {
+  "repo": "https://github.com/franklesniak/EFingPlanner",
+  "from": "题库/课程与路线",
+  "to": "KEEP-PLACE",
+  "md": 238,
+  "signals": {
+   "SQL与数据": 18,
+   "算法": 0,
+   "前端": 5,
+   "Node后端": 3,
+   "Java": 7,
+   "Go": 1,
+   "运维云原生": 1,
+   "安全": 7,
+   "AI": 40,
+   "系统基础": 0,
+   "系统设计": 0
+  }
+ },
+ {
+  "repo": "https://github.com/chenxi101w/408-first-round",
+  "from": "题库/算法题解",
+  "to": "知识库/计算机基础",
+  "md": 32,
+  "signals": {
+   "系统基础": 462,
+   "SQL与数据": 64,
+   "算法": 27,
+   "AI": 3
+  }
+ },
+ {
+  "repo": "https://github.com/kusal-tharindu/devops-interview-questions",
+  "from": "题库/八股与基础",
+  "to": "KEEP-PLACE",
+  "md": 50,
+  "signals": {
+   "SQL与数据": 12,
+   "算法": 0,
+   "前端": 18,
+   "Node后端": 33,
+   "Java": 9,
+   "Go": 4,
+   "运维云原生": 141,
+   "安全": 13,
+   "AI": 38,
+   "系统基础": 48,
+   "系统设计": 15
+  }
+ },
+ {
+  "repo": "https://github.com/ramesh-852000/devops-practices-and-interview-prep",
+  "from": "题库/SQL与数据",
+  "to": "题库/运维与DevOps",
+  "md": 276,
+  "signals": {
+   "运维云原生": 83,
+   "前端": 16,
+   "系统设计": 12,
+   "SQL与数据": 8
+  }
+ },
+ {
+  "repo": "https://github.com/sudheerj/reactjs-interview-questions",
+  "from": "题库/八股与基础",
+  "to": "题库/前端与Node",
+  "md": 19,
+  "signals": {
+   "前端": 378,
+   "SQL与数据": 25,
+   "Node后端": 9,
+   "Java": 1
+  }
+ },
+ {
+  "repo": "https://github.com/datawhalechina/self-llm",
+  "from": "题库/运维与云原生",
+  "to": "知识库/AI与RAG",
+  "md": 308,
+  "signals": {
+   "AI": 905,
+   "安全": 7,
+   "前端": 6,
+   "SQL与数据": 4
+  }
+ },
+ {
+  "repo": "https://github.com/sunface/rust-course",
+  "from": "知识库/后端进阶",
+  "to": "KEEP-PLACE",
+  "md": 409,
+  "signals": {
+   "SQL与数据": 19,
+   "算法": 1,
+   "前端": 3,
+   "Node后端": 0,
+   "Java": 2,
+   "Go": 2,
+   "运维云原生": 1,
+   "安全": 0,
+   "AI": 17,
+   "系统基础": 69,
+   "系统设计": 3
+  }
+ },
+ {
+  "repo": "https://github.com/judasn/IntelliJ-IDEA-Tutorial",
+  "from": "知识库/课程与路线",
+  "to": "KEEP-PLACE",
+  "md": 46,
+  "signals": {
+   "SQL与数据": 33,
+   "算法": 0,
+   "前端": 18,
+   "Node后端": 1,
+   "Java": 75,
+   "Go": 0,
+   "运维云原生": 6,
+   "安全": 0,
+   "AI": 10,
+   "系统基础": 6,
+   "系统设计": 0
+  }
+ },
+ {
+  "repo": "https://github.com/wdndev/llm_interview_note",
+  "from": "题库/八股与基础",
+  "to": "知识库/AI与RAG",
+  "md": 96,
+  "signals": {
+   "AI": 817,
+   "前端": 35,
+   "系统基础": 34,
+   "SQL与数据": 33
+  }
+ },
+ {
+  "repo": "https://github.com/zhisheng17/flink-learning",
+  "from": "题库/SQL与数据",
+  "to": "KEEP-PLACE",
+  "md": 123,
+  "signals": {
+   "SQL与数据": 6,
+   "算法": 3,
+   "前端": 19,
+   "Node后端": 3,
+   "Java": 8,
+   "Go": 0,
+   "运维云原生": 6,
+   "安全": 0,
+   "AI": 27,
+   "系统基础": 13,
+   "系统设计": 9
+  }
+ },
+ {
+  "repo": "https://github.com/macrozheng/mall-learning",
+  "from": "题库/SQL与数据",
+  "to": "KEEP-PLACE",
+  "md": 145,
+  "signals": {
+   "SQL与数据": 26,
+   "算法": 0,
+   "前端": 20,
+   "Node后端": 6,
+   "Java": 583,
+   "Go": 0,
+   "运维云原生": 112,
+   "安全": 13,
+   "AI": 191,
+   "系统基础": 27,
+   "系统设计": 11
+  }
+ },
+ {
+  "repo": "https://github.com/TheOdinProject/curriculum",
+  "from": "知识库/课程与路线",
+  "to": "KEEP-PLACE",
+  "md": 582,
+  "signals": {
+   "SQL与数据": 15,
+   "算法": 0,
+   "前端": 227,
+   "Node后端": 87,
+   "Java": 0,
+   "Go": 3,
+   "运维云原生": 0,
+   "安全": 1,
+   "AI": 15,
+   "系统基础": 0,
+   "系统设计": 0
+  }
+ },
+ {
+  "repo": "https://github.com/febobo/web-interview",
+  "from": "题库/八股与基础",
+  "to": "知识库/前端与Node",
+  "md": 236,
+  "signals": {
+   "前端": 861,
+   "Node后端": 35,
+   "系统基础": 20,
+   "AI": 8
+  }
+ },
+ {
+  "repo": "https://github.com/frank-lam/fullstack-tutorial",
+  "from": "题库/课程与路线",
+  "to": "KEEP-PLACE",
+  "md": 211,
+  "signals": {
+   "SQL与数据": 17,
+   "算法": 21,
+   "前端": 26,
+   "Node后端": 3,
+   "Java": 197,
+   "Go": 3,
+   "运维云原生": 260,
+   "安全": 50,
+   "AI": 17,
+   "系统基础": 302,
+   "系统设计": 16
+  }
+ },
+ {
+  "repo": "https://github.com/mengxi-ream/read-frog",
+  "from": "知识库/课程与路线",
+  "to": "KEEP-PLACE",
+  "md": 163,
+  "signals": {
+   "SQL与数据": 10,
+   "算法": 0,
+   "前端": 166,
+   "Node后端": 14,
+   "Java": 5,
+   "Go": 20,
+   "运维云原生": 1,
+   "安全": 4,
+   "AI": 62,
+   "系统基础": 0,
+   "系统设计": 0
+  }
+ },
+ {
+  "repo": "https://github.com/bregman-arie/devops-resources",
+  "from": "题库/SQL与数据",
+  "to": "知识库/运维与云原生",
+  "md": 47,
+  "signals": {
+   "运维云原生": 286,
+   "系统基础": 17,
+   "AI": 9,
+   "前端": 6
+  }
+ },
+ {
+  "repo": "https://github.com/phodal/growth-ebook",
+  "from": "知识库/课程与路线",
+  "to": "KEEP-PLACE",
+  "md": 65,
+  "signals": {
+   "SQL与数据": 35,
+   "算法": 0,
+   "前端": 71,
+   "Node后端": 13,
+   "Java": 19,
+   "Go": 0,
+   "运维云原生": 17,
+   "安全": 0,
+   "AI": 4,
+   "系统基础": 31,
+   "系统设计": 0
+  }
+ },
+ {
+  "repo": "https://github.com/lgwebdream/FE-Interview",
+  "from": "题库/八股与基础",
+  "to": "题库/前端与Node",
+  "md": 16,
+  "signals": {
+   "前端": 698,
+   "系统基础": 62,
+   "算法": 16,
+   "AI": 12
+  }
+ },
+ {
+  "repo": "https://github.com/ombharatiya/FAANG-Coding-Interview-Questions",
+  "from": "题库/八股与基础",
+  "to": "KEEP-PLACE",
+  "md": 11,
+  "signals": {
+   "SQL与数据": 3,
+   "算法": 185,
+   "前端": 11,
+   "Node后端": 2,
+   "Java": 1,
+   "Go": 2,
+   "运维云原生": 2,
+   "安全": 0,
+   "AI": 138,
+   "系统基础": 1,
+   "系统设计": 1
+  }
+ },
+ {
+  "repo": "https://github.com/FAQGURU/FAQGURU",
+  "from": "题库/八股与基础",
+  "to": "题库/前端与Node",
+  "md": 47,
+  "signals": {
+   "前端": 650,
+   "AI": 74,
+   "Node后端": 41,
+   "SQL与数据": 31
+  }
+ },
+ {
+  "repo": "https://github.com/ai-infra-curriculum/ai-infra-engineer-learning",
+  "from": "题库/AI与RAG",
+  "to": "KEEP-PLACE",
+  "md": 380,
+  "signals": {
+   "SQL与数据": 24,
+   "算法": 0,
+   "前端": 28,
+   "Node后端": 1,
+   "Java": 8,
+   "Go": 6,
+   "运维云原生": 421,
+   "安全": 22,
+   "AI": 148,
+   "系统基础": 2,
+   "系统设计": 27
+  }
+ },
+ {
+  "repo": "https://github.com/shawlu95/Beyond-LeetCode-SQL",
+  "from": "题库/算法题解",
+  "to": "题库/SQL与数据",
+  "md": 33,
+  "signals": {
+   "SQL与数据": 720,
+   "算法": 44,
+   "AI": 27,
+   "前端": 10
+  }
+ },
+ {
+  "repo": "https://github.com/fancyboi999/ai-engineering-from-scratch-zh",
+  "from": "题库/AI与RAG",
+  "to": "知识库/AI与RAG",
+  "md": 2798,
+  "signals": {
+   "AI": 394,
+   "SQL与数据": 56,
+   "系统基础": 35,
+   "运维云原生": 29
+  }
+ },
+ {
+  "repo": "https://github.com/NotHarshhaa/DevOps-Interview-Questions",
+  "from": "题库/八股与基础",
+  "to": "KEEP-PLACE",
+  "md": 18,
+  "signals": {
+   "SQL与数据": 8,
+   "算法": 0,
+   "前端": 7,
+   "Node后端": 5,
+   "Java": 5,
+   "Go": 0,
+   "运维云原生": 203,
+   "安全": 37,
+   "AI": 63,
+   "系统基础": 8,
+   "系统设计": 17
+  }
+ },
+ {
+  "repo": "https://github.com/GarethManning/education-agent-skills",
+  "from": "题库/AI与RAG",
+  "to": "KEEP-PLACE",
+  "md": 249,
+  "signals": {
+   "SQL与数据": 95,
+   "算法": 0,
+   "前端": 85,
+   "Node后端": 19,
+   "Java": 2,
+   "Go": 6,
+   "运维云原生": 4,
+   "安全": 0,
+   "AI": 294,
+   "系统基础": 0,
+   "系统设计": 0
+  }
+ },
+ {
+  "repo": "https://github.com/DerekBabb/CyberSecurity",
+  "from": "知识库/安全",
+  "to": "KEEP-PLACE",
+  "md": 41,
+  "signals": {
+   "SQL与数据": 3,
+   "算法": 0,
+   "前端": 9,
+   "Node后端": 1,
+   "Java": 0,
+   "Go": 2,
+   "运维云原生": 0,
+   "安全": 13,
+   "AI": 2,
+   "系统基础": 0,
+   "系统设计": 0
+  }
+ },
+ {
+  "repo": "https://github.com/airbnb/javascript",
+  "from": "知识库/前端与Node",
+  "to": "KEEP-PLACE",
+  "md": 11,
+  "signals": {
+   "SQL与数据": 1,
+   "算法": 0,
+   "前端": 141,
+   "Node后端": 58,
+   "Java": 0,
+   "Go": 0,
+   "运维云原生": 0,
+   "安全": 0,
+   "AI": 5,
+   "系统基础": 0,
+   "系统设计": 0
+  }
+ },
+ {
+  "repo": "https://github.com/dair-ai/Prompt-Engineering-Guide",
+  "from": "题库/AI与RAG",
+  "to": "知识库/AI与RAG",
+  "md": 1111,
+  "signals": {
+   "AI": 346,
+   "前端": 15,
+   "SQL与数据": 2,
+   "Node后端": 1
+  }
+ },
+ {
+  "repo": "https://github.com/rohitg00/ai-engineering-from-scratch",
+  "from": "题库/AI与RAG",
+  "to": "题库/AI与Agent",
+  "md": 3418,
+  "signals": {
+   "AI": 490,
+   "运维云原生": 45,
+   "前端": 40,
+   "SQL与数据": 39
+  }
+ },
+ {
+  "repo": "https://github.com/GitHubDaily/GitHubDaily",
+  "from": "知识库/课程与路线",
+  "to": "KEEP-PLACE",
+  "md": 13,
+  "signals": {
+   "SQL与数据": 2,
+   "算法": 8,
+   "前端": 21,
+   "Node后端": 4,
+   "Java": 45,
+   "Go": 0,
+   "运维云原生": 4,
+   "安全": 3,
+   "AI": 27,
+   "系统基础": 6,
+   "系统设计": 2
+  }
+ },
+ {
+  "repo": "https://github.com/LeCoupa/awesome-cheatsheets",
+  "from": "知识库/课程与路线",
+  "to": "KEEP-PLACE",
+  "md": 13,
+  "signals": {
+   "SQL与数据": 8,
+   "算法": 0,
+   "前端": 63,
+   "Node后端": 40,
+   "Java": 0,
+   "Go": 4,
+   "运维云原生": 44,
+   "安全": 0,
+   "AI": 12,
+   "系统基础": 4,
+   "系统设计": 0
+  }
+ },
+ {
+  "repo": "https://github.com/unknwon/the-way-to-go_ZH_CN",
+  "from": "知识库/课程与路线",
+  "to": "KEEP-PLACE",
+  "md": 214,
+  "signals": {
+   "SQL与数据": 31,
+   "算法": 1,
+   "前端": 9,
+   "Node后端": 1,
+   "Java": 0,
+   "Go": 43,
+   "运维云原生": 0,
+   "安全": 0,
+   "AI": 2,
+   "系统基础": 29,
+   "系统设计": 0
+  }
+ },
+ {
+  "repo": "https://github.com/standard/standard",
+  "from": "知识库/前端与Node",
+  "to": "知识库/后端进阶",
+  "md": 23,
+  "signals": {
+   "Node后端": 189,
+   "前端": 15,
+   "AI": 11,
+   "SQL与数据": 2
+  }
+ },
+ {
+  "repo": "https://github.com/markerikson/react-redux-links",
+  "from": "知识库/前端与Node",
+  "to": "题库/前端与Node",
+  "md": 48,
+  "signals": {
+   "前端": 1708,
+   "Node后端": 140,
+   "AI": 20,
+   "运维云原生": 3
+  }
+ },
+ {
+  "repo": "https://github.com/verekia/js-stack-from-scratch",
+  "from": "知识库/前端与Node",
+  "to": "KEEP-PLACE",
+  "md": 13,
+  "signals": {
+   "SQL与数据": 5,
+   "算法": 0,
+   "前端": 156,
+   "Node后端": 48,
+   "Java": 0,
+   "Go": 0,
+   "运维云原生": 18,
+   "安全": 6,
+   "AI": 8,
+   "系统基础": 0,
+   "系统设计": 0
+  }
+ },
+ {
+  "repo": "https://github.com/Canner/WrenAI",
+  "from": "题库/SQL与数据",
+  "to": "KEEP-PLACE",
+  "md": 147,
+  "signals": {
+   "SQL与数据": 190,
+   "算法": 0,
+   "前端": 7,
+   "Node后端": 9,
+   "Java": 0,
+   "Go": 4,
+   "运维云原生": 3,
+   "安全": 0,
+   "AI": 308,
+   "系统基础": 0,
+   "系统设计": 1
+  }
+ },
+ {
+  "repo": "https://github.com/ty4z2008/Qix",
+  "from": "题库/SQL与数据",
+  "to": "KEEP-PLACE",
+  "md": 12,
+  "signals": {
+   "SQL与数据": 34,
+   "算法": 0,
+   "前端": 9,
+   "Node后端": 9,
+   "Java": 10,
+   "Go": 61,
+   "运维云原生": 4,
+   "安全": 0,
+   "AI": 7,
+   "系统基础": 12,
+   "系统设计": 2
+  }
+ },
+ {
+  "repo": "https://github.com/doocs/md",
+  "from": "知识库/课程与路线",
+  "to": "KEEP-PLACE",
+  "md": 36,
+  "signals": {
+   "SQL与数据": 5,
+   "算法": 0,
+   "前端": 124,
+   "Node后端": 157,
+   "Java": 0,
+   "Go": 2,
+   "运维云原生": 16,
+   "安全": 5,
+   "AI": 161,
+   "系统基础": 2,
+   "系统设计": 0
+  }
+ },
+ {
+  "repo": "https://github.com/pingcap/talent-plan",
+  "from": "知识库/系统设计",
+  "to": "KEEP-PLACE",
+  "md": 51,
+  "signals": {
+   "SQL与数据": 21,
+   "算法": 0,
+   "前端": 2,
+   "Node后端": 4,
+   "Java": 9,
+   "Go": 24,
+   "运维云原生": 3,
+   "安全": 0,
+   "AI": 49,
+   "系统基础": 2,
+   "系统设计": 1
+  }
+ },
+ {
+  "repo": "https://github.com/dominostars/playtranslate",
+  "from": "知识库/课程与路线",
+  "to": "KEEP-PLACE",
+  "md": 45,
+  "signals": {
+   "SQL与数据": 7,
+   "算法": 0,
+   "前端": 122,
+   "Node后端": 1,
+   "Java": 1,
+   "Go": 1,
+   "运维云原生": 4,
+   "安全": 0,
+   "AI": 37,
+   "系统基础": 0,
+   "系统设计": 0
+  }
+ },
+ {
+  "repo": "https://github.com/ad-si/Coding-Flashcards",
+  "from": "题库/SQL与数据",
+  "to": "KEEP-PLACE",
+  "md": 11,
+  "signals": {
+   "SQL与数据": 18,
+   "算法": 0,
+   "前端": 7,
+   "Node后端": 9,
+   "Java": 1,
+   "Go": 0,
+   "运维云原生": 0,
+   "安全": 0,
+   "AI": 4,
+   "系统基础": 0,
+   "系统设计": 0
+  }
+ },
+ {
+  "repo": "https://github.com/PKUFlyingPig/cs-self-learning",
+  "from": "知识库/课程与路线",
+  "to": "KEEP-PLACE",
+  "md": 273,
+  "signals": {
+   "SQL与数据": 6,
+   "算法": 0,
+   "前端": 8,
+   "Node后端": 1,
+   "Java": 38,
+   "Go": 2,
+   "运维云原生": 19,
+   "安全": 0,
+   "AI": 16,
+   "系统基础": 24,
+   "系统设计": 1
+  }
+ },
+ {
+  "repo": "https://github.com/ByteByteGoHq/system-design-101",
+  "from": "知识库/系统设计",
+  "to": "KEEP-PLACE",
+  "md": 418,
+  "signals": {
+   "SQL与数据": 1,
+   "算法": 0,
+   "前端": 1,
+   "Node后端": 1,
+   "Java": 4,
+   "Go": 2,
+   "运维云原生": 40,
+   "安全": 3,
+   "AI": 21,
+   "系统基础": 5,
+   "系统设计": 6
+  }
+ },
+ {
+  "repo": "https://github.com/florinpop17/app-ideas",
+  "from": "知识库/课程与路线",
+  "to": "KEEP-PLACE",
+  "md": 96,
+  "signals": {
+   "SQL与数据": 16,
+   "算法": 0,
+   "前端": 51,
+   "Node后端": 13,
+   "Java": 0,
+   "Go": 0,
+   "运维云原生": 6,
+   "安全": 0,
+   "AI": 17,
+   "系统基础": 0,
+   "系统设计": 0
+  }
+ },
+ {
+  "repo": "https://github.com/swisskyrepo/PayloadsAllTheThings",
+  "from": "题库/算法题解",
+  "to": "KEEP-PLACE",
+  "md": 142,
+  "signals": {
+   "SQL与数据": 114,
+   "算法": 0,
+   "前端": 146,
+   "Node后端": 6,
+   "Java": 8,
+   "Go": 3,
+   "运维云原生": 28,
+   "安全": 363,
+   "AI": 114,
+   "系统基础": 7,
+   "系统设计": 3
+  }
+ },
+ {
+  "repo": "https://github.com/rasbt/LLMs-from-scratch",
+  "from": "知识库/AI与RAG",
+  "to": "题库/AI与Agent",
+  "md": 76,
+  "signals": {
+   "AI": 209,
+   "运维云原生": 9,
+   "前端": 7,
+   "SQL与数据": 1
+  }
+ },
+ {
+  "repo": "https://github.com/nodejs/nodejs.org",
+  "from": "知识库/前端与Node",
+  "to": "知识库/后端进阶",
+  "md": 1309,
+  "signals": {
+   "Node后端": 348,
+   "前端": 52,
+   "AI": 25,
+   "安全": 9
+  }
+ },
+ {
+  "repo": "https://github.com/mdn/content",
+  "from": "题库/前端与Node",
+  "to": "知识库/前端与Node",
+  "md": 14753,
+  "signals": {
+   "前端": 301,
+   "安全": 42,
+   "AI": 22,
+   "运维云原生": 8
+  }
+ },
+ {
+  "repo": "https://github.com/khangich/machine-learning-interview",
+  "from": "题库/八股与基础",
+  "to": "KEEP-PLACE",
+  "md": 12,
+  "signals": {
+   "SQL与数据": 7,
+   "算法": 51,
+   "前端": 11,
+   "Node后端": 0,
+   "Java": 3,
+   "Go": 0,
+   "运维云原生": 0,
+   "安全": 0,
+   "AI": 9,
+   "系统基础": 0,
+   "系统设计": 0
+  }
+ },
+ {
+  "repo": "https://github.com/cp-algorithms/cp-algorithms",
+  "from": "题库/算法题解",
+  "to": "KEEP-PLACE",
+  "md": 175,
+  "signals": {
+   "SQL与数据": 2,
+   "算法": 6,
+   "前端": 11,
+   "Node后端": 14,
+   "Java": 0,
+   "Go": 0,
+   "运维云原生": 0,
+   "安全": 0,
+   "AI": 14,
+   "系统基础": 0,
+   "系统设计": 0
+  }
+ },
+ {
+  "repo": "https://github.com/OI-wiki/OI-wiki",
+  "from": "题库/算法题解",
+  "to": "KEEP-PLACE",
+  "md": 473,
+  "signals": {
+   "SQL与数据": 11,
+   "算法": 54,
+   "前端": 4,
+   "Node后端": 0,
+   "Java": 0,
+   "Go": 2,
+   "运维云原生": 17,
+   "安全": 0,
+   "AI": 11,
+   "系统基础": 3,
+   "系统设计": 0
+  }
+ }
+]

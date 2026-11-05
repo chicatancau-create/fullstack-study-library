@@ -1,0 +1,599 @@
+[
+ {
+  "repo": "labuladong/fucking-algorithm",
+  "stars": 136032,
+  "kb": 125948,
+  "lic": null,
+  "archived": false,
+  "pushed": "2026-10-18",
+  "branch": "master",
+  "language": "JavaScript",
+  "topics": [
+   "leetcode",
+   "algorithm"
+  ],
+  "desc": "Crack LeetCode, not only how, but also why. 算法学习笔记与题解框架",
+  "fns": [
+   "注入-算法知识"
+  ]
+ },
+ {
+  "repo": "PKUFlyingPig/cs-self-learning",
+  "stars": 68000,
+  "kb": 90000,
+  "lic": "CC-BY-SA-4.0",
+  "archived": false,
+  "pushed": "2026-10-01",
+  "branch": "master",
+  "language": "Python",
+  "topics": [
+   "cs",
+   "curriculum"
+  ],
+  "desc": "计算机自学指南：全球名校课程与实验路线（csdiy.wiki）",
+  "fns": [
+   "注入-自学路线"
+  ]
+ },
+ {
+  "repo": "ByteByteGoHq/system-design-101",
+  "stars": 91014,
+  "kb": 46759,
+  "lic": null,
+  "archived": false,
+  "pushed": "2025-04-04",
+  "branch": "main",
+  "language": null,
+  "topics": [
+   "system-design"
+  ],
+  "desc": "Explain complex systems using visuals and simple terms",
+  "fns": [
+   "注入-图解系统设计"
+  ]
+ },
+ {
+  "repo": "trimstray/the-book-of-secret-knowledge",
+  "stars": 255926,
+  "kb": 1748,
+  "lic": "MIT",
+  "archived": false,
+  "pushed": "2024-11-19",
+  "branch": "master",
+  "language": null,
+  "topics": [
+   "awesome",
+   "handbook"
+  ],
+  "desc": "A collection of inspiring lists, manuals, cheatsheets, blogs, hacks",
+  "fns": [
+   "注入-速查手册"
+  ]
+ },
+ {
+  "repo": "justjavac/free-programming-books-zh_CN",
+  "stars": 119502,
+  "kb": 1168,
+  "lic": "GPL-3.0",
+  "archived": false,
+  "pushed": "2026-07-29",
+  "branch": "master",
+  "language": null,
+  "topics": [
+   "books"
+  ],
+  "desc": "免费的计算机编程类中文书籍",
+  "fns": [
+   "注入-中文书目"
+  ]
+ },
+ {
+  "repo": "Developer-Y/cs-video-courses",
+  "stars": 84559,
+  "kb": 1082,
+  "lic": null,
+  "archived": false,
+  "pushed": "2026-11-04",
+  "branch": "master",
+  "language": null,
+  "topics": [
+   "curriculum"
+  ],
+  "desc": "List of Computer Science courses with video lectures",
+  "fns": [
+   "注入-CS课程清单"
+  ]
+ },
+ {
+  "repo": "florinpop17/app-ideas",
+  "stars": 98475,
+  "kb": 648,
+  "lic": "MIT",
+  "archived": false,
+  "pushed": "2025-10-11",
+  "branch": "master",
+  "language": null,
+  "topics": [
+   "project-ideas"
+  ],
+  "desc": "A Collection of application ideas which can be used to improve your coding skills",
+  "fns": [
+   "注入-项目题面"
+  ]
+ },
+ {
+  "repo": "ryanmcdermott/clean-code-javascript",
+  "stars": 94693,
+  "kb": 520,
+  "lic": "MIT",
+  "archived": false,
+  "pushed": "2024-07-29",
+  "branch": "master",
+  "language": null,
+  "topics": [
+   "guide"
+  ],
+  "desc": "Clean Code concepts adapted for JavaScript",
+  "fns": [
+   "注入-代码质量"
+  ]
+ },
+ {
+  "repo": "mlabonne/llm-course",
+  "stars": 84908,
+  "kb": 7637,
+  "lic": "Apache-2.0",
+  "archived": false,
+  "pushed": "2026-02-05",
+  "branch": "main",
+  "language": null,
+  "topics": [
+   "course",
+   "llm"
+  ],
+  "desc": "Course to get into Large Language Models (LLMs) with roadmaps and Colab notebooks",
+  "fns": [
+   "注入-LLM课程"
+  ]
+ },
+ {
+  "repo": "swisskyrepo/PayloadsAllTheThings",
+  "stars": 82380,
+  "kb": 23349,
+  "lic": "MIT",
+  "archived": false,
+  "pushed": "2026-10-30",
+  "branch": "master",
+  "language": "Python",
+  "topics": [
+   "security",
+   "cheatsheet"
+  ],
+  "desc": "A list of useful payloads and bypass for Web Application Security and pentest",
+  "fns": [
+   "注入-安全题面"
+  ]
+ },
+ {
+  "repo": "dair-ai/Prompt-Engineering-Guide",
+  "stars": 79822,
+  "kb": 82777,
+  "lic": "MIT",
+  "archived": false,
+  "pushed": "2026-03-11",
+  "branch": "main",
+  "language": null,
+  "topics": [
+   "guide",
+   "llm"
+  ],
+  "desc": "Guides, papers, lessons and resources for prompt engineering, RAG, agents",
+  "fns": [
+   "注入-Prompt与RAG"
+  ]
+ },
+ {
+  "repo": "rasbt/LLMs-from-scratch",
+  "stars": 107827,
+  "kb": 17402,
+  "lic": null,
+  "archived": false,
+  "pushed": "2026-10-30",
+  "branch": "main",
+  "language": "Jupyter Notebook",
+  "topics": [
+   "llm",
+   "course"
+  ],
+  "desc": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
+  "fns": [
+   "注入-LLM实现"
+  ]
+ },
+ {
+  "repo": "reactjs/react.dev",
+  "stars": 5000,
+  "kb": 40000,
+  "lic": "CC-BY-NC-SA-4.0",
+  "archived": false,
+  "pushed": "2026-11-01",
+  "branch": "main",
+  "language": "TSX",
+  "topics": [
+   "react",
+   "docs"
+  ],
+  "desc": "The React documentation website（官方教程与参考答案）",
+  "fns": [
+   "注入-官方文档"
+  ]
+ },
+ {
+  "repo": "nodejs/nodejs.org",
+  "stars": 20000,
+  "kb": 30000,
+  "lic": null,
+  "archived": false,
+  "pushed": "2026-11-04",
+  "branch": "main",
+  "language": "TypeScript",
+  "topics": [
+   "nodejs",
+   "docs"
+  ],
+  "desc": "The public website of Node.js，含官方 API 文档 markdown 与学习指南",
+  "fns": [
+   "注入-官方文档"
+  ]
+ },
+ {
+  "repo": "vuejs/docs",
+  "stars": 3245,
+  "kb": 43072,
+  "lic": null,
+  "archived": false,
+  "pushed": "2026-10-28",
+  "branch": "main",
+  "language": "TypeScript",
+  "topics": [
+   "vue",
+   "docs"
+  ],
+  "desc": "📰 Docs for Vue 3（中线 Vue 官方文档源文件）",
+  "fns": [
+   "注入-官方文档"
+  ]
+ },
+ {
+  "repo": "microsoft/TypeScript-Website",
+  "stars": 2554,
+  "kb": 259895,
+  "lic": "CC-BY-4.0",
+  "archived": false,
+  "pushed": "2026-11-05",
+  "branch": "v2",
+  "language": "TypeScript",
+  "topics": [
+   "typescript",
+   "docs"
+  ],
+  "desc": "TypeScript 官方手册、教程与 playground 源（含 ts handbook markdown）",
+  "fns": [
+   "注入-官方文档"
+  ]
+ },
+ {
+  "repo": "mdn/content",
+  "stars": 11124,
+  "kb": 518715,
+  "lic": null,
+  "archived": false,
+  "pushed": "2026-11-04",
+  "branch": "main",
+  "language": "Markdown",
+  "topics": [
+   "mdn",
+   "docs",
+   "web"
+  ],
+  "desc": "MDN Web Docs 内容仓库：HTML/CSS/JS/HTTP/Web API 全部正文（markdown）",
+  "fns": [
+   "注入-官方文档"
+  ]
+ },
+ {
+  "repo": "goldbergyoni/nodebestpractices",
+  "stars": 100000,
+  "kb": 30000,
+  "lic": "MIT",
+  "archived": false,
+  "pushed": "2026-10-01",
+  "branch": "master",
+  "language": null,
+  "topics": [
+   "nodejs",
+   "guide"
+  ],
+  "desc": "The Node.js best practices list (curated with code and links)",
+  "fns": [
+   "注入-后端实践"
+  ]
+ },
+ {
+  "repo": "khangich/machine-learning-interview",
+  "stars": 30000,
+  "kb": 40000,
+  "lic": null,
+  "archived": false,
+  "pushed": "2025-01-01",
+  "branch": "master",
+  "language": "Jupyter Notebook",
+  "topics": [
+   "interview",
+   "ml"
+  ],
+  "desc": "Machine Learning Interviews (contents with questions)",
+  "fns": [
+   "注入-ML题面"
+  ]
+ },
+ {
+  "repo": "apachecn/apachecn-github",
+  "stars": 5000,
+  "kb": 20000,
+  "lic": null,
+  "archived": false,
+  "pushed": "2024-01-01",
+  "branch": "master",
+  "language": null,
+  "topics": [
+   "translation"
+  ],
+  "desc": "ApacheCN 技术译文与学习手册合集",
+  "fns": [
+   "注入-中文学习"
+  ]
+ },
+ {
+  "repo": "0voice/kernel_newbies",
+  "stars": 8000,
+  "kb": 20000,
+  "lic": null,
+  "archived": false,
+  "pushed": "2024-01-01",
+  "branch": "master",
+  "language": null,
+  "topics": [
+   "linux",
+   "kernel"
+  ],
+  "desc": "Linux 内核学习路线与资料合集",
+  "fns": [
+   "注入-系统方向"
+  ]
+ },
+ {
+  "repo": "hoanhan101/ultimate-go",
+  "stars": 21000,
+  "kb": 30000,
+  "lic": null,
+  "archived": false,
+  "pushed": "2024-01-01",
+  "branch": "master",
+  "language": "Go",
+  "topics": [
+   "go"
+  ],
+  "desc": "The Ultimate Go Study Guide（Go 运行时与底层笔记）",
+  "fns": [
+   "注入-Go深入"
+  ]
+ },
+ {
+  "repo": "tinytools/interviews",
+  "stars": 500,
+  "kb": 2000,
+  "lic": null,
+  "archived": false,
+  "pushed": "2024-01-01",
+  "branch": "master",
+  "language": null,
+  "topics": [
+   "interview"
+  ],
+  "desc": "面试题库合集（存在性待测）",
+  "fns": [
+   "注入-试探"
+  ]
+ },
+ {
+  "repo": "EastBlue/InterviewGuide",
+  "stars": 500,
+  "kb": 2000,
+  "lic": null,
+  "archived": false,
+  "pushed": "2024-01-01",
+  "branch": "master",
+  "language": null,
+  "topics": [
+   "interview"
+  ],
+  "desc": "面试指南（存在性待测）",
+  "fns": [
+   "注入-试探"
+  ]
+ },
+ {
+  "repo": "wolverinn/Waking-Up",
+  "stars": 32000,
+  "kb": 20000,
+  "lic": null,
+  "archived": false,
+  "pushed": "2024-01-01",
+  "branch": "master",
+  "language": null,
+  "topics": [
+   "interview"
+  ],
+  "desc": "计算机基础问答（已入库，用于验证重复检测）",
+  "fns": [
+   "注入-重复检测对照"
+  ]
+ },
+ {
+  "repo": "theodinproject/curriculum",
+  "stars": 4500,
+  "kb": 20000,
+  "lic": "CC-BY-SA-4.0",
+  "archived": false,
+  "pushed": "2026-10-01",
+  "branch": "main",
+  "language": "Markdown",
+  "topics": [
+   "curriculum",
+   "full-stack"
+  ],
+  "desc": "The Odin Project 全栈课程正文与练习（含学习路径与题目）",
+  "fns": [
+   "注入-全栈课程"
+  ]
+ },
+ {
+  "repo": "cp-algorithms/cp-algorithms",
+  "stars": 8000,
+  "kb": 20000,
+  "lic": "CC-BY-SA-4.0",
+  "archived": false,
+  "pushed": "2026-09-01",
+  "branch": "master",
+  "language": "HTML",
+  "topics": [
+   "algorithms"
+  ],
+  "desc": "算法百科（英/中/俄多语言 markdown），算法原理与实现",
+  "fns": [
+   "注入-算法百科"
+  ]
+ },
+ {
+  "repo": "OI-wiki/OI-wiki",
+  "stars": 22000,
+  "kb": 60000,
+  "lic": "CC-BY-SA-4.0",
+  "archived": false,
+  "pushed": "2026-11-01",
+  "branch": "master",
+  "language": "HTML",
+  "topics": [
+   "oi",
+   "algorithms"
+  ],
+  "desc": "OI Wiki：中文算法与竞赛知识大全，含图示与题单",
+  "fns": [
+   "注入-中文算法百科"
+  ]
+ },
+ {
+  "repo": "teivah/algodeck",
+  "stars": 5845,
+  "kb": 14413,
+  "lic": null,
+  "archived": false,
+  "pushed": "2025-12-09",
+  "branch": "main",
+  "language": null,
+  "topics": [
+   "flashcards",
+   "algorithms"
+  ],
+  "desc": "AlgoDeck：算法与数据结构问答卡片集（题库形态）",
+  "fns": [
+   "注入-卡片题库"
+  ]
+ },
+ {
+  "repo": "khanas/leetcode-solve",
+  "stars": 3000,
+  "kb": 10000,
+  "lic": null,
+  "archived": false,
+  "pushed": "2025-01-01",
+  "branch": "master",
+  "language": "Python",
+  "topics": [
+   "leetcode"
+  ],
+  "desc": "LeetCode 题解与分类整理（存在性待测）",
+  "fns": [
+   "注入-试探"
+  ]
+ },
+ {
+  "repo": "PKUFlyingPig/MIT-6.824-2022-spring",
+  "stars": 500,
+  "kb": 5000,
+  "lic": null,
+  "archived": false,
+  "pushed": "2023-01-01",
+  "branch": "master",
+  "language": null,
+  "topics": [
+   "distributed"
+  ],
+  "desc": "分布式系统课程资料镜像（存在性待测）",
+  "fns": [
+   "注入-试探"
+  ]
+ },
+ {
+  "repo": "datawhalechina/self-llm",
+  "stars": 12000,
+  "kb": 50000,
+  "lic": "Apache-2.0",
+  "archived": false,
+  "pushed": "2026-09-01",
+  "branch": "master",
+  "language": null,
+  "topics": [
+   "llm"
+  ],
+  "desc": "开源大模型食用指南：中文 LLM 部署与微调教程",
+  "fns": [
+   "注入-中文LLM课程"
+  ]
+ },
+ {
+  "repo": "datawhalechina/easy-rl",
+  "stars": 12000,
+  "kb": 10000,
+  "lic": null,
+  "archived": false,
+  "pushed": "2026-06-01",
+  "branch": "master",
+  "language": null,
+  "topics": [
+   "rl"
+  ],
+  "desc": "动手学强化学习（中文课程）",
+  "fns": [
+   "注入-中文课程"
+  ]
+ },
+ {
+  "repo": "wasabeef/awesome-android-ui",
+  "stars": 70000,
+  "kb": 100,
+  "lic": null,
+  "archived": false,
+  "pushed": "2024-01-01",
+  "branch": "master",
+  "language": null,
+  "topics": [
+   "awesome"
+  ],
+  "desc": "清单类（用于验证「只有 README 的清单」是否会被误收）",
+  "fns": [
+   "注入-对照"
+  ]
+ }
+]
