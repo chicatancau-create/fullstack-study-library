@@ -22,8 +22,10 @@
 │   ├── 计算机基础/  系统设计/  算法与数据结构/  后端进阶/  前端与Node/  安全/
 │   ├── AI与RAG/  全栈路线/  课程与路线/  面试综合/  资源目录/  运维与云原生/
 │   └── 鸿蒙与跨端/（liasica 等 ArkTS/ArkUI 镜像 + dcloudio 官方 uni-app/uni-app x 文档与示例 7 仓库）
-└── _采集暂存/                       脚本与实测报告（scale.json / placed_all.json / harmony_assets_dry.json / uni_fetch_report.json / rename_map_final.json）
+└── _采集暂存/                       本机工具与实测报告（不进 Git：*.py 与 scale.json / placed_all.json / rename_map_final.json 等）
 ```
+
+`_采集暂存/` 里的采集与校验脚本**只在这台机器上，不推到远端**（用户 2026-11-05 指令）。下面各处写的 `python _采集暂存/xxx.py` 复算入口，指的是在本机执行；从远端克隆不会拿到它们，索引与清单里的数字则以 Markdown 形式随库版本化。
 
 ## 每个仓库目录里的 `.source.json`
 
