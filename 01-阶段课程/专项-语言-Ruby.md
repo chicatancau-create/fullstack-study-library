@@ -2,6 +2,15 @@
 
 **层级：P3 认知/高生产力对照｜目标：默认 L1；Ruby/Rails 岗位进入 L2。**
 
+## 本专项已收集资料
+
+- [The Odin Project Curriculum](<../05-外部资料库/知识库/课程与路线/TheOdinProject/curriculum/README.md>)：包含 Ruby/Rails 课程与项目，用于按课程完成实验和作品。
+- [Project Based Learning](<../05-外部资料库/知识库/全栈路线/practical-tutorials/project-based-learning/README.md>)：只取其中 Ruby 与 Ruby on Rails 项目条目作为练习选题索引。
+
+资料边界：本地未收 Ruby/Rails 官方文档镜像；上述课程和项目清单用于练习，不覆盖完整 Ruby 对象模型或当前 Rails API。
+
+> 先自答、先在隔离环境完成实验，再对照资料；语法、API 与版本行为回 Ruby/Rails 官方文档复核。返回 [[../05-外部资料库/资料索引|资料索引]]。
+
 ## 1. 执行模型与边界
 
 - Ruby 是动态、面向对象语言，具体解释/JIT、线程和 GC 行为随 CRuby/JRuby/TruffleRuby 等实现变化。

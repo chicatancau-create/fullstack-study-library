@@ -4,6 +4,15 @@
 
 > uni-app 是跨端应用框架，不是独立编程语言。学习重点不是再记一套“语法”，而是理解同一份 Vue/TS/CSS 代码如何经编译器进入 Web、小程序、App 与鸿蒙等不同运行时，以及各端在生命周期、渲染、权限、存储、签名和发布上的真实差异。
 
+## 本专项已收集资料
+
+- [uni-app 官方文档仓库](<../05-外部资料库/知识库/鸿蒙与跨端/dcloudio/unidocs-zh/README.md>)：查阅 uni-app 的 Vue 工程、组件、API、条件编译与各端说明，不与 uni-app x 的 `.uvue`/UTS 规则混用。
+- [uni-app x 官方文档仓库](<../05-外部资料库/知识库/鸿蒙与跨端/dcloudio/unidocs-uni-app-x-zh/README.md>)：单独核对 uni-app x 的原生渲染、UTS、CSS 子集和目标端能力，不能据旧版 uni-app 示例推断其行为。
+- [hello-uniapp 官方示例](<../05-外部资料库/知识库/鸿蒙与跨端/dcloudio/hello-uniapp/README.md>)：用于对照组件、API 和多端工程组织；示例分支与当前编译器未必一致，运行前先核对版本。
+- [HBuilderX uni-app 自动化测试插件](<../05-外部资料库/知识库/鸿蒙与跨端/dcloudio/hbuilderx-for-uniapp-test/README.md>)：了解 uni-app/uni-app x 的 Web、小程序、Android、iOS 与 Harmony 测试入口；README 所列操作系统和设备限制必须保留。
+
+> 返回 [[../05-外部资料库/资料索引|资料索引]]。HBuilderX/CLI、uni-app 编译器、Vue、目标 SDK 与仓库快照均须记录版本；至少两个目标真机分别验证生命周期、权限、签名和发布，自动化或模拟器结果不代表全端通过，复用前逐仓库检查许可证。
+
 ## 一、先分清技术边界
 
 - **uni-app** 使用 Vue 单文件组件、组件标签和 `uni.*` API，通过编译器生成各端运行物；Web、小程序、App 的运行时并不相同。

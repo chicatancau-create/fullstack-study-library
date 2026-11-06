@@ -2,6 +2,13 @@
 
 **层级：P0 工程自动化｜目标：能写可读、可测试、可恢复的 Bash/PowerShell 小工具。**
 
+## 本专项已收集资料
+
+- [The Art of Command Line](<../05-外部资料库/知识库/计算机基础/jlevy/the-art-of-command-line/README.md>)：经典 Linux/Bash 命令行资料，覆盖管道、引用、进程与文件处理；不替代 PowerShell 文档。
+- [DevOps Exercises](<../05-外部资料库/题库/运维与DevOps/bregman-arie/devops-exercises/README.md>)：含 Shell Scripting 与 Linux 题库，用于自测和排错追问。
+
+> 先自答、先在临时目录完成实验，再对照资料；Shell 方言、命令参数与版本行为回官方文档复核。返回 [[../05-外部资料库/资料索引|资料索引]]。
+
 ## 1. 执行模型
 
 - Shell 是进程与命令编排语言，不是编辑器或终端本身；解释器、当前目录、环境变量和子进程决定行为。

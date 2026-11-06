@@ -2,6 +2,15 @@
 
 **层级：P1 按岗位/P3｜目标：默认 L1；Apple 平台进入 L2。**
 
+## 本专项已收集资料
+
+当前收集中没有独立的 Swift 专项仓库，以下仅保留两项与 Swift 练习或移动工程直接相关的补充资料：
+
+- [Hello Algo（Swift 算法实现）](<../05-外部资料库/知识库/算法与数据结构/krahets/hello-algo/README.md>)：用于值语义、基本语法与算法对照，不覆盖 ARC 的复杂场景、SwiftUI 或 Apple 平台发布。
+- [Explore in HarmonyOS Wearable（Swift 配套应用索引）](<../05-外部资料库/知识库/鸿蒙与跨端/Explore-In-HMOS/hmos-index/README.md>)：索引中含 Swift 手机配套应用，仅作移动工程结构参考；仓库主体是鸿蒙穿戴样例，不是 Swift/iOS 教程。
+
+> 返回 [[../05-外部资料库/资料索引|资料索引]]。签名、权限、后台等行为须在当前 Swift/Xcode/SDK 与 Apple 真机上另行验证；本地快照有版本边界，复用代码或文档前须核对对应仓库许可证。
+
 ## 1. 执行模型与边界
 
 - Swift 经编译运行，强调静态类型、值语义、协议和内存安全；具体优化与目标平台由工具链决定。

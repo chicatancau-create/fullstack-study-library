@@ -2,6 +2,15 @@
 
 **层级：P1 自动化、数据与 AI 应用｜目标：L2 生产服务；主修进入 L3 解释器与性能诊断。**
 
+## 本专项已收集资料
+
+- [awesome-cs61a](<../05-外部资料库/知识库/AI与RAG/Ethan-Wang-dev/awesome-cs61a/README.md>)：利用带版本记录的 CS61A 作业、实验与项目训练抽象、递归、数据结构、面向对象、解释器和测试。
+- [The Algorithms - Python](<../05-外部资料库/知识库/算法与数据结构/TheAlgorithms/Python/README.md>)：独立实现算法后对照 Python 代码、类型提示与 doctest；同时比较标准库实现，不把教学代码默认用于生产。
+- [Data Science for Beginners](<../05-外部资料库/知识库/AI与RAG/microsoft/Data-Science-For-Beginners/README.md>)：通过 Python、Pandas、数据准备与可视化课程及作业，支撑本专项的数据处理项目与评估习惯。
+- [AI for Beginners](<../05-外部资料库/知识库/AI与RAG/microsoft/AI-For-Beginners/README.md>)：选择 PyTorch/TensorFlow 可执行 Notebook 和实验，补充 AI 应用、数据处理与框架实践；版本和 API 以当前官方文档为准。
+
+> 使用提示：先独立实现，再对照资料中的思路与答案；语言、工具链和框架版本请回官方文档复核。返回 [[../05-外部资料库/资料索引|资料索引]]。
+
 ## 1. 执行模型与边界
 
 - CPython 通常将源码编译为字节码并由解释器执行；PyPy、MicroPython、free-threaded 构建等不能默认共享所有行为。

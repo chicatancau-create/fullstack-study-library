@@ -2,6 +2,15 @@
 
 **层级：P1 按岗位/P3｜目标：默认 L1；Flutter 岗位进入 L2。**
 
+## 本专项已收集资料
+
+当前收集中没有独立的 Dart/Flutter 专项仓库，以下仅保留两项相关的补充资料：
+
+- [Hello Algo（Dart 算法实现）](<../05-外部资料库/知识库/算法与数据结构/krahets/hello-algo/README.md>)：用于基本语法、数据结构与算法对照，不覆盖 Flutter Widget、平台通道或发布流程。
+- [Explore in HarmonyOS Wearable（Flutter 跨端样例索引）](<../05-外部资料库/知识库/鸿蒙与跨端/Explore-In-HMOS/hmos-index/README.md>)：只用于定位索引中的 Flutter 跨端样例，不是 Dart 语言或完整 Flutter 教程；仓库主体仍是鸿蒙穿戴项目。
+
+> 返回 [[../05-外部资料库/资料索引|资料索引]]。界面、权限与发布行为须在当前 Dart/Flutter、目标平台 SDK 和真机上按 Release/Profile 模式另行验证；本地快照有版本边界，复用代码或文档前须核对对应仓库许可证。
+
 ## 1. 执行模型与边界
 
 - Dart 支持开发期 JIT 与发布期 AOT 等模式，调试/性能/产物行为需分开。

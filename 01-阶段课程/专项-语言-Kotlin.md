@@ -2,6 +2,15 @@
 
 **层级：P1 按岗位/P3｜目标：默认 L1；JVM/Android 岗位进入 L2。**
 
+## 本专项已收集资料
+
+当前收集中没有独立的 Kotlin 专项仓库，以下仅保留两项与 Kotlin 练习或移动工程直接相关的补充资料：
+
+- [Hello Algo（Kotlin 算法实现）](<../05-外部资料库/知识库/算法与数据结构/krahets/hello-algo/README.md>)：用于基本语法、数据结构与算法对照，不覆盖协程、Android SDK 或发布流程。
+- [Explore in HarmonyOS Wearable（Kotlin 配套应用索引）](<../05-外部资料库/知识库/鸿蒙与跨端/Explore-In-HMOS/hmos-index/README.md>)：索引中含 Kotlin 手机配套应用，仅作移动工程结构参考；仓库主体是鸿蒙穿戴样例，不是 Kotlin/Android 教程。
+
+> 返回 [[../05-外部资料库/资料索引|资料索引]]。真机行为须在当前 Kotlin、Android SDK/AGP 与目标设备上另行验证；本地快照有版本边界，复用代码或文档前须核对对应仓库许可证。
+
 ## 1. 执行模型与边界
 
 - Kotlin 可编译到 JVM 字节码，也有 JS/Native 目标；不同目标的标准库、并发和互操作不能混为一谈。

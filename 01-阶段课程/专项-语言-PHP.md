@@ -2,6 +2,15 @@
 
 **层级：P1 按岗位/P3｜目标：默认 L1；存量 Web/Laravel 岗位进入 L2。**
 
+## 本专项已收集资料
+
+- [PHP 面试问答](<../05-外部资料库/题库/八股与基础/colinlet/PHP-Interview-QA/README.md>)：覆盖 PHP 语言、Composer、Web 安全与后端原理，用于自答后的追问和纠错。
+- [Project Based Learning](<../05-外部资料库/知识库/全栈路线/practical-tutorials/project-based-learning/README.md>)：只取其中 PHP 项目条目作为练习选题索引。
+
+资料边界：本地未收 PHP/Laravel 官方手册镜像；题库和项目清单不替代完整的语言、框架、Composer 与安全文档。
+
+> 先自答、先在隔离环境完成实验，再对照资料；语法、API 与版本行为回 PHP/Laravel 官方文档复核。返回 [[../05-外部资料库/资料索引|资料索引]]。
+
 ## 1. 执行模型与边界
 
 - PHP 常用于 Web 请求生命周期，PHP-FPM/Apache/CLI 的进程、配置和持久状态不同。

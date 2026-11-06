@@ -4,6 +4,15 @@
 
 > 可嵌入 D69–D84 的唯一岗位专项，或在 G9 后作为季度专项。主修鸿蒙时不同时主学 React Native/Flutter；复用 TS 与声明式 UI 思维，但生命周期、权限、构建、签名和真机行为必须重新学习。
 
+## 本专项已收集资料
+
+- [HarmonyOS Next 学习笔记](<../05-外部资料库/知识库/鸿蒙与跨端/CharonChui/HarmonyOSNextStudyNote/README.md>)：覆盖 ArkTS、ArkUI、UIAbility、网络与数据管理；README 明确其基于 HarmonyOS 4.0，旧 API 只作概念参考。
+- [harmonyos-skills 离线文档库](<../05-外部资料库/知识库/鸿蒙与跨端/liasica/harmonyos-skills/README.md>)：用于只读检索本地华为官方文档镜像，不执行其采集、安装或 MCP 脚本；快照内容与当前官方文档分开核对。
+- [jidecards（记得闪卡）](<../05-外部资料库/知识库/鸿蒙与跨端/wuweiyouzuoju/jidecards-anki-harmonyos/README.md>)：完整 ArkTS/ArkUI 应用，可只读研究工程结构、状态、数据与发布边界；**AGPL-3.0，只读不并，不复制或合并其代码**。
+- [Explore in HarmonyOS Wearable](<../05-外部资料库/知识库/鸿蒙与跨端/Explore-In-HMOS/hmos-index/README.md>)：用于按类别查找 ArkTS 穿戴样例及真机入门说明；Smart Wearable、Lite Wearable 与手机/平板能力不能混用。
+
+> 返回 [[../05-外部资料库/资料索引|资料索引]]。所有示例须记录 DevEco Studio、SDK/API 与仓库快照版本，并在目标 HarmonyOS/OpenHarmony 真机上验证；复用前逐仓库检查许可证，jidecards 始终坚持 AGPL-3.0 只读不并。
+
 ## 一、先分清技术边界
 
 - **ArkTS** 是 HarmonyOS 应用主力语言，保留 TypeScript 风格并强化静态检查；不能把任意 TS/JS 代码和 npm 包直接视为可运行。

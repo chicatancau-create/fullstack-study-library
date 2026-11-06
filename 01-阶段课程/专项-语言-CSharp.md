@@ -2,6 +2,14 @@
 
 **层级：P2 企业、桌面与游戏方向｜目标：L2 生产服务；主修进入 L3 CLR 诊断。**
 
+## 本专项已收集资料
+
+- [developer-roadmap](<../05-外部资料库/知识库/全栈路线/nilbuild/developer-roadmap/README.md>)：使用 ASP.NET Core 路线图核对语言、运行时、EF Core、Web API、测试与部署的学习顺序，具体版本仍回微软官方文档。
+- [Project Based Learning](<../05-外部资料库/知识库/全栈路线/practical-tutorials/project-based-learning/README.md>)：从 C# 分区选择项目；其中 CoreWiki 使用 ASP.NET Core 与 Razor Pages，可对照正文的服务、依赖注入和数据访问实践。
+- [Hello 算法](<../05-外部资料库/知识库/算法与数据结构/krahets/hello-algo/README.md>)：运行 C# 版本的数据结构与算法代码，先独立实现，再比较泛型、集合、值/引用语义和复杂度。
+
+> 使用提示：先独立实现，再对照资料中的思路与答案；语言、工具链和框架版本请回官方文档复核。返回 [[../05-外部资料库/资料索引|资料索引]]。
+
 ## 1. 执行模型与边界
 
 - C# 编译为 IL，由 CLR/JIT 执行并配备 GC、类型系统和运行时库；AOT/单文件等部署方式另有边界。

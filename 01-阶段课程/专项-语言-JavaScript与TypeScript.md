@@ -2,6 +2,15 @@
 
 **层级：P0 Web 全栈底座｜目标：JS/TS L3；浏览器与 Node 能独立实现并诊断。**
 
+## 本专项已收集资料
+
+- [MDN Web Docs 内容镜像](<../05-外部资料库/知识库/前端与Node/mdn/content/README.md>)：官方文档源，覆盖 JavaScript 语言、Web API 与浏览器边界。
+- [TypeScript 官方网站镜像](<../05-外部资料库/知识库/前端与Node/microsoft/TypeScript-Website/README.md>)：Handbook、tsconfig 与版本说明的官方内容源。
+- [You Don't Know JS](<../05-外部资料库/知识库/前端与Node/getify/You-Dont-Know-JS/README.md>)：经典原理系列，用于深挖作用域、闭包、`this` 与异步。
+- [JavaScript 面试题](<../05-外部资料库/题库/前端/greatfrontend/top-javascript-interview-questions/README.md>)：用于语言与运行时问题的自测和追问。
+
+> 先自答、先完成本专项实验，再对照资料；语法、API 与版本行为回官方文档复核。返回 [[../05-外部资料库/资料索引|资料索引]]。
+
 ## 1. 执行模型
 
 - JavaScript 由浏览器、Node、Bun、Deno 等运行时执行，通常涉及 JIT；语言语义与宿主 API 必须分开。

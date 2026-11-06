@@ -4,6 +4,14 @@
 
 **建议周次：第 11–15 周｜优先级：P0｜目标：交付可维护、可访问、可测试的复杂前端应用。**
 
+## 本阶段已收集资料
+
+- [React 官方文档镜像](<../05-外部资料库/知识库/前端与Node/reactjs/react.dev/README.md>)：组件、状态、Effect 与渲染机制。
+- [React 机试练习](<../05-外部资料库/题库/前端/sanchit0496/reactjs-machine-coding-challenges/README.md>)：用于独立实现和测试，不先看答案。
+- [React 自测题](<../05-外部资料库/题库/前端/greatfrontend/top-reactjs-interview-questions/README.md>)：阶段复盘时口述与补漏。
+
+返回 [[../05-外部资料库/资料索引|资料索引]]；题目历史标签不代表当前公司高频。
+
 ## 阶段目标
 
 - 能从状态和交互出发设计组件，而非机械拆分页面。

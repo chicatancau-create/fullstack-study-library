@@ -4,6 +4,14 @@
 
 **建议周次：第 6–10 周｜优先级：P0｜目标：用类型明确、可测试的代码解决真实问题。**
 
+## 本阶段已收集资料
+
+- [TypeScript 官方站点镜像](<../05-外部资料库/知识库/前端与Node/microsoft/TypeScript-Website/README.md>)：类型系统与配置查读。
+- [You Don't Know JS](<../05-外部资料库/知识库/前端与Node/getify/You-Dont-Know-JS/README.md>)：作用域、闭包、原型与异步机制。
+- [JavaScript 算法实现](<../05-外部资料库/知识库/算法与数据结构/trekhleb/javascript-algorithms/README.md>)：语言练习与复杂度对照。
+
+先独立实现再对照；返回 [[../05-外部资料库/资料索引|资料索引]] 查看许可与时效。
+
 ## 阶段目标
 
 - 理解 JavaScript 的执行模型、作用域、原型、模块和异步机制。

@@ -2,6 +2,14 @@
 
 **层级：P0 Web 基础｜说明：HTML 是标记语言，CSS 是样式语言，不是通用编程语言；仍需按计算与渲染模型深入学习。**
 
+## 本专项已收集资料
+
+- [MDN Web Docs 内容镜像](<../05-外部资料库/知识库/前端与Node/mdn/content/README.md>)：HTML、CSS 与 Web API 官方文档源，用于查语义、渲染和可访问性边界。
+- [Web Dev for Beginners](<../05-外部资料库/知识库/全栈路线/microsoft/Web-Dev-For-Beginners/README.md>)：含 HTML/CSS 入门课与配套项目，适合边做边验证。
+- [前端面试每日 3+1](<../05-外部资料库/题库/前端/haizlin/fe-interview/README.md>)：只取其中 HTML/CSS 分类题进行自测，旧题按现行标准复核。
+
+> 先自答、先在浏览器完成实验，再对照资料；元素、样式与版本行为回官方文档复核。返回 [[../05-外部资料库/资料索引|资料索引]]。
+
 ## 1. 从源码到像素
 
 - HTML 解析为 DOM，CSS 解析为 CSSOM，经样式计算、布局、绘制、合成形成页面。
