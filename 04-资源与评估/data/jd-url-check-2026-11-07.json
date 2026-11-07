@@ -1,0 +1,388 @@
+{
+  "checked_at": "2026-11-07T14:56:51.045Z",
+  "method": "HEAD redirect=follow",
+  "total": 63,
+  "summary": {
+    "200": 63
+  },
+  "results": [
+    {
+      "url": "https://boards.greenhouse.io/cloudflare/jobs/8038898?gh_jid=8038898",
+      "company": "cloudflare",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://boards.greenhouse.io/cloudflare/jobs/8105716?gh_jid=8105716",
+      "company": "cloudflare",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://boards.greenhouse.io/cloudflare/jobs/8155495?gh_jid=8155495",
+      "company": "cloudflare",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.datadoghq.com/detail/3851935/?gh_jid=3851935",
+      "company": "datadog",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.datadoghq.com/detail/4599111/?gh_jid=4599111",
+      "company": "datadog",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.datadoghq.com/detail/8248968/?gh_jid=8248968",
+      "company": "datadog",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=1891443603608215552",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=1976128424510644224",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=1980268719548551168",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2039169824982204416",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2039533180888973312",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2042527610751315968",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2052685072754196480",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2061451043539169280",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2071430928898637824",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2074756587444158464",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2077293041282105344",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2077586357202632704",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2086660563961823232",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2086789748948643840",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2090336234487595008",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2094261498229731328",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2095061149577035776",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2096921842119000064",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2098252336337170432",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2098253252868096000",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2098253255363702784",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2098669037675528192",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2099328213837856768",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2101490751358808064",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2102279767322701824",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2102665620272361472",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2102953118521274368",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2104460194154201088",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2104513138056675328",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2109982523646980096",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2112898585224982528",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2114572205189935104",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2115625079432986624",
+      "company": "腾讯",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/2969042",
+      "company": "canonical",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/4124053",
+      "company": "canonical",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/4439935",
+      "company": "canonical",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8704363002",
+      "company": "gitlab",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8771512002",
+      "company": "gitlab",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8891301002",
+      "company": "gitlab",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/mozilla/jobs/8247430",
+      "company": "mozilla",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/mozilla/jobs/8303335",
+      "company": "mozilla",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/mozilla/jobs/8303336",
+      "company": "mozilla",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://jobs.bytedance.com/experienced/position/6948774351315700005/detail",
+      "company": "字节跳动",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://jobs.elastic.co/jobs?gh_jid=8138062&gh_jid=8138062",
+      "company": "elastic",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://jobs.elastic.co/jobs?gh_jid=8237959&gh_jid=8237959",
+      "company": "elastic",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://jobs.elastic.co/jobs?gh_jid=8281841&gh_jid=8281841",
+      "company": "elastic",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://stripe.com/jobs/search?gh_jid=6176758",
+      "company": "stripe",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://stripe.com/jobs/search?gh_jid=7369543",
+      "company": "stripe",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://stripe.com/jobs/search?gh_jid=8301379",
+      "company": "stripe",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://www.mongodb.com/careers/job/?gh_jid=8209134",
+      "company": "mongodb",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://www.mongodb.com/careers/job/?gh_jid=8258279",
+      "company": "mongodb",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://www.mongodb.com/careers/job/?gh_jid=8267099",
+      "company": "mongodb",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://www.thoughtworks.com/zh-cn/careers/jobs/8330381",
+      "company": "Thoughtworks",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://www.thoughtworks.com/zh-cn/careers/jobs/8330382",
+      "company": "Thoughtworks",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4697318475&highlightType=campus",
+      "company": "美团",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4697320043&highlightType=campus",
+      "company": "美团",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4830252619",
+      "company": "美团",
+      "status": 200,
+      "error": ""
+    }
+  ]
+}

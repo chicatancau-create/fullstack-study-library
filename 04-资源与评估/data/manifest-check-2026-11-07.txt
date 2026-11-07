@@ -1,0 +1,12 @@
+== project03-trade
+manifest OK: P03, 8 artifacts, commit 1b611099b77926dfbad1034805d99e1efa5215a4
+== project04-saas
+manifest OK: P04, 5 artifacts, commit 7c2869b3bd750153425cac47f5f2de34e23ef0c3
+== project05-takeover
+manifest OK: P05, 6 artifacts, commit 3ac07eb289e60f2f7b17c10e401f46fcf7804065
+== project02-spring
+manifest OK: B5-01, 15 artifacts, commit 69bca28669f2d0d63837ee25ad0671e4d132b9b8
+== project02-frameworks
+manifest OK: B5-03, 4 artifacts, commit 3ac07eb289e60f2f7b17c10e401f46fcf7804065
+== Web/project01-blog
+manifest OK: P01, 8 artifacts, commit 7806d674332ae06ee0195df0c2013e91f752cd3c
