@@ -1,0 +1,15 @@
+test_cascade_delete (test_sql.SqlTest.test_cascade_delete) ... ok
+test_check_minutes (test_sql.SqlTest.test_check_minutes) ... ok
+test_check_status (test_sql.SqlTest.test_check_status) ... ok
+test_foreign_key_violation (test_sql.SqlTest.test_foreign_key_violation) ... ok
+test_foreign_keys_on (test_sql.SqlTest.test_foreign_keys_on) ... ok
+test_index_plan (test_sql.SqlTest.test_index_plan) ... ok
+test_summary (test_sql.SqlTest.test_summary) ... ok
+test_transaction_rollback (test_sql.SqlTest.test_transaction_rollback) ... ok
+test_unique_user (test_sql.SqlTest.test_unique_user) ... ok
+test_unique_user_title (test_sql.SqlTest.test_unique_user_title) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.006s
+
+OK

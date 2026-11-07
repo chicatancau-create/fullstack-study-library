@@ -13,7 +13,7 @@
 | U03 | JS/TS | M04 | 本机自测通过 | [[U03-JavaScript与TypeScript/README\|U03]]；tsc 0 error、12/12 测试 |
 | U04 | React | M03/M05 | 本机自测通过 | [[U04-React/README\|U04]]；4/4 测试 + 构建 + 竞态测试 |
 | U05 | Node/Fastify | M02/M06 | 本机自测通过 | [[U05-Node与Fastify/README\|U05]]；8/8 API 测试 + 真实监听 demo |
-| U06 | SQL | M07 | 未开始 | 需 SQLite/PostgreSQL 可运行示例 |
+| U06 | SQL | M07 | 本机自测通过 | [[U06-SQL/README\|U06]]；10/10 测试 + 索引计划 |
 | U07 | Linux | M02/M12 | 未开始 | 需隔离环境 |
 | U08 | 网络 | M02 | 未开始 | 可复用 E04，但讲义未写 |
 | U09 | 数据结构与算法 | M01 | 未开始 | 可复用 E01，但算法题库未建 |

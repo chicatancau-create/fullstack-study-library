@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "experiment": "U06",
+  "generated_at": "2026-11-07T12:05:34.253Z",
+  "commit": "7cb56fa7105b32793590f2478b89e8c8215639b4",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [
+    {
+      "cmd": "bash scripts/run_unit.sh",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/test.txt",
+      "bytes": 774,
+      "sha256": "a8055824806dce43efb6da8f0167f1b37860a7b2037bee5e8d4d2a9cc2abc0fd"
+    },
+    {
+      "path": "evidence/demo.txt",
+      "bytes": 214,
+      "sha256": "37b4a706d60c6f33022e6cefdc507bf235272b17feb9bfe88a539e58efe3d999"
+    },
+    {
+      "path": "evidence/run.txt",
+      "bytes": 194,
+      "sha256": "fce06c72970cd1b398c5d26076ae0641be1b6c867559e3d59d5e750455e20551"
+    }
+  ],
+  "unverified": [
+    "SQLite 单机；未做 PostgreSQL 并发/隔离/锁/真实备份"
+  ]
+}

@@ -1,0 +1,5 @@
+captured_at: 2026-11-07T20:04:49+08:00
+test: Ran 10 tests in 0.006s / OK
+demo: DEMO PASS
+plan: plan: SEARCH records USING INDEX idx_records_user_status (user_id=? AND status=?)
+gate_failures: 0

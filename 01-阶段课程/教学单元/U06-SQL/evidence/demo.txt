@@ -1,0 +1,7 @@
+summary:
+  alice: 2 条, 55 分钟
+  bob: 1 条, 20 分钟
+plan: SEARCH records USING INDEX idx_records_user_status (user_id=? AND status=?)
+rollback: before=3 after=3
+fk violation: IntegrityError
+DEMO PASS
