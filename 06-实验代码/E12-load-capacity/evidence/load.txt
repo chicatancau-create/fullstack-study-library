@@ -1,0 +1,6 @@
+node=v24.15.0 platform=win32 x64
+workload: closed-loop concurrency=20 total/round=300 path=/work?ms=10
+round-1: rps=1202.31 p50=15.4 p95=23.33 p99=25.95 failures=0
+round-2: rps=1291.53 p50=15.43 p95=16.65 p99=17.23 failures=0
+round-3: rps=1267.11 p50=15.73 p95=17.9 p99=19.83 failures=0
+note: 本地闭环、合成 10ms 下游；不能外推为生产容量

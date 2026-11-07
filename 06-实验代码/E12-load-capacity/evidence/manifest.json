@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "experiment": "E12",
+  "generated_at": "2026-11-07T12:25:18.160Z",
+  "commit": "b47f170eacbdaa0b4a9be04c8ecc4298b8c023f9",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [
+    {
+      "cmd": "bash scripts/run_unit.sh",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/run.txt",
+      "bytes": 291,
+      "sha256": "f79a1b4c4b7b362920d87c4e2a0ec10036ee23545bbd67cf3cd4aeb2c524e820"
+    },
+    {
+      "path": "evidence/load.json",
+      "bytes": 1060,
+      "sha256": "4f1fb2eacdbe61c1065c479524ff6ecd0aa94ff7539619fd042844d913ec49b9"
+    },
+    {
+      "path": "evidence/load.txt",
+      "bytes": 357,
+      "sha256": "b7f1e264e376803700e0c024295fb84e88baa2f9101d0f13e598594adb67238b"
+    }
+  ],
+  "unverified": [
+    "本地闭环/合成下游；无开放模型/饱和度/真实 DB/容量结论"
+  ]
+}

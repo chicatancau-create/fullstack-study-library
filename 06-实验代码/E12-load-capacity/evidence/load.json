@@ -1,0 +1,53 @@
+{
+  "captured_at": "2026-11-07T12:24:51.806Z",
+  "node": "v24.15.0",
+  "platform": "win32 x64",
+  "workload": {
+    "closed_loop": true,
+    "concurrency": 20,
+    "total_per_round": 300,
+    "path": "/work?ms=10",
+    "rounds": 3
+  },
+  "rounds": [
+    {
+      "label": "round-1",
+      "concurrency": 20,
+      "total": 300,
+      "completed": 300,
+      "failures": 0,
+      "elapsed_ms": 249.52,
+      "throughput_rps": 1202.31,
+      "p50": 15.4,
+      "p95": 23.33,
+      "p99": 25.95,
+      "max": 28.38
+    },
+    {
+      "label": "round-2",
+      "concurrency": 20,
+      "total": 300,
+      "completed": 300,
+      "failures": 0,
+      "elapsed_ms": 232.28,
+      "throughput_rps": 1291.53,
+      "p50": 15.43,
+      "p95": 16.65,
+      "p99": 17.23,
+      "max": 17.95
+    },
+    {
+      "label": "round-3",
+      "concurrency": 20,
+      "total": 300,
+      "completed": 300,
+      "failures": 0,
+      "elapsed_ms": 236.76,
+      "throughput_rps": 1267.11,
+      "p50": 15.73,
+      "p95": 17.9,
+      "p99": 19.83,
+      "max": 20.13
+    }
+  ]
+}
