@@ -1,0 +1,15 @@
+ok - GET /health = 200
+ok - health JSON
+ok - GET /cache = 200
+ok - cache ETag
+ok - cache Vary
+ok - 条件请求 = 304
+ok - POST /echo = 201
+ok - echo body
+ok - 未知资源 = 404
+ok - 服务端错误 = 500
+ok - 重定向 = 302
+ok - Location 头
+ok - 原始 TCP 响应行 = HTTP/1.1 200
+checks=13 fails=0 : PASS
+exit=0
