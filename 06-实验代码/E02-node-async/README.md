@@ -47,6 +47,8 @@ UV_THREADPOOL_SIZE : 未设置（默认 4）
 
 "干净"的含义：没有任何第三方包，`npm ls` 为空，全部代码在本目录内可读。环境原始输出见 `evidence/env.txt`，由 `scripts/env.mjs` 真实执行得到，不转抄结论。
 
+2026-11-07 批次 0 在 Node **v24.15.0** 的临时副本中复跑 `bash scripts/run_all.sh`，五组仍为 **135/135**、退出码 0；`evidence/env.txt` 保留原始 v22.22.2 记录，不覆盖。下面关于 Windows 定时器粒度的读数来自原始 v22 环境，跨版本复验时仍需重测。
+
 `evidence/env.txt` 里两条环境事实会直接影响读数，先写在这里：
 
 1. **Windows 定时器粒度约 15.6ms**：`setTimeout(20)` 实测约 31ms。所以本文所有绝对耗时只用于横向比较，不当性能指标。
