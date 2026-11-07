@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E04 CORS 浏览器侧判定</title>
+  <style>
+    body { font: 16px/1.6 system-ui, sans-serif; margin: 2rem; max-width: 60rem; color: #111; background: #fff; }
+    table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
+    th, td { border: 1px solid #767676; padding: .5rem .6rem; text-align: left; vertical-align: top; }
+    th { background: #f2f2f2; }
+    code { font-family: ui-monospace, monospace; font-size: .9em; }
+    .ok { color: #0a5c2b; font-weight: 600; }
+    .blocked { color: #a11212; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <h1>E04：浏览器如何执行 CORS</h1>
+  <p>本页由 <code>http://127.0.0.1:8788</code> 提供，请求发往 <code>http://127.0.0.1:8787</code>。两者端口不同，属于不同源。</p>
+  <p id="status" role="status" aria-live="polite">正在执行请求…</p>
+  <table aria-label="CORS 请求结果">
+    <thead>
+      <tr><th scope="col">用例</th><th scope="col">结果</th><th scope="col">HTTP 状态</th><th scope="col">ACAO</th><th scope="col">说明</th></tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <h2>document.cookie</h2>
+  <p><code id="cookie"></code>（<code>sid</code> 设为 HttpOnly，脚本读不到）</p>
+  <script>
+    const API = 'http://127.0.0.1:8787';
+    const results = {};
+    const rows = document.getElementById('rows');
+    const statusEl = document.getElementById('status');
+
+    function row(name, result) {
+      const tr = document.createElement('tr');
+      const cells = [
+        name,
+        result.ok ? '拿到响应' : 'JS 收到异常',
+        result.status ?? '—',
+        result.acao ?? '—',
+        result.ok ? (result.body ?? '') : `${result.name}: ${result.message}`,
+      ];
+      for (const value of cells) {
+        const td = document.createElement('td');
+        td.textContent = String(value);
+        tr.appendChild(td);
+      }
+      tr.className = result.ok ? 'ok' : 'blocked';
+      rows.appendChild(tr);
+    }
+
+    async function attempt(name, url, options = {}) {
+      try {
+        const res = await fetch(url, options);
+        const body = await res.text();
+        results[name] = { ok: true, status: res.status, acao: res.headers.get('access-control-allow-origin'), body: body.slice(0, 200) };
+      } catch (err) {
+        results[name] = { ok: false, name: err.name, message: err.message };
+      }
+      row(name, results[name]);
+      return results[name];
+    }
+
+    async function main() {
+      await attempt('allow-get', `${API}/api/cors/allow`);
+      await attempt('preflight-post', `${API}/api/cors/allow`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-demo': '1' },
+        body: JSON.stringify({ a: 1 }),
+      });
+      await attempt('deny-get', `${API}/api/cors/deny`);
+      await attempt('wildcard-with-credentials', `${API}/api/cors/wildcard`, { credentials: 'include' });
+      await attempt('login-with-credentials', `${API}/api/session`, {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ user: 'demo', pass: 'demo' }),
+      });
+      await attempt('session-with-credentials', `${API}/api/session`, { credentials: 'include' });
+      await attempt('session-without-credentials', `${API}/api/session`);
+
+      document.getElementById('cookie').textContent = document.cookie || '(空)';
+      results['document.cookie'] = document.cookie;
+      window.__corsResults = results;
+      window.__corsDone = true;
+      statusEl.textContent = '全部用例执行完毕';
+      console.log('CORS_RESULTS ' + JSON.stringify(results));
+    }
+
+    main().catch(err => {
+      window.__corsError = String(err);
+      statusEl.textContent = '取证脚本失败: ' + err;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+$ curl http://127.0.0.1:8787/api/items
+HTTP/1.1 200 OK
+X-Content-Type-Options: nosniff
+Content-Type: application/json; charset=utf-8
+Content-Length: 121
+ETag: "items-v1"
+Cache-Control: public, max-age=60
+Vary: Accept-Language, Origin
+Date: Sat, 07 Nov 2026 08:20:32 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"items":[{"id":1,"title":"读 HTTP 缓存语义","done":false},{"id":2,"title":"用键盘走完主路径","done":true}]}
+exit=0
+
+$ curl -X POST -H content-type: application/json -d {"title":"new-task"} http://127.0.0.1:8787/api/items
+HTTP/1.1 201 Created
+X-Content-Type-Options: nosniff
+Content-Type: application/json; charset=utf-8
+Content-Length: 40
+Location: /api/items/3
+Date: Sat, 07 Nov 2026 08:20:32 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"id":3,"title":"new-task","done":false}
+exit=0
+
+$ curl -X DELETE http://127.0.0.1:8787/api/items/2
+HTTP/1.1 204 No Content
+X-Content-Type-Options: nosniff
+Date: Sat, 07 Nov 2026 08:20:32 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+
+exit=0
+
+$ curl http://127.0.0.1:8787/api/error/400
+HTTP/1.1 400 Bad Request
+X-Content-Type-Options: nosniff
+Content-Type: application/json; charset=utf-8
+Content-Length: 35
+Date: Sat, 07 Nov 2026 08:20:32 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"demo_error","status":400}
+exit=0
+
+$ curl http://127.0.0.1:8787/api/error/401
+HTTP/1.1 401 Unauthorized
+X-Content-Type-Options: nosniff
+Content-Type: application/json; charset=utf-8
+Content-Length: 35
+WWW-Authenticate: Bearer realm="demo"
+Date: Sat, 07 Nov 2026 08:20:32 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"demo_error","status":401}
+exit=0
+
+$ curl http://127.0.0.1:8787/api/error/403
+HTTP/1.1 403 Forbidden
+X-Content-Type-Options: nosniff
+Content-Type: application/json; charset=utf-8
+Content-Length: 35
+Date: Sat, 07 Nov 2026 08:20:32 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"demo_error","status":403}
+exit=0
+
+$ curl http://127.0.0.1:8787/api/error/404
+HTTP/1.1 404 Not Found
+X-Content-Type-Options: nosniff
+Content-Type: application/json; charset=utf-8
+Content-Length: 35
+Date: Sat, 07 Nov 2026 08:20:32 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"demo_error","status":404}
+exit=0
+
+$ curl http://127.0.0.1:8787/api/error/409
+HTTP/1.1 409 Conflict
+X-Content-Type-Options: nosniff
+Content-Type: application/json; charset=utf-8
+Content-Length: 35
+Date: Sat, 07 Nov 2026 08:20:32 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"demo_error","status":409}
+exit=0
+
+$ curl http://127.0.0.1:8787/api/error/422
+HTTP/1.1 422 Unprocessable Entity
+X-Content-Type-Options: nosniff
+Content-Type: application/json; charset=utf-8
+Content-Length: 35
+Date: Sat, 07 Nov 2026 08:20:32 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"demo_error","status":422}
+exit=0
+
+$ curl http://127.0.0.1:8787/api/error/500
+HTTP/1.1 500 Internal Server Error
+X-Content-Type-Options: nosniff
+Content-Type: application/json; charset=utf-8
+Content-Length: 35
+Date: Sat, 07 Nov 2026 08:20:32 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"demo_error","status":500}
+exit=0
+
+$ curl -X POST -H content-type: application/json -d {not json http://127.0.0.1:8787/api/items
+HTTP/1.1 400 Bad Request
+X-Content-Type-Options: nosniff
+Content-Type: application/json; charset=utf-8
+Content-Length: 24
+Date: Sat, 07 Nov 2026 08:20:32 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"invalid_json"}
+exit=0
+
+$ curl -X POST -H content-type: application/json -d {"title":""} http://127.0.0.1:8787/api/items
+HTTP/1.1 422 Unprocessable Entity
+X-Content-Type-Options: nosniff
+Content-Type: application/json; charset=utf-8
+Content-Length: 66
+Date: Sat, 07 Nov 2026 08:20:32 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"validation_failed","field":"title","rule":"1..60 chars"}
+exit=0
+

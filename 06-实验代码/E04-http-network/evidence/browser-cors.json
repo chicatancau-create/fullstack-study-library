@@ -1,0 +1,97 @@
+{
+  "browser": "Edg/157.0.4341.42",
+  "captured_at": "2026-11-07T08:20:41.205Z",
+  "page": "http://127.0.0.1:8788/cors-client.html",
+  "api": "http://127.0.0.1:8787",
+  "results": {
+    "allow-get": {
+      "ok": true,
+      "status": 200,
+      "acao": "http://127.0.0.1:8788",
+      "body": "{\"ok\":true,\"method\":\"GET\",\"origin\":\"http://127.0.0.1:8788\"}"
+    },
+    "preflight-post": {
+      "ok": true,
+      "status": 200,
+      "acao": "http://127.0.0.1:8788",
+      "body": "{\"ok\":true,\"method\":\"POST\",\"origin\":\"http://127.0.0.1:8788\"}"
+    },
+    "deny-get": {
+      "ok": false,
+      "name": "TypeError",
+      "message": "Failed to fetch"
+    },
+    "wildcard-with-credentials": {
+      "ok": false,
+      "name": "TypeError",
+      "message": "Failed to fetch"
+    },
+    "login-with-credentials": {
+      "ok": true,
+      "status": 200,
+      "acao": "http://127.0.0.1:8788",
+      "body": "{\"user\":\"demo\"}"
+    },
+    "session-with-credentials": {
+      "ok": true,
+      "status": 200,
+      "acao": "http://127.0.0.1:8788",
+      "body": "{\"user\":\"demo\"}"
+    },
+    "session-without-credentials": {
+      "ok": true,
+      "status": 401,
+      "acao": "http://127.0.0.1:8788",
+      "body": "{\"error\":\"unauthenticated\"}"
+    },
+    "document.cookie": "theme=light"
+  },
+  "console": [
+    {
+      "type": "log",
+      "text": "CORS_RESULTS {\"allow-get\":{\"ok\":true,\"status\":200,\"acao\":\"http://127.0.0.1:8788\",\"body\":\"{\\\"ok\\\":true,\\\"method\\\":\\\"GET\\\",\\\"origin\\\":\\\"http://127.0.0.1:8788\\\"}\"},\"preflight-post\":{\"ok\":true,\"status\":200,\"acao\":\"http://127.0.0.1:8788\",\"body\":\"{\\\"ok\\\":true,\\\"method\\\":\\\"POST\\\",\\\"origin\\\":\\\"http://127.0.0.1:8788\\\"}\"},\"deny-get\":{\"ok\":false,\"name\":\"TypeError\",\"message\":\"Failed to fetch\"},\"wildcard-with-credentials\":{\"ok\":false,\"name\":\"TypeError\",\"message\":\"Failed to fetch\"},\"login-with-credentials\":{\"ok\":true,\"status\":200,\"acao\":\"http://127.0.0.1:8788\",\"body\":\"{\\\"user\\\":\\\"demo\\\"}\"},\"session-with-credentials\":{\"ok\":true,\"status\":200,\"acao\":\"http://127.0.0.1:8788\",\"body\":\"{\\\"user\\\":\\\"demo\\\"}\"},\"session-without-credentials\":{\"ok\":true,\"status\":401,\"acao\":\"http://127.0.0.1:8788\",\"body\":\"{\\\"error\\\":\\\"unauthenticated\\\"}\"},\"document.cookie\":\"theme=light\"}"
+    }
+  ],
+  "log_entries": [
+    {
+      "source": "javascript",
+      "level": "error",
+      "text": "Access to fetch at 'http://127.0.0.1:8787/api/cors/deny' from origin 'http://127.0.0.1:8788' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "url": "http://127.0.0.1:8788/cors-client.html"
+    },
+    {
+      "source": "network",
+      "level": "error",
+      "text": "Failed to load resource: net::ERR_FAILED",
+      "url": "http://127.0.0.1:8787/api/cors/deny"
+    },
+    {
+      "source": "javascript",
+      "level": "error",
+      "text": "Access to fetch at 'http://127.0.0.1:8787/api/cors/wildcard' from origin 'http://127.0.0.1:8788' has been blocked by CORS policy: The value of the 'Access-Control-Allow-Origin' header in the response must not be the wildcard '*' when the request's credentials mode is 'include'.",
+      "url": "http://127.0.0.1:8788/cors-client.html"
+    },
+    {
+      "source": "network",
+      "level": "error",
+      "text": "Failed to load resource: net::ERR_FAILED",
+      "url": "http://127.0.0.1:8787/api/cors/wildcard"
+    },
+    {
+      "source": "network",
+      "level": "error",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://127.0.0.1:8787/api/session"
+    }
+  ],
+  "checks": {
+    "allow-get ok 200": true,
+    "preflight-post ok 200": true,
+    "deny-get blocked by browser": true,
+    "wildcard+credentials blocked": true,
+    "login-with-credentials ok 200": true,
+    "session-with-credentials ok 200": true,
+    "session-without-credentials 401": true,
+    "HttpOnly sid not readable": true
+  }
+}

@@ -1,0 +1,45 @@
+# 从第一次响应提取 ETag: "items-v1"
+
+$ curl http://127.0.0.1:8787/api/items
+HTTP/1.1 200 OK
+X-Content-Type-Options: nosniff
+Content-Type: application/json; charset=utf-8
+Content-Length: 106
+ETag: "items-v1"
+Cache-Control: public, max-age=60
+Vary: Accept-Language, Origin
+Date: Sat, 07 Nov 2026 08:20:32 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"items":[{"id":1,"title":"读 HTTP 缓存语义","done":false},{"id":3,"title":"new-task","done":false}]}
+exit=0
+
+$ curl -H If-None-Match: "items-v1" http://127.0.0.1:8787/api/items
+HTTP/1.1 304 Not Modified
+X-Content-Type-Options: nosniff
+ETag: "items-v1"
+Cache-Control: public, max-age=60
+Vary: Accept-Language, Origin
+Date: Sat, 07 Nov 2026 08:20:32 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+
+exit=0
+
+$ curl -H If-None-Match: "stale-etag" http://127.0.0.1:8787/api/items
+HTTP/1.1 200 OK
+X-Content-Type-Options: nosniff
+Content-Type: application/json; charset=utf-8
+Content-Length: 106
+ETag: "items-v1"
+Cache-Control: public, max-age=60
+Vary: Accept-Language, Origin
+Date: Sat, 07 Nov 2026 08:20:32 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"items":[{"id":1,"title":"读 HTTP 缓存语义","done":false},{"id":3,"title":"new-task","done":false}]}
+exit=0
+
