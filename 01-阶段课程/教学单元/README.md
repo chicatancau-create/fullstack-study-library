@@ -14,7 +14,7 @@
 | U04 | React | M03/M05 | 本机自测通过 | [[U04-React/README\|U04]]；4/4 测试 + 构建 + 竞态测试 |
 | U05 | Node/Fastify | M02/M06 | 本机自测通过 | [[U05-Node与Fastify/README\|U05]]；8/8 API 测试 + 真实监听 demo |
 | U06 | SQL | M07 | 本机自测通过 | [[U06-SQL/README\|U06]]；10/10 测试 + 索引计划 |
-| U07 | Linux | M02/M12 | 未开始 | 需隔离环境 |
+| U07 | Linux | M02/M12 | 部分（仅 Git Bash） | [[U07-Linux/README\|U07]]；10/10 检查，非 Linux 内核 |
 | U08 | 网络 | M02 | 本机自测通过 | [[U08-网络/README\|U08]]；13/13 HTTP/TCP 检查 |
 | U09 | 数据结构与算法 | M01 | 未开始 | 可复用 E01，但算法题库未建 |
 
