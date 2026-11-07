@@ -432,14 +432,14 @@ def build_catalog() -> dict[str, Any]:
         {
             "id": "jd-evidence-missing",
             "priority": "P0",
-            "summary": "岗位矩阵已补 11 份有效真实 JD（腾讯 6 / 美团 2 / 字节 1 / Thoughtworks 2），均有官方 URL 与必需/优先原文，频次分母 11；另有 1 份美团岗位无官方详情页，单列不计入。",
-            "status": "partial",
+            "summary": "岗位矩阵已补 12 份有效真实 JD（腾讯 6 / 美团 3 / 字节 1 / Thoughtworks 2），均有官方来源与必需/优先原文，频次分母 12；另有 1 条补充记录（四城已关闭岗位）单列不计入。季度复测转由资料补缺清单 JD-SAMPLES 承载。",
+            "status": "closed",
             "affected_ids": [],
             "target": "04-资源与评估/岗位能力矩阵与验收标准.md; 04-资源与评估/真实JD样本与差距记录.md",
-            "next_action": "每季度复测页面有效性；JD-07 若检索到官方详情页再补入并按 12 重算；不扩大采样范围。",
+            "next_action": "已闭合。后续仅按资料补缺清单 JD-SAMPLES 做季度复测；美团 JD-07/JD-08 若取得稳定 jobUnionId 再补入，不扩大采样范围。",
             "evidence": [
                 "04-资源与评估/真实JD样本与差距记录.md",
-                "2026-11-07 三轮采集：腾讯 JD-01–06、美团 JD-08/11、字节 JD-12、Thoughtworks JD-09/10 共 11 份有完整要求；JD-08 页面标注当前职位无法投递",
+                "2026-11-07 四轮采集：腾讯 JD-01–06、美团 JD-07/08/11、字节 JD-12、Thoughtworks JD-09/10 共 12 份有完整任职要求；四城同名校招岗位记为 D-01 补充记录，页面标注当前职位无法投递",
             ],
         },
     ]
