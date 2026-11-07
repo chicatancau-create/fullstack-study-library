@@ -1,0 +1,5 @@
+captured_at: 2026-11-07T19:58:29+08:00
+syntax: 0 syntax errors
+test: ℹ tests 8 ℹ pass 8 ℹ fail 0 
+demo: DEMO PASS
+gate_failures: 0

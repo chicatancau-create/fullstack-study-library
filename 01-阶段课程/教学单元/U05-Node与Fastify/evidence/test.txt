@@ -1,0 +1,16 @@
+✔ GET /health 返回 200 与 JSON (140.8735ms)
+✔ GET /records 返回 seed (15.7578ms)
+✔ POST /records 合法输入返回 201 (19.1555ms)
+✔ POST /records 负分钟返回 400 validation_failed (18.4009ms)
+✔ POST /records 额外字段被拒绝 (11.8729ms)
+✔ GET /records/:id 未知返回 404 (10.593ms)
+✔ DELETE /records/:id 返回 204，再查 404 (12.1262ms)
+✔ 未知路由返回 404 (9.0426ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 460.5191

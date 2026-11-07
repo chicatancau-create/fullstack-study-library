@@ -1,0 +1,6 @@
+health: 200 {"status":"ok"}
+created: 201 id=2
+invalid: 400 {"error":"validation_failed","message":"body/minutes must be >= 0"}
+list: 200 count=2
+deleted: 204
+DEMO PASS

@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "experiment": "U05",
+  "generated_at": "2026-11-07T11:59:12.566Z",
+  "commit": "dc1377e0fb62c782dfb7615a488d0053df0b6e5b",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [
+    {
+      "cmd": "bash scripts/run_unit.sh",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/syntax.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/test.txt",
+      "bytes": 523,
+      "sha256": "e70c72ea37971c26d5dad373784c5038757b471d4341483cb6c1605b47c336a6"
+    },
+    {
+      "path": "evidence/demo.txt",
+      "bytes": 168,
+      "sha256": "9a59cfce1b34950d49aecec6ac016def0069d63d4727756a96bc7ea3f6187130"
+    },
+    {
+      "path": "evidence/run.txt",
+      "bytes": 137,
+      "sha256": "c7ac3978bea68cbf8ed0a2e8ca9bb1942e89cac342c5514e79ba9e664ebaaa7c"
+    }
+  ],
+  "unverified": [
+    "未接真实 DB/认证/部署；未做并发与故障注入"
+  ]
+}

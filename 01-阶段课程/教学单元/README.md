@@ -12,7 +12,7 @@
 | U02 | HTML/CSS/响应式/可访问性 | M03 | 本机自测通过 | [[U02-HTML与CSS/README\|U02]]；320/1280 零溢出、axe 0 violations |
 | U03 | JS/TS | M04 | 本机自测通过 | [[U03-JavaScript与TypeScript/README\|U03]]；tsc 0 error、12/12 测试 |
 | U04 | React | M03/M05 | 未开始 | 依赖 E03/项目 01 |
-| U05 | Node/Fastify | M02/M06 | 未开始 | 可复用 E02/E04，但 API 教学未写 |
+| U05 | Node/Fastify | M02/M06 | 本机自测通过 | [[U05-Node与Fastify/README\|U05]]；8/8 API 测试 + 真实监听 demo |
 | U06 | SQL | M07 | 未开始 | 需 SQLite/PostgreSQL 可运行示例 |
 | U07 | Linux | M02/M12 | 未开始 | 需隔离环境 |
 | U08 | 网络 | M02 | 未开始 | 可复用 E04，但讲义未写 |
