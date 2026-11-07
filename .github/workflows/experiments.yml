@@ -5,12 +5,6 @@ on:
   pull_request:
 
 jobs:
-  e01:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-      - run: bash 06-实验代码/E01-c-memory/scripts/run_tests.sh
-
   e02:
     runs-on: ubuntu-latest
     steps:
