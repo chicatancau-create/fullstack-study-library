@@ -1,0 +1,19 @@
+{
+  "name": "u03-js-ts",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "U03：JS/TS 类型、运行时校验与异步顺序",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "demo": "node --experimental-strip-types examples/event-loop.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "typescript": "7.0.2"
+  }
+}

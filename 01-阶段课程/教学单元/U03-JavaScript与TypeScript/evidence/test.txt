@@ -1,0 +1,20 @@
+✔ 事件循环顺序：同步 -> 微任务 -> await -> 定时器 (3.5311ms)
+✔ Promise 失败必须被 await/catch 接住 (0.6699ms)
+✔ AbortSignal 协作取消：底层必须自己检查 signal (1.9715ms)
+✔ 并发上限：结果数量与顺序由调度决定 (1.0819ms)
+✔ 合法记录：保留字段并复制 tags (2.0093ms)
+✔ 缺少 tags 时默认空数组 (0.1344ms)
+✔ 拒绝非对象输入 (0.3181ms)
+✔ 拒绝空 id (0.0801ms)
+✔ 拒绝超长 title (0.1435ms)
+✔ 拒绝负数/NaN/Infinity 的 minutes (0.1421ms)
+✔ 拒绝非字符串 tags (0.0895ms)
+✔ totalMinutes 处理空数组与多记录 (0.1087ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 170.9644

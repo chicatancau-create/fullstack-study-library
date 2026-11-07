@@ -44,3 +44,8 @@ __pycache__/
 # 实验代码的构建产物（源码与证据入库，二进制不入库）
 06-实验代码/**/build/
 06-实验代码/**/node_modules/
+
+# 教学单元/任意子目录的依赖与构建产物
+**/node_modules/
+**/dist/
+**/*.tsbuildinfo

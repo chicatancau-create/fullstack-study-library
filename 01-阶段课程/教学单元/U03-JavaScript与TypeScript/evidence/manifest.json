@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "experiment": "U03",
+  "generated_at": "2026-11-07T11:56:42.756Z",
+  "commit": "99214d24b1505762ae59078d61f2734fa1ebdb55",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [
+    {
+      "cmd": "bash scripts/run_unit.sh",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/typecheck.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/test.txt",
+      "bytes": 742,
+      "sha256": "0dc8bf812224394731f0737f1c09bdbaf0def12b55d49a29a8d7b743e57c086a"
+    },
+    {
+      "path": "evidence/demo.txt",
+      "bytes": 109,
+      "sha256": "425d448de3db692ab939b320cfa168c5130aa40eec7b3bcaed72e63c6ede0b49"
+    },
+    {
+      "path": "evidence/run.txt",
+      "bytes": 135,
+      "sha256": "6a1ce63f16c8ab9b72587eac93f9cbbeb3c7b109c9e8d890ae82a75aee988128"
+    }
+  ],
+  "unverified": [
+    "未做浏览器 DOM/真实网络；类型检查只覆盖本单元源码"
+  ]
+}

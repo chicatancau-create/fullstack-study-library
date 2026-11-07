@@ -1,0 +1,5 @@
+captured_at: 2026-11-07T19:55:57+08:00
+typecheck: 0 errors
+test: ℹ tests 12 ℹ pass 12 ℹ fail 0 
+demo: DEMO PASS
+gate_failures: 0

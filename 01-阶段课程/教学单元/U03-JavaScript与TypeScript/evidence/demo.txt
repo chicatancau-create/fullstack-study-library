@@ -1,0 +1,4 @@
+order: sync -> microtask -> after-await -> timeout -> after-timeout
+total: 25
+validation: field=id
+DEMO PASS
