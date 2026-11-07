@@ -1,0 +1,47 @@
+== 注入版：4 个元素后越界写 arr[4]（守护页紧贴末尾） ==
+writing arr[4] = 123  (4 bytes past the last element)
+06-实验代码/E01-c-memory/scripts/run_tests.sh: line 84:  1933 Segmentation fault         ./build/fault_guard.exe
+exit=139   # 139 = SIGSEGV
+
+== gdb 定位 ==
+Error in sitecustomize; set PYTHONVERBOSE for traceback:
+ModuleNotFoundError: No module named '_ctypes'
+warning: [LSHOOK INFO]  Hook engine initialized (Windows version: 1000)
+writing arr[4] = 123  (4 bytes past the last element)
+
+Thread 1 received signal SIGSEGV, Segmentation fault.
+main () at tests/fault_guard.c:78
+78	    ((volatile int *)arr)[idx] = 123;
+
+--- backtrace ---
+#0  main () at tests/fault_guard.c:78
+
+--- faulting line ---
+#0  main () at tests/fault_guard.c:78
+78	    ((volatile int *)arr)[idx] = 123;
+Line 78 of "tests/fault_guard.c" starts at address 0x7ff71e5b1977 <main+535> and ends at 0x7ff71e5b197d <main+541>.
+
+--- locals ---
+len = 4
+bytes = 16
+si = {{dwOemId = 9, {wProcessorArchitecture = 9, wReserved = 0}}, dwPageSize = 4096, lpMinimumApplicationAddress = 0x10000, lpMaximumApplicationAddress = 0x7ffffffeffff, dwActiveProcessorMask = 4294967295, dwNumberOfProcessors = 32, dwProcessorType = 8664, dwAllocationGranularity = 65536, wProcessorLevel = 26, wProcessorRevision = 17408}
+page = 4096
+data_pages = 1
+total = 8192
+base = 0x1b0000 ""
+old_protect = 4
+arr = 0x1b0ff0
+i = 4
+idx = 4
+
+--- source context ---
+73	    fprintf(stderr, "writing arr[%zu] = 123  (%zu bytes past the last element)\n",
+74	            idx, sizeof(int));
+75	    fflush(stderr);
+76	
+77	    /* volatile 保证这次写不会被优化掉。 */
+78	    ((volatile int *)arr)[idx] = 123;
+79	
+80	    fprintf(stderr, "unexpected: write completed without fault\n");
+81	    VirtualFree(base, 0, MEM_RELEASE);
+82	    return 1;

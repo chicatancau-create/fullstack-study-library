@@ -1,0 +1,19 @@
+== clean rebuild: rm -rf build && bash scripts/build.sh ==
+[build] compiler: gcc.exe (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0
+[build] flags:    -std=c17 -Wall -Wextra -Wpedantic -g -O0 -I src
+[build] build/test_dynarray.exe
+[build] build/test_hashmap.exe
+[build] build/fault_guard.exe        (注入版：预期越界崩溃)
+[build] build/fault_guard_fixed.exe  (修复版：预期拒绝越界)
+[build] build/fault_plain.exe        (对照组：普通堆，预期静默不崩)
+[build] done
+
+== test_dynarray ==
+E01 test_dynarray
+test_dynarray                checks=72 fails=0 : PASS
+exit=0
+
+== test_hashmap ==
+E01 test_hashmap
+test_hashmap                 checks=3061 fails=0 : PASS
+exit=0

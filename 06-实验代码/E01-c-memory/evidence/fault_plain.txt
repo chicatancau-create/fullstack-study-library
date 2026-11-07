@@ -1,0 +1,5 @@
+== 对照组：普通 malloc 上的 arr[4] 越界写 ==
+writing arr[4] on ordinary heap (len=4) ...
+no crash observed; read back arr[4] = 123
+=> plain heap does not detect overflow: this run looked fine, but the heap was corrupted
+exit=0   # 0 = 正常退出，这正是不可靠之处

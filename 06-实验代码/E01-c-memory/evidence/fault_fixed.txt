@@ -1,0 +1,3 @@
+== 修复版：同一份 fault_guard.c，-DFIXED_BOUNDS 先判 idx >= len ==
+rejected: index 4 out of range (len=4); guard page left untouched
+exit=0   # 0 = 拒绝越界且未触碰守护页
