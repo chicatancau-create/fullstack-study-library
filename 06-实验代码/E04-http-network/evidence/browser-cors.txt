@@ -1,0 +1,31 @@
+browser: Edg/157.0.4341.42
+page: http://127.0.0.1:8788/cors-client.html
+
+--- results ---
+allow-get                    {"ok":true,"status":200,"acao":"http://127.0.0.1:8788","body":"{\"ok\":true,\"method\":\"GET\",\"origin\":\"http://127.0.0.1:8788\"}"}
+preflight-post               {"ok":true,"status":200,"acao":"http://127.0.0.1:8788","body":"{\"ok\":true,\"method\":\"POST\",\"origin\":\"http://127.0.0.1:8788\"}"}
+deny-get                     {"ok":false,"name":"TypeError","message":"Failed to fetch"}
+wildcard-with-credentials    {"ok":false,"name":"TypeError","message":"Failed to fetch"}
+login-with-credentials       {"ok":true,"status":200,"acao":"http://127.0.0.1:8788","body":"{\"user\":\"demo\"}"}
+session-with-credentials     {"ok":true,"status":200,"acao":"http://127.0.0.1:8788","body":"{\"user\":\"demo\"}"}
+session-without-credentials  {"ok":true,"status":401,"acao":"http://127.0.0.1:8788","body":"{\"error\":\"unauthenticated\"}"}
+document.cookie              "theme=light"
+
+--- console (error/warning) ---
+
+--- log entries ---
+[javascript/error] Access to fetch at 'http://127.0.0.1:8787/api/cors/deny' from origin 'http://127.0.0.1:8788' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[network/error] Failed to load resource: net::ERR_FAILED
+[javascript/error] Access to fetch at 'http://127.0.0.1:8787/api/cors/wildcard' from origin 'http://127.0.0.1:8788' has been blocked by CORS policy: The value of the 'Access-Control-Allow-Origin' header in the response must not be the wildcard '*' when the request's credentials mode is 'include'.
+[network/error] Failed to load resource: net::ERR_FAILED
+[network/error] Failed to load resource: the server responded with a status of 401 (Unauthorized)
+
+--- checks ---
+PASS  allow-get ok 200
+PASS  preflight-post ok 200
+PASS  deny-get blocked by browser
+PASS  wildcard+credentials blocked
+PASS  login-with-credentials ok 200
+PASS  session-with-credentials ok 200
+PASS  session-without-credentials 401
+PASS  HttpOnly sid not readable

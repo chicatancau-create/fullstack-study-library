@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>学习任务清单 · 首页</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要内容</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">学习任务清单</a>
+      <nav class="site-nav" aria-label="主导航">
+        <ul>
+          <li><a href="index.html" aria-current="page">首页</a></li>
+          <li><a href="tasks.html">任务列表</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="wrap">
+      <h1>把阶段 01 的证据做成可复核的清单</h1>
+      <p class="lede">这是一个不使用框架的静态站点，用来验证响应式布局、键盘主路径和可访问性。页面只有三条主路径：看清单、打开任务、保存修改。</p>
+
+      <div class="notice">
+        <p><strong>主路径：</strong>首页 → 任务列表 → 任务详情 → 填写并保存。全程只用 Tab、Enter、空格和方向键。</p>
+      </div>
+
+      <h2>本页包含什么</h2>
+      <ul class="grid">
+        <li class="card">
+          <h3>语义化结构</h3>
+          <p>header、nav、main、footer、列表与表单都使用原生元素，标题层级从 h1 到 h3。</p>
+        </li>
+        <li class="card">
+          <h3>响应式布局</h3>
+          <p>移动端单列，桌面端三列；导航自动换行，不使用绝对定位拼页面。</p>
+        </li>
+        <li class="card">
+          <h3>键盘与焦点</h3>
+          <p>跳转链接、可见焦点环、原生表单控件；错误与成功消息可被辅助技术感知。</p>
+        </li>
+      </ul>
+
+      <h2>下一步</h2>
+      <p>从任务列表里选一条，打开详情并保存修改。要验证键盘路径，请不要使用鼠标。</p>
+      <p><a href="tasks.html">查看任务列表</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap"><p>G1 响应式站点实验 · 仅本地使用 · 无追踪脚本</p></div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

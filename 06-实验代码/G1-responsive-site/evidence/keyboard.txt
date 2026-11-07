@@ -1,0 +1,52 @@
+=== keyboard mobile (375x812) ===
+1               A        id=-          text=跳到主要内容 outline=3px solid rgb(11, 87, 208)
+2               A        id=-          text=学习任务清单 outline=3px solid rgb(11, 87, 208)
+3               A        id=-          text=首页 outline=3px solid rgb(11, 87, 208)
+4               A        id=-          text=任务列表 outline=3px solid rgb(11, 87, 208)
+1               A        id=-          text=跳到主要内容 outline=3px solid rgb(11, 87, 208)
+2               A        id=-          text=学习任务清单 outline=3px solid rgb(11, 87, 208)
+3               A        id=-          text=首页 outline=3px solid rgb(11, 87, 208)
+4               A        id=-          text=任务列表 outline=3px solid rgb(11, 87, 208)
+5               A        id=-          text=记录一次真实 HTTP 请求 outline=3px solid rgb(11, 87, 208)
+1               A        id=-          text=跳到主要内容 outline=3px solid rgb(11, 87, 208)
+2               A        id=-          text=学习任务清单 outline=3px solid rgb(11, 87, 208)
+3               A        id=-          text=首页 outline=3px solid rgb(11, 87, 208)
+4               A        id=-          text=任务列表 outline=3px solid rgb(11, 87, 208)
+5               INPUT    id=title      text= outline=3px solid rgb(11, 87, 208)
+priority        SELECT   id=priority   text=高 中 低 outline=3px solid rgb(11, 87, 208)
+done-checkbox   INPUT    id=done       text=on outline=3px solid rgb(11, 87, 208)
+submit          BUTTON   id=-          text=保存任务 outline=3px solid rgb(11, 87, 208)
+checks: {"reachedTasksLink":true,"navigatedToTasks":true,"reachedTaskLink":true,"navigatedToTask":true,"reachedTitleInput":true,"submitReached":true,"successVisible":true,"focusMovedToSuccess":true,"priorityChanged":true,"checkboxToggled":true,"allFocusedHaveVisibleOutline":true,"focusWithoutOutline":[]}
+final: active=success success="“只用键盘完成主路径”已保存，优先级 低，已标记完成。" url=http://127.0.0.1:8789/task.html?id=1
+priority=low done=true
+
+=== keyboard desktop (1280x800) ===
+1               A        id=-          text=跳到主要内容 outline=3px solid rgb(11, 87, 208)
+2               A        id=-          text=学习任务清单 outline=3px solid rgb(11, 87, 208)
+3               A        id=-          text=首页 outline=3px solid rgb(11, 87, 208)
+4               A        id=-          text=任务列表 outline=3px solid rgb(11, 87, 208)
+1               A        id=-          text=跳到主要内容 outline=3px solid rgb(11, 87, 208)
+2               A        id=-          text=学习任务清单 outline=3px solid rgb(11, 87, 208)
+3               A        id=-          text=首页 outline=3px solid rgb(11, 87, 208)
+4               A        id=-          text=任务列表 outline=3px solid rgb(11, 87, 208)
+5               A        id=-          text=记录一次真实 HTTP 请求 outline=3px solid rgb(11, 87, 208)
+1               A        id=-          text=跳到主要内容 outline=3px solid rgb(11, 87, 208)
+2               A        id=-          text=学习任务清单 outline=3px solid rgb(11, 87, 208)
+3               A        id=-          text=首页 outline=3px solid rgb(11, 87, 208)
+4               A        id=-          text=任务列表 outline=3px solid rgb(11, 87, 208)
+5               INPUT    id=title      text= outline=3px solid rgb(11, 87, 208)
+priority        SELECT   id=priority   text=高 中 低 outline=3px solid rgb(11, 87, 208)
+done-checkbox   INPUT    id=done       text=on outline=3px solid rgb(11, 87, 208)
+submit          BUTTON   id=-          text=保存任务 outline=3px solid rgb(11, 87, 208)
+checks: {"reachedTasksLink":true,"navigatedToTasks":true,"reachedTaskLink":true,"navigatedToTask":true,"reachedTitleInput":true,"submitReached":true,"successVisible":true,"focusMovedToSuccess":true,"priorityChanged":true,"checkboxToggled":true,"allFocusedHaveVisibleOutline":true,"focusWithoutOutline":[]}
+final: active=success success="“只用键盘完成主路径”已保存，优先级 低，已标记完成。" url=http://127.0.0.1:8789/task.html?id=1
+priority=low done=true
+
+=== invalid submit mobile ===
+checks: {"errorVisible":true,"errorDescribed":true,"ariaInvalidSet":true,"focusReturnedToTitle":true,"successStaysHidden":true}
+error="任务标题需要 1–60 个字符，请修改后再保存。" active=title describedBy=title-hint form-error successHidden=true
+
+=== invalid submit desktop ===
+checks: {"errorVisible":true,"errorDescribed":true,"ariaInvalidSet":true,"focusReturnedToTitle":true,"successStaysHidden":true}
+error="任务标题需要 1–60 个字符，请修改后再保存。" active=title describedBy=title-hint form-error successHidden=true
+

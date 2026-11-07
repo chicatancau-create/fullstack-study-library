@@ -1,0 +1,7 @@
+--- axe (WCAG 2.0/2.1/2.2 A+AA) ---
+index@375: passes=16 violations=0 {} incomplete=0
+index@1280: passes=16 violations=0 {} incomplete=0
+tasks@375: passes=16 violations=0 {} incomplete=0
+tasks@1280: passes=16 violations=0 {} incomplete=0
+task@375: passes=23 violations=0 {} incomplete=0
+task@1280: passes=23 violations=0 {} incomplete=0

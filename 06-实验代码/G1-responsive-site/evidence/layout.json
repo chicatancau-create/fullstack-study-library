@@ -1,0 +1,634 @@
+{
+  "layout": [
+    {
+      "page": "index",
+      "viewport": "320",
+      "innerWidth": 320,
+      "docScrollWidth": 320,
+      "docClientWidth": 320,
+      "bodyScrollWidth": 320,
+      "overflowPx": 0,
+      "gridColumns": "288px",
+      "rects": {
+        "header": {
+          "left": 0,
+          "right": 320,
+          "width": 320
+        },
+        "main": {
+          "left": 0,
+          "right": 320,
+          "width": 320
+        },
+        "footer": {
+          "left": 0,
+          "right": 320,
+          "width": 320
+        },
+        "h1": {
+          "left": 16,
+          "right": 304,
+          "width": 288
+        },
+        ".site-nav": {
+          "left": 146,
+          "right": 274,
+          "width": 128
+        }
+      },
+      "minTarget": {
+        "tag": "A",
+        "id": null,
+        "text": "首页",
+        "w": 40,
+        "h": 44
+      },
+      "navFlexWrap": "wrap"
+    },
+    {
+      "page": "index",
+      "viewport": "375",
+      "innerWidth": 375,
+      "docScrollWidth": 375,
+      "docClientWidth": 375,
+      "bodyScrollWidth": 375,
+      "overflowPx": 0,
+      "gridColumns": "343px",
+      "rects": {
+        "header": {
+          "left": 0,
+          "right": 375,
+          "width": 375
+        },
+        "main": {
+          "left": 0,
+          "right": 375,
+          "width": 375
+        },
+        "footer": {
+          "left": 0,
+          "right": 375,
+          "width": 375
+        },
+        "h1": {
+          "left": 16,
+          "right": 359,
+          "width": 343
+        },
+        ".site-nav": {
+          "left": 146,
+          "right": 274,
+          "width": 128
+        }
+      },
+      "minTarget": {
+        "tag": "A",
+        "id": null,
+        "text": "首页",
+        "w": 40,
+        "h": 44
+      },
+      "navFlexWrap": "wrap"
+    },
+    {
+      "page": "index",
+      "viewport": "768",
+      "innerWidth": 768,
+      "docScrollWidth": 768,
+      "docClientWidth": 768,
+      "bodyScrollWidth": 768,
+      "overflowPx": 0,
+      "gridColumns": "234.656px 234.672px 234.672px",
+      "rects": {
+        "header": {
+          "left": 0,
+          "right": 768,
+          "width": 768
+        },
+        "main": {
+          "left": 0,
+          "right": 768,
+          "width": 768
+        },
+        "footer": {
+          "left": 0,
+          "right": 768,
+          "width": 768
+        },
+        "h1": {
+          "left": 16,
+          "right": 752,
+          "width": 736
+        },
+        ".site-nav": {
+          "left": 624,
+          "right": 752,
+          "width": 128
+        }
+      },
+      "minTarget": {
+        "tag": "A",
+        "id": null,
+        "text": "首页",
+        "w": 40,
+        "h": 44
+      },
+      "navFlexWrap": "wrap"
+    },
+    {
+      "page": "index",
+      "viewport": "1280",
+      "innerWidth": 1280,
+      "docScrollWidth": 1280,
+      "docClientWidth": 1280,
+      "bodyScrollWidth": 1280,
+      "overflowPx": 0,
+      "gridColumns": "320px 320px 320px",
+      "rects": {
+        "header": {
+          "left": 0,
+          "right": 1280,
+          "width": 1280
+        },
+        "main": {
+          "left": 0,
+          "right": 1280,
+          "width": 1280
+        },
+        "footer": {
+          "left": 0,
+          "right": 1280,
+          "width": 1280
+        },
+        "h1": {
+          "left": 144,
+          "right": 1136,
+          "width": 992
+        },
+        ".site-nav": {
+          "left": 1008,
+          "right": 1136,
+          "width": 128
+        }
+      },
+      "minTarget": {
+        "tag": "A",
+        "id": null,
+        "text": "首页",
+        "w": 40,
+        "h": 44
+      },
+      "navFlexWrap": "wrap"
+    },
+    {
+      "page": "tasks",
+      "viewport": "320",
+      "innerWidth": 320,
+      "docScrollWidth": 320,
+      "docClientWidth": 320,
+      "bodyScrollWidth": 320,
+      "overflowPx": 0,
+      "gridColumns": "288px",
+      "rects": {
+        "header": {
+          "left": 0,
+          "right": 320,
+          "width": 320
+        },
+        "main": {
+          "left": 0,
+          "right": 320,
+          "width": 320
+        },
+        "footer": {
+          "left": 0,
+          "right": 320,
+          "width": 320
+        },
+        "h1": {
+          "left": 16,
+          "right": 304,
+          "width": 288
+        },
+        ".site-nav": {
+          "left": 146,
+          "right": 274,
+          "width": 128
+        }
+      },
+      "minTarget": {
+        "tag": "A",
+        "id": null,
+        "text": "首页",
+        "w": 40,
+        "h": 44
+      },
+      "navFlexWrap": "wrap"
+    },
+    {
+      "page": "tasks",
+      "viewport": "375",
+      "innerWidth": 375,
+      "docScrollWidth": 375,
+      "docClientWidth": 375,
+      "bodyScrollWidth": 375,
+      "overflowPx": 0,
+      "gridColumns": "343px",
+      "rects": {
+        "header": {
+          "left": 0,
+          "right": 375,
+          "width": 375
+        },
+        "main": {
+          "left": 0,
+          "right": 375,
+          "width": 375
+        },
+        "footer": {
+          "left": 0,
+          "right": 375,
+          "width": 375
+        },
+        "h1": {
+          "left": 16,
+          "right": 359,
+          "width": 343
+        },
+        ".site-nav": {
+          "left": 146,
+          "right": 274,
+          "width": 128
+        }
+      },
+      "minTarget": {
+        "tag": "A",
+        "id": null,
+        "text": "首页",
+        "w": 40,
+        "h": 44
+      },
+      "navFlexWrap": "wrap"
+    },
+    {
+      "page": "tasks",
+      "viewport": "768",
+      "innerWidth": 768,
+      "docScrollWidth": 768,
+      "docClientWidth": 768,
+      "bodyScrollWidth": 768,
+      "overflowPx": 0,
+      "gridColumns": "362px 362px",
+      "rects": {
+        "header": {
+          "left": 0,
+          "right": 768,
+          "width": 768
+        },
+        "main": {
+          "left": 0,
+          "right": 768,
+          "width": 768
+        },
+        "footer": {
+          "left": 0,
+          "right": 768,
+          "width": 768
+        },
+        "h1": {
+          "left": 16,
+          "right": 752,
+          "width": 736
+        },
+        ".site-nav": {
+          "left": 624,
+          "right": 752,
+          "width": 128
+        }
+      },
+      "minTarget": {
+        "tag": "A",
+        "id": null,
+        "text": "首页",
+        "w": 40,
+        "h": 44
+      },
+      "navFlexWrap": "wrap"
+    },
+    {
+      "page": "tasks",
+      "viewport": "1280",
+      "innerWidth": 1280,
+      "docScrollWidth": 1280,
+      "docClientWidth": 1280,
+      "bodyScrollWidth": 1280,
+      "overflowPx": 0,
+      "gridColumns": "490px 490px",
+      "rects": {
+        "header": {
+          "left": 0,
+          "right": 1280,
+          "width": 1280
+        },
+        "main": {
+          "left": 0,
+          "right": 1280,
+          "width": 1280
+        },
+        "footer": {
+          "left": 0,
+          "right": 1280,
+          "width": 1280
+        },
+        "h1": {
+          "left": 144,
+          "right": 1136,
+          "width": 992
+        },
+        ".site-nav": {
+          "left": 1008,
+          "right": 1136,
+          "width": 128
+        }
+      },
+      "minTarget": {
+        "tag": "A",
+        "id": null,
+        "text": "首页",
+        "w": 40,
+        "h": 44
+      },
+      "navFlexWrap": "wrap"
+    },
+    {
+      "page": "task",
+      "viewport": "320",
+      "innerWidth": 320,
+      "docScrollWidth": 320,
+      "docClientWidth": 320,
+      "bodyScrollWidth": 320,
+      "overflowPx": 0,
+      "gridColumns": null,
+      "rects": {
+        "header": {
+          "left": 0,
+          "right": 320,
+          "width": 320
+        },
+        "main": {
+          "left": 0,
+          "right": 320,
+          "width": 320
+        },
+        "footer": {
+          "left": 0,
+          "right": 320,
+          "width": 320
+        },
+        "h1": {
+          "left": 16,
+          "right": 304,
+          "width": 288
+        },
+        ".site-nav": {
+          "left": 146,
+          "right": 274,
+          "width": 128
+        },
+        "form": {
+          "left": 16,
+          "right": 304,
+          "width": 288
+        },
+        "button": {
+          "left": 16,
+          "right": 122,
+          "width": 106
+        }
+      },
+      "minTarget": {
+        "tag": "INPUT",
+        "id": "done",
+        "text": "on",
+        "w": 24,
+        "h": 24
+      },
+      "navFlexWrap": "wrap"
+    },
+    {
+      "page": "task",
+      "viewport": "375",
+      "innerWidth": 375,
+      "docScrollWidth": 375,
+      "docClientWidth": 375,
+      "bodyScrollWidth": 375,
+      "overflowPx": 0,
+      "gridColumns": null,
+      "rects": {
+        "header": {
+          "left": 0,
+          "right": 375,
+          "width": 375
+        },
+        "main": {
+          "left": 0,
+          "right": 375,
+          "width": 375
+        },
+        "footer": {
+          "left": 0,
+          "right": 375,
+          "width": 375
+        },
+        "h1": {
+          "left": 16,
+          "right": 359,
+          "width": 343
+        },
+        ".site-nav": {
+          "left": 146,
+          "right": 274,
+          "width": 128
+        },
+        "form": {
+          "left": 16,
+          "right": 359,
+          "width": 343
+        },
+        "button": {
+          "left": 16,
+          "right": 122,
+          "width": 106
+        }
+      },
+      "minTarget": {
+        "tag": "INPUT",
+        "id": "done",
+        "text": "on",
+        "w": 24,
+        "h": 24
+      },
+      "navFlexWrap": "wrap"
+    },
+    {
+      "page": "task",
+      "viewport": "768",
+      "innerWidth": 768,
+      "docScrollWidth": 768,
+      "docClientWidth": 768,
+      "bodyScrollWidth": 768,
+      "overflowPx": 0,
+      "gridColumns": null,
+      "rects": {
+        "header": {
+          "left": 0,
+          "right": 768,
+          "width": 768
+        },
+        "main": {
+          "left": 0,
+          "right": 768,
+          "width": 768
+        },
+        "footer": {
+          "left": 0,
+          "right": 768,
+          "width": 768
+        },
+        "h1": {
+          "left": 16,
+          "right": 752,
+          "width": 736
+        },
+        ".site-nav": {
+          "left": 624,
+          "right": 752,
+          "width": 128
+        },
+        "form": {
+          "left": 16,
+          "right": 560,
+          "width": 544
+        },
+        "button": {
+          "left": 16,
+          "right": 122,
+          "width": 106
+        }
+      },
+      "minTarget": {
+        "tag": "INPUT",
+        "id": "done",
+        "text": "on",
+        "w": 24,
+        "h": 24
+      },
+      "navFlexWrap": "wrap"
+    },
+    {
+      "page": "task",
+      "viewport": "1280",
+      "innerWidth": 1280,
+      "docScrollWidth": 1280,
+      "docClientWidth": 1280,
+      "bodyScrollWidth": 1280,
+      "overflowPx": 0,
+      "gridColumns": null,
+      "rects": {
+        "header": {
+          "left": 0,
+          "right": 1280,
+          "width": 1280
+        },
+        "main": {
+          "left": 0,
+          "right": 1280,
+          "width": 1280
+        },
+        "footer": {
+          "left": 0,
+          "right": 1280,
+          "width": 1280
+        },
+        "h1": {
+          "left": 144,
+          "right": 1136,
+          "width": 992
+        },
+        ".site-nav": {
+          "left": 1008,
+          "right": 1136,
+          "width": 128
+        },
+        "form": {
+          "left": 144,
+          "right": 688,
+          "width": 544
+        },
+        "button": {
+          "left": 144,
+          "right": 250,
+          "width": 106
+        }
+      },
+      "minTarget": {
+        "tag": "INPUT",
+        "id": "done",
+        "text": "on",
+        "w": 24,
+        "h": 24
+      },
+      "navFlexWrap": "wrap"
+    }
+  ],
+  "textZoom": [
+    {
+      "viewport": "375",
+      "before": {
+        "sw": 375,
+        "iw": 375
+      },
+      "after": {
+        "sw": 375,
+        "bodySw": 375,
+        "iw": 375,
+        "clipped": []
+      }
+    },
+    {
+      "viewport": "1280",
+      "before": {
+        "sw": 1280,
+        "iw": 1280
+      },
+      "after": {
+        "sw": 1280,
+        "bodySw": 1280,
+        "iw": 1280,
+        "clipped": []
+      }
+    }
+  ],
+  "reducedMotion": [
+    {
+      "default": "fade-in",
+      "reduced": "none"
+    }
+  ],
+  "skipLink": [
+    {
+      "viewport": "mobile",
+      "firstFocus": "跳到主要内容",
+      "activeAfterEnter": "main",
+      "firstIsSkipLink": true,
+      "skipMovesFocusToMain": true
+    },
+    {
+      "viewport": "desktop",
+      "firstFocus": "跳到主要内容",
+      "activeAfterEnter": "main",
+      "firstIsSkipLink": true,
+      "skipMovesFocusToMain": true
+    }
+  ]
+}

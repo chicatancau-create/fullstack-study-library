@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>学习任务清单 · 任务详情</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要内容</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">学习任务清单</a>
+      <nav class="site-nav" aria-label="主导航">
+        <ul>
+          <li><a href="index.html">首页</a></li>
+          <li><a href="tasks.html" aria-current="page">任务列表</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="wrap">
+      <h1 id="task-title">任务详情</h1>
+      <p class="lede" id="task-desc">正在读取任务信息…</p>
+
+      <section class="success" id="success" tabindex="-1" role="status" aria-live="polite" hidden>
+        <h2>已保存</h2>
+        <p id="success-text"></p>
+      </section>
+
+      <form id="task-form" novalidate>
+        <p class="form-error" id="form-error" role="alert" hidden></p>
+
+        <div class="field">
+          <label for="title">任务标题</label>
+          <input type="text" id="title" name="title" autocomplete="off"
+                 aria-describedby="title-hint" placeholder="例如：整理 HTTP 证据">
+          <p class="hint" id="title-hint">1–60 个字符；留空会显示错误并把焦点送回输入框。</p>
+        </div>
+
+        <div class="field">
+          <label for="priority">优先级</label>
+          <select id="priority" name="priority">
+            <option value="high">高</option>
+            <option value="medium" selected>中</option>
+            <option value="low">低</option>
+          </select>
+        </div>
+
+        <div class="field check">
+          <input type="checkbox" id="done" name="done">
+          <label for="done">标记为已完成</label>
+        </div>
+
+        <button class="button" type="submit">保存任务</button>
+      </form>
+
+      <p class="back"><a href="tasks.html">返回任务列表</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap"><p>G1 响应式站点实验 · 仅本地使用 · 无追踪脚本</p></div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+--- 布局 / 重排 ---
+page        vp    inner  scroll  overflow  gridColumns
+index      320   320    320     0         288px
+index      375   375    375     0         343px
+index      768   768    768     0         234.656px 234.672px 234.672px
+index      1280  1280   1280    0         320px 320px 320px
+tasks      320   320    320     0         288px
+tasks      375   375    375     0         343px
+tasks      768   768    768     0         362px 362px
+tasks      1280  1280   1280    0         490px 490px
+task       320   320    320     0         null
+task       375   375    375     0         null
+task       768   768    768     0         null
+task       1280  1280   1280    0         null
+
+--- 200% 文本 ---
+375: before scrollWidth=375 after=375 inner=375 overflow=0 clipped=none
+1280: before scrollWidth=1280 after=1280 inner=1280 overflow=0 clipped=none
+
+--- 减少动态效果 ---
+default=fade-in reduced=none
+
+--- 跳转链接 ---
+mobile: firstTab="跳到主要内容" enterFocus=main pass=true
+desktop: firstTab="跳到主要内容" enterFocus=main pass=true
