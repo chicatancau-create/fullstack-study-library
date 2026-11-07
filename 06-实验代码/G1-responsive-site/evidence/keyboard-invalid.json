@@ -1,0 +1,346 @@
+[
+  {
+    "viewport": "mobile",
+    "checks": {
+      "errorVisible": true,
+      "errorDescribed": true,
+      "ariaInvalidSet": true,
+      "focusReturnedToTitle": true,
+      "successStaysHidden": true
+    },
+    "state": {
+      "errorVisible": true,
+      "errorText": "任务标题需要 1–60 个字符，请修改后再保存。",
+      "ariaInvalid": "true",
+      "describedBy": "title-hint form-error",
+      "activeId": "title",
+      "successHidden": true
+    },
+    "trace": [
+      {
+        "step": 1,
+        "tag": "A",
+        "id": null,
+        "type": null,
+        "text": "跳到主要内容",
+        "href": "http://127.0.0.1:8789/task.html?id=2#main",
+        "ariaCurrent": null,
+        "ariaInvalid": null,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(11, 87, 208)",
+        "rect": {
+          "x": 8,
+          "y": 8,
+          "w": 128,
+          "h": 45
+        }
+      },
+      {
+        "step": 2,
+        "tag": "A",
+        "id": null,
+        "type": null,
+        "text": "学习任务清单",
+        "href": "http://127.0.0.1:8789/index.html",
+        "ariaCurrent": null,
+        "ariaInvalid": null,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(11, 87, 208)",
+        "rect": {
+          "x": 16,
+          "y": 19,
+          "w": 110,
+          "h": 29
+        }
+      },
+      {
+        "step": 3,
+        "tag": "A",
+        "id": null,
+        "type": null,
+        "text": "首页",
+        "href": "http://127.0.0.1:8789/index.html",
+        "ariaCurrent": null,
+        "ariaInvalid": null,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(11, 87, 208)",
+        "rect": {
+          "x": 146,
+          "y": 12,
+          "w": 40,
+          "h": 44
+        }
+      },
+      {
+        "step": 4,
+        "tag": "A",
+        "id": null,
+        "type": null,
+        "text": "任务列表",
+        "href": "http://127.0.0.1:8789/tasks.html",
+        "ariaCurrent": "page",
+        "ariaInvalid": null,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(11, 87, 208)",
+        "rect": {
+          "x": 202,
+          "y": 12,
+          "w": 72,
+          "h": 44
+        }
+      },
+      {
+        "step": 5,
+        "tag": "INPUT",
+        "id": "title",
+        "type": "text",
+        "text": "",
+        "href": null,
+        "ariaCurrent": null,
+        "ariaInvalid": null,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(11, 87, 208)",
+        "rect": {
+          "x": 16,
+          "y": 241,
+          "w": 343,
+          "h": 46
+        }
+      },
+      {
+        "step": 6,
+        "tag": "SELECT",
+        "id": "priority",
+        "type": null,
+        "text": "高 中 低",
+        "href": null,
+        "ariaCurrent": null,
+        "ariaInvalid": null,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(11, 87, 208)",
+        "rect": {
+          "x": 16,
+          "y": 387,
+          "w": 343,
+          "h": 44
+        }
+      },
+      {
+        "step": 7,
+        "tag": "INPUT",
+        "id": "done",
+        "type": "checkbox",
+        "text": "on",
+        "href": null,
+        "ariaCurrent": null,
+        "ariaInvalid": null,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(11, 87, 208)",
+        "rect": {
+          "x": 20,
+          "y": 451,
+          "w": 24,
+          "h": 24
+        }
+      },
+      {
+        "step": 8,
+        "tag": "BUTTON",
+        "id": null,
+        "type": "submit",
+        "text": "保存任务",
+        "href": null,
+        "ariaCurrent": null,
+        "ariaInvalid": null,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(11, 87, 208)",
+        "rect": {
+          "x": 16,
+          "y": 496,
+          "w": 106,
+          "h": 49
+        }
+      }
+    ]
+  },
+  {
+    "viewport": "desktop",
+    "checks": {
+      "errorVisible": true,
+      "errorDescribed": true,
+      "ariaInvalidSet": true,
+      "focusReturnedToTitle": true,
+      "successStaysHidden": true
+    },
+    "state": {
+      "errorVisible": true,
+      "errorText": "任务标题需要 1–60 个字符，请修改后再保存。",
+      "ariaInvalid": "true",
+      "describedBy": "title-hint form-error",
+      "activeId": "title",
+      "successHidden": true
+    },
+    "trace": [
+      {
+        "step": 1,
+        "tag": "A",
+        "id": null,
+        "type": null,
+        "text": "跳到主要内容",
+        "href": "http://127.0.0.1:8789/task.html?id=2#main",
+        "ariaCurrent": null,
+        "ariaInvalid": null,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(11, 87, 208)",
+        "rect": {
+          "x": 8,
+          "y": 8,
+          "w": 128,
+          "h": 45
+        }
+      },
+      {
+        "step": 2,
+        "tag": "A",
+        "id": null,
+        "type": null,
+        "text": "学习任务清单",
+        "href": "http://127.0.0.1:8789/index.html",
+        "ariaCurrent": null,
+        "ariaInvalid": null,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(11, 87, 208)",
+        "rect": {
+          "x": 144,
+          "y": 19,
+          "w": 110,
+          "h": 29
+        }
+      },
+      {
+        "step": 3,
+        "tag": "A",
+        "id": null,
+        "type": null,
+        "text": "首页",
+        "href": "http://127.0.0.1:8789/index.html",
+        "ariaCurrent": null,
+        "ariaInvalid": null,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(11, 87, 208)",
+        "rect": {
+          "x": 1008,
+          "y": 12,
+          "w": 40,
+          "h": 44
+        }
+      },
+      {
+        "step": 4,
+        "tag": "A",
+        "id": null,
+        "type": null,
+        "text": "任务列表",
+        "href": "http://127.0.0.1:8789/tasks.html",
+        "ariaCurrent": "page",
+        "ariaInvalid": null,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(11, 87, 208)",
+        "rect": {
+          "x": 1064,
+          "y": 12,
+          "w": 72,
+          "h": 44
+        }
+      },
+      {
+        "step": 5,
+        "tag": "INPUT",
+        "id": "title",
+        "type": "text",
+        "text": "",
+        "href": null,
+        "ariaCurrent": null,
+        "ariaInvalid": null,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(11, 87, 208)",
+        "rect": {
+          "x": 144,
+          "y": 227,
+          "w": 544,
+          "h": 46
+        }
+      },
+      {
+        "step": 6,
+        "tag": "SELECT",
+        "id": "priority",
+        "type": null,
+        "text": "高 中 低",
+        "href": null,
+        "ariaCurrent": null,
+        "ariaInvalid": null,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(11, 87, 208)",
+        "rect": {
+          "x": 144,
+          "y": 349,
+          "w": 544,
+          "h": 44
+        }
+      },
+      {
+        "step": 7,
+        "tag": "INPUT",
+        "id": "done",
+        "type": "checkbox",
+        "text": "on",
+        "href": null,
+        "ariaCurrent": null,
+        "ariaInvalid": null,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(11, 87, 208)",
+        "rect": {
+          "x": 148,
+          "y": 413,
+          "w": 24,
+          "h": 24
+        }
+      },
+      {
+        "step": 8,
+        "tag": "BUTTON",
+        "id": null,
+        "type": "submit",
+        "text": "保存任务",
+        "href": null,
+        "ariaCurrent": null,
+        "ariaInvalid": null,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(11, 87, 208)",
+        "rect": {
+          "x": 144,
+          "y": 458,
+          "w": 106,
+          "h": 49
+        }
+      }
+    ]
+  }
+]

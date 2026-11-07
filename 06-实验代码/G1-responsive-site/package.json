@@ -1,0 +1,13 @@
+{
+  "name": "g1-responsive-site",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "G1 响应式站点与键盘/可访问性取证",
+  "scripts": {
+    "audit": "node scripts/audit.mjs"
+  },
+  "devDependencies": {
+    "axe-core": "4.14.0"
+  }
+}

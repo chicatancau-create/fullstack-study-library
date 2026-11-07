@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>学习任务清单 · 任务列表</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要内容</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">学习任务清单</a>
+      <nav class="site-nav" aria-label="主导航">
+        <ul>
+          <li><a href="index.html">首页</a></li>
+          <li><a href="tasks.html" aria-current="page">任务列表</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="wrap">
+      <h1>任务列表</h1>
+      <p class="lede">三条任务分别对应网络、键盘与内存证据。打开任意一条查看详情。</p>
+
+      <ul class="task-list">
+        <li>
+          <a href="task.html?id=1">记录一次真实 HTTP 请求</a>
+          <p class="meta">状态：已完成 · 负责：网络证据</p>
+        </li>
+        <li>
+          <a href="task.html?id=2">只用键盘走完主路径</a>
+          <p class="meta">状态：进行中 · 负责：可访问性</p>
+        </li>
+        <li>
+          <a href="task.html?id=3">用 gdb 定位一次越界写</a>
+          <p class="meta">状态：已完成 · 负责：内存定位</p>
+        </li>
+      </ul>
+
+      <p class="back"><a href="index.html">返回首页</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap"><p>G1 响应式站点实验 · 仅本地使用 · 无追踪脚本</p></div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
