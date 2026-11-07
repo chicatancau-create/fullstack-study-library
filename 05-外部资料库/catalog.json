@@ -1,7 +1,7 @@
 {
   "$schema": "catalog.schema.json",
   "schema_version": "1.0.0",
-  "generated_at": "2026-11-07T12:00:53+08:00",
+  "generated_at": "2026-11-07T13:11:47+08:00",
   "resources": [
     {
       "id": "github:canner/wrenai",
@@ -55,7 +55,7 @@
         "markdown_count": 147,
         "question_markers": 5,
         "test_files": 135,
-        "observed_at": "2026-11-07T12:00:40+08:00",
+        "observed_at": "2026-11-07T13:11:29+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -202,7 +202,7 @@
         "markdown_count": 25,
         "question_markers": 1,
         "test_files": 18,
-        "observed_at": "2026-11-07T12:00:40+08:00",
+        "observed_at": "2026-11-07T13:11:29+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -339,7 +339,7 @@
         "markdown_count": 175,
         "question_markers": 313,
         "test_files": 17,
-        "observed_at": "2026-11-07T12:00:40+08:00",
+        "observed_at": "2026-11-07T13:11:29+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -477,7 +477,7 @@
         "markdown_count": 119,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:40+08:00",
+        "observed_at": "2026-11-07T13:11:29+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -603,7 +603,7 @@
         "markdown_count": 259,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:40+08:00",
+        "observed_at": "2026-11-07T13:11:29+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -719,7 +719,7 @@
         "markdown_count": 27,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:40+08:00",
+        "observed_at": "2026-11-07T13:11:29+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -840,7 +840,7 @@
         "markdown_count": 308,
         "question_markers": 41,
         "test_files": 3,
-        "observed_at": "2026-11-07T12:00:40+08:00",
+        "observed_at": "2026-11-07T13:11:29+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -975,7 +975,7 @@
         "markdown_count": 163,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:40+08:00",
+        "observed_at": "2026-11-07T13:11:29+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -1098,7 +1098,7 @@
         "markdown_count": 2798,
         "question_markers": 117,
         "test_files": 610,
-        "observed_at": "2026-11-07T12:00:41+08:00",
+        "observed_at": "2026-11-07T13:11:30+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -1232,7 +1232,7 @@
         "markdown_count": 13,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:41+08:00",
+        "observed_at": "2026-11-07T13:11:30+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -1344,7 +1344,7 @@
         "markdown_count": 3752,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:42+08:00",
+        "observed_at": "2026-11-07T13:11:31+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -1460,7 +1460,7 @@
         "markdown_count": 3925,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:42+08:00",
+        "observed_at": "2026-11-07T13:11:32+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -1576,7 +1576,7 @@
         "markdown_count": 5581,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:43+08:00",
+        "observed_at": "2026-11-07T13:11:33+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -1701,7 +1701,7 @@
         "markdown_count": 1511,
         "question_markers": 350,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:43+08:00",
+        "observed_at": "2026-11-07T13:11:33+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -1836,7 +1836,7 @@
         "markdown_count": 42,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:43+08:00",
+        "observed_at": "2026-11-07T13:11:33+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -1961,7 +1961,7 @@
         "markdown_count": 96,
         "question_markers": 14,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:43+08:00",
+        "observed_at": "2026-11-07T13:11:33+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -2089,7 +2089,7 @@
         "markdown_count": 2,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:43+08:00",
+        "observed_at": "2026-11-07T13:11:33+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -2194,7 +2194,7 @@
         "markdown_count": 17037,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:43+08:00",
+        "observed_at": "2026-11-07T13:11:34+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -2310,7 +2310,7 @@
         "markdown_count": 998,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:43+08:00",
+        "observed_at": "2026-11-07T13:11:34+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -2422,7 +2422,7 @@
         "markdown_count": 5596,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:44+08:00",
+        "observed_at": "2026-11-07T13:11:34+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -2538,7 +2538,7 @@
         "markdown_count": 2,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:44+08:00",
+        "observed_at": "2026-11-07T13:11:34+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -2647,7 +2647,7 @@
         "markdown_count": 11297,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:44+08:00",
+        "observed_at": "2026-11-07T13:11:35+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -2760,7 +2760,7 @@
         "markdown_count": 4,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:44+08:00",
+        "observed_at": "2026-11-07T13:11:35+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -2878,7 +2878,7 @@
         "markdown_count": 108,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:44+08:00",
+        "observed_at": "2026-11-07T13:11:35+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -3009,7 +3009,7 @@
         "markdown_count": 11,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:44+08:00",
+        "observed_at": "2026-11-07T13:11:35+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -3133,7 +3133,7 @@
         "markdown_count": 187,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:44+08:00",
+        "observed_at": "2026-11-07T13:11:35+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -3256,7 +3256,7 @@
         "markdown_count": 236,
         "question_markers": 2,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:44+08:00",
+        "observed_at": "2026-11-07T13:11:35+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -3384,7 +3384,7 @@
         "markdown_count": 8,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:44+08:00",
+        "observed_at": "2026-11-07T13:11:35+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -3501,7 +3501,7 @@
         "markdown_count": 14753,
         "question_markers": 591,
         "test_files": 2,
-        "observed_at": "2026-11-07T12:00:45+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -3633,7 +3633,7 @@
         "markdown_count": 365,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:45+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -3752,7 +3752,7 @@
         "markdown_count": 252,
         "question_markers": 7,
         "test_files": 1,
-        "observed_at": "2026-11-07T12:00:45+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -3887,7 +3887,7 @@
         "markdown_count": 13,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:45+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -4019,7 +4019,7 @@
         "markdown_count": 122,
         "question_markers": 4,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:45+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -4148,7 +4148,7 @@
         "markdown_count": 1,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:45+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -4258,7 +4258,7 @@
         "markdown_count": 331,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:45+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -4364,7 +4364,7 @@
         "markdown_count": 224,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:46+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -4476,7 +4476,7 @@
         "markdown_count": 101,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:46+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -4595,7 +4595,7 @@
         "markdown_count": 93,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:46+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -4711,7 +4711,7 @@
         "markdown_count": 653,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:46+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -4827,7 +4827,7 @@
         "markdown_count": 3,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:46+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -4939,7 +4939,7 @@
         "markdown_count": 992,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:46+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -5060,7 +5060,7 @@
         "markdown_count": 145,
         "question_markers": 15,
         "test_files": 4,
-        "observed_at": "2026-11-07T12:00:46+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -5197,7 +5197,7 @@
         "markdown_count": 1309,
         "question_markers": 23,
         "test_files": 20,
-        "observed_at": "2026-11-07T12:00:46+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -5333,7 +5333,7 @@
         "markdown_count": 23,
         "question_markers": 3,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:46+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -5471,7 +5471,7 @@
         "markdown_count": 409,
         "question_markers": 24,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:46+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -5603,7 +5603,7 @@
         "markdown_count": 12,
         "question_markers": 2,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:46+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -5725,7 +5725,7 @@
         "markdown_count": 1,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:46+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -5840,7 +5840,7 @@
         "markdown_count": 123,
         "question_markers": 3,
         "test_files": 8,
-        "observed_at": "2026-11-07T12:00:46+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -5979,7 +5979,7 @@
         "markdown_count": 41,
         "question_markers": 0,
         "test_files": 1,
-        "observed_at": "2026-11-07T12:00:46+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -6109,7 +6109,7 @@
         "markdown_count": 170,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:46+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -6225,7 +6225,7 @@
         "markdown_count": 727,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:46+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -6349,7 +6349,7 @@
         "markdown_count": 409,
         "question_markers": 4,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:46+08:00",
+        "observed_at": "2026-11-07T13:11:37+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -6472,7 +6472,7 @@
         "markdown_count": 37,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:46+08:00",
+        "observed_at": "2026-11-07T13:11:38+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -6588,7 +6588,7 @@
         "markdown_count": 1125,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:46+08:00",
+        "observed_at": "2026-11-07T13:11:38+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -6706,7 +6706,7 @@
         "markdown_count": 259,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:38+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -6827,7 +6827,7 @@
         "markdown_count": 418,
         "question_markers": 7,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:38+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -6953,7 +6953,7 @@
         "markdown_count": 1,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:38+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -7064,7 +7064,7 @@
         "markdown_count": 1,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:38+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -7171,7 +7171,7 @@
         "markdown_count": 23,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:38+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -7287,7 +7287,7 @@
         "markdown_count": 1,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:38+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -7396,7 +7396,7 @@
         "markdown_count": 6,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:38+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -7514,7 +7514,7 @@
         "markdown_count": 51,
         "question_markers": 0,
         "test_files": 5,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:38+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -7640,7 +7640,7 @@
         "markdown_count": 8,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:38+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -7750,7 +7750,7 @@
         "markdown_count": 62,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:38+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -7865,7 +7865,7 @@
         "markdown_count": 457,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:38+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -7986,7 +7986,7 @@
         "markdown_count": 22,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:38+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -8108,7 +8108,7 @@
         "markdown_count": 32,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:38+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -8226,7 +8226,7 @@
         "markdown_count": 137,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:38+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -8342,7 +8342,7 @@
         "markdown_count": 698,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -8455,7 +8455,7 @@
         "markdown_count": 20,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -8561,7 +8561,7 @@
         "markdown_count": 33,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -8672,7 +8672,7 @@
         "markdown_count": 22,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -8786,7 +8786,7 @@
         "markdown_count": 160,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -8896,7 +8896,7 @@
         "markdown_count": 123,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -9015,7 +9015,7 @@
         "markdown_count": 644,
         "question_markers": 178,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -9144,7 +9144,7 @@
         "markdown_count": 13,
         "question_markers": 1,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -9270,7 +9270,7 @@
         "markdown_count": 13,
         "question_markers": 24,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -9412,7 +9412,7 @@
         "markdown_count": 273,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -9549,7 +9549,7 @@
         "markdown_count": 582,
         "question_markers": 10,
         "test_files": 15,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -9691,7 +9691,7 @@
         "markdown_count": 232,
         "question_markers": 8,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -9822,7 +9822,7 @@
         "markdown_count": 60,
         "question_markers": 2,
         "test_files": 118,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -9961,7 +9961,7 @@
         "markdown_count": 45,
         "question_markers": 21,
         "test_files": 7,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -10098,7 +10098,7 @@
         "markdown_count": 36,
         "question_markers": 6,
         "test_files": 66,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -10235,7 +10235,7 @@
         "markdown_count": 96,
         "question_markers": 21,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -10367,7 +10367,7 @@
         "markdown_count": 174,
         "question_markers": 3,
         "test_files": 22,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -10508,7 +10508,7 @@
         "markdown_count": 46,
         "question_markers": 3,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -10644,7 +10644,7 @@
         "markdown_count": 163,
         "question_markers": 5,
         "test_files": 425,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -10782,7 +10782,7 @@
         "markdown_count": 214,
         "question_markers": 18,
         "test_files": 5,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -10915,7 +10915,7 @@
         "markdown_count": 38,
         "question_markers": 2,
         "test_files": 123,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -11039,7 +11039,7 @@
         "markdown_count": 218,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -11151,7 +11151,7 @@
         "markdown_count": 3,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -11267,7 +11267,7 @@
         "markdown_count": 5,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -11371,7 +11371,7 @@
         "markdown_count": 4,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -11480,7 +11480,7 @@
         "markdown_count": 1,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -11589,7 +11589,7 @@
         "markdown_count": 1,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:47+08:00",
+        "observed_at": "2026-11-07T13:11:39+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -11707,7 +11707,7 @@
         "markdown_count": 112,
         "question_markers": 5,
         "test_files": 27,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:40+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -11843,7 +11843,7 @@
         "markdown_count": 130,
         "question_markers": 3,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:40+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -11983,7 +11983,7 @@
         "markdown_count": 47,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:40+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -12115,7 +12115,7 @@
         "markdown_count": 236,
         "question_markers": 2,
         "test_files": 78,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:40+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -12254,7 +12254,7 @@
         "markdown_count": 206,
         "question_markers": 24,
         "test_files": 8,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:40+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -12380,7 +12380,7 @@
         "markdown_count": 73,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:40+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -12503,7 +12503,7 @@
         "markdown_count": 16,
         "question_markers": 2,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:40+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -12629,7 +12629,7 @@
         "markdown_count": 19,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:40+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -12763,7 +12763,7 @@
         "markdown_count": 9,
         "question_markers": 1,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:40+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -12883,7 +12883,7 @@
         "markdown_count": 693,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:40+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -13035,7 +13035,7 @@
         "markdown_count": 8,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:40+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -13185,7 +13185,7 @@
         "markdown_count": 89,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:40+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -13335,7 +13335,7 @@
         "markdown_count": 105,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:40+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -13487,7 +13487,7 @@
         "markdown_count": 534,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:40+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -13637,7 +13637,7 @@
         "markdown_count": 172,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:40+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -13783,7 +13783,7 @@
         "markdown_count": 518,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:40+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -13938,7 +13938,7 @@
         "markdown_count": 18325,
         "question_markers": 10694,
         "test_files": 4,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:41+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -14067,7 +14067,7 @@
         "markdown_count": 205,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:41+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -14224,7 +14224,7 @@
         "markdown_count": 89,
         "question_markers": 960,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:41+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -14344,7 +14344,7 @@
         "markdown_count": 17,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:41+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -14452,7 +14452,7 @@
         "markdown_count": 155,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:41+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -14565,7 +14565,7 @@
         "markdown_count": 4,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:41+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -14689,7 +14689,7 @@
         "markdown_count": 76,
         "question_markers": 0,
         "test_files": 29,
-        "observed_at": "2026-11-07T12:00:48+08:00",
+        "observed_at": "2026-11-07T13:11:41+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -14830,7 +14830,7 @@
         "markdown_count": 3418,
         "question_markers": 203,
         "test_files": 599,
-        "observed_at": "2026-11-07T12:00:49+08:00",
+        "observed_at": "2026-11-07T13:11:42+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -14974,7 +14974,7 @@
         "markdown_count": 395,
         "question_markers": 109,
         "test_files": 13,
-        "observed_at": "2026-11-07T12:00:49+08:00",
+        "observed_at": "2026-11-07T13:11:42+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -15116,7 +15116,7 @@
         "markdown_count": 249,
         "question_markers": 101,
         "test_files": 8,
-        "observed_at": "2026-11-07T12:00:49+08:00",
+        "observed_at": "2026-11-07T13:11:42+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -15256,7 +15256,7 @@
         "markdown_count": 380,
         "question_markers": 169,
         "test_files": 9,
-        "observed_at": "2026-11-07T12:00:49+08:00",
+        "observed_at": "2026-11-07T13:11:42+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -15396,7 +15396,7 @@
         "markdown_count": 110,
         "question_markers": 1025,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:49+08:00",
+        "observed_at": "2026-11-07T13:11:42+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -15537,7 +15537,7 @@
         "markdown_count": 1111,
         "question_markers": 40,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:49+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -15678,7 +15678,7 @@
         "markdown_count": 51,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:49+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -15802,7 +15802,7 @@
         "markdown_count": 33,
         "question_markers": 5,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:49+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -15927,7 +15927,7 @@
         "markdown_count": 69,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:49+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -16038,7 +16038,7 @@
         "markdown_count": 135,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:49+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -16144,7 +16144,7 @@
         "markdown_count": 102,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:49+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -16252,7 +16252,7 @@
         "markdown_count": 35,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:49+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -16363,7 +16363,7 @@
         "markdown_count": 192,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -16480,7 +16480,7 @@
         "markdown_count": 18,
         "question_markers": 2,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -16596,7 +16596,7 @@
         "markdown_count": 33,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -16718,7 +16718,7 @@
         "markdown_count": 47,
         "question_markers": 734,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -16847,7 +16847,7 @@
         "markdown_count": 11,
         "question_markers": 1,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -16980,7 +16980,7 @@
         "markdown_count": 124,
         "question_markers": 3,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -17119,7 +17119,7 @@
         "markdown_count": 163,
         "question_markers": 366,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -17254,7 +17254,7 @@
         "markdown_count": 25,
         "question_markers": 47,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -17384,7 +17384,7 @@
         "markdown_count": 12,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -17512,7 +17512,7 @@
         "markdown_count": 50,
         "question_markers": 23,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -17650,7 +17650,7 @@
         "markdown_count": 11,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -17773,7 +17773,7 @@
         "markdown_count": 5,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -17882,7 +17882,7 @@
         "markdown_count": 7,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -17993,7 +17993,7 @@
         "markdown_count": 1,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -18097,7 +18097,7 @@
         "markdown_count": 111,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -18211,7 +18211,7 @@
         "markdown_count": 0,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -18314,7 +18314,7 @@
         "markdown_count": 1,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -18419,7 +18419,7 @@
         "markdown_count": 1,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -18526,7 +18526,7 @@
         "markdown_count": 432,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -18636,7 +18636,7 @@
         "markdown_count": 102,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -18746,7 +18746,7 @@
         "markdown_count": 36,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -18859,7 +18859,7 @@
         "markdown_count": 41,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -18978,7 +18978,7 @@
         "markdown_count": 47,
         "question_markers": 9,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -19112,7 +19112,7 @@
         "markdown_count": 48,
         "question_markers": 1,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -19240,7 +19240,7 @@
         "markdown_count": 1046,
         "question_markers": 43,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -19375,7 +19375,7 @@
         "markdown_count": 19,
         "question_markers": 0,
         "test_files": 2,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -19515,7 +19515,7 @@
         "markdown_count": 473,
         "question_markers": 176,
         "test_files": 7,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -19642,7 +19642,7 @@
         "markdown_count": 544,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -19766,7 +19766,7 @@
         "markdown_count": 175,
         "question_markers": 2,
         "test_files": 69,
-        "observed_at": "2026-11-07T12:00:50+08:00",
+        "observed_at": "2026-11-07T13:11:43+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -19898,7 +19898,7 @@
         "markdown_count": 8734,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:52+08:00",
+        "observed_at": "2026-11-07T13:11:46+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -20023,7 +20023,7 @@
         "markdown_count": 259,
         "question_markers": 230,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:52+08:00",
+        "observed_at": "2026-11-07T13:11:46+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -20149,7 +20149,7 @@
         "markdown_count": 2555,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:52+08:00",
+        "observed_at": "2026-11-07T13:11:46+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -20272,7 +20272,7 @@
         "markdown_count": 65,
         "question_markers": 15,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:52+08:00",
+        "observed_at": "2026-11-07T13:11:46+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -20405,7 +20405,7 @@
         "markdown_count": 1705,
         "question_markers": 1678,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:52+08:00",
+        "observed_at": "2026-11-07T13:11:47+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -20532,7 +20532,7 @@
         "markdown_count": 7,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:52+08:00",
+        "observed_at": "2026-11-07T13:11:47+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -20648,7 +20648,7 @@
         "markdown_count": 2,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:52+08:00",
+        "observed_at": "2026-11-07T13:11:47+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -20770,7 +20770,7 @@
         "markdown_count": 86,
         "question_markers": 4,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:52+08:00",
+        "observed_at": "2026-11-07T13:11:47+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -20893,7 +20893,7 @@
         "markdown_count": 929,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:52+08:00",
+        "observed_at": "2026-11-07T13:11:47+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -21016,7 +21016,7 @@
         "markdown_count": 13,
         "question_markers": 3,
         "test_files": 17,
-        "observed_at": "2026-11-07T12:00:52+08:00",
+        "observed_at": "2026-11-07T13:11:47+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -21149,7 +21149,7 @@
         "markdown_count": 142,
         "question_markers": 14,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:52+08:00",
+        "observed_at": "2026-11-07T13:11:47+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -21278,7 +21278,7 @@
         "markdown_count": 1496,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:53+08:00",
+        "observed_at": "2026-11-07T13:11:47+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -21390,7 +21390,7 @@
         "markdown_count": 314,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:53+08:00",
+        "observed_at": "2026-11-07T13:11:47+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -21509,7 +21509,7 @@
         "markdown_count": 211,
         "question_markers": 49,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:53+08:00",
+        "observed_at": "2026-11-07T13:11:47+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -21649,7 +21649,7 @@
         "markdown_count": 238,
         "question_markers": 33,
         "test_files": 30,
-        "observed_at": "2026-11-07T12:00:53+08:00",
+        "observed_at": "2026-11-07T13:11:47+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -21781,7 +21781,7 @@
         "markdown_count": 295,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T12:00:53+08:00",
+        "observed_at": "2026-11-07T13:11:47+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -21904,7 +21904,7 @@
         "markdown_count": 290,
         "question_markers": 8,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:53+08:00",
+        "observed_at": "2026-11-07T13:11:47+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -22041,7 +22041,7 @@
         "markdown_count": 276,
         "question_markers": 6,
         "test_files": 0,
-        "observed_at": "2026-11-07T12:00:53+08:00",
+        "observed_at": "2026-11-07T13:11:47+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -22178,7 +22178,7 @@
         "markdown_count": 12,
         "question_markers": 0,
         "test_files": 1,
-        "observed_at": "2026-11-07T12:00:53+08:00",
+        "observed_at": "2026-11-07T13:11:47+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -22969,26 +22969,28 @@
     {
       "id": "image-gap-top25",
       "priority": "P2",
-      "summary": "外链配图缺口共 46 个仓库，资料索引只展开 Top 25，其余 21 个未展开。",
-      "status": "open",
+      "summary": "历史账本待重算：46 个仓库 / 68,371 处外链引用 / Top 25 展示 51,572 / 未展开 21 仓 16,799 均无法用本机账本复算，原标注出处 assets.json 不成立（只覆盖第一轮 81 仓、remote 54,093）。",
+      "status": "partial",
       "affected_ids": [],
       "target": "资料索引.md 第四节",
-      "next_action": "补齐完整 46 行或保留明确的 Top 25 说明并记录未展开引用数。",
+      "next_action": "先固定四项口径（引用次数 vs 唯一 URL、是否含装饰外链、私有桶与 404 是否算仍缺、md/mdx/notebook 是否同口径），再按当前 178 个 active 资源重算；不得手填替代数字。",
       "evidence": [
-        "资料索引.md 第四节"
+        "资料索引.md 第四节",
+        "_采集暂存/assets.json（81 仓，remote 54,093、local_ok 34,475、missing 2,254）",
+        "_采集暂存/remote_urls.json（81 仓原始 URL，无合计字段）"
       ]
     },
     {
       "id": "jd-evidence-missing",
       "priority": "P0",
-      "summary": "岗位矩阵已补首轮真实 JD（10 份有效 + 1 份失效，3 家公司），但其中 2 份美团样本只有列表页职责、无任职要求，样本量与职级覆盖仍不足。",
+      "summary": "岗位矩阵已补 11 份有效真实 JD（腾讯 6 / 美团 2 / 字节 1 / Thoughtworks 2），均有官方 URL 与必需/优先原文，频次分母 11；另有 1 份美团岗位无官方详情页，单列不计入。",
       "status": "partial",
       "affected_ids": [],
       "target": "04-资源与评估/岗位能力矩阵与验收标准.md; 04-资源与评估/真实JD样本与差距记录.md",
-      "next_action": "补美团单岗详情页的任职要求；再补 1 家可读官方源；补齐后重算样本内频次。",
+      "next_action": "每季度复测页面有效性；JD-07 若检索到官方详情页再补入并按 12 重算；不扩大采样范围。",
       "evidence": [
         "04-资源与评估/真实JD样本与差距记录.md",
-        "2026-11-07 采集：腾讯 6 份（JD-01–06，均有要求）、美团 2 份（仅职责）、Thoughtworks 2 份、失效 1 份"
+        "2026-11-07 三轮采集：腾讯 JD-01–06、美团 JD-08/11、字节 JD-12、Thoughtworks JD-09/10 共 11 份有完整要求；JD-08 页面标注当前职位无法投递"
       ]
     }
   ]
