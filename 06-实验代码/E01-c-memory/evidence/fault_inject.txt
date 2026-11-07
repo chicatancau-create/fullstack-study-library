@@ -15,7 +15,7 @@ main () at tests/fault_guard.c:78
 --- faulting line ---
 #0  main () at tests/fault_guard.c:78
 78	    ((volatile int *)arr)[idx] = 123;
-Line 78 of "tests/fault_guard.c" starts at address 0x7ff7e7001977 <main+535> and ends at 0x7ff7e700197d <main+541>.
+Line 78 of "tests/fault_guard.c" starts at address 0x7ff7835d1977 <main+535> and ends at 0x7ff7835d197d <main+541>.
 
 --- locals ---
 len = 4

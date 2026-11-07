@@ -8,11 +8,11 @@ simulated free: page is now PAGE_NOACCESS
 reading p[0] after simulated free (use-after-free)
 
 Thread 1 received signal SIGSEGV, Segmentation fault.
-0x00007ff63ae018e8 in main () at tests/fault_uaf.c:37
+0x00007ff6cbae18e8 in main () at tests/fault_uaf.c:37
 37	    printf("unexpected read: %d\n", p[0]);
 
 --- backtrace ---
-#0  0x00007ff63ae018e8 in main () at tests/fault_uaf.c:37
-#0  0x00007ff63ae018e8 in main () at tests/fault_uaf.c:37
+#0  0x00007ff6cbae18e8 in main () at tests/fault_uaf.c:37
+#0  0x00007ff6cbae18e8 in main () at tests/fault_uaf.c:37
 37	    printf("unexpected read: %d\n", p[0]);
-Line 37 of "tests/fault_uaf.c" starts at address 0x7ff63ae018e4 <main+388> and ends at 0x7ff63ae018f8 <main+408>.
+Line 37 of "tests/fault_uaf.c" starts at address 0x7ff6cbae18e4 <main+388> and ends at 0x7ff6cbae18f8 <main+408>.

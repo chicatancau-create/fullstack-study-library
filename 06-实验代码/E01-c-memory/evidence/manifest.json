@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E01",
-  "generated_at": "2026-11-07T11:43:53.068Z",
-  "commit": "fdb4c0d02ef89ade2bf3091c7f4507280aac9215",
+  "generated_at": "2026-11-07T15:00:24.751Z",
+  "commit": "e2e8e1e18f4093d46169002100989e84ad047bec",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -29,7 +29,7 @@
     {
       "path": "evidence/env.txt",
       "bytes": 1016,
-      "sha256": "46d8af51d9878a01fc3559f6ef3cc3aeec33f93eff796cfa896bfcfafd4aae1b"
+      "sha256": "7caca3253a2b732e2e79021d81eea79c461c337f8186619bcf810eed84f9263b"
     },
     {
       "path": "evidence/test_run.txt",
@@ -44,7 +44,7 @@
     {
       "path": "evidence/fault_inject.txt",
       "bytes": 1518,
-      "sha256": "3cef022f274a4f13efd54d73b9afb2aadcb4fc9b94a119c00734c36c703955bb"
+      "sha256": "4dabbe3d5d2291e7852aae930ea9603a4d080b121397830ed23eec1e6bdccaa9"
     },
     {
       "path": "evidence/fault_fixed.txt",
@@ -54,7 +54,7 @@
     {
       "path": "evidence/fault_uaf.txt",
       "bytes": 722,
-      "sha256": "d38efe763c78b988847755faa47d41eadd3c46bfc914c4e2763d15a8c0577d19"
+      "sha256": "c4e967794bb5e184dea9bd3fd969c41328b143bb8cb6644e03cf12a618457577"
     },
     {
       "path": "evidence/fault_uaf_fixed.txt",
