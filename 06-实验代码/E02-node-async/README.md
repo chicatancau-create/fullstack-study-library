@@ -75,6 +75,7 @@ UV_THREADPOOL_SIZE : 未设置（默认 4）
 cd 06-实验代码/E02-node-async
 bash scripts/run_all.sh       # 采集 evidence/，缺测试/缺 PASS/not ok/场景不成立均非零
 bash scripts/selftest_gate.sh # 主动破坏一次，确认门禁会红
+node ../_template/manifest.mjs verify evidence/manifest.json  # 证据文件存在且 SHA-256 一致
 ```
 
 单独跑某一项：

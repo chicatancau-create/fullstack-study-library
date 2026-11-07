@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "experiment": "E02",
+  "generated_at": "2026-11-07T11:44:00.095Z",
+  "commit": "fdb4c0d02ef89ade2bf3091c7f4507280aac9215",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [
+    {
+      "cmd": "bash scripts/run_all.sh",
+      "exit": 0
+    },
+    {
+      "cmd": "bash scripts/selftest_gate.sh",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/env.txt",
+      "bytes": 1642,
+      "sha256": "9d55a242b4d091d804095c62299ff8baeb4b563c6b62dc61409b0378ad1d19cb"
+    },
+    {
+      "path": "evidence/test_run.txt",
+      "bytes": 437,
+      "sha256": "fdd9beab86eb7a597cb2c6c670942bfd8dc50aadcf3280b2787013854ca348fa"
+    },
+    {
+      "path": "evidence/test_pool.txt",
+      "bytes": 1443,
+      "sha256": "1bd60f1c426f19edf1514af0d04a332483ccdf441a688a75dfcaa4f629a57bd4"
+    },
+    {
+      "path": "evidence/test_ordering.txt",
+      "bytes": 653,
+      "sha256": "a9f500b1ff22db1ce1cfff2bb56535085088798617b8d1af7172012182ee4542"
+    },
+    {
+      "path": "evidence/test_failure.txt",
+      "bytes": 1575,
+      "sha256": "99633304bed4f1582f2dce61007910e2fa158a994e8d702abd0a97a1dfa4dd0b"
+    },
+    {
+      "path": "evidence/test_cancel.txt",
+      "bytes": 2087,
+      "sha256": "f1cdb031645c90bef3f789670224bb61fdaa4608e94438f6a6ca9007b7fca3f2"
+    },
+    {
+      "path": "evidence/test_timeout.txt",
+      "bytes": 1869,
+      "sha256": "2812b0e6f4822fd57fdd06357131bd51f3d78143807e3143c89fb9b48ee2ab44"
+    },
+    {
+      "path": "evidence/test_regressions.txt",
+      "bytes": 1870,
+      "sha256": "d5ef18c7467fdc729c901565ff9c07b7fa0ee4050a12336ec2b0e5fdcd2d93c3"
+    },
+    {
+      "path": "evidence/cx_unbounded_concurrency.txt",
+      "bytes": 1027,
+      "sha256": "7293a16cb30543d8b3cebbd5f46bc3949205a5bb8b4685f269882da99e15275f"
+    },
+    {
+      "path": "evidence/cx_busy_loop.txt",
+      "bytes": 1518,
+      "sha256": "d2b0b5b3cd48e8b1ca1c5f24787ebb169f9fb18afbe22f215c93f7367657247d"
+    },
+    {
+      "path": "evidence/cx_fast_producer.txt",
+      "bytes": 1727,
+      "sha256": "eb9671f5d0bbd999fdd532fe1af54e5c694ea1ce81f7a5ff515b82ac44d99489"
+    },
+    {
+      "path": "evidence/backpressure_rates.txt",
+      "bytes": 1228,
+      "sha256": "7f79fddc28871ece6acd50b87210e329dd7d4e0e851df5aedb30444b02004860"
+    },
+    {
+      "path": "evidence/gate_selftest.txt",
+      "bytes": 765,
+      "sha256": "1e6643f05db5e87e4291c0a827c9bb20d9051b1456dc04e0a82a71c035a67e17"
+    }
+  ],
+  "unverified": [
+    "worker_threads/跨进程取消/真实连接池未测；failFast 多任务同时失败原子性未测"
+  ]
+}

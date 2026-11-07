@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "experiment": "E01",
+  "generated_at": "2026-11-07T11:43:53.068Z",
+  "commit": "fdb4c0d02ef89ade2bf3091c7f4507280aac9215",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [
+    {
+      "cmd": "bash scripts/run_tests.sh",
+      "exit": 0
+    },
+    {
+      "cmd": "bash scripts/selftest_gate.sh",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/build.txt",
+      "bytes": 593,
+      "sha256": "0dfab193950e99d3ec480ae78dba71f99e37053c4916d638d412dc00909eeff3"
+    },
+    {
+      "path": "evidence/env.txt",
+      "bytes": 1016,
+      "sha256": "46d8af51d9878a01fc3559f6ef3cc3aeec33f93eff796cfa896bfcfafd4aae1b"
+    },
+    {
+      "path": "evidence/test_run.txt",
+      "bytes": 792,
+      "sha256": "fa64a154c077f5f1d48a652b965efc940c376d3713e7b8fdb43d16b41ac83b4d"
+    },
+    {
+      "path": "evidence/fault_plain.txt",
+      "bytes": 286,
+      "sha256": "8985ab062648b860eae1d70230bdf0ea4c207ccf12c4c9c9ac175e7d4cfa91d7"
+    },
+    {
+      "path": "evidence/fault_inject.txt",
+      "bytes": 1518,
+      "sha256": "3cef022f274a4f13efd54d73b9afb2aadcb4fc9b94a119c00734c36c703955bb"
+    },
+    {
+      "path": "evidence/fault_fixed.txt",
+      "bytes": 192,
+      "sha256": "a2fb2a9b6d943109d74b2586914125eb631b1b41cf58bf6a97387f3f3dcfd7d4"
+    },
+    {
+      "path": "evidence/fault_uaf.txt",
+      "bytes": 722,
+      "sha256": "d38efe763c78b988847755faa47d41eadd3c46bfc914c4e2763d15a8c0577d19"
+    },
+    {
+      "path": "evidence/fault_uaf_fixed.txt",
+      "bytes": 193,
+      "sha256": "7085d2fc6ad5e2642a791d1128bbc29d5aa729e55e61d22cede42ff631f5f423"
+    },
+    {
+      "path": "evidence/gate_selftest.txt",
+      "bytes": 498,
+      "sha256": "467fe450d0f66287851659a18c3a45f01e2ef186948004702d0d5aadb25888a7"
+    }
+  ],
+  "unverified": [
+    "ASan/UBSan/LSan/Valgrind 不可用；UAF 仅 Windows 页级替代；并发/跨平台未测"
+  ]
+}

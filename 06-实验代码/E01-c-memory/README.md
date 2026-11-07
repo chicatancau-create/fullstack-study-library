@@ -67,6 +67,7 @@ cd 06-实验代码/E01-c-memory
 bash scripts/build.sh        # 编译 7 个产物到 build/
 bash scripts/run_tests.sh    # 采全部证据到 evidence/，任一必需步骤失败即非零
 bash scripts/selftest_gate.sh # 主动破坏一次，确认门禁真的会变红
+node ../_template/manifest.mjs verify evidence/manifest.json  # 证据文件存在且 SHA-256 一致
 ```
 
 单独跑某一项：

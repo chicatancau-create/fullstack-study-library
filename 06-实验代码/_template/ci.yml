@@ -1,0 +1,49 @@
+# CI 最小模板（未在远端实跑）
+
+> 这是模板，不是已通过的持续集成。复制到 `.github/workflows/experiments.yml` 或 GitCode 流水线前，先确认 runner 的工具链与端口权限；本机没有运行过该流水线。
+
+```yaml
+name: experiments
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '06-实验代码/**'
+
+jobs:
+  e02-ubuntu:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 06-实验代码/E02-node-async
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.15.0'
+      - run: bash scripts/run_all.sh
+      - run: bash scripts/selftest_gate.sh
+
+  e01-windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: 06-实验代码/E01-c-memory
+        shell: msys2 {0}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64
+          install: mingw-w64-x86_64-gcc mingw-w64-x86_64-gdb
+      - run: bash scripts/run_tests.sh
+      - run: bash scripts/selftest_gate.sh
+```
+
+边界：
+
+- E01 依赖 Windows `VirtualAlloc/VirtualProtect` 与 MinGW gdb；换 Linux runner 需要另写 `mmap/mprotect` 装置。
+- E04/G1 需要 Edge/CDP 与固定端口，不适合直接塞进无浏览器的 runner；模板暂不包含。
+- 流水线只证明“在 CI 环境按脚本复现”，不代替学习者的个人能力证据。
+- 启用后必须保存一次真实运行的 URL、提交与退出码，才能把资产标为“干净环境通过”。
