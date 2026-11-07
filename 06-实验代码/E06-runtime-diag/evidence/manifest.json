@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "experiment": "E06",
+  "generated_at": "2026-11-07T12:23:28.541Z",
+  "commit": "625b678ff15afc46e7974b0472d8090e99c2e0c3",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [
+    {
+      "cmd": "bash scripts/run_evidence.sh",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/env.txt",
+      "bytes": 133,
+      "sha256": "c666448249f530f3cef5e7cdd55c307f9622513f7ca77e391a1710feb376bf2c"
+    },
+    {
+      "path": "evidence/run.txt",
+      "bytes": 247,
+      "sha256": "d7b3df1aeb1f767ce21fee555b2fc3a91a3c7fb42bf4b82b7123aa6d4787ca79"
+    },
+    {
+      "path": "evidence/cpu_loop.txt",
+      "bytes": 37,
+      "sha256": "1f8df3fe4255876c527c49de36f7de33bd8e0ee54190ea3c0803449f8c47d6f2"
+    },
+    {
+      "path": "evidence/heap.txt",
+      "bytes": 100,
+      "sha256": "eca49aa74f6d27389d12840cfff565d2b084bb6ce1ab9ee1b50a0f868c0195cb"
+    },
+    {
+      "path": "evidence/fd.txt",
+      "bytes": 60,
+      "sha256": "bb8c5be744e78b0394b8866b4eb65506f9e308bcd3d35f393dae34c2bee8ddda"
+    },
+    {
+      "path": "evidence/eventloop.txt",
+      "bytes": 60,
+      "sha256": "9a848e1c96bd75383b35c7036b76ce65bb6a8a049030a1205ea4fbdeb06723f9"
+    },
+    {
+      "path": "evidence/cpu/CPU.20261107.202300.30260.0.001.cpuprofile",
+      "bytes": 13335,
+      "sha256": "18e92a140af34a01885706a6554283e476ecf98b9c5b87997348d708be39df64"
+    }
+  ],
+  "unverified": [
+    "单进程 Node；无 OS 级 fd/连接池/容器/真实故障"
+  ]
+}

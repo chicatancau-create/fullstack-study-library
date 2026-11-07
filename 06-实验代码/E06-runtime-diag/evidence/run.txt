@@ -1,0 +1,7 @@
+captured_at: 2026-11-07T20:23:02+08:00
+cpu: cpu_loop done x=155696 elapsed=300ms
+profile: evidence/cpu/CPU.20261107.202300.30260.0.001.cpuprofile
+heap: HEAP PASS
+fd: FD PASS
+loop: event_loop_delay max=200.4ms mean=42.7ms x=965791
+gate_failures: 0

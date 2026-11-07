@@ -1,0 +1,3 @@
+heap before=3.77MB held=30.16MB growth=26.39MB
+heap after_release=3.96MB released=26.20MB
+HEAP PASS
