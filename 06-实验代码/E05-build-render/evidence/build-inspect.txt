@@ -1,0 +1,4 @@
+entry: assets/index-DEFdGYln.js
+total_bytes: 220207
+files: 2
+secret_leak: false

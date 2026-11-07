@@ -1,0 +1,10 @@
+
+ RUN  v5.1.0 E:/OBsidian/全栈工程师学习资料库/06-实验代码/E05-build-render
+
+ ✓ tests/app.test.tsx (2 tests) 74ms
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  20:20:59
+   Duration  1.17s (environment 67%, setup 15%, tests 7%, import 6%, transform 5%)
+

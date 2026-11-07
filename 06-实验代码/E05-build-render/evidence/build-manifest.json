@@ -1,0 +1,18 @@
+{
+  "captured_at": "2026-11-07T12:21:03.758Z",
+  "entry": "assets/index-DEFdGYln.js",
+  "files": [
+    {
+      "path": "assets/index-DEFdGYln.js",
+      "bytes": 219886,
+      "sha256": "92f017b8b1351657e619820be8d7ab5ab46945a3531903774a93ec52633972b7"
+    },
+    {
+      "path": "index.html",
+      "bytes": 321,
+      "sha256": "996dbc64ff56fb4f94a774c605baa5bc1f95253bec85c696b35905dacd266fa4"
+    }
+  ],
+  "total_bytes": 220207,
+  "secret_leak": false
+}

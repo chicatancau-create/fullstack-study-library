@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "experiment": "E05",
+  "generated_at": "2026-11-07T12:21:36.394Z",
+  "commit": "a863b93ef8907a34d61d1eafb008266d332b12bc",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [
+    {
+      "cmd": "bash scripts/run_unit.sh",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/typecheck.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/test.txt",
+      "bytes": 289,
+      "sha256": "268765a26b8ad0281c13b2b8121dcbcdcde9ae953996a95a4fcbd18f31b2d7f1"
+    },
+    {
+      "path": "evidence/build.txt",
+      "bytes": 285,
+      "sha256": "7f988ee88e6878a7d41675445e1bd6415032438f7ffc968f98258f3cd4b639fe"
+    },
+    {
+      "path": "evidence/ssr-run.txt",
+      "bytes": 19,
+      "sha256": "d4783fe4d21c4c3759814d5233766f0fbc0d17554ff81150f17d4cb6dbd0d7db"
+    },
+    {
+      "path": "evidence/ssr.html",
+      "bytes": 343,
+      "sha256": "ea1e66020384a807bee60f687d4685107c57cf215a1814ea70cbe31d5d1328df"
+    },
+    {
+      "path": "evidence/build-manifest.json",
+      "bytes": 458,
+      "sha256": "c8db384d0e83b8e455088cb7d4c3e18c01979e472f8d40d2a98d4900bbec9507"
+    },
+    {
+      "path": "evidence/inspect.txt",
+      "bytes": 81,
+      "sha256": "04570d67f0489a25e323aa851955d75ea0f9d0eaa17a2ffd7c5e7ede39d5f40f"
+    },
+    {
+      "path": "evidence/cache-run.txt",
+      "bytes": 147,
+      "sha256": "95daf30d96674632d1591cbe88ad9c04a439a9e4ee69ae14a259455ebe119551"
+    },
+    {
+      "path": "evidence/cache.txt",
+      "bytes": 147,
+      "sha256": "95daf30d96674632d1591cbe88ad9c04a439a9e4ee69ae14a259455ebe119551"
+    }
+  ],
+  "unverified": [
+    "无 hydration/路由/CDN/性能测量；不代表 G3/G6"
+  ]
+}
