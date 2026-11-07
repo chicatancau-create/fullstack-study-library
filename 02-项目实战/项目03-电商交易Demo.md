@@ -15,6 +15,7 @@
 - 发现并修复：事务持有连接时又向连接池借连接，导致高并发池饥饿；复盘见项目 `docs/bugs/001-pool-starvation.md`。
 - 支付事件：支付成功与 Outbox 同事务；真实 RabbitMQ 4.4 验证重复投递去重、30 条积压排空、DLQ=1、
   outbox sent/pending/missing = 1/0/0。
+- 交付：本地自签名 HTTPS/TLS1.2/HSTS 部署（非公网）与上一版本回滚 health 通过。
 - 未实现：商品列表/购物车/前端、多 SKU 订单、真实支付网关、超时自动取消、退款、对账、限流、Docker/CI/K8s、
   公网部署、PITR。上述验收项与“明确不做”仍按原清单保留，未勾选即未验证。
 
