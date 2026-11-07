@@ -428,12 +428,15 @@ def build_catalog() -> dict[str, Any]:
         {
             "id": "jd-evidence-missing",
             "priority": "P0",
-            "summary": "岗位矩阵没有真实 JD 证据；当前公司/职级口径不能作为统一定制标准。",
-            "status": "open",
+            "summary": "岗位矩阵已补首轮真实 JD（10 份有效 + 1 份失效，3 家公司），但其中 2 份美团样本只有列表页职责、无任职要求，样本量与职级覆盖仍不足。",
+            "status": "partial",
             "affected_ids": [],
-            "target": "04-资源与评估/岗位能力矩阵与验收标准.md",
-            "next_action": "采集 8–12 份官方招聘页，记录原文、日期、职级与复测日期。",
-            "evidence": ["现有 JD 差距表为空"],
+            "target": "04-资源与评估/岗位能力矩阵与验收标准.md; 04-资源与评估/真实JD样本与差距记录.md",
+            "next_action": "补美团单岗详情页的任职要求；再补 1 家可读官方源；补齐后重算样本内频次。",
+            "evidence": [
+                "04-资源与评估/真实JD样本与差距记录.md",
+                "2026-11-07 采集：腾讯 6 份（JD-01–06，均有要求）、美团 2 份（仅职责）、Thoughtworks 2 份、失效 1 份",
+            ],
         },
     ]
     return {
@@ -465,9 +468,28 @@ def cmd_migrate(args: argparse.Namespace) -> int:
     if CATALOG.exists() and not args.force:
         print(f"拒绝覆盖现有 catalog：{CATALOG}（确需重建请加 --force）")
         return 2
+    previous: dict[str, dict[str, Any]] = {}
+    if CATALOG.exists():
+        # --force 重建时保留已联网取得的当前上游快照，否则 178 条会被重置为 not_checked。
+        try:
+            old = load_json(CATALOG)
+            for item in old.get("resources", []):
+                snap = (item.get("source") or {}).get("upstream_snapshot")
+                if snap:
+                    previous[item.get("id")] = snap
+        except (OSError, ValueError, KeyError):
+            previous = {}
     catalog = build_catalog()
+    restored = 0
+    for resource in catalog["resources"]:
+        snap = previous.get(resource["id"])
+        if snap and snap.get("status") == "checked":
+            resource["source"]["upstream_snapshot"] = snap
+            restored += 1
     counts = summarize(catalog)
     print("迁移草案：", json.dumps(counts, ensure_ascii=False))
+    if restored:
+        print(f"保留既有 upstream_snapshot：{restored} 条")
     if args.write:
         write_json_atomic(CATALOG, catalog)
         print(f"已写入 {CATALOG}")
