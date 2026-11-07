@@ -1,0 +1,46 @@
+captured_at: 2026-11-07T23:44:24+08:00
+method: git archive HEAD -> fresh temp dir -> npm ci/Maven -> each run_project.sh
+host: MINGW64_NT-10.0-28000, node v24.15.0, java java version "25.0.2" 2026-01-20 LTS
+services: PG 18.6, MySQL 8.4.13(3307), RabbitMQ 4.4, Redis 6379
+boundary: same machine/services, not independent OS/CI
+
+== project01
+install_rc=0
+gate_rc=0
+e2e: E2E PASS
+gate_failures: 0
+== project02
+install_rc=0
+gate_rc=0
+backup: RESTORE PASS
+gate_failures: 0
+== project03
+install_rc=0
+gate_rc=0
+backup_restore=PASS
+PROJECT03 PASS
+== project04
+install_rc=0
+gate_rc=0
+jobs=PASS
+PROJECT04 PASS
+== project05
+install_rc=0
+gate_rc=0
+after_fix=ℹ pass 4 ℹ fail 0 
+TAKEOVER PASS
+== spring
+gate_rc=0
+mysql=version+max_connections+counts
+JAVA-MYSQL PASS
+== frameworks
+install_rc=0
+gate_rc=0
+tests=ℹ tests 2 ℹ pass 2 ℹ fail 0 
+FRAMEWORKS PASS
+== ai
+install_rc=0
+gate_rc=0
+eval=golden_set=5 pass=5 rate=100%
+AI-MIN PASS
+DONE
