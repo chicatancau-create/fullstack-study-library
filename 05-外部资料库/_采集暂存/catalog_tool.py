@@ -4,6 +4,7 @@ r"""Single local entry for the external-material catalog.
 Commands (read-only unless --write / --apply is explicit):
   python catalog_tool.py migrate  [--write] [--force]
   python catalog_tool.py scan     [--write]
+  python catalog_tool.py snapshot [--write] [--refresh] [--proxy URL] [--limit N]
   python catalog_tool.py generate [--write]
   python catalog_tool.py validate [--mode source-only|strict-mirror] [--json]
 
@@ -261,6 +262,15 @@ def migration_record(path: Path, meta: dict[str, Any]) -> dict[str, Any]:
             "commit_sha": meta.get("commit_sha") or None,
             "fetched_at": fetched,
             "upstream_pushed_at": measured.get("pushed") or None,
+            # 当前上游快照与抓取时证据分开：这里一律 not_checked，
+            # 由 `snapshot` 子命令在联网检查后写入，绝不写入 source.branch/commit_sha。
+            "upstream_snapshot": {
+                "status": "not_checked",
+                "checked_at": None,
+                "default_branch": None,
+                "head_commit_sha": None,
+                "note": None,
+            },
         },
         "payload": {
             "mode": "mirror",
@@ -779,6 +789,85 @@ def cmd_scan(args: argparse.Namespace) -> int:
     return 0
 
 
+def check_upstream(url: str, proxy: str | None, timeout: int) -> dict[str, Any]:
+    """只读查询当前上游默认分支与 HEAD，不写入 source.branch / commit_sha。"""
+    now = now_local()
+    base = {"checked_at": now, "default_branch": None, "head_commit_sha": None, "note": None}
+    cmd = ["git"]
+    if proxy:
+        cmd += ["-c", f"http.proxy={proxy}", "-c", "http.sslBackend=openssl"]
+    cmd += ["ls-remote", "--symref", url, "HEAD"]
+    try:
+        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
+    except subprocess.TimeoutExpired:
+        return {"status": "timeout", **base, "note": f"ls-remote 超过 {timeout}s 未返回"}
+    if proc.returncode != 0:
+        detail = (proc.stderr or proc.stdout or "").strip().splitlines()
+        return {
+            "status": "unreachable",
+            **base,
+            "note": detail[0][:300] if detail else f"ls-remote 退出码 {proc.returncode}",
+        }
+    default_branch = None
+    head_sha = None
+    for line in proc.stdout.splitlines():
+        if line.endswith("\tHEAD") and line.startswith("ref: "):
+            default_branch = line[len("ref: "):].split("\t")[0].strip()
+            if default_branch.startswith("refs/heads/"):
+                default_branch = default_branch[len("refs/heads/"):]
+        elif line.endswith("\tHEAD"):
+            head_sha = line.split("\t")[0].strip()
+    if not head_sha:
+        return {"status": "no_head", **base, "default_branch": default_branch, "note": "未返回 HEAD 提交"}
+    return {
+        "status": "checked",
+        **base,
+        "default_branch": default_branch,
+        "head_commit_sha": head_sha,
+    }
+
+
+def cmd_snapshot(args: argparse.Namespace) -> int:
+    catalog = load_json(CATALOG)
+    tallies: Counter = Counter()
+    failures: list[tuple[str, str, str]] = []
+    changed = 0
+    for resource in catalog["resources"]:
+        current = resource["source"].get("upstream_snapshot") or {}
+        if current.get("status") == "checked" and not args.refresh:
+            tallies["skipped"] += 1
+            continue
+        if args.limit and changed >= args.limit:
+            tallies["deferred"] += 1
+            continue
+        result = check_upstream(resource["source"]["url"], args.proxy, args.timeout)
+        resource["source"]["upstream_snapshot"] = result
+        tallies[result["status"]] += 1
+        changed += 1
+        if result["status"] != "checked":
+            failures.append((resource["id"], result["status"], result["note"] or ""))
+        print(f"  {result['status']:<11} {resource['id']}", flush=True)
+    print(
+        "快照 active=%s｜checked=%s｜不可达=%s｜超时=%s｜跳过=%s｜延后=%s"
+        % (
+            len(catalog["resources"]),
+            tallies["checked"],
+            tallies["unreachable"],
+            tallies["timeout"],
+            tallies["skipped"],
+            tallies["deferred"],
+        )
+    )
+    for rid, status, note in failures[:30]:
+        print(f"  ! {rid} [{status}] {note}")
+    if args.write and changed:
+        write_json_atomic(CATALOG, catalog)
+        print(f"已写回 catalog：{changed} 条 upstream_snapshot（未改 source.branch / commit_sha）")
+    elif not args.write:
+        print("只读模式：未写盘。确认后使用 --write。")
+    return 0
+
+
 def cmd_generate(args: argparse.Namespace) -> int:
     catalog = load_json(CATALOG)
     materials = render_materials(catalog)
@@ -1131,6 +1220,13 @@ def build_parser() -> argparse.ArgumentParser:
     scan = sub.add_parser("scan", help="扫描原机镜像指标，默认只报告漂移")
     scan.add_argument("--write", action="store_true", help="差异确认后写回 catalog metrics")
     scan.set_defaults(func=cmd_scan)
+    snapshot = sub.add_parser("snapshot", help="只读查询当前上游默认分支与 HEAD，写入 upstream_snapshot")
+    snapshot.add_argument("--write", action="store_true", help="显式写回 catalog")
+    snapshot.add_argument("--refresh", action="store_true", help="已 checked 的资源也重新查询")
+    snapshot.add_argument("--proxy", default=None, help="可选 HTTP 代理，如 http://127.0.0.1:7897")
+    snapshot.add_argument("--timeout", type=int, default=25, help="单个 ls-remote 超时秒数")
+    snapshot.add_argument("--limit", type=int, default=0, help="本次最多检查多少个资源")
+    snapshot.set_defaults(func=cmd_snapshot)
     generate = sub.add_parser("generate", help="从 catalog 生成材料清单与资料索引派生区")
     generate.add_argument("--write", action="store_true", help="显式写 Markdown 视图")
     generate.set_defaults(func=cmd_generate)

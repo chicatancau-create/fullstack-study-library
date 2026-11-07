@@ -1,7 +1,7 @@
 {
   "$schema": "catalog.schema.json",
   "schema_version": "1.0.0",
-  "generated_at": "2026-11-07T09:11:05+08:00",
+  "generated_at": "2026-11-07T10:57:27+08:00",
   "resources": [
     {
       "id": "github:canner/wrenai",
@@ -13,7 +13,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-11-04"
+        "upstream_pushed_at": "2026-11-04",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:57:35+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "548eee3e864b11e7f11eee15ae82be178a295f22",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -48,7 +55,7 @@
         "markdown_count": 147,
         "question_markers": 5,
         "test_files": 135,
-        "observed_at": "2026-11-07T09:10:50+08:00",
+        "observed_at": "2026-11-07T10:57:10+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -153,7 +160,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-08-30"
+        "upstream_pushed_at": "2026-08-30",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:57:37+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "b6c46105186080382183f3ed3d811e712c8cc95b",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -188,7 +202,7 @@
         "markdown_count": 25,
         "question_markers": 1,
         "test_files": 18,
-        "observed_at": "2026-11-07T09:10:50+08:00",
+        "observed_at": "2026-11-07T10:57:10+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -281,7 +295,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-10-31"
+        "upstream_pushed_at": "2026-10-31",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:57:39+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "4f7a6ef687fddc39e7c3bfdb323a43678e95befc",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -318,7 +339,7 @@
         "markdown_count": 175,
         "question_markers": 313,
         "test_files": 17,
-        "observed_at": "2026-11-07T09:10:50+08:00",
+        "observed_at": "2026-11-07T10:57:10+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -415,7 +436,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-09-04"
+        "upstream_pushed_at": "2026-09-04",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:57:40+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "64a265f2a0f382a5b1d4554c7214d52620b58224",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -449,7 +477,7 @@
         "markdown_count": 119,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:50+08:00",
+        "observed_at": "2026-11-07T10:57:10+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -541,7 +569,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-10-13"
+        "upstream_pushed_at": "2026-10-13",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:57:42+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "36f583c233ea5cee4537ef93455702b55053af18",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -568,7 +603,7 @@
         "markdown_count": 259,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:50+08:00",
+        "observed_at": "2026-11-07T10:57:10+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -650,7 +685,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-08-27"
+        "upstream_pushed_at": "2026-08-27",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:57:43+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "77beb748047e8a0d8ff708716606a8e0b132dc45",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -677,7 +719,7 @@
         "markdown_count": 27,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:50+08:00",
+        "observed_at": "2026-11-07T10:57:10+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -755,7 +797,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-10-29"
+        "upstream_pushed_at": "2026-10-29",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:57:45+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "eca1137ca646a64a9a2dba8432344e97a4ffe70b",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -791,7 +840,7 @@
         "markdown_count": 308,
         "question_markers": 41,
         "test_files": 3,
-        "observed_at": "2026-11-07T09:10:50+08:00",
+        "observed_at": "2026-11-07T10:57:10+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -890,7 +939,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": null
+        "upstream_pushed_at": null,
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:57:46+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "298b68274234c060deacab3cf5fb52aa3a20e885",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -919,7 +975,7 @@
         "markdown_count": 163,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:50+08:00",
+        "observed_at": "2026-11-07T10:57:10+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -998,7 +1054,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-11-03"
+        "upstream_pushed_at": "2026-11-03",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:57:48+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "e67df5d247855d63b6e7ff9a7abb896c5a94c5cc",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -1035,7 +1098,7 @@
         "markdown_count": 2798,
         "question_markers": 117,
         "test_files": 610,
-        "observed_at": "2026-11-07T09:10:51+08:00",
+        "observed_at": "2026-11-07T10:57:11+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -1135,7 +1198,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-10-12"
+        "upstream_pushed_at": "2026-10-12",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:57:50+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "fcb46f1c56121129e44aa57fefb196cbc06a69b8",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -1162,7 +1232,7 @@
         "markdown_count": 13,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:51+08:00",
+        "observed_at": "2026-11-07T10:57:11+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -1240,7 +1310,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-11-04"
+        "upstream_pushed_at": "2026-11-04",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:57:51+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "1ff3c870707ec312f4c4a3bba4eaf0d9e06456a3",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -1267,7 +1344,7 @@
         "markdown_count": 3752,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:52+08:00",
+        "observed_at": "2026-11-07T10:57:12+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -1349,7 +1426,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-10-21"
+        "upstream_pushed_at": "2026-10-21",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:57:53+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -1376,7 +1460,7 @@
         "markdown_count": 3925,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:52+08:00",
+        "observed_at": "2026-11-07T10:57:12+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -1458,7 +1542,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-11-05"
+        "upstream_pushed_at": "2026-11-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:57:55+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "8e5c0dfffdb56181450363f9ccd880bc69737ae8",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -1485,7 +1576,7 @@
         "markdown_count": 5581,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:53+08:00",
+        "observed_at": "2026-11-07T10:57:13+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -1567,7 +1658,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-11-01"
+        "upstream_pushed_at": "2026-11-01",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:57:58+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "686945ccd346df9292a686f336f6b8b8ade0a8d6",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -1603,7 +1701,7 @@
         "markdown_count": 1511,
         "question_markers": 350,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:53+08:00",
+        "observed_at": "2026-11-07T10:57:13+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -1702,7 +1800,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-04-14"
+        "upstream_pushed_at": "2026-04-14",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:00+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "8eac7a7de5215c907fbddc30efdaf316913eccdd",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -1731,7 +1836,7 @@
         "markdown_count": 42,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:54+08:00",
+        "observed_at": "2026-11-07T10:57:14+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -1814,7 +1919,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-06-14"
+        "upstream_pushed_at": "2026-06-14",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:02+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "581d54dd9a72e1d0a4eb28ae50859db83901b783",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -1849,7 +1961,7 @@
         "markdown_count": 96,
         "question_markers": 14,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:54+08:00",
+        "observed_at": "2026-11-07T10:57:14+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -1943,7 +2055,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-07-14"
+        "upstream_pushed_at": "2026-07-14",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:03+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "aa17439b62f384511a5561ce308e9598b94d8989",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -1970,7 +2089,7 @@
         "markdown_count": 2,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:54+08:00",
+        "observed_at": "2026-11-07T10:57:14+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -2041,7 +2160,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-11-05"
+        "upstream_pushed_at": "2026-11-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:05+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "fe2e0b8e1ad4a40ec5f7486055a99d0c3e5d8438",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -2068,7 +2194,7 @@
         "markdown_count": 17037,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:54+08:00",
+        "observed_at": "2026-11-07T10:57:14+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -2150,7 +2276,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-07-11"
+        "upstream_pushed_at": "2026-07-11",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:07+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "24587506abdee3f4257a873fed8e18163d925670",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -2177,7 +2310,7 @@
         "markdown_count": 998,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:54+08:00",
+        "observed_at": "2026-11-07T10:57:14+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -2255,7 +2388,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-11-05"
+        "upstream_pushed_at": "2026-11-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:09+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "78085398be0dea7abaaf5eda914817f46f6ddbbc",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -2282,7 +2422,7 @@
         "markdown_count": 5596,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:55+08:00",
+        "observed_at": "2026-11-07T10:57:15+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -2364,7 +2504,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2025-12-29"
+        "upstream_pushed_at": "2025-12-29",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:10+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "e47b7c483b27475f48a01c3a176b724dbfb6d2de",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -2391,7 +2538,7 @@
         "markdown_count": 2,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:55+08:00",
+        "observed_at": "2026-11-07T10:57:15+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -2466,7 +2613,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-11-05"
+        "upstream_pushed_at": "2026-11-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:12+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "d922417cd1ef690e66c008a3c3612f683e8e433a",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -2493,7 +2647,7 @@
         "markdown_count": 11297,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:55+08:00",
+        "observed_at": "2026-11-07T10:57:15+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -2572,7 +2726,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-11-02"
+        "upstream_pushed_at": "2026-11-02",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:14+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "2146917314b5e98e58513c930c0a745cc6c7100c",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -2599,7 +2760,7 @@
         "markdown_count": 4,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:55+08:00",
+        "observed_at": "2026-11-07T10:57:15+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -2676,7 +2837,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2023-07-28"
+        "upstream_pushed_at": "2023-07-28",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:16+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "a925c3e62e0a95a8ff658b7c7a76e03f4daa9050",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -2710,7 +2878,7 @@
         "markdown_count": 108,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:55+08:00",
+        "observed_at": "2026-11-07T10:57:15+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -2802,7 +2970,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-04-16"
+        "upstream_pushed_at": "2026-04-16",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:18+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "8ed19247bef145e3cc41b24a02dd1fe6d9b5e681",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -2834,7 +3009,7 @@
         "markdown_count": 11,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:55+08:00",
+        "observed_at": "2026-11-07T10:57:15+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -2924,7 +3099,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-02-05"
+        "upstream_pushed_at": "2026-02-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:19+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "ddbb5cdc5772c402bd62b48e51fae8cba89ba43f",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -2951,7 +3133,7 @@
         "markdown_count": 187,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:55+08:00",
+        "observed_at": "2026-11-07T10:57:15+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -3033,7 +3215,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2025-05-14"
+        "upstream_pushed_at": "2025-05-14",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:21+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "7a688c8d941d3b9622fdb95f4c1089a1749b3630",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -3067,7 +3256,7 @@
         "markdown_count": 236,
         "question_markers": 2,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:55+08:00",
+        "observed_at": "2026-11-07T10:57:15+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -3161,7 +3350,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-10-31"
+        "upstream_pushed_at": "2026-10-31",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:23+08:00",
+          "default_branch": "2nd-ed",
+          "head_commit_sha": "7a83c851af26c422893219d41c53f607a2f1bfe0",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -3188,7 +3384,7 @@
         "markdown_count": 8,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:55+08:00",
+        "observed_at": "2026-11-07T10:57:15+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -3262,7 +3458,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-11-04"
+        "upstream_pushed_at": "2026-11-04",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:25+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "288e644117c29285df2acf37a2ac97f57546a146",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -3298,7 +3501,7 @@
         "markdown_count": 14753,
         "question_markers": 591,
         "test_files": 2,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:17+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -3396,7 +3599,14 @@
         "branch": "v2",
         "commit_sha": null,
         "fetched_at": "2026-11-05 16:52",
-        "upstream_pushed_at": "2026-11-05"
+        "upstream_pushed_at": "2026-11-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:27+08:00",
+          "default_branch": "v2",
+          "head_commit_sha": "a3ed0be5249fd75fae9c2f527de23f0fc16c5d0d",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -3423,7 +3633,7 @@
         "markdown_count": 365,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:17+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -3500,7 +3710,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-11-01"
+        "upstream_pushed_at": "2026-11-01",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:29+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "2e6dca162985d438d7a834b339d89177cf0a92b9",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -3535,7 +3752,7 @@
         "markdown_count": 252,
         "question_markers": 7,
         "test_files": 1,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:17+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -3631,7 +3848,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2024-06-05"
+        "upstream_pushed_at": "2024-06-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:31+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "68fdf20c078a6e97bcebfb2fa0bb70a13d2c9d30",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -3663,7 +3887,7 @@
         "markdown_count": 13,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:17+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -3754,7 +3978,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-10-28"
+        "upstream_pushed_at": "2026-10-28",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:32+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "40aa88af0094f7bab4aaf786e55c748a6a251d88",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -3788,7 +4019,7 @@
         "markdown_count": 122,
         "question_markers": 4,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:17+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -3883,7 +4114,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2024-05-20"
+        "upstream_pushed_at": "2024-05-20",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:35+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "d5d6b0b5e2e8daaf9c6d59e77a9d09c9a80e2e44",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -3910,7 +4148,7 @@
         "markdown_count": 1,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:17+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -3986,7 +4224,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2024-12-02"
+        "upstream_pushed_at": "2024-12-02",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:37+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "c4cf3bbbb6bc95daaf6deff734642ea51c7cec9c",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -4013,7 +4258,7 @@
         "markdown_count": 331,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:17+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -4085,7 +4330,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-05-27"
+        "upstream_pushed_at": "2026-05-27",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:39+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "770d6e8b8d2722ff082ea745455df097c47288b6",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -4112,7 +4364,7 @@
         "markdown_count": 224,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:17+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -4190,7 +4442,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2024-05-21"
+        "upstream_pushed_at": "2024-05-21",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:41+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "fc4c6e5f6d1772c2aec4c0f94cb3c8e7eb04018f",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -4217,7 +4476,7 @@
         "markdown_count": 101,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:17+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -4302,7 +4561,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-10-19"
+        "upstream_pushed_at": "2026-10-19",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:42+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "80b89fb9496d7ea3213e402c8c3853399e00c363",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -4329,7 +4595,7 @@
         "markdown_count": 93,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:17+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -4411,7 +4677,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-06-15"
+        "upstream_pushed_at": "2026-06-15",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:45+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "dc3d60c29d5483d9ea99cf261bbd6203516a2ba7",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -4438,7 +4711,7 @@
         "markdown_count": 653,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:17+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -4520,7 +4793,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2025-06-15"
+        "upstream_pushed_at": "2025-06-15",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:47+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "2dafd0c317885d128da215a583522ba432181007",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -4547,7 +4827,7 @@
         "markdown_count": 3,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:17+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -4625,7 +4905,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-11-05"
+        "upstream_pushed_at": "2026-11-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:48+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "cae77e70197269b42e4d6d801ee7e9988011c1a5",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -4652,7 +4939,7 @@
         "markdown_count": 992,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:17+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -4730,7 +5017,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2024-09-15"
+        "upstream_pushed_at": "2024-09-15",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:50+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "cd02c000e57c693e49f1f72986dbfa6e4c952e09",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -4766,7 +5060,7 @@
         "markdown_count": 145,
         "question_markers": 15,
         "test_files": 4,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:17+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -4861,7 +5155,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-11-04"
+        "upstream_pushed_at": "2026-11-04",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:51+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "539a14195a8403470e1a8ec31edc58d23086827a",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -4896,7 +5197,7 @@
         "markdown_count": 1309,
         "question_markers": 23,
         "test_files": 20,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:18+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -4993,7 +5294,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2025-07-11"
+        "upstream_pushed_at": "2025-07-11",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:53+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "753309b21bfd7c98e208e3fb45910ffd1bb95409",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -5025,7 +5333,7 @@
         "markdown_count": 23,
         "question_markers": 3,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:18+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -5121,7 +5429,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-10-30"
+        "upstream_pushed_at": "2026-10-30",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:55+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "a4a7eead178464dfa2430a9c45e6478523ae549b",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -5156,7 +5471,7 @@
         "markdown_count": 409,
         "question_markers": 24,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:18+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -5249,7 +5564,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-09-06"
+        "upstream_pushed_at": "2026-09-06",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:58+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "91cd7835e8e2edd38e69d771bbb531271abff502",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -5281,7 +5603,7 @@
         "markdown_count": 12,
         "question_markers": 2,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:18+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -5369,7 +5691,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2024-04-11"
+        "upstream_pushed_at": "2024-04-11",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:59+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "a9b92bd4a384fd3f620a553a377612983d1ecbad",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -5396,7 +5725,7 @@
         "markdown_count": 1,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:18+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -5469,7 +5798,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-05-06"
+        "upstream_pushed_at": "2026-05-06",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:02+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "d731cee7618021be56d132cc925102ffff8d75e6",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -5504,7 +5840,7 @@
         "markdown_count": 123,
         "question_markers": 3,
         "test_files": 8,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:18+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -5602,7 +5938,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2023-12-17"
+        "upstream_pushed_at": "2023-12-17",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:04+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "adc61503f18005d888d0bdc45bbab21f77ebda44",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -5636,7 +5979,7 @@
         "markdown_count": 41,
         "question_markers": 0,
         "test_files": 1,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:18+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -5732,7 +6075,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-11-03"
+        "upstream_pushed_at": "2026-11-03",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:05+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "757270a26306e5edda9957bb7f86cfcde03c30f9",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -5759,7 +6109,7 @@
         "markdown_count": 170,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:18+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -5841,7 +6191,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-09-24"
+        "upstream_pushed_at": "2026-09-24",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:07+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "3a31f35346c3f4e90f350395124382fa53af2afe",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -5868,7 +6225,7 @@
         "markdown_count": 727,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:18+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -5950,7 +6307,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-05-30"
+        "upstream_pushed_at": "2026-05-30",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:09+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "6079e14814052714e1703c7d5b7c89e2673b334a",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -5985,7 +6349,7 @@
         "markdown_count": 409,
         "question_markers": 4,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:57+08:00",
+        "observed_at": "2026-11-07T10:57:18+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -6074,7 +6438,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-11-02"
+        "upstream_pushed_at": "2026-11-02",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:11+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "574d100b7181956e9c8384552fd078165e4cc326",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -6101,7 +6472,7 @@
         "markdown_count": 37,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:18+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -6183,7 +6554,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-11-05"
+        "upstream_pushed_at": "2026-11-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:13+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "a2b1e4e5c4b9b7bb876aed91a5ca1e5a8aefe776",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -6210,7 +6588,7 @@
         "markdown_count": 1125,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:18+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -6294,7 +6672,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-07-26"
+        "upstream_pushed_at": "2026-07-26",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:15+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "85293e3e2b88f4d2ce330d956b139cf628aa1e82",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -6321,7 +6706,7 @@
         "markdown_count": 259,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:18+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -6401,7 +6786,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2025-04-04"
+        "upstream_pushed_at": "2025-04-04",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:17+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "b28380a4710c5ec9638ec037d4168e288f334cba",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -6435,7 +6827,7 @@
         "markdown_count": 418,
         "question_markers": 7,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:18+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -6527,7 +6919,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-11-01"
+        "upstream_pushed_at": "2026-11-01",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:18+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "58bf0b48badf1e6d62d1e3d024e9578ff809c95f",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -6554,7 +6953,7 @@
         "markdown_count": 1,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:18+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -6631,7 +7030,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2023-04-03"
+        "upstream_pushed_at": "2023-04-03",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:19+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "7c1d5d6debd51b0095d80d521bf23e929cab4117",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -6658,7 +7064,7 @@
         "markdown_count": 1,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:18+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -6731,7 +7137,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-09-15"
+        "upstream_pushed_at": "2026-09-15",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:21+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "ae9bbd7b02d90b9866215de185217d33f39ab733",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -6758,7 +7171,7 @@
         "markdown_count": 23,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:18+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -6840,7 +7253,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-03-03"
+        "upstream_pushed_at": "2026-03-03",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:22+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "f56c0f3a4a763fe5628ac0ad9f5d472897024252",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -6867,7 +7287,7 @@
         "markdown_count": 1,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:18+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -6942,7 +7362,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-10-18"
+        "upstream_pushed_at": "2026-10-18",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:24+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "6dcea405d41401bfbe4031b6b80f7a2d87b712ba",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -6969,7 +7396,7 @@
         "markdown_count": 6,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:18+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -7046,7 +7473,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-11-02"
+        "upstream_pushed_at": "2026-11-02",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:26+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "8e91311a0527a4af818818f3ec6cb7150229013e",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -7080,7 +7514,7 @@
         "markdown_count": 51,
         "question_markers": 0,
         "test_files": 5,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:18+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -7172,7 +7606,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 16:52",
-        "upstream_pushed_at": "2023-02-15"
+        "upstream_pushed_at": "2023-02-15",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:28+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "2aa17fcb14772e26b97e925b9cf9455da74400df",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -7199,7 +7640,7 @@
         "markdown_count": 8,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:18+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -7275,7 +7716,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2025-07-13"
+        "upstream_pushed_at": "2025-07-13",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:29+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "5b84097d8b6efca584567d7976b92feb34d87528",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -7302,7 +7750,7 @@
         "markdown_count": 62,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -7383,7 +7831,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-10-25"
+        "upstream_pushed_at": "2026-10-25",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:31+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "992dae31eade2a34ba8dbbbcf5ed9de5511325ec",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -7410,7 +7865,7 @@
         "markdown_count": 457,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -7492,7 +7947,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2022-08-14"
+        "upstream_pushed_at": "2022-08-14",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:33+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "1e70af9048f15ad9b1b1384b1f52aa9973298bdc",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -7524,7 +7986,7 @@
         "markdown_count": 22,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -7607,7 +8069,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-10-17"
+        "upstream_pushed_at": "2026-10-17",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:34+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "59e34b165e4537459cd5a38a161d306e5e7c9f53",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -7639,7 +8108,7 @@
         "markdown_count": 32,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -7723,7 +8192,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-09-18"
+        "upstream_pushed_at": "2026-09-18",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:36+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "b0218e9337c599ee9dbe7ee70982261cdcacf1dc",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -7750,7 +8226,7 @@
         "markdown_count": 137,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -7832,7 +8308,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2025-08-02"
+        "upstream_pushed_at": "2025-08-02",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:38+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "25055ccfa146c11f2ccc986402ad36b34471e6c0",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -7859,7 +8342,7 @@
         "markdown_count": 698,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -7938,7 +8421,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2024-06-25"
+        "upstream_pushed_at": "2024-06-25",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:40+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "6b50745d2e788add2e8f1ed29010e72659a9a074",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -7965,7 +8455,7 @@
         "markdown_count": 20,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -8037,7 +8527,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2025-08-28"
+        "upstream_pushed_at": "2025-08-28",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:41+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "d1cad3509707ade07072f990ddf9989a9c4257ad",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -8064,7 +8561,7 @@
         "markdown_count": 33,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -8141,7 +8638,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-07-14"
+        "upstream_pushed_at": "2026-07-14",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:43+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "33d44a44e3526ede8e862bf1ad50ae5ae7a2f112",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -8168,7 +8672,7 @@
         "markdown_count": 22,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -8248,7 +8752,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2025-02-18"
+        "upstream_pushed_at": "2025-02-18",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:46+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "4ff334fef939e05b6aa08caef412d96911c6dcfe",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -8275,7 +8786,7 @@
         "markdown_count": 160,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -8351,7 +8862,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2024-11-27"
+        "upstream_pushed_at": "2024-11-27",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:47+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "381b846137c4b7c25373804f44eb44ed8a31ea55",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -8378,7 +8896,7 @@
         "markdown_count": 123,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -8455,7 +8973,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 18:24",
-        "upstream_pushed_at": "2026-11-03"
+        "upstream_pushed_at": "2026-11-03",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:48+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "1519bb3955d77da737b89d9eb950d7fef72c1c78",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -8490,7 +9015,7 @@
         "markdown_count": 644,
         "question_markers": 178,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -8580,7 +9105,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2025-12-31"
+        "upstream_pushed_at": "2025-12-31",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:50+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "5108d021a173c2e53684b39b5972e6c2b2750c71",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -8612,7 +9144,7 @@
         "markdown_count": 13,
         "question_markers": 1,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -8697,7 +9229,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-10-17"
+        "upstream_pushed_at": "2026-10-17",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:51+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "774445f64658289826909165d4ef446f4cf59f13",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -8731,7 +9270,7 @@
         "markdown_count": 13,
         "question_markers": 24,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -8831,7 +9370,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-10-01"
+        "upstream_pushed_at": "2026-10-01",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:53+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "2c591834a1e4101e2e7579dc7f49bdeb4a6153a2",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -8866,7 +9412,7 @@
         "markdown_count": 273,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:58+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -8959,7 +9505,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-11-04"
+        "upstream_pushed_at": "2026-11-04",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:55+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "375073d006ea1066d89e4d2d87063e92f4306169",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -8996,7 +9549,7 @@
         "markdown_count": 582,
         "question_markers": 10,
         "test_files": 15,
-        "observed_at": "2026-11-07T09:10:59+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -9096,7 +9649,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2023-05-14"
+        "upstream_pushed_at": "2023-05-14",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:57+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "b73a110ffdc8eec09fe34cefaa8ea547e8d4ad9a",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -9131,7 +9691,7 @@
         "markdown_count": 232,
         "question_markers": 8,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:59+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -9219,7 +9779,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-10-31"
+        "upstream_pushed_at": "2026-10-31",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:59+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "c0cf9426e5a3628287225d404b096c754f62a243",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -9255,7 +9822,7 @@
         "markdown_count": 60,
         "question_markers": 2,
         "test_files": 118,
-        "observed_at": "2026-11-07T09:10:59+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -9353,7 +9920,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-11-04"
+        "upstream_pushed_at": "2026-11-04",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:01+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "2738002bcb5870e5620f9224a7c06fed8eb69d73",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -9387,7 +9961,7 @@
         "markdown_count": 45,
         "question_markers": 21,
         "test_files": 7,
-        "observed_at": "2026-11-07T09:10:59+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -9483,7 +10057,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-11-03"
+        "upstream_pushed_at": "2026-11-03",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:03+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "516efead5c5a8a2a49991629533b9a8877924a43",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -9517,7 +10098,7 @@
         "markdown_count": 36,
         "question_markers": 6,
         "test_files": 66,
-        "observed_at": "2026-11-07T09:10:59+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -9613,7 +10194,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2025-10-11"
+        "upstream_pushed_at": "2025-10-11",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:04+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "9e8dd00f10b881babc273d66949b7ffa0e310097",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -9647,7 +10235,7 @@
         "markdown_count": 96,
         "question_markers": 21,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:59+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -9736,7 +10324,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2025-06-24"
+        "upstream_pushed_at": "2025-06-24",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:07+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "3c475a78e54336c6255e925ff66b8ef4da6a2ae7",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -9772,7 +10367,7 @@
         "markdown_count": 174,
         "question_markers": 3,
         "test_files": 22,
-        "observed_at": "2026-11-07T09:10:59+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -9870,7 +10465,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2025-09-12"
+        "upstream_pushed_at": "2025-09-12",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:08+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "52832d194e0de3c933c82bcb99570f3bbd7216dd",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -9906,7 +10508,7 @@
         "markdown_count": 46,
         "question_markers": 3,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:59+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -10000,7 +10602,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-11-05"
+        "upstream_pushed_at": "2026-11-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:10+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "174027d2bdfb6013dfc41d54c1cb87ee8c13274c",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -10035,7 +10644,7 @@
         "markdown_count": 163,
         "question_markers": 5,
         "test_files": 425,
-        "observed_at": "2026-11-07T09:10:59+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -10132,7 +10741,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2024-08-14"
+        "upstream_pushed_at": "2024-08-14",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:11+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "7a54d34d3657084b6a59e5618bd069b912d571aa",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -10166,7 +10782,7 @@
         "markdown_count": 214,
         "question_markers": 18,
         "test_files": 5,
-        "observed_at": "2026-11-07T09:10:59+08:00",
+        "observed_at": "2026-11-07T10:57:19+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -10258,7 +10874,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 18:24",
-        "upstream_pushed_at": "2024-07-19"
+        "upstream_pushed_at": "2024-07-19",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:13+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "5d2008e97ea2547dfb3d0b4c9409953e1bf633fc",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -10292,7 +10915,7 @@
         "markdown_count": 38,
         "question_markers": 2,
         "test_files": 123,
-        "observed_at": "2026-11-07T09:10:59+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -10382,7 +11005,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-11-01"
+        "upstream_pushed_at": "2026-11-01",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:15+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "b4c4cc4040b614d2aca81ad5f2bcd92ed3d422ec",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -10409,7 +11039,7 @@
         "markdown_count": 218,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:59+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -10487,7 +11117,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-10-17"
+        "upstream_pushed_at": "2026-10-17",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:20+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "c48eb397a75af7267c3d79c5f21112e6cf12ba85",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -10514,7 +11151,7 @@
         "markdown_count": 3,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:59+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -10596,7 +11233,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2025-11-06"
+        "upstream_pushed_at": "2025-11-06",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:22+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "186de1dece4ccbaf4706cbdcba7d491b00a6d28d",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -10623,7 +11267,7 @@
         "markdown_count": 5,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:59+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -10693,7 +11337,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 16:54",
-        "upstream_pushed_at": "2026-07-29"
+        "upstream_pushed_at": "2026-07-29",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:23+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "cc1108ac90f53a1fd4f773b61f5c6b91b91389ca",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -10720,7 +11371,7 @@
         "markdown_count": 4,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:59+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -10795,7 +11446,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 16:52",
-        "upstream_pushed_at": "2026-02-05"
+        "upstream_pushed_at": "2026-02-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:25+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "7abd96e8284bfae232048fdb77b52397a2114847",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -10822,7 +11480,7 @@
         "markdown_count": 1,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:59+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -10897,7 +11555,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 16:52",
-        "upstream_pushed_at": "2024-07-29"
+        "upstream_pushed_at": "2024-07-29",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:26+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "5311f64b03fc0c2450ab17a45ee9818669c8b9b5",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -10924,7 +11589,7 @@
         "markdown_count": 1,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:10:59+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -10999,7 +11664,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-09-04"
+        "upstream_pushed_at": "2026-09-04",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:28+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "7482982bb88f59e1a1bd1d5e57600d69a1c48d2d",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -11035,7 +11707,7 @@
         "markdown_count": 112,
         "question_markers": 5,
         "test_files": 27,
-        "observed_at": "2026-11-07T09:10:59+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -11129,7 +11801,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-05-22"
+        "upstream_pushed_at": "2026-05-22",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:29+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "a1702fd8ecac9b464ff3209de03860285b431a3b",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -11164,7 +11843,7 @@
         "markdown_count": 130,
         "question_markers": 3,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:59+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -11263,7 +11942,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2024-07-12"
+        "upstream_pushed_at": "2024-07-12",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:30+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "1c2f37f440700943b9515fc3e3db0513724284db",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -11297,7 +11983,7 @@
         "markdown_count": 47,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:10:59+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -11386,7 +12072,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-11-04"
+        "upstream_pushed_at": "2026-11-04",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:32+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "97a397fb2e3cb3e3ab41e9bd301b9143da547b6f",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -11422,7 +12115,7 @@
         "markdown_count": 236,
         "question_markers": 2,
         "test_files": 78,
-        "observed_at": "2026-11-07T09:11:00+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -11520,7 +12213,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-10-31"
+        "upstream_pushed_at": "2026-10-31",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:34+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "c803802f95471cd14e55d14c85fae66b13e3d620",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -11554,7 +12254,7 @@
         "markdown_count": 206,
         "question_markers": 24,
         "test_files": 8,
-        "observed_at": "2026-11-07T09:11:00+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -11646,7 +12346,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-08-07"
+        "upstream_pushed_at": "2026-08-07",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:37+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "e1d28e8886c0b6ff3e50da991ce0e895134ddc59",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -11673,7 +12380,7 @@
         "markdown_count": 73,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:00+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -11755,7 +12462,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 18:24",
-        "upstream_pushed_at": "2025-02-11"
+        "upstream_pushed_at": "2025-02-11",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:38+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "ba7aa61b9f121277e8bceb8fe1095572a35d3753",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -11789,7 +12503,7 @@
         "markdown_count": 16,
         "question_markers": 2,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:00+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -11874,7 +12588,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 18:24",
-        "upstream_pushed_at": "2026-10-24"
+        "upstream_pushed_at": "2026-10-24",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:40+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "77c78fc98a3d4a0b1caf666bd92bdc0183e6d31a",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -11908,7 +12629,7 @@
         "markdown_count": 19,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:00+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -12001,7 +12722,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 18:24",
-        "upstream_pushed_at": "2026-10-16"
+        "upstream_pushed_at": "2026-10-16",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:42+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "c84cc01c06a5a93a26ec03dac9d8bb19728be205",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -12035,7 +12763,7 @@
         "markdown_count": 9,
         "question_markers": 1,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:00+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -12118,7 +12846,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 20:23",
-        "upstream_pushed_at": "2026-10-29"
+        "upstream_pushed_at": "2026-10-29",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:43+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "ac3a51ab3ef872f7773f284dc88eb52f3b1d7794",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -12148,7 +12883,7 @@
         "markdown_count": 693,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:00+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -12263,7 +12998,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 20:23",
-        "upstream_pushed_at": "2026-11-05"
+        "upstream_pushed_at": "2026-11-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:44+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "4bdc6c84b1a18b4f45834d3e5f2f03e761ffaed9",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -12293,7 +13035,7 @@
         "markdown_count": 8,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:00+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -12406,7 +13148,14 @@
         "branch": "alpha",
         "commit_sha": null,
         "fetched_at": "2026-11-05 20:23",
-        "upstream_pushed_at": "2026-08-11"
+        "upstream_pushed_at": "2026-08-11",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:46+08:00",
+          "default_branch": "alpha",
+          "head_commit_sha": "f8e077d6552a097ab84eb2415131a3390716aee4",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -12436,7 +13185,7 @@
         "markdown_count": 89,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:00+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -12549,7 +13298,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 20:23",
-        "upstream_pushed_at": "2026-05-29"
+        "upstream_pushed_at": "2026-05-29",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:48+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "ab80c34681013d844be2a9feb362bf96ffeca3ee",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -12579,7 +13335,7 @@
         "markdown_count": 105,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:00+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -12694,7 +13450,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 20:23",
-        "upstream_pushed_at": "2026-07-28"
+        "upstream_pushed_at": "2026-07-28",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:50+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "a7a6cdca3edc49197f8aa8eb9169c748b35b745a",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -12724,7 +13487,7 @@
         "markdown_count": 534,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:00+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -12837,7 +13600,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 20:23",
-        "upstream_pushed_at": "2026-01-06"
+        "upstream_pushed_at": "2026-01-06",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:51+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "6590beea247c5390c504b3a7f5c8a3d2c71057bd",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -12867,7 +13637,7 @@
         "markdown_count": 172,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:00+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -12976,7 +13746,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 20:23",
-        "upstream_pushed_at": "2026-11-05"
+        "upstream_pushed_at": "2026-11-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:53+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "f0277b47f2523668fe567c017b112117d11f6075",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -13006,7 +13783,7 @@
         "markdown_count": 518,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:00+08:00",
+        "observed_at": "2026-11-07T10:57:20+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -13119,7 +13896,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 18:24",
-        "upstream_pushed_at": "2026-11-05"
+        "upstream_pushed_at": "2026-11-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:55+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "79a8ea7ef91023b5f72c90b7cb72b6d61367eb64",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -13154,7 +13938,7 @@
         "markdown_count": 18325,
         "question_markers": 10694,
         "test_files": 4,
-        "observed_at": "2026-11-07T09:11:00+08:00",
+        "observed_at": "2026-11-07T10:57:21+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -13246,7 +14030,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 23:02",
-        "upstream_pushed_at": "2026-11-01"
+        "upstream_pushed_at": "2026-11-01",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:57+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "0f4fcb0d2420c106b1bc74b7d474b1dde2029d45",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -13276,7 +14067,7 @@
         "markdown_count": 205,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:00+08:00",
+        "observed_at": "2026-11-07T10:57:21+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -13391,7 +14182,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-10-27"
+        "upstream_pushed_at": "2026-10-27",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:58+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "c7ec869d719c751febc99693a095429a804c86dd",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -13426,7 +14224,7 @@
         "markdown_count": 89,
         "question_markers": 960,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:00+08:00",
+        "observed_at": "2026-11-07T10:57:21+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -13512,7 +14310,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-02-28"
+        "upstream_pushed_at": "2026-02-28",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:01+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "5adfdb5355922854f6dd7ce593ca9e64c6c68eed",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -13539,7 +14344,7 @@
         "markdown_count": 17,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:00+08:00",
+        "observed_at": "2026-11-07T10:57:21+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -13613,7 +14418,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-08-31"
+        "upstream_pushed_at": "2026-08-31",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:03+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "aa1d1a69edcafd589677701da63a324f923348f6",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -13640,7 +14452,7 @@
         "markdown_count": 155,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:00+08:00",
+        "observed_at": "2026-11-07T10:57:21+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -13719,7 +14531,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-02-04"
+        "upstream_pushed_at": "2026-02-04",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:04+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "7354f4859b7425338dfcff6410e9903bca0ec0dd",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -13746,7 +14565,7 @@
         "markdown_count": 4,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:00+08:00",
+        "observed_at": "2026-11-07T10:57:21+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -13828,7 +14647,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-10-30"
+        "upstream_pushed_at": "2026-10-30",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:06+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "62f941fe71ed7ddae4005d24fca3d3df38631db7",
+          "note": "首次 TLS 失败后重试成功"
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -13863,7 +14689,7 @@
         "markdown_count": 76,
         "question_markers": 0,
         "test_files": 29,
-        "observed_at": "2026-11-07T09:11:00+08:00",
+        "observed_at": "2026-11-07T10:57:21+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -13960,7 +14786,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-11-04"
+        "upstream_pushed_at": "2026-11-04",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:11+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "d7b5633f91591ee3bf55c8d80831b515498cc0e6",
+          "note": "首次 TLS 失败后重试成功"
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -13997,7 +14830,7 @@
         "markdown_count": 3418,
         "question_markers": 203,
         "test_files": 599,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:22+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -14098,7 +14931,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-09-25"
+        "upstream_pushed_at": "2026-09-25",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:16+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "20e367c0996c141b9c95713a44fdc9ed33069ebf",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -14134,7 +14974,7 @@
         "markdown_count": 395,
         "question_markers": 109,
         "test_files": 13,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:22+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -14234,7 +15074,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-11-03"
+        "upstream_pushed_at": "2026-11-03",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:18+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "135d6275e7db0657d70b147f46d3191c5430677d",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -14269,7 +15116,7 @@
         "markdown_count": 249,
         "question_markers": 101,
         "test_files": 8,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:22+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -14366,7 +15213,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-11-03"
+        "upstream_pushed_at": "2026-11-03",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:20+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "0d1b6558dc68c042a3dad54095b707cd92fc0529",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -14402,7 +15256,7 @@
         "markdown_count": 380,
         "question_markers": 169,
         "test_files": 9,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:22+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -14500,7 +15354,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-11-02"
+        "upstream_pushed_at": "2026-11-02",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:22+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "512ccf4f21f05a861c84ebf7427b4924905ed381",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -14535,7 +15396,7 @@
         "markdown_count": 110,
         "question_markers": 1025,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:22+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -14632,7 +15493,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-03-11"
+        "upstream_pushed_at": "2026-03-11",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:24+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "57673726396dd94acb23bdb1e67f27c78ee85a8e",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -14669,7 +15537,7 @@
         "markdown_count": 1111,
         "question_markers": 40,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:22+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -14769,7 +15637,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-07-09"
+        "upstream_pushed_at": "2026-07-09",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:25+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "54c1b1d79888f541bfc2efd6b71a3e58a64486a2",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -14803,7 +15678,7 @@
         "markdown_count": 51,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:22+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -14888,7 +15763,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2023-05-22"
+        "upstream_pushed_at": "2023-05-22",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:27+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "8ab7f0ad60b85ab9dff18da6fc760211335d0fb0",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -14920,7 +15802,7 @@
         "markdown_count": 33,
         "question_markers": 5,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:22+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -15011,7 +15893,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2025-07-16"
+        "upstream_pushed_at": "2025-07-16",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:28+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "8b9539fbe3b9239fd512ffb63faa705897db51b1",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -15038,7 +15927,7 @@
         "markdown_count": 69,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:22+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -15115,7 +16004,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2025-10-22"
+        "upstream_pushed_at": "2025-10-22",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:29+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "a549376da3ff8430a03e00ad7e1878ca00a063ad",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -15142,7 +16038,7 @@
         "markdown_count": 135,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:22+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -15214,7 +16110,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2025-11-03"
+        "upstream_pushed_at": "2025-11-03",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:31+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "015249a6fae7552bb4b3591f1d0a2efb6c77db92",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -15241,7 +16144,7 @@
         "markdown_count": 102,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:22+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -15315,7 +16218,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2023-11-28"
+        "upstream_pushed_at": "2023-11-28",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:32+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "77620444e663d2bd54fc2286678162f473478d35",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -15342,7 +16252,7 @@
         "markdown_count": 35,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:22+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -15419,7 +16329,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-11-04"
+        "upstream_pushed_at": "2026-11-04",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:33+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "96dfe1e1afe554d449ce9ff8a253f5284746f8fc",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -15446,7 +16363,7 @@
         "markdown_count": 192,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -15524,7 +16441,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-08-28"
+        "upstream_pushed_at": "2026-08-28",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:37+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "5081cf61629271e8e723d655db2f58a41ba1f993",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -15556,7 +16480,7 @@
         "markdown_count": 18,
         "question_markers": 2,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -15638,7 +16562,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-03-16"
+        "upstream_pushed_at": "2026-03-16",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:40+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "1bc42aa2cf91d5bf27ef34609767f0b1ac7739cf",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -15665,7 +16596,7 @@
         "markdown_count": 33,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -15744,7 +16675,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-11-02"
+        "upstream_pushed_at": "2026-11-02",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:41+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "6ee75a9e3848f25d7f2cb090fd68916673b30e49",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -15780,7 +16718,7 @@
         "markdown_count": 47,
         "question_markers": 734,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -15870,7 +16808,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-05-12"
+        "upstream_pushed_at": "2026-05-12",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:43+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "b652c2a281c199538e275e7e00535a68e27ed515",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -15902,7 +16847,7 @@
         "markdown_count": 11,
         "question_markers": 1,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -15993,7 +16938,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2023-10-20"
+        "upstream_pushed_at": "2023-10-20",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:44+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "89df27c82cbf5b05d65562eae8688ec7caa12104",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -16028,7 +16980,7 @@
         "markdown_count": 124,
         "question_markers": 3,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -16125,7 +17077,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-10-27"
+        "upstream_pushed_at": "2026-10-27",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:46+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "741fb57183dca0712702aeb3d11575dcd7a099fb",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -16160,7 +17119,7 @@
         "markdown_count": 163,
         "question_markers": 366,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -16254,7 +17213,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-09-05"
+        "upstream_pushed_at": "2026-09-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:48+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "51e244d51bbd9f83fbd6b6eef34fadd2ee255a21",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -16288,7 +17254,7 @@
         "markdown_count": 25,
         "question_markers": 47,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -16377,7 +17343,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2025-01-01"
+        "upstream_pushed_at": "2025-01-01",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:50+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "968a286650c964f8583b73b3e0864475b86f22b6",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -16411,7 +17384,7 @@
         "markdown_count": 12,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -16498,7 +17471,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-10-20"
+        "upstream_pushed_at": "2026-10-20",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:51+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "5f34cfdd76e9a30a749107b1e93465f5787a6bd5",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -16532,7 +17512,7 @@
         "markdown_count": 50,
         "question_markers": 23,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -16631,7 +17611,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-11-01"
+        "upstream_pushed_at": "2026-11-01",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:52+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "713f3542b140151c73ad1533db26e54b78ecfa25",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -16663,7 +17650,7 @@
         "markdown_count": 11,
         "question_markers": 0,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -16752,7 +17739,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 16:53",
-        "upstream_pushed_at": "2025-12-09"
+        "upstream_pushed_at": "2025-12-09",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:54+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "138a4d0597c49eee9a3298aee6a4bfb5634a2a04",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -16779,7 +17773,7 @@
         "markdown_count": 5,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -16854,7 +17848,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2024-10-29"
+        "upstream_pushed_at": "2024-10-29",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:56+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "cf692b53e1b3d1b740a97dab0e4e71db801daf33",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -16881,7 +17882,7 @@
         "markdown_count": 7,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -16958,7 +17959,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2024-10-13"
+        "upstream_pushed_at": "2024-10-13",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:58+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "b02f60e29327e8653de86c119a39513de05cb7d7",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -16985,7 +17993,7 @@
         "markdown_count": 1,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -17055,7 +18063,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2024-03-06"
+        "upstream_pushed_at": "2024-03-06",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:00+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "225352361569e64b5983e18490bddeb0aefd4dd0",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -17082,7 +18097,7 @@
         "markdown_count": 111,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -17162,7 +18177,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2024-06-23"
+        "upstream_pushed_at": "2024-06-23",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:01+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "fb5f78b55eead7f948aada8459c5bfd31ae8abbc",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -17189,7 +18211,7 @@
         "markdown_count": 0,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:01+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -17258,7 +18280,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-10-21"
+        "upstream_pushed_at": "2026-10-21",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:03+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "2b71796266751b4736a7ef180efb6847879166ee",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -17285,7 +18314,7 @@
         "markdown_count": 1,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:02+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -17356,7 +18385,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-08-21"
+        "upstream_pushed_at": "2026-08-21",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:04+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "e095c259cfd036e3ddb6886e84d7075c2faac477",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -17383,7 +18419,7 @@
         "markdown_count": 1,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:02+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -17456,7 +18492,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-11-01"
+        "upstream_pushed_at": "2026-11-01",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:08+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "f0cd67fe97539416c11f068d692344163f752940",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -17483,7 +18526,7 @@
         "markdown_count": 432,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:02+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -17559,7 +18602,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-11-01"
+        "upstream_pushed_at": "2026-11-01",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:10+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "63863b1221bdaaf9922688f8066120eb5dff4ef8",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -17586,7 +18636,7 @@
         "markdown_count": 102,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:02+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -17662,7 +18712,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2025-10-26"
+        "upstream_pushed_at": "2025-10-26",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:11+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "79bab2c2a203705e1201051ae8c80b752a3d439e",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -17689,7 +18746,7 @@
         "markdown_count": 36,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:02+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -17768,7 +18825,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-03-14"
+        "upstream_pushed_at": "2026-03-14",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:13+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "43db2256b297a404c3925cee08fe7eb0fc2b859e",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -17795,7 +18859,7 @@
         "markdown_count": 41,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:02+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -17873,7 +18937,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2024-09-05"
+        "upstream_pushed_at": "2024-09-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:15+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "52f6a1092c388309676d149db379e4c3b7f63771",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -17907,7 +18978,7 @@
         "markdown_count": 47,
         "question_markers": 9,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:02+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -18000,7 +19071,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2024-07-15"
+        "upstream_pushed_at": "2024-07-15",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:16+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "65d47d9099b697e23a36b9df617410c217a14dbb",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -18034,7 +19112,7 @@
         "markdown_count": 48,
         "question_markers": 1,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:02+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -18120,7 +19198,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-06-23"
+        "upstream_pushed_at": "2026-06-23",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:18+08:00",
+          "default_branch": "next",
+          "head_commit_sha": "710fb4ae0b6cb6432679567b31deb1649567b3fd",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -18155,7 +19240,7 @@
         "markdown_count": 1046,
         "question_markers": 43,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:02+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -18251,7 +19336,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-10-13"
+        "upstream_pushed_at": "2026-10-13",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:19+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "55b7d491cd74c7b37f9352f3b2420d66e7187951",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -18283,7 +19375,7 @@
         "markdown_count": 19,
         "question_markers": 0,
         "test_files": 2,
-        "observed_at": "2026-11-07T09:11:02+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -18380,7 +19472,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-11-01"
+        "upstream_pushed_at": "2026-11-01",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:21+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "c794414827bc5421fa1a463eb1a15ffc7941a1db",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -18416,7 +19515,7 @@
         "markdown_count": 473,
         "question_markers": 176,
         "test_files": 7,
-        "observed_at": "2026-11-07T09:11:02+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -18509,7 +19608,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2025-07-16"
+        "upstream_pushed_at": "2025-07-16",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:23+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "24b0b6284959e0f21539764a156595af7664b63f",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -18536,7 +19642,7 @@
         "markdown_count": 544,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:02+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -18618,7 +19724,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-09-01"
+        "upstream_pushed_at": "2026-09-01",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:25+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "bbbbb6f04e5c9a665c8477ec68ee4f28b1367dd7",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -18653,7 +19766,7 @@
         "markdown_count": 175,
         "question_markers": 2,
         "test_files": 69,
-        "observed_at": "2026-11-07T09:11:02+08:00",
+        "observed_at": "2026-11-07T10:57:23+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -18749,7 +19862,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-11-04"
+        "upstream_pushed_at": "2026-11-04",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:26+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "d6ed40a7600367fad05344bbbcdbd8e0aa924146",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -18778,7 +19898,7 @@
         "markdown_count": 8734,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:04+08:00",
+        "observed_at": "2026-11-07T10:57:26+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -18861,7 +19981,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2025-05-20"
+        "upstream_pushed_at": "2025-05-20",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:29+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "5c033cb33bb33b8e2c028128e54c2a87709586f0",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -18896,7 +20023,7 @@
         "markdown_count": 259,
         "question_markers": 230,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:04+08:00",
+        "observed_at": "2026-11-07T10:57:26+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -18988,7 +20115,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-10-12"
+        "upstream_pushed_at": "2026-10-12",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:31+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "1dde49c8ab37a08f21a4fb249d7bd90af4a9c58e",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -19015,7 +20149,7 @@
         "markdown_count": 2555,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:04+08:00",
+        "observed_at": "2026-11-07T10:57:26+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -19097,7 +20231,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2024-05-03"
+        "upstream_pushed_at": "2024-05-03",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:33+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "cb1e426145d2df3682eeec922d2052732403e3ab",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -19131,7 +20272,7 @@
         "markdown_count": 65,
         "question_markers": 15,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:04+08:00",
+        "observed_at": "2026-11-07T10:57:26+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -19222,7 +20363,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-06-23"
+        "upstream_pushed_at": "2026-06-23",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:34+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "2aa4fd0a2214bb93f5566372c68afa4d2a1d22ef",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -19257,7 +20405,7 @@
         "markdown_count": 1705,
         "question_markers": 1678,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:04+08:00",
+        "observed_at": "2026-11-07T10:57:26+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -19350,7 +20498,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-11-02"
+        "upstream_pushed_at": "2026-11-02",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:36+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "a5bad320840b8f8f54c2b8619ca929c504381aaf",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -19377,7 +20532,7 @@
         "markdown_count": 7,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:04+08:00",
+        "observed_at": "2026-11-07T10:57:26+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -19459,7 +20614,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2025-05-12"
+        "upstream_pushed_at": "2025-05-12",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:37+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "03fdcb2703ce72dc0606748733d0c13f09d41d21",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -19486,7 +20648,7 @@
         "markdown_count": 2,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:04+08:00",
+        "observed_at": "2026-11-07T10:57:26+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -19566,7 +20728,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-10-18"
+        "upstream_pushed_at": "2026-10-18",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:39+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "5e4d13259282bc150a13dc7b1545a149aa904c9d",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -19601,7 +20770,7 @@
         "markdown_count": 86,
         "question_markers": 4,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:04+08:00",
+        "observed_at": "2026-11-07T10:57:26+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -19690,7 +20859,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-11-03"
+        "upstream_pushed_at": "2026-11-03",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:40+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "8fed5f7daa6a517e375a0562d876e4a72dfdafb8",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -19717,7 +20893,7 @@
         "markdown_count": 929,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:04+08:00",
+        "observed_at": "2026-11-07T10:57:27+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -19799,7 +20975,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-10-28"
+        "upstream_pushed_at": "2026-10-28",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:43+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "1722e1bef44664dc577bfae707f420958a36e45f",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -19833,7 +21016,7 @@
         "markdown_count": 13,
         "question_markers": 3,
         "test_files": 17,
-        "observed_at": "2026-11-07T09:11:04+08:00",
+        "observed_at": "2026-11-07T10:57:27+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -19925,7 +21108,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-10-30"
+        "upstream_pushed_at": "2026-10-30",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:44+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "08ea40e77db3f42ef8f20c65196f3936a19b6c86",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -19959,7 +21149,7 @@
         "markdown_count": 142,
         "question_markers": 14,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:04+08:00",
+        "observed_at": "2026-11-07T10:57:27+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -20054,7 +21244,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-06-15"
+        "upstream_pushed_at": "2026-06-15",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:47+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "9ad43c8952fa474f76597738a599774d081103fc",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -20081,7 +21278,7 @@
         "markdown_count": 1496,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:04+08:00",
+        "observed_at": "2026-11-07T10:57:27+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -20159,7 +21356,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2026-10-24"
+        "upstream_pushed_at": "2026-10-24",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:48+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "6fe1571732d41e8f425f8e702992adf7ffae95a0",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -20186,7 +21390,7 @@
         "markdown_count": 314,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:04+08:00",
+        "observed_at": "2026-11-07T10:57:27+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -20261,7 +21465,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2022-12-02"
+        "upstream_pushed_at": "2022-12-02",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:50+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "566d7368741e805bc7e5f4f4e3abfb5f9eecc598",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -20298,7 +21509,7 @@
         "markdown_count": 211,
         "question_markers": 49,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:04+08:00",
+        "observed_at": "2026-11-07T10:57:27+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -20395,7 +21606,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-10-31"
+        "upstream_pushed_at": "2026-10-31",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:52+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "63ab8664da20b06d5f4daf7ff2a98872e3b02cd7",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -20431,7 +21649,7 @@
         "markdown_count": 238,
         "question_markers": 33,
         "test_files": 30,
-        "observed_at": "2026-11-07T09:11:04+08:00",
+        "observed_at": "2026-11-07T10:57:27+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -20529,7 +21747,14 @@
         "branch": null,
         "commit_sha": null,
         "fetched_at": "2026-11-04 20:03",
-        "upstream_pushed_at": "2025-12-27"
+        "upstream_pushed_at": "2025-12-27",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:54+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "9e49ef97f16377d901db01f3562187394828ca6a",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -20556,7 +21781,7 @@
         "markdown_count": 295,
         "question_markers": null,
         "test_files": null,
-        "observed_at": "2026-11-07T09:11:05+08:00",
+        "observed_at": "2026-11-07T10:57:27+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -20638,7 +21863,14 @@
         "branch": "master",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2026-10-12"
+        "upstream_pushed_at": "2026-10-12",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:55+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "40d4d7c5189356147371b82df07103e1773129e1",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -20672,7 +21904,7 @@
         "markdown_count": 290,
         "question_markers": 8,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:05+08:00",
+        "observed_at": "2026-11-07T10:57:27+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -20768,7 +22000,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 11:12",
-        "upstream_pushed_at": "2025-08-29"
+        "upstream_pushed_at": "2025-08-29",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:57+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "a1ac5f6f830a56291634c282c65aee63c2e1d19c",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -20802,7 +22041,7 @@
         "markdown_count": 276,
         "question_markers": 6,
         "test_files": 0,
-        "observed_at": "2026-11-07T09:11:05+08:00",
+        "observed_at": "2026-11-07T10:57:27+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {
@@ -20898,7 +22137,14 @@
         "branch": "main",
         "commit_sha": null,
         "fetched_at": "2026-11-05 18:24",
-        "upstream_pushed_at": "2025-07-01"
+        "upstream_pushed_at": "2025-07-01",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:59+08:00",
+          "default_branch": "next",
+          "head_commit_sha": "1e053477091e58ba00c65045ae2c51f669855c41",
+          "note": null
+        }
       },
       "payload": {
         "mode": "mirror",
@@ -20932,7 +22178,7 @@
         "markdown_count": 12,
         "question_markers": 0,
         "test_files": 1,
-        "observed_at": "2026-11-07T09:11:05+08:00",
+        "observed_at": "2026-11-07T10:57:27+08:00",
         "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
       },
       "license": {

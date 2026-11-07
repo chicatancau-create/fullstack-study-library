@@ -30,7 +30,7 @@
         "source": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["url", "canonical_url", "aliases", "branch", "commit_sha", "fetched_at", "upstream_pushed_at"],
+          "required": ["url", "canonical_url", "aliases", "branch", "commit_sha", "fetched_at", "upstream_pushed_at", "upstream_snapshot"],
           "properties": {
             "url": {"type": "string", "pattern": "^https://github\\.com/"},
             "canonical_url": {"type": "string", "pattern": "^https://github\\.com/[^/]+/[^/]+$"},
@@ -38,7 +38,20 @@
             "branch": {"$ref": "#/$defs/nullable_string"},
             "commit_sha": {"$ref": "#/$defs/nullable_string"},
             "fetched_at": {"$ref": "#/$defs/nullable_string"},
-            "upstream_pushed_at": {"$ref": "#/$defs/nullable_string"}
+            "upstream_pushed_at": {"$ref": "#/$defs/nullable_string"},
+            "upstream_snapshot": {
+              "type": "object",
+              "additionalProperties": false,
+              "description": "当前上游快照：只证明检查时刻的默认分支与 HEAD，不是抓取时证据。抓取时的分支与 commit 仍看 source.branch / source.commit_sha，未知保持 null。",
+              "required": ["status", "checked_at", "default_branch", "head_commit_sha", "note"],
+              "properties": {
+                "status": {"enum": ["not_checked", "checked", "unreachable", "timeout", "no_head"]},
+                "checked_at": {"$ref": "#/$defs/nullable_string"},
+                "default_branch": {"$ref": "#/$defs/nullable_string"},
+                "head_commit_sha": {"type": ["string", "null"], "pattern": "^[0-9a-f]{40}$"},
+                "note": {"$ref": "#/$defs/nullable_string"}
+              }
+            }
           }
         },
         "payload": {

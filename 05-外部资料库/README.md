@@ -38,12 +38,13 @@
 
 ```text
 python 05-外部资料库/_采集暂存/catalog_tool.py scan
+python 05-外部资料库/_采集暂存/catalog_tool.py snapshot --write --proxy http://127.0.0.1:7897
 python 05-外部资料库/_采集暂存/catalog_tool.py generate --write
 python 05-外部资料库/_采集暂存/catalog_tool.py validate --mode strict-mirror
 python 05-外部资料库/_采集暂存/catalog_tool.py validate --mode source-only
 ```
 
-默认不写盘；迁移仅允许显式 `migrate --write`，覆盖已有 catalog 还需 `--force`。
+默认不写盘；迁移仅允许显式 `migrate --write`，覆盖已有 catalog 还需 `--force`。`snapshot` 只读查询上游默认分支与 HEAD，写入 `source.upstream_snapshot`，**不会**回填 `source.branch` / `source.commit_sha`——抓取时的证据缺失就保持 `null`。
 
 ## 每个仓库目录里的 `.source.json`
 
