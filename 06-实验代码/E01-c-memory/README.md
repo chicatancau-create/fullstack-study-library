@@ -40,10 +40,12 @@ make      : 不可用（脚本用 gcc 直接构建）
 clang     : 不可用
 valgrind  : 不可用
 MSVC cl   : 不可用
-ASan      : 不可用（`-fsanitize=address` 链接报 cannot find -lasan）
+ASan      : 不可用（`run_tests.sh` 每次实跑探测：先查库文件，再编译链接最小越界程序）
 ```
 
 "干净"的含义：`rm -rf build && bash scripts/build.sh` 从零重建，不依赖任何既有产物；构建零告警。环境原始输出见 `evidence/env.txt`。
+
+ASan 一栏不是人工结论：`run_tests.sh` 会真实执行 `gcc -print-file-name=libasan.dll`，并编译链接一个 `malloc(4*sizeof(int))` 后写 `p[4]` 的最小程序，把命令、stdout/stderr 与退出码原样写入 `evidence/env.txt`。本机实测链接阶段退出码 1（`cannot find -lasan`），因此判为不可用；若该库将来可用，脚本会继续实际运行探针程序，只有当输出含 `heap-buffer-overflow` 时才记 `ASan: AVAILABLE`，并同时记录运行结果。
 
 ## 4. 输入
 
@@ -123,7 +125,7 @@ exit=0
 
 ## 9. 边界：这套工具**没有**证明什么
 
-本机没有 ASan / Valgrind，替代方案是守护页 + gdb。因此：
+本机没有 ASan / Valgrind（由 `scripts/run_tests.sh` 实跑探测确认，非人工断言），替代方案是守护页 + gdb。因此：
 
 1. **只覆盖向后越界**（写到缓冲区末尾之后）。向前越界（负下标）不会踩到守护页，本装置检测不到。
 2. **不检测释放后使用**（UAF）：`free` 后内存仍在进程堆里，读写通常不触发异常；若要把 UAF 变成崩溃，需要自定义分配器把页改成 `PAGE_NOACCESS`，这属于额外装置，本实验未做。
