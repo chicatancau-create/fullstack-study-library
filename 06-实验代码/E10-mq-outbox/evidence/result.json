@@ -1,0 +1,11 @@
+{
+  "captured_at": "2026-11-07T13:14:37.977Z",
+  "orders": 1,
+  "outbox": 1,
+  "inbox": 1,
+  "side_effects": 1,
+  "queue_messages": 0,
+  "dlq_messages": 1,
+  "first_applied": "applied",
+  "second_applied": "duplicate"
+}
