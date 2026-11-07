@@ -1,0 +1,17 @@
+[步骤 1] 初始提交
+  base=a7ee2d4
+[步骤 2] feature 分支修改同一行
+[步骤 3] main 分支也修改同一行
+[步骤 4] 合并 feature，预期冲突
+  merge_exit=1（非 0 表示冲突，符合预期）
+  冲突标记已出现
+[步骤 5] 解决冲突并提交
+  commit_count=4（初始 + feature + main + merge = 4）
+[步骤 6] detached HEAD 与回到分支
+  detached HEAD：symbolic-ref 失败，符合预期
+[步骤 7] 管道退出码
+  默认取最后一个命令: false|true -> 0；pipefail: -> 1
+[步骤 8] 文本管线：统计非空行
+  非空行数=3
+DEMO PASS
+exit=0

@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "experiment": "U01",
+  "generated_at": "2026-11-07T11:47:17.072Z",
+  "commit": "14ebd19ce0a861bb3c786f6db307c2af9ae89126",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [
+    {
+      "cmd": "bash scripts/run_unit.sh",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/run.txt",
+      "bytes": 592,
+      "sha256": "597fbea2b00929c53d4df0815f9519dc405ae108aeec248c42e970dbb94a3607"
+    }
+  ],
+  "unverified": [
+    "未做跨平台 Git 版本与真实团队协作；盲测未执行"
+  ]
+}
