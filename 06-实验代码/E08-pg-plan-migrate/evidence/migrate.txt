@@ -1,0 +1,3 @@
+migration nulls=0 note_nullable=NO rows=50000
+legacy_query_rows=1
+MIGRATE PASS

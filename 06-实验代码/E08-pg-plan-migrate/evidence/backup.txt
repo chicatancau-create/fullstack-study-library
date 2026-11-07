@@ -1,0 +1,2 @@
+dump_bytes=2402823 restored_rows=50000 note_nullable=NO constraints=8
+RESTORE PASS
