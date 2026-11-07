@@ -1,0 +1,10 @@
+
+ RUN  v5.1.0 E:/OBsidian/全栈工程师学习资料库/01-阶段课程/教学单元/U04-React
+
+ ✓ tests/RecordApp.test.tsx (4 tests) 213ms
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  20:02:54
+   Duration  1.46s (environment 60%, tests 16%, setup 16%, import 5%, transform 3%)
+

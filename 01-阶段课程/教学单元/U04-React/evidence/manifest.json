@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "experiment": "U04",
+  "generated_at": "2026-11-07T12:03:42.326Z",
+  "commit": "cc786f173c30604d1166ff48c16fe026771513a9",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [
+    {
+      "cmd": "bash scripts/run_unit.sh",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/typecheck.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/test.txt",
+      "bytes": 303,
+      "sha256": "28fe4f512d3468b0a5a622297eccdae248a263b8b3c96072b51dad37e7be446e"
+    },
+    {
+      "path": "evidence/build.txt",
+      "bytes": 348,
+      "sha256": "c24626bc95feaf4ea2f53b9269bbfe8d7623904aaa60e3863d66297888d1a030"
+    },
+    {
+      "path": "evidence/run.txt",
+      "bytes": 161,
+      "sha256": "f0d7c7137ab2f3ff45e903b6dbf4389d9b31810e96a545c7b3265cd756690e68"
+    }
+  ],
+  "unverified": [
+    "未做 E2E/浏览器视觉/SSR；E03 完整实验未完成"
+  ]
+}
