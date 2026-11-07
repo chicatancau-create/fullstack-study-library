@@ -14,5 +14,5 @@
 - 外部资料唯一事实源是 `05-外部资料库/catalog.json`，Schema 为 `catalog.schema.json`；`材料清单.md` 与 `资料索引.md` 是生成视图，分类/逐仓库/时效/课程反查不得手工改统计。统一本机入口为 `05-外部资料库/_采集暂存/catalog_tool.py` 的 `scan/generate/validate`，默认只读；原机严格校验 `--mode strict-mirror`，干净克隆 `--mode source-only`。
 - 2026-11-07 审计基线 `c807c8b`：178 active、7 tombstones、323,321 文件、13,943,121,367 bytes；77 分支、178 commit、87 archive SHA、91 内容指纹、92 功能标签仍缺证，保留 null 并记录在 catalog `open_issues` 与 `资料补缺清单.md`，不得猜值。
 - 课程口径：默认迁移线 Java/Spring Boot/MySQL，Vue 按岗位选修；uni-app 与鸿蒙是互不借指标的 P2 专项；项目 04 深度模块四选一；项目 05 已进入标准项目进度表；评分 4 分以岗位矩阵为准。
-- `05-外部资料库/题库` 与 `知识库` 的镜像正文、`_采集暂存` 的原始下载物与工具不进 Git；`catalog.json`、Schema、入库规范与补缺清单进 Git。`90-历史归档` 和 `.workbuddy` 不参与现行正文链接要求。
+- `05-外部资料库/题库` 与 `知识库` 的镜像正文、`_采集暂存` 的原始下载物与其他采集脚本不进 Git；`catalog.json`、Schema、入库规范、补缺清单，以及**唯一例外** `_采集暂存/catalog_tool.py` 进 Git（用户 2026-11-07 决定，`.gitignore` 用 `_采集暂存/*` 加单文件取反实现，不要扩大取反范围）。`90-历史归档` 和 `.workbuddy` 不参与现行正文链接要求。
 - 2026-11-07 优化改动尚未提交、未推送，留待用户审核 diff。
