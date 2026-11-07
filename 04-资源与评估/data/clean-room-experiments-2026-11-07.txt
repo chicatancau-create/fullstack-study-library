@@ -1,0 +1,82 @@
+captured_at: 2026-11-07T23:11:03+08:00
+method: git archive HEAD 06-实验代码 -> fresh temp dir -> npm ci + each experiment script
+host: MINGW64_NT-10.0-28000, node v24.15.0
+services: PostgreSQL 18.6, Redis 6379, RabbitMQ 4.4
+boundary: same machine/services, not independent OS or CI
+
+== E03-react-race
+install_rc=0
+gate_rc=0
+build: ✓ built in 105ms
+gate_failures: 0
+== E04-http-network
+gate_rc=0
+CORS 浏览器取证: 8/8 断言通过
+browser_probe exit=0
+== E05-build-render
+install_rc=0
+gate_rc=0
+cache: CACHE PASS
+gate_failures: 0
+== E06-runtime-diag
+gate_rc=0
+loop: event_loop_delay max=199.8ms mean=42.2ms x=601827
+gate_failures: 0
+== E07-pg-owner-race
+install_rc=0
+gate_rc=0
+test: ℹ tests 3 ℹ pass 3 ℹ fail 0 
+gate_failures: 0
+== E08-pg-plan-migrate
+install_rc=0
+gate_rc=0
+restore: RESTORE PASS
+gate_failures: 0
+== E09-redis-cache
+gate_rc=0
+test: ℹ tests 5 ℹ pass 5 ℹ fail 0 
+gate_failures: 0
+== E10-mq-outbox
+install_rc=0
+gate_rc=0
+== E11-authz-matrix
+install_rc=0
+gate_rc=0
+test: ℹ tests 13 ℹ pass 13 ℹ fail 0 
+gate_failures: 0
+== E12-load-capacity
+gate_rc=0
+== E13-slo-fault
+gate_rc=0
+CLEANROOM EXP DONE
+
+== 补充（证据文件在实验内，已复制关键行）
+== E10-mq-outbox
+install_rc=0
+gate_rc=0
+E10 PASS
+exit=0
+== E12-load-capacity
+gate_rc=0
+round-3: completed=300 failures=0 rps=1278.21 p50=15.32ms p95=18.03ms p99=19.5ms
+rounds=3 failures=0 bad_p95=0
+LOAD PASS
+exit=0
+== E13-slo-fault
+gate_rc=0
+ok - 状态文件恢复 ok=95
+checks=9 fails=0 : PASS
+exit=0
+DONE
+-- E10-mq-outbox
+}
+E10 PASS
+exit=0
+-- E12-load-capacity
+rounds=3 failures=0 bad_p95=0
+LOAD PASS
+exit=0
+-- E13-slo-fault
+ok - 状态文件恢复 ok=95
+checks=9 fails=0 : PASS
+exit=0
