@@ -1,0 +1,104 @@
+{
+  "set_id": "blind-2026-11-07",
+  "notice": "私有盲测题。练习阶段不得打开；本文件不含个人成绩。",
+  "total_minutes": 90,
+  "pass_ratio": 0.7,
+  "questions": [
+    {
+      "id": "B-ALG-01",
+      "type": "algorithm",
+      "prompt": "给定可能含重复元素的整数数组，返回所有和为目标值的唯一三元组。说明复杂度并处理重复。",
+      "expected_points": ["排序+双指针", "跳过重复的 i/left/right", "O(n^2) 时间 O(1) 额外空间（不计输出）", "边界：长度<3、全相同"],
+      "max_score": 10,
+      "mapping": "M01"
+    },
+    {
+      "id": "B-ALG-02",
+      "type": "algorithm",
+      "prompt": "设计一个支持 push/pop/top 且 O(1) 取最小值的栈；说明重复最小值如何处理。",
+      "expected_points": ["辅助栈存当前最小", "重复最小值同样入辅助栈或计数", "pop 同步", "边界：空栈"],
+      "max_score": 10,
+      "mapping": "M01"
+    },
+    {
+      "id": "B-SQL-01",
+      "type": "sql",
+      "prompt": "表 orders(user_id, amount, status, created_at)。查询每个用户最近 30 天成功订单总额，含 0 单用户；写出 SQL 与索引建议。",
+      "expected_points": ["LEFT JOIN users", "SUM(CASE WHEN status='paid'...) 防 NULL", "时间范围条件放 JOIN 而非 WHERE", "索引 (user_id, status, created_at)"],
+      "max_score": 10,
+      "mapping": "M07"
+    },
+    {
+      "id": "B-SQL-02",
+      "type": "sql",
+      "prompt": "两张表 inventory(sku, stock) 与 order_items(sku, qty)。找出库存不足以满足所有待发货订单的 SKU。",
+      "expected_points": ["GROUP BY sku 汇总 qty", "JOIN inventory", "HAVING SUM(qty) > stock", "NULL/无订单边界"],
+      "max_score": 10,
+      "mapping": "M07"
+    },
+    {
+      "id": "B-CODE-01",
+      "type": "coding",
+      "prompt": "实现带并发上限的任务池：输入任务函数数组与 limit，返回结果数组；一个任务失败时的策略要说明。",
+      "expected_points": ["不超过 limit 个在飞", "结果顺序与输入一致", "失败策略（fail-fast 或收集错误）", "不吞异常"],
+      "max_score": 10,
+      "mapping": "M02"
+    },
+    {
+      "id": "B-CODE-02",
+      "type": "coding",
+      "prompt": "实现一个可取消的请求重试器：最多 3 次、指数退避、支持 AbortSignal。",
+      "expected_points": ["清理定时器与监听器", "区分取消/超时/业务错误", "退避上限", "最后一次错误原样抛出"],
+      "max_score": 10,
+      "mapping": "M02"
+    },
+    {
+      "id": "B-DESIGN-01",
+      "type": "design",
+      "prompt": "设计一个多租户预约系统，防止同一资源同一时段被重复预约；给出数据模型、并发控制与取消策略。",
+      "expected_points": ["唯一约束或时段锁", "幂等键", "取消与支付/确认竞争", "审计与越权 404"],
+      "max_score": 15,
+      "mapping": "M13"
+    },
+    {
+      "id": "B-DESIGN-02",
+      "type": "design",
+      "prompt": "设计订单支付回调：重复、乱序、取消后到达、下游超时；说明对账与人工修复。",
+      "expected_points": ["event_id 唯一", "订单状态机与行锁", "Outbox/重试", "对账差异分类"],
+      "max_score": 15,
+      "mapping": "M08"
+    },
+    {
+      "id": "B-BEH-01",
+      "type": "behavior",
+      "prompt": "讲一次你发现并修复的真实缺陷；必须给出可核验的证据与你本人的职责。",
+      "expected_points": ["现象与影响", "证据/命令", "根因", "最小修复与回归", "预防；不夸大"],
+      "max_score": 10,
+      "mapping": "M14"
+    },
+    {
+      "id": "B-BEH-02",
+      "type": "behavior",
+      "prompt": "讲一次需求变更导致的范围取舍；你如何沟通并记录被延期项？",
+      "expected_points": ["澄清目标", "影响分析", "取舍理由", "记录与复盘", "没有经历就说明"],
+      "max_score": 10,
+      "mapping": "M13"
+    },
+    {
+      "id": "B-SEC-01",
+      "type": "design",
+      "prompt": "一个多租户 API 的列表接口被报告可能泄露其他租户数据；给出排查步骤与修复方案。",
+      "expected_points": ["复现与最小请求", "检查查询是否带 tenant_id", "成员关系与 404 策略", "回归测试与审计"],
+      "max_score": 10,
+      "mapping": "M10"
+    },
+    {
+      "id": "B-OPS-01",
+      "type": "design",
+      "prompt": "数据库连接池耗尽导致接口超时；说明发现、定位、修复与预防。",
+      "expected_points": ["指标/日志证据", "事务内是否二次借连接", "并发与池上限", "压测复现", "预防：复用 client"],
+      "max_score": 10,
+      "mapping": "M11"
+    }
+  ]
+}
