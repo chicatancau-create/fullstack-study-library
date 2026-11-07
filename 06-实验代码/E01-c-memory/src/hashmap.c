@@ -5,10 +5,15 @@
 #include <stdlib.h>
 
 #define HM_MIN_BUCKETS ((size_t)8)
+/* 散列在 32 位域内计算，桶数上限必须与 hm_index 的取模域一致。 */
+#define HM_MAX_BUCKETS ((size_t)UINT32_MAX)
 
 static size_t hm_index(int key, size_t nbuckets)
 {
     uint32_t h = (uint32_t)key * 2654435761u; /* Knuth 乘法散列，仅用于分散桶 */
+    if (nbuckets == 0) {
+        return 0; /* 调用方应先用 hm_find_node/hm_grow 排除 0 桶 */
+    }
     return (size_t)(h % (uint32_t)nbuckets);
 }
 
@@ -22,6 +27,9 @@ HmStatus hm_init(HashMap *hm, size_t initial_buckets)
     hm->count = 0;
     if (initial_buckets == 0) {
         return HM_OK; /* 容量 0 合法，首次 put 时再分配 */
+    }
+    if (initial_buckets > HM_MAX_BUCKETS) {
+        return HM_EOVERFLOW; /* 先拒绝，不发起无法完成的分配 */
     }
     if (initial_buckets > SIZE_MAX / sizeof(HmNode *)) {
         return HM_EOVERFLOW;
@@ -59,10 +67,13 @@ static HmStatus hm_grow(HashMap *hm)
 
     if (hm->nbuckets == 0) {
         new_n = HM_MIN_BUCKETS;
-    } else if (hm->nbuckets > SIZE_MAX / 2) {
+    } else if (hm->nbuckets > HM_MAX_BUCKETS / 2) {
         return HM_EOVERFLOW;
     } else {
         new_n = hm->nbuckets * 2;
+    }
+    if (new_n > HM_MAX_BUCKETS) {
+        return HM_EOVERFLOW;
     }
     if (new_n > SIZE_MAX / sizeof(HmNode *)) {
         return HM_EOVERFLOW;

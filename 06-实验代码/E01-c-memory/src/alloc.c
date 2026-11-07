@@ -4,6 +4,7 @@
 
 static unsigned long g_calls = 0;
 static unsigned long g_fail_at = 0;
+static long g_live = 0;
 
 void fault_alloc_reset(void)
 {
@@ -21,6 +22,11 @@ unsigned long fault_alloc_calls(void)
     return g_calls;
 }
 
+long fault_alloc_live(void)
+{
+    return g_live;
+}
+
 static int should_fail(void)
 {
     g_calls += 1;
@@ -29,29 +35,47 @@ static int should_fail(void)
 
 void *fault_malloc(size_t size)
 {
+    void *p;
     if (should_fail()) {
         return NULL;
     }
-    return malloc(size);
+    p = malloc(size);
+    if (p != NULL) {
+        g_live += 1;
+    }
+    return p;
 }
 
 void *fault_calloc(size_t count, size_t size)
 {
+    void *p;
     if (should_fail()) {
         return NULL;
     }
-    return calloc(count, size);
+    p = calloc(count, size);
+    if (p != NULL) {
+        g_live += 1;
+    }
+    return p;
 }
 
 void *fault_realloc(void *ptr, size_t size)
 {
+    void *p;
     if (should_fail()) {
         return NULL;
     }
-    return realloc(ptr, size);
+    p = realloc(ptr, size);
+    if (p != NULL && ptr == NULL) {
+        g_live += 1;
+    }
+    return p;
 }
 
 void fault_free(void *ptr)
 {
+    if (ptr != NULL) {
+        g_live -= 1;
+    }
     free(ptr);
 }

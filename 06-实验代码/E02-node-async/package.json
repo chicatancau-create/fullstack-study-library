@@ -11,7 +11,7 @@
   "devDependencies": {},
   "scripts": {
     "evidence": "bash scripts/run_all.sh",
-    "test": "node tests/test_pool.mjs && node tests/test_ordering.mjs && node tests/test_failure.mjs && node tests/test_cancel.mjs && node tests/test_timeout.mjs",
+    "test": "node tests/test_pool.mjs && node tests/test_ordering.mjs && node tests/test_failure.mjs && node tests/test_cancel.mjs && node tests/test_timeout.mjs && node tests/test_regressions.mjs",
     "env": "node scripts/env.mjs"
   }
 }

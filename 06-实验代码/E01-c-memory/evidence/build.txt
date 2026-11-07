@@ -5,4 +5,6 @@
 [build] build/fault_guard.exe        (注入版：预期越界崩溃)
 [build] build/fault_guard_fixed.exe  (修复版：预期拒绝越界)
 [build] build/fault_plain.exe        (对照组：普通堆，预期静默不崩)
+[build] build/fault_uaf.exe          (UAF 注入：预期 SIGSEGV)
+[build] build/fault_uaf_fixed.exe    (UAF 修复：预期 exit 0)
 [build] done

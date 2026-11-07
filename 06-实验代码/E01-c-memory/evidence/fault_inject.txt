@@ -1,12 +1,8 @@
 == 注入版：4 个元素后越界写 arr[4]（守护页紧贴末尾） ==
 writing arr[4] = 123  (4 bytes past the last element)
-scripts/run_tests.sh: line 131:   203 Segmentation fault         ./build/fault_guard.exe
 exit=139   # 139 = SIGSEGV
 
 == gdb 定位 ==
-Error in sitecustomize; set PYTHONVERBOSE for traceback:
-ModuleNotFoundError: No module named '_ctypes'
-warning: [LSHOOK INFO]  Hook engine initialized (Windows version: 1000)
 writing arr[4] = 123  (4 bytes past the last element)
 
 Thread 1 received signal SIGSEGV, Segmentation fault.
@@ -19,7 +15,7 @@ main () at tests/fault_guard.c:78
 --- faulting line ---
 #0  main () at tests/fault_guard.c:78
 78	    ((volatile int *)arr)[idx] = 123;
-Line 78 of "tests/fault_guard.c" starts at address 0x7ff7174b1977 <main+535> and ends at 0x7ff7174b197d <main+541>.
+Line 78 of "tests/fault_guard.c" starts at address 0x7ff7e7001977 <main+535> and ends at 0x7ff7e700197d <main+541>.
 
 --- locals ---
 len = 4
@@ -28,9 +24,9 @@ si = {{dwOemId = 9, {wProcessorArchitecture = 9, wReserved = 0}}, dwPageSize = 4
 page = 4096
 data_pages = 1
 total = 8192
-base = 0x1b0000 ""
+base = 0x180000 ""
 old_protect = 4
-arr = 0x1b0ff0
+arr = 0x180ff0
 i = 4
 idx = 4
 

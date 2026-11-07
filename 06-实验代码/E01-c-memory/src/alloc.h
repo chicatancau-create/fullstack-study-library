@@ -15,9 +15,12 @@
  */
 
 void  fault_alloc_reset(void);
-/* n 从 1 开始计数；n == 0 表示关闭注入。 */
+/* n 从 1 开始计数；n == 0 表示关闭注入。reset 只清调用计数与注入点，不清 live。 */
 void  fault_alloc_set_fail_at(unsigned long n);
 unsigned long fault_alloc_calls(void);
+/* 当前未释放的分配块数（malloc/calloc/realloc(NULL) 计 +1，free 计 -1）。
+ * 只用于测试分配/释放平衡，不替代 ASan/Valgrind 的越界与 UAF 检测。 */
+long  fault_alloc_live(void);
 
 void *fault_malloc(size_t size);
 void *fault_calloc(size_t count, size_t size);

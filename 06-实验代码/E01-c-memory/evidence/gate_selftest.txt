@@ -1,0 +1,12 @@
+captured_at: 2026-11-07T19:41:53+08:00
+broken: hashmap.c duplicate path replaced=1 -> replaced=0
+gate_exit=1 (expected non-zero)
+
+--- 失败证据 ---
+FAIL  tests/test_hashmap.c:40  replaced == 1  (got 0, want 1)
+test_hashmap                 checks=4108 fails=1 : FAIL
+GATE FAIL: test_hashmap 退出码 1
+GATE FAIL: test_hashmap 缺少 fails=0
+GATE FAIL: test_hashmap 缺少 PASS
+FAIL  tests/test_hashmap.c:40  replaced == 1  (got 0, want 1)
+test_hashmap                 checks=4108 fails=1 : FAIL

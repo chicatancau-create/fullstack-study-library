@@ -44,6 +44,7 @@ export class TaskPool {
   #running = new Map();
   #closed = false;
   #firstError = null;
+  #failFastTriggered = false;
   #failFastSnapshot = null;
   #idleWaiters = [];
   #slotWaiters = [];
@@ -94,6 +95,17 @@ export class TaskPool {
    */
   submit(fn, { signal = null, timeoutMs = null, label = '' } = {}) {
     if (typeof fn !== 'function') throw new TypeError('submit 需要函数');
+    if (timeoutMs !== null && (!Number.isFinite(timeoutMs) || timeoutMs < 0)) {
+      throw new RangeError(`timeoutMs 必须是 >=0 的有限数或 null，收到 ${timeoutMs}`);
+    }
+    if (
+      signal !== null &&
+      (typeof signal.aborted !== 'boolean' ||
+        typeof signal.addEventListener !== 'function' ||
+        typeof signal.removeEventListener !== 'function')
+    ) {
+      throw new TypeError('signal 必须是 AbortSignal（或等价实现）或 null');
+    }
     const id = ++nextTaskId;
     const task = {
       id,
@@ -128,7 +140,7 @@ export class TaskPool {
       this.#settleReject(task, new PoolError(POOL_CODES.CLOSED, `${task.label}: 池已关闭，不再接收新任务`, { id }));
       return promise;
     }
-    if (this.#firstError) {
+    if (this.#failFastTriggered) {
       task.state = 'rejected-failfast';
       this.#stats.discardedByFailFast++;
       this.#settleReject(
@@ -183,53 +195,52 @@ export class TaskPool {
    * 队列未满时立即返回；队列已满则等到有任务离开队列（开始执行或被取消）。
    */
   waitForSlot() {
-    if (this.#closed) return Promise.resolve();
+    if (this.#closed || this.#failFastTriggered) return Promise.resolve();
+    if (this.#running.size < this.#concurrency) return Promise.resolve();
     if (this.#queue.length < this.#maxQueue) return Promise.resolve();
     return new Promise((resolve) => this.#slotWaiters.push(resolve));
   }
 
   /** 等池完全空闲：队列为空且没有任何底层函数仍在执行。 */
   drain({ timeoutMs = null } = {}) {
-    const idle = this.#isIdle() ? Promise.resolve() : new Promise((resolve) => this.#idleWaiters.push(resolve));
-    if (timeoutMs == null) return idle;
+    if (timeoutMs !== null && (!Number.isFinite(timeoutMs) || timeoutMs < 0)) {
+      return Promise.reject(new RangeError(`drain timeoutMs 必须是 >=0 的有限数或 null，收到 ${timeoutMs}`));
+    }
+    if (this.#isIdle()) return Promise.resolve();
+    if (timeoutMs == null) return new Promise((resolve) => this.#idleWaiters.push(resolve));
+
     return new Promise((resolve, reject) => {
-      const timer = setTimeout(
-        () =>
-          reject(
-            new PoolError(
-              POOL_CODES.TIMEOUT,
-              `drain 超过 ${timeoutMs}ms 仍未空闲（running=${this.#running.size}，queued=${this.#queue.length}）`,
-            ),
+      const waiter = () => {
+        clearTimeout(timer);
+        resolve();
+      };
+      const timer = setTimeout(() => {
+        const index = this.#idleWaiters.indexOf(waiter);
+        if (index >= 0) this.#idleWaiters.splice(index, 1);
+        reject(
+          new PoolError(
+            POOL_CODES.TIMEOUT,
+            `drain 超过 ${timeoutMs}ms 仍未空闲（running=${this.#running.size}，queued=${this.#queue.length}）`,
           ),
-        timeoutMs,
-      );
-      idle.then(
-        () => {
-          clearTimeout(timer);
-          resolve();
-        },
-        () => {
-          clearTimeout(timer);
-          reject();
-        },
-      );
+        );
+      }, timeoutMs);
+      this.#idleWaiters.push(waiter);
     });
   }
 
-  /** 停止接收新任务；排队中的任务不执行，直接拒绝。已在执行的允许跑完。 */
-  close({ dropQueued = true } = {}) {
+  /** 停止接收新任务；排队中的任务不执行，直接拒绝。已在执行的允许跑完。
+   *  不提供 dropQueued:false：关闭后队列不会再有 pump，留下队列等于永久 pending。 */
+  close() {
     this.#closed = true;
-    if (dropQueued) {
-      const queued = this.#queue.splice(0, this.#queue.length);
-      for (const task of queued) {
-        task.state = 'rejected-closed';
-        this.#stats.rejectedAfterClose++;
-        if (task.signal && task.onAbort) task.signal.removeEventListener('abort', task.onAbort);
-        this.#settleReject(
-          task,
-          new PoolError(POOL_CODES.CLOSED, `${task.label}: 池关闭时仍在排队，未执行`, { id: task.id }),
-        );
-      }
+    const queued = this.#queue.splice(0, this.#queue.length);
+    for (const task of queued) {
+      task.state = 'rejected-closed';
+      this.#stats.rejectedAfterClose++;
+      this.#detachAbort(task);
+      this.#settleReject(
+        task,
+        new PoolError(POOL_CODES.CLOSED, `${task.label}: 池关闭时仍在排队，未执行`, { id: task.id }),
+      );
     }
     this.#notifySlot();
     this.#maybeIdle();
@@ -250,11 +261,19 @@ export class TaskPool {
       concurrency: this.#concurrency,
       maxQueue: this.#maxQueue === Infinity ? 'Infinity' : this.#maxQueue,
       failFast: this.#failFast,
+      failFastTriggered: this.#failFastTriggered,
       closed: this.#closed,
       running: this.#running.size,
       queued: this.#queue.length,
       pending: this.#running.size + this.#queue.length,
-      firstError: this.#firstError ? { name: this.#firstError.name, message: this.#firstError.message } : null,
+      idleWaiters: this.#idleWaiters.length,
+      slotWaiters: this.#slotWaiters.length,
+      firstError: this.#failFastTriggered
+        ? {
+            name: this.#firstError?.name ?? 'NonError',
+            message: this.#firstError?.message ?? String(this.#firstError),
+          }
+        : null,
       failFastSnapshot: this.#failFastSnapshot,
       ...this.#stats,
     };
@@ -276,7 +295,7 @@ export class TaskPool {
   }
 
   #pump() {
-    while (!this.#closed && !this.#firstError && this.#running.size < this.#concurrency && this.#queue.length > 0) {
+    while (!this.#closed && !this.#failFastTriggered && this.#running.size < this.#concurrency && this.#queue.length > 0) {
       const task = this.#queue.shift();
       this.#notifySlot();
       this.#start(task);
@@ -313,6 +332,7 @@ export class TaskPool {
     task.timedOut = true;
     task.state = 'timed-out';
     this.#stats.timeouts++;
+    this.#detachAbort(task);
     this.#settleReject(
       task,
       new PoolError(
@@ -329,6 +349,7 @@ export class TaskPool {
       if (index >= 0) this.#queue.splice(index, 1);
       task.state = 'cancelled-queued';
       this.#stats.cancelledQueued++;
+      this.#detachAbort(task);
       this.#settleReject(
         task,
         new PoolError(POOL_CODES.CANCELLED, `${task.label}: 排队中被取消，未开始执行`, {
@@ -341,9 +362,14 @@ export class TaskPool {
       this.#maybeIdle();
       return;
     }
-    if (task.state === 'running') {
-      task.state = 'cancelled-running';
+    if (task.state === 'running' || task.state === 'timed-out') {
+      if (!this.#running.has(task.id)) return;
+      this.#detachAbort(task);
       task.cancelReason = reason;
+      if (task.state === 'timed-out') {
+        return; /* 已超时结算；这里只清理监听器，不重复 settle */
+      }
+      task.state = 'cancelled-running';
       this.#stats.cancelledRunning++;
       this.#settleReject(
         task,
@@ -356,6 +382,13 @@ export class TaskPool {
     }
   }
 
+  #detachAbort(task) {
+    if (task.signal && task.onAbort) {
+      task.signal.removeEventListener('abort', task.onAbort);
+      task.onAbort = null;
+    }
+  }
+
   #finish(task, ok, payload) {
     task.underlyingFinishedAt = Date.now();
     task.underlyingOutcome = ok ? 'fulfilled' : 'rejected';
@@ -363,15 +396,16 @@ export class TaskPool {
       clearTimeout(task.timer);
       task.timer = null;
     }
-    if (task.signal && task.onAbort) task.signal.removeEventListener('abort', task.onAbort);
+    if (task.signal && task.onAbort) this.#detachAbort(task);
     this.#running.delete(task.id);
+    this.#notifySlot();
 
     if (!task.settled) {
       if (ok) {
         this.#settleResolve(task, payload);
       } else {
         this.#settleReject(task, payload);
-        if (this.#failFast && !this.#firstError) this.#onFirstError(payload, task);
+        if (this.#failFast && !this.#failFastTriggered) this.#onFirstError(payload, task);
       }
     } else if (task.timedOut) {
       this.#stats.lateAfterTimeout++;
@@ -384,6 +418,7 @@ export class TaskPool {
 
   #onFirstError(error, failedTask) {
     this.#firstError = error;
+    this.#failFastTriggered = true;
     const dropped = this.#queue.splice(0, this.#queue.length);
     const stillRunning = [...this.#running.values()].map((t) => ({
       id: t.id,
@@ -393,7 +428,7 @@ export class TaskPool {
     }));
     for (const task of dropped) {
       task.state = 'discarded-failfast';
-      if (task.signal && task.onAbort) task.signal.removeEventListener('abort', task.onAbort);
+      this.#detachAbort(task);
       this.#stats.discardedByFailFast++;
       this.#settleReject(
         task,
@@ -405,7 +440,7 @@ export class TaskPool {
     }
     this.#failFastSnapshot = {
       failedTask: { id: failedTask.id, label: failedTask.label },
-      error: { name: error?.name ?? 'Error', message: error?.message ?? String(error) },
+      error: { name: error?.name ?? 'NonError', message: error?.message ?? String(error) },
       runningAtFailure: stillRunning,
       queuedAtFailure: dropped.map((t) => t.label),
       queuedCountAtFailure: dropped.length,

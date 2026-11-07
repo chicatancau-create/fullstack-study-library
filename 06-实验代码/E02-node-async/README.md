@@ -9,6 +9,7 @@
 做了什么：
 
 - 从零实现 `TaskPool`：并发上限、队列硬上限、超时、`AbortSignal` 取消、failFast、`waitForSlot` 等位背压（零第三方依赖）。
+- 批次 1：修复 `maxQueue=0` 空池 `waitForSlot` 永久 pending、`close` 遗留队列、`failFast` 对假值异常失效、abort 监听器与 drain waiter 清理；补齐 `timeoutMs` 参数矩阵和取消×超时交错；新增 37 条回归断言，`run_all.sh` 缺 PASS、`not ok`、场景不成立均非零。
 - 用**闸门逐拍放行**的方式做出确定性乱序完成，并重复 5 次确认顺序不漂。
 - 记录首项失败瞬间"谁在跑、谁在排"，并验证失败后不再接收新任务。
 - 验证取消后**所有调用方 Promise 都在百毫秒内结算**，同时底层函数仍在跑、槽位仍被占用。
@@ -37,7 +38,7 @@
 
 ```text
 OS          : Windows 10.0.28000 x64
-node        : v22.22.2   v8 12.4.254.21-node.39   uv 1.51.0
+node        : v24.15.0   v8 13.6.233.17-node.48   uv 1.51.0
 cpus        : 32（availableParallelism=32）
 UV_THREADPOOL_SIZE : 未设置（默认 4）
 依赖        : dependencies / devDependencies 均为空，无 node_modules
@@ -47,7 +48,7 @@ UV_THREADPOOL_SIZE : 未设置（默认 4）
 
 "干净"的含义：没有任何第三方包，`npm ls` 为空，全部代码在本目录内可读。环境原始输出见 `evidence/env.txt`，由 `scripts/env.mjs` 真实执行得到，不转抄结论。
 
-2026-11-07 批次 0 在 Node **v24.15.0** 的临时副本中复跑 `bash scripts/run_all.sh`，五组仍为 **135/135**、退出码 0；`evidence/env.txt` 保留原始 v22.22.2 记录，不覆盖。下面关于 Windows 定时器粒度的读数来自原始 v22 环境，跨版本复验时仍需重测。
+2026-11-07 批次 1：六个测试与门禁在 Node **v24.15.0** 重跑，172 条断言全通过；`evidence/env.txt` 当前记录 v24.15.0。v22.22.2 的原始记录见提交 `8afe598`，不再作为当前环境。下面关于 Windows 定时器粒度的读数来自原始 v22 环境，v24 未单独重测。
 
 `evidence/env.txt` 里两条环境事实会直接影响读数，先写在这里：
 
@@ -72,7 +73,8 @@ UV_THREADPOOL_SIZE : 未设置（默认 4）
 
 ```bash
 cd 06-实验代码/E02-node-async
-bash scripts/run_all.sh      # 采集 evidence/ 下全部证据
+bash scripts/run_all.sh       # 采集 evidence/，缺测试/缺 PASS/not ok/场景不成立均非零
+bash scripts/selftest_gate.sh # 主动破坏一次，确认门禁会红
 ```
 
 单独跑某一项：
@@ -98,12 +100,13 @@ node scenarios/backpressure_rates.mjs
 | `test_failure` | 全部通过 | `checks=27 fails=0 : PASS` | 符合 |
 | `test_cancel` | 全部通过 | `checks=37 fails=0 : PASS` | 符合 |
 | `test_timeout` | 全部通过 | `checks=32 fails=0 : PASS` | 符合 |
+| `test_regressions` | 全部通过 | `checks=37 fails=0 : PASS` | 符合 |
 | 无界并发反例 | 峰值随提交量线性增长 | 峰值 200 = 提交量 200 | 符合（正是危险点） |
 | 忙循环反例 | 定时器被拖后、并发不并行 | 晚到 280ms；4×100ms 任务耗时 401ms | 符合 |
 | 生产快于消费反例 | 无界队列堆积到全量 | 队列峰值 2000 条；有界版 pending 峰值 40 | 符合 |
 | 速率对照 | 三档都仍有界 | 三档 pending 峰值 20/1/1，上界 20 | 符合 |
 
-合计 135 条断言，0 失败；同时断言"未产生 unhandledRejection"，即所有拒绝都被显式处理。
+合计 **135 + 37 = 172** 条断言，0 失败；同时断言"未产生 unhandledRejection"，即所有拒绝都被显式处理。
 
 ## 7. 任务池的三条语义
 
@@ -112,6 +115,9 @@ node scenarios/backpressure_rates.mjs
 1. **取消与超时只让调用方停止等待，不撤销底层操作。** JS 没有抢占式取消。已经发出的请求、已提交的写、没有 await 的同步代码都不会回滚。
 2. **底层函数结算前不释放槽位。** 否则"取消了 5 个"会让实际并发冲到 5 个以上，比不取消更失控。
 3. **队列有硬上限，满即拒绝。** 需要等位时由生产端 `await pool.waitForSlot()`，把压力传回生产端。
+4. **`close()` 不接受 `dropQueued:false`。** 关闭后不会再 `pump`，留下队列等于永久 pending；排队任务统一拒绝，已在执行的允许跑完。
+5. **`timeoutMs` 只接受 `null` 或 `>=0` 的有限数。** `NaN`、负数、`Infinity`、字符串在 `submit` 时抛 `RangeError`，不再静默禁用超时。
+6. **`failFast` 用独立布尔标记，不靠异常真值性。** `throw null/undefined/0/false/''` 同样会停止接收新任务；`firstError` 只用于展示原值。
 
 ## 8. 失败注入一：首项失败
 
@@ -248,8 +254,9 @@ C. 有界队列 + waitForSlot 等位
 3. **没有覆盖多进程/分布式取消。** 单进程内的 `AbortController` 到不了另一个进程，跨服务取消需要协议。
 4. **没有覆盖 CPU 密集任务的真正并行。** 反例只指出方向（worker_threads/子进程），没有实现，也没有测 worker 启动与消息序列化成本。
 5. **没有测量内存上限。** 堆增长采样受 GC 时机影响，只能看量级，不能当泄漏证据。
-6. **`waitForSlot` 只在队列满时唤醒。** 若任务长期不结束、队列长期满，生产端会一直等 —— 这是背压的本意，但调用方必须自己加超时或取消，池不代劳。
-7. **failFast 的原子性未覆盖。** 快照取的是失败函数结算那一刻的状态；多任务几乎同时失败时，只有第一个会触发丢弃，其余按普通失败处理。
+6. **`waitForSlot` 在没有空槽且队列已满时等待。** `maxQueue=0` 的空池会立即返回；忙碌时等某个槽位释放，关闭/failFast 时也会唤醒。若下游长期不结束，生产端仍必须自己加超时或取消。
+7. **failFast 的原子性未覆盖。** 快照取的是失败函数结算那一刻的状态；多任务几乎同时失败时，只有第一个会触发丢弃，其余按普通失败处理。假值异常本身已由独立标记覆盖，但“同时失败”的竞态仍未测。
+8. **仍是单进程实验。** 没有 worker_threads、没有跨进程取消、没有真实连接池；结论不能直接外推到生产资源。
 
 所以本实验**不声称"并发正确"**，只声称："在给定装置下，这四类语义（上限、乱序、失败、取消/超时）被稳定复现、可用断言复核、并且有明确边界。"
 
@@ -277,7 +284,8 @@ E02-node-async/
 │   ├── test_ordering.mjs     确定性乱序完成 + 5 次重复一致性
 │   ├── test_failure.mjs      首项失败快照与丢弃语义（含 failFast 关闭的对照）
 │   ├── test_cancel.mjs       排队态/执行态取消、全部结算、资源清理
-│   └── test_timeout.mjs      超时≠撤销、槽位占用、迟到抛错、上界组合
+│   ├── test_timeout.mjs      超时≠撤销、槽位占用、迟到抛错、上界组合
+│   └── test_regressions.mjs  空池等位、关闭、failFast 假值、监听器/waiter 清理、参数矩阵、取消×超时
 ├── scenarios/
 │   ├── cx_unbounded_concurrency.mjs  反例 1：无界并发
 │   ├── cx_busy_loop.mjs              反例 2：同步 CPU 忙循环
@@ -285,7 +293,8 @@ E02-node-async/
 │   └── backpressure_rates.mjs        三档速率下的有界性
 ├── scripts/
 │   ├── env.mjs               环境与特性探测（真实执行）
-│   └── run_all.sh            采集 evidence/ 下全部证据
+│   ├── run_all.sh            采集证据并做非零门禁
+│   └── selftest_gate.sh      主动破坏，确认门禁会红
 ├── evidence/                 真实运行输出，提交入库
 └── package.json              零依赖，engines.node >= 20
 ```
@@ -293,15 +302,34 @@ E02-node-async/
 ## 16. 复现与判读
 
 ```bash
-rm -rf evidence && bash scripts/run_all.sh && cat evidence/test_run.txt
+rm -rf evidence && bash scripts/run_all.sh; echo "gate_rc=$?"
+bash scripts/selftest_gate.sh; echo "selftest_rc=$?"
+cat evidence/test_run.txt
 ```
 
 判读顺序：
 
-1. `evidence/test_run.txt` 五个测试是否全为 PASS，且失败项区显示"无"。
+1. `evidence/test_run.txt` 六个测试是否全为 PASS，且失败项区显示"无"。
 2. `evidence/test_failure.txt` 是否有 `快照 running=... queued=...` 这一行 —— 没有这一行就说明没抓到失败瞬间的状态，等于没测。
 3. `evidence/test_cancel.txt` 的"全部结算耗时"是否是毫秒级，而"五个底层函数都真实跑完了"是否同时成立。两个条件缺一，取消语义就不成立。
 4. `evidence/test_timeout.txt` 是否同时有"槽位仍被底层占着"和"记录了一次迟到的底层完成"。少任何一个，就说明超时被误当成了撤销。
 5. `evidence/backpressure_rates.txt` 三档是否都是 `YES`。
+6. `evidence/gate_selftest.txt` 是否记录“破坏后 gate_exit=1”。
 
-任一步缺失都不算通过。**通过 E02 也不等于 G2/G4 通过**，见第 14 节。
+`run_all.sh` 与 `selftest_gate.sh` 的退出码都必须是 0；任一步缺失都不算通过。**通过 E02 也不等于 G2/G4 通过**，见第 14 节。
+
+## 17. 批次 1 修复记录（2026-11-07）
+
+| 问题 | 修复 | 回归证据 |
+| --- | --- | --- |
+| `maxQueue=0` 空池 `waitForSlot()` 永久 pending | 有空槽或队列未满立即返回；无空槽时等 `#finish` 的 `#notifySlot` | `test_regressions` 前 4 条 |
+| `close({dropQueued:false})` 留下永不执行的队列 | 删除该选项，关闭时统一拒绝排队任务 | `close 忽略 dropQueued:false...` |
+| `failFast` 对 `throw null/undefined/0/false/''` 失效 | 新增 `#failFastTriggered` 布尔标记，不再依赖 `#firstError` 真值 | 5 组假值 × 3 条断言 |
+| `cancelAll` 后 abort 监听器残留 | `#detachAbort` 统一在取消/关闭/失败/结算/超时处移除 | 伪 signal 的 listenerCount=0 |
+| drain 超时后 waiter 残留 | 超时时从 `#idleWaiters` 删除自身；`stats()` 暴露 waiter 数 | `idleWaiters=0` |
+| 非法 `timeoutMs` 静默禁用超时 | `submit` 对 `NaN/负数/Infinity/非数字` 抛 `RangeError` | 5 组参数矩阵 |
+| 取消与超时交错重复结算 | 超时处清理监听器；`#abortTask` 对 `timed-out` 只清理不重复 settle | `lateAfterTimeout=1`、listenerCount=0 |
+
+`scripts/selftest_gate.sh` 在临时副本中禁用 `submit` 的 `failFastTriggered` 分支，`run_all.sh` 实测退出码 1，`test_regressions` 出现 5 个 `not ok`，并写入 `evidence/gate_selftest.txt`。这证明门禁会在实现被破坏时变红，而不是只打印。
+
+仍未覆盖：worker_threads、跨进程取消、真实连接池/HTTP 下游、failFast 多任务同时失败的原子性、堆上限；E02 仍只提供 G2 的异步调度/取消一项。

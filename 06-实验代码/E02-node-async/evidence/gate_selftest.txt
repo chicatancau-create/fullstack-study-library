@@ -1,0 +1,16 @@
+captured_at: 2026-11-07T19:37:57+08:00
+broken: pool.mjs submit failFastTriggered branch disabled
+gate_exit=1 (expected non-zero)
+
+--- 失败证据 ---
+not ok 8 - failFast 假值首错后仍拒绝新任务 null
+not ok 11 - failFast 假值首错后仍拒绝新任务 undefined
+not ok 14 - failFast 假值首错后仍拒绝新任务 0
+not ok 17 - failFast 假值首错后仍拒绝新任务 false
+not ok 20 - failFast 假值首错后仍拒绝新任务 
+test_regressions checks=37 fails=5 : FAIL
+test_regressions checks=37 fails=5 : FAIL
+!! GATE FAIL: test_failure 未出现 checks=N fails=0 : PASS
+!! GATE FAIL: test_regressions 未出现 checks=N fails=0 : PASS
+!! GATE FAIL: test_regressions 存在 not ok
+test_regressions   test_regressions checks=37 fails=5 : FAIL

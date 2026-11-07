@@ -92,3 +92,7 @@ console.log('- 生产远快于消费时，总耗时由消费端能力决定，�
 console.log('  （pending 卡在 20，生产端通过等位被动变慢：这就是背压）。');
 console.log('- 生产慢于消费时，pending 很小，池处于空转，增大 maxQueue 没有任何收益。');
 console.log('- 说明：本例消费端成本是 setImmediate 回合，绝对耗时只用于横向比较，不作为性能指标。');
+
+if (!(allBounded && allConcurrencyBounded && allDrained && allCompleted)) {
+  process.exitCode = 1;
+}

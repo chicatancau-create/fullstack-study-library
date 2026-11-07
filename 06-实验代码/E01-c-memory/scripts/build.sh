@@ -33,4 +33,10 @@ echo "[build] $OUT/fault_guard_fixed.exe  (修复版：预期拒绝越界)"
 "$CC" "${CFLAGS[@]}" tests/fault_plain.c -o "$OUT/fault_plain.exe"
 echo "[build] $OUT/fault_plain.exe        (对照组：普通堆，预期静默不崩)"
 
+"$CC" "${CFLAGS[@]}" -DUAF_ACCESS tests/fault_uaf.c -o "$OUT/fault_uaf.exe"
+echo "[build] $OUT/fault_uaf.exe          (UAF 注入：预期 SIGSEGV)"
+
+"$CC" "${CFLAGS[@]}" tests/fault_uaf.c -o "$OUT/fault_uaf_fixed.exe"
+echo "[build] $OUT/fault_uaf_fixed.exe    (UAF 修复：预期 exit 0)"
+
 echo "[build] done"

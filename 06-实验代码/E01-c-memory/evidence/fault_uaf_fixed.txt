@@ -1,0 +1,4 @@
+== UAF 修复版：不读取已标记不可访问的页 ==
+simulated free: page is now PAGE_NOACCESS
+skipped read after simulated free; guard page left untouched
+exit=0   # 0 = 未触发访问

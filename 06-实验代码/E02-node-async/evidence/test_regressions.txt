@@ -1,0 +1,41 @@
+# E02 / 回归：空池等位、关闭、failFast 真值性、清理、参数矩阵
+# node v24.15.0  pid 35988  captured_at 2026-11-07T11:37:02.431Z
+ok 1 - maxQueue=0 空池 waitForSlot 立即返回
+ok 2 - maxQueue=0 忙碌时 waitForSlot 未提前返回
+ok 3 - maxQueue=0 槽位释放后 waitForSlot 返回
+ok 4 - maxQueue=0 waitForSlot 已结算
+ok 5 - close 忽略 dropQueued:false，排队任务被结算而不是永久挂起
+ok 6 - close 后队列为空
+ok 7 - failFast 首错保留原值 null
+ok 8 - failFast 假值首错后仍拒绝新任务 null
+ok 9 - failFast 触发标记 null
+ok 10 - failFast 首错保留原值 undefined
+ok 11 - failFast 假值首错后仍拒绝新任务 undefined
+ok 12 - failFast 触发标记 undefined
+ok 13 - failFast 首错保留原值 0
+ok 14 - failFast 假值首错后仍拒绝新任务 0
+ok 15 - failFast 触发标记 0
+ok 16 - failFast 首错保留原值 false
+ok 17 - failFast 假值首错后仍拒绝新任务 false
+ok 18 - failFast 触发标记 false
+ok 19 - failFast 首错保留原值 
+ok 20 - failFast 假值首错后仍拒绝新任务 
+ok 21 - failFast 触发标记 
+ok 22 - cancelAll 后排队任务监听器为 0
+ok 23 - cancelAll 后执行中任务监听器为 0
+ok 24 - drain 超时返回 PoolError TIMEOUT
+ok 25 - drain 超时后 idle waiter 注销
+ok 26 - drain 成功后仍无残留 waiter
+ok 27 - 非法 timeoutMs NaN 抛 RangeError
+ok 28 - 非法 timeoutMs -1 抛 RangeError
+ok 29 - 非法 timeoutMs Infinity 抛 RangeError
+ok 30 - 非法 timeoutMs string 抛 RangeError
+ok 31 - 非法 timeoutMs object 抛 RangeError
+ok 32 - timeoutMs=0 合法且可结算
+ok 33 - timeoutMs=null 合法且可结算
+ok 34 - 超时返回 PoolError TIMEOUT
+ok 35 - 超时后 cancelAll 清理监听器
+ok 36 - 超时后底层完成计入 lateAfterTimeout
+ok 37 - 未产生 unhandledRejection
+
+test_regressions checks=37 fails=0 : PASS

@@ -11,6 +11,7 @@
 - 从零实现动态数组与链地址哈希表（C17，无第三方库）。
 - 覆盖容量 0 / 容量 1 / 扩容 / 重复键 / 分配失败五类必测场景。
 - 注入一次**越界写**，用 gdb 定位到具体源码行，再以同一份测试源码加边界检查回归通过。
+- 批次 1：补充桶数上限契约（`UINT32_MAX`，分配前拒绝）、节点分配失败、初始化失败与空输出参数、分配/释放平衡；新增 UAF 平台替代装置；`run_tests.sh` 改为失败非零，并精确断言 SIGSEGV 退出码与源码行。
 - 做了一组对照：同样的越界写放在普通 `malloc` 堆上**不会崩溃**，证明"没崩"不能当安全证据。
 
 没做什么（避免夸大）：
@@ -63,8 +64,9 @@ ASan 一栏不是人工结论：`run_tests.sh` 会真实执行 `gcc -print-file-
 
 ```bash
 cd 06-实验代码/E01-c-memory
-bash scripts/build.sh        # 编译 5 个产物到 build/
-bash scripts/run_tests.sh    # 采全部证据到 evidence/
+bash scripts/build.sh        # 编译 7 个产物到 build/
+bash scripts/run_tests.sh    # 采全部证据到 evidence/，任一必需步骤失败即非零
+bash scripts/selftest_gate.sh # 主动破坏一次，确认门禁真的会变红
 ```
 
 单独跑某一项：
@@ -82,11 +84,14 @@ bash scripts/run_tests.sh    # 采全部证据到 evidence/
 | 项 | 预期 | 实际 | 判定 |
 | --- | --- | --- | --- |
 | `test_dynarray` | 全部通过 | `checks=72 fails=0 : PASS`，exit 0 | 符合 |
-| `test_hashmap` | 全部通过 | `checks=3061 fails=0 : PASS`，exit 0 | 符合 |
+| `test_hashmap` | 全部通过 | `checks=4108 fails=0 : PASS`，exit 0 | 符合 |
 | 构建 | 零告警 | 零告警（`-Wall -Wextra -Wpedantic`） | 符合 |
 | 对照组（普通堆越界） | 不崩溃、静默写坏堆 | `no crash observed; read back arr[4] = 123`，exit 0 | 符合（正是危险点） |
 | 注入版（守护页越界） | 立即访问冲突 | `SIGSEGV`，exit 139 | 符合 |
 | 修复版 | 拒绝越界不触碰守护页 | `rejected: index 4 out of range (len=4)`，exit 0 | 符合 |
+| UAF 注入（`PAGE_NOACCESS` 模拟释放） | 读取已标记不可访问的页立即崩溃 | `SIGSEGV`，exit 139，定位 `tests/fault_uaf.c:37` | 符合 |
+| UAF 修复版 | 不读取，进程正常退出 | `skipped read after simulated free`，exit 0 | 符合 |
+| 门禁自检 | 破坏重复键语义后门禁非零 | `test_hashmap ... fails=1 : FAIL`，门禁 exit 1 | 符合 |
 
 ## 7. 失败注入：一次越界写与调试器定位
 
@@ -160,10 +165,12 @@ E01-c-memory/
 │   ├── test_dynarray.c          容量 0/1、扩容、越界、分配失败、溢出
 │   ├── test_hashmap.c           空表、重复键、1000 键扩容、首次插入失败、扩容失败
 │   ├── fault_guard.c            越界注入装置（守护页），含修复分支
-│   └── fault_plain.c            对照组：普通堆越界不崩
+│   ├── fault_plain.c            对照组：普通堆越界不崩
+│   └── fault_uaf.c              UAF 平台替代：PAGE_NOACCESS 模拟释放
 ├── scripts/
-│   ├── build.sh                 5 个构建目标
-│   └── run_tests.sh             采集 evidence/ 下全部证据
+│   ├── build.sh                 7 个构建目标
+│   ├── run_tests.sh             采集证据并做非零门禁
+│   └── selftest_gate.sh         主动破坏，确认门禁会红
 ├── evidence/                    真实运行输出，提交入库
 └── build/                       构建产物，已被 .gitignore 排除
 ```
@@ -171,7 +178,59 @@ E01-c-memory/
 ## 12. 复现与判读
 
 ```bash
-rm -rf build && bash scripts/run_tests.sh && grep -h 'PASS\|FAIL' evidence/test_run.txt
+rm -rf build && bash scripts/run_tests.sh; echo "gate_rc=$?"
+bash scripts/selftest_gate.sh; echo "selftest_rc=$?"
+grep -h 'PASS\|FAIL' evidence/test_run.txt
 ```
 
-判读顺序：先看 `evidence/test_run.txt` 是否两项 PASS，再看 `evidence/fault_inject.txt` 的 SIGSEGV 行号是否落在越界写那一行，最后看 `evidence/fault_fixed.txt` 的 exit 是否为 0。三步都对，才说明"复现—定位—回归"闭环成立；任何一步缺失都不算通过。
+判读顺序：先看 `evidence/test_run.txt` 是否 `test_dynarray=72`、`test_hashmap=4108` 且两项 PASS，再看 `evidence/fault_inject.txt` 的 SIGSEGV 行号是否等于 `tests/fault_guard.c` 中越界写的实际行号，再看 `evidence/fault_uaf.txt` 是否定位到 `tests/fault_uaf.c` 的读取行，最后看 `evidence/gate_selftest.txt` 是否记录“破坏后 gate_exit=1”。`run_tests.sh` 自身退出码必须为 0；任何一步缺失都不算通过。
+
+## 13. 批次 1 修复与门禁（2026-11-07）
+
+### 13.1 桶数截断/模零
+
+原实现把 `size_t nbuckets` 强转成 `uint32_t` 再取模：桶数超过 `UINT32_MAX` 时既可能截断到错误下标，也可能截成 0 触发模零。修复采用**限制契约**：
+
+- `HM_MAX_BUCKETS = UINT32_MAX`；`hm_init` 在发起分配前拒绝更大的初值，返回 `HM_EOVERFLOW`。
+- `hm_grow` 在翻倍会超过上限时返回 `HM_EOVERFLOW`，不会走到不可完成的分配。
+- `hm_index` 对 0 桶防御性返回 0，调用方仍先用 `hm_find_node`/`hm_grow` 排除 0 桶。
+
+可测边界：64 位环境下 `hm_init(&hm, (size_t)UINT32_MAX + 1)` 必须返回 `HM_EOVERFLOW` 且 `fault_alloc_calls()==0`。修复前实测返回 `HM_ENOMEM` 且发起了一次分配；修复后通过。该测试不申请 32GB，只验证“分配前拒绝”。
+
+### 13.2 其余边界
+
+- 建桶成功、节点分配失败：旧 6 个键完整、`count` 不变、桶数已扩到 16、新键不存在、live 计数回到失败前。
+- 初始化失败：`hm_init` 的 `calloc` 失败返回 `HM_ENOMEM`，字段保持 0。
+- 空输出参数：`hm_get(hm, key, NULL)` 与空表/空指针契约。
+- 分配/释放平衡：1000 次插入后 `hm_free`，`fault_alloc_live()` 回到插入前。
+- 重复键覆盖、扩容失败、容量边界等原有用例保留。
+
+### 13.3 UAF 平台替代
+
+`tests/fault_uaf.c` 用 `VirtualAlloc` 分配一页，写入后 `VirtualProtect(PAGE_NOACCESS)` 模拟“释放后不可访问”，再读取。注入版在 `tests/fault_uaf.c:37` 触发 SIGSEGV（exit 139），修复版不读取、exit 0。它证明的是“这一类页级 UAF 能被变成可定位崩溃”，**不是**通用 UAF 检测：
+
+- 只覆盖 Windows `VirtualAlloc/VirtualProtect`；Linux 需 `mmap/mprotect`，未验证。
+- 只覆盖整页被标记不可访问的情况；仍映射但逻辑已释放的 UAF 检测不到。
+- 不能替代 ASan/LSan；本机 ASan 仍不可用（`evidence/env.txt` 真实探测）。
+
+### 13.4 门禁
+
+`run_tests.sh` 现在要求：
+
+1. 构建退出 0，7 个产物齐全；
+2. 两个测试文件都有 `fails=0` 与 `PASS`；
+3. 越界注入 exit 139、含 `SIGSEGV`、行号等于源码实际行；
+4. 修复版输出 `rejected:` 且 exit 0；
+5. UAF 注入 exit 139、定位行正确；UAF 修复版 exit 0；
+6. 所有 evidence 文件非空；
+7. 任一失败最终 exit 1。
+
+`scripts/selftest_gate.sh` 在临时副本里把重复键的 `replaced=1` 改成 0，门禁实测 exit 1，并把 `test_hashmap ... fails=1 : FAIL` 写入 `evidence/gate_selftest.txt`。这证明门禁不是“只打印不拦截”。
+
+### 13.5 仍未覆盖
+
+- ASan/UBSan/LSan/Valgrind 仍不可用；UAF/越界只有页级替代。
+- 未做跨平台（Linux/clang）复测。
+- 未做并发数据结构测试；E01 仍是单线程。
+- 未把数据结构接进业务项目。
+- 本批不改变 G1 状态：G1 仍是“待评估”，E01 只提供内存定位一项。
