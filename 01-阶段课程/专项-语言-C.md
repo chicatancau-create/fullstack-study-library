@@ -101,4 +101,4 @@
 - 为多线程简单加锁，却不证明数据竞争、死锁和关闭顺序。
 - 用全局可变状态隐藏所有权，导致测试和复用不可控。
 
-官方参考：[C 语言与库（cppreference）](https://en.cppreference.com/w/c)。版本行为同时核对编译器和目标平台文档。
+高质量社区参考：[C 语言与库（cppreference）](https://en.cppreference.com/w/c)。它不是 ISO 或编译器官方规范，版本行为须同时核对所用编译器与目标平台官方文档。

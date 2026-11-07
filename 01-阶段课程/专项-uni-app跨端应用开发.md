@@ -11,7 +11,7 @@
 - [hello-uniapp 官方示例](<../05-外部资料库/知识库/鸿蒙与跨端/dcloudio/hello-uniapp/README.md>)：用于对照组件、API 和多端工程组织；示例分支与当前编译器未必一致，运行前先核对版本。
 - [HBuilderX uni-app 自动化测试插件](<../05-外部资料库/知识库/鸿蒙与跨端/dcloudio/hbuilderx-for-uniapp-test/README.md>)：了解 uni-app/uni-app x 的 Web、小程序、Android、iOS 与 Harmony 测试入口；README 所列操作系统和设备限制必须保留。
 
-> 返回 [[../05-外部资料库/资料索引|资料索引]]。HBuilderX/CLI、uni-app 编译器、Vue、目标 SDK 与仓库快照均须记录版本；至少两个目标真机分别验证生命周期、权限、签名和发布，自动化或模拟器结果不代表全端通过，复用前逐仓库检查许可证。
+> 返回 [[../05-外部资料库/资料索引|资料索引]]。HBuilderX/CLI、uni-app 编译器、Vue、目标 SDK 与仓库快照均须记录版本。**验收口径：至少两个目标端完成真实构建；只有两个目标真机都完成核心路径实测时才能写“双端真机通过”；仅一端实测时，另一端必须标“已构建、未真机验证”；任何情况下不得写“全端通过”。** 自动化或模拟器结果不能替代真机边界，复用前逐仓库检查许可证。
 
 ## 一、先分清技术边界
 
@@ -54,6 +54,7 @@
 - [ ] 对比 uni-app 与 uni-app x 的渲染方式、CSS 能力、原生插件、包体、热更新和迁移成本。
 - [ ] 记录 HBuilderX/CLI、Vue、uni-app 编译器、目标 SDK、设备系统和文档访问日期。
 - [ ] 已有 uni-app 项目升级 uni-app x 时，先做组件、CSS、插件与原生 API 清单，不直接整仓替换。
+- [ ] 核对官方维护窗口：[uni-app x 官方页](https://doc.dcloud.net.cn/uni-app-x/) 写明计划于 2027 年初停止老 uni-app App 平台与 uni-app x VDOM 平台的维护；不再维护不等于下线或立即停止工作。新 App 项目默认评估蒸汽模式，存量项目建立组件、CSS、插件、原生 API 与回退迁移清单，并阅读[迁移指南](https://doc.dcloud.net.cn/uni-app-x/uniapptox.html)（2026-11-07 核验）。只有选定 uni-app 专项者按 P0 处理，其他方向仍为 P2。
 
 典型工程职责：
 

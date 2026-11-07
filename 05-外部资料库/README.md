@@ -1,42 +1,62 @@
 # 外部资料库（GitHub 公开镜像）
 
-采集日期：2026-11-04 起三轮，最后更新 2026-11-05。全部公开可下载，无付费资源。
+采集日期：2026-11-04 起四轮，最后更新 2026-11-05。全部公开可下载，无付费资源。
 
-规模（2026-11-05 23:03 由 `_采集暂存/vault_scale.py` 全树复测，结果存 `_采集暂存/scale.json`）：**178 个仓库目录、323,321 个文件、逻辑 12.99 GB（磁盘约 14 GB）**；markdown 131,586 篇（`.md`+`.markdown`+`.mdx`）、图片 68,624 张（`.png/.jpg/.jpeg/.gif/.webp/.svg/.bmp/.ico`）、PDF 514 个、notebook 7,568 个。另有本地生成的派生视图 `题库/算法题解/_派生视图/` 8,202 个文件（其中 md 8,201 篇），不计入上面的上游镜像数。四轮采集：第一轮 81、第二轮 89、第三轮（鸿蒙与跨端）7、第四轮（uni-app 与 uni-app x，计划新增专项后补入 dcloudio 官方文档与示例 7 个 + 清理中间目录时发现第三轮下载后未落位的鸿蒙原生应用源码 1 个）8；按证据删除 7 个（教废弃 API 或 2022 年前停更：Asabeneh/30-Days-Of-React、phodal/growth-ebook、lgwebdream/FE-Interview、Advanced-Frontend/Daily-Interview-Question、Blankj/awesome-java-leetcode、cen6667/408、lengyue1024/BAT_interviews），另对 16 个写入 `freshness_flag` 时效标注。
+规模（当前以 `catalog.json` 为准）：**178 个活跃仓库、323,321 个文件、13,943,121,367 bytes ≈ 12.99 GiB**；markdown 131,586 篇（`.md`+`.markdown`+`.mdx`）。另有本地派生视图 `题库/算法题解/_派生视图/` 8,202 个文件，不计入上游镜像。四轮采集：第一轮 81、第二轮 89、第三轮（鸿蒙与跨端）7、第四轮（uni-app 与 uni-app x 官方文档/示例 7 个 + 补回落位失败的鸿蒙原生应用 1 个）8；按证据归档 7 个（tombstone 保留在 catalog，不混入 active）。`.source.json` 中有完整 `freshness_flag` 的仓库为 **14 个**；旧文档曾写 16 个，经源文件复核没有找到另外两条，未自行补造，已列入 [[资料补缺清单|资料补缺清单]]。
 
-版本化：计划正文与本库索引/账本进 Git（远端见 [[../04-资源与评估/知识库目录与维护规则|维护规则]] 第八节）；12.8 GB 镜像正文与原始压缩包不进 Git，重建依据是本目录 [[材料清单]] 记录的来源 URL、分支与内容指纹。
+版本化：计划正文、`catalog.json`、Schema、索引与账本进 Git（远端见 [[../04-资源与评估/知识库目录与维护规则|维护规则]] 第八节）；12.9 GiB 镜像正文与原始压缩包不进 Git，重建依据是 catalog 与 [[材料清单]]。`材料清单.md` 和 `资料索引.md` 是生成视图，禁止手工改统计区。
 
 ## 目录
 
 ```text
 05-外部资料库/
-├── 资料索引.md                      逐仓库清单：实测计数/最后更新/时效标注/许可/功能/入选理由
-├── 材料清单.md                       可复现凭证（来源 URL+分支+内容指纹；镜像正文不进 Git）
-├── 对抗式审查.md                     第一性原则下的自我审计（第一轮）
-├── 对抗式审查-第二轮.md               再扫结果、仍未闭合项、我犯过的错与纠正
-├── 评估报告-对本计划的帮助.md         缺口对照、使用优先级、未补齐项、合规风险
-├── 题库/
-│   ├── 算法题解/（含本地生成的 _派生视图/）  公司高频题/  八股与基础/  前端/  前端与Node/
-│   ├── AI与Agent/  AI与RAG/  SQL与数据/  运维与DevOps/  课程与路线/  鸿蒙与跨端/
-├── 知识库/
-│   ├── 计算机基础/  系统设计/  算法与数据结构/  后端进阶/  前端与Node/  安全/
-│   ├── AI与RAG/  全栈路线/  课程与路线/  面试综合/  资源目录/  运维与云原生/
-│   └── 鸿蒙与跨端/（liasica 等 ArkTS/ArkUI 镜像 + dcloudio 官方 uni-app/uni-app x 文档与示例 7 仓库 + 1 个鸿蒙 NEXT 原生 ArkTS 应用源码 jidecards，AGPL-3.0）
-└── _采集暂存/                       本机工具与实测报告（不进 Git：*.py 与 scale.json / placed_all.json / rename_map_final.json 等）
+├── catalog.json                    正式资源元数据事实源（178 active + 7 tombstones）
+├── catalog.schema.json             catalog 的字段、枚举与引用约束
+├── 资料入库与扩充规范.md            候选→去重→预检→审核→落位→更新→归档流程
+├── 资料补缺清单.md                  P0/P1/P2 数据与执行资产缺口
+├── 资料索引.md                      生成视图：分类、逐仓库与课程反查（手工叙述区除外）
+├── 材料清单.md                      生成视图：来源、分支、bytes、哈希与时效凭证
+├── 对抗式审查.md                    第一性原则下的自我审计（第一轮）
+├── 对抗式审查-第二轮.md              再扫结果、仍未闭合项、我犯过的错与纠正
+├── 评估报告-对本计划的帮助.md         历史评估、使用优先级、未补齐项、合规风险
+├── 题库/ 知识库/                     大型镜像正文，不进 Git
+└── _采集暂存/                       本机采集工具、catalog_tool.py 与实测报告（不进 Git）
 ```
 
-`_采集暂存/` 里的采集与校验脚本**只在这台机器上，不推到远端**（用户 2026-11-05 指令）。下面各处写的 `python _采集暂存/xxx.py` 复算入口，指的是在本机执行；从远端克隆不会拿到它们，索引与清单里的数字则以 Markdown 形式随库版本化。
+`_采集暂存/` 里的采集与校验脚本**只在这台机器上，不推到远端**（用户 2026-11-05 指令）。下面各处写的 `python _采集暂存/xxx.py` 复算入口，指的是在本机执行；从远端克隆不会拿到它们。轻量只读校验器是否入库，仍待用户单独确认。
+
+## catalog 与两种运行环境
+
+- **资源身份、来源、许可、分类、时效、生命周期**：以 [[catalog.json|catalog.json]] 为长期事实源；`payload.entry_path` 记录确定性入口，不依赖当前盘是否存在 README。
+- **文件数、bytes、Markdown 数**：原机扫描后写入 catalog；Markdown 视图只读 catalog，不手工改数。
+- **课程反查关系**：从课程/项目正文的实际本地链接生成，不手工双写。
+- **`.source.json`**：迁移输入和本机兼容投影，不再是唯一完整来源。
+- **原始采集机**：`validate --mode strict-mirror`，要求每个 active 镜像存在且指标一致。
+- **Git 干净克隆**：`validate --mode source-only`，镜像缺席记为“未随包提供”，不误报路径拼写错误；每条资源仍有 `online_fallback_url`。
+
+本机唯一入口：
+
+```text
+python 05-外部资料库/_采集暂存/catalog_tool.py scan
+python 05-外部资料库/_采集暂存/catalog_tool.py generate --write
+python 05-外部资料库/_采集暂存/catalog_tool.py validate --mode strict-mirror
+python 05-外部资料库/_采集暂存/catalog_tool.py validate --mode source-only
+```
+
+默认不写盘；迁移仅允许显式 `migrate --write`，覆盖已有 catalog 还需 `--force`。
 
 ## 每个仓库目录里的 `.source.json`
 
 | 字段 | 含义 |
 | --- | --- |
 | repo | 来源 URL |
-| branch | 取的是哪个分支的压缩包 |
-| archive_sha256 | 压缩包哈希，用于证明「本地内容 = 当次抓取内容」 |
+| branch | 抓取时分支；缺失为 `null`，不猜 main/master |
+| archive_sha256 | 压缩包哈希；缺失为 `null` |
 | fetched | 抓取时间 |
-| files / mb / top_extensions | 实测文件数、体积、主要扩展名计数 |
+| files / bytes / mb / top_extensions | 历史实测值；当前统计以 catalog 的磁盘扫描为准 |
 | license_files / license_detected | 是否带 LICENSE 及按正文签名识别的 SPDX |
+
+`.source.json` 与 catalog 的差异由校验器报告；“旧字段全量保留”位于每条资源的 `extensions.original_source_json`。
 
 ## 取用规则
 
@@ -60,4 +80,4 @@
 
 ## 更新或重取
 
-`_采集暂存/` 内脚本按顺序可复跑：`gh_dl3.py <repos.json>`（下载并校验压缩包）→ `gh_mirror.py <slug...>`（完整镜像，只跳构建产物）→ `gh_assetfetch.py <slug...>`（补外链配图）→ `gh_place.py`（落位并写 `.source.json`）→ `gh_docs.py`（重生成索引）。
+未来新增资料必须遵循 [[资料入库与扩充规范|资料入库与扩充规范]]，不得直接手工改 `材料清单.md` 或 `资料索引.md`。现有采集脚本只作为本机历史资产保留；在 catalog 迁移完成后，以 `catalog_tool.py` 统一生成视图和校验。更新流程的终态只能是 `active`、`rejected` 或有证据的失败，不允许再次出现“下载后未落位、未记账”。

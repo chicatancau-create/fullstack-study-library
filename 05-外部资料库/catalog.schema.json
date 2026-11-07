@@ -1,0 +1,188 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:fullstack-study-library:catalog:1.0.0",
+  "title": "全栈工程师学习资料库资源目录",
+  "description": "长期资源元数据事实源。Markdown 材料清单与资料索引由本目录生成。匿名 Object 仅用于保留旧字段，不替代结构化字段。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schema_version", "generated_at", "resources", "tombstones", "open_issues"],
+  "properties": {
+    "$schema": {"type": "string", "minLength": 1},
+    "schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "generated_at": {"type": "string", "minLength": 1},
+    "resources": {"type": "array", "items": {"$ref": "#/$defs/resource"}},
+    "tombstones": {"type": "array", "items": {"$ref": "#/$defs/tombstone"}},
+    "open_issues": {"type": "array", "items": {"$ref": "#/$defs/issue"}}
+  },
+  "$defs": {
+    "nullable_string": {"type": ["string", "null"]},
+    "nullable_integer": {"type": ["integer", "null"], "minimum": 0},
+    "resource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "name", "source", "payload", "integrity", "classification",
+        "metrics", "license", "freshness", "lifecycle", "review", "extensions"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^github:[a-z0-9_.-]+/[a-z0-9_.-]+$"},
+        "name": {"type": "string", "minLength": 3},
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["url", "canonical_url", "aliases", "branch", "commit_sha", "fetched_at", "upstream_pushed_at"],
+          "properties": {
+            "url": {"type": "string", "pattern": "^https://github\\.com/"},
+            "canonical_url": {"type": "string", "pattern": "^https://github\\.com/[^/]+/[^/]+$"},
+            "aliases": {"type": "array", "items": {"type": "string"}},
+            "branch": {"$ref": "#/$defs/nullable_string"},
+            "commit_sha": {"$ref": "#/$defs/nullable_string"},
+            "fetched_at": {"$ref": "#/$defs/nullable_string"},
+            "upstream_pushed_at": {"$ref": "#/$defs/nullable_string"}
+          }
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mode", "mirror_path", "entry_path", "included_in_git", "availability", "online_fallback_url"],
+          "properties": {
+            "mode": {"enum": ["reference", "mirror", "derived"]},
+            "mirror_path": {"$ref": "#/$defs/nullable_string"},
+            "entry_path": {"$ref": "#/$defs/nullable_string"},
+            "included_in_git": {"type": "boolean"},
+            "availability": {"enum": ["present_local", "missing_local", "not_packaged", "online_only"]},
+            "online_fallback_url": {"type": "string", "pattern": "^https://"}
+          }
+        },
+        "integrity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["archive_sha256", "content_fingerprint", "legacy_fingerprint_12"],
+          "properties": {
+            "archive_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+            "content_fingerprint": {
+              "anyOf": [
+                {"type": "null"},
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["algorithm", "value", "scope", "observed_at"],
+                  "properties": {
+                    "algorithm": {"type": "string", "minLength": 1},
+                    "value": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+                    "scope": {"type": "string", "minLength": 1},
+                    "observed_at": {"$ref": "#/$defs/nullable_string"}
+                  }
+                }
+              ]
+            },
+            "legacy_fingerprint_12": {"type": ["string", "null"], "pattern": "^[0-9a-f]{12}$"}
+          }
+        },
+        "classification": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["primary_category", "category_basis", "functions", "topics"],
+          "properties": {
+            "primary_category": {"type": "string", "pattern": "^(题库|知识库)/"},
+            "category_basis": {"type": "string", "minLength": 1},
+            "functions": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {"enum": ["F1", "F2", "F3", "F4", "F5", "F6"]}
+            },
+            "topics": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "metrics": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["files", "bytes", "markdown_count", "question_markers", "test_files", "observed_at", "count_scope"],
+          "properties": {
+            "files": {"type": "integer", "minimum": 0},
+            "bytes": {"type": "integer", "minimum": 0},
+            "markdown_count": {"$ref": "#/$defs/nullable_integer"},
+            "question_markers": {"$ref": "#/$defs/nullable_integer"},
+            "test_files": {"$ref": "#/$defs/nullable_integer"},
+            "observed_at": {"type": "string", "minLength": 1},
+            "count_scope": {"type": "string", "minLength": 1}
+          }
+        },
+        "license": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["spdx", "detection_status", "license_files", "usage_restriction"],
+          "properties": {
+            "spdx": {"$ref": "#/$defs/nullable_string"},
+            "detection_status": {"enum": ["detected", "unrecognized_file", "no_license_file", "unknown"]},
+            "license_files": {"type": "array", "items": {"type": "string"}},
+            "usage_restriction": {"type": "string", "minLength": 1}
+          }
+        },
+        "freshness": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "note", "last_checked_at", "next_review_at"],
+          "properties": {
+            "status": {"enum": ["unknown", "current", "stale", "end_of_life"]},
+            "note": {"$ref": "#/$defs/nullable_string"},
+            "last_checked_at": {"$ref": "#/$defs/nullable_string"},
+            "next_review_at": {"$ref": "#/$defs/nullable_string"}
+          }
+        },
+        "lifecycle": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "reason", "archived_at", "replacement_id"],
+          "properties": {
+            "status": {"enum": ["candidate", "active", "rejected", "archived"]},
+            "reason": {"$ref": "#/$defs/nullable_string"},
+            "archived_at": {"$ref": "#/$defs/nullable_string"},
+            "replacement_id": {"$ref": "#/$defs/nullable_string"}
+          }
+        },
+        "review": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "reviewed_at", "evidence"],
+          "properties": {
+            "status": {"enum": ["legacy_imported", "pending", "approved"]},
+            "reviewed_at": {"$ref": "#/$defs/nullable_string"},
+            "evidence": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "extensions": {"type": "object"}
+      }
+    },
+    "tombstone": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "canonical_url", "lifecycle", "reason", "evidence"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^github:[a-z0-9_.-]+/[a-z0-9_.-]+$"},
+        "name": {"type": "string", "minLength": 3},
+        "canonical_url": {"type": "string", "pattern": "^https://github\\.com/[^/]+/[^/]+$"},
+        "lifecycle": {"enum": ["rejected", "archived"]},
+        "reason": {"type": "string", "minLength": 1},
+        "evidence": {"type": "array", "items": {"type": "string"}},
+        "archived_at": {"$ref": "#/$defs/nullable_string"},
+        "replacement_id": {"$ref": "#/$defs/nullable_string"}
+      }
+    },
+    "issue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "priority", "summary", "status", "affected_ids", "target", "next_action"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9_-]+$"},
+        "priority": {"enum": ["P0", "P1", "P2"]},
+        "summary": {"type": "string", "minLength": 1},
+        "status": {"enum": ["open", "closed"]},
+        "affected_ids": {"type": "array", "items": {"type": "string"}},
+        "target": {"type": "string", "minLength": 1},
+        "next_action": {"type": "string", "minLength": 1},
+        "evidence": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

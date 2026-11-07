@@ -29,6 +29,7 @@
 - [ ] `useRef/useMemo/useCallback` 的适用边界，不提前微优化。
 - [ ] Context、组合、children 和自定义 Hook；避免深层 prop drilling 与全局状态膨胀。
 - [ ] Error Boundary、Suspense 的概念与使用边界。
+- [ ] React 19 表单能力按项目版本选学：Actions、`useActionState`、`useOptimistic`、`useFormStatus`；必须与手工 pending/错误恢复实现对照，说明状态归属与失败回滚差异。React Compiler、RSC、ViewTransition 等不自动升级为公共必修。
 
 ### 应用能力
 
