@@ -1,0 +1,5 @@
+captured_at: 2026-11-07T20:14:02+08:00
+test: Ran 8 tests in 0.001s / OK
+demo: DEMO PASS
+steps: binary_search: index=1023 steps=11
+gate_failures: 0

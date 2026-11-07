@@ -1,0 +1,13 @@
+test_binary_search_boundaries (test_algorithms.AlgorithmTest.test_binary_search_boundaries) ... ok
+test_binary_search_steps (test_algorithms.AlgorithmTest.test_binary_search_steps) ... ok
+test_lower_bound_duplicates (test_algorithms.AlgorithmTest.test_lower_bound_duplicates) ... ok
+test_lru_cache (test_algorithms.AlgorithmTest.test_lru_cache) ... ok
+test_merge_intervals (test_algorithms.AlgorithmTest.test_merge_intervals) ... ok
+test_min_stack (test_algorithms.AlgorithmTest.test_min_stack) ... ok
+test_ring_buffer (test_algorithms.AlgorithmTest.test_ring_buffer) ... ok
+test_two_sum (test_algorithms.AlgorithmTest.test_two_sum) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.001s
+
+OK

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "experiment": "U09",
+  "generated_at": "2026-11-07T12:14:48.359Z",
+  "commit": "94f1a6fcb30d619292a31241a24d94458a120dc2",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [
+    {
+      "cmd": "bash scripts/run_unit.sh",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/test.txt",
+      "bytes": 751,
+      "sha256": "cf338afe806a977f613316c51f39871919f8567f2dc5e4ca81fa52480d7b4110"
+    },
+    {
+      "path": "evidence/demo.txt",
+      "bytes": 140,
+      "sha256": "8d3e6343d1399700d4f8556a66ba2f0aae45188712e553fa1ee6ef8c29a53d97"
+    },
+    {
+      "path": "evidence/run.txt",
+      "bytes": 147,
+      "sha256": "1aeabfb8e91d14937fa7b8f59fbb38fab2ee73e67c4b92383d07dadf55119e20"
+    }
+  ],
+  "unverified": [
+    "无限时套题/面试评分；未做并发/内存测量"
+  ]
+}
