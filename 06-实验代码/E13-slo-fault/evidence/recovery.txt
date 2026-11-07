@@ -1,0 +1,4 @@
+timeout_error=TimeoutError
+down_error=TypeError
+recovered_ok=95
+recovery: restart -> health 200 -> state.ok == 95

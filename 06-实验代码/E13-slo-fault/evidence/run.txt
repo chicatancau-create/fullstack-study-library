@@ -1,0 +1,11 @@
+ok - 95 个 200
+ok - 5 个 500
+ok - SLI=0.95
+ok - 错误预算被超出
+ok - 慢响应触发客户端超时
+ok - 超时后服务仍健康
+ok - 进程停止后请求失败
+ok - 重启后 health=200
+ok - 状态文件恢复 ok=95
+checks=9 fails=0 : PASS
+exit=0

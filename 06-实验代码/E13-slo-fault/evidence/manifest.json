@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "experiment": "E13",
+  "generated_at": "2026-11-07T12:26:42.430Z",
+  "commit": "41b48490327600bb66a280f260df7245e5e76467",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [
+    {
+      "cmd": "bash scripts/run_evidence.sh",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/run.txt",
+      "bytes": 258,
+      "sha256": "8f61c6e2ad54ed7368c2eb2ab56d8efc2b749dada326ac86217832ceffb9cd09"
+    },
+    {
+      "path": "evidence/slo.json",
+      "bytes": 235,
+      "sha256": "39299db52d5458c99f5d31a2181897502cb59fc59f6807a87e2ae853e6435ef5"
+    },
+    {
+      "path": "evidence/recovery.txt",
+      "bytes": 114,
+      "sha256": "fd2c541d89ecd8b940f71a19df1c9d1999d4361870a2f7bd87b3b537f105a887"
+    },
+    {
+      "path": "evidence/state.json",
+      "bytes": 9,
+      "sha256": "c07fe5bc73b4859df96b72b9625d6dbf4564ea8e2255040a5977bf990acf644b"
+    }
+  ],
+  "unverified": [
+    "合成窗口；无告警/回滚/备份/RPO/RTO/多实例"
+  ]
+}

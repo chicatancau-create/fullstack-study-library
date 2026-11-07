@@ -1,0 +1,11 @@
+{
+  "window_requests": 100,
+  "good": 95,
+  "bad": 5,
+  "sli": 0.95,
+  "target": 0.99,
+  "allowed_bad": 1,
+  "consumed_bad": 5,
+  "exceeded": true,
+  "note": "合成窗口；只用于训练 SLO/错误预算口径，不是生产 SLO"
+}
