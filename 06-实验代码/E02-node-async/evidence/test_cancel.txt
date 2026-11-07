@@ -1,0 +1,43 @@
+# E02 / 取消：所有 Promise 必须结算，底层不因取消而消失
+# node v22.22.2  pid 16348  captured_at 2026-11-07T06:37:22.638Z
+ok 1 - 取消前：运行中 2 个
+ok 2 - 取消前：排队 3 个
+ok 3 - 取消：三个调用方承诺都在 500ms 内结算
+ok 4 - 取消：错误码统一为 E_POOL_CANCELLED
+ok 5 - 取消：执行中被取消标记了底层仍在跑
+ok 6 - 取消：排队中被取消标记了底层未启动
+ok 7 - 取消：执行中被取消的槽位仍被占用
+ok 8 - 取消：两个排队的已出队
+ok 9 - 取消：被取消的排队任务从未执行
+ok 10 - 取消：底层 t0 尚未结束
+ok 11 - 取消：统计 cancelledQueued = 2
+ok 12 - 取消：统计 cancelledRunning = 1
+ok 13 - 取消：底层结束后才让出槽位
+ok 14 - 取消：排队中的 t4 随后开始执行
+ok 15 - 取消：底层 t0 在取消之后仍完成了自己的逻辑
+ok 16 - 取消：t0 只被结算一次（调用方先收到取消）
+# 全部结算耗时 0.07ms（取消不等待底层）
+ok 17 - 取消：5 个承诺全部 rejected
+ok 18 - 取消：没有一个承诺悬着
+ok 19 - 取消：底层 t1 此刻尚未结束
+ok 20 - 清理：drain 后 running=0
+ok 21 - 清理：drain 后 queued=0
+ok 22 - 清理：五个底层函数都真实跑完了
+ok 23 - 清理：三个被取消的执行中任务事后完成
+ok 24 - 清理：被取消的 t2/t3 确实没有执行
+ok 25 - cancelAll：影响 4 个任务
+ok 26 - cancelAll：全部 rejected
+ok 27 - cancelAll：原因被带出
+ok 28 - cancelAll：队列清空
+ok 29 - cancelAll：drain 后无残留
+ok 30 - 预先中止：直接拒绝
+ok 31 - 预先中止：函数未被调用
+ok 32 - 预先中止：未进入统计 started
+ok 33 - 无界等待：两个承诺在 300ms 内结算
+ok 34 - 无界等待：实际耗时远小于闸门时间
+# 底层函数仍停在自己的闸门上，但调用方不会被拖住；池要用 drain 才能等到真正干净
+ok 35 - 无界等待：底层还占着槽位
+ok 36 - 无界等待：放行后槽位释放
+ok 37 - 未产生 unhandledRejection
+
+test_cancel checks=37 fails=0 : PASS

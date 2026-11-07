@@ -1,0 +1,17 @@
+{
+  "name": "e02-node-async",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "E02 实验：有并发上限、超时与取消的 Node 任务池，含乱序完成、首项失败、取消结算与三个反例",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "evidence": "bash scripts/run_all.sh",
+    "test": "node tests/test_pool.mjs && node tests/test_ordering.mjs && node tests/test_failure.mjs && node tests/test_cancel.mjs && node tests/test_timeout.mjs",
+    "env": "node scripts/env.mjs"
+  }
+}

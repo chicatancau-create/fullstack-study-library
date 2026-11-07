@@ -1,0 +1,11 @@
+captured_at: 2026-11-07T14:37:23+08:00
+
+== 各测试判定 ==
+test_pool        test_pool checks=28 fails=0 : PASS
+test_ordering    test_ordering checks=11 fails=0 : PASS
+test_failure     test_failure checks=27 fails=0 : PASS
+test_cancel      test_cancel checks=37 fails=0 : PASS
+test_timeout     test_timeout checks=32 fails=0 : PASS
+
+== 失败项（如有）==
+无

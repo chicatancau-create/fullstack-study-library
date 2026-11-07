@@ -1,0 +1,32 @@
+# E02 / 任务池基础语义
+# node v22.22.2  pid 28192  captured_at 2026-11-07T06:37:21.443Z
+ok 1 - 并发上限：同时在跑 3 个
+ok 2 - 并发上限：其余 6 个在排队
+ok 3 - 并发上限：pending = 9
+ok 4 - 并发上限：观测峰值等于 concurrency
+ok 5 - 并发上限：统计峰值等于 concurrency
+ok 6 - 并发上限：9 个结果全部返回
+ok 7 - 并发上限：无任务失败
+ok 8 - 并发上限：drain 后 running/queued 归零
+ok 9 - 调度顺序：串行时启动顺序等于提交顺序
+ok 10 - 队列上限：超出 maxQueue 的任务被拒绝
+ok 11 - 队列上限：错误码 E_QUEUE_FULL
+ok 12 - 队列上限：错误里带出 maxQueue
+ok 13 - 队列上限：queued 停在 maxQueue
+ok 14 - 队列上限：pending 不超过 concurrency + maxQueue
+ok 15 - 队列上限：peakQueue 不超过 maxQueue
+ok 16 - maxQueue=0：无空槽时直接拒绝
+ok 17 - maxQueue=0：有空槽时照常执行
+ok 18 - 关闭：排队任务被拒绝
+ok 19 - 关闭：新任务被拒绝且不执行
+ok 20 - 关闭：已在执行的未被抢占
+ok 21 - 关闭：drain 后 running=0
+ok 22 - 同步抛错：被转成 rejected 而非崩溃
+ok 23 - 异步抛错：被转成 rejected
+ok 24 - 异常：两个任务都从 running 移除
+ok 25 - 异常：统计 rejected = 2
+ok 26 - 参数：concurrency=0 抛 RangeError
+ok 27 - 参数：maxQueue=-1 抛 RangeError
+ok 28 - 未产生 unhandledRejection
+
+test_pool checks=28 fails=0 : PASS

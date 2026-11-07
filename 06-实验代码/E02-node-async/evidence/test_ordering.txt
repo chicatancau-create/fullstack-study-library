@@ -1,0 +1,15 @@
+# E02 / 确定性乱序完成
+# node v22.22.2  pid 28552  captured_at 2026-11-07T06:37:21.720Z
+ok 1 - 乱序：启动顺序仍等于提交顺序
+ok 2 - 乱序：完成顺序 = B,A,D,C
+ok 3 - 乱序：完成顺序不等于提交顺序
+ok 4 - 乱序：4 个任务全部 fulfilled
+ok 5 - 乱序：并发峰值不超过 2
+ok 6 - 对照：按提交顺序放行则按提交顺序完成
+ok 7 - 对照：两组完成顺序确实不同
+ok 8 - 乱序：并发 4 时可按 D,C,B,A 完成
+ok 9 - 确定性：5 次重复得到同一完成顺序
+ok 10 - 确定性：重复值仍为 B,A,D,C
+ok 11 - 未产生 unhandledRejection
+
+test_ordering checks=11 fails=0 : PASS
