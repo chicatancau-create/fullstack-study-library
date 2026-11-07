@@ -1,0 +1,9 @@
+{
+  "name": "e09-redis-cache",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "E09：真实 Redis 上的 Cache Aside 与过期写回",
+  "engines": { "node": ">=24" },
+  "scripts": { "test": "node --test tests/*.test.js" }
+}

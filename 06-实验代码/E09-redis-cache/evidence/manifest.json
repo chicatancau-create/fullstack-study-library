@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "experiment": "E09",
+  "generated_at": "2026-11-07T13:06:32.122Z",
+  "commit": "d81ee9be292926bf2eca3a8502bd204a28977116",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [
+    {
+      "cmd": "bash scripts/run_evidence.sh",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/env.txt",
+      "bytes": 48,
+      "sha256": "aa7028856ffd5376af1a80824f4f371c074a17b978e3121955e4621e282197d7"
+    },
+    {
+      "path": "evidence/test.txt",
+      "bytes": 467,
+      "sha256": "ec39d3163f5c6f846aedeb38a75465906bbcf1f065e1f6e40f4e8e59ef8627ad"
+    },
+    {
+      "path": "evidence/run.txt",
+      "bytes": 126,
+      "sha256": "727d00b33a13a3d50d04c29f4347cdbd0e2235d7f7714e384aa977275a707144"
+    }
+  ],
+  "unverified": [
+    "Redis 3.0 旧版；无集群/哨兵/持久化/淘汰/真实 DB"
+  ]
+}
