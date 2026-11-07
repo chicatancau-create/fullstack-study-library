@@ -1,0 +1,23 @@
+captured_at: 2026-11-07T23:49:35+08:00
+method: git archive HEAD -> temp -> npm ci -> run_project
+== project02
+install_rc=0
+gate_rc=0
+backup: RESTORE PASS
+gate_failures: 0
+== project03
+install_rc=0
+gate_rc=0
+backup_restore=PASS
+PROJECT03 PASS
+== project04
+install_rc=0
+gate_rc=0
+jobs=PASS
+PROJECT04 PASS
+== ai
+install_rc=0
+gate_rc=0
+eval=golden_set=5 pass=5 rate=100%
+AI-MIN PASS
+DONE
