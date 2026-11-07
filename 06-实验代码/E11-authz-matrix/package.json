@@ -1,0 +1,16 @@
+{
+  "name": "e11-authz-matrix",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "E11：两租户对象级授权矩阵",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test tests/*.test.js",
+    "demo": "node examples/demo.mjs"
+  },
+  "dependencies": {
+    "fastify": "5.12.8"
+  }
+}

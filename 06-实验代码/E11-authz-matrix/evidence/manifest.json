@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "experiment": "E11",
+  "generated_at": "2026-11-07T12:30:50.648Z",
+  "commit": "ed76ae155fd1b3899584dec87ce1e51395cdcb41",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [
+    {
+      "cmd": "bash scripts/run_unit.sh",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/syntax.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/test.txt",
+      "bytes": 929,
+      "sha256": "d940b20e7f1d8507d386642d8919cb85ed4aef386aa24242bc14f4e2bdc69f2d"
+    },
+    {
+      "path": "evidence/run.txt",
+      "bytes": 116,
+      "sha256": "b8ba3265094f0d48afb169ce787687fcd967df8a2d68503e7d8443db9dd79ea7"
+    }
+  ],
+  "unverified": [
+    "内存数据；无真实 DB/SQL、浏览器 XSS/CSRF、SSRF、TLS、限流/MFA"
+  ]
+}

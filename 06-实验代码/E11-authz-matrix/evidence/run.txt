@@ -1,0 +1,4 @@
+captured_at: 2026-11-07T20:30:20+08:00
+syntax: 0 errors
+test: ℹ tests 13 ℹ pass 13 ℹ fail 0 
+gate_failures: 0
