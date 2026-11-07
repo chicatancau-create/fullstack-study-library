@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "experiment": "U02",
+  "generated_at": "2026-11-07T11:53:35.214Z",
+  "commit": "0c97ace209b51ebd3853f2f3a95d218e04838683",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [
+    {
+      "cmd": "bash scripts/run_unit.sh",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/run.txt",
+      "bytes": 486,
+      "sha256": "0f2728bd5baedf6661540142003b59cac50532f8d58357f055cb23a2c56028d0"
+    },
+    {
+      "path": "evidence/report.json",
+      "bytes": 1207,
+      "sha256": "e452ebfdb65fc5331b121b2b0391b8b53c6577783d7022817ecb4e6f5419d484"
+    },
+    {
+      "path": "evidence/page-320.png",
+      "bytes": 29465,
+      "sha256": "cb930d62441e9f30c715bf336b03fa35f98c83f0887e31e4aead76d6be0b9426"
+    },
+    {
+      "path": "evidence/page-1280.png",
+      "bytes": 43633,
+      "sha256": "5a0f9cc761858379c6ba8fe841ed6cf0c73f75ce4cdc45fc24a367819679a51e"
+    }
+  ],
+  "unverified": [
+    "读屏/真实手机/跨浏览器未测；axe 只覆盖自动子集"
+  ]
+}

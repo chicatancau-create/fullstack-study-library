@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>U02 示例：可访问的响应式页面</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要内容</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#main">U02 示例站</a>
+      <nav aria-label="主导航">
+        <ul>
+          <li><a href="#cards">卡片</a></li>
+          <li><a href="#form">表单</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="wrap">
+      <h1>语义、布局与焦点都要能被验证</h1>
+      <p class="lede">这个页面没有框架，只有原生标签、移动优先 CSS 和一条键盘可走的主路径。</p>
+
+      <ul class="grid" id="cards">
+        <li class="card">
+          <h2>语义</h2>
+          <p>header、nav、main、footer、ul/li 和 form 都是原生元素，标题从 h1 到 h2。</p>
+        </li>
+        <li class="card">
+          <h2>响应式</h2>
+          <p>320px 单列，48rem 以上三列；没有绝对定位拼页面。</p>
+        </li>
+        <li class="card">
+          <h2>焦点</h2>
+          <p>跳转链接、可见焦点环和原生控件，Tab 顺序跟 DOM 一致。</p>
+        </li>
+      </ul>
+
+      <section id="form">
+        <h2>订阅示例</h2>
+        <form novalidate>
+          <div class="field">
+            <label for="email">邮箱</label>
+            <input id="email" name="email" type="email" autocomplete="email" aria-describedby="email-hint">
+            <p class="hint" id="email-hint">只用于示例，不会发送到任何服务器。</p>
+          </div>
+          <button class="button" type="submit">提交</button>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap"><p>U02 教学示例 · 本地文件 · 无追踪脚本</p></div>
+  </footer>
+</body>
+</html>

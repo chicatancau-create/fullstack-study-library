@@ -1,0 +1,47 @@
+{
+  "page": "file:///E:/OBsidian/%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E5%BA%93/01-%E9%98%B6%E6%AE%B5%E8%AF%BE%E7%A8%8B/%E6%95%99%E5%AD%A6%E5%8D%95%E5%85%83/U02-HTML%E4%B8%8ECSS/examples/index.html",
+  "browser": "Edg/157.0.4341.42",
+  "checks": {
+    "lang": true,
+    "title": true,
+    "singleH1": true,
+    "labels": true,
+    "mobileNoOverflow": true,
+    "desktopNoOverflow": true,
+    "mobileSingleColumn": true,
+    "desktopThreeColumns": true,
+    "firstFocusIsSkipLink": true,
+    "focusVisible": true,
+    "textZoomNoOverflow": true,
+    "axeNoViolations": true
+  },
+  "actual": {
+    "mobile": {
+      "lang": "zh-CN",
+      "title": "U02 示例：可访问的响应式页面",
+      "h1Count": 1,
+      "labelsOk": true,
+      "overflow": 0,
+      "columns": "288px"
+    },
+    "firstFocus": {
+      "text": "跳到主要内容",
+      "outlineWidth": "3px",
+      "outlineStyle": "solid"
+    },
+    "textZoom": {
+      "overflow": 0,
+      "clipped": 0
+    },
+    "desktop": {
+      "overflow": 0,
+      "columns": "320px 320px 320px"
+    },
+    "axe": {
+      "violations": [],
+      "incomplete": 0,
+      "passes": 22
+    }
+  },
+  "failed": []
+}

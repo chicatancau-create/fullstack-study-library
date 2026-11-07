@@ -1,0 +1,9 @@
+browser: Edg/157.0.4341.42
+page: file:///E:/OBsidian/%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E5%BA%93/01-%E9%98%B6%E6%AE%B5%E8%AF%BE%E7%A8%8B/%E6%95%99%E5%AD%A6%E5%8D%95%E5%85%83/U02-HTML%E4%B8%8ECSS/examples/index.html
+mobile: columns=288px overflow=0
+desktop: columns=320px 320px 320px overflow=0
+first focus: "跳到主要内容" outline=3px solid
+200% text: overflow=0 clipped=0
+axe: violations=0 incomplete=0 passes=22
+checks: PASS
+exit=0
