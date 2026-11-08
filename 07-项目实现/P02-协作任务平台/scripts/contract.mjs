@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 import { buildApp } from '../src/app.js';
 
 const prisma = new PrismaClient();
-const app = await buildApp({ prisma });
+const app = await buildApp({ prisma, jwtSecret: process.env.JWT_SECRET || 'p02-contract-secret' });
 await app.ready();
 const res = await app.inject({ method: 'GET', url: '/openapi.json' });
 const doc = res.json();
