@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E11",
-  "generated_at": "2026-11-07T12:30:50.648Z",
-  "commit": "ed76ae155fd1b3899584dec87ce1e51395cdcb41",
+  "generated_at": "2026-11-08T10:28:18.174Z",
+  "commit": "dc094b10725a3382e86fa26910719b143f4139ac",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -24,13 +24,13 @@
     },
     {
       "path": "evidence/test.txt",
-      "bytes": 929,
-      "sha256": "d940b20e7f1d8507d386642d8919cb85ed4aef386aa24242bc14f4e2bdc69f2d"
+      "bytes": 931,
+      "sha256": "882d56b356cf1380095440f41c29c1331e0cf9636aa8687a2aa5071c68bf4c50"
     },
     {
       "path": "evidence/run.txt",
       "bytes": 116,
-      "sha256": "b8ba3265094f0d48afb169ce787687fcd967df8a2d68503e7d8443db9dd79ea7"
+      "sha256": "329568072c29bcbda3d337763f910db45528b8b71547e985ba3aa3a3a703ad29"
     }
   ],
   "unverified": [

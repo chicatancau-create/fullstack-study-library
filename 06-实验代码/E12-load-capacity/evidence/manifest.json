@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E12",
-  "generated_at": "2026-11-07T12:25:18.160Z",
-  "commit": "b47f170eacbdaa0b4a9be04c8ecc4298b8c023f9",
+  "generated_at": "2026-11-08T10:28:18.538Z",
+  "commit": "dc094b10725a3382e86fa26910719b143f4139ac",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -19,18 +19,18 @@
   "artifacts": [
     {
       "path": "evidence/run.txt",
-      "bytes": 291,
-      "sha256": "f79a1b4c4b7b362920d87c4e2a0ec10036ee23545bbd67cf3cd4aeb2c524e820"
+      "bytes": 293,
+      "sha256": "c215dbaa32feb7b745e4e6667328159bb118e1e12b6dd3e2a021aeb2f07e51fb"
     },
     {
       "path": "evidence/load.json",
-      "bytes": 1060,
-      "sha256": "4f1fb2eacdbe61c1065c479524ff6ecd0aa94ff7539619fd042844d913ec49b9"
+      "bytes": 1061,
+      "sha256": "f0bf9161d261cb022c7f4431ce8072d52d3e527a2db2dfa1ae33d57b3f09a068"
     },
     {
       "path": "evidence/load.txt",
-      "bytes": 357,
-      "sha256": "b7f1e264e376803700e0c024295fb84e88baa2f9101d0f13e598594adb67238b"
+      "bytes": 359,
+      "sha256": "a3d80479c8c41216ddaa2d47b506a457cd699745bede61a4ce33e04ee3128090"
     }
   ],
   "unverified": [
