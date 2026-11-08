@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E10",
-  "generated_at": "2026-11-08T02:13:29.184Z",
-  "commit": "db8efc7d779ba7f0ae99c3cfb3f731e9e67611af",
+  "generated_at": "2026-11-08T04:08:53.770Z",
+  "commit": "2f08f0ebbd420a72a7bfe3d3b7dc722b594e13bf",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -17,6 +17,10 @@
     },
     {
       "cmd": "PGPASSWORD=<local-test-password> bash scripts/run_backlog.sh",
+      "exit": 0
+    },
+    {
+      "cmd": "QEMU 3 RabbitMQ 4.4 containers: cluster_status 3 running nodes",
       "exit": 0
     }
   ],
@@ -40,9 +44,14 @@
       "path": "evidence/backlog_replay.txt",
       "bytes": 331,
       "sha256": "d6e6031374e671b191eea32c2b6e76640df41370d38b4a4e2d7ef83e1e1dd33c"
+    },
+    {
+      "path": "evidence/cluster.txt",
+      "bytes": 522,
+      "sha256": "839cb1195df4134b3e7fd65e83d4764dafa8f9d63b3b8b28436ceb7963573ec2"
     }
   ],
   "unverified": [
-    "单节点RabbitMQ；无集群/顺序保证/持续压力；积压与重放为1000条单消费者"
+    "主实验单节点；集群为同一VM内3容器，非多机；无分区/quorum故障注入"
   ]
 }

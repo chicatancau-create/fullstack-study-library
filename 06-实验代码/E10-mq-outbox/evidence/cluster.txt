@@ -1,0 +1,20 @@
+captured_at: 2026-11-08
+topology: 3 RabbitMQ 4.4.0 containers (rmq1/rmq2/rmq3) on one Docker network inside one QEMU VM
+scope: 3-node cluster on one VM; not multi-machine; no partition/network fault injection
+
+$ docker exec rmq1 rabbitmqctl -q cluster_status | grep -A8 'Running Nodes'
+Running Nodes
+
+rabbit@rmq1
+rabbit@rmq2
+rabbit@rmq3
+
+Versions
+
+rabbit@rmq1: RabbitMQ 4.4.0 on Erlang 29.1.2
+
+$ docker exec rmq2 rabbitmqctl list_queues name messages
+Timeout: 60.0 seconds ...
+Listing queues for vhost / ...
+
+CLUSTER PASS
