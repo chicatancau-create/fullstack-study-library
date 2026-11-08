@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E02",
-  "generated_at": "2026-11-08T02:11:17.576Z",
-  "commit": "068e4bc111374536ce457f655014eaebfd124e3a",
+  "generated_at": "2026-11-08T03:04:35.247Z",
+  "commit": "42a4a6f8f82e27a7e85b694b23a48725f0201de3",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -17,6 +17,10 @@
     },
     {
       "cmd": "bash scripts/selftest_gate.sh",
+      "exit": 0
+    },
+    {
+      "cmd": "GitHub Actions Ubuntu: bash scripts/run_all.sh",
       "exit": 0
     }
   ],
@@ -85,6 +89,11 @@
       "path": "evidence/worker_threads.txt",
       "bytes": 214,
       "sha256": "5c694d96df9912c213a82e80ec8a8f7bd3ef03a1cee4cdd45a95a189451b6c35"
+    },
+    {
+      "path": "evidence/worker_threads_ci.txt",
+      "bytes": 300,
+      "sha256": "b275700bc19350587e2029648acb99ebc8a04af1691d40fd951e1c8544ead0b0"
     },
     {
       "path": "evidence/gate_selftest.txt",

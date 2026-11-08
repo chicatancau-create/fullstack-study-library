@@ -16,7 +16,7 @@
 
 没做什么（避免夸大）：
 
-- 没有做释放后使用（UAF）、双重释放、泄漏检测的注入——本机工具链做不到（见第 8 节）。
+- Windows 本机工具链没有 ASan；UAF 与泄漏检测改由 Linux/ASan CI 完成（`scripts/asan_linux.sh`），双重释放未单列。
 - 没有做并发/多线程用例：E01 是单线程数据结构实验。
 - 没有接入 CI，没有跨平台（Linux/clang）复测。
 - 没有把动态数组/哈希表接进任何业务项目，仍是独立实验件。
@@ -41,7 +41,7 @@ make      : 不可用（脚本用 gcc 直接构建）
 clang     : 不可用
 valgrind  : 不可用
 MSVC cl   : 不可用
-ASan      : 不可用（`run_tests.sh` 每次实跑探测：先查库文件，再编译链接最小越界程序）
+ASan      : Windows 本机不可用（MinGW 无 libasan）；Linux CI 可用，见 `evidence/asan_linux.txt`
 ```
 
 "干净"的含义：`rm -rf build && bash scripts/build.sh` 从零重建，不依赖任何既有产物；构建零告警。环境原始输出见 `evidence/env.txt`。
@@ -131,7 +131,7 @@ exit=0
 
 ## 9. 边界：这套工具**没有**证明什么
 
-本机没有 ASan / Valgrind（由 `scripts/run_tests.sh` 实跑探测确认，非人工断言），替代方案是守护页 + gdb。因此：
+Windows 本机没有 ASan / Valgrind（由 `scripts/run_tests.sh` 实跑探测确认，非人工断言），替代方案是守护页 + gdb；Linux CI 另有 ASan/LSan。因此：
 
 1. **只覆盖向后越界**（写到缓冲区末尾之后）。向前越界（负下标）不会踩到守护页，本装置检测不到。
 2. **不检测释放后使用**（UAF）：`free` 后内存仍在进程堆里，读写通常不触发异常；若要把 UAF 变成崩溃，需要自定义分配器把页改成 `PAGE_NOACCESS`，这属于额外装置，本实验未做。
@@ -212,7 +212,7 @@ grep -h 'PASS\|FAIL' evidence/test_run.txt
 
 - 只覆盖 Windows `VirtualAlloc/VirtualProtect`；Linux 需 `mmap/mprotect`，未验证。
 - 只覆盖整页被标记不可访问的情况；仍映射但逻辑已释放的 UAF 检测不到。
-- 不能替代 ASan/LSan；本机 ASan 仍不可用（`evidence/env.txt` 真实探测）。
+- 不能替代 ASan/LSan；Windows 本机 ASan 仍不可用（`evidence/env.txt`），Linux CI 的 ASan/LSan 见 `evidence/asan_linux.txt`。
 
 ### 13.4 门禁
 
@@ -230,7 +230,7 @@ grep -h 'PASS\|FAIL' evidence/test_run.txt
 
 ### 13.5 仍未覆盖
 
-- ASan/UBSan/LSan/Valgrind 仍不可用；UAF/越界只有页级替代。
+- Windows 的 ASan/UBSan/LSan/Valgrind 仍不可用；Linux CI 已覆盖 ASan/LSan（UAF+泄漏），UBSan/Valgrind 未做。
 - 未做跨平台（Linux/clang）复测。
 - 未做并发数据结构测试；E01 仍是单线程。
 - 未把数据结构接进业务项目。

@@ -1,0 +1,9 @@
+captured_at: 2026-11-08
+ci_run: 42441007669 (vault experiments / e02 job, success)
+note: GitHub runner 低核；加速比断言按设计跳过，事件循环响应仍强制断言。
+
+speedup=1.26x
+speedup_assertion=SKIPPED_LOW_CORE
+all_results_match=YES
+event_loop_responsive=YES
+WORKER_THREADS PASS

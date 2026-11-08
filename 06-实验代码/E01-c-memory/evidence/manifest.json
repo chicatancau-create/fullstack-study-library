@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E01",
-  "generated_at": "2026-11-07T15:00:24.751Z",
-  "commit": "e2e8e1e18f4093d46169002100989e84ad047bec",
+  "generated_at": "2026-11-08T03:04:28.758Z",
+  "commit": "42a4a6f8f82e27a7e85b694b23a48725f0201de3",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -17,6 +17,10 @@
     },
     {
       "cmd": "bash scripts/selftest_gate.sh",
+      "exit": 0
+    },
+    {
+      "cmd": "GitHub Actions Ubuntu: bash scripts/asan_linux.sh",
       "exit": 0
     }
   ],
@@ -65,9 +69,14 @@
       "path": "evidence/gate_selftest.txt",
       "bytes": 498,
       "sha256": "467fe450d0f66287851659a18c3a45f01e2ef186948004702d0d5aadb25888a7"
+    },
+    {
+      "path": "evidence/asan_linux.txt",
+      "bytes": 4575,
+      "sha256": "63c14ca867efaf0301121abe980f4d82d28bbe16e34c88da1f750e50a0ae7fbf"
     }
   ],
   "unverified": [
-    "ASan/UBSan/LSan/Valgrind 不可用；UAF 仅 Windows 页级替代；并发/跨平台未测"
+    "Windows无ASan；Linux CI ASan/LSan通过；UBSan/Valgrind未做；UAF页级夹具仍仅Windows"
   ]
 }
