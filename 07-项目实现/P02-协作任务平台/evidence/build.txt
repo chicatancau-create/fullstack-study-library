@@ -1,0 +1,5 @@
+
+> p02-collab-platform@1.0.0 build
+> node scripts/check-syntax.mjs
+
+build: 3 files checked, 0 failed

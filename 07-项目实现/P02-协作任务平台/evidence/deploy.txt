@@ -1,0 +1,1 @@
+本机无 Docker：compose 仅完成静态编写，未验证 up。CI 中由 services 提供 PostgreSQL 验证迁移与测试。

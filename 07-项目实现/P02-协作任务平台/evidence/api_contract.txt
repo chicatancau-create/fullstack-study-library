@@ -1,0 +1,8 @@
+OK   /auth/register
+OK   /auth/login
+OK   /auth/refresh
+OK   /workspaces
+OK   /workspaces/{id}/tasks
+OK   /tasks/{id}
+OK   /tasks/{id}/comments
+openapi: 7/7 paths present, version=3.0.3

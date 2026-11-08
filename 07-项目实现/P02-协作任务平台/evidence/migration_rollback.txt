@@ -1,0 +1,18 @@
+rollback: 9 statements applied, tables dropped
+Prisma schema loaded from prisma\schema.prisma
+Datasource "db": PostgreSQL database "study_lab_p02ms1", schema "public" at "127.0.0.1:5432"
+
+1 migration found in prisma/migrations
+
+Applying migration `20261108000000_init`
+
+The following migration(s) have been applied:
+
+migrations/
+  └─ 20261108000000_init/
+    └─ migration.sql
+      
+All migrations have been successfully applied.
+rollback: re-migrate exit=0
+(node:8688) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+(Use `node --trace-deprecation ...` to show where the warning was created)

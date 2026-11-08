@@ -1,0 +1,45 @@
+name: ms1-p02
+
+on:
+  push:
+    paths:
+      - '07-项目实现/P02-协作任务平台/**'
+      - '.github/workflows/ms1-p02.yml'
+  pull_request:
+    paths:
+      - '07-项目实现/P02-协作任务平台/**'
+      - '.github/workflows/ms1-p02.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 07-项目实现/P02-协作任务平台
+    services:
+      postgres:
+        image: postgres:18-alpine
+        env:
+          POSTGRES_USER: p02
+          POSTGRES_PASSWORD: p02-ci-pass
+          POSTGRES_DB: p02
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U p02 -d p02"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 20
+    env:
+      DATABASE_URL: postgresql://p02:p02-ci-pass@127.0.0.1:5432/p02?schema=public
+      JWT_SECRET: p02-ci-secret
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm ci
+      - run: npx prisma generate
+      - run: npx prisma migrate deploy
+      - run: npm test
+      - run: npm run build

@@ -1,0 +1,26 @@
+services:
+  db:
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_USER: p02
+      POSTGRES_PASSWORD: p02-local-pass
+      POSTGRES_DB: p02
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U p02 -d p02"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    ports:
+      - "5433:5432"
+
+  app:
+    build: .
+    environment:
+      DATABASE_URL: postgresql://p02:p02-local-pass@db:5432/p02?schema=public
+      JWT_SECRET: p02-local-jwt
+      PORT: "3102"
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "3102:3102"

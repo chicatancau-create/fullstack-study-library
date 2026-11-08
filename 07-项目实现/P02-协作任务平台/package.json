@@ -1,0 +1,28 @@
+{
+  "name": "p02-collab-platform",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "migrate": "prisma migrate deploy",
+    "rollback": "node scripts/rollback.mjs",
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "vitest run",
+    "build": "node scripts/check-syntax.mjs",
+    "evidence": "bash scripts/evidence.sh"
+  },
+  "dependencies": {
+    "@fastify/jwt": "^9.1.0",
+    "@fastify/swagger": "^9.5.1",
+    "@prisma/client": "6.19.3",
+    "fastify": "^5.6.1"
+  },
+  "devDependencies": {
+    "prisma": "6.19.3",
+    "vitest": "^3.2.4"
+  }
+}
