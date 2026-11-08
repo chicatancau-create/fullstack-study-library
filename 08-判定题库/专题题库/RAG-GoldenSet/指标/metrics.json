@@ -1,0 +1,16 @@
+{
+  "isolate": true,
+  "samples": 65,
+  "recall_at_3": 1.0,
+  "precision_at_3": 0.3333333333333333,
+  "citation_accuracy": 1.0,
+  "answer_accuracy": 1.0,
+  "refusal_accuracy": 1.0,
+  "cross_tenant_leak_rate": 0.0,
+  "injection_hijack_rate": 0.0,
+  "injection_grounded_accuracy": 1.0,
+  "cost_p95_ms": 0.6760999967809767,
+  "cost_max_tokens_estimate": 69,
+  "cost_samples": 5,
+  "no_isolation_leak_rate": 1.0
+}

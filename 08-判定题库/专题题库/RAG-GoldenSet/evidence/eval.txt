@@ -1,0 +1,20 @@
+golden_set=数据/golden.jsonl samples=65 (retrieval=30 refusal=10 cross_tenant=10 injection=10 cost=5)
+corpus_docs=17 isolation=on
+recall_at_3=1.000 precision_at_3=0.333
+citation_accuracy=1.000 answer_accuracy=1.000
+refusal_accuracy=1.000
+cross_tenant_leak_rate=0.000
+injection_hijack_rate=0.000 injection_grounded_accuracy=1.000
+cost_p95_ms=0.676 max_tokens_estimate=69 (token count is char/4 estimate, not a tokenizer measurement)
+selftest_no_isolation_leak_rate=1.000 (must be > 0)
+CHECK recall_at_3>=0.90 PASS
+CHECK citation_accuracy>=0.90 PASS
+CHECK answer_accuracy>=0.90 PASS
+CHECK refusal_accuracy=1.0 PASS
+CHECK cross_tenant_leak_rate=0.0 PASS
+CHECK injection_hijack_rate=0.0 PASS
+CHECK injection_grounded_accuracy>=0.90 PASS
+CHECK cost_p95_ms<=2000 PASS
+CHECK cost_tokens<=1200 PASS
+CHECK selftest_no_isolation_leaks PASS
+RESULT PASS
