@@ -1,23 +1,73 @@
-== https health
-HTTP/1.1 200 OK
-content-type: application/json; charset=utf-8
-x-content-type-options: nosniff
-x-request-id: 2b6dac3f-25a9-4bc9-af7f-4908c57b995b
-cache-control: no-store
-content-length: 15
-date: Sat, 07 Nov 2026 15:26:18 GMT
-connection: keep-alive
-keep-alive: timeout=72
-strict-transport-security: max-age=31536000; includeSubDomains
-
+== docker compose version
+Docker Compose version 2.40.3+ds1-0ubuntu1~24.04.1
+== docker compose up -d --build
+time="2026-11-08T11:29:19Z" level=warning msg="Docker Compose is configured to build using Bake, but buildkit isn't enabled"
+ Service app  Building
+Sending build context to Docker daemon  51.83kB
+Step 1/8 : FROM node:24-alpine
+ ---> a34ab6d7f6f4
+Step 2/8 : WORKDIR /app
+ ---> Using cache
+ ---> 9c383ff551de
+Step 3/8 : COPY package*.json ./
+ ---> Using cache
+ ---> 32d6b3ed7b02
+Step 4/8 : RUN npm ci
+ ---> Using cache
+ ---> 221776affeb0
+Step 5/8 : COPY . .
+ ---> bb068f23fee5
+Step 6/8 : EXPOSE 8797
+ ---> Running in 9a62b0f0dd97
+ ---> Removed intermediate container 9a62b0f0dd97
+ ---> 40aa8fa1d929
+Step 7/8 : CMD ["sh", "-c", "node scripts/migrate.mjs && node src/server.js"]
+ ---> Running in 943dd179bb51
+ ---> Removed intermediate container 943dd179bb51
+ ---> 31b6538660e1
+Step 8/8 : LABEL com.docker.compose.image.builder=classic
+ ---> Running in e84851dddfc6
+ ---> Removed intermediate container e84851dddfc6
+ ---> 5b5e0694ffb0
+Successfully built 5b5e0694ffb0
+Successfully tagged p04-app:latest
+ Service app  Built
+ app  Built
+ Container p04-db-1  Running
+ Container p04-redis-1  Running
+ Container p04-app-1  Recreate
+ Container p04-app-1  Recreated
+ Container p04-db-1  Waiting
+ Container p04-redis-1  Waiting
+ Container p04-db-1  Healthy
+ Container p04-redis-1  Healthy
+ Container p04-app-1  Starting
+ Container p04-app-1  Started
+== docker compose ps
+NAME          IMAGE                COMMAND                  SERVICE   CREATED         STATUS                        PORTS
+p04-app-1     p04-app              "docker-entrypoint.s…"   app       5 seconds ago   Up 3 seconds                  0.0.0.0:8797->8797/tcp, [::]:8797->8797/tcp
+p04-db-1      postgres:18-alpine   "docker-entrypoint.s…"   db        6 minutes ago   Up About a minute (healthy)   0.0.0.0:5435->5432/tcp, [::]:5435->5432/tcp
+p04-redis-1   redis:7-alpine       "docker-entrypoint.s…"   redis     6 minutes ago   Up About a minute (healthy)   0.0.0.0:6380->6379/tcp, [::]:6380->6379/tcp
+== GET http://127.0.0.1:8797/health
 {"status":"ok"}
-== tls version
-New, TLSv1.2, Cipher is ECDHE-RSA-AES128-GCM-SHA256
-Protocol: TLSv1.2
-== plain http to tls port (expect failure)
-curl: (52) Empty reply from server
-plain_http_exit=52
-== cert
-subject=CN=127.0.0.1
-sha256 Fingerprint=A1:25:0C:1A:45:EF:82:64:6B:3F:EE:CF:B1:96:B5:BC:88:50:DE:3E:7A:59:35:3D:26:26:78:AF:DD:BC:48:E5
+== GET http://127.0.0.1:8797/metrics
+# HELP p04_http_requests_total HTTP requests by method and status
+# TYPE p04_http_requests_total counter
+p04_http_requests_total{method="GET",status="200"} 1
+# HELP p04_jobs_pending Pending background jobs
+# TYPE p04_jobs_pending gauge
+p04_jobs_pending 0
+# HELP p04_jobs_failed Failed background jobs
+# TYPE p04_jobs_failed gauge
+p04_jobs_failed 0
+== docker compose logs --tail=20 app
+app-1  | p04 tables=audit_events,clients,followups,invitations,job_results,jobs,memberships,schema_migrations,sessions,tenants,users
+app-1  | redis: login rate limiter enabled
+app-1  | {"level":30,"time":1794137369347,"pid":1,"hostname":"df71fab74c34","msg":"Server listening at http://127.0.0.1:8797"}
+app-1  | project04 listening on http://0.0.0.0:8797
+app-1  | {"level":30,"time":1794137369347,"pid":1,"hostname":"df71fab74c34","msg":"Server listening at http://172.21.0.4:8797"}
+app-1  | {"level":30,"time":1794137371916,"pid":1,"hostname":"df71fab74c34","reqId":"5dcf839e-102d-4e68-a714-5ec4c2c836e2","req":{"method":"GET","url":"/health","host":"127.0.0.1:8797","remoteAddress":"172.21.0.1","remotePort":47988},"msg":"incoming request"}
+app-1  | {"level":30,"time":1794137371923,"pid":1,"hostname":"df71fab74c34","reqId":"5dcf839e-102d-4e68-a714-5ec4c2c836e2","res":{"statusCode":200},"responseTime":6.019916999999623,"msg":"request completed"}
+app-1  | {"level":30,"time":1794137372029,"pid":1,"hostname":"df71fab74c34","reqId":"bb543ca5-5823-4d6a-9360-bb3195e76f31","req":{"method":"GET","url":"/metrics","host":"127.0.0.1:8797","remoteAddress":"172.21.0.1","remotePort":47992},"msg":"incoming request"}
+app-1  | {"level":30,"time":1794137372051,"pid":1,"hostname":"df71fab74c34","reqId":"bb543ca5-5823-4d6a-9360-bb3195e76f31","res":{"statusCode":200},"responseTime":21.29365000000007,"msg":"request completed"}
 DEPLOY PASS

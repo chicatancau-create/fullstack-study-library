@@ -45,7 +45,9 @@ npm start   # http://127.0.0.1:3102，OpenAPI: /openapi.json
 docker compose up --build
 ```
 
-> 本机（Windows，无 Docker）只验证了 `docker compose config`，未实际执行 `up`；CI 用 PostgreSQL service 验证迁移与测试。该边界写在 `evidence/deploy.txt`。
+> 已在隔离 Ubuntu 虚拟机实际执行 `docker compose up --build`：db healthy、app 启动后
+> `GET /openapi.json` 返回 200。用 `bash scripts/deploy-evidence.sh` 复跑并生成
+> `evidence/deploy.txt`；Windows 本机无 Docker，CI 用 PostgreSQL service 验证迁移与测试。
 
 ## 测试与证据
 
@@ -62,7 +64,7 @@ npm run evidence  # 迁移、测试、契约、并发、回滚演练 → evidenc
 | `evidence/api_contract.txt` | OpenAPI 关键路径存在性 |
 | `evidence/concurrency.txt` | 同一 Owner 并发创建，[201, 409] |
 | `evidence/migration_rollback.txt` | down.sql 删表后 `migrate deploy` 恢复 |
-| `evidence/deploy.txt` | compose 静态检查或“无 Docker”边界说明 |
+| `evidence/deploy.txt` | 隔离 VM 上真实 `docker compose up`：compose ps、OpenAPI 200、app 日志 |
 
 ## API
 

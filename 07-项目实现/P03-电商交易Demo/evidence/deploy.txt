@@ -1,18 +1,60 @@
-== https health
-HTTP/1.1 200 OK
-content-type: application/json; charset=utf-8
-x-content-type-options: nosniff
-content-length: 15
-date: Sat, 07 Nov 2026 15:35:44 GMT
-connection: keep-alive
-keep-alive: timeout=72
-strict-transport-security: max-age=31536000; includeSubDomains
-
+== docker compose version
+Docker Compose version 2.40.3+ds1-0ubuntu1~24.04.1
+== docker compose up -d --build
+time="2026-11-08T11:29:16Z" level=warning msg="Docker Compose is configured to build using Bake, but buildkit isn't enabled"
+ Service app  Building
+Sending build context to Docker daemon  31.36kB
+Step 1/8 : FROM node:24-alpine
+ ---> a34ab6d7f6f4
+Step 2/8 : WORKDIR /app
+ ---> Using cache
+ ---> 9c383ff551de
+Step 3/8 : COPY package*.json ./
+ ---> Using cache
+ ---> b84e3aee70b4
+Step 4/8 : RUN npm ci
+ ---> Using cache
+ ---> 15e914cd89e4
+Step 5/8 : COPY . .
+ ---> b5581dd5fe09
+Step 6/8 : EXPOSE 8796
+ ---> Running in 1b2b27705a0a
+ ---> Removed intermediate container 1b2b27705a0a
+ ---> c1661cdbeb95
+Step 7/8 : CMD ["sh", "-c", "node scripts/migrate.mjs && node src/server.js"]
+ ---> Running in 74f7a58a78fd
+ ---> Removed intermediate container 74f7a58a78fd
+ ---> bd8feb6f448c
+Step 8/8 : LABEL com.docker.compose.image.builder=classic
+ ---> Running in f9a79da4e1b4
+ ---> Removed intermediate container f9a79da4e1b4
+ ---> 4949599addfa
+Successfully built 4949599addfa
+Successfully tagged p03-app:latest
+ Service app  Built
+ app  Built
+ Container p03-db-1  Running
+ Container p03-mq-1  Running
+ Container p03-app-1  Recreate
+ Container p03-app-1  Recreated
+ Container p03-db-1  Waiting
+ Container p03-mq-1  Waiting
+ Container p03-db-1  Healthy
+ Container p03-mq-1  Healthy
+ Container p03-app-1  Starting
+ Container p03-app-1  Started
+== docker compose ps
+NAME        IMAGE                          COMMAND                  SERVICE   CREATED          STATUS                        PORTS
+p03-app-1   p03-app                        "docker-entrypoint.s…"   app       4 seconds ago    Up 3 seconds                  0.0.0.0:8796->8796/tcp, [::]:8796->8796/tcp
+p03-db-1    postgres:18-alpine             "docker-entrypoint.s…"   db        10 minutes ago   Up About a minute (healthy)   0.0.0.0:5434->5432/tcp, [::]:5434->5432/tcp
+p03-mq-1    rabbitmq:4-management-alpine   "docker-entrypoint.s…"   mq        10 minutes ago   Up About a minute (healthy)   4369/tcp, 5671/tcp, 15671/tcp, 15691-15692/tcp, 25672/tcp, 0.0.0.0:5673->5672/tcp, [::]:5673->5672/tcp, 0.0.0.0:15673->15672/tcp, [::]:15673->15672/tcp
+== GET http://127.0.0.1:8796/health
 {"status":"ok"}
-== tls version
-New, TLSv1.2, Cipher is ECDHE-RSA-AES128-GCM-SHA256
-Protocol: TLSv1.2
-== plain http (expect failure)
-curl: (52) Empty reply from server
-plain_http_exit=52
+== docker compose logs --tail=20 app
+app-1  | p03 tables=inventory,notifications,order_items,orders,outbox,payment_events,schema_migrations
+app-1  | {"level":30,"time":1794137362157,"pid":1,"hostname":"962044b4a04a","msg":"Server listening at http://127.0.0.1:8796"}
+app-1  | project03 listening on http://0.0.0.0:8796
+app-1  | {"level":30,"time":1794137362157,"pid":1,"hostname":"962044b4a04a","msg":"Server listening at http://172.20.0.4:8796"}
+app-1  | {"level":30,"time":1794137364791,"pid":1,"hostname":"962044b4a04a","reqId":"req-1","req":{"method":"GET","url":"/health","host":"127.0.0.1:8796","remoteAddress":"172.20.0.1","remotePort":46990},"msg":"incoming request"}
+app-1  | {"level":30,"time":1794137364796,"pid":1,"hostname":"962044b4a04a","reqId":"req-1","res":{"statusCode":200},"responseTime":4.645472000000154,"msg":"request completed"}
 DEPLOY PASS

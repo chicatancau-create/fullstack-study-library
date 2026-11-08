@@ -35,7 +35,9 @@ PGPASSWORD=study-pass bash scripts/run_project.sh
 docker compose up --build   # PostgreSQL 18 + Redis 7 + app
 ```
 
-> 本机（Windows，无 Docker）只完成 compose 编写与静态检查，未实机执行 `up`；本机证据来自原生 PostgreSQL 18.6 + Redis 7。CI 用 service 容器跑迁移、测试与 build。
+> 已在隔离 Ubuntu 虚拟机实际执行 `docker compose up --build`：db 与 Redis healthy、
+> app 启动后 `GET /health` 返回 200、`/metrics` 有输出。用 `bash scripts/deploy-evidence.sh`
+> 复跑并生成 `evidence/deploy.txt`；Windows 本机无 Docker，本机功能证据来自原生 PostgreSQL 18.6 + Redis 7，CI 用 service 容器跑迁移、测试与 build。
 
 ## 已实现
 

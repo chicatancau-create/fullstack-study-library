@@ -1,3 +1,4 @@
+name: p04
 services:
   db:
     image: postgres:18-alpine

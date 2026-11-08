@@ -12,5 +12,5 @@
 
 - 代码：`src/` 可启动，测试覆盖主路径与失败路径。
 - 证据：`npm run evidence` 现场生成，不手改 `evidence/*.txt`。
-- 部署：提供 `docker-compose.yml`；本机无 Docker 时只做静态检查，并在证据里写明边界。
+- 部署：提供 `docker-compose.yml` 与 `scripts/deploy-evidence.sh`；三套栈已在隔离 Ubuntu VM 实跑 `up` 并生成 `evidence/deploy.txt`，Windows 宿主机无 Docker 时只做静态检查。
 - 状态只按实际证据更新；P03/P04 未建设前不勾选。
