@@ -20,7 +20,7 @@
 - 深度模块：可恢复后台提醒任务（SKIP LOCKED 并发、重试、崩溃恢复、200 任务压测）。
 - 可观测/交付：OTel 同 trace（HTTP+PG）、本地自签名 HTTPS/TLS1.2/HSTS、上一版本回滚 health 通过；
   Docker/Compose、K3s 两节点同 VM（自愈/rollout undo/资源限制/Traefik Ingress/agent-1 调度）、Prometheus+Alertmanager 本地 webhook、GitHub Actions 8 job 全绿。
-- 未实现：前端、邮件发送、登录限流/MFA、分页、多机/HA/持久公网入口、常驻监控/外部通知渠道、生产级容量与故障演练。
+- 未实现：前端、邮件发送、登录限流/MFA、分页、多机/HA/持久公网入口、常驻监控、生产级容量与故障演练；外部通知渠道已有 ntfy.sh 演练。
   未勾选项即未验证；本项目不能宣称完成毕业验收或具备生产支付/合规能力。
 
 ## 本项目已收集资料
