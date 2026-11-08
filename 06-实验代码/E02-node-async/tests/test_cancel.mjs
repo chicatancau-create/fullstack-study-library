@@ -83,7 +83,7 @@ const asError = (p) => p.catch((error) => error);
   await within(1000, () => pool.drain(), 'drain 等底层全部结束');
   eq('清理：drain 后 running=0', pool.stats().running, 0);
   eq('清理：drain 后 queued=0', pool.stats().queued, 0);
-  eq('清理：五个底层函数都真实跑完了', underlying.sort().join(','), 't0,t1,t4');
+  eq('清理：五个任务均有终态，三个已启动函数跑完', underlying.sort().join(','), 't0,t1,t4');
   eq('清理：三个被取消的执行中任务事后完成', pool.stats().lateAfterCancel, 3);
   eq('清理：被取消的 t2/t3 确实没有执行', started.includes('t2') || started.includes('t3'), false);
 }
