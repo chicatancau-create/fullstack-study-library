@@ -1,2 +1,5 @@
 *.sh text eol=lf
-06-实验代码/**/evidence/*.txt text eol=lf
+# 证据文件按原字节入库：manifest 的 SHA-256 是对工作区字节计算的，
+# 若强制 LF，git archive 解出的文件与 manifest 不一致。
+06-实验代码/**/evidence/*.txt -text
+06-实验代码/**/evidence/*.json -text
