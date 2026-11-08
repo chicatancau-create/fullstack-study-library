@@ -1,5 +1,5 @@
 # E02 / 回归：空池等位、关闭、failFast 真值性、清理、参数矩阵
-# node v24.15.0  pid 15520  captured_at 2026-11-08T02:09:57.131Z
+# node v24.15.0  pid 57892  captured_at 2026-11-08T04:22:56.904Z
 ok 1 - maxQueue=0 空池 waitForSlot 立即返回
 ok 2 - maxQueue=0 忙碌时 waitForSlot 未提前返回
 ok 3 - maxQueue=0 槽位释放后 waitForSlot 返回
