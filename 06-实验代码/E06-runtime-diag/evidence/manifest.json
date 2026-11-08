@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E06",
-  "generated_at": "2026-11-07T12:23:28.541Z",
-  "commit": "625b678ff15afc46e7974b0472d8090e99c2e0c3",
+  "generated_at": "2026-11-08T05:56:29.353Z",
+  "commit": "934172d92a26bd71b226b662c4e6e5f02bb5fc93",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -19,8 +19,8 @@
   "artifacts": [
     {
       "path": "evidence/env.txt",
-      "bytes": 133,
-      "sha256": "c666448249f530f3cef5e7cdd55c307f9622513f7ca77e391a1710feb376bf2c"
+      "bytes": 132,
+      "sha256": "5f15714f3255d5dda79d567e37c30f87a0fd391dd05e7d6d56376a51c8b8bb7b"
     },
     {
       "path": "evidence/run.txt",
