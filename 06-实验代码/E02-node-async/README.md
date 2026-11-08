@@ -20,7 +20,7 @@
 
 - 已补 worker_threads 对照：本机 4 个 CPU 密集任务加速 1.85–2.76x；CI 2 核只强制断言事件循环响应，加速比标记 SKIPPED_LOW_CORE。见 `scenarios/worker_threads.mjs` 与 `evidence/worker_threads.txt`。
 - 没有接真实数据库/HTTP 客户端，"下游调用"用 `setTimeout` 代表，因此**吞吐与延迟不是本实验结论**。
-- 没有做跨进程/分布式取消（那需要协议，不是单进程 API）。
+- 已做父进程经 IPC 取消子进程任务的协议（`src/cancel-child.mjs`）；没有做多主机/分布式取消。
 - 没有测量 `--max-old-space-size` 边界，堆增长只做量级参考。
 
 ## 2. 假设（可证伪）
@@ -257,7 +257,7 @@ C. 有界队列 + waitForSlot 等位
 5. **没有测量内存上限。** 堆增长采样受 GC 时机影响，只能看量级，不能当泄漏证据。
 6. **`waitForSlot` 在没有空槽且队列已满时等待。** `maxQueue=0` 的空池会立即返回；忙碌时等某个槽位释放，关闭/failFast 时也会唤醒。若下游长期不结束，生产端仍必须自己加超时或取消。
 7. **failFast 的原子性未覆盖。** 快照取的是失败函数结算那一刻的状态；多任务几乎同时失败时，只有第一个会触发丢弃，其余按普通失败处理。假值异常本身已由独立标记覆盖，但“同时失败”的竞态仍未测。
-8. **仍是单进程实验。** 已补进程内 worker_threads；没有跨进程取消、没有真实连接池；结论不能直接外推到生产资源。
+8. **仍有单进程边界。** 已补进程内 worker_threads 与父子进程取消协议；没有多主机/分布式取消、没有真实连接池；结论不能直接外推到生产资源。
 
 所以本实验**不声称"并发正确"**，只声称："在给定装置下，这四类语义（上限、乱序、失败、取消/超时）被稳定复现、可用断言复核、并且有明确边界。"
 
@@ -277,6 +277,7 @@ C. 有界队列 + waitForSlot 等位
 ```text
 E02-node-async/
 ├── src/
+│   ├── cancel-child.mjs      子进程：IPC 任务与取消
 │   ├── pool.mjs              任务池：并发上限 / 队列上限 / 超时 / 取消 / failFast / waitForSlot
 │   └── measure.mjs           事件循环延迟采样、堆采样、闸门、waitUntil
 ├── tests/
@@ -286,7 +287,8 @@ E02-node-async/
 │   ├── test_failure.mjs      首项失败快照与丢弃语义（含 failFast 关闭的对照）
 │   ├── test_cancel.mjs       排队态/执行态取消、全部结算、资源清理
 │   ├── test_timeout.mjs      超时≠撤销、槽位占用、迟到抛错、上界组合
-│   └── test_regressions.mjs  空池等位、关闭、failFast 假值、监听器/waiter 清理、参数矩阵、取消×超时
+│   ├── test_regressions.mjs  空池等位、关闭、failFast 假值、监听器/waiter 清理、参数矩阵、取消×超时
+│   └── test_cross_process.mjs 父进程 IPC 取消子进程任务
 ├── scenarios/
 │   ├── cx_unbounded_concurrency.mjs  反例 1：无界并发
 │   ├── cx_busy_loop.mjs              反例 2：同步 CPU 忙循环
@@ -334,4 +336,4 @@ cat evidence/test_run.txt
 
 `scripts/selftest_gate.sh` 在临时副本中禁用 `submit` 的 `failFastTriggered` 分支，`run_all.sh` 实测退出码 1，`test_regressions` 出现 5 个 `not ok`，并写入 `evidence/gate_selftest.txt`。这证明门禁会在实现被破坏时变红，而不是只打印。
 
-仍未覆盖：跨进程取消、真实连接池/HTTP 下游、failFast 多任务同时失败的原子性、堆上限；worker_threads 仅做 CPU 并行对照。E02 仍只提供 G2 的异步调度/取消一项。
+仍未覆盖：多主机/分布式取消、真实连接池/HTTP 下游、failFast 多任务同时失败的原子性、堆上限；跨进程取消只做父子进程 IPC。E02 仍只提供 G2 的异步调度/取消一项。

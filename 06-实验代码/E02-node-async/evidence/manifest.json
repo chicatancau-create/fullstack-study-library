@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E02",
-  "generated_at": "2026-11-08T03:04:35.247Z",
-  "commit": "42a4a6f8f82e27a7e85b694b23a48725f0201de3",
+  "generated_at": "2026-11-08T04:23:16.067Z",
+  "commit": "9ee7ad02368c049dcab38fe19a6be8531143196e",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -28,67 +28,72 @@
     {
       "path": "evidence/env.txt",
       "bytes": 1642,
-      "sha256": "0dc65780830d928821c0447017f8a53b37b847e69ba2e1b186d8974e0d017ee9"
+      "sha256": "8a90ff3e5f27aa2379e8e814b8cbad758f80cea8b290b3a37794e8c7293e3aea"
     },
     {
       "path": "evidence/test_run.txt",
-      "bytes": 437,
-      "sha256": "29877dd3654f79f71c9b407302d9e973b4785416cf8fb7b7b171c6ccc1ca6f3d"
+      "bytes": 480,
+      "sha256": "19438707236beb2e78c99383349e2440027e5f906927a85141e63f140b50c3c5"
     },
     {
       "path": "evidence/test_pool.txt",
       "bytes": 1442,
-      "sha256": "3bb2430894473b5130ff1a8c3fa29f6eb9cd8f504d2f096b5c0fcb854e201c17"
+      "sha256": "0951b1e59a8f405a86eebb644a8904d7c5c061058c336a338f7f862cd60fcc8a"
     },
     {
       "path": "evidence/test_ordering.txt",
-      "bytes": 653,
-      "sha256": "2bbf340c55c8615dd8a989a8114bdf6886440df8b1a715be8a532467742779fd"
+      "bytes": 652,
+      "sha256": "7c2662f55429564a82d919bea72650975f0108ec67d1444b223811fdda658e08"
     },
     {
       "path": "evidence/test_failure.txt",
       "bytes": 1575,
-      "sha256": "2e74825beba1cef7e92d623d9b881c965c649887b16ed03dacce42841270e4e2"
+      "sha256": "eb642f0f83521f6da9029e5aebd4c5de495f133e1ea78af4ebce13550ca952da"
     },
     {
       "path": "evidence/test_cancel.txt",
       "bytes": 2087,
-      "sha256": "c80c4d24f35aea2ff55ceef4578b77ce89e204f324a32f314c5e5236b3122cb2"
+      "sha256": "ee9abee089033c34016c98d7a14f366b5860e3f1c224e4b574a35f535514b935"
     },
     {
       "path": "evidence/test_timeout.txt",
       "bytes": 1869,
-      "sha256": "520716f7070b5921ae8ef65b3b71e90062c8567a281ca11bd86cf7671b33277e"
+      "sha256": "271b7a284379e5e6ca7ba7f2bd78e24f9d1f686ea40e1ae52d51aee966c54bd8"
     },
     {
       "path": "evidence/test_regressions.txt",
       "bytes": 1870,
-      "sha256": "086e10896769bec4934238a06a2d48e719482267d9a8ba32843e41b28950cdd8"
+      "sha256": "cf5fa0dd1c9ad6f9d3fd50f82864851e3e102c87a1aaa17069cb984491a4ab3d"
+    },
+    {
+      "path": "evidence/test_cross_process.txt",
+      "bytes": 24,
+      "sha256": "70d8567033d8d7874b35207eb02eef389a45a5bbc395ce32193e4cf1cdb8a8b2"
     },
     {
       "path": "evidence/cx_unbounded_concurrency.txt",
       "bytes": 1027,
-      "sha256": "acdb025112920d4d3d0fa7ffddb519c8c19bddb2f292c5f7579d88b1a3c76414"
+      "sha256": "636f8c0db2614fbb97938a22d78854638871496fa3bdc49f2a28c16169489e93"
     },
     {
       "path": "evidence/cx_busy_loop.txt",
       "bytes": 1517,
-      "sha256": "cd644ffc832296bc3d073fc4f84e161b48360f074bb31c8c437f7d82ccdba568"
+      "sha256": "d07b6a46f4e9ae655c30361ab5526d0cc4f4723a2260a4a664a6cefc7bd96bb1"
     },
     {
       "path": "evidence/cx_fast_producer.txt",
       "bytes": 1729,
-      "sha256": "814ac66c7d620287d15baba5a2c6643eee3fc1869c6f28be85c80d94f9d1e19e"
+      "sha256": "b3867479222828be7d09d3e3aad17d07859636ec827aae4200d2c59ef23b2d69"
     },
     {
       "path": "evidence/backpressure_rates.txt",
       "bytes": 1228,
-      "sha256": "2f35a620fae90e77bba8b871a7aaf48da626a4874124f9eb01f325872af5d67b"
+      "sha256": "8880cea223569416da382e27ca72ccd2429f9997960719931ff07955aacc5879"
     },
     {
       "path": "evidence/worker_threads.txt",
-      "bytes": 214,
-      "sha256": "5c694d96df9912c213a82e80ec8a8f7bd3ef03a1cee4cdd45a95a189451b6c35"
+      "bytes": 241,
+      "sha256": "979b074709983df44e135e408d717202427f694c240c79fb3922788fda4435ca"
     },
     {
       "path": "evidence/worker_threads_ci.txt",
@@ -102,6 +107,6 @@
     }
   ],
   "unverified": [
-    "跨进程取消/真实连接池未测；worker_threads仅做CPU并行对照；failFast多任务同时失败原子性未测"
+    "多主机/分布式取消未测；worker_threads仅CPU并行对照；failFast多任务同时失败原子性未测"
   ]
 }

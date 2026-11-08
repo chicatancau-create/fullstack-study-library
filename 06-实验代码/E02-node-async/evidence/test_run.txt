@@ -1,4 +1,4 @@
-captured_at: 2026-11-08T10:09:58+08:00
+captured_at: 2026-11-08T12:22:58+08:00
 
 == 各测试判定 ==
 test_pool          test_pool checks=28 fails=0 : PASS
@@ -7,6 +7,7 @@ test_failure       test_failure checks=27 fails=0 : PASS
 test_cancel        test_cancel checks=37 fails=0 : PASS
 test_timeout       test_timeout checks=32 fails=0 : PASS
 test_regressions   test_regressions checks=37 fails=0 : PASS
+test_cross_process checks=4 fails=0 : PASS
 
 == 失败项（如有）==
 无

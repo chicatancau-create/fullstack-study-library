@@ -53,13 +53,14 @@ check_test() {
 run_step env.txt "环境探测（真实执行）" node scripts/env.mjs
 
 # ---------- 2. 六个测试 ----------
-TESTS=(test_pool test_ordering test_failure test_cancel test_timeout test_regressions)
+TESTS=(test_pool test_ordering test_failure test_cancel test_timeout test_regressions test_cross_process)
 run_step test_pool.txt        "基础语义：并发上限 / FIFO / 队列上限 / 关闭 / 同步异常 / 参数校验" node tests/test_pool.mjs
 run_step test_ordering.txt    "确定性乱序完成"                                                    node tests/test_ordering.mjs
 run_step test_failure.txt     "首项失败：运行中与待运行任务的处理"                                  node tests/test_failure.mjs
 run_step test_cancel.txt      "取消：全部 Promise 结算，底层不消失"                                 node tests/test_cancel.mjs
 run_step test_timeout.txt     "超时：调用方停止等待，不等于底层撤销"                                node tests/test_timeout.mjs
 run_step test_regressions.txt "回归：空池等位 / 关闭 / failFast 真值性 / 监听器清理 / 参数矩阵 / 取消×超时" node tests/test_regressions.mjs
+run_step test_cross_process.txt "跨进程取消：父进程通过 IPC 取消子进程任务" node tests/test_cross_process.mjs
 
 for t in "${TESTS[@]}"; do
     check_test "$t"

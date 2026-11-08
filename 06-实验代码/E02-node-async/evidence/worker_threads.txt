@@ -1,8 +1,9 @@
 cpu_parallelism=32
 workers=1+4 iterations=12000000
-serial_4_tasks_ms=595.17 serial_ticks=0
-worker_4_tasks_ms=266.81 worker_ticks=17
-speedup=2.23x
+serial_4_tasks_ms=669.32 serial_ticks=0
+worker_4_tasks_ms=256.67 worker_ticks=17
+speedup=2.61x
+speedup_assertion=ENFORCED
 all_results_match=YES
 event_loop_responsive=YES
 WORKER_THREADS PASS
