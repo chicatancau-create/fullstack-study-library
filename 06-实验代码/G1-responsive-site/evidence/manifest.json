@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "G1",
-  "generated_at": "2026-11-08T05:52:37.342Z",
-  "commit": "7991bb45749b07e77000ab3a48cb30a1d6afdc04",
+  "generated_at": "2026-11-08T06:16:47.009Z",
+  "commit": "3212de51bc3a0184354b91aa758273fba0058e70",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -10,12 +10,17 @@
     "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
     "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
   },
-  "commands": [],
+  "commands": [
+    {
+      "cmd": "bash scripts/run_audit.sh",
+      "exit": 0
+    }
+  ],
   "artifacts": [
     {
       "path": "evidence/env.json",
       "bytes": 364,
-      "sha256": "646f6c2e8d44da9b0c73a0eba315e988b9e7e05a4d86fb3acb0511445e24a005"
+      "sha256": "13eb0e6e772c101f4a216308827ad2879f1c2637e807e4cac6f14ec901a6483a"
     },
     {
       "path": "evidence/axe-summary.json",

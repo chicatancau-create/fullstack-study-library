@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E04",
-  "generated_at": "2026-11-08T05:52:36.779Z",
-  "commit": "7991bb45749b07e77000ab3a48cb30a1d6afdc04",
+  "generated_at": "2026-11-08T06:15:42.104Z",
+  "commit": "3212de51bc3a0184354b91aa758273fba0058e70",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -10,32 +10,37 @@
     "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
     "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
   },
-  "commands": [],
+  "commands": [
+    {
+      "cmd": "bash scripts/run_evidence.sh",
+      "exit": 0
+    }
+  ],
   "artifacts": [
     {
       "path": "evidence/status-codes.txt",
-      "bytes": 3825,
-      "sha256": "adcc20897b281368e0aac40b3f9f2eea70056b70d350a2b31902225cce425702"
+      "bytes": 3924,
+      "sha256": "1161c620e3b9a929e54d7f4d72168ae3d0b8b4efbf1ee0cb95ce9539c5adb946"
     },
     {
       "path": "evidence/cache.txt",
-      "bytes": 1236,
-      "sha256": "c4d7abfbadb2d7824d8d07749480b1aa1be264604c59bab998707aa11bf32631"
+      "bytes": 1267,
+      "sha256": "e3c51c6f9de4c8cb96ed654d12ee898cecbcaebfefa8898e23655ebef71601bd"
     },
     {
       "path": "evidence/cookies.txt",
-      "bytes": 1874,
-      "sha256": "1ce4efa805db02df2be662e6063cc055cd40e3483ba87def1ed0ef1d7040a12a"
+      "bytes": 1919,
+      "sha256": "7b4bfac5f926075b1e474aee27f1c35f96dcc5b73246373f385a905cad804bef"
     },
     {
       "path": "evidence/cookie-jar.txt",
-      "bytes": 252,
-      "sha256": "30747a0189422d68e542e45f966512cfb24b1fe82067bd6a501f127697478182"
+      "bytes": 258,
+      "sha256": "b0a959a59cd9088b40108f2cd2ed35bc45fc7f66be32446db25591c777784784"
     },
     {
       "path": "evidence/cors-curl.txt",
-      "bytes": 2658,
-      "sha256": "12786cff188757846e254295a4243ee84693560602434fda12b93f321b5cc13d"
+      "bytes": 2722,
+      "sha256": "d59cabc992909cd3b3e1ffbfae96d532e74156aec6dc6dc66a3733ec642000a3"
     },
     {
       "path": "evidence/browser-cors.txt",
@@ -45,7 +50,7 @@
     {
       "path": "evidence/browser-cors.json",
       "bytes": 4085,
-      "sha256": "edba1f1f5c14767c22f24d4437c4a2dcf88a340e7099752f95c3f94630290a8e"
+      "sha256": "e99bf75315588b5d567990b92a39c72545386df5f27b399fe5595aee052b3921"
     },
     {
       "path": "evidence/cors-browser.png",
@@ -54,13 +59,13 @@
     },
     {
       "path": "evidence/failures.txt",
-      "bytes": 986,
-      "sha256": "677b0d0b189a150723e21c964fb70e23559a8f9905e4f88592d6903a3e70daa3"
+      "bytes": 1001,
+      "sha256": "f5962fff38b476f5711e24ad47131e89a386e0fda2ab389da3e69237112680c2"
     },
     {
       "path": "evidence/server.log",
       "bytes": 3065,
-      "sha256": "ddca44b8b6f244fe449ec716c7f26e909c9af46270fd9d6bbc4bdcd21663f187"
+      "sha256": "f57f4b937ee660f6b01523fb6c55e5a94775d71f4975f6af77f9a60a7c326485"
     }
   ],
   "unverified": [
