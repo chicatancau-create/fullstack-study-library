@@ -5,6 +5,17 @@ on:
   pull_request:
 
 jobs:
+  e01-asan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - run: bash 06-实验代码/E01-c-memory/scripts/asan_linux.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: e01-asan-evidence
+          path: 06-实验代码/E01-c-memory/evidence/asan_linux.txt
+
   e02:
     runs-on: ubuntu-latest
     steps:
