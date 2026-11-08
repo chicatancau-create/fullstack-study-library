@@ -1,16 +1,16 @@
 OK   source-only: 通过：catalog、Schema、统计、视图、Markdown 与链接检查无错误。
 OK   manifest P01: manifest OK: P01, 15 artifacts, commit a40b91130f55b001b339ef7a0e5245196a00a746
-OK   manifest P02: manifest OK: P02, 12 artifacts, commit e616905512ebcd0ec0571d7ed9a303c314434466
-OK   manifest B5-01: manifest OK: B5-01, 20 artifacts, commit befe95bd4cd64cb8f6654e2a83c90820fd3baa55
+OK   manifest P02: manifest OK: P02, 11 artifacts, commit 9e1df1c20d0d567e2b04e90e0c4a17edee379869
+OK   manifest B5-01: manifest OK: B5-01, 20 artifacts, commit 8ed5c3c038ccb8caeb5bf34122c3ec51621b1ae7
 OK   manifest B5-03: manifest OK: B5-03, 4 artifacts, commit 3ac07eb289e60f2f7b17c10e401f46fcf7804065
-OK   manifest P03: manifest OK: P03, 12 artifacts, commit 677087d47204e1872c96f6ab1a7f7561c471829a
-OK   manifest P04: manifest OK: P04, 25 artifacts, commit d7faa0a5a40dcdf8b6132b8a7162563f9979c4d8
-OK   manifest P05: manifest OK: P05, 9 artifacts, commit b22ba009c2c1f8b389d94e05ae1764bb190b4fec
+OK   manifest P03: manifest OK: P03, 12 artifacts, commit b991695007f234bb7a860b71d5f4daa392432d67
+OK   manifest P04: manifest OK: P04, 25 artifacts, commit 5f90b54fb76e277e6e153ce05e58794745108ae7
+OK   manifest P05: manifest OK: P05, 9 artifacts, commit 5f90b54fb76e277e6e153ce05e58794745108ae7
 OK   manifest B6-02: manifest OK: B6-02, 9 artifacts, commit aea6e7b739743d5c00a3146246824987b63af7ef
 OK   manifest E01: manifest OK: E01, 10 artifacts, commit 8ed6291596bbac04fd597a2550cac97fd27ebcec
 OK   manifest E02: manifest OK: E02, 16 artifacts, commit ee859250eb2aa528acfeb73e2d8080016c93bbbd
 OK   manifest E03: manifest OK: E03, 4 artifacts, commit 8b0f1c441ada1f57c4cfc1b0388ea3d95311a5fa
-OK   manifest E04: manifest OK: E04, 10 artifacts, commit 7991bb45749b07e77000ab3a48cb30a1d6afdc04
+OK   manifest E04: manifest OK: E04, 10 artifacts, commit 00f8e58c7c77597120a5579c3f76444d1ba27dfb
 OK   manifest E05: manifest OK: E05, 9 artifacts, commit a863b93ef8907a34d61d1eafb008266d332b12bc
 OK   manifest E06: manifest OK: E06, 7 artifacts, commit 934172d92a26bd71b226b662c4e6e5f02bb5fc93
 OK   manifest E07: manifest OK: E07, 3 artifacts, commit ad4192821247717d42848ec26a92eb75274d0e60
@@ -20,7 +20,7 @@ OK   manifest E11: manifest OK: E11, 3 artifacts, commit ed76ae155fd1b3899584dec
 OK   manifest E12: manifest OK: E12, 3 artifacts, commit b47f170eacbdaa0b4a9be04c8ecc4298b8c023f9
 OK   manifest E13: manifest OK: E13, 4 artifacts, commit 41b48490327600bb66a280f260df7245e5e76467
 OK   manifest E10: manifest OK: E10, 6 artifacts, commit 948fc6fc432379dcb5ceae72c08fd3ce5063fa36
-OK   manifest G1: manifest OK: G1, 16 artifacts, commit 7991bb45749b07e77000ab3a48cb30a1d6afdc04
+OK   manifest G1: manifest OK: G1, 16 artifacts, commit 3212de51bc3a0184354b91aa758273fba0058e70
 OK   practice secret names: none
 OK   vault secret names: none
 OK   practice secret patterns: none
