@@ -4,12 +4,15 @@
   "version": "1.0.0",
   "type": "module",
   "description": "E03：React 筛选竞态、取消、乐观回滚与卸载",
-  "engines": { "node": ">=24" },
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "evidence": "bash scripts/run_unit.sh"
   },
   "dependencies": {
     "react": "19.3.1",

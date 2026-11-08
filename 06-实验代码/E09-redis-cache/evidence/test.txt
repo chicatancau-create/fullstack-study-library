@@ -1,8 +1,8 @@
-✔ Redis 基本读写与删除（真实服务） (8.5811ms)
-✔ Cache Aside：miss 回源并写入，第二次命中 (3.7107ms)
-✔ 反例：旧读晚写回，缓存出现陈旧值 (3.8225ms)
-✔ 修复：版本化缓存键，旧版本写回不会被新读命中 (4.0771ms)
-✔ Redis 不可用：读路径可降级到 DB，并标记 degraded (1.9489ms)
+✔ Redis 基本读写与删除（真实服务） (9.8717ms)
+✔ Cache Aside：miss 回源并写入，第二次命中 (5.2076ms)
+✔ 反例：旧读晚写回，缓存出现陈旧值 (4.2618ms)
+✔ 修复：版本化缓存键，旧版本写回不会被新读命中 (5.2098ms)
+✔ Redis 不可用：读路径可降级到 DB，并标记 degraded (2.5608ms)
 ℹ tests 5
 ℹ suites 0
 ℹ pass 5
@@ -10,4 +10,4 @@
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 103.6383
+ℹ duration_ms 123.4043

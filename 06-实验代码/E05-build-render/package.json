@@ -12,7 +12,8 @@
     "build": "vite build",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "render": "tsx scripts/render.tsx"
+    "render": "tsx scripts/render.tsx",
+    "evidence": "bash scripts/run_unit.sh"
   },
   "dependencies": {
     "react": "19.3.1",

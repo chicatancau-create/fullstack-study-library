@@ -1,2 +1,2 @@
-event_loop_delay max=200.4ms mean=42.7ms x=965791
+event_loop_delay max=215.1ms mean=44.9ms x=896010
 LOOP PASS

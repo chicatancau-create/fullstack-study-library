@@ -1,4 +1,4 @@
-captured_at: 2026-11-07T21:06:06+08:00
+captured_at: 2026-11-08T17:54:22+08:00
 redis: redis_version:3.0.504
 test: ℹ tests 5 ℹ pass 5 ℹ fail 0 
 gate_failures: 0

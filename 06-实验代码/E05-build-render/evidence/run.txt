@@ -1,7 +1,7 @@
-captured_at: 2026-11-07T20:21:04+08:00
+captured_at: 2026-11-08T17:54:14+08:00
 typecheck: 0 errors
 test:  Test Files  1 passed (1)       Tests  2 passed (2) 
-build: ✓ built in 163ms
+build: ✓ built in 137ms
 ssr: SSR PASS bytes=343
 inspect: INSPECT PASS entry=assets/index-DEFdGYln.js total_bytes=220207 secret_leak=false
 cache: CACHE PASS

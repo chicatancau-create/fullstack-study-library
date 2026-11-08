@@ -1,12 +1,12 @@
 
  RUN  v5.1.0 E:/OBsidian/全栈工程师学习资料库/06-实验代码/E03-react-race
 
- ✓ tests/unmount.test.tsx (1 test) 33ms
- ✓ tests/optimistic.test.tsx (2 tests) 110ms
- ✓ tests/race.test.tsx (2 tests) 143ms
+ ✓ tests/unmount.test.tsx (1 test) 56ms
+ ✓ tests/optimistic.test.tsx (2 tests) 132ms
+ ✓ tests/race.test.tsx (2 tests) 168ms
 
  Test Files  3 passed (3)
       Tests  5 passed (5)
-   Start at  20:18:03
-   Duration  1.28s (environment 69%, setup 14%, tests 9%, import 5%, transform 3%)
+   Start at  17:53:18
+   Duration  2.03s (environment 70%, setup 15%, tests 7%, import 5%, transform 3%)
 

@@ -24,10 +24,12 @@
 
 ## 运行与证据
 
+E01–E13 均已落地；E03–E13 的统一入口是 `npm run evidence`（内部调用各实验已有的 `scripts/run_*.sh`，失败即非零）。
+
 ```bash
 cd 06-实验代码/<实验目录>
-bash scripts/run_all.sh        # 或该实验 README 指定的入口
-node ../_template/manifest.mjs verify evidence/manifest.json
+npm run evidence
+node ../_template/manifest.mjs verify evidence/manifest.json   # 有 manifest 的实验
 ```
 
 - 失败即非零；空测试、缺文件、关键跳过不算通过。
