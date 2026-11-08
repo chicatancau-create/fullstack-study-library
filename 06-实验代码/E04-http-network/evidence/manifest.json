@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "experiment": "E04",
+  "generated_at": "2026-11-08T05:52:36.779Z",
+  "commit": "7991bb45749b07e77000ab3a48cb30a1d6afdc04",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [],
+  "artifacts": [
+    {
+      "path": "evidence/status-codes.txt",
+      "bytes": 3825,
+      "sha256": "adcc20897b281368e0aac40b3f9f2eea70056b70d350a2b31902225cce425702"
+    },
+    {
+      "path": "evidence/cache.txt",
+      "bytes": 1236,
+      "sha256": "c4d7abfbadb2d7824d8d07749480b1aa1be264604c59bab998707aa11bf32631"
+    },
+    {
+      "path": "evidence/cookies.txt",
+      "bytes": 1874,
+      "sha256": "1ce4efa805db02df2be662e6063cc055cd40e3483ba87def1ed0ef1d7040a12a"
+    },
+    {
+      "path": "evidence/cookie-jar.txt",
+      "bytes": 252,
+      "sha256": "30747a0189422d68e542e45f966512cfb24b1fe82067bd6a501f127697478182"
+    },
+    {
+      "path": "evidence/cors-curl.txt",
+      "bytes": 2658,
+      "sha256": "12786cff188757846e254295a4243ee84693560602434fda12b93f321b5cc13d"
+    },
+    {
+      "path": "evidence/browser-cors.txt",
+      "bytes": 2060,
+      "sha256": "8db8e8d27eb4b013bc8e8a2472ddaeccdcc53cc6dd938bbc5055edd7d353a036"
+    },
+    {
+      "path": "evidence/browser-cors.json",
+      "bytes": 4085,
+      "sha256": "edba1f1f5c14767c22f24d4437c4a2dcf88a340e7099752f95c3f94630290a8e"
+    },
+    {
+      "path": "evidence/cors-browser.png",
+      "bytes": 46565,
+      "sha256": "24de54c82e4183030185f1fc637f0d07c096e20e0cc1809d8139bb1cd2a334dd"
+    },
+    {
+      "path": "evidence/failures.txt",
+      "bytes": 986,
+      "sha256": "677b0d0b189a150723e21c964fb70e23559a8f9905e4f88592d6903a3e70daa3"
+    },
+    {
+      "path": "evidence/server.log",
+      "bytes": 3065,
+      "sha256": "ddca44b8b6f244fe449ec716c7f26e909c9af46270fd9d6bbc4bdcd21663f187"
+    }
+  ],
+  "unverified": [
+    "DNS解析失败/ECONNREFUSED未全部复现；不代表G1通过"
+  ]
+}

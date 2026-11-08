@@ -1,0 +1,99 @@
+{
+  "schema": 1,
+  "experiment": "G1",
+  "generated_at": "2026-11-08T05:52:37.342Z",
+  "commit": "7991bb45749b07e77000ab3a48cb30a1d6afdc04",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [],
+  "artifacts": [
+    {
+      "path": "evidence/env.json",
+      "bytes": 364,
+      "sha256": "646f6c2e8d44da9b0c73a0eba315e988b9e7e05a4d86fb3acb0511445e24a005"
+    },
+    {
+      "path": "evidence/axe-summary.json",
+      "bytes": 1329,
+      "sha256": "8071cfb7d5d2852dd91a531e092ab499cbf43fb27f286cf4f3e23f85a0cba6f7"
+    },
+    {
+      "path": "evidence/axe-index-1280.json",
+      "bytes": 129,
+      "sha256": "972abdc581372be85c9b1111cb150591ef001ee8847489856dc2a2d6300ffed5"
+    },
+    {
+      "path": "evidence/axe-index-375.json",
+      "bytes": 129,
+      "sha256": "972abdc581372be85c9b1111cb150591ef001ee8847489856dc2a2d6300ffed5"
+    },
+    {
+      "path": "evidence/axe-tasks-1280.json",
+      "bytes": 129,
+      "sha256": "972abdc581372be85c9b1111cb150591ef001ee8847489856dc2a2d6300ffed5"
+    },
+    {
+      "path": "evidence/axe-tasks-375.json",
+      "bytes": 129,
+      "sha256": "972abdc581372be85c9b1111cb150591ef001ee8847489856dc2a2d6300ffed5"
+    },
+    {
+      "path": "evidence/axe-task-1280.json",
+      "bytes": 129,
+      "sha256": "ab1b0a15b4909135fd4cd0da596c56563b7c5dadd245e648b34e0b0c5c9756a8"
+    },
+    {
+      "path": "evidence/axe-task-375.json",
+      "bytes": 129,
+      "sha256": "ab1b0a15b4909135fd4cd0da596c56563b7c5dadd245e648b34e0b0c5c9756a8"
+    },
+    {
+      "path": "evidence/axe.txt",
+      "bytes": 337,
+      "sha256": "6227031dad3e0cab04a9c96a0788537b58e8737c0b8f3b3ff3215bcb7fde109e"
+    },
+    {
+      "path": "evidence/keyboard.txt",
+      "bytes": 4783,
+      "sha256": "11cb10d1e6c49cb7bdedeb246ba3ace789045a58ca9714dcf69f22824c0f1d76"
+    },
+    {
+      "path": "evidence/keyboard-desktop.json",
+      "bytes": 7994,
+      "sha256": "5b764eb00c985553fdc4c9aa11d502bcc143dd54048330cdbab1a50fbd7c05d1"
+    },
+    {
+      "path": "evidence/keyboard-mobile.json",
+      "bytes": 7979,
+      "sha256": "42b67250bdd6c3a6bca146f0a8701ccff634c86e9623412e09895eaa0e20c5c2"
+    },
+    {
+      "path": "evidence/keyboard-invalid.json",
+      "bytes": 8074,
+      "sha256": "9933a43a18b0574a4cae28d3c0c45cbb0cc4ccc4f54e012996c2695060ff67cd"
+    },
+    {
+      "path": "evidence/layout.txt",
+      "bytes": 1076,
+      "sha256": "0d61b06443f919cd91573b54203aba8031452be95bdc8c5b6b03f6ddb3f376e0"
+    },
+    {
+      "path": "evidence/layout.json",
+      "bytes": 12670,
+      "sha256": "38c182eb16b0891a0261a73444c94bb443e09bbdbf1db6288ed10c9f86d76082"
+    },
+    {
+      "path": "evidence/failures.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  ],
+  "unverified": [
+    "仅G1键盘/响应式子项；真实用户/读屏未测"
+  ]
+}

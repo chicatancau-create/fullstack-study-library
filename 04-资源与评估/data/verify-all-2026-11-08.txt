@@ -8,8 +8,10 @@ OK   manifest P04: manifest OK: P04, 25 artifacts, commit d7faa0a5a40dcdf8b6132b
 OK   manifest P05: manifest OK: P05, 9 artifacts, commit b22ba009c2c1f8b389d94e05ae1764bb190b4fec
 OK   manifest B6-02: manifest OK: B6-02, 9 artifacts, commit aea6e7b739743d5c00a3146246824987b63af7ef
 OK   manifest E01: manifest OK: E01, 10 artifacts, commit 8ed6291596bbac04fd597a2550cac97fd27ebcec
-OK   manifest E02: manifest OK: E02, 16 artifacts, commit 816896eaad1b6b2bbe834d7efb433043b92b46fa
+OK   manifest E02: manifest OK: E02, 16 artifacts, commit ee859250eb2aa528acfeb73e2d8080016c93bbbd
+OK   manifest E04: manifest OK: E04, 10 artifacts, commit 7991bb45749b07e77000ab3a48cb30a1d6afdc04
 OK   manifest E10: manifest OK: E10, 6 artifacts, commit 948fc6fc432379dcb5ceae72c08fd3ce5063fa36
+OK   manifest G1: manifest OK: G1, 16 artifacts, commit 7991bb45749b07e77000ab3a48cb30a1d6afdc04
 OK   pages: HTTP/1.1 200 OK
 
-13/13 checks passed
+15/15 checks passed

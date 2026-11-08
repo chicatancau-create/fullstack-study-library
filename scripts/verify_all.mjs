@@ -28,7 +28,9 @@ const manifests = [
   ['B6-02', practice, 'project06-ai-min'],
   ['E01', vault, '06-实验代码/E01-c-memory'],
   ['E02', vault, '06-实验代码/E02-node-async'],
+  ['E04', vault, '06-实验代码/E04-http-network'],
   ['E10', vault, '06-实验代码/E10-mq-outbox'],
+  ['G1', vault, '06-实验代码/G1-responsive-site'],
 ];
 
 for (const [label, root, dir] of manifests) {
