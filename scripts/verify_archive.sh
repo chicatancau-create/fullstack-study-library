@@ -5,7 +5,11 @@ set -euo pipefail
 VAULT=${VAULT_ROOT:-/e/OBsidian/全栈工程师学习资料库}
 PRACTICE=${PRACTICE_ROOT:-/e/fullstack-code}
 TMP=$(mktemp -d)
-trap 'rm -rf "$TMP"' EXIT
+# Windows Git Bash 下 mktemp 返回 C:\... 形式，若当前工作目录在其它盘符，
+# 安全删除包装会把路径里的盘符判为"嵌套盘符前缀"而拒绝，导致 trap 失败、
+# 脚本以 1 退出，把验证成功误报成失败。转成 POSIX 路径并容错。
+TMP_CLEAN=$(cygpath -u "$TMP" 2>/dev/null || printf '%s' "$TMP")
+trap 'rm -rf "$TMP_CLEAN" 2>/dev/null || true' EXIT
 
 mkdir -p "$TMP/vault" "$TMP/practice"
 git -C "$VAULT" archive HEAD | tar -x -C "$TMP/vault"

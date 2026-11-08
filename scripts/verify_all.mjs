@@ -1,5 +1,6 @@
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 
 const vault = process.cwd();
@@ -81,11 +82,17 @@ for (const [label, root, exclude] of [
   }
 }
 
+const pageProbe = path.join(os.tmpdir(), `verify-all-pages-${process.pid}.txt`);
 try {
-  const headers = execFileSync('curl', ['-sS', '-I', '--max-time', '20', 'https://chicatancau-create.github.io/learning-blog-demo/'], { encoding: 'utf8' });
-  checks.push({ label: 'pages', ok: headers.includes('200'), output: headers.split(String.fromCharCode(10))[0] });
+  // 必须取目标站点最终状态码；HEAD 响应里的代理隧道行 "200 Connection Established"
+  // 会被 includes('200') 误判为通过，故改用 -w '%{http_code}'。
+  // 响应体写入临时文件：Node 直接 spawn Windows 版 curl 时 /dev/null 不会被转换。
+  const code = execFileSync('curl', ['-sS', '-o', pageProbe, '-w', '%{http_code}', '--max-time', '20', 'https://chicatancau-create.github.io/learning-blog-demo/'], { encoding: 'utf8' }).trim();
+  checks.push({ label: 'pages', ok: code === '200', output: `HTTP ${code}` });
 } catch (error) {
-  checks.push({ label: 'pages', ok: false, output: error.message });
+  checks.push({ label: 'pages', ok: false, output: error.message.split(String.fromCharCode(10))[0] });
+} finally {
+  try { fs.unlinkSync(pageProbe); } catch { /* 探测失败时文件可能不存在 */ }
 }
 
 const failed = checks.filter((check) => !check.ok);
