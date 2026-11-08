@@ -1,0 +1,4 @@
+ok 并发不超过 2
+ok 全部完成
+ok FIFO 执行
+checks=3 fails=0

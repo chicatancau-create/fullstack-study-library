@@ -1,0 +1,5 @@
+ok 合法输入
+ok 数量越界
+ok SKU 非法
+ok XSS 字符
+checks=4 fails=0

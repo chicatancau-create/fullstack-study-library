@@ -1,0 +1,4 @@
+ok 去重保留首条
+ok 负数量归零
+ok 金额重算
+checks=3 fails=0

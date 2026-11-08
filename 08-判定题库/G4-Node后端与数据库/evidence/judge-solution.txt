@@ -1,0 +1,5 @@
+ok 同租户 owner 可读
+ok 跨租户拒绝
+ok member 不能写
+ok admin 可写不可管
+checks=4 fails=0

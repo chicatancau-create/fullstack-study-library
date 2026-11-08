@@ -1,0 +1,12 @@
+{
+  "name": "g4-judge-pack",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "evidence": "bash scripts/evidence.sh"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}
