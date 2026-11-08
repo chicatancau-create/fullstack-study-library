@@ -1,0 +1,7 @@
+attempt: 2026-11-08 QEMU K3s ingress cloud-init
+result: FAILED - no Ingress evidence
+
+[   29.506450] cloud-init[397]: 2026-11-08 02:21:01,314 - schema.py[WARNING]: cloud-config failed schema validation! You may run 'sudo cloud-init schema --system' to check the details.
+[   48.078647] cloud-init[609]: 2026-11-08 02:21:19,888 - log_util.py[WARNING]: Running module runcmd (<module 'cloudinit.config.cc_runcmd' from '/usr/lib/python3/dist-packages/cloudinit/config/cc_runcmd.py'>) failed
+
+note: cloud-init runcmd 未执行，未产生 Pod/Ingress 检查输出；不据此声称 Ingress 通过。

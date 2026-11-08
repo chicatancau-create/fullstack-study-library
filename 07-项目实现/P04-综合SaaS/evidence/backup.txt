@@ -1,0 +1,4 @@
+dump bytes=27910 file=E:\OBsidian\全栈工程师学习资料库\07-项目实现\P04-综合SaaS\evidence\p04-backup.sql
+source  tenants=1 memberships=1 audit=2
+restore tenants=1 memberships=1 audit=2
+RESTORE OK

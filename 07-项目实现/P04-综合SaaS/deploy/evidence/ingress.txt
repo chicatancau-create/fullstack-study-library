@@ -1,0 +1,20 @@
+captured_at: 2026-11-08
+cluster: K3s v1.37.2 single-node (QEMU Ubuntu 24.04)
+ingress_class: traefik
+
+$ kubectl get ingress web -o wide
+NAME   CLASS     HOSTS       ADDRESS     PORTS   AGE
+web    traefik   web.local   10.0.2.15   80      8m11s
+
+$ kubectl get svc web
+NAME   TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
+web    ClusterIP   10.43.165.122   <none>        80/TCP    8m17s
+
+$ kubectl get pods -l app=web -o wide
+NAME                  READY   STATUS    RESTARTS   AGE    IP          NODE      NOMINATED NODE   READINESS GATES
+web-7c6cdd646-npc98   1/1     Running   0          8m5s   10.42.0.7   k8s-lab   <none>           <none>
+
+$ curl -fsS -H 'Host: web.local' http://127.0.0.1/ | grep -o '<title>.*</title>'
+<title>Welcome to nginx!</title>
+
+INGRESS PASS

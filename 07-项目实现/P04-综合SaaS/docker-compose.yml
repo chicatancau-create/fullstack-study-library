@@ -1,0 +1,43 @@
+services:
+  db:
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_USER: p04
+      POSTGRES_PASSWORD: p04-local-pass
+      POSTGRES_DB: study_lab
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U p04 -d study_lab"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    ports:
+      - "5435:5432"
+
+  redis:
+    image: redis:7-alpine
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    ports:
+      - "6380:6379"
+
+  app:
+    build: .
+    environment:
+      PGHOST: db
+      PGUSER: p04
+      PGPASSWORD: p04-local-pass
+      PGDATABASE: study_lab
+      REDIS_URL: redis://redis:6379
+      P04_LOGIN_LIMIT: "20"
+      HOST: 0.0.0.0
+      PORT: "8797"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    ports:
+      - "8797:8797"

@@ -34,6 +34,7 @@ services:
       AMQP_URL: amqp://guest:guest@mq:5672
       P03_API_KEY: local-api-key
       P03_PROVIDER_SECRET: local-provider-secret
+      HOST: 0.0.0.0
       PORT: "8796"
     depends_on:
       db:

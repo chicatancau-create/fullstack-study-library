@@ -1,0 +1,9 @@
+captured_at: 2026-11-08T17:51:17+08:00
+node: v24.15.0
+migrate=PASS
+tests=PASS
+backup_restore=PASS
+otel=PASS
+jobs=PASS
+alerts=PASS
+PROJECT04 PASS

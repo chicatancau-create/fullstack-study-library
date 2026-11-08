@@ -1,0 +1,18 @@
+captured_at: 2026-11-08
+topology: one QEMU VM running K3s server (k8s-lab) + K3s agent container (agent-1, Docker privileged)
+scope: two Kubernetes nodes on one VM; not multi-machine, not HA
+
+$ kubectl get nodes -o wide
+NAME      STATUS   ROLES           AGE     VERSION        INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION              CONTAINER-RUNTIME
+agent-1   Ready    <none>          7m50s   v1.37.2+k3s1   172.17.0.2    <none>        K3s v1.37.2+k3s1     6.8.0-147-generic (amd64)   containerd://2.3.7-k3s1
+k8s-lab   Ready    control-plane   49m     v1.37.2+k3s1   10.0.2.15     <none>        Ubuntu 24.04.5 LTS   6.8.0-147-generic (amd64)   containerd://2.3.7-k3s1
+
+$ kubectl get pods -o wide
+NAME                  READY   STATUS    RESTARTS      AGE   IP           NODE      NOMINATED NODE   READINESS GATES
+agent-pause           1/1     Running   0             31s   10.42.1.10   agent-1   <none>           <none>
+web-7c6cdd646-npc98   1/1     Running   1 (13m ago)   48m   10.42.0.12   k8s-lab   <none>           <none>
+
+$ docker ps --filter name=k3s-agent --format '{{.Names}} {{.Status}}'
+k3s-agent Up 8 minutes
+
+MULTINODE PASS

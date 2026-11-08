@@ -1,0 +1,4 @@
+prometheus_rules=2 groups=1
+alerts=JobBacklog:pending
+p04_jobs_pending=60
+PROMETHEUS PASS

@@ -1,0 +1,131 @@
+#cloud-config
+hostname: k8s-lab
+manage_etc_hosts: true
+users:
+  - name: ubuntu
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    lock_passwd: false
+chpasswd:
+  list: |
+    ubuntu:ubuntu
+  expire: false
+ssh_pwauth: true
+package_update: true
+write_files:
+  - path: /etc/systemd/system/docker.service.d/proxy.conf
+    permissions: '0644'
+    content: |
+      [Service]
+      Environment="HTTP_PROXY=http://10.0.2.2:7897"
+      Environment="HTTPS_PROXY=http://10.0.2.2:7897"
+  - path: /tmp/compose.yaml
+    permissions: '0644'
+    content: |
+      services:
+        web:
+          image: nginx:1.27-alpine
+          ports:
+            - "8081:80"
+  - path: /tmp/web.yaml
+    permissions: '0644'
+    content: |
+      apiVersion: v1
+      kind: ConfigMap
+      metadata:
+        name: web-config
+      data:
+        GREETING: hello-k8s
+      ---
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: web
+      spec:
+        replicas: 2
+        selector:
+          matchLabels:
+            app: web
+        template:
+          metadata:
+            labels:
+              app: web
+          spec:
+            containers:
+              - name: web
+                image: nginx:1.27-alpine
+                imagePullPolicy: IfNotPresent
+                ports:
+                  - containerPort: 80
+                envFrom:
+                  - configMapRef:
+                      name: web-config
+                readinessProbe:
+                  httpGet:
+                    path: /
+                    port: 80
+                  initialDelaySeconds: 2
+                  periodSeconds: 3
+                livenessProbe:
+                  httpGet:
+                    path: /
+                    port: 80
+                  initialDelaySeconds: 5
+                  periodSeconds: 5
+      ---
+      apiVersion: v1
+      kind: Service
+      metadata:
+        name: web
+      spec:
+        type: NodePort
+        selector:
+          app: web
+        ports:
+          - port: 80
+            targetPort: 80
+            nodePort: 30080
+runcmd:
+  - echo '=== CLOUD INIT START ===' > /dev/ttyS0
+  - apt-get update >> /dev/ttyS0 2>&1
+  - DEBIAN_FRONTEND=noninteractive apt-get install -y docker.io curl >> /dev/ttyS0 2>&1
+  - systemctl enable --now docker >> /dev/ttyS0 2>&1
+  - echo '=== DOCKER VERSION ===' >> /dev/ttyS0
+  - docker version >> /dev/ttyS0 2>&1
+  - docker pull nginx:1.27-alpine >> /dev/ttyS0 2>&1
+  - docker tag nginx:1.27-alpine nginx:local2 >> /dev/ttyS0 2>&1
+  - docker save nginx:1.27-alpine nginx:local2 -o /tmp/nginx.tar >> /dev/ttyS0 2>&1
+  - docker run -d --name web1 -p 8080:80 nginx:1.27-alpine >> /dev/ttyS0 2>&1
+  - sleep 8
+  - echo '=== DOCKER CONTAINER CHECK ===' >> /dev/ttyS0
+  - docker ps >> /dev/ttyS0 2>&1
+  - curl -sS http://127.0.0.1:8080/ | head -3 >> /dev/ttyS0 2>&1
+  - docker rm -f web1 >> /dev/ttyS0 2>&1
+  - mkdir -p /etc/systemd/system/docker.service.d
+  - systemctl daemon-reload
+  - systemctl restart docker
+  - DEBIAN_FRONTEND=noninteractive apt-get install -y docker-compose-v2 >> /dev/ttyS0 2>&1
+  - docker compose -f /tmp/compose.yaml up -d >> /dev/ttyS0 2>&1
+  - sleep 8
+  - echo '=== COMPOSE CHECK ===' >> /dev/ttyS0
+  - curl -sS http://127.0.0.1:8081/ | head -3 >> /dev/ttyS0 2>&1
+  - docker compose -f /tmp/compose.yaml down >> /dev/ttyS0 2>&1
+  - echo '=== DOCKER DONE ===' >> /dev/ttyS0
+  - curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC='--disable traefik --write-kubeconfig-mode 644' sh - >> /dev/ttyS0 2>&1
+  - export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+  - k3s ctr images import /tmp/nginx.tar >> /dev/ttyS0 2>&1
+  - sleep 20
+  - kubectl get nodes -o wide >> /dev/ttyS0 2>&1
+  - kubectl apply -f /tmp/web.yaml >> /dev/ttyS0 2>&1
+  - kubectl rollout status deployment/web --timeout=240s >> /dev/ttyS0 2>&1
+  - kubectl get pods -o wide >> /dev/ttyS0 2>&1
+  - kubectl delete pod -l app=web --wait=false >> /dev/ttyS0 2>&1
+  - sleep 40
+  - echo '=== PODS AFTER DELETE ===' >> /dev/ttyS0
+  - kubectl get pods -o wide >> /dev/ttyS0 2>&1
+  - kubectl set image deployment/web web=nginx:local2 >> /dev/ttyS0 2>&1
+  - kubectl rollout status deployment/web --timeout=240s >> /dev/ttyS0 2>&1
+  - kubectl rollout undo deployment/web >> /dev/ttyS0 2>&1
+  - kubectl rollout status deployment/web --timeout=240s >> /dev/ttyS0 2>&1
+  - echo '=== CLOUD INIT DONE ===' > /dev/ttyS0
+  - poweroff

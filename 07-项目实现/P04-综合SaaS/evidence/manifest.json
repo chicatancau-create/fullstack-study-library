@@ -1,0 +1,183 @@
+{
+  "schema": 1,
+  "experiment": "P04",
+  "generated_at": "2026-11-08T06:02:48.395Z",
+  "commit": "5f90b54fb76e277e6e153ce05e58794745108ae7",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [
+    {
+      "cmd": "bash scripts/run_project.sh",
+      "exit": 0
+    },
+    {
+      "cmd": "bash scripts/deploy_local.sh",
+      "exit": 0
+    },
+    {
+      "cmd": "bash scripts/rollback_check.sh",
+      "exit": 0
+    },
+    {
+      "cmd": "QEMU K8s run9/10: pods+rollout+undo+resources",
+      "exit": 0
+    },
+    {
+      "cmd": "QEMU Docker/Compose run6",
+      "exit": 0
+    },
+    {
+      "cmd": "Prometheus 3.5.0 + Alertmanager 0.28.1 webhook",
+      "exit": 0
+    },
+    {
+      "cmd": "QEMU K3s 1.37.2 Traefik Ingress: web.local -> nginx",
+      "exit": 0
+    },
+    {
+      "cmd": "QEMU K3s two nodes: server + agent container, pod on agent-1",
+      "exit": 0
+    },
+    {
+      "cmd": "ntfy.sh public topic external alert delivery",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/toolchain.txt",
+      "bytes": 24,
+      "sha256": "d72d32fb565c56d0975c38559f4194eb80b1e226fc2f341c023c21420f8d6d01"
+    },
+    {
+      "path": "evidence/migrate.txt",
+      "bytes": 124,
+      "sha256": "9363c1ca3421d944f1eeaedfd3f3347c7d056a58c7543c769b4711690db4d955"
+    },
+    {
+      "path": "evidence/test.txt",
+      "bytes": 1164,
+      "sha256": "455e3d9d399f3d7484bcd7b90891bdb15c4fdb29bc7e73f960e708f2f79ee8f1"
+    },
+    {
+      "path": "evidence/backup.txt",
+      "bytes": 174,
+      "sha256": "c863431f21cca1fd9715e4b2bdd01bef466b409c9fc8d8b4826e2ca171a55e04"
+    },
+    {
+      "path": "evidence/trace.txt",
+      "bytes": 955,
+      "sha256": "ea879765d8fee0033707d25e8550524eb1e724f15cec3357c3de890239e5e1c9"
+    },
+    {
+      "path": "evidence/jobs.txt",
+      "bytes": 148,
+      "sha256": "7c11f68834e6d79522e567544fbe014368f11ce10c9538b7552f9772e0b36a76"
+    },
+    {
+      "path": "evidence/alerts.txt",
+      "bytes": 128,
+      "sha256": "e9df54affd4bf5651ed9f999dc9ccd9533864ca71d7cae295fa07e1ce613efcb"
+    },
+    {
+      "path": "evidence/prometheus.txt",
+      "bytes": 90,
+      "sha256": "8ca82ca467a7128f566202874891dd8baeea2c73bd2e64211085d403fd8064a2"
+    },
+    {
+      "path": "evidence/alertmanager.txt",
+      "bytes": 212,
+      "sha256": "24da696c995a8cc91ddc885a6cd1aad6a264cf96354485da394bd1d2e89da761"
+    },
+    {
+      "path": "evidence/alertmanager-external.txt",
+      "bytes": 311,
+      "sha256": "fa85966510439257b38d8a5376d87295c6c95137f867a8d169f5c71c7ab05549"
+    },
+    {
+      "path": "evidence/deploy.txt",
+      "bytes": 704,
+      "sha256": "07ec4088126e8ebe3c8ed517e63823f7ce426ab61743ee92314f6a105443dfe5"
+    },
+    {
+      "path": "evidence/rollback.txt",
+      "bytes": 79,
+      "sha256": "0c42cffb2ba357ff69188e29905534919c6c27423729de2a919bf11f887691f2"
+    },
+    {
+      "path": "evidence/https-app.log",
+      "bytes": 1053,
+      "sha256": "74fb6a2c234076f9f8167dda57d8825a35d6375a2e959936187e3dfdb7178e02"
+    },
+    {
+      "path": "evidence/https-gateway.log",
+      "bytes": 48,
+      "sha256": "f58fa8434737b6a6a1ae18b30a09d280afb4d8514e52fffa6360d1140cdd6216"
+    },
+    {
+      "path": "evidence/run.txt",
+      "bytes": 145,
+      "sha256": "da3eeb7817fafdf85aed27afda9ed3224f7f7a8531b095a18b6415172e85c5de"
+    },
+    {
+      "path": "deploy/evidence/docker-k8s.txt",
+      "bytes": 5557,
+      "sha256": "d0099b0d03750c5ad98d10594a454a3749f2f5efd4fa361e0ee0e0e911bd5234"
+    },
+    {
+      "path": "deploy/evidence/ingress.txt",
+      "bytes": 779,
+      "sha256": "b6ff87d863972c73fa30110613141850c463c8b8bcc597f9e9992a69a2434419"
+    },
+    {
+      "path": "deploy/evidence/multinode.txt",
+      "bytes": 1159,
+      "sha256": "a8c24d541613dc696cd60064817fe5fd4686d841e70b4706c861672a32d318ae"
+    },
+    {
+      "path": "deploy/evidence/ingress-attempt-2026-11-08.txt",
+      "bytes": 596,
+      "sha256": "a71ed6d142d89702d863d2762eaacc0c2619f9e776f2b36216cda0ecbff3743c"
+    },
+    {
+      "path": "deploy/k8s-web.yaml",
+      "bytes": 1170,
+      "sha256": "327634c2bec0005cd4c8353ff97580adf1ec7b18bcca59f8f6dd67d282f0e93f"
+    },
+    {
+      "path": "deploy/k8s-ingress.yaml",
+      "bytes": 303,
+      "sha256": "1413d6ca3ec0dfdc70317d69835e826593efd135e296843d02a46d096f14fcf9"
+    },
+    {
+      "path": "deploy/cloud-init-user-data.yaml",
+      "bytes": 4349,
+      "sha256": "714419d0e650b91e8a9f8c3f1be7e2636510750df89f2a0718091619d9a1cfd8"
+    },
+    {
+      "path": "deploy/cloud-init-meta-data.yaml",
+      "bytes": 52,
+      "sha256": "f5c0d61f6bdc8bc275c64822cf495735f94ddac9a1cf7a2882ca3a9eba4e72b8"
+    },
+    {
+      "path": "deploy/alert-rules.yml",
+      "bytes": 518,
+      "sha256": "2a6d6705619b6da03d497020a11db11531e9cc6d0bf9550f2fff2b8dde8e1d27"
+    },
+    {
+      "path": "deploy/alert-rules.local.yml",
+      "bytes": 521,
+      "sha256": "3f0ab7e316e9c22e2400b67cadad07b19a7fb5e39f15219ff9822715b911f1e6"
+    }
+  ],
+  "unverified": [
+    "K8s两节点在同一QEMU VM（非多机/HA）；Docker/Compose/rollout undo/Ingress成功",
+    "外部渠道为ntfy.sh公共topic（合成告警），不是Slack/邮件/PagerDuty；无凭据",
+    "无多机/HA/公网入口；本地自签名HTTPS；OTel仅InMemory"
+  ]
+}

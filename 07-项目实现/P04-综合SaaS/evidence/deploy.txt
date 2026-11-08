@@ -1,0 +1,23 @@
+== https health
+HTTP/1.1 200 OK
+content-type: application/json; charset=utf-8
+x-content-type-options: nosniff
+x-request-id: 2b6dac3f-25a9-4bc9-af7f-4908c57b995b
+cache-control: no-store
+content-length: 15
+date: Sat, 07 Nov 2026 15:26:18 GMT
+connection: keep-alive
+keep-alive: timeout=72
+strict-transport-security: max-age=31536000; includeSubDomains
+
+{"status":"ok"}
+== tls version
+New, TLSv1.2, Cipher is ECDHE-RSA-AES128-GCM-SHA256
+Protocol: TLSv1.2
+== plain http to tls port (expect failure)
+curl: (52) Empty reply from server
+plain_http_exit=52
+== cert
+subject=CN=127.0.0.1
+sha256 Fingerprint=A1:25:0C:1A:45:EF:82:64:6B:3F:EE:CF:B1:96:B5:BC:88:50:DE:3E:7A:59:35:3D:26:26:78:AF:DD:BC:48:E5
+DEPLOY PASS

@@ -6,7 +6,7 @@
 | --- | --- | --- | --- |
 | P02 协作任务平台 | ✅ 可运行（本机 PostgreSQL 实测） | Fastify 5 + Prisma 6 + PostgreSQL 18 + Vitest | [P02-协作任务平台](P02-协作任务平台/README.md) |
 | P03 电商交易 Demo | ✅ 可运行（本机 PostgreSQL 18.6 + RabbitMQ 实测） | Fastify 5 + PostgreSQL 18 + RabbitMQ 4 + node:test | [P03-电商交易Demo](P03-电商交易Demo/README.md) |
-| P04 综合 SaaS | ⬜ 待建设 | 计划：多租户 + RBAC + 审计 + 深度模块 | — |
+| P04 综合 SaaS | ✅ 可运行（本机 PostgreSQL 18.6 + Redis 实测） | Fastify 5 + PostgreSQL 18 + Redis 7 + OTel + node:test | [P04-综合SaaS](P04-综合SaaS/README.md) |
 
 ## 验收口径
 
