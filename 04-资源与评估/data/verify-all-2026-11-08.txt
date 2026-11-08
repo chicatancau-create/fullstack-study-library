@@ -21,6 +21,10 @@ OK   manifest E12: manifest OK: E12, 3 artifacts, commit b47f170eacbdaa0b4a9be04
 OK   manifest E13: manifest OK: E13, 4 artifacts, commit 41b48490327600bb66a280f260df7245e5e76467
 OK   manifest E10: manifest OK: E10, 6 artifacts, commit 948fc6fc432379dcb5ceae72c08fd3ce5063fa36
 OK   manifest G1: manifest OK: G1, 16 artifacts, commit 7991bb45749b07e77000ab3a48cb30a1d6afdc04
+OK   practice secret names: none
+OK   vault secret names: none
+OK   practice secret patterns: none
+OK   vault secret patterns: none
 OK   pages: HTTP/1.1 200 OK
 
-24/24 checks passed
+28/28 checks passed

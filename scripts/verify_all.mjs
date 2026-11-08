@@ -53,6 +53,34 @@ for (const [label, root, dir] of manifests) {
   }
 }
 
+const sensitiveNames = /(^|\/)(\.env($|\..+)|id_rsa|id_ed25519|.*\.(pem|key|p12|pfx))$|(^|\/)node_modules\/|(^|\/)target\//;
+const secretPattern = /BEGIN (RSA|OPENSSH|EC) PRIVATE KEY|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{36}|sk-[A-Za-z0-9]{20,}/;
+
+for (const [label, root, exclude] of [
+  ['practice secret names', practice, []],
+  ['vault secret names', vault, [':!05-外部资料库', ':!90-历史归档']],
+]) {
+  try {
+    const files = execFileSync('git', ['ls-files', '--', ...exclude], { cwd: root, encoding: 'utf8' }).split(String.fromCharCode(10)).filter(Boolean);
+    const bad = files.filter((file) => sensitiveNames.test(file));
+    checks.push({ label, ok: bad.length === 0, output: bad.length ? bad.join(',') : 'none' });
+  } catch (error) {
+    checks.push({ label, ok: false, output: error.message });
+  }
+}
+
+for (const [label, root, exclude] of [
+  ['practice secret patterns', practice, []],
+  ['vault secret patterns', vault, [':!05-外部资料库', ':!90-历史归档']],
+]) {
+  try {
+    execFileSync('git', ['grep', '-l', '-E', secretPattern.source, '--', '.', ...exclude], { cwd: root, encoding: 'utf8' });
+    checks.push({ label, ok: false, output: 'matched tracked files' });
+  } catch (error) {
+    checks.push({ label, ok: error.status === 1, output: error.status === 1 ? 'none' : error.message });
+  }
+}
+
 try {
   const headers = execFileSync('curl', ['-sS', '-I', '--max-time', '20', 'https://chicatancau-create.github.io/learning-blog-demo/'], { encoding: 'utf8' });
   checks.push({ label: 'pages', ok: headers.includes('200'), output: headers.split(String.fromCharCode(10))[0] });
