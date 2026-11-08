@@ -1,0 +1,15 @@
+OK   source-only: 通过：catalog、Schema、统计、视图、Markdown 与链接检查无错误。
+OK   manifest P01: manifest OK: P01, 15 artifacts, commit a40b91130f55b001b339ef7a0e5245196a00a746
+OK   manifest P02: manifest OK: P02, 12 artifacts, commit e616905512ebcd0ec0571d7ed9a303c314434466
+OK   manifest B5-01: manifest OK: B5-01, 20 artifacts, commit befe95bd4cd64cb8f6654e2a83c90820fd3baa55
+OK   manifest B5-03: manifest OK: B5-03, 4 artifacts, commit 3ac07eb289e60f2f7b17c10e401f46fcf7804065
+OK   manifest P03: manifest OK: P03, 12 artifacts, commit 677087d47204e1872c96f6ab1a7f7561c471829a
+OK   manifest P04: manifest OK: P04, 25 artifacts, commit d7faa0a5a40dcdf8b6132b8a7162563f9979c4d8
+OK   manifest P05: manifest OK: P05, 9 artifacts, commit b22ba009c2c1f8b389d94e05ae1764bb190b4fec
+OK   manifest B6-02: manifest OK: B6-02, 9 artifacts, commit aea6e7b739743d5c00a3146246824987b63af7ef
+OK   manifest E01: manifest OK: E01, 10 artifacts, commit 8ed6291596bbac04fd597a2550cac97fd27ebcec
+OK   manifest E02: manifest OK: E02, 16 artifacts, commit 816896eaad1b6b2bbe834d7efb433043b92b46fa
+OK   manifest E10: manifest OK: E10, 6 artifacts, commit 948fc6fc432379dcb5ceae72c08fd3ce5063fa36
+OK   pages: HTTP/1.1 200 OK
+
+13/13 checks passed
