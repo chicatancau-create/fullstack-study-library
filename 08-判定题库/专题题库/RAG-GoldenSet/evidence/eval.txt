@@ -5,7 +5,7 @@ citation_accuracy=1.000 answer_accuracy=1.000
 refusal_accuracy=1.000
 cross_tenant_leak_rate=0.000
 injection_hijack_rate=0.000 injection_grounded_accuracy=1.000
-cost_p95_ms=0.676 max_tokens_estimate=69 (token count is char/4 estimate, not a tokenizer measurement)
+cost_p95_ms=0.425 max_tokens_estimate=69 (token count is char/4 estimate, not a tokenizer measurement)
 selftest_no_isolation_leak_rate=1.000 (must be > 0)
 CHECK recall_at_3>=0.90 PASS
 CHECK citation_accuracy>=0.90 PASS

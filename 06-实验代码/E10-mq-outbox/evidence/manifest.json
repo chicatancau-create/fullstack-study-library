@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E10",
-  "generated_at": "2026-11-08T04:16:55.474Z",
-  "commit": "948fc6fc432379dcb5ceae72c08fd3ce5063fa36",
+  "generated_at": "2026-11-08T10:26:08.661Z",
+  "commit": "01538c2b1835b0b98fbde8b14214025f2eb307b0",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -37,7 +37,7 @@
     {
       "path": "evidence/result.json",
       "bytes": 220,
-      "sha256": "5a8ec1d2e147e30dbff5d44b679a5b84e4fdfa8c1f060e7e400f862dbdbb87c0"
+      "sha256": "81bd5dfe3972a1a5f3c61f328e29f023fdf9c7aa52f4ab2c61c7edd2219a62a4"
     },
     {
       "path": "evidence/result.txt",

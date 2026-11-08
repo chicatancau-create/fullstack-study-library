@@ -75,7 +75,8 @@ def load_corpus() -> list[Doc]:
             raise SystemExit(f"bad front matter: {path}")
         meta = dict(line.split(":", 1) for line in m.group(1).splitlines() if ":" in line)
         meta = {k.strip(): v.strip() for k, v in meta.items()}
-        docs.append(Doc(meta["id"], meta["tenant"], meta.get("title", ""), m.group(2).strip()))
+        body = "\n".join(line for line in m.group(2).splitlines() if not line.startswith("#"))
+        docs.append(Doc(meta["id"], meta["tenant"], meta.get("title", ""), body.strip()))
     if len(docs) != 17:
         raise SystemExit(f"expected 17 docs, found {len(docs)}")
     return docs
