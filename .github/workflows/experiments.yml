@@ -14,6 +14,15 @@ jobs:
       - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E02-node-async/evidence/manifest.json
       - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E04-http-network/evidence/manifest.json
       - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/G1-responsive-site/evidence/manifest.json
+      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E03-react-race/evidence/manifest.json
+      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E05-build-render/evidence/manifest.json
+      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E06-runtime-diag/evidence/manifest.json
+      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E07-pg-owner-race/evidence/manifest.json
+      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E08-pg-plan-migrate/evidence/manifest.json
+      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E09-redis-cache/evidence/manifest.json
+      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E11-authz-matrix/evidence/manifest.json
+      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E12-load-capacity/evidence/manifest.json
+      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E13-slo-fault/evidence/manifest.json
       - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E10-mq-outbox/evidence/manifest.json
 
   e01-asan:
