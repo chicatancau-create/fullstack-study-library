@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E05",
-  "generated_at": "2026-11-07T12:21:36.394Z",
-  "commit": "a863b93ef8907a34d61d1eafb008266d332b12bc",
+  "generated_at": "2026-11-08T09:56:18.879Z",
+  "commit": "c9d17ab1d3532e872a71d56690daf0feb8eae8e4",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -10,12 +10,7 @@
     "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
     "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
   },
-  "commands": [
-    {
-      "cmd": "bash scripts/run_unit.sh",
-      "exit": 0
-    }
-  ],
+  "commands": [],
   "artifacts": [
     {
       "path": "evidence/typecheck.txt",
@@ -25,12 +20,12 @@
     {
       "path": "evidence/test.txt",
       "bytes": 289,
-      "sha256": "268765a26b8ad0281c13b2b8121dcbcdcde9ae953996a95a4fcbd18f31b2d7f1"
+      "sha256": "bf36b95d529e5cde850dd55cb8146d3b78a3354f9f6d9ec98f1483e5103ad47a"
     },
     {
       "path": "evidence/build.txt",
       "bytes": 285,
-      "sha256": "7f988ee88e6878a7d41675445e1bd6415032438f7ffc968f98258f3cd4b639fe"
+      "sha256": "085f48d1a0536c3acbf3ec6de8a9d0d423c14b8249f53deff8ed6119a5cd6492"
     },
     {
       "path": "evidence/ssr-run.txt",
@@ -45,7 +40,7 @@
     {
       "path": "evidence/build-manifest.json",
       "bytes": 458,
-      "sha256": "c8db384d0e83b8e455088cb7d4c3e18c01979e472f8d40d2a98d4900bbec9507"
+      "sha256": "03f39b8c2cc82ac097565ff09c444048756122a78e8eaef345e27fdf7a9e22a1"
     },
     {
       "path": "evidence/inspect.txt",
@@ -63,7 +58,5 @@
       "sha256": "95daf30d96674632d1591cbe88ad9c04a439a9e4ee69ae14a259455ebe119551"
     }
   ],
-  "unverified": [
-    "无 hydration/路由/CDN/性能测量；不代表 G3/G6"
-  ]
+  "unverified": []
 }

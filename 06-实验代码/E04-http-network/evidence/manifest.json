@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "experiment": "E04",
+  "generated_at": "2026-11-08T09:56:18.432Z",
+  "commit": "c9d17ab1d3532e872a71d56690daf0feb8eae8e4",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [],
+  "artifacts": [
+    {
+      "path": "evidence/status-codes.txt",
+      "bytes": 3924,
+      "sha256": "7ffa6d07cb10812ee4a96772c63d69c388a135dd8ac4e3dea2ceb10f470e58a2"
+    },
+    {
+      "path": "evidence/cache.txt",
+      "bytes": 1267,
+      "sha256": "2547cd687cd24357f9bb2842adb57de7183ffcdc193b23d9efa6dd3e2060128c"
+    },
+    {
+      "path": "evidence/cookies.txt",
+      "bytes": 1919,
+      "sha256": "189393901b3009d0746c4b842612fc14754411dd68f987c1e20733fe489be2f2"
+    },
+    {
+      "path": "evidence/cookie-jar.txt",
+      "bytes": 258,
+      "sha256": "418afde7913893776c5642779a8a9d9b754e5f9a9e574d4d3ad4733fbf6313da"
+    },
+    {
+      "path": "evidence/cors-curl.txt",
+      "bytes": 2722,
+      "sha256": "767516401da7004933debc7ed8792a9928e9270978524826eb339b4e595d413a"
+    },
+    {
+      "path": "evidence/browser-cors.txt",
+      "bytes": 2060,
+      "sha256": "8db8e8d27eb4b013bc8e8a2472ddaeccdcc53cc6dd938bbc5055edd7d353a036"
+    },
+    {
+      "path": "evidence/browser-cors.json",
+      "bytes": 4085,
+      "sha256": "e7b818725005b381b2e7a3d021ba67014e621a53810819a58c3a753b6924d7ca"
+    },
+    {
+      "path": "evidence/cors-browser.png",
+      "bytes": 46565,
+      "sha256": "24de54c82e4183030185f1fc637f0d07c096e20e0cc1809d8139bb1cd2a334dd"
+    },
+    {
+      "path": "evidence/failures.txt",
+      "bytes": 1001,
+      "sha256": "810ddeaaee0ceedbbb848b1a6a0b096b3f0f9de7b7c27e7158c7f665d998301f"
+    },
+    {
+      "path": "evidence/server.log",
+      "bytes": 3065,
+      "sha256": "57d901f8c7953c91027cd79f11854d0cf56b5da97194302968eafb69f973a193"
+    }
+  ],
+  "unverified": []
+}

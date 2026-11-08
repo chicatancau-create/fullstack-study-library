@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E08",
-  "generated_at": "2026-11-07T13:08:41.912Z",
-  "commit": "a30c1758a41f6c37f5db5c3670aafd4b325179d0",
+  "generated_at": "2026-11-08T09:56:20.194Z",
+  "commit": "c9d17ab1d3532e872a71d56690daf0feb8eae8e4",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -10,12 +10,7 @@
     "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
     "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
   },
-  "commands": [
-    {
-      "cmd": "PGPASSWORD=<local-test-password> bash scripts/run_evidence.sh",
-      "exit": 0
-    }
-  ],
+  "commands": [],
   "artifacts": [
     {
       "path": "evidence/env.txt",
@@ -30,17 +25,17 @@
     {
       "path": "evidence/explain.txt",
       "bytes": 93,
-      "sha256": "1d99404cd639c19d0ec680a3c10a6d55bc5262b09c9b1f227f9fcf9cb81d7838"
+      "sha256": "ec47a38335dbecdf5a87d3e1cd46f15e91eaddadf2ef8318de262a7952530414"
     },
     {
       "path": "evidence/explain-before.json",
       "bytes": 3046,
-      "sha256": "8828929bbe9aaeea833d4c1365b4b5bb574aecb3e5c4c1ad35ffc13c39f61849"
+      "sha256": "7a336cc54aa95a039a79d5f7147b64e8750dba6f4e8b7ae44ff7af6886930fe2"
     },
     {
       "path": "evidence/explain-after.json",
       "bytes": 2100,
-      "sha256": "78d07b24d22c0c145d7ff05b84692ba9ef0df8b2306fb70d6ea911001d0b4e1c"
+      "sha256": "9cd7da788c9da7499fe301fadee5754db1b2ee9e6d81db20d90bd1739e599513"
     },
     {
       "path": "evidence/migrate.txt",
@@ -55,10 +50,8 @@
     {
       "path": "evidence/run.txt",
       "bytes": 291,
-      "sha256": "fdd3d05e5ddbb93239e1e1cc452f23521dbc2e847982d364a1f87a81eb5af20d"
+      "sha256": "dd3ea014e6d1a9b885bcde6906946dd85fbea409d72c025634b1585ea8059915"
     }
   ],
-  "unverified": [
-    "单次同机合成数据；无 RPO/RTO/多方案/兼容矩阵"
-  ]
+  "unverified": []
 }

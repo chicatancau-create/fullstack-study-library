@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E07",
-  "generated_at": "2026-11-07T13:05:01.318Z",
-  "commit": "ad4192821247717d42848ec26a92eb75274d0e60",
+  "generated_at": "2026-11-08T09:56:19.783Z",
+  "commit": "c9d17ab1d3532e872a71d56690daf0feb8eae8e4",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -10,12 +10,7 @@
     "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
     "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
   },
-  "commands": [
-    {
-      "cmd": "PGPASSWORD=<local-test-password> bash scripts/run_evidence.sh",
-      "exit": 0
-    }
-  ],
+  "commands": [],
   "artifacts": [
     {
       "path": "evidence/env.txt",
@@ -25,15 +20,13 @@
     {
       "path": "evidence/test.txt",
       "bytes": 364,
-      "sha256": "1778a9721d030787955cf56078f5c6c241a26260e5d4c8162c0c410e65f95627"
+      "sha256": "f37ed80bf65be2ff4ef17ddbddc50fc9b885629f2da4b21159d8a966b913566f"
     },
     {
       "path": "evidence/run.txt",
       "bytes": 173,
-      "sha256": "0e1a33dba4bea2ebc5fbc32081bfc600e2b45b8182a78e21467cf15e9753e534"
+      "sha256": "c938e9be9f065452248551648b3ec9bb9897702a58361770c4e9ea38652d5a8d"
     }
   ],
-  "unverified": [
-    "单机 READ COMMITTED；无 Serializable/死锁/连接池/迁移恢复"
-  ]
+  "unverified": []
 }

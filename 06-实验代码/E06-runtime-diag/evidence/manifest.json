@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E06",
-  "generated_at": "2026-11-08T05:56:29.353Z",
-  "commit": "934172d92a26bd71b226b662c4e6e5f02bb5fc93",
+  "generated_at": "2026-11-08T09:56:19.328Z",
+  "commit": "c9d17ab1d3532e872a71d56690daf0feb8eae8e4",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -10,32 +10,27 @@
     "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
     "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
   },
-  "commands": [
-    {
-      "cmd": "bash scripts/run_evidence.sh",
-      "exit": 0
-    }
-  ],
+  "commands": [],
   "artifacts": [
     {
       "path": "evidence/env.txt",
-      "bytes": 132,
-      "sha256": "5f15714f3255d5dda79d567e37c30f87a0fd391dd05e7d6d56376a51c8b8bb7b"
+      "bytes": 133,
+      "sha256": "a79658e89a5b26f36f561ef2cac0a8d5ea720de43f77ae46644169c61a2e772b"
     },
     {
       "path": "evidence/run.txt",
       "bytes": 247,
-      "sha256": "d7b3df1aeb1f767ce21fee555b2fc3a91a3c7fb42bf4b82b7123aa6d4787ca79"
+      "sha256": "0202f29feac489972afdb717032f85d61a03a4d1742b6b4020456e8eb16f87fa"
     },
     {
       "path": "evidence/cpu_loop.txt",
       "bytes": 37,
-      "sha256": "1f8df3fe4255876c527c49de36f7de33bd8e0ee54190ea3c0803449f8c47d6f2"
+      "sha256": "1af25cabd714b6318b225d83d4c3c1051ddd9e07da337c92daa209d11e983b1a"
     },
     {
       "path": "evidence/heap.txt",
       "bytes": 100,
-      "sha256": "eca49aa74f6d27389d12840cfff565d2b084bb6ce1ab9ee1b50a0f868c0195cb"
+      "sha256": "58342bd696397f84fea9be1a71a07b44cf6ce2bc55e8b42cf53b2ed28e71c80f"
     },
     {
       "path": "evidence/fd.txt",
@@ -45,15 +40,8 @@
     {
       "path": "evidence/eventloop.txt",
       "bytes": 60,
-      "sha256": "9a848e1c96bd75383b35c7036b76ce65bb6a8a049030a1205ea4fbdeb06723f9"
-    },
-    {
-      "path": "evidence/cpu/CPU.20261107.202300.30260.0.001.cpuprofile",
-      "bytes": 13335,
-      "sha256": "18e92a140af34a01885706a6554283e476ecf98b9c5b87997348d708be39df64"
+      "sha256": "b1edcea9617702d2ddd7456034cd1225cc64ca18abb5824d4d4f5e54096b951d"
     }
   ],
-  "unverified": [
-    "单进程 Node；无 OS 级 fd/连接池/容器/真实故障"
-  ]
+  "unverified": []
 }
