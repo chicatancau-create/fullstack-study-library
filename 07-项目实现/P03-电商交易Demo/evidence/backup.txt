@@ -1,0 +1,4 @@
+dump bytes=10456 file=E:\OBsidian\全栈工程师学习资料库\07-项目实现\P03-电商交易Demo\evidence\p03-backup.sql
+source  orders=1 inventory=1
+restore orders=1 inventory=1
+RESTORE OK

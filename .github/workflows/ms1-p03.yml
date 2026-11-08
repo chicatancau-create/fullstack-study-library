@@ -1,0 +1,58 @@
+name: ms1-p03
+
+on:
+  push:
+    paths:
+      - '07-项目实现/P03-电商交易Demo/**'
+      - '.github/workflows/ms1-p03.yml'
+  pull_request:
+    paths:
+      - '07-项目实现/P03-电商交易Demo/**'
+      - '.github/workflows/ms1-p03.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 07-项目实现/P03-电商交易Demo
+    services:
+      postgres:
+        image: postgres:18-alpine
+        env:
+          POSTGRES_USER: p03
+          POSTGRES_PASSWORD: p03-ci-pass
+          POSTGRES_DB: study_lab
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U p03 -d study_lab"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 20
+      rabbitmq:
+        image: rabbitmq:4-alpine
+        ports:
+          - 5672:5672
+        options: >-
+          --health-cmd "rabbitmq-diagnostics -q ping"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      PGHOST: 127.0.0.1
+      PGUSER: p03
+      PGPASSWORD: p03-ci-pass
+      PGDATABASE: study_lab
+      AMQP_URL: amqp://guest:guest@127.0.0.1:5672
+      P03_API_KEY: ci-api-key
+      P03_PROVIDER_SECRET: ci-provider-secret
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm ci
+      - run: npm run migrate
+      - run: npm test
+      - run: npm run build

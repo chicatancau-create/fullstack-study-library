@@ -1,0 +1,22 @@
+{
+  "name": "project03-trade",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "项目 03：交易 Demo（库存非负、快照、状态机、幂等、回调竞争）",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "migrate": "node scripts/migrate.mjs",
+    "test": "node --test tests/*.test.js",
+    "build": "node scripts/check-syntax.mjs",
+    "load": "node scripts/load.mjs",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "amqplib": "^2.2.1",
+    "fastify": "5.12.8",
+    "pg": "8.23.1"
+  }
+}

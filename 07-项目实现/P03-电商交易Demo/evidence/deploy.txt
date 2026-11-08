@@ -1,0 +1,18 @@
+== https health
+HTTP/1.1 200 OK
+content-type: application/json; charset=utf-8
+x-content-type-options: nosniff
+content-length: 15
+date: Sat, 07 Nov 2026 15:35:44 GMT
+connection: keep-alive
+keep-alive: timeout=72
+strict-transport-security: max-age=31536000; includeSubDomains
+
+{"status":"ok"}
+== tls version
+New, TLSv1.2, Cipher is ECDHE-RSA-AES128-GCM-SHA256
+Protocol: TLSv1.2
+== plain http (expect failure)
+curl: (52) Empty reply from server
+plain_http_exit=52
+DEPLOY PASS

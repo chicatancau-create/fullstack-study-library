@@ -1,0 +1,8 @@
+captured_at: 2026-11-08T17:48:52+08:00
+node: v24.15.0
+migrate=PASS
+tests=PASS
+load=PASS
+mq=PASS
+backup_restore=PASS
+PROJECT03 PASS
