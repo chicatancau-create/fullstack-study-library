@@ -277,7 +277,8 @@ def migration_record(path: Path, meta: dict[str, Any]) -> dict[str, Any]:
             "mirror_path": rel,
             "entry_path": "README.md" if (path / "README.md").is_file() else ".source.json",
             "included_in_git": False,
-            "availability": "present_local" if path.is_dir() else "missing_local",
+            # 镜像正文不随 Git 入库，catalog 描述的是仓库快照：默认按未随包处理。
+            "availability": "not_packaged" if path.is_dir() else "missing_local",
             "online_fallback_url": canonical_url(source_url),
         },
         "integrity": {
@@ -535,12 +536,15 @@ def render_materials(catalog: dict[str, Any]) -> str:
         key=lambda r: (r["classification"]["primary_category"], r["id"]),
     )
     totals = summarize(catalog)
+    mirror_count = sum(1 for r in resources if r.get("payload", {}).get("mode") != "reference")
+    ref_count = len(resources) - mirror_count
     lines = [
         "# 材料清单（可复现凭证）",
         "",
         GENERATED_NOTICE,
         "",
-        f"> catalog 生成时间：{catalog['generated_at']}｜活跃仓库 {totals['active']} 个｜"
+        f"> catalog 生成时间：{catalog['generated_at']}｜活跃资源 {totals['active']} 条"
+        f"（镜像 {mirror_count} + reference {ref_count}）｜"
         f"{totals['files']:,} 个文件｜逻辑 {totals['bytes']:,} bytes ≈ {totals['bytes'] / 2**30:.2f} GiB。",
         ">",
         "> 本文件是 `catalog.json` 的生成视图。镜像正文不进 Git；`bytes` 是原始字节汇总，MiB 只用于显示。",
@@ -581,8 +585,8 @@ def render_materials(catalog: dict[str, Any]) -> str:
             )
         )
     lines += [
-        "| **合计** | **{} 个活跃仓库** |  |  |  | **{:,}** | **{:,}** | **{:.2f}** | **{:,}** |  |  |  |  |".format(
-            totals["active"], totals["files"], totals["bytes"], totals["bytes"] / 2**20, totals["markdown"]
+        "| **合计** | **{} 条活跃资源（镜像 {} + reference {}）** |  |  |  | **{:,}** | **{:,}** | **{:.2f}** | **{:,}** |  |  |  |  |".format(
+            totals["active"], mirror_count, ref_count, totals["files"], totals["bytes"], totals["bytes"] / 2**20, totals["markdown"]
         ),
         "",
         "## 说明",
@@ -770,7 +774,7 @@ def render_index(catalog: dict[str, Any], original: str) -> str:
     summary = (
         GENERATED_NOTICE
         + "\n\n"
-        + f"> 由 catalog 生成：活跃仓库 {total['active']} 个｜{total['files']:,} 个文件｜"
+        + f"> 由 catalog 生成：活跃资源 {total['active']} 条｜{total['files']:,} 个文件｜"
         + f"{total['bytes']:,} bytes ≈ {total['bytes'] / 2**30:.2f} GiB。"
         + f"另有 tombstone {total['tombstones']} 个，不计入活跃合计。"
         + "\n>\n> 本索引中的计数来自 catalog 的本机实测；镜像正文不随 Git 提供。"
@@ -1106,8 +1110,13 @@ def catalog_checks(catalog: dict[str, Any], schema: dict[str, Any], mode: str) -
     errors = schema_validate(catalog, schema, schema)
     resources = catalog.get("resources", [])
     tombstones = catalog.get("tombstones", [])
-    if len(resources) != 178:
-        errors.append(f"catalog.resources: 活跃资源 {len(resources)}，基线应为 178（增删需明确证据）")
+    mirror_count = sum(1 for r in resources if r.get("payload", {}).get("mode") != "reference")
+    ref_count = len(resources) - mirror_count
+    if mirror_count != 178 or ref_count != 2:
+        errors.append(
+            f"catalog.resources: 活跃资源 {len(resources)}（镜像 {mirror_count} + reference {ref_count}），"
+            "基线应为 178 镜像 + 2 reference（增删需明确证据）"
+        )
     ids = [r.get("id") for r in resources]
     urls = [r.get("source", {}).get("canonical_url") for r in resources]
     if len(ids) != len(set(ids)):
@@ -1128,7 +1137,12 @@ def catalog_checks(catalog: dict[str, Any], schema: dict[str, Any], mode: str) -
         if replacement and replacement not in all_ids:
             errors.append(f"{r.get('id')}: replacement_id {replacement} 不存在")
         cat = r.get("classification", {}).get("primary_category", "")
-        if not norm_rel(r.get("payload", {}).get("mirror_path", "")).startswith(cat + "/"):
+        payload = r.get("payload", {})
+        if payload.get("mode") == "reference":
+            if not str(payload.get("online_fallback_url", "")).startswith("https://"):
+                errors.append(f"{r.get('id')}: reference 缺少 https online_fallback_url")
+            continue
+        if not norm_rel(payload.get("mirror_path", "")).startswith(cat + "/"):
             errors.append(f"{r.get('id')}: mirror_path 与 primary_category 不一致")
     sums = {
         "active": len(resources),
@@ -1149,8 +1163,8 @@ def catalog_checks(catalog: dict[str, Any], schema: dict[str, Any], mode: str) -
         errors.append("catalog: 分类 bytes 合计与总计不一致")
     if MATERIALS.exists():
         mat = MATERIALS.read_text(encoding="utf-8")
-        if mat.count("\n| 知识库/") + mat.count("\n| 题库/") != 178:
-            errors.append("材料清单.md: 活跃仓库行不是 178")
+        if mat.count("\n| 知识库/") + mat.count("\n| 题库/") != len(resources):
+            errors.append(f"材料清单.md: 活跃资源行不是 {len(resources)}")
         if f"{sums['files']:,}" not in mat or f"{sums['bytes']:,}" not in mat:
             errors.append("材料清单.md: 文件数或 bytes 与 catalog 不一致")
         if "请勿手工编辑" not in mat:
