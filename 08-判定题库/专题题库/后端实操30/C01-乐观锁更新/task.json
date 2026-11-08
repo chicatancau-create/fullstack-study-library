@@ -1,0 +1,10 @@
+{
+  "id": "C01",
+  "title": "乐观锁更新",
+  "category": "Owner 并发",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "optimisticUpdate",
+  "points": 1
+}

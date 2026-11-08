@@ -1,0 +1,10 @@
+{
+  "id": "C03",
+  "title": "同 Owner 进行中任务唯一",
+  "category": "Owner 并发",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "uniqueOwnerTask",
+  "points": 1
+}

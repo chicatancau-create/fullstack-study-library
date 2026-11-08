@@ -29,6 +29,7 @@
 | --- | --- | --- |
 | SQL50 | 50 道 PostgreSQL 题、schema/seed、逐题结果比对判定 | [SQL50](专题题库/SQL50/README.md) |
 | RAG Golden Set | 65 条 golden 样本（检索/拒答/越权/注入/成本）与离线评测 | [RAG-GoldenSet](专题题库/RAG-GoldenSet/README.md) |
+| 后端实操 30 | API 契约/对象级授权/并发/Outbox/JVM 诊断，每题起始代码+隐藏测试 | [后端实操30](专题题库/后端实操30/README.md) |
 
 ## 边界
 

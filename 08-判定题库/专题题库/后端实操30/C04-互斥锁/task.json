@@ -1,0 +1,10 @@
+{
+  "id": "C04",
+  "title": "互斥锁",
+  "category": "Owner 并发",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "createMutex",
+  "points": 1
+}

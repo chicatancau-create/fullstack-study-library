@@ -1,0 +1,10 @@
+{
+  "id": "C05",
+  "title": "判断记录是否过期",
+  "category": "Owner 并发",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "isStale",
+  "points": 1
+}

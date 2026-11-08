@@ -1,0 +1,10 @@
+{
+  "id": "D01",
+  "title": "构造 Outbox 记录",
+  "category": "Outbox 与消息",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "buildOutboxRecord",
+  "points": 1
+}

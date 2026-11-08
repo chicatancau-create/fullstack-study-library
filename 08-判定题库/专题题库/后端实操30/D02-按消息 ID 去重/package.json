@@ -1,0 +1,8 @@
+{
+  "name": "backend-d02",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:hidden": "node hidden/test.mjs"
+  }
+}

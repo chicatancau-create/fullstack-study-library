@@ -1,0 +1,10 @@
+{
+  "id": "D04",
+  "title": "对账：标记已发布",
+  "category": "Outbox 与消息",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "reconcile",
+  "points": 1
+}

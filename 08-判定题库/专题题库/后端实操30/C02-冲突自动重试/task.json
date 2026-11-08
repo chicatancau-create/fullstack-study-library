@@ -1,0 +1,10 @@
+{
+  "id": "C02",
+  "title": "冲突自动重试",
+  "category": "Owner 并发",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "retryOnConflict",
+  "points": 1
+}

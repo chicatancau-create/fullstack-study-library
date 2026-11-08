@@ -1,0 +1,10 @@
+{
+  "id": "A08",
+  "title": "识别废弃操作",
+  "category": "API 契约",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "isDeprecated",
+  "points": 1
+}

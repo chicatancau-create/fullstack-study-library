@@ -1,0 +1,10 @@
+{
+  "id": "B03",
+  "title": "字段级编辑权限",
+  "category": "对象级授权",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "canEditField",
+  "points": 1
+}

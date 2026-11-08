@@ -1,0 +1,9 @@
+{
+  "name": "backend-practical-30",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:hidden": "node judge.mjs",
+    "evidence": "node judge.mjs"
+  }
+}

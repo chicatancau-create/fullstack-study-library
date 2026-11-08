@@ -1,0 +1,10 @@
+{
+  "id": "A05",
+  "title": "订单载荷 V1 迁移到 V2",
+  "category": "API 契约",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "migrateV1toV2",
+  "points": 1
+}

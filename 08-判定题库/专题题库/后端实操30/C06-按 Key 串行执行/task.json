@@ -1,0 +1,10 @@
+{
+  "id": "C06",
+  "title": "按 Key 串行执行",
+  "category": "Owner 并发",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "serializeByKey",
+  "points": 1
+}

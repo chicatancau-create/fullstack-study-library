@@ -1,0 +1,10 @@
+{
+  "id": "A02",
+  "title": "次版本号递增",
+  "category": "API 契约",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "bumpMinor",
+  "points": 1
+}

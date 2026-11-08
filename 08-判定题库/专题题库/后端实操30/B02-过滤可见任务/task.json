@@ -1,0 +1,10 @@
+{
+  "id": "B02",
+  "title": "过滤可见任务",
+  "category": "对象级授权",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "filterVisibleTasks",
+  "points": 1
+}

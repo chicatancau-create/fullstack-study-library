@@ -1,0 +1,10 @@
+{
+  "id": "A07",
+  "title": "对比端点的增删",
+  "category": "API 契约",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "diffEndpoints",
+  "points": 1
+}

@@ -1,0 +1,10 @@
+{
+  "id": "E03",
+  "title": "检测线程死锁环",
+  "category": "JVM 诊断",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "hasDeadlock",
+  "points": 1
+}

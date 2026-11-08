@@ -1,0 +1,10 @@
+{
+  "id": "A03",
+  "title": "判断契约向后兼容",
+  "category": "API 契约",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "isBackwardCompatible",
+  "points": 1
+}

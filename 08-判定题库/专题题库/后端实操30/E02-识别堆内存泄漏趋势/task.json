@@ -1,0 +1,10 @@
+{
+  "id": "E02",
+  "title": "识别堆内存泄漏趋势",
+  "category": "JVM 诊断",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "detectLeak",
+  "points": 1
+}

@@ -1,0 +1,10 @@
+{
+  "id": "B04",
+  "title": "强制注入租户过滤",
+  "category": "对象级授权",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "tenantScopedQuery",
+  "points": 1
+}

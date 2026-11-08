@@ -1,0 +1,10 @@
+{
+  "id": "A01",
+  "title": "剔除已废弃字段",
+  "category": "API 契约",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "stripDeprecated",
+  "points": 1
+}

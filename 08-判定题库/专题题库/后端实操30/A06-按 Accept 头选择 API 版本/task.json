@@ -1,0 +1,10 @@
+{
+  "id": "A06",
+  "title": "按 Accept 头选择 API 版本",
+  "category": "API 契约",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "pickVersion",
+  "points": 1
+}

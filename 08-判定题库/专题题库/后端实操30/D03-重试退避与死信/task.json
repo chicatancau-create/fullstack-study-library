@@ -1,0 +1,10 @@
+{
+  "id": "D03",
+  "title": "重试退避与死信",
+  "category": "Outbox 与消息",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "nextRetryDelay",
+  "points": 1
+}

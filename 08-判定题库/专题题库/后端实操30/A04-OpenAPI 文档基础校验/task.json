@@ -1,0 +1,10 @@
+{
+  "id": "A04",
+  "title": "OpenAPI 文档基础校验",
+  "category": "API 契约",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "validateOpenApi",
+  "points": 1
+}

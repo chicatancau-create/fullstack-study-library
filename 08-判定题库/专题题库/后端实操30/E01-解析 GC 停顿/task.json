@@ -1,0 +1,10 @@
+{
+  "id": "E01",
+  "title": "解析 GC 停顿",
+  "category": "JVM 诊断",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "parseGcPauses",
+  "points": 1
+}

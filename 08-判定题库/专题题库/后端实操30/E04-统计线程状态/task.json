@@ -1,0 +1,10 @@
+{
+  "id": "E04",
+  "title": "统计线程状态",
+  "category": "JVM 诊断",
+  "entry": "starter/index.mjs",
+  "solution": "solution/index.mjs",
+  "hidden": "hidden/test.mjs",
+  "function": "countThreadStates",
+  "points": 1
+}

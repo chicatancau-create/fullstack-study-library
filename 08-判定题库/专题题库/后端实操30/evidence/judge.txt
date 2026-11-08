@@ -1,0 +1,34 @@
+tasks=30
+node=v24.15.0
+PASS A01-剔除已废弃字段 solution_exit=0 starter_exit=1
+PASS A02-次版本号递增 solution_exit=0 starter_exit=1
+PASS A03-判断契约向后兼容 solution_exit=0 starter_exit=1
+PASS A04-OpenAPI 文档基础校验 solution_exit=0 starter_exit=1
+PASS A05-订单载荷 V1 迁移到 V2 solution_exit=0 starter_exit=1
+PASS A06-按 Accept 头选择 API 版本 solution_exit=0 starter_exit=1
+PASS A07-对比端点的增删 solution_exit=0 starter_exit=1
+PASS A08-识别废弃操作 solution_exit=0 starter_exit=1
+PASS B01-资源读取授权 solution_exit=0 starter_exit=1
+PASS B02-过滤可见任务 solution_exit=0 starter_exit=1
+PASS B03-字段级编辑权限 solution_exit=0 starter_exit=1
+PASS B04-强制注入租户过滤 solution_exit=0 starter_exit=1
+PASS B05-断言 Owner 或 Admin solution_exit=0 starter_exit=1
+PASS B06-敏感字段脱敏 solution_exit=0 starter_exit=1
+PASS B07-角色判断 solution_exit=0 starter_exit=1
+PASS B08-拒绝访问审计 solution_exit=0 starter_exit=1
+PASS C01-乐观锁更新 solution_exit=0 starter_exit=1
+PASS C02-冲突自动重试 solution_exit=0 starter_exit=1
+PASS C03-同 Owner 进行中任务唯一 solution_exit=0 starter_exit=1
+PASS C04-互斥锁 solution_exit=0 starter_exit=1
+PASS C05-判断记录是否过期 solution_exit=0 starter_exit=1
+PASS C06-按 Key 串行执行 solution_exit=0 starter_exit=1
+PASS D01-构造 Outbox 记录 solution_exit=0 starter_exit=1
+PASS D02-按消息 ID 去重 solution_exit=0 starter_exit=1
+PASS D03-重试退避与死信 solution_exit=0 starter_exit=1
+PASS D04-对账：标记已发布 solution_exit=0 starter_exit=1
+PASS E01-解析 GC 停顿 solution_exit=0 starter_exit=1
+PASS E02-识别堆内存泄漏趋势 solution_exit=0 starter_exit=1
+PASS E03-检测线程死锁环 solution_exit=0 starter_exit=1
+PASS E04-统计线程状态 solution_exit=0 starter_exit=1
+passed=30 failed=0
+BACKEND30 PASS

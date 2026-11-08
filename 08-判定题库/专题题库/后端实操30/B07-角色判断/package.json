@@ -1,0 +1,8 @@
+{
+  "name": "backend-b07",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:hidden": "node hidden/test.mjs"
+  }
+}
