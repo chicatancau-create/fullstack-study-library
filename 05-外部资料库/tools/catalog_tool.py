@@ -50,7 +50,7 @@ COUNT_SCOPE = (
     "excludes the sibling _派生视图"
 )
 RESTRICTED_LICENSES = {"GPL-3.0", "AGPL-3.0", "CC-BY-NC-SA-4.0"}
-GENERATED_NOTICE = "<!-- 由 05-外部资料库/_采集暂存/catalog_tool.py generate 生成，请勿手工编辑。 -->"
+GENERATED_NOTICE = "<!-- 由 05-外部资料库/tools/catalog_tool.py generate 生成，请勿手工编辑。 -->"
 WIKI_RE = re.compile(r"\[\[([^\]\|#]*)(?:#[^\]\|]*)?(?:\|[^\]]*)?\]\]")
 MDLINK_RE = re.compile(r"(?<!!)\]\((<[^>]+>|[^)]+)\)")
 CODE_FENCE_RE = re.compile(r"```[^\n]*\n.*?```", re.S)

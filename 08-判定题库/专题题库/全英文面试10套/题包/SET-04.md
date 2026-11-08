@@ -4,7 +4,7 @@
 
 ## Context
 
-A ledger service records double-entry transactions and must be auditable and exactly-once for external callbacks.
+A ledger service records double-entry transactions and must be auditable and effectively-once for external callbacks (within the boundary of a single database transaction; distributed exactly-once is not claimed).
 
 ## Agenda
 
@@ -27,7 +27,7 @@ Look for: a clear scope statement, the candidate's own contribution, one measura
 | --- | --- | --- |
 | JS/TS | How do you prevent precision loss when summing ledger amounts? | Integer minor units or decimal library; never binary floats. |
 | React | How would you present a reconciliation mismatch to an operator? | Side-by-side diff, drill-down, explicit resolution action, audit trail. |
-| Node | How do you make an external callback handler exactly-once? | Signature, unique event id, transactional inbox, idempotent state machine. |
+| Node | How do you make an external callback handler effectively-once within a single-DB boundary? | Signature verification, unique event id, transactional inbox, idempotent state machine; discuss why cross-system exactly-once is not achievable. |
 | SQL | How do you enforce that debits and credits balance per transaction? | Deferred constraint trigger or transactional check before commit. |
 | System design | Design daily reconciliation between the ledger and the payment provider. | Cutoff, snapshots, diff buckets, manual review queue, metrics. |
 
@@ -51,7 +51,7 @@ Look for: Hash map plus bucket sort or heap; discuss tie handling.
 
 Deliver: endpoint(s), request/response shape, status codes, validation, failure modes, and one thing you would monitor.
 
-Look for: Validation, 409 on replay, atomic posting, audit fields.
+Look for: Validation, replay handling (same key + same body returns original result; same key + different body returns 409), atomic posting, audit fields.
 
 ## 4. Behavioral (10 min)
 

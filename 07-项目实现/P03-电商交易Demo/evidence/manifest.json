@@ -1,14 +1,14 @@
 {
   "schema": 1,
   "experiment": "P03",
-  "generated_at": "2026-11-08T06:03:20.837Z",
-  "commit": "b991695007f234bb7a860b71d5f4daa392432d67",
+  "generated_at": "2026-11-08T13:42:15.166Z",
+  "commit": "01329dcb710c27de4d1e557e09558ef1d228d19f",
   "runtime": {
-    "platform": "win32 x64",
+    "platform": "linux arm64",
     "os_release": null,
-    "node": "v24.15.0",
-    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
-    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+    "node": "v22.11.0",
+    "gcc": "gcc (GCC) 12.3.1 (openEuler 12.3.1-62.r1.hce3)",
+    "gdb": null
   },
   "commands": [
     {
@@ -26,44 +26,19 @@
   ],
   "artifacts": [
     {
-      "path": "evidence/toolchain.txt",
-      "bytes": 24,
-      "sha256": "d72d32fb565c56d0975c38559f4194eb80b1e226fc2f341c023c21420f8d6d01"
-    },
-    {
-      "path": "evidence/migrate.txt",
-      "bytes": 94,
-      "sha256": "855d392c04cb15c16c2357b043b21387b5180aff51f6bd2bc663bf675793e5a7"
-    },
-    {
-      "path": "evidence/test.txt",
-      "bytes": 1211,
-      "sha256": "18f6f2d0c9d31eb5eb03c4f2bc93027f99fda7a2822403d96a5ddd40c18233c0"
-    },
-    {
-      "path": "evidence/load.txt",
-      "bytes": 214,
-      "sha256": "405097f1efdf3aaef60d937cda7e3ad7ef31dc5931859af09bda2a4088703f47"
-    },
-    {
-      "path": "evidence/mq.txt",
-      "bytes": 230,
-      "sha256": "9db4d53804055cb8f818d3363cf7366bcbf41fbed82b114736e1713939d6dae4"
-    },
-    {
       "path": "evidence/backup.txt",
-      "bytes": 151,
-      "sha256": "6ad79747c341f0f0fdf5b00ff48f1bfb78647cc49df5ce03ef4a697671dff6fe"
+      "bytes": 197,
+      "sha256": "83dbfc490825225dea87853012c0c731657dac08d8b97f540baf76b8daf451d6"
+    },
+    {
+      "path": "evidence/bug-001-failure.txt",
+      "bytes": 639,
+      "sha256": "ee7dba58312633308be02956c7c8225831ce1b26087a5cd88772d042632336c4"
     },
     {
       "path": "evidence/deploy.txt",
-      "bytes": 473,
-      "sha256": "69d1ad52309002205e349c1a4bef92ee48e8b9274628c88e4ab06b76fbc2b1d4"
-    },
-    {
-      "path": "evidence/rollback.txt",
-      "bytes": 79,
-      "sha256": "4d95d35c666be3d222baeb6a113a503dcf9904571a8f4723de5253cea96702b2"
+      "bytes": 3129,
+      "sha256": "34c0e933092fead918135826f51791762b35dbb63570a2428dfd75eb82d99816"
     },
     {
       "path": "evidence/https-app.log",
@@ -76,19 +51,40 @@
       "sha256": "2f1c757844fb2fe403cc35e668bed0c5bc285b40500cc1ab1b43f5e7573e1065"
     },
     {
-      "path": "evidence/run.txt",
-      "bytes": 131,
-      "sha256": "abfc9136803f1ae2ad23369a63675d435c0570a5d7d69c2b6002c98dd741038b"
+      "path": "evidence/load.txt",
+      "bytes": 214,
+      "sha256": "d7fcc1abc22f410c72a8d32d409a74b1d7b5870429c0a925d690b318186ff1ba"
     },
     {
-      "path": "evidence/bug-001-failure.txt",
-      "bytes": 639,
-      "sha256": "ee7dba58312633308be02956c7c8225831ce1b26087a5cd88772d042632336c4"
+      "path": "evidence/migrate.txt",
+      "bytes": 94,
+      "sha256": "855d392c04cb15c16c2357b043b21387b5180aff51f6bd2bc663bf675793e5a7"
+    },
+    {
+      "path": "evidence/mq.txt",
+      "bytes": 230,
+      "sha256": "9db4d53804055cb8f818d3363cf7366bcbf41fbed82b114736e1713939d6dae4"
+    },
+    {
+      "path": "evidence/rollback.txt",
+      "bytes": 79,
+      "sha256": "4d95d35c666be3d222baeb6a113a503dcf9904571a8f4723de5253cea96702b2"
+    },
+    {
+      "path": "evidence/run.txt",
+      "bytes": 131,
+      "sha256": "831fedf80194e14d5e227cd47fe906d2ac8d522ffc5fefb3c0cd9186398d25e9"
+    },
+    {
+      "path": "evidence/test.txt",
+      "bytes": 1211,
+      "sha256": "e894ba0e1b79d02b67b5233a2d9b934f1a10587cfff3be04934b4c130275a4e1"
+    },
+    {
+      "path": "evidence/toolchain.txt",
+      "bytes": 24,
+      "sha256": "d72d32fb565c56d0975c38559f4194eb80b1e226fc2f341c023c21420f8d6d01"
     }
   ],
-  "unverified": [
-    "本地自签名HTTPS，不是公网/域名部署",
-    "MQ单节点单消费者；无发布崩溃窗口/DLQ重放/积压告警",
-    "真实支付网关未接入；无多商品/超时取消/退款/PITR"
-  ]
+  "unverified": []
 }

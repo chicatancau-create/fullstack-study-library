@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "experiment": "P02",
+  "generated_at": "2026-11-08T13:43:06.523Z",
+  "commit": "01329dcb710c27de4d1e557e09558ef1d228d19f",
+  "runtime": {
+    "platform": "linux arm64",
+    "os_release": null,
+    "node": "v22.11.0",
+    "gcc": "gcc (GCC) 12.3.1 (openEuler 12.3.1-62.r1.hce3)",
+    "gdb": null
+  },
+  "commands": [
+    {
+      "cmd": "bash scripts/evidence.sh",
+      "exit": 0
+    },
+    {
+      "cmd": "bash scripts/deploy-evidence.sh",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/api_contract.txt",
+      "bytes": 186,
+      "sha256": "5ba826078695205492c6f92493b6711fc9b289f3a286b58a0698bc5f51ed64e2"
+    },
+    {
+      "path": "evidence/build.txt",
+      "bytes": 101,
+      "sha256": "e1361525bd02edf769ed69c75bf2d2f76239801119b9b9caf1d0ec88b9739795"
+    },
+    {
+      "path": "evidence/concurrency.txt",
+      "bytes": 579,
+      "sha256": "7efbe4d276e3cc7856f268b2736ed3b80a3d76c3e076a318ddd203186f23df66"
+    },
+    {
+      "path": "evidence/deploy.txt",
+      "bytes": 4103,
+      "sha256": "0659c8c808d754cef242a03a7d5051fcb31f1827be544a45e6d8826dfccdaa52"
+    },
+    {
+      "path": "evidence/migrate.txt",
+      "bytes": 214,
+      "sha256": "8ac6447c7dcbf03ccacb92186afe76e6dc21280388fb96add01c311f6713fe46"
+    },
+    {
+      "path": "evidence/migration_rollback.txt",
+      "bytes": 729,
+      "sha256": "742ee70f698304f1f1600b3ed580803765a0d5e24a02059c5a99888d53ff699b"
+    },
+    {
+      "path": "evidence/prisma_generate.txt",
+      "bytes": 284,
+      "sha256": "572869a147efe35e046e408e1f6b10c2ea830dbfc60947ad5ad8a990ab047839"
+    },
+    {
+      "path": "evidence/test_run.txt",
+      "bytes": 565,
+      "sha256": "e05058e5609cac060a0b2b613e40736df13b786aabe643401515ff27a19576d3"
+    }
+  ],
+  "unverified": []
+}

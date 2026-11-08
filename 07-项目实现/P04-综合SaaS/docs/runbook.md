@@ -21,7 +21,7 @@ curl http://127.0.0.1:8797/health
 PGPASSWORD=<local-test-password> bash scripts/run_project.sh
 ```
 
-输出：迁移表清单、13 个测试、备份恢复行数对比、`PROJECT04 PASS`。
+输出：迁移表清单、15 个测试、备份恢复行数对比、`PROJECT04 PASS`。
 
 ## 备份与恢复演练
 
@@ -50,6 +50,6 @@ node scripts/backup.mjs
 
 ## 监控与限制
 
-- 结构化日志（Fastify logger）与 `X-Request-Id`；无指标端点、无告警。
-- 无速率限制；不要暴露到公网。
-- 未验证 Docker/K8s/HTTPS/多实例；当前为单进程 + 单数据库。
+- 结构化日志（Fastify logger）与 `X-Request-Id`；指标端点 `/metrics`（Prometheus 3.5.0）+ Alertmanager 0.28.1 webhook 告警，已验证 ntfy.sh 外发通道。
+- 登录接口已启用令牌桶限流（容量 2，超过返回 429 + Retry-After）。
+- 已验证 Docker Compose（run6）、K3s 1.37.2 双节点（server + agent）、Traefik Ingress、HTTPS、滚动发布/回滚；多实例按 K3s agent 节点调度。

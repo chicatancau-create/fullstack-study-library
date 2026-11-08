@@ -21119,7 +21119,7 @@
       },
       "payload": {
         "mode": "mirror",
-        "mirror_path": "题库/算法题解/swisskyrepo/PayloadsAllTheThings",
+        "mirror_path": "知识库/安全/swisskyrepo/PayloadsAllTheThings",
         "entry_path": "README.md",
         "included_in_git": false,
         "availability": "not_packaged",
@@ -21136,12 +21136,12 @@
         "legacy_fingerprint_12": "b2b9a0b2a81b"
       },
       "classification": {
-        "primary_category": "题库/算法题解",
-        "category_basis": "人工复核 2026-11-08：实际为安全 payload 库；受 schema 分类枚举约束保留原路径，检索与引用时按安全资料使用",
+        "primary_category": "知识库/安全",
+        "category_basis": "人工复核 2026-11-08：实际为安全 payload 参考库（知识库属性，非算法题解），从题库/算法题解迁入知识库/安全；旧镜像路径保持不变以维持证据稳定",
         "functions": [
           "F2"
         ],
-        "topics": []
+        "topics": ["security", "owasp", "payload"]
       },
       "metrics": {
         "files": 451,
@@ -22982,7 +22982,7 @@
     },
     {
       "id": "function-tags-incomplete",
-      "priority": "P2",
+      "priority": "P1",
       "summary": "92 条资源功能标签为空；F6 仅在核实后补。",
       "status": "open",
       "affected_ids": [
@@ -23103,8 +23103,8 @@
     {
       "id": "payload-category-pending",
       "priority": "P1",
-      "summary": "PayloadsAllTheThings 实际在题库/算法题解，但审查表按安全资料描述。",
-      "status": "open",
+      "summary": "PayloadsAllTheThings 实际在题库/算法题解，但审查表按安全资料描述。已于 2026-11-08 闭合：primary_category 与 mirror_path 均改为 知识库/安全，topics 增加 security/owasp/payload。",
+      "status": "closed",
       "affected_ids": [
         "github:swisskyrepo/payloadsallthethings"
       ],

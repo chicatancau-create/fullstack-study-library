@@ -39,11 +39,13 @@ Follow-up rule: ask "why" once and "what breaks" once per answer. Do not accept 
 
 **Task:** Search in rotated sorted array
 
-Find the index of a target in a rotated sorted array in O(log n).
+Find the index of a target in a rotated sorted array in O(log n). Assume all elements are distinct.
 
 **Example:** [4,5,6,7,0,1,2], target=0 -> 4
 
-Look for: Identify sorted half, binary search, handle duplicates.
+Look for: Identify sorted half, binary search on the sorted half, edge cases (single element, target not present, rotation at midpoint).
+
+**Follow-up (optional, 2 min):** How would your algorithm change if duplicates are allowed? Discuss why the worst case degrades to O(n) and how to handle it.
 
 ### 3.2 API design (10 min)
 

@@ -52,7 +52,7 @@ docker compose up --build   # PostgreSQL 18 + Redis 7 + app
 
 ## 证据（本机真实 PostgreSQL 18.6）
 
-- [evidence/test.txt](evidence/test.txt)：13/13 通过，含并发邀请只成功 1 个、跨租户 404、
+- [evidence/test.txt](evidence/test.txt)：15/15 通过，含并发邀请只成功 1 个、跨租户 404、
   旧邀请重放 409、审计失败回滚。
 - [evidence/migrate.txt](evidence/migrate.txt)：9 张表（含迁移记录）。
 - [evidence/backup.txt](evidence/backup.txt)：`tenants/memberships/audit` 恢复前后一致。
