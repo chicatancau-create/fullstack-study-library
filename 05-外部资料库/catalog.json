@@ -1,7 +1,7 @@
 {
   "$schema": "catalog.schema.json",
   "schema_version": "1.0.0",
-  "generated_at": "2026-11-07T14:06:32+08:00",
+  "generated_at": "2026-11-08",
   "resources": [
     {
       "id": "github:canner/wrenai",
@@ -27,7 +27,7 @@
         "mirror_path": "知识库/AI与RAG/Canner/WrenAI",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/Canner/WrenAI"
       },
       "integrity": {
@@ -174,7 +174,7 @@
         "mirror_path": "知识库/AI与RAG/Ethan-Wang-dev/awesome-cs61a",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/Ethan-Wang-dev/awesome-cs61a"
       },
       "integrity": {
@@ -309,7 +309,7 @@
         "mirror_path": "知识库/AI与RAG/adongwanai/AgentGuide",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/adongwanai/AgentGuide"
       },
       "integrity": {
@@ -450,7 +450,7 @@
         "mirror_path": "知识库/AI与RAG/angel200109/blog",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/angel200109/blog"
       },
       "integrity": {
@@ -583,7 +583,7 @@
         "mirror_path": "知识库/AI与RAG/datawhalechina/hello-agents",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/datawhalechina/hello-agents"
       },
       "integrity": {
@@ -699,7 +699,7 @@
         "mirror_path": "知识库/AI与RAG/datawhalechina/llm-universe",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/datawhalechina/llm-universe"
       },
       "integrity": {
@@ -811,7 +811,7 @@
         "mirror_path": "知识库/AI与RAG/datawhalechina/self-llm",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/datawhalechina/self-llm"
       },
       "integrity": {
@@ -953,7 +953,7 @@
         "mirror_path": "知识库/AI与RAG/explodinggradients/ragas",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/explodinggradients/ragas"
       },
       "integrity": {
@@ -1068,7 +1068,7 @@
         "mirror_path": "知识库/AI与RAG/fancyboi999/ai-engineering-from-scratch-zh",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/fancyboi999/ai-engineering-from-scratch-zh"
       },
       "integrity": {
@@ -1212,7 +1212,7 @@
         "mirror_path": "知识库/AI与RAG/limouren2000/llms-dev-study",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/limouren2000/llms-dev-study"
       },
       "integrity": {
@@ -1324,7 +1324,7 @@
         "mirror_path": "知识库/AI与RAG/microsoft/AI-For-Beginners",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/microsoft/AI-For-Beginners"
       },
       "integrity": {
@@ -1440,7 +1440,7 @@
         "mirror_path": "知识库/AI与RAG/microsoft/Data-Science-For-Beginners",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/microsoft/Data-Science-For-Beginners"
       },
       "integrity": {
@@ -1556,7 +1556,7 @@
         "mirror_path": "知识库/AI与RAG/microsoft/ML-For-Beginners",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/microsoft/ML-For-Beginners"
       },
       "integrity": {
@@ -1672,7 +1672,7 @@
         "mirror_path": "知识库/AI与RAG/mindcarver/91ai",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/mindcarver/91ai"
       },
       "integrity": {
@@ -1814,7 +1814,7 @@
         "mirror_path": "知识库/AI与RAG/openai/evals",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/openai/evals"
       },
       "integrity": {
@@ -1933,7 +1933,7 @@
         "mirror_path": "知识库/AI与RAG/wdndev/llm_interview_note",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/wdndev/llm_interview_note"
       },
       "integrity": {
@@ -2069,7 +2069,7 @@
         "mirror_path": "知识库/全栈路线/codecrafters-io/build-your-own-x",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/codecrafters-io/build-your-own-x"
       },
       "integrity": {
@@ -2174,7 +2174,7 @@
         "mirror_path": "知识库/全栈路线/freeCodeCamp/freeCodeCamp",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/freeCodeCamp/freeCodeCamp"
       },
       "integrity": {
@@ -2290,7 +2290,7 @@
         "mirror_path": "知识库/全栈路线/liyupi/codefather",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/liyupi/codefather"
       },
       "integrity": {
@@ -2402,7 +2402,7 @@
         "mirror_path": "知识库/全栈路线/microsoft/Web-Dev-For-Beginners",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/microsoft/Web-Dev-For-Beginners"
       },
       "integrity": {
@@ -2518,7 +2518,7 @@
         "mirror_path": "知识库/全栈路线/mtdvio/every-programmer-should-know",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/mtdvio/every-programmer-should-know"
       },
       "integrity": {
@@ -2627,7 +2627,7 @@
         "mirror_path": "知识库/全栈路线/nilbuild/developer-roadmap",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/nilbuild/developer-roadmap"
       },
       "integrity": {
@@ -2740,7 +2740,7 @@
         "mirror_path": "知识库/全栈路线/practical-tutorials/project-based-learning",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/practical-tutorials/project-based-learning"
       },
       "integrity": {
@@ -2851,7 +2851,7 @@
         "mirror_path": "知识库/前端与Node/FrontendMasters/front-end-handbook-2018",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/FrontendMasters/front-end-handbook-2018"
       },
       "integrity": {
@@ -2984,7 +2984,7 @@
         "mirror_path": "知识库/前端与Node/airbnb/javascript",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/airbnb/javascript"
       },
       "integrity": {
@@ -3113,7 +3113,7 @@
         "mirror_path": "知识库/前端与Node/chodocs/chodocs",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/chodocs/chodocs"
       },
       "integrity": {
@@ -3229,7 +3229,7 @@
         "mirror_path": "知识库/前端与Node/febobo/web-interview",
         "entry_path": ".source.json",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/febobo/web-interview"
       },
       "integrity": {
@@ -3364,7 +3364,7 @@
         "mirror_path": "知识库/前端与Node/getify/You-Dont-Know-JS",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/getify/You-Dont-Know-JS"
       },
       "integrity": {
@@ -3472,7 +3472,7 @@
         "mirror_path": "知识库/前端与Node/mdn/content",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/mdn/content"
       },
       "integrity": {
@@ -3613,7 +3613,7 @@
         "mirror_path": "知识库/前端与Node/microsoft/TypeScript-Website",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/microsoft/TypeScript-Website"
       },
       "integrity": {
@@ -3724,7 +3724,7 @@
         "mirror_path": "知识库/前端与Node/reactjs/react.dev",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/reactjs/react.dev"
       },
       "integrity": {
@@ -3862,7 +3862,7 @@
         "mirror_path": "知识库/前端与Node/verekia/js-stack-from-scratch",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/verekia/js-stack-from-scratch"
       },
       "integrity": {
@@ -3992,7 +3992,7 @@
         "mirror_path": "知识库/前端与Node/vuejs/docs",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/vuejs/docs"
       },
       "integrity": {
@@ -4128,7 +4128,7 @@
         "mirror_path": "知识库/后端进阶/0voice/from_coder_to_expert",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/0voice/from_coder_to_expert"
       },
       "integrity": {
@@ -4238,7 +4238,7 @@
         "mirror_path": "知识库/后端进阶/DreamCats/java-notes",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/DreamCats/java-notes"
       },
       "integrity": {
@@ -4344,7 +4344,7 @@
         "mirror_path": "知识库/后端进阶/bin392328206/six-finger",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/bin392328206/six-finger"
       },
       "integrity": {
@@ -4456,7 +4456,7 @@
         "mirror_path": "知识库/后端进阶/crossoverJie/JCSprout",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/crossoverJie/JCSprout"
       },
       "integrity": {
@@ -4575,7 +4575,7 @@
         "mirror_path": "知识库/后端进阶/doocs/advanced-java",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/doocs/advanced-java"
       },
       "integrity": {
@@ -4691,7 +4691,7 @@
         "mirror_path": "知识库/后端进阶/goldbergyoni/nodebestpractices",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/goldbergyoni/nodebestpractices"
       },
       "integrity": {
@@ -4807,7 +4807,7 @@
         "mirror_path": "知识库/后端进阶/hoanhan101/ultimate-go",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/hoanhan101/ultimate-go"
       },
       "integrity": {
@@ -4919,7 +4919,7 @@
         "mirror_path": "知识库/后端进阶/itwanger/toBeBetterJavaer",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/itwanger/toBeBetterJavaer"
       },
       "integrity": {
@@ -5031,7 +5031,7 @@
         "mirror_path": "知识库/后端进阶/macrozheng/mall-learning",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/macrozheng/mall-learning"
       },
       "integrity": {
@@ -5169,7 +5169,7 @@
         "mirror_path": "知识库/后端进阶/nodejs/nodejs.org",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/nodejs/nodejs.org"
       },
       "integrity": {
@@ -5308,7 +5308,7 @@
         "mirror_path": "知识库/后端进阶/standard/standard",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/standard/standard"
       },
       "integrity": {
@@ -5443,7 +5443,7 @@
         "mirror_path": "知识库/后端进阶/sunface/rust-course",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/sunface/rust-course"
       },
       "integrity": {
@@ -5578,7 +5578,7 @@
         "mirror_path": "知识库/后端进阶/ty4z2008/Qix",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/ty4z2008/Qix"
       },
       "integrity": {
@@ -5705,7 +5705,7 @@
         "mirror_path": "知识库/后端进阶/xingshaocheng/architect-awesome",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/xingshaocheng/architect-awesome"
       },
       "integrity": {
@@ -5812,7 +5812,7 @@
         "mirror_path": "知识库/后端进阶/zhisheng17/flink-learning",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/zhisheng17/flink-learning"
       },
       "integrity": {
@@ -5952,7 +5952,7 @@
         "mirror_path": "知识库/安全/DerekBabb/CyberSecurity",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/DerekBabb/CyberSecurity"
       },
       "integrity": {
@@ -6089,7 +6089,7 @@
         "mirror_path": "知识库/安全/OWASP/CheatSheetSeries",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/OWASP/CheatSheetSeries"
       },
       "integrity": {
@@ -6205,7 +6205,7 @@
         "mirror_path": "知识库/安全/OWASP/Top10",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/OWASP/Top10"
       },
       "integrity": {
@@ -6321,7 +6321,7 @@
         "mirror_path": "知识库/算法与数据结构/LongxingTan/Machine-learning-interview",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/LongxingTan/Machine-learning-interview"
       },
       "integrity": {
@@ -6452,7 +6452,7 @@
         "mirror_path": "知识库/算法与数据结构/TheAlgorithms/Python",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/TheAlgorithms/Python"
       },
       "integrity": {
@@ -6568,7 +6568,7 @@
         "mirror_path": "知识库/算法与数据结构/krahets/hello-algo",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/krahets/hello-algo"
       },
       "integrity": {
@@ -6686,7 +6686,7 @@
         "mirror_path": "知识库/算法与数据结构/trekhleb/javascript-algorithms",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/trekhleb/javascript-algorithms"
       },
       "integrity": {
@@ -6800,7 +6800,7 @@
         "mirror_path": "知识库/系统设计/ByteByteGoHq/system-design-101",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/ByteByteGoHq/system-design-101"
       },
       "integrity": {
@@ -6933,7 +6933,7 @@
         "mirror_path": "知识库/系统设计/ashishps1/awesome-system-design-resources",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/ashishps1/awesome-system-design-resources"
       },
       "integrity": {
@@ -7044,7 +7044,7 @@
         "mirror_path": "知识库/系统设计/checkcheckzz/system-design-interview",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/checkcheckzz/system-design-interview"
       },
       "integrity": {
@@ -7151,7 +7151,7 @@
         "mirror_path": "知识库/系统设计/donnemartin/system-design-primer",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/donnemartin/system-design-primer"
       },
       "integrity": {
@@ -7267,7 +7267,7 @@
         "mirror_path": "知识库/系统设计/greatfrontend/awesome-front-end-system-design",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/greatfrontend/awesome-front-end-system-design"
       },
       "integrity": {
@@ -7376,7 +7376,7 @@
         "mirror_path": "知识库/系统设计/karanpratapsingh/system-design",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/karanpratapsingh/system-design"
       },
       "integrity": {
@@ -7487,7 +7487,7 @@
         "mirror_path": "知识库/系统设计/pingcap/talent-plan",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/pingcap/talent-plan"
       },
       "integrity": {
@@ -7620,7 +7620,7 @@
         "mirror_path": "知识库/计算机基础/Exely/CSAPP-Labs",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/Exely/CSAPP-Labs"
       },
       "integrity": {
@@ -7730,7 +7730,7 @@
         "mirror_path": "知识库/计算机基础/LamberttLiu/CS-Basic-SelfLearning",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/LamberttLiu/CS-Basic-SelfLearning"
       },
       "integrity": {
@@ -7845,7 +7845,7 @@
         "mirror_path": "知识库/计算机基础/Snailclimb/JavaGuide",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/Snailclimb/JavaGuide"
       },
       "integrity": {
@@ -7961,7 +7961,7 @@
         "mirror_path": "知识库/计算机基础/ZhongYi-LinuxDriverDev/EmbeddedSoftwareEngineerInterview",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/ZhongYi-LinuxDriverDev/EmbeddedSoftwareEngineerInterview"
       },
       "integrity": {
@@ -8083,7 +8083,7 @@
         "mirror_path": "知识库/计算机基础/chenxi101w/408-first-round",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/chenxi101w/408-first-round"
       },
       "integrity": {
@@ -8206,7 +8206,7 @@
         "mirror_path": "知识库/计算机基础/cunyu1943/JavaPark",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/cunyu1943/JavaPark"
       },
       "integrity": {
@@ -8322,7 +8322,7 @@
         "mirror_path": "知识库/计算机基础/forthespada/InterviewGuide",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/forthespada/InterviewGuide"
       },
       "integrity": {
@@ -8435,7 +8435,7 @@
         "mirror_path": "知识库/计算机基础/jlevy/the-art-of-command-line",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/jlevy/the-art-of-command-line"
       },
       "integrity": {
@@ -8541,7 +8541,7 @@
         "mirror_path": "知识库/计算机基础/jwasham/coding-interview-university",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/jwasham/coding-interview-university"
       },
       "integrity": {
@@ -8652,7 +8652,7 @@
         "mirror_path": "知识库/计算机基础/ossu/computer-science",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/ossu/computer-science"
       },
       "integrity": {
@@ -8766,7 +8766,7 @@
         "mirror_path": "知识库/计算机基础/puge-up/programming-play",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/puge-up/programming-play"
       },
       "integrity": {
@@ -8876,7 +8876,7 @@
         "mirror_path": "知识库/计算机基础/xiaolincoder/CS-Base",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/xiaolincoder/CS-Base"
       },
       "integrity": {
@@ -8987,7 +8987,7 @@
         "mirror_path": "知识库/课程与路线/CharonChui/FullStack-Notes",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/CharonChui/FullStack-Notes"
       },
       "integrity": {
@@ -9119,7 +9119,7 @@
         "mirror_path": "知识库/课程与路线/GitHubDaily/GitHubDaily",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/GitHubDaily/GitHubDaily"
       },
       "integrity": {
@@ -9243,7 +9243,7 @@
         "mirror_path": "知识库/课程与路线/LeCoupa/awesome-cheatsheets",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/LeCoupa/awesome-cheatsheets"
       },
       "integrity": {
@@ -9384,7 +9384,7 @@
         "mirror_path": "知识库/课程与路线/PKUFlyingPig/cs-self-learning",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/PKUFlyingPig/cs-self-learning"
       },
       "integrity": {
@@ -9519,7 +9519,7 @@
         "mirror_path": "知识库/课程与路线/TheOdinProject/curriculum",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/TheOdinProject/curriculum"
       },
       "integrity": {
@@ -9663,7 +9663,7 @@
         "mirror_path": "知识库/课程与路线/cd-home/Root",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/cd-home/Root"
       },
       "integrity": {
@@ -9793,7 +9793,7 @@
         "mirror_path": "知识库/课程与路线/ctrlaltwill/LearnKit",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/ctrlaltwill/LearnKit"
       },
       "integrity": {
@@ -9934,7 +9934,7 @@
         "mirror_path": "知识库/课程与路线/dominostars/playtranslate",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/dominostars/playtranslate"
       },
       "integrity": {
@@ -10071,7 +10071,7 @@
         "mirror_path": "知识库/课程与路线/doocs/md",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/doocs/md"
       },
       "integrity": {
@@ -10208,7 +10208,7 @@
         "mirror_path": "知识库/课程与路线/florinpop17/app-ideas",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/florinpop17/app-ideas"
       },
       "integrity": {
@@ -10338,7 +10338,7 @@
         "mirror_path": "知识库/课程与路线/inancgumus/learngo",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/inancgumus/learngo"
       },
       "integrity": {
@@ -10479,7 +10479,7 @@
         "mirror_path": "知识库/课程与路线/judasn/IntelliJ-IDEA-Tutorial",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/judasn/IntelliJ-IDEA-Tutorial"
       },
       "integrity": {
@@ -10616,7 +10616,7 @@
         "mirror_path": "知识库/课程与路线/mengxi-ream/read-frog",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/mengxi-ream/read-frog"
       },
       "integrity": {
@@ -10755,7 +10755,7 @@
         "mirror_path": "知识库/课程与路线/unknwon/the-way-to-go_ZH_CN",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/unknwon/the-way-to-go_ZH_CN"
       },
       "integrity": {
@@ -10888,7 +10888,7 @@
         "mirror_path": "知识库/资源目录/Awesome-HarmonyOS/HarmonyOS",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/Awesome-HarmonyOS/HarmonyOS"
       },
       "integrity": {
@@ -11019,7 +11019,7 @@
         "mirror_path": "知识库/资源目录/EbookFoundation/free-programming-books",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/EbookFoundation/free-programming-books"
       },
       "integrity": {
@@ -11131,7 +11131,7 @@
         "mirror_path": "知识库/资源目录/doocs/technical-books",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/doocs/technical-books"
       },
       "integrity": {
@@ -11247,7 +11247,7 @@
         "mirror_path": "知识库/资源目录/forthespada/CS-Books",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/forthespada/CS-Books"
       },
       "integrity": {
@@ -11351,7 +11351,7 @@
         "mirror_path": "知识库/资源目录/justjavac/free-programming-books-zh_CN",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/justjavac/free-programming-books-zh_CN"
       },
       "integrity": {
@@ -11460,7 +11460,7 @@
         "mirror_path": "知识库/资源目录/mlabonne/llm-course",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/mlabonne/llm-course"
       },
       "integrity": {
@@ -11569,7 +11569,7 @@
         "mirror_path": "知识库/资源目录/ryanmcdermott/clean-code-javascript",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/ryanmcdermott/clean-code-javascript"
       },
       "integrity": {
@@ -11678,7 +11678,7 @@
         "mirror_path": "知识库/运维与云原生/NotHarshhaa/DevOps-Projects",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/NotHarshhaa/DevOps-Projects"
       },
       "integrity": {
@@ -11815,7 +11815,7 @@
         "mirror_path": "知识库/运维与云原生/Tikam02/DevOps-Guide",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/Tikam02/DevOps-Guide"
       },
       "integrity": {
@@ -11956,7 +11956,7 @@
         "mirror_path": "知识库/运维与云原生/bregman-arie/devops-resources",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/bregman-arie/devops-resources"
       },
       "integrity": {
@@ -12086,7 +12086,7 @@
         "mirror_path": "知识库/运维与云原生/litmuschaos/litmus",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/litmuschaos/litmus"
       },
       "integrity": {
@@ -12227,7 +12227,7 @@
         "mirror_path": "知识库/运维与云原生/yeasy/docker_practice",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/yeasy/docker_practice"
       },
       "integrity": {
@@ -12360,7 +12360,7 @@
         "mirror_path": "知识库/面试综合/yangshun/tech-interview-handbook",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/yangshun/tech-interview-handbook"
       },
       "integrity": {
@@ -12476,7 +12476,7 @@
         "mirror_path": "知识库/鸿蒙与跨端/CharonChui/HarmonyOSNextStudyNote",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/CharonChui/HarmonyOSNextStudyNote"
       },
       "integrity": {
@@ -12602,7 +12602,7 @@
         "mirror_path": "知识库/鸿蒙与跨端/DengShiyingA/harmonyos-ai-skill",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/DengShiyingA/harmonyos-ai-skill"
       },
       "integrity": {
@@ -12736,7 +12736,7 @@
         "mirror_path": "知识库/鸿蒙与跨端/Explore-In-HMOS/hmos-index",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/Explore-In-HMOS/hmos-index"
       },
       "integrity": {
@@ -12860,7 +12860,7 @@
         "mirror_path": "知识库/鸿蒙与跨端/dcloudio/hbuilderx-extension-docs",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/dcloudio/hbuilderx-extension-docs"
       },
       "integrity": {
@@ -13012,7 +13012,7 @@
         "mirror_path": "知识库/鸿蒙与跨端/dcloudio/hbuilderx-for-uniapp-test",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/dcloudio/hbuilderx-for-uniapp-test"
       },
       "integrity": {
@@ -13162,7 +13162,7 @@
         "mirror_path": "知识库/鸿蒙与跨端/dcloudio/hello-uni-app-x",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/dcloudio/hello-uni-app-x"
       },
       "integrity": {
@@ -13312,7 +13312,7 @@
         "mirror_path": "知识库/鸿蒙与跨端/dcloudio/hello-uniapp",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/dcloudio/hello-uniapp"
       },
       "integrity": {
@@ -13464,7 +13464,7 @@
         "mirror_path": "知识库/鸿蒙与跨端/dcloudio/unidocs-uni-app-x-zh",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/dcloudio/unidocs-uni-app-x-zh"
       },
       "integrity": {
@@ -13614,7 +13614,7 @@
         "mirror_path": "知识库/鸿蒙与跨端/dcloudio/unidocs-unicloud-zh",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/dcloudio/unidocs-unicloud-zh"
       },
       "integrity": {
@@ -13760,7 +13760,7 @@
         "mirror_path": "知识库/鸿蒙与跨端/dcloudio/unidocs-zh",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/dcloudio/unidocs-zh"
       },
       "integrity": {
@@ -13910,7 +13910,7 @@
         "mirror_path": "知识库/鸿蒙与跨端/liasica/harmonyos-skills",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/liasica/harmonyos-skills"
       },
       "integrity": {
@@ -14044,7 +14044,7 @@
         "mirror_path": "知识库/鸿蒙与跨端/wuweiyouzuoju/jidecards-anki-harmonyos",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/wuweiyouzuoju/jidecards-anki-harmonyos"
       },
       "integrity": {
@@ -14196,7 +14196,7 @@
         "mirror_path": "题库/AI与Agent/JoshithReddyAleti/AI_Engineer_Interview_Prep",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/JoshithReddyAleti/AI_Engineer_Interview_Prep"
       },
       "integrity": {
@@ -14324,7 +14324,7 @@
         "mirror_path": "题库/AI与Agent/Lau-Jonathan/LLM-Agent-Interview-Guide",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/Lau-Jonathan/LLM-Agent-Interview-Guide"
       },
       "integrity": {
@@ -14432,7 +14432,7 @@
         "mirror_path": "题库/AI与Agent/cdavid817/agent-interview",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/cdavid817/agent-interview"
       },
       "integrity": {
@@ -14545,7 +14545,7 @@
         "mirror_path": "题库/AI与Agent/liyupi/mianshiya",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/liyupi/mianshiya"
       },
       "integrity": {
@@ -14661,7 +14661,7 @@
         "mirror_path": "题库/AI与Agent/rasbt/LLMs-from-scratch",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/rasbt/LLMs-from-scratch"
       },
       "integrity": {
@@ -14800,7 +14800,7 @@
         "mirror_path": "题库/AI与Agent/rohitg00/ai-engineering-from-scratch",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/rohitg00/ai-engineering-from-scratch"
       },
       "integrity": {
@@ -14945,7 +14945,7 @@
         "mirror_path": "题库/AI与Agent/zkywsg/Daily-LLM",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/zkywsg/Daily-LLM"
       },
       "integrity": {
@@ -15088,7 +15088,7 @@
         "mirror_path": "题库/AI与RAG/GarethManning/education-agent-skills",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/GarethManning/education-agent-skills"
       },
       "integrity": {
@@ -15227,7 +15227,7 @@
         "mirror_path": "题库/AI与RAG/ai-infra-curriculum/ai-infra-engineer-learning",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/ai-infra-curriculum/ai-infra-engineer-learning"
       },
       "integrity": {
@@ -15368,7 +15368,7 @@
         "mirror_path": "题库/AI与RAG/ather-techie/rag-interview-system",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/ather-techie/rag-interview-system"
       },
       "integrity": {
@@ -15507,7 +15507,7 @@
         "mirror_path": "题库/AI与RAG/dair-ai/Prompt-Engineering-Guide",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
       },
       "integrity": {
@@ -15651,7 +15651,7 @@
         "mirror_path": "题库/SQL与数据/Harsh-Belekar/LeetCode-SQL-50",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/Harsh-Belekar/LeetCode-SQL-50"
       },
       "integrity": {
@@ -15777,7 +15777,7 @@
         "mirror_path": "题库/SQL与数据/shawlu95/Beyond-LeetCode-SQL",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/shawlu95/Beyond-LeetCode-SQL"
       },
       "integrity": {
@@ -15907,7 +15907,7 @@
         "mirror_path": "题库/八股与基础/0voice/Campus_recruitment_interview_questions",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/0voice/Campus_recruitment_interview_questions"
       },
       "integrity": {
@@ -16018,7 +16018,7 @@
         "mirror_path": "题库/八股与基础/0voice/interview_internal_reference",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/0voice/interview_internal_reference"
       },
       "integrity": {
@@ -16124,7 +16124,7 @@
         "mirror_path": "题库/八股与基础/AobingJava/JavaFamily",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/AobingJava/JavaFamily"
       },
       "integrity": {
@@ -16232,7 +16232,7 @@
         "mirror_path": "题库/八股与基础/CoderLeixiaoshuai/java-eight-part",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/CoderLeixiaoshuai/java-eight-part"
       },
       "integrity": {
@@ -16343,7 +16343,7 @@
         "mirror_path": "题库/八股与基础/CyC2018/CS-Notes",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/CyC2018/CS-Notes"
       },
       "integrity": {
@@ -16455,7 +16455,7 @@
         "mirror_path": "题库/八股与基础/NotHarshhaa/DevOps-Interview-Questions",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/NotHarshhaa/DevOps-Interview-Questions"
       },
       "integrity": {
@@ -16576,7 +16576,7 @@
         "mirror_path": "题库/八股与基础/Snailclimb/JavaGuide-Interview",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/Snailclimb/JavaGuide-Interview"
       },
       "integrity": {
@@ -16689,7 +16689,7 @@
         "mirror_path": "题库/八股与基础/aasthas2022/SDE-Interview-and-Prep-Roadmap",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/aasthas2022/SDE-Interview-and-Prep-Roadmap"
       },
       "integrity": {
@@ -16822,7 +16822,7 @@
         "mirror_path": "题库/八股与基础/ad-si/Coding-Flashcards",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/ad-si/Coding-Flashcards"
       },
       "integrity": {
@@ -16952,7 +16952,7 @@
         "mirror_path": "题库/八股与基础/apachecn/Interview",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/apachecn/Interview"
       },
       "integrity": {
@@ -17091,7 +17091,7 @@
         "mirror_path": "题库/八股与基础/colinlet/PHP-Interview-QA",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/colinlet/PHP-Interview-QA"
       },
       "integrity": {
@@ -17227,7 +17227,7 @@
         "mirror_path": "题库/八股与基础/geektutu/interview-questions",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/geektutu/interview-questions"
       },
       "integrity": {
@@ -17357,7 +17357,7 @@
         "mirror_path": "题库/八股与基础/khangich/machine-learning-interview",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/khangich/machine-learning-interview"
       },
       "integrity": {
@@ -17485,7 +17485,7 @@
         "mirror_path": "题库/八股与基础/kusal-tharindu/devops-interview-questions",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/kusal-tharindu/devops-interview-questions"
       },
       "integrity": {
@@ -17625,7 +17625,7 @@
         "mirror_path": "题库/八股与基础/ombharatiya/FAANG-Coding-Interview-Questions",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/ombharatiya/FAANG-Coding-Interview-Questions"
       },
       "integrity": {
@@ -17753,7 +17753,7 @@
         "mirror_path": "题库/八股与基础/teivah/algodeck",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/teivah/algodeck"
       },
       "integrity": {
@@ -17862,7 +17862,7 @@
         "mirror_path": "题库/八股与基础/wolverinn/Waking-Up",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/wolverinn/Waking-Up"
       },
       "integrity": {
@@ -17973,7 +17973,7 @@
         "mirror_path": "题库/八股与基础/xiaobaiTech/golangFamily",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/xiaobaiTech/golangFamily"
       },
       "integrity": {
@@ -18077,7 +18077,7 @@
         "mirror_path": "题库/八股与基础/zijing2333/CSView",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/zijing2333/CSView"
       },
       "integrity": {
@@ -18191,7 +18191,7 @@
         "mirror_path": "题库/公司高频题/krishnadey30/LeetCode-Questions-CompanyWise",
         "entry_path": ".source.json",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/krishnadey30/LeetCode-Questions-CompanyWise"
       },
       "integrity": {
@@ -18294,7 +18294,7 @@
         "mirror_path": "题库/公司高频题/liquidslr/leetcode-company-wise-problems",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/liquidslr/leetcode-company-wise-problems"
       },
       "integrity": {
@@ -18399,7 +18399,7 @@
         "mirror_path": "题库/公司高频题/snehasishroy/leetcode-companywise-interview-questions",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/snehasishroy/leetcode-companywise-interview-questions"
       },
       "integrity": {
@@ -18506,7 +18506,7 @@
         "mirror_path": "题库/前端/greatfrontend/top-javascript-interview-questions",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/greatfrontend/top-javascript-interview-questions"
       },
       "integrity": {
@@ -18616,7 +18616,7 @@
         "mirror_path": "题库/前端/greatfrontend/top-reactjs-interview-questions",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/greatfrontend/top-reactjs-interview-questions"
       },
       "integrity": {
@@ -18726,7 +18726,7 @@
         "mirror_path": "题库/前端/haizlin/fe-interview",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/haizlin/fe-interview"
       },
       "integrity": {
@@ -18839,7 +18839,7 @@
         "mirror_path": "题库/前端/sanchit0496/reactjs-machine-coding-challenges",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/sanchit0496/reactjs-machine-coding-challenges"
       },
       "integrity": {
@@ -18951,7 +18951,7 @@
         "mirror_path": "题库/前端与Node/FAQGURU/FAQGURU",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/FAQGURU/FAQGURU"
       },
       "integrity": {
@@ -19085,7 +19085,7 @@
         "mirror_path": "题库/前端与Node/markerikson/react-redux-links",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/markerikson/react-redux-links"
       },
       "integrity": {
@@ -19212,7 +19212,7 @@
         "mirror_path": "题库/前端与Node/shfshanyue/Daily-Question",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/shfshanyue/Daily-Question"
       },
       "integrity": {
@@ -19350,7 +19350,7 @@
         "mirror_path": "题库/前端与Node/sudheerj/reactjs-interview-questions",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/sudheerj/reactjs-interview-questions"
       },
       "integrity": {
@@ -19486,7 +19486,7 @@
         "mirror_path": "题库/算法题解/OI-wiki/OI-wiki",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/OI-wiki/OI-wiki"
       },
       "integrity": {
@@ -19622,7 +19622,7 @@
         "mirror_path": "题库/算法题解/azl397985856/leetcode",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/azl397985856/leetcode"
       },
       "integrity": {
@@ -19738,7 +19738,7 @@
         "mirror_path": "题库/算法题解/cp-algorithms/cp-algorithms",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/cp-algorithms/cp-algorithms"
       },
       "integrity": {
@@ -19876,7 +19876,7 @@
         "mirror_path": "题库/算法题解/doocs/leetcode",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/doocs/leetcode"
       },
       "integrity": {
@@ -19995,7 +19995,7 @@
         "mirror_path": "题库/算法题解/envico801/Neetcode-150-and-Blind-75",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/envico801/Neetcode-150-and-Blind-75"
       },
       "integrity": {
@@ -20129,7 +20129,7 @@
         "mirror_path": "题库/算法题解/halfrost/LeetCode-Go",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/halfrost/LeetCode-Go"
       },
       "integrity": {
@@ -20245,7 +20245,7 @@
         "mirror_path": "题库/算法题解/hello-java-maker/JavaInterview",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/hello-java-maker/JavaInterview"
       },
       "integrity": {
@@ -20377,7 +20377,7 @@
         "mirror_path": "题库/算法题解/itcharge/AlgoNote",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/itcharge/AlgoNote"
       },
       "integrity": {
@@ -20512,7 +20512,7 @@
         "mirror_path": "题库/算法题解/kamyu104/LeetCode-Solutions",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/kamyu104/LeetCode-Solutions"
       },
       "integrity": {
@@ -20628,7 +20628,7 @@
         "mirror_path": "题库/算法题解/kdn251/interviews",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/kdn251/interviews"
       },
       "integrity": {
@@ -20742,7 +20742,7 @@
         "mirror_path": "题库/算法题解/labuladong/fucking-algorithm",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/labuladong/fucking-algorithm"
       },
       "integrity": {
@@ -20873,7 +20873,7 @@
         "mirror_path": "题库/算法题解/neetcode-gh/leetcode",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/neetcode-gh/leetcode"
       },
       "integrity": {
@@ -20989,7 +20989,7 @@
         "mirror_path": "题库/算法题解/shoujche/algorithm-notes",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/shoujche/algorithm-notes"
       },
       "integrity": {
@@ -21122,7 +21122,7 @@
         "mirror_path": "题库/算法题解/swisskyrepo/PayloadsAllTheThings",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/swisskyrepo/PayloadsAllTheThings"
       },
       "integrity": {
@@ -21137,7 +21137,7 @@
       },
       "classification": {
         "primary_category": "题库/算法题解",
-        "category_basis": "legacy_imported: category from .source.json",
+        "category_basis": "人工复核 2026-11-08：实际为安全 payload 库；受 schema 分类枚举约束保留原路径，检索与引用时按安全资料使用",
         "functions": [
           "F2"
         ],
@@ -21258,7 +21258,7 @@
         "mirror_path": "题库/算法题解/wisdompeak/LeetCode",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/wisdompeak/LeetCode"
       },
       "integrity": {
@@ -21370,7 +21370,7 @@
         "mirror_path": "题库/算法题解/youngyangyang04/leetcode-master",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/youngyangyang04/leetcode-master"
       },
       "integrity": {
@@ -21479,7 +21479,7 @@
         "mirror_path": "题库/课程与路线/frank-lam/fullstack-tutorial",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/frank-lam/fullstack-tutorial"
       },
       "integrity": {
@@ -21620,7 +21620,7 @@
         "mirror_path": "题库/课程与路线/franklesniak/EFingPlanner",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/franklesniak/EFingPlanner"
       },
       "integrity": {
@@ -21761,7 +21761,7 @@
         "mirror_path": "题库/运维与DevOps/bregman-arie/devops-exercises",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/bregman-arie/devops-exercises"
       },
       "integrity": {
@@ -21877,7 +21877,7 @@
         "mirror_path": "题库/运维与DevOps/nomankhn9/devops-exercises",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/nomankhn9/devops-exercises"
       },
       "integrity": {
@@ -22014,7 +22014,7 @@
         "mirror_path": "题库/运维与DevOps/ramesh-852000/devops-practices-and-interview-prep",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/ramesh-852000/devops-practices-and-interview-prep"
       },
       "integrity": {
@@ -22151,7 +22151,7 @@
         "mirror_path": "题库/鸿蒙与跨端/HarmonyOS-Next/interview-handbook-project",
         "entry_path": "README.md",
         "included_in_git": false,
-        "availability": "present_local",
+        "availability": "not_packaged",
         "online_fallback_url": "https://github.com/HarmonyOS-Next/interview-handbook-project"
       },
       "integrity": {
@@ -22258,6 +22258,154 @@
           "ledger_refreshed": "补图/改名后重算：191 文件 -> 192 文件"
         }
       }
+    },
+    {
+      "id": "github:oven-sh/bun",
+      "name": "Bun 官方文档",
+      "source": {
+        "url": "https://github.com/oven-sh/bun",
+        "canonical_url": "https://github.com/oven-sh/bun",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-08",
+        "upstream_pushed_at": null,
+        "upstream_snapshot": {
+          "status": "not_checked",
+          "checked_at": null,
+          "default_branch": null,
+          "head_commit_sha": null,
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "reference",
+        "mirror_path": null,
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "online_only",
+        "online_fallback_url": "https://github.com/oven-sh/bun"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/运行时官方文档",
+        "category_basis": "reference：官方仓库文档，仅在线参考，未镜像正文",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 0,
+        "bytes": 0,
+        "markdown_count": null,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-08",
+        "count_scope": "reference；无本地镜像"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "unknown",
+        "license_files": [],
+        "usage_restriction": "仅在线参考，未镜像正文；使用前以官方文档与许可证为准。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": "仅在线参考，未做本地镜像",
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "pending",
+        "reviewed_at": null,
+        "evidence": [
+          "2026-11-08 MS0-L4：按官方文档补 reference 记录，未镜像"
+        ]
+      },
+      "extensions": {}
+    },
+    {
+      "id": "github:denoland/deno",
+      "name": "Deno 官方文档",
+      "source": {
+        "url": "https://github.com/denoland/deno",
+        "canonical_url": "https://github.com/denoland/deno",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-08",
+        "upstream_pushed_at": null,
+        "upstream_snapshot": {
+          "status": "not_checked",
+          "checked_at": null,
+          "default_branch": null,
+          "head_commit_sha": null,
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "reference",
+        "mirror_path": null,
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "online_only",
+        "online_fallback_url": "https://github.com/denoland/deno"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/运行时官方文档",
+        "category_basis": "reference：官方仓库文档，仅在线参考，未镜像正文",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 0,
+        "bytes": 0,
+        "markdown_count": null,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-08",
+        "count_scope": "reference；无本地镜像"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "unknown",
+        "license_files": [],
+        "usage_restriction": "仅在线参考，未镜像正文；使用前以官方文档与许可证为准。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": "仅在线参考，未做本地镜像",
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "pending",
+        "reviewed_at": null,
+        "evidence": [
+          "2026-11-08 MS0-L4：按官方文档补 reference 记录，未镜像"
+        ]
+      },
+      "extensions": {}
     }
   ],
   "tombstones": [

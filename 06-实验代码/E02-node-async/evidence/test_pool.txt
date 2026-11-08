@@ -1,5 +1,5 @@
 # E02 / 任务池基础语义
-# node v24.15.0  pid 8020  captured_at 2026-11-08T04:22:54.902Z
+# node v24.15.0  pid 44268  captured_at 2026-11-08T09:38:21.995Z
 ok 1 - 并发上限：同时在跑 3 个
 ok 2 - 并发上限：其余 6 个在排队
 ok 3 - 并发上限：pending = 9
@@ -17,16 +17,18 @@ ok 14 - 队列上限：pending 不超过 concurrency + maxQueue
 ok 15 - 队列上限：peakQueue 不超过 maxQueue
 ok 16 - maxQueue=0：无空槽时直接拒绝
 ok 17 - maxQueue=0：有空槽时照常执行
-ok 18 - 关闭：排队任务被拒绝
-ok 19 - 关闭：新任务被拒绝且不执行
-ok 20 - 关闭：已在执行的未被抢占
-ok 21 - 关闭：drain 后 running=0
-ok 22 - 同步抛错：被转成 rejected 而非崩溃
-ok 23 - 异步抛错：被转成 rejected
-ok 24 - 异常：两个任务都从 running 移除
-ok 25 - 异常：统计 rejected = 2
-ok 26 - 参数：concurrency=0 抛 RangeError
-ok 27 - 参数：maxQueue=-1 抛 RangeError
-ok 28 - 未产生 unhandledRejection
+ok 18 - maxQueue=0：无空槽时 waitForSlot 保持等待
+ok 19 - maxQueue=0：任务完成后 waitForSlot 已唤醒
+ok 20 - 关闭：排队任务被拒绝
+ok 21 - 关闭：新任务被拒绝且不执行
+ok 22 - 关闭：已在执行的未被抢占
+ok 23 - 关闭：drain 后 running=0
+ok 24 - 同步抛错：被转成 rejected 而非崩溃
+ok 25 - 异步抛错：被转成 rejected
+ok 26 - 异常：两个任务都从 running 移除
+ok 27 - 异常：统计 rejected = 2
+ok 28 - 参数：concurrency=0 抛 RangeError
+ok 29 - 参数：maxQueue=-1 抛 RangeError
+ok 30 - 未产生 unhandledRejection
 
-test_pool checks=28 fails=0 : PASS
+test_pool checks=30 fails=0 : PASS

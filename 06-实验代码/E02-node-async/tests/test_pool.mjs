@@ -107,6 +107,21 @@ const settleNoThrow = (p) => p.catch((error) => error);
   eq('maxQueue=0：有空槽时照常执行', third, 'third');
 }
 
+// ---------- 4b. maxQueue = 0：waitForSlot 在任务完成后被唤醒 ----------
+{
+  const pool = new TaskPool({ concurrency: 1, maxQueue: 0, name: 'slot-wake' });
+  const g = gate('g');
+  const first = settleNoThrow(pool.submit(() => g.promise, { label: 'first' }));
+  let woke = false;
+  const waiter = pool.waitForSlot().then(() => { woke = true; });
+  await sleep(20);
+  eq('maxQueue=0：无空槽时 waitForSlot 保持等待', woke, false);
+  g.open();
+  await within(500, () => first, '第一个完成');
+  await within(1000, () => waiter, '任务结束后 waitForSlot 被唤醒');
+  eq('maxQueue=0：任务完成后 waitForSlot 已唤醒', woke, true);
+}
+
 // ---------- 5. 关闭语义 ----------
 {
   const pool = new TaskPool({ concurrency: 1, name: 'closing' });
