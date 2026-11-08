@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E10",
-  "generated_at": "2026-11-08T04:08:53.770Z",
-  "commit": "2f08f0ebbd420a72a7bfe3d3b7dc722b594e13bf",
+  "generated_at": "2026-11-08T04:16:55.474Z",
+  "commit": "948fc6fc432379dcb5ceae72c08fd3ce5063fa36",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -21,6 +21,10 @@
     },
     {
       "cmd": "QEMU 3 RabbitMQ 4.4 containers: cluster_status 3 running nodes",
+      "exit": 0
+    },
+    {
+      "cmd": "QEMU 3 RabbitMQ containers: network disconnect/reconnect, cluster recovers",
       "exit": 0
     }
   ],
@@ -49,9 +53,14 @@
       "path": "evidence/cluster.txt",
       "bytes": 522,
       "sha256": "839cb1195df4134b3e7fd65e83d4764dafa8f9d63b3b8b28436ceb7963573ec2"
+    },
+    {
+      "path": "evidence/partition.txt",
+      "bytes": 524,
+      "sha256": "d4f83c639fe4e945afa66d3417172fb77f77627b30867ac58ee4769e635d6cd3"
     }
   ],
   "unverified": [
-    "主实验单节点；集群为同一VM内3容器，非多机；无分区/quorum故障注入"
+    "主实验单节点；集群为同一VM内3容器，非多机；分区为容器网络断开，非多机网络故障"
   ]
 }

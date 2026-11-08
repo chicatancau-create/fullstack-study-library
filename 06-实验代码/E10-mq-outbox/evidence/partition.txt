@@ -1,0 +1,10 @@
+captured_at: 2026-11-08
+topology: 3 RabbitMQ 4.4.0 containers on one Docker network in one QEMU VM
+action: docker network disconnect rmq-net rmq3 -> wait 10s -> docker network connect rmq-net rmq3 -> wait 20s
+
+baseline Running Nodes: rabbit@rmq1, rabbit@rmq2, rabbit@rmq3
+after disconnect Running Nodes: rabbit@rmq1, rabbit@rmq2
+after reconnect Running Nodes: rabbit@rmq1, rabbit@rmq2, rabbit@rmq3
+
+PARTITION RECOVERY PASS
+scope: container-network partition on one VM; not multi-machine/network-partition-healing guarantees
