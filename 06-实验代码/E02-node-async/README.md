@@ -18,7 +18,7 @@
 
 没做什么（避免夸大）：
 
-- 没有做 worker_threads 版本：CPU 密集任务的真正并行不在本实验范围，只在反例里指出方向。
+- 已补 worker_threads 对照：4 个 CPU 密集任务在 1.85–2.23x 之间加速，主线程事件循环在 worker 期间保持响应；见 `scenarios/worker_threads.mjs` 与 `evidence/worker_threads.txt`。
 - 没有接真实数据库/HTTP 客户端，"下游调用"用 `setTimeout` 代表，因此**吞吐与延迟不是本实验结论**。
 - 没有做跨进程/分布式取消（那需要协议，不是单进程 API）。
 - 没有测量 `--max-old-space-size` 边界，堆增长只做量级参考。
@@ -253,11 +253,11 @@ C. 有界队列 + waitForSlot 等位
 1. **没有证明"取消能终止副作用"。** 底层拿到 `signal` 后是否真的停止，取决于它自己是否协作；池只管调用方不再等。数据库已提交的写、已发出的请求都不会因为 reject 而回滚。
 2. **没有证明吞吐或延迟。** "下游调用"是 `setTimeout`，没有网络、没有真实连接池，绝对耗时不具代表性。
 3. **没有覆盖多进程/分布式取消。** 单进程内的 `AbortController` 到不了另一个进程，跨服务取消需要协议。
-4. **没有覆盖 CPU 密集任务的真正并行。** 反例只指出方向（worker_threads/子进程），没有实现，也没有测 worker 启动与消息序列化成本。
+4. **CPU 密集任务的真正并行**：已用 4 个 `worker_threads` 与主线程串行对照，测得加速比与事件循环 tick；仍未测 worker 启动/消息序列化成本与多进程调度。
 5. **没有测量内存上限。** 堆增长采样受 GC 时机影响，只能看量级，不能当泄漏证据。
 6. **`waitForSlot` 在没有空槽且队列已满时等待。** `maxQueue=0` 的空池会立即返回；忙碌时等某个槽位释放，关闭/failFast 时也会唤醒。若下游长期不结束，生产端仍必须自己加超时或取消。
 7. **failFast 的原子性未覆盖。** 快照取的是失败函数结算那一刻的状态；多任务几乎同时失败时，只有第一个会触发丢弃，其余按普通失败处理。假值异常本身已由独立标记覆盖，但“同时失败”的竞态仍未测。
-8. **仍是单进程实验。** 没有 worker_threads、没有跨进程取消、没有真实连接池；结论不能直接外推到生产资源。
+8. **仍是单进程实验。** 已补进程内 worker_threads；没有跨进程取消、没有真实连接池；结论不能直接外推到生产资源。
 
 所以本实验**不声称"并发正确"**，只声称："在给定装置下，这四类语义（上限、乱序、失败、取消/超时）被稳定复现、可用断言复核、并且有明确边界。"
 
@@ -291,7 +291,8 @@ E02-node-async/
 │   ├── cx_unbounded_concurrency.mjs  反例 1：无界并发
 │   ├── cx_busy_loop.mjs              反例 2：同步 CPU 忙循环
 │   ├── cx_fast_producer.mjs          反例 3：生产快于消费
-│   └── backpressure_rates.mjs        三档速率下的有界性
+│   ├── backpressure_rates.mjs        三档速率下的有界性
+│   └── worker_threads.mjs            CPU 密集任务：主线程串行 vs 4 workers
 ├── scripts/
 │   ├── env.mjs               环境与特性探测（真实执行）
 │   ├── run_all.sh            采集证据并做非零门禁
@@ -333,4 +334,4 @@ cat evidence/test_run.txt
 
 `scripts/selftest_gate.sh` 在临时副本中禁用 `submit` 的 `failFastTriggered` 分支，`run_all.sh` 实测退出码 1，`test_regressions` 出现 5 个 `not ok`，并写入 `evidence/gate_selftest.txt`。这证明门禁会在实现被破坏时变红，而不是只打印。
 
-仍未覆盖：worker_threads、跨进程取消、真实连接池/HTTP 下游、failFast 多任务同时失败的原子性、堆上限；E02 仍只提供 G2 的异步调度/取消一项。
+仍未覆盖：跨进程取消、真实连接池/HTTP 下游、failFast 多任务同时失败的原子性、堆上限；worker_threads 仅做 CPU 并行对照。E02 仍只提供 G2 的异步调度/取消一项。

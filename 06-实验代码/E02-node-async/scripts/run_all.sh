@@ -91,8 +91,11 @@ run_step cx_fast_producer.txt         "反例 3：生产快于消费"        nod
 # ---------- 5. 速率变化下的有界性 ----------
 run_step backpressure_rates.txt "背压：改变生产/消费速率后仍有界" node scenarios/backpressure_rates.mjs
 
+# ---------- 5.5 worker_threads：CPU 密集任务 ----------
+run_step worker_threads.txt "worker_threads：CPU 密集任务的并行与事件循环响应" node scenarios/worker_threads.mjs
+
 # ---------- 6. 场景判定必须可门禁 ----------
-for f in evidence/cx_*.txt evidence/backpressure_rates.txt; do
+for f in evidence/cx_*.txt evidence/backpressure_rates.txt evidence/worker_threads.txt; do
     [ -s "$f" ] || fail "场景证据缺失：$f"
     if grep -qE '(^|[^A-Za-z])NO([^A-Za-z]|$)|不成立' "$f"; then
         fail "场景出现 NO/不成立：$f"
@@ -115,6 +118,7 @@ echo "反例 2 4 个忙任务总耗时: $(grep -oE '总耗时 [0-9.]+ms ≈ 4 ×
 echo "反例 3 队列峰值: $(grep -oE '队列峰值 [0-9]+ 条' evidence/cx_fast_producer.txt | head -1) (无界)" \
      "/ $(grep -oE 'pending 峰值 [0-9]+（上界 40）' evidence/cx_fast_producer.txt | head -1) (有界)"
 echo "速率对照: $(grep -c 'YES$' evidence/backpressure_rates.txt) 档全部满足 pending<=20"
+echo "worker_threads: $(grep -oE 'speedup=[0-9.]+x' evidence/worker_threads.txt) / $(grep -oE 'event_loop_responsive=YES' evidence/worker_threads.txt)"
 echo
 echo "非零退出环节: $failures"
 if [ "$failures" -ne 0 ]; then

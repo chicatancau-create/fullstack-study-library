@@ -1,4 +1,4 @@
-captured_at: 2026-11-07T22:58:41+08:00
+captured_at: 2026-11-08T10:09:58+08:00
 
 == 各测试判定 ==
 test_pool          test_pool checks=28 fails=0 : PASS
