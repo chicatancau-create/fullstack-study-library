@@ -6,7 +6,7 @@
 
 选择一个足够小但具有真实业务规则的问题，独立完成从需求到运维的交付。重点不是复制大型 SaaS，而是证明你能在约束下做取舍、保护数据、处理失败并持续迭代。
 
-## 当前实现状态（2026-11-07）
+## 当前实现状态（2026-11-08）
 
 本机 `E:/fullstack-code/project04-saas` 已落地选题 1「团队客户跟进工具」的主路径切片：
 
@@ -18,8 +18,9 @@
   一页需求（标注角色模拟）、权限矩阵、追踪表、数据清单、Runbook、3 份 ADR、1 份 Bug 复盘、审查记录、OpenAPI。
 - 需求变更：迭代中新增“降级检查席位”，已纳入并测试；退款/账单延期。
 - 深度模块：可恢复后台提醒任务（SKIP LOCKED 并发、重试、崩溃恢复、200 任务压测）。
-- 可观测/交付：OTel 同 trace（HTTP+PG）、本地自签名 HTTPS/TLS1.2/HSTS、上一版本回滚 health 通过。
-- 未实现：前端、邮件发送、登录限流/MFA、分页、Docker/CI/K8s/HTTPS/监控、深度模块容量与故障演练。
+- 可观测/交付：OTel 同 trace（HTTP+PG）、本地自签名 HTTPS/TLS1.2/HSTS、上一版本回滚 health 通过；
+  Docker/Compose、K3s 单节点（自愈/rollout undo/资源限制/Traefik Ingress）、Prometheus+Alertmanager 本地 webhook、GitHub Actions 8 job 全绿。
+- 未实现：前端、邮件发送、登录限流/MFA、分页、多节点/公网入口、常驻监控/外部通知渠道、生产级容量与故障演练。
   未勾选项即未验证；本项目不能宣称完成毕业验收或具备生产支付/合规能力。
 
 ## 本项目已收集资料
