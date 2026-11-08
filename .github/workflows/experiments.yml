@@ -5,6 +5,14 @@ on:
   pull_request:
 
 jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - run: python3 -X utf8 05-外部资料库/_采集暂存/catalog_tool.py validate --mode source-only
+      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E01-c-memory/evidence/manifest.json
+      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E02-node-async/evidence/manifest.json
+
   e01-asan:
     runs-on: ubuntu-latest
     steps:
