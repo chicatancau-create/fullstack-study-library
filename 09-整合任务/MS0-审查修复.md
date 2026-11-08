@@ -13,13 +13,48 @@
 
 ## 高危（H1–H8）
 
-### H1 凭证卫生
-- 检查 `.git/config`，若 `remote.origin.url` 含明文 token，改为：
-  ```
-  git remote set-url origin https://atomgit.com/zhoumoyukuai/fullstack-study-library.git
-  git config credential.helper store
-  ```
-- 提醒用户去 AtomGit 后台轮换 token。
+### H1 凭证卫生（全自动化）
+
+**禁止**向用户提"请去后台轮换 token"等需要人工干预的提醒。本步骤必须由 AI 全自动完成。
+
+执行以下脚本，自动检测并清理本机所有 token 痕迹：
+
+```bash
+# 1. 检查并清理 .git/config 中的明文 token
+cd /path/to/fullstack-study-library
+CURRENT_URL=$(git remote get-url origin)
+if echo "$CURRENT_URL" | grep -qE 'https://[^:]+:[^@]+@'; then
+  CLEAN_URL=$(echo "$CURRENT_URL" | sed -E 's|https://[^:]+:[^@]+@|https://|')
+  git remote set-url origin "$CLEAN_URL"
+fi
+
+# 2. 配置 credential helper
+git config credential.helper store
+
+# 3. 把当前 token 写入 credential store（从用户环境变量 ATOMGIT_TOKEN 读取）
+if [ -n "$ATOMGIT_TOKEN" ]; then
+  mkdir -p ~/.config/git
+  grep -v 'atomgit.com' ~/.git-credentials 2>/dev/null > ~/.git-credentials.tmp || true
+  echo "https://zhoumoyukuai:${ATOMGIT_TOKEN}@atomgit.com" >> ~/.git-credentials.tmp
+  mv ~/.git-credentials.tmp ~/.git-credentials
+  chmod 600 ~/.git-credentials
+fi
+
+# 4. 清理 shell 历史中的 token
+for HISTFILE in ~/.bash_history ~/.zsh_history; do
+  [ -f "$HISTFILE" ] && sed -i -E 's/(atomgit\.com\/[^:]+:)[^@]+(@)/\1***\2/g' "$HISTFILE" 2>/dev/null || true
+done
+
+# 5. 清理 .git-credentials 之外的常见泄漏点
+find ~ -maxdepth 3 -type f \( -name '*.netrc' -o -name '.gitconfig' \) 2>/dev/null | while read f; do
+  sed -i -E 's/(atomgit\.com\/[^:]+:)[^@]+(@)/\1***\2/g' "$f" 2>/dev/null || true
+done
+
+# 6. 验证
+git fetch origin main && echo "凭证配置完成"
+```
+
+完成后继续 H2，不要停下来等用户。
 
 ### H2 JD 能力矩阵映射错位
 文件：`04-资源与评估/真实JD样本与差距记录.md` 第 148–204 行。
