@@ -112,7 +112,16 @@ export async function buildApp({ prisma, jwtSecret, logger = false, loginLimit }
     reply.type('text/plain; version=0.0.4');
     return metrics.render();
   });
-  app.get('/openapi.json', { schema: { hide: true } }, async () => app.swagger());
+  app.get('/openapi.json', { schema: { hide: true } }, async () => {
+    const doc = app.swagger();
+    const errors = { 400: errorSchema, 401: errorSchema, 403: errorSchema, 404: errorSchema, 409: errorSchema, 429: errorSchema, 500: errorSchema };
+    for (const item of Object.values(doc.paths || {})) {
+      for (const operation of Object.values(item)) {
+        if (operation && operation.responses) operation.responses = { ...operation.responses, ...errors };
+      }
+    }
+    return doc;
+  });
 
   app.post('/auth/register', {
     schema: {

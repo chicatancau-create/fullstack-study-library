@@ -16,7 +16,7 @@ export async function listWorkspaces({ prisma, userId }) {
   return memberships.map((m) => ({ ...m.workspace, role: m.role }));
 }
 
-export async function transactionDemo({ prisma, userId, workspaceId }) {
+export async function transactionDemo({ prisma, userId, workspaceId: _workspaceId }) {
   const name = `rollback-probe-${Date.now()}`;
   let failed = false;
   try {

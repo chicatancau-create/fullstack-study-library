@@ -1,0 +1,16 @@
+{
+  "base": "http://127.0.0.1:3123",
+  "concurrency": 20,
+  "total": 1000,
+  "wall_ms": 2985,
+  "qps": 334.99,
+  "error_statuses": [],
+  "error_count": 0,
+  "error_rate": 0,
+  "p50_ms": 33.04,
+  "p95_ms": 53.78,
+  "p99_ms": 1305.74,
+  "max_ms": 2974.23,
+  "db_connections": 21,
+  "generated_at": "2026-11-08T15:51:57.883Z"
+}

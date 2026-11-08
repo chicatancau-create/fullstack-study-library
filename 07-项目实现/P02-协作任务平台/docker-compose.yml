@@ -17,7 +17,7 @@ services:
   app:
     build: .
     environment:
-      DATABASE_URL: postgresql://p02:p02-local-pass@db:5432/p02?schema=public
+      DATABASE_URL: postgresql://p02:p02-local-pass@db:5432/p02?schema=public&connection_limit=20
       JWT_SECRET: p02-local-jwt
       PORT: "3102"
     depends_on:

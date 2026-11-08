@@ -1,0 +1,51 @@
+{
+  "db_unavailable_ready_503": {
+    "ok": true,
+    "status": 503
+  },
+  "db_unavailable_write_500": {
+    "ok": true,
+    "status": 500,
+    "body": {
+      "error": "INTERNAL",
+      "message": "服务器内部错误",
+      "requestId": "a1b93227-f5e3-4fde-b433-3c583644f42e"
+    }
+  },
+  "write_after_recovery_201": {
+    "ok": true,
+    "status": 201
+  },
+  "process_restart_health": {
+    "ok": true,
+    "health": 200,
+    "login": 200
+  },
+  "no_half_write_from_failed_db": {
+    "ok": true,
+    "rows": 0
+  },
+  "migration_failure_detected": {
+    "ok": true,
+    "exit": 1,
+    "stderr": "Error: P1001: Can't reach database server at `127.0.0.1:5999`\n\nPlease make sure your database server is running at `127.0.0.1:5999`.\n"
+  },
+  "backup_restore": {
+    "ok": true,
+    "dump": 0,
+    "create": 0,
+    "restore": 0,
+    "before": {
+      "users": 7,
+      "workspaces": 5,
+      "tasks": 152,
+      "comments": 2
+    },
+    "after": {
+      "users": 7,
+      "workspaces": 5,
+      "tasks": 152,
+      "comments": 2
+    }
+  }
+}
