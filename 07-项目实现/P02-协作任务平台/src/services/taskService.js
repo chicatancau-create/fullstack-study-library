@@ -23,6 +23,10 @@ export async function createTask({ prisma, userId, workspaceId, title, ownerId =
   }
 }
 
+export async function getTask({ prisma, userId, taskId }) {
+  return assertTaskAccess(prisma, taskId, userId);
+}
+
 export async function listTasks({ prisma, userId, workspaceId }) {
   await assertMember(prisma, userId, workspaceId);
   return prisma.task.findMany({ where: { workspaceId }, orderBy: { createdAt: 'asc' } });

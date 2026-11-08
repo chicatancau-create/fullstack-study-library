@@ -5,7 +5,7 @@ import swagger from '@fastify/swagger';
 import { HttpError } from './utils/errors.js';
 import { register, login, refresh } from './services/authService.js';
 import { createWorkspace, listWorkspaces, transactionDemo } from './services/workspaceService.js';
-import { createTask, listTasks, updateTaskStatus } from './services/taskService.js';
+import { createTask, getTask, listTasks, updateTaskStatus } from './services/taskService.js';
 import { addComment, listComments } from './services/commentService.js';
 import { assertMember } from './policies/workspacePolicy.js';
 
@@ -171,6 +171,10 @@ export async function buildApp({ prisma, jwtSecret, logger = false, loginLimit }
     reply.code(201);
     return { task };
   });
+
+  app.get('/tasks/:id', { preHandler: auth }, async (request) => ({
+    task: await getTask({ prisma: app.prisma, userId: request.user.sub, taskId: request.params.id }),
+  }));
 
   app.get('/workspaces/:id/tasks', { preHandler: auth }, async (request) => ({
     tasks: await listTasks({ prisma: app.prisma, userId: request.user.sub, workspaceId: request.params.id }),

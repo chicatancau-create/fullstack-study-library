@@ -25,3 +25,10 @@ services:
         condition: service_healthy
     ports:
       - "3102:3102"
+
+  web:
+    build: ./web
+    depends_on:
+      - app
+    ports:
+      - "8080:80"

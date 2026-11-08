@@ -14,7 +14,8 @@
     "test": "vitest run",
     "build": "node scripts/check-syntax.mjs",
     "evidence": "bash scripts/evidence.sh",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "e2e": "playwright test"
   },
   "dependencies": {
     "@fastify/jwt": "^9.1.0",
@@ -23,6 +24,7 @@
     "fastify": "^5.6.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.65.0",
     "@vitest/coverage-v8": "^3.2.7",
     "prisma": "6.19.3",
     "vitest": "^3.2.4"
