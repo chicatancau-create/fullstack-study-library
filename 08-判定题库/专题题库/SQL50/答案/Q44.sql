@@ -1,0 +1,2 @@
+SET search_path TO sql50;
+SELECT v FROM (VALUES (2),(NULL),(1)) AS t(v) ORDER BY v NULLS LAST LIMIT 1;
