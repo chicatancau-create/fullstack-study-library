@@ -16,7 +16,7 @@ function run(label, command, args, cwd) {
   }
 }
 
-run('source-only', 'python', ['-X', 'utf8', '05-外部资料库/_采集暂存/catalog_tool.py', 'validate', '--mode', 'source-only'], vault);
+run('source-only', 'python', ['-X', 'utf8', '05-外部资料库/tools/catalog_tool.py', 'validate', '--mode', 'source-only'], vault);
 
 const manifests = [
   ['P01', practice, 'Web/project01-blog'],

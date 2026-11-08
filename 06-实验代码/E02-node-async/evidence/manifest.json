@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E02",
-  "generated_at": "2026-11-08T05:49:00.625Z",
-  "commit": "ee859250eb2aa528acfeb73e2d8080016c93bbbd",
+  "generated_at": "2026-11-08T09:39:59.410Z",
+  "commit": "b468c710054034fe613e53ea3976a0da017205d9",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -10,60 +10,47 @@
     "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
     "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
   },
-  "commands": [
-    {
-      "cmd": "bash scripts/run_all.sh",
-      "exit": 0
-    },
-    {
-      "cmd": "bash scripts/selftest_gate.sh",
-      "exit": 0
-    },
-    {
-      "cmd": "GitHub Actions Ubuntu: bash scripts/run_all.sh",
-      "exit": 0
-    }
-  ],
+  "commands": [],
   "artifacts": [
     {
       "path": "evidence/env.txt",
       "bytes": 1642,
-      "sha256": "8a90ff3e5f27aa2379e8e814b8cbad758f80cea8b290b3a37794e8c7293e3aea"
+      "sha256": "d47b462f4686d6839621d8c83b2f222ce74c1dd9a5980e3cdd681a508c9219dd"
     },
     {
       "path": "evidence/test_run.txt",
       "bytes": 480,
-      "sha256": "19438707236beb2e78c99383349e2440027e5f906927a85141e63f140b50c3c5"
+      "sha256": "874b88a46c329a2b2f537aa50d368dc7b8f1a6dd530dd861985ff830e4b7ccf3"
     },
     {
       "path": "evidence/test_pool.txt",
-      "bytes": 1442,
-      "sha256": "0951b1e59a8f405a86eebb644a8904d7c5c061058c336a338f7f862cd60fcc8a"
+      "bytes": 1561,
+      "sha256": "3891e5ff769adc2e69b3e06102f6276093ba3dacb1a20d61a5d21f04a75c3945"
     },
     {
       "path": "evidence/test_ordering.txt",
-      "bytes": 652,
-      "sha256": "7c2662f55429564a82d919bea72650975f0108ec67d1444b223811fdda658e08"
+      "bytes": 653,
+      "sha256": "597cab2b5e3ced89a748aa3a842b26eb9d58ceb8d3375d29f11d84e55252f669"
     },
     {
       "path": "evidence/test_failure.txt",
       "bytes": 1575,
-      "sha256": "eb642f0f83521f6da9029e5aebd4c5de495f133e1ea78af4ebce13550ca952da"
+      "sha256": "36f42303484b2ef21acc5dd2a73681716254244729799a6bfe06e71c0788a583"
     },
     {
       "path": "evidence/test_cancel.txt",
-      "bytes": 2087,
-      "sha256": "ee9abee089033c34016c98d7a14f366b5860e3f1c224e4b574a35f535514b935"
+      "bytes": 2105,
+      "sha256": "b02f27b757116daae9121ca31c49fb2ae2b6a15487a6180a009f8b78631e2a81"
     },
     {
       "path": "evidence/test_timeout.txt",
       "bytes": 1869,
-      "sha256": "271b7a284379e5e6ca7ba7f2bd78e24f9d1f686ea40e1ae52d51aee966c54bd8"
+      "sha256": "c0cadc78a0e1d656e57c3c97d6301dd952f919aa60d380b4fcc153e072b2ea4f"
     },
     {
       "path": "evidence/test_regressions.txt",
-      "bytes": 1870,
-      "sha256": "cf5fa0dd1c9ad6f9d3fd50f82864851e3e102c87a1aaa17069cb984491a4ab3d"
+      "bytes": 1869,
+      "sha256": "99ff1e6cb98fc913d57780c5969f364dae8eca1cc6a0c0a1f08b5dda2d846411"
     },
     {
       "path": "evidence/test_cross_process.txt",
@@ -73,27 +60,27 @@
     {
       "path": "evidence/cx_unbounded_concurrency.txt",
       "bytes": 1027,
-      "sha256": "636f8c0db2614fbb97938a22d78854638871496fa3bdc49f2a28c16169489e93"
+      "sha256": "b8dcd975ea4c6fa29ce7f1d588ab9e5305c69c2b7a0f181d8c9cab7c4ae76fb5"
     },
     {
       "path": "evidence/cx_busy_loop.txt",
-      "bytes": 1517,
-      "sha256": "d07b6a46f4e9ae655c30361ab5526d0cc4f4723a2260a4a664a6cefc7bd96bb1"
+      "bytes": 1518,
+      "sha256": "a3f056718209b6f8aaebf5f94d383687b9d8c3c30773bcb0e214dbc8444cd7e1"
     },
     {
       "path": "evidence/cx_fast_producer.txt",
       "bytes": 1729,
-      "sha256": "b3867479222828be7d09d3e3aad17d07859636ec827aae4200d2c59ef23b2d69"
+      "sha256": "d4eeede0f307ac0d66e5c2d63c426ae93fc4d94f676601fc7a8b5d487ab04382"
     },
     {
       "path": "evidence/backpressure_rates.txt",
       "bytes": 1228,
-      "sha256": "8880cea223569416da382e27ca72ccd2429f9997960719931ff07955aacc5879"
+      "sha256": "bf500d935c5a01bbfcbf095f00aae265bd3f4af020249ed836bff1199fb5ce6b"
     },
     {
       "path": "evidence/worker_threads.txt",
       "bytes": 241,
-      "sha256": "979b074709983df44e135e408d717202427f694c240c79fb3922788fda4435ca"
+      "sha256": "5c461526e7adc9ed22393c00cb1c0969dbbe62954a289c6a1bffcc168b966aa8"
     },
     {
       "path": "evidence/worker_threads_ci.txt",
@@ -106,7 +93,5 @@
       "sha256": "1e6643f05db5e87e4291c0a827c9bb20d9051b1456dc04e0a82a71c035a67e17"
     }
   ],
-  "unverified": [
-    "多主机/分布式取消未测；worker_threads仅CPU并行对照；failFast多任务同时失败原子性未测"
-  ]
+  "unverified": []
 }

@@ -17,7 +17,7 @@ git -C "$PRACTICE" archive HEAD | tar -x -C "$TMP/practice"
 git -C "$TMP/vault" init -q && git -C "$TMP/vault" add -A
 
 echo "== source-only (vault archive) =="
-(cd "$TMP/vault" && python -X utf8 05-外部资料库/_采集暂存/catalog_tool.py validate --mode source-only | tail -2)
+(cd "$TMP/vault" && python -X utf8 05-外部资料库/tools/catalog_tool.py validate --mode source-only | tail -2)
 
 echo "== vault experiment manifests =="
 for d in E01-c-memory E02-node-async E03-react-race E04-http-network E05-build-render E06-runtime-diag E07-pg-owner-race E08-pg-plan-migrate E09-redis-cache E10-mq-outbox E11-authz-matrix E12-load-capacity E13-slo-fault G1-responsive-site; do
