@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E04",
-  "generated_at": "2026-11-08T06:15:42.104Z",
-  "commit": "3212de51bc3a0184354b91aa758273fba0058e70",
+  "generated_at": "2026-11-08T06:17:12.633Z",
+  "commit": "00f8e58c7c77597120a5579c3f76444d1ba27dfb",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -19,28 +19,28 @@
   "artifacts": [
     {
       "path": "evidence/status-codes.txt",
-      "bytes": 3924,
-      "sha256": "1161c620e3b9a929e54d7f4d72168ae3d0b8b4efbf1ee0cb95ce9539c5adb946"
+      "bytes": 3825,
+      "sha256": "1c562389a33f14869088c41121bdd5229de5d2852972e87463976aa99b85ac7d"
     },
     {
       "path": "evidence/cache.txt",
-      "bytes": 1267,
-      "sha256": "e3c51c6f9de4c8cb96ed654d12ee898cecbcaebfefa8898e23655ebef71601bd"
+      "bytes": 1236,
+      "sha256": "f134bca9adc757a4bb498a64fd8717113e6a899aaf2c49e90589955fb7e7d23f"
     },
     {
       "path": "evidence/cookies.txt",
-      "bytes": 1919,
-      "sha256": "7b4bfac5f926075b1e474aee27f1c35f96dcc5b73246373f385a905cad804bef"
+      "bytes": 1874,
+      "sha256": "357cd0022413242f117b9f5b8de4feb920496996d617ecd22cd3a4993063c1ae"
     },
     {
       "path": "evidence/cookie-jar.txt",
-      "bytes": 258,
-      "sha256": "b0a959a59cd9088b40108f2cd2ed35bc45fc7f66be32446db25591c777784784"
+      "bytes": 252,
+      "sha256": "07e28d75f85bc546d2bef8bd665a0e70afa0b1df4609b716d415b52a34dc0e9a"
     },
     {
       "path": "evidence/cors-curl.txt",
-      "bytes": 2722,
-      "sha256": "d59cabc992909cd3b3e1ffbfae96d532e74156aec6dc6dc66a3733ec642000a3"
+      "bytes": 2658,
+      "sha256": "ce5035b9f5b4315f8deb227f8265e4b9f3ff75befadd4cacef9e4c666ff756f6"
     },
     {
       "path": "evidence/browser-cors.txt",
@@ -59,8 +59,8 @@
     },
     {
       "path": "evidence/failures.txt",
-      "bytes": 1001,
-      "sha256": "f5962fff38b476f5711e24ad47131e89a386e0fda2ab389da3e69237112680c2"
+      "bytes": 986,
+      "sha256": "365223c275b5967857fd594296510c235a6b07d14c8a28b6e3320b1a53d72a3d"
     },
     {
       "path": "evidence/server.log",
