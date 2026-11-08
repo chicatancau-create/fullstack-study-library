@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E10",
-  "generated_at": "2026-11-07T13:15:04.380Z",
-  "commit": "365c54a4234ca7e3cf6d4aeabc6b19f3ce87d9d8",
+  "generated_at": "2026-11-08T02:12:56.512Z",
+  "commit": "403a87cbd6ffcb92a0e7210e50bcc451763ad183",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -13,6 +13,10 @@
   "commands": [
     {
       "cmd": "PGPASSWORD=<local-test-password> bash scripts/run_evidence.sh",
+      "exit": 0
+    },
+    {
+      "cmd": "PGPASSWORD=<local-test-password> bash scripts/run_backlog.sh",
       "exit": 0
     }
   ],
@@ -31,9 +35,14 @@
       "path": "evidence/result.txt",
       "bytes": 101,
       "sha256": "f1e5b2aa7fcc07dd275bbb61478eae98da663a190fbad018a75380bbcbc4f4cb"
+    },
+    {
+      "path": "evidence/backlog_replay.txt",
+      "bytes": 331,
+      "sha256": "d6e6031374e671b191eea32c2b6e76640df41370d38b4a4e2d7ef83e1e1dd33c"
     }
   ],
   "unverified": [
-    "单节点 RabbitMQ；无积压/重放/集群/真实外部副作用"
+    "单节点RabbitMQ；无集群/顺序保证/持续压力；积压与重放为1000条单消费者"
   ]
 }

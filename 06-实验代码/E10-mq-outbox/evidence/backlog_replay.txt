@@ -1,0 +1,7 @@
+published=1000 publish_ms=29 queued_before_consume=1000
+first_consume_ms=697 handled=1000 duplicates=0
+after_first queued=0 inbox=1000 side_effects=1000
+replay_publish_ms=27 replay_consume_ms=103 handled=1000 duplicates=1000
+after_replay queued=0 inbox=1000 side_effects=1000
+duplicate_side_effects_blocked=YES
+BACKLOG_REPLAY PASS
