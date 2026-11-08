@@ -16,7 +16,7 @@
 
 没做什么（避免夸大）：
 
-- Windows 本机工具链没有 ASan；UAF 与泄漏检测改由 Linux/ASan CI 完成（`scripts/asan_linux.sh`），双重释放未单列。
+- Windows 本机工具链没有 ASan；UAF、泄漏、UBSan 与 Valgrind 改由 Linux CI 完成（`scripts/asan_linux.sh`），双重释放未单列。
 - 没有做并发/多线程用例：E01 是单线程数据结构实验。
 - 没有接入 CI，没有跨平台（Linux/clang）复测。
 - 没有把动态数组/哈希表接进任何业务项目，仍是独立实验件。
@@ -41,7 +41,7 @@ make      : 不可用（脚本用 gcc 直接构建）
 clang     : 不可用
 valgrind  : 不可用
 MSVC cl   : 不可用
-ASan      : Windows 本机不可用（MinGW 无 libasan）；Linux CI 可用，见 `evidence/asan_linux.txt`
+ASan/UBSan/Valgrind : Windows 本机不可用；Linux CI 可用，见 `evidence/asan_linux.txt`
 ```
 
 "干净"的含义：`rm -rf build && bash scripts/build.sh` 从零重建，不依赖任何既有产物；构建零告警。环境原始输出见 `evidence/env.txt`。
@@ -230,7 +230,7 @@ grep -h 'PASS\|FAIL' evidence/test_run.txt
 
 ### 13.5 仍未覆盖
 
-- Windows 的 ASan/UBSan/LSan/Valgrind 仍不可用；Linux CI 已覆盖 ASan/LSan（UAF+泄漏），UBSan/Valgrind 未做。
+- Windows 的 ASan/UBSan/LSan/Valgrind 仍不可用；Linux CI 已覆盖 ASan/LSan（UAF+泄漏）、UBSan（溢出）与 Valgrind（泄漏）。
 - 未做跨平台（Linux/clang）复测。
 - 未做并发数据结构测试；E01 仍是单线程。
 - 未把数据结构接进业务项目。

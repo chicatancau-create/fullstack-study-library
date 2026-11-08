@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E01",
-  "generated_at": "2026-11-08T03:04:28.758Z",
-  "commit": "42a4a6f8f82e27a7e85b694b23a48725f0201de3",
+  "generated_at": "2026-11-08T03:07:00.714Z",
+  "commit": "8ed6291596bbac04fd597a2550cac97fd27ebcec",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -72,11 +72,11 @@
     },
     {
       "path": "evidence/asan_linux.txt",
-      "bytes": 4575,
-      "sha256": "63c14ca867efaf0301121abe980f4d82d28bbe16e34c88da1f750e50a0ae7fbf"
+      "bytes": 5439,
+      "sha256": "b6c77c7ae0fb5a2c9fb3fbe51ff4032dae6c80acd4cd9edff7c08deb64dabcc0"
     }
   ],
   "unverified": [
-    "Windows无ASan；Linux CI ASan/LSan通过；UBSan/Valgrind未做；UAF页级夹具仍仅Windows"
+    "Windows无ASan；Linux CI ASan/LSan/UBSan/Valgrind通过；UAF页级夹具仍仅Windows"
   ]
 }
