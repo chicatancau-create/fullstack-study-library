@@ -1,0 +1,302 @@
+[
+  {
+    "id": "Q001",
+    "title": "实现一个可取消的请求竞态保护 Hook",
+    "role": "前端",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q002",
+    "title": "设计行程列表的虚拟滚动",
+    "role": "前端",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q003",
+    "title": "设计司机与订单的匹配接口",
+    "role": "后端",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q004",
+    "title": "订单状态机的幂等迁移",
+    "role": "后端",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q005",
+    "title": "高并发派单的锁策略",
+    "role": "后端",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q006",
+    "title": "轨迹点写入与查询",
+    "role": "后端",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q007",
+    "title": "行程表的索引设计",
+    "role": "数据库",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q008",
+    "title": "分页查询的深翻页问题",
+    "role": "数据库",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q009",
+    "title": "设计计价服务",
+    "role": "系统设计",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q010",
+    "title": "设计司机端消息推送",
+    "role": "系统设计",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q011",
+    "title": "设计地图路径缓存",
+    "role": "系统设计",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q012",
+    "title": "设计行程分享链接",
+    "role": "系统设计",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q013",
+    "title": "两个司机同时接单的竞态",
+    "role": "并发",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q014",
+    "title": "库存式优惠券领取",
+    "role": "并发",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q015",
+    "title": "重复支付回调",
+    "role": "并发",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q016",
+    "title": "对象级授权检查",
+    "role": "安全",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q017",
+    "title": "防刷接口限流",
+    "role": "安全",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q018",
+    "title": "敏感信息脱敏",
+    "role": "安全",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q019",
+    "title": "讲一次线上故障的处理",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q020",
+    "title": "讲一次跨团队冲突",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q021",
+    "title": "讲一次性能优化",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q022",
+    "title": "讲一次你拒绝的需求",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q023",
+    "title": "讲一次带新人的经历",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q024",
+    "title": "讲一次估算失误",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q025",
+    "title": "讲一次数据一致性问题",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q026",
+    "title": "讲一次安全事件",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q027",
+    "title": "讲一次发布回滚",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q028",
+    "title": "讲一次跨时区协作",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q029",
+    "title": "为什么选择这个岗位",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q030",
+    "title": "讲一次你如何做线上数据修复",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "滴滴招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://talent.didiglobal.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  }
+]

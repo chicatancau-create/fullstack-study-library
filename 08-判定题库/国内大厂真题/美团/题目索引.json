@@ -1,0 +1,302 @@
+[
+  {
+    "id": "Q001",
+    "title": "206. 反转链表",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q002",
+    "title": "88. 合并两个有序数组",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q003",
+    "title": "补充题4. 手撕快速排序",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q004",
+    "title": "141. 环形链表",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q005",
+    "title": "718. 最长重复子数组",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q006",
+    "title": "102. 二叉树的层序遍历",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q007",
+    "title": "剑指 Offer 22. 链表中倒数第k个节点",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q008",
+    "title": "8. 字符串转换整数 (atoi)",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q009",
+    "title": "92. 反转链表 II",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q010",
+    "title": "232. 用栈实现队列",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q011",
+    "title": "215. 数组中的第K个最大元素",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q012",
+    "title": "124. 二叉树中的最大路径和",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q013",
+    "title": "144. 二叉树的前序遍历",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q014",
+    "title": "146. LRU缓存机制",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q015",
+    "title": "543. 二叉树的直径",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q016",
+    "title": "142. 环形链表 II",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q017",
+    "title": "160. 相交链表",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q018",
+    "title": "54. 螺旋矩阵",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q019",
+    "title": "5. 最长回文子串",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q020",
+    "title": "19. 删除链表的倒数第N个节点",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q021",
+    "title": "21. 合并两个有序链表",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q022",
+    "title": "25. K 个一组翻转链表",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q023",
+    "title": "236. 二叉树的最近公共祖先",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q024",
+    "title": "15. 三数之和",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q025",
+    "title": "94. 二叉树的中序遍历",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q026",
+    "title": "82. 删除排序链表中的重复元素 II",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q027",
+    "title": "143. 重排链表",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q028",
+    "title": "3. 无重复字符的最长子串",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q029",
+    "title": "56. 合并区间",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  },
+  {
+    "id": "Q030",
+    "title": "剑指 Offer 36. 二叉搜索树与双向链表",
+    "role": "后端/算法",
+    "when": "2021 及以前（上游最后更新）",
+    "source": "LeetcodeTop（牛客笔经面经人工汇总）",
+    "url": "https://raw.githubusercontent.com/afatcoder/LeetcodeTop/master/meituan/backend.md",
+    "credibility": "候选人回忆（第三方整理）",
+    "real": "真题（面经统计，非官方）"
+  }
+]

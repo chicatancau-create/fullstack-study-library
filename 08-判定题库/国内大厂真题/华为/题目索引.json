@@ -1,0 +1,302 @@
+[
+  {
+    "id": "Q001",
+    "title": "设计一个配置中心客户端",
+    "role": "后端",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q002",
+    "title": "实现有界线程池",
+    "role": "后端",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q003",
+    "title": "设计幂等接口",
+    "role": "后端",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q004",
+    "title": "设计服务健康检查",
+    "role": "后端",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q005",
+    "title": "实现滑动窗口限流",
+    "role": "后端",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q006",
+    "title": "设计文件分片上传",
+    "role": "后端",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q007",
+    "title": "设计分库分表键",
+    "role": "数据库",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q008",
+    "title": "处理长事务",
+    "role": "数据库",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q009",
+    "title": "设计审计日志表",
+    "role": "数据库",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q010",
+    "title": "设计设备接入网关",
+    "role": "系统设计",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q011",
+    "title": "设计告警去重与抑制",
+    "role": "系统设计",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q012",
+    "title": "设计灰度发布",
+    "role": "系统设计",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q013",
+    "title": "设计日志采集链路",
+    "role": "系统设计",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q014",
+    "title": "缓存与数据库双写一致性",
+    "role": "并发",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q015",
+    "title": "分布式锁续期",
+    "role": "并发",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q016",
+    "title": "消息重复消费",
+    "role": "并发",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q017",
+    "title": "JWT 校验与密钥轮换",
+    "role": "安全",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q018",
+    "title": "越权访问测试",
+    "role": "安全",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q019",
+    "title": "依赖漏洞处置",
+    "role": "安全",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q020",
+    "title": "讲一次重大交付",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q021",
+    "title": "讲一次技术选型",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q022",
+    "title": "讲一次跨部门协作",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q023",
+    "title": "讲一次质量事故",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q024",
+    "title": "讲一次性能攻关",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q025",
+    "title": "讲一次代码评审分歧",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q026",
+    "title": "讲一次紧急排障",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q027",
+    "title": "讲一次文档沉淀",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q028",
+    "title": "讲一次失败的项目",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q029",
+    "title": "为什么选择华为",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  },
+  {
+    "id": "Q030",
+    "title": "你如何保持学习",
+    "role": "行为",
+    "when": "—（模拟）",
+    "source": "华为招聘官网（仅岗位背景，非题目来源）",
+    "url": "https://career.huawei.com/",
+    "credibility": "自建（非公开面经）",
+    "real": "模拟题"
+  }
+]
