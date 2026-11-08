@@ -18,7 +18,7 @@
 
 没做什么（避免夸大）：
 
-- 已补 worker_threads 对照：4 个 CPU 密集任务在 1.85–2.23x 之间加速，主线程事件循环在 worker 期间保持响应；见 `scenarios/worker_threads.mjs` 与 `evidence/worker_threads.txt`。
+- 已补 worker_threads 对照：本机 4 个 CPU 密集任务加速 1.85–2.76x；CI 2 核只强制断言事件循环响应，加速比标记 SKIPPED_LOW_CORE。见 `scenarios/worker_threads.mjs` 与 `evidence/worker_threads.txt`。
 - 没有接真实数据库/HTTP 客户端，"下游调用"用 `setTimeout` 代表，因此**吞吐与延迟不是本实验结论**。
 - 没有做跨进程/分布式取消（那需要协议，不是单进程 API）。
 - 没有测量 `--max-old-space-size` 边界，堆增长只做量级参考。

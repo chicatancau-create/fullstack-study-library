@@ -1,7 +1,8 @@
 import { Worker } from 'node:worker_threads';
 import os from 'node:os';
 
-const TASKS = 4;
+const CORES = os.availableParallelism();
+const TASKS = Math.min(4, Math.max(2, CORES - 1));
 const ITERATIONS = 12_000_000;
 
 function cpuWork(n) {
@@ -49,15 +50,17 @@ clearInterval(workerTimer);
 const allMatch = [...serial.result, ...parallel.result].every((value) => value === expected);
 const speedup = serial.ms / parallel.ms;
 
-console.log(`cpu_parallelism=${os.availableParallelism()}`);
+console.log(`cpu_parallelism=${CORES}`);
 console.log(`workers=1+${TASKS} iterations=${ITERATIONS}`);
 console.log(`serial_4_tasks_ms=${serial.ms.toFixed(2)} serial_ticks=${serialTicks}`);
 console.log(`worker_4_tasks_ms=${parallel.ms.toFixed(2)} worker_ticks=${workerTicks}`);
 console.log(`speedup=${speedup.toFixed(2)}x`);
+console.log(`speedup_assertion=${CORES >= 4 ? 'ENFORCED' : 'SKIPPED_LOW_CORE'}`);
 console.log(`all_results_match=${allMatch ? 'YES' : 'FAIL'}`);
 console.log(`event_loop_responsive=${workerTicks > serialTicks * 2 ? 'YES' : 'FAIL'}`);
 
-if (!allMatch || speedup < 1.2 || workerTicks <= serialTicks * 2) {
+const speedupOk = CORES < 4 || speedup >= 1.2;
+if (!allMatch || !speedupOk || workerTicks <= serialTicks * 2) {
   console.log('WORKER_THREADS FAIL');
   process.exit(1);
 }
