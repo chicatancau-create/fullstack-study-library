@@ -1,59 +1,59 @@
 
  Version: 2.1
  Chunks: 1
- Start: 2026-11-09 07:42:30 (UTC)
+ Start: 2026-11-09 07:46:32 (UTC)
  Duration: 3 s
 
  Event Type                              Count  Size (bytes) 
 =============================================================
- jdk.GCPhaseParallel                    157892       4061480
- jdk.TenuringDistribution                27810        281740
- jdk.GCReferenceStatistics                7416         73649
- jdk.MetaspaceChunkFreeListSummary        7416        132976
- jdk.GCPhasePauseLevel1                   5562        220245
- jdk.G1HeapSummary                        3708         90580
- jdk.GCHeapSummary                        3708        133232
- jdk.MetaspaceSummary                     3708        181436
- jdk.EvacuationInformation                1854         49925
- jdk.G1AdaptiveIHOP                       1854         70324
- jdk.G1BasicIHOP                          1854         64771
- jdk.G1EvacuationOldStatistics            1854         57362
- jdk.G1EvacuationYoungStatistics          1854         70333
- jdk.G1GarbageCollection                  1854         20268
- jdk.G1MMU                                1854         23974
- jdk.GCCPUTime                            1854         22083
- jdk.GCPhasePause                         1854         38808
- jdk.GarbageCollection                    1854         31396
- jdk.YoungGarbageCollection               1854         20268
- jdk.SystemProcess                         514         28673
+ jdk.GCPhaseParallel                    153986       3961125
+ jdk.TenuringDistribution                27120        274702
+ jdk.GCReferenceStatistics                7232         71809
+ jdk.MetaspaceChunkFreeListSummary        7232        129664
+ jdk.GCPhasePauseLevel1                   5424        214771
+ jdk.G1HeapSummary                        3616         88326
+ jdk.GCHeapSummary                        3616        129920
+ jdk.MetaspaceSummary                     3616        176928
+ jdk.EvacuationInformation                1808         48683
+ jdk.G1AdaptiveIHOP                       1808         68576
+ jdk.G1BasicIHOP                          1808         63161
+ jdk.G1EvacuationOldStatistics            1808         55937
+ jdk.G1EvacuationYoungStatistics          1808         68587
+ jdk.G1GarbageCollection                  1808         19762
+ jdk.G1MMU                                1808         23376
+ jdk.GCCPUTime                            1808         21500
+ jdk.GCPhasePause                         1808         37842
+ jdk.GarbageCollection                    1808         30614
+ jdk.YoungGarbageCollection               1808         19762
+ jdk.SystemProcess                         510         28495
  jdk.BooleanFlag                           491         14569
- jdk.ObjectAllocationSample                453          6299
+ jdk.ObjectAllocationSample                455          6327
  jdk.ActiveSetting                         376          9345
  jdk.ModuleRequire                         157          1413
  jdk.LongFlag                              137          4260
  jdk.InitialEnvironmentVariable            121          8180
  jdk.UnsignedLongFlag                       93          3046
- jdk.NativeLibrary                          92          5334
+ jdk.NativeLibrary                          92          5337
  jdk.UnsignedIntFlag                        48          1534
  jdk.InitialSecurityProperty                45          2178
  jdk.IntFlag                                43          1478
- jdk.ThreadAllocationStatistics             34           288
+ jdk.ThreadAllocationStatistics             36           306
+ jdk.NativeMethodSample                     33           297
  jdk.StringFlag                             32           934
- jdk.OldObjectSample                        30           840
- jdk.NativeMethodSample                     27           243
- jdk.Checkpoint                             26         20926
+ jdk.Checkpoint                             23         20124
+ jdk.OldObjectSample                        23           644
  jdk.DoubleFlag                             16           629
+ jdk.Deoptimization                         15           329
  jdk.InitialSystemProperty                  15          2494
- jdk.Deoptimization                         14           307
- jdk.ThreadCPULoad                           7           105
- jdk.ThreadEnd                               7            56
  jdk.ClassLoaderStatistics                   6           144
  jdk.CodeCacheStatistics                     6           180
- jdk.GCHeapMemoryPoolUsage                   6           212
- jdk.ThreadStart                             6            60
+ jdk.GCHeapMemoryPoolUsage                   6           213
+ jdk.ThreadCPULoad                           6            90
+ jdk.ThreadEnd                               6            48
+ jdk.ThreadStart                             5            50
  jdk.CPULoad                                 2            36
  jdk.ClassLoadingStatistics                  2            18
- jdk.CompilerStatistics                      2            55
+ jdk.CompilerStatistics                      2            54
  jdk.ExceptionStatistics                     2            16
  jdk.GCConfiguration                         2            48
  jdk.GCHeapMemoryUsage                       2            36
@@ -62,7 +62,7 @@
  jdk.PhysicalMemory                          2            32
  jdk.ResidentSetSize                         2            28
  jdk.SwapSpace                               2            34
- jdk.ThreadDump                              2         17163
+ jdk.ThreadDump                              2         17638
  jdk.ActiveRecording                         1            37
  jdk.CPUInformation                          1          1514
  jdk.CPUTimeStampCounter                     1            16
