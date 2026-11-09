@@ -1,0 +1,6 @@
+captured_at: 2026-11-09T03:37:28.162Z
+zap_home: D:/ZAP/ZAP_2.17.0
+target: http://127.0.0.1:4789/scan
+scan: spider + passive (baseline; no active scan)
+alerts_summary: {"High":0,"Low":0,"Medium":4,"Informational":0}
+reports: evidence/zap-report.html, evidence/zap-report.xml

@@ -6,7 +6,7 @@ PASS A05 stored XSS: raw page contains executable markup
 PASS A05 fix: safe page escapes markup
 PASS A05 fix: CSP script-src none on safe page
 PASS A03 reflected XSS: raw vs escaped
-PASS A03 DOM XSS: onerror executed in Edge in 1237ms
+PASS A03 DOM XSS: onerror executed in Edge in 1387ms
 PASS A03 fix: textContent + CSP blocks DOM XSS
 PASS A01 CSRF: missing token -> 403
 PASS A01 CSRF: evil Origin -> 403
@@ -21,5 +21,5 @@ PASS A09 logging: audit rows=7
 A02 crypto: scrypt + timingSafeEqual, session token 48 hex chars
 A06 components: fastify 5.12.8（未跑 npm audit，不作为漏洞结论）
 A08 integrity: CSRF token 比对；未做制品签名
-ZAP: quick scan 尝试超时 420s，无报告；以下为手工 PoC
+ZAP: baseline 由 scripts/run_zap_api.mjs 独立执行，结果见 evidence/zap.txt
 E11 PASS

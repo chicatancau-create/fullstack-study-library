@@ -1,7 +1,7 @@
 # E11：对象级授权矩阵与 OWASP 手工靶场
 
 > 对应 [[../../01-阶段课程/专项-核心原理与深度实验|专项：核心原理与深度实验]] 的 E11。
-> 本实验在 **Fastify + 真实 PostgreSQL 18.6 + 真实 Edge（CDP）** 上验证对象级授权，以及 A01/A03/A04/A05/A07/A09/A10 的攻击、修复与回归；ZAP 2.17.0 已下载并尝试 quick scan，但 420s 超时且未产出报告；不宣称扫描通过。
+> 本实验在 **Fastify + 真实 PostgreSQL 18.6 + 真实 Edge（CDP）** 上验证对象级授权，以及 A01/A03/A04/A05/A07/A09/A10 的攻击、修复与回归；ZAP 2.17.0 通过 daemon API 完成 spider + 被动扫描（baseline），产出 HTML/XML 报告，未运行主动扫描。
 > 环境：Windows 10.0.28000 + Node v24.15.0 + PostgreSQL 18.6 + Edge 157
 
 ## 1. 做了什么、没做什么
@@ -20,7 +20,7 @@
 
 没做什么：
 
-- **ZAP 尝试失败**：已下载 ZAP 2.17.0 Core（D:/ZAP/ZAP_2.17.0），`zap.bat -cmd -quickurl ... -quickout evidence/zap-report.xml` 运行 420s 后超时，未生成报告；不把手工 PoC 冒充扫描结果。
+- **ZAP 只做 baseline**：已下载 ZAP 2.17.0 Core（D:/ZAP/ZAP_2.17.0），通过 daemon API 对 `/scan` 做 spider + 被动扫描，产出 HTML/XML 报告；未运行主动扫描（active scan），攻击类结论仍以手工 PoC 为准。
 - A02 只做机制核对（scrypt + timingSafeEqual + 随机 token），没有弱加密 PoC。
 - A06 只固定 fastify 5.12.8，未跑 `npm audit`，不作组件漏洞结论。
 - A08 只做 CSRF token 比对；没有制品签名/供应链完整性。
@@ -65,7 +65,7 @@ echo $?
 
 单跑攻击取证：`node src/attack_evidence.mjs`（会启动临时靶场与 Edge）。
 
-ZAP 复跑（需 `ZAP_HOME`，默认 `D:/ZAP/ZAP_2.17.0`）：`node scripts/run_zap.mjs`；扫描入口为公开页 `/scan`。
+ZAP 复跑（需 `ZAP_HOME`，默认 `D:/ZAP/ZAP_2.17.0`）：`node scripts/run_zap_api.mjs`；扫描入口为公开页 `/scan`，结果写入 `evidence/zap.txt`、`evidence/zap-report.html`、`evidence/zap-report.xml`。
 
 ## 5. 关键实现
 
@@ -102,11 +102,11 @@ fetch(url, { redirect: 'manual' });
 | 登录锁定 | 5 次失败后 429 | 同上 |
 | 审计 | `e11.audit` 有登录/转账记录 | 同上 |
 | 测试 | 21 pass 0 fail | `evidence/test.txt` |
-| ZAP | **尝试失败**：quick scan 超时，无报告 | `src/run_zap.mjs` 可直接复跑 |
+| ZAP | baseline：spider 100%、被动扫描完成；High 0 / Low 0 / Medium 4 / Informational 0；未跑主动扫描 | `evidence/zap.txt`、`evidence/zap-report.html`、`evidence/zap-report.xml` |
 
 ## 7. 边界
 
-1. ZAP quick scan 已尝试但超时（420s）无报告；只有手工 PoC。
+1. ZAP 只跑 baseline（spider + 被动扫描）；主动扫描会改数据且耗时，未运行，攻击结论以手工 PoC 为准。
 2. A02/A04/A06/A08 是机制核对或版本固定，不是完整攻击复现。
 3. 没有 XXE、反序列化、原型污染、开放重定向、JWT 混淆。
 4. 浏览器只测 Edge 157；其他浏览器未复测。
@@ -118,7 +118,7 @@ fetch(url, { redirect: 'manual' });
 | 项 | 映射 | 说明 |
 | --- | --- | --- |
 | M11 安全 | 部分 | 授权、注入、XSS、CSRF、SSRF、日志 |
-| E11 | **本实验** | A01–A10 映射；ZAP 缺失 |
+| E11 | **本实验** | A01–A10 映射；ZAP baseline 报告 + 手工 PoC |
 | G4/G7 | 仅子项 | 不代表关口通过 |
 
 ## 9. 目录结构
@@ -132,8 +132,9 @@ E11-authz-matrix/
 │   └── attack_evidence.mjs 攻击/修复证据 + Edge DOM XSS
 ├── tests/app.test.js       授权矩阵 13 条
 ├── tests/security.test.js  安全靶场 8 条
-├── scenarios/              SQLi、DOM XSS、CSRF、SSRF
-├── scripts/run_evidence.sh
-├── evidence/               syntax/security/test/run
+├── scenarios/              A01–A10 反例（a01…a10）
+├── scripts/run_evidence.sh 主证据链
+├── scripts/run_zap_api.mjs ZAP baseline（daemon API）
+├── evidence/               syntax/security/test/run + zap 报告
 └── package.json / package-lock.json
 ```

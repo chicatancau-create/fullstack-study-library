@@ -31,7 +31,7 @@ run test.txt node --test --test-concurrency=1 tests/app.test.js tests/security.t
   echo "captured_at: $(date -Is)"
   echo "syntax: $(grep -c 'SyntaxError' evidence/syntax.txt evidence/syntax-lab.txt | tr '\n' ' ')"
   echo "security: $(grep -E '^E11 (PASS|FAIL)' evidence/security.txt || tail -1 evidence/security.txt)"
-  echo "zap: $(grep '^ZAP:' evidence/security.txt || echo 'not run')"
+  echo "zap: $(grep 'alerts_summary' evidence/zap.txt 2>/dev/null || echo 'not run')"
   echo "test: $(grep -E '^ℹ (tests|pass|fail) ' evidence/test.txt | tr '\n' ' ')"
   echo "gate_failures: $fails"
 } | tee evidence/run.txt

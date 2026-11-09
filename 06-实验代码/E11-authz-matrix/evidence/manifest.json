@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E11",
-  "generated_at": "2026-11-09T02:56:11.027Z",
-  "commit": "de55f3e379650eb3efa593e7e777d813fad7b84c",
+  "generated_at": "2026-11-09T03:42:13.330Z",
+  "commit": "47278a99ff71d478076d6aec4f88ae41aa48b2aa",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -17,6 +17,10 @@
     },
     {
       "cmd": "npm test",
+      "exit": 0
+    },
+    {
+      "cmd": "node scripts/run_zap_api.mjs",
       "exit": 0
     }
   ],
@@ -33,19 +37,36 @@
     },
     {
       "path": "evidence/security.txt",
-      "bytes": 1166,
-      "sha256": "8a1d7e0433016aa7b0807cc4167a1263e867d1b0d1917d5342923211bfaa5b71"
+      "bytes": 1182,
+      "sha256": "abce5f1f199ab2273c010adee092814651f06db0114b4dda4ad6ac6e1b274c91"
     },
     {
       "path": "evidence/test.txt",
-      "bytes": 1457,
-      "sha256": "b725966ecb48677d83c51470fe0541685dad78851fb4d56b1d6336fe94424451"
+      "bytes": 1456,
+      "sha256": "479bd8e52a82bb67d154c6663488aa48429c39ca43176caef588636ec751a9ea"
     },
     {
       "path": "evidence/run.txt",
-      "bytes": 248,
-      "sha256": "179fd52f306c791ee02d4b7d41e7cb131b5a6c6490ffcdf02feba7afe239b4c6"
+      "bytes": 244,
+      "sha256": "05644f34b12a2110b1dfd0dcae734a09e9318ae3b043d8f846414990ff9991a5"
+    },
+    {
+      "path": "evidence/zap.txt",
+      "bytes": 274,
+      "sha256": "376126518d62e51f74c73b5822cc52d1f7cec94782956fb3cdf16dc73cf435a8"
+    },
+    {
+      "path": "evidence/zap-report.html",
+      "bytes": 29555,
+      "sha256": "efcd48cc879fd968ccc55ab6899df1dacfdf6b42c712f96b1eb82e0211e29e39"
+    },
+    {
+      "path": "evidence/zap-report.xml",
+      "bytes": 6922,
+      "sha256": "f5784a3ac9ebe85178156314cccc9f2e2e4b07363c6a90fb81e3d597f9a099a2"
     }
   ],
-  "unverified": []
+  "unverified": [
+    "ZAP 主动扫描未运行（仅 baseline）"
+  ]
 }
