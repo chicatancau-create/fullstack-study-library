@@ -1,6 +1,7 @@
-captured_at: 2026-11-09T11:57:35+08:00
+captured_at: 2026-11-09T15:33:10+08:00
 node: v24.15.0
 pg: 8.23.1
 concurrency: CONCURRENCY PASS 6/6
 explain: EXPLAIN PASS 4/4
+migration: MIGRATION PASS 11/11
 gate_failures: 0

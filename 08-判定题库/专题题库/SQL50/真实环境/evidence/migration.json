@@ -1,0 +1,65 @@
+{
+  "captured_at": "2026-11-09T07:33:10.166Z",
+  "checks": [
+    {
+      "name": "v1 基线：旧应用读写 cents",
+      "ok": true,
+      "detail": "total_cents=401000"
+    },
+    {
+      "name": "v2 加新列 amount_usd + 双写触发器",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "旧应用写入 v2 schema 由触发器补齐新列",
+      "ok": true,
+      "detail": "cents=500 usd=5.00"
+    },
+    {
+      "name": "回填失败注入：事务整体回滚，无半成品",
+      "ok": true,
+      "detail": "error=23514 null=201"
+    },
+    {
+      "name": "前向修复后回填完整且 cents/usd 校验一致",
+      "ok": true,
+      "detail": "null=0 mismatch=0"
+    },
+    {
+      "name": "迁移窗口内旧应用并发写不产生 NULL 新列",
+      "ok": true,
+      "detail": "drift=0"
+    },
+    {
+      "name": "应用矩阵：新应用×v1 schema 明确失败",
+      "ok": true,
+      "detail": "code=42703"
+    },
+    {
+      "name": "回滚到 v1：旧应用可用且金额一致",
+      "ok": true,
+      "detail": "total=207555"
+    },
+    {
+      "name": "回滚前新列总额与回滚后 cents 总额一致",
+      "ok": true,
+      "detail": "usd=2075.55 cents=207555"
+    },
+    {
+      "name": "切读：新应用只读 amount_usd",
+      "ok": true,
+      "detail": "usd=5.00"
+    },
+    {
+      "name": "旧应用退出后删除旧列，新列总额不变",
+      "ok": true,
+      "detail": "usd=2075.55"
+    }
+  ],
+  "final": {
+    "total_cents_before_drop": 207555,
+    "total_usd_after_drop": 2075.55,
+    "rows": 204
+  }
+}

@@ -1,8 +1,8 @@
 {
   "schema": 1,
-  "experiment": "SQL50-REAL",
-  "generated_at": "2026-11-09T03:57:46.556Z",
-  "commit": "2a9351a243459ad7701d7e9dfb6e665d71627094",
+  "experiment": "SQL50_REAL",
+  "generated_at": "2026-11-09T07:33:36.286Z",
+  "commit": "791fcba7b46e8eb222eeaa154fa6eab9ff252264",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -12,7 +12,7 @@
   },
   "commands": [
     {
-      "cmd": "bash run.sh",
+      "cmd": "PGPASSWORD=<local-test-password> bash run.sh",
       "exit": 0
     }
   ],
@@ -33,25 +33,33 @@
       "sha256": "80b6ba36ebfb628d3b840fe30ee296c5357a0aed1fad06339bce3f825b4faba3"
     },
     {
-      "path": "evidence/explain.json",
-      "bytes": 394,
-      "sha256": "2e1806a01057264ac2f8b3a61d41b4f581eab1f7cb73630d15875b0ae2acb38f"
-    },
-    {
       "path": "evidence/explain-good.json",
-      "bytes": 2162,
-      "sha256": "7dd86b639fb319461329c4e52774f6d5e15d1d516740670c5a49bf54d97326f4"
+      "bytes": 2163,
+      "sha256": "661d93165be1d2223d41a31f2db8fbf89aa8421f32383cc6413cc262736d4180"
     },
     {
       "path": "evidence/explain-bad.json",
-      "bytes": 1158,
-      "sha256": "7bc852d2abd49f442baadb1504510b1a062af4a08b4e089bd7ebf01f5d265f1c"
+      "bytes": 1159,
+      "sha256": "9ea399fb2fc98cd03cc32c061208960e77e13eb9d9aab8d437bd4b9ac448e673"
+    },
+    {
+      "path": "evidence/migration.txt",
+      "bytes": 778,
+      "sha256": "e0a8bced27f4a34663360040f40d4217687576af0dabf052f776beed63fd80b9"
+    },
+    {
+      "path": "evidence/migration.json",
+      "bytes": 1585,
+      "sha256": "169f9e8cff2ee3b6dc6d1df356c60eaac6c76329b5905382389c622978535755"
     },
     {
       "path": "evidence/run.txt",
-      "bytes": 142,
-      "sha256": "79f828217515f0137f4934b2f661f7b7f5555ea478e5267143609d576e3e2e78"
+      "bytes": 174,
+      "sha256": "d0668ad99db5225042c161a54ddce9d964b758b35cc85268109400ff82cfe5e5"
     }
   ],
-  "unverified": []
+  "unverified": [
+    "MySQL 方言对照未实现",
+    "证据来自本机 PostgreSQL 18.6，未在 CI 服务容器复跑"
+  ]
 }
