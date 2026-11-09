@@ -1,0 +1,53 @@
+{
+  "id": "Q079",
+  "title": "152. 乘积最大子数组",
+  "question_url": "https://leetcode.cn/problems/maximum-product-subarray/",
+  "core_idea": "同时维护以 i 结尾的最大乘积与最小乘积：负数会让最小变最大，因此两个状态都要保留。",
+  "invariant": "maxHere/minHere 分别是以 i 结尾的子数组乘积的最大值与最小值。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(nums) {\n  let maxHere = nums[0], minHere = nums[0], best = nums[0];\n  for (let i = 1; i < nums.length; i++) {\n    const x = nums[i];\n    const a = maxHere * x, b = minHere * x;\n    maxHere = Math.max(x, a, b);\n    minHere = Math.min(x, a, b);\n    best = Math.max(best, maxHere);\n  }\n  return best;\n}",
+  "edge_cases": [
+    {
+      "call": "[2,3,-2,4]",
+      "expected": 6,
+      "why": "2×3"
+    },
+    {
+      "call": "[-2,0,-1]",
+      "expected": 0,
+      "why": "0 截断，最大为 0"
+    },
+    {
+      "call": "[-2,3,-4]",
+      "expected": 24,
+      "why": "两负数相乘转正"
+    }
+  ],
+  "common_mistakes": [
+    "只维护最大值，遇到负数乘积变正时错过",
+    "更新 maxHere 后用它算 minHere",
+    "全负数组返回 0"
+  ],
+  "followups": [
+    "若要求乘积最大的子数组长度？",
+    "为什么这与 Kadane 求和不同？"
+  ],
+  "rubric": [
+    {
+      "point": "同时维护最大与最小乘积",
+      "weight": 2
+    },
+    {
+      "point": "用旧值同时计算 a、b 再更新",
+      "weight": 1
+    },
+    {
+      "point": "单元素与含 0 情形正确",
+      "weight": 1
+    }
+  ]
+}

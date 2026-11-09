@@ -1,0 +1,71 @@
+{
+  "id": "Q075",
+  "title": "113. 路径总和 II",
+  "question_url": "https://leetcode.cn/problems/path-sum-ii/",
+  "core_idea": "回溯收集路径：进入节点时累加并压栈，叶子且剩余为 0 时拷贝路径，离开节点时弹出。",
+  "invariant": "path 始终等于从根到当前节点的值序列，remain 等于目标减去该序列之和。",
+  "complexity": {
+    "time": "O(n²)",
+    "space": "O(h)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(a, target) {\n  function build(arr) {\n    if (!arr.length || arr[0] === null) return null;\n    const root = { val: arr[0], left: null, right: null };\n    const q = [root];\n    let i = 1;\n    while (i < arr.length && q.length) {\n      const n = q.shift();\n      if (i < arr.length) { if (arr[i] !== null) { n.left = { val: arr[i], left: null, right: null }; q.push(n.left); } i++; }\n      if (i < arr.length) { if (arr[i] !== null) { n.right = { val: arr[i], left: null, right: null }; q.push(n.right); } i++; }\n    }\n    return root;\n  }\n  const out = [];\n  function dfs(n, remain, path) {\n    if (!n) return;\n    path.push(n.val);\n    if (!n.left && !n.right && remain === n.val) out.push(path.slice());\n    dfs(n.left, remain - n.val, path);\n    dfs(n.right, remain - n.val, path);\n    path.pop();\n  }\n  dfs(build(a), target, []);\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "[5,4,8,11,null,13,4,7,2,null,null,5,1], 22",
+      "expected": [
+        [
+          5,
+          4,
+          11,
+          2
+        ],
+        [
+          5,
+          8,
+          4,
+          5
+        ]
+      ],
+      "why": "两条满足的路径"
+    },
+    {
+      "call": "[1,2], 3",
+      "expected": [
+        [
+          1,
+          2
+        ]
+      ],
+      "why": "单条路径"
+    },
+    {
+      "call": "[1,2,3], 5",
+      "expected": [],
+      "why": "没有路径满足"
+    }
+  ],
+  "common_mistakes": [
+    "收集时直接 push path 引用，后续回溯修改了结果",
+    "非叶子节点也判定成功",
+    "回溯时忘记 pop"
+  ],
+  "followups": [
+    "与 112 的返回值差别？",
+    "若允许负数，能否剪枝？"
+  ],
+  "rubric": [
+    {
+      "point": "进入压栈、离开弹栈",
+      "weight": 2
+    },
+    {
+      "point": "叶子且剩余为目标时拷贝路径",
+      "weight": 1
+    },
+    {
+      "point": "结果使用 path.slice() 隔离引用",
+      "weight": 1
+    }
+  ]
+}

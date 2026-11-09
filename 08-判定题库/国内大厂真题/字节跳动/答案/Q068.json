@@ -1,0 +1,69 @@
+{
+  "id": "Q068",
+  "title": "补充题1. 排序奇升偶降链表",
+  "question_url": "https://leetcode.cn/problems/sort-odd-even-linked-list/",
+  "core_idea": "按值奇偶拆成两条链表：奇数段本身升序、偶数段本身降序；把偶数段反转后与奇数段归并。",
+  "invariant": "拆分保持原相对顺序，反转后偶数段升序，归并两条升序链表得到整体升序。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(arr) {\n  const dOdd = { next: null }, dEven = { next: null };\n  let o = dOdd, e = dEven;\n  for (const v of arr) {\n    const node = { val: v, next: null };\n    if (v % 2 === 1) { o.next = node; o = node; }\n    else { e.next = node; e = node; }\n  }\n  let prev = null, cur = dEven.next;\n  while (cur) { const nxt = cur.next; cur.next = prev; prev = cur; cur = nxt; }\n  const d = { next: null };\n  let t = d, a = dOdd.next, b = prev;\n  while (a && b) {\n    if (a.val <= b.val) { t.next = a; a = a.next; }\n    else { t.next = b; b = b.next; }\n    t = t.next;\n  }\n  t.next = a || b;\n  const out = [];\n  for (let p = d.next; p; p = p.next) out.push(p.val);\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "[1,8,3,6,5,4,7,2]",
+      "expected": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "why": "奇升偶降交错"
+    },
+    {
+      "call": "[2,1]",
+      "expected": [
+        1,
+        2
+      ],
+      "why": "偶段单个值在前"
+    },
+    {
+      "call": "[1,2,3]",
+      "expected": [
+        1,
+        2,
+        3
+      ],
+      "why": "已交错但仍需归并"
+    }
+  ],
+  "common_mistakes": [
+    "对整条链表排序，忽略奇偶两段已各自有序的前提",
+    "反转偶数段时丢失后继",
+    "归并后忘记接上剩余段"
+  ],
+  "followups": [
+    "如果题目不保证奇升偶降，还能 O(n) 吗？",
+    "如何原地完成反转与归并？"
+  ],
+  "rubric": [
+    {
+      "point": "按奇偶拆分为两条链表",
+      "weight": 1
+    },
+    {
+      "point": "反转降序的偶数段",
+      "weight": 2
+    },
+    {
+      "point": "归并两段并接上剩余部分",
+      "weight": 1
+    }
+  ]
+}

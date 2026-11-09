@@ -1,0 +1,53 @@
+{
+  "id": "Q074",
+  "title": "64. 最小路径和",
+  "question_url": "https://leetcode.cn/problems/minimum-path-sum/",
+  "core_idea": "DP：dp[i][j]=grid[i][j]+min(上,左)；第一行只能从左来，第一列只能从上来，可滚动成一维。",
+  "invariant": "计算到 (i,j) 时，其上方与左方的 dp 已是最小路径和。",
+  "complexity": {
+    "time": "O(mn)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(grid) {\n  const rows = grid.length;\n  if (!rows) return 0;\n  const cols = grid[0].length;\n  const dp = new Array(cols).fill(0);\n  for (let i = 0; i < rows; i++) {\n    for (let j = 0; j < cols; j++) {\n      if (i === 0 && j === 0) dp[j] = grid[i][j];\n      else if (i === 0) dp[j] = dp[j - 1] + grid[i][j];\n      else if (j === 0) dp[j] = dp[j] + grid[i][j];\n      else dp[j] = Math.min(dp[j], dp[j - 1]) + grid[i][j];\n    }\n  }\n  return dp[cols - 1];\n}",
+  "edge_cases": [
+    {
+      "call": "[[1,3,1],[1,5,1],[4,2,1]]",
+      "expected": 7,
+      "why": "1→3→1→1→1"
+    },
+    {
+      "call": "[[1,2,3]]",
+      "expected": 6,
+      "why": "只有一行只能一路向右"
+    },
+    {
+      "call": "[[5]]",
+      "expected": 5,
+      "why": "单格"
+    }
+  ],
+  "common_mistakes": [
+    "第一行/列也套用 min 导致依赖未初始化的 0",
+    "滚动数组没有正确处理 j=0",
+    "把路径数当路径和"
+  ],
+  "followups": [
+    "若允许上下左右移动（不是仅右下）如何做？",
+    "如何回溯输出路径？"
+  ],
+  "rubric": [
+    {
+      "point": "第一行与第一列的边界单独处理",
+      "weight": 2
+    },
+    {
+      "point": "其余格取上/左较小值加当前值",
+      "weight": 1
+    },
+    {
+      "point": "一维滚动方向从左到右",
+      "weight": 1
+    }
+  ]
+}

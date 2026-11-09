@@ -1,0 +1,53 @@
+{
+  "id": "Q065",
+  "title": "470. 用 Rand7() 实现 Rand10()",
+  "question_url": "https://leetcode.cn/problems/implement-rand10-using-rand7/",
+  "core_idea": "两次 Rand7 组合出 1–49 的均匀分布：(a-1)*7+b；只接受 1–40，映射为 (idx-1)%10+1，拒绝 41–49 后重新采样。",
+  "invariant": "接受域的 40 个结果等概率，因此映射后 1–10 各出现 4 次，分布均匀。",
+  "complexity": {
+    "time": "期望 O(1)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(seq) {\n  let i = 0;\n  while (i + 1 < seq.length) {\n    const idx = (seq[i] - 1) * 7 + seq[i + 1];\n    i += 2;\n    if (idx <= 40) return ((idx - 1) % 10) + 1;\n  }\n  return 0;\n}",
+  "edge_cases": [
+    {
+      "call": "[1,1]",
+      "expected": 1,
+      "why": "组合值 1 映射到 1"
+    },
+    {
+      "call": "[2,3]",
+      "expected": 10,
+      "why": "组合值 10 映射到 10"
+    },
+    {
+      "call": "[7,7,2,2]",
+      "expected": 9,
+      "why": "49 被拒绝后重新采样到 9"
+    }
+  ],
+  "common_mistakes": [
+    "直接用 (rand7()+rand7())%10+1，分布不均",
+    "接受 1–49 后用 idx%10，导致 10 出现次数偏多",
+    "拒绝 41–49 时忘记重新采样"
+  ],
+  "followups": [
+    "期望采样次数是多少？",
+    "如何用 Rand5 实现 Rand7？"
+  ],
+  "rubric": [
+    {
+      "point": "组合公式 (a-1)*7+b 得到 1–49 均匀值",
+      "weight": 2
+    },
+    {
+      "point": "只接受 ≤40 并重新采样",
+      "weight": 1
+    },
+    {
+      "point": "映射 (idx-1)%10+1 不偏向任何数字",
+      "weight": 1
+    }
+  ]
+}

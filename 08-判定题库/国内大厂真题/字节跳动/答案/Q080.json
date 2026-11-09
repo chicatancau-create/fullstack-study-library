@@ -1,0 +1,53 @@
+{
+  "id": "Q080",
+  "title": "70. 爬楼梯",
+  "question_url": "https://leetcode.cn/problems/climbing-stairs/",
+  "core_idea": "dp[n]=dp[n-1]+dp[n-2]：最后一步要么跨 1 阶要么跨 2 阶；用两个变量滚动。",
+  "invariant": "peek 始终是 dp[n-1]、cur 是 dp[n]，只保留最近两项。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(n) {\n  if (n <= 1) return 1;\n  let a = 1, b = 1;\n  for (let i = 2; i <= n; i++) {\n    const c = a + b;\n    a = b;\n    b = c;\n  }\n  return b;\n}",
+  "edge_cases": [
+    {
+      "call": "1",
+      "expected": 1,
+      "why": "一阶只有一种走法"
+    },
+    {
+      "call": "2",
+      "expected": 2,
+      "why": "1+1 或 2"
+    },
+    {
+      "call": "5",
+      "expected": 8,
+      "why": "斐波那契第 6 项"
+    }
+  ],
+  "common_mistakes": [
+    "dp[0] 设为 0 导致递推全错",
+    "n=1 时返回 0",
+    "用递归不记忆化导致指数复杂度"
+  ],
+  "followups": [
+    "若一次可跨 1..k 阶如何推广？",
+    "矩阵快速幂如何做到 O(log n)？"
+  ],
+  "rubric": [
+    {
+      "point": "初始 a=b=1 对应 dp[0]=dp[1]=1",
+      "weight": 2
+    },
+    {
+      "point": "逐级滚动两项",
+      "weight": 1
+    },
+    {
+      "point": "n=1 与 n=2 边界正确",
+      "weight": 1
+    }
+  ]
+}

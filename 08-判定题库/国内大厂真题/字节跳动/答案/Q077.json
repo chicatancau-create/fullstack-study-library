@@ -1,0 +1,53 @@
+{
+  "id": "Q077",
+  "title": "79. 单词搜索",
+  "question_url": "https://leetcode.cn/problems/word-search/",
+  "core_idea": "网格 DFS 回溯：从每个格子出发匹配首字符，向四邻扩展并临时标记已访问，失败时恢复。",
+  "invariant": "递归深度 k 表示已匹配 word 的前 k 个字符，且路径不重复经过同一格。",
+  "complexity": {
+    "time": "O(mn·4^L)",
+    "space": "O(L)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(board, word) {\n  const m = board.length, n = board[0].length;\n  function dfs(i, j, k) {\n    if (i < 0 || j < 0 || i >= m || j >= n || board[i][j] !== word[k]) return false;\n    if (k === word.length - 1) return true;\n    const ch = board[i][j];\n    board[i][j] = '#';\n    const found = dfs(i + 1, j, k + 1) || dfs(i - 1, j, k + 1) || dfs(i, j + 1, k + 1) || dfs(i, j - 1, k + 1);\n    board[i][j] = ch;\n    return found;\n  }\n  for (let i = 0; i < m; i++) for (let j = 0; j < n; j++) if (dfs(i, j, 0)) return true;\n  return false;\n}",
+  "edge_cases": [
+    {
+      "call": "[[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], \"ABCCED\"",
+      "expected": true,
+      "why": "标准示例"
+    },
+    {
+      "call": "[[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], \"SEE\"",
+      "expected": true,
+      "why": "右下角 S-E-E"
+    },
+    {
+      "call": "[[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], \"ABCB\"",
+      "expected": false,
+      "why": "不能复用 B"
+    }
+  ],
+  "common_mistakes": [
+    "不标记访问导致同一格被重复使用",
+    "匹配失败时不恢复标记，影响其他路径",
+    "只搜索第一个字符的所有位置之外的起点"
+  ],
+  "followups": [
+    "如何用 Trie 一次搜索多个单词（212）？",
+    "字符集很大时如何优化空间？"
+  ],
+  "rubric": [
+    {
+      "point": "递归前标记、失败后恢复",
+      "weight": 2
+    },
+    {
+      "point": "四邻扩展且越界检查",
+      "weight": 1
+    },
+    {
+      "point": "从每个格子尝试起点",
+      "weight": 1
+    }
+  ]
+}

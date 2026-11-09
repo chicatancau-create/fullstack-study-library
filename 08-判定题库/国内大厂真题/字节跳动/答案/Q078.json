@@ -1,0 +1,53 @@
+{
+  "id": "Q078",
+  "title": "440. 字典序的第K小数字",
+  "question_url": "https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order/",
+  "core_idea": "把 1..n 视作十叉树：先计算以 cur 为前缀的子树节点数 count，若 count ≤ k 则跳到下一个兄弟，否则下沉到 cur*10。",
+  "invariant": "每步都能整段跳过不超过 k 的子树，剩余 k 始终指向当前范围内的目标序号。",
+  "complexity": {
+    "time": "O((log n)²)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(n, k) {\n  function countPrefix(prefix, n) {\n    let total = 0, first = prefix, last = prefix;\n    while (first <= n) {\n      total += Math.min(n, last) - first + 1;\n      first *= 10;\n      last = last * 10 + 9;\n    }\n    return total;\n  }\n  let cur = 1;\n  k--;\n  while (k > 0) {\n    const cnt = countPrefix(cur, n);\n    if (cnt <= k) { k -= cnt; cur++; }\n    else { k--; cur *= 10; }\n  }\n  return cur;\n}",
+  "edge_cases": [
+    {
+      "call": "13, 1",
+      "expected": 1,
+      "why": "字典序第一个是 1"
+    },
+    {
+      "call": "13, 2",
+      "expected": 10,
+      "why": "1 的子树之后是 10"
+    },
+    {
+      "call": "13, 13",
+      "expected": 9,
+      "why": "最后一个是 9"
+    }
+  ],
+  "common_mistakes": [
+    "逐个数转字符串排序，O(n log n) 超时",
+    "count 用前缀区间长度但忘记截断到 n",
+    "k 未先减 1 导致偏移一位"
+  ],
+  "followups": [
+    "为什么 count 循环最多 log10(n) 层？",
+    "若要求第 k 大如何调整？"
+  ],
+  "rubric": [
+    {
+      "point": "按十叉树前缀计数整段跳过",
+      "weight": 2
+    },
+    {
+      "point": "count 用 min(n,last)-first+1 并逐层 ×10",
+      "weight": 1
+    },
+    {
+      "point": "cnt≤k 走兄弟，否则下沉",
+      "weight": 1
+    }
+  ]
+}

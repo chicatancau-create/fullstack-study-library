@@ -1,0 +1,53 @@
+{
+  "id": "Q073",
+  "title": "128. 最长连续序列",
+  "question_url": "https://leetcode.cn/problems/longest-consecutive-sequence/",
+  "core_idea": "哈希集合去重；只从“没有前驱”的数开始向后数连续长度，避免重复扫描。",
+  "invariant": "每个连续段只在其最小元素处被完整遍历一次，总复杂度线性。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(nums) {\n  const set = new Set(nums);\n  let best = 0;\n  for (const v of set) {\n    if (set.has(v - 1)) continue;\n    let cur = v, len = 1;\n    while (set.has(cur + 1)) { cur++; len++; }\n    best = Math.max(best, len);\n  }\n  return best;\n}",
+  "edge_cases": [
+    {
+      "call": "[100,4,200,1,3,2]",
+      "expected": 4,
+      "why": "1,2,3,4"
+    },
+    {
+      "call": "[0,3,7,2,5,8,4,6,0,1]",
+      "expected": 9,
+      "why": "0 到 8，含重复 0"
+    },
+    {
+      "call": "[]",
+      "expected": 0,
+      "why": "空数组"
+    }
+  ],
+  "common_mistakes": [
+    "对每个数都向后数，退化成 O(n²)",
+    "用排序做到 O(n log n) 不符合要求",
+    "忽略重复值导致长度虚高"
+  ],
+  "followups": [
+    "如果要求返回序列本身？",
+    "集合迭代时增删元素有什么风险？"
+  ],
+  "rubric": [
+    {
+      "point": "只从无前驱的元素起算",
+      "weight": 2
+    },
+    {
+      "point": "集合去重避免重复计数",
+      "weight": 1
+    },
+    {
+      "point": "空数组返回 0",
+      "weight": 1
+    }
+  ]
+}

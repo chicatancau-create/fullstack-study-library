@@ -1,0 +1,53 @@
+{
+  "id": "Q067",
+  "title": "112. 路径总和",
+  "question_url": "https://leetcode.cn/problems/path-sum/",
+  "core_idea": "前序递归：每层从目标和中减去当前值，到叶子时判断剩余是否为 0。",
+  "invariant": "remain 是目标值减去从根到当前节点路径上所有值后的剩余量。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(h)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(a, target) {\n  function build(arr) {\n    if (!arr.length || arr[0] === null) return null;\n    const root = { val: arr[0], left: null, right: null };\n    const q = [root];\n    let i = 1;\n    while (i < arr.length && q.length) {\n      const n = q.shift();\n      if (i < arr.length) { if (arr[i] !== null) { n.left = { val: arr[i], left: null, right: null }; q.push(n.left); } i++; }\n      if (i < arr.length) { if (arr[i] !== null) { n.right = { val: arr[i], left: null, right: null }; q.push(n.right); } i++; }\n    }\n    return root;\n  }\n  function dfs(n, remain) {\n    if (!n) return false;\n    if (!n.left && !n.right) return remain === n.val;\n    return dfs(n.left, remain - n.val) || dfs(n.right, remain - n.val);\n  }\n  return dfs(build(a), target);\n}",
+  "edge_cases": [
+    {
+      "call": "[5,4,8,11,null,13,4,7,2,null,null,null,1], 22",
+      "expected": true,
+      "why": "5+4+11+2=22"
+    },
+    {
+      "call": "[1,2], 1",
+      "expected": false,
+      "why": "必须在叶子结束，不能停在中途"
+    },
+    {
+      "call": "[], 0",
+      "expected": false,
+      "why": "空树没有路径"
+    }
+  ],
+  "common_mistakes": [
+    "在任意节点判断相等，而不是叶子",
+    "空树返回 true（0 等于目标）",
+    "递归时不递减 remain"
+  ],
+  "followups": [
+    "若允许路径不经过根呢（437）？",
+    "如何同时返回该路径？"
+  ],
+  "rubric": [
+    {
+      "point": "只在叶子节点判断剩余和",
+      "weight": 2
+    },
+    {
+      "point": "remain 逐层递减当前值",
+      "weight": 1
+    },
+    {
+      "point": "空树返回 false",
+      "weight": 1
+    }
+  ]
+}

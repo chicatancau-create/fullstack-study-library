@@ -1,0 +1,65 @@
+{
+  "id": "Q066",
+  "title": "239. 滑动窗口最大值",
+  "question_url": "https://leetcode.cn/problems/sliding-window-maximum/",
+  "core_idea": "单调递减双端队列存下标：入队前弹出所有更小元素，窗口左边界越界时弹出队首，队首即当前窗口最大值。",
+  "invariant": "队列内下标递增且对应值递减，因此队首始终是窗口内最大值的下标。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(k)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(nums, k) {\n  const dq = [], out = [];\n  for (let i = 0; i < nums.length; i++) {\n    while (dq.length && nums[dq[dq.length - 1]] <= nums[i]) dq.pop();\n    dq.push(i);\n    if (dq[0] <= i - k) dq.shift();\n    if (i >= k - 1) out.push(nums[dq[0]]);\n  }\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "[1,3,-1,-3,5,3,6,7], 3",
+      "expected": [
+        3,
+        3,
+        5,
+        5,
+        6,
+        7
+      ],
+      "why": "标准示例"
+    },
+    {
+      "call": "[1], 1",
+      "expected": [
+        1
+      ],
+      "why": "窗口等于数组长度"
+    },
+    {
+      "call": "[9,8,7], 2",
+      "expected": [
+        9,
+        8
+      ],
+      "why": "单调递减时队首逐个过期"
+    }
+  ],
+  "common_mistakes": [
+    "用大顶堆但无法高效删除过期元素",
+    "先弹队首再入队导致新元素被误删",
+    "存值不存下标，无法判断窗口过期"
+  ],
+  "followups": [
+    "为什么每个元素最多入队出队一次？",
+    "若要求窗口最小值如何改？"
+  ],
+  "rubric": [
+    {
+      "point": "队列存下标且值单调递减",
+      "weight": 2
+    },
+    {
+      "point": "入队前弹出不大于当前值的元素",
+      "weight": 1
+    },
+    {
+      "point": "按 i-k 判断队首过期并输出",
+      "weight": 1
+    }
+  ]
+}

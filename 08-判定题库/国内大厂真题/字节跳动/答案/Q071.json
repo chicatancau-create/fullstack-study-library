@@ -1,0 +1,53 @@
+{
+  "id": "Q071",
+  "title": "139. 单词拆分",
+  "question_url": "https://leetcode.cn/problems/word-break/",
+  "core_idea": "DP：dp[i] 表示前 i 个字符可被拆分；枚举切点 j，若 dp[j] 为真且 s[j..i) 在词典中则 dp[i] 为真。",
+  "invariant": "dp[i] 只依赖更小的下标，因此按长度递增计算即可。",
+  "complexity": {
+    "time": "O(n²)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(s, dict) {\n  const set = new Set(dict);\n  const dp = new Array(s.length + 1).fill(false);\n  dp[0] = true;\n  for (let i = 1; i <= s.length; i++) {\n    for (let j = 0; j < i; j++) {\n      if (dp[j] && set.has(s.slice(j, i))) { dp[i] = true; break; }\n    }\n  }\n  return dp[s.length];\n}",
+  "edge_cases": [
+    {
+      "call": "\"leetcode\", [\"leet\",\"code\"]",
+      "expected": true,
+      "why": "恰好两段"
+    },
+    {
+      "call": "\"applepenapple\", [\"apple\",\"pen\"]",
+      "expected": true,
+      "why": "单词可重复使用"
+    },
+    {
+      "call": "\"catsandog\", [\"cats\",\"dog\",\"sand\",\"and\",\"cat\"]",
+      "expected": false,
+      "why": "存在无法覆盖的字符"
+    }
+  ],
+  "common_mistakes": [
+    "用贪心匹配最长单词，遇到死路不回溯",
+    "dp 只记录起点而忽略终点",
+    "词典允许复用却按 0/1 处理后失效"
+  ],
+  "followups": [
+    "如何输出一种拆分方案？",
+    "Trie 优化能改善什么？"
+  ],
+  "rubric": [
+    {
+      "point": "dp[0] 为真并按下标递增计算",
+      "weight": 2
+    },
+    {
+      "point": "枚举切点要求 dp[j] 与子串同时在词典",
+      "weight": 1
+    },
+    {
+      "point": "单词可重复使用",
+      "weight": 1
+    }
+  ]
+}

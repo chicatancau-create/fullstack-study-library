@@ -1,0 +1,63 @@
+{
+  "id": "Q076",
+  "title": "155. 最小栈",
+  "question_url": "https://leetcode.cn/problems/min-stack/",
+  "core_idea": "辅助栈与数据栈同步：每次 push 都把当前最小值压入辅助栈，pop 时两栈同时弹出，getMin 取辅助栈顶。",
+  "invariant": "辅助栈顶始终等于数据栈当前所有元素的最小值。",
+  "complexity": {
+    "time": "O(1) 每操作",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(ops, args) {\n  const data = [], mins = [];\n  const out = [];\n  for (let i = 0; i < ops.length; i++) {\n    const a = args[i] || [];\n    if (ops[i] === 'MinStack') out.push(null);\n    else if (ops[i] === 'push') { data.push(a[0]); mins.push(mins.length ? Math.min(mins[mins.length - 1], a[0]) : a[0]); out.push(null); }\n    else if (ops[i] === 'pop') { data.pop(); mins.pop(); out.push(null); }\n    else if (ops[i] === 'top') out.push(data[data.length - 1]);\n    else if (ops[i] === 'getMin') out.push(mins[mins.length - 1]);\n  }\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "[\"MinStack\",\"push\",\"push\",\"push\",\"getMin\",\"pop\",\"top\",\"getMin\"], [[],[-2],[0],[-3],[],[],[],[]]",
+      "expected": [
+        null,
+        null,
+        null,
+        null,
+        -3,
+        null,
+        0,
+        -2
+      ],
+      "why": "标准示例"
+    },
+    {
+      "call": "[\"MinStack\",\"push\",\"getMin\",\"push\",\"getMin\"], [[],[5],[],[3],[]]",
+      "expected": [
+        null,
+        null,
+        5,
+        null,
+        3
+      ],
+      "why": "更小值刷新最小值"
+    }
+  ],
+  "common_mistakes": [
+    "getMin 每次遍历数据栈，变成 O(n)",
+    "辅助栈只在更小值时入栈导致 pop 不同步",
+    "push 相等值时不更新辅助栈"
+  ],
+  "followups": [
+    "如何把辅助栈压缩为单栈存差值？",
+    "若要求 O(1) 空间且支持 getMin 该怎么做？"
+  ],
+  "rubric": [
+    {
+      "point": "辅助栈与数据栈同步入出",
+      "weight": 2
+    },
+    {
+      "point": "push 时压入当前最小值",
+      "weight": 1
+    },
+    {
+      "point": "top/getMin 直接取栈顶 O(1)",
+      "weight": 1
+    }
+  ]
+}

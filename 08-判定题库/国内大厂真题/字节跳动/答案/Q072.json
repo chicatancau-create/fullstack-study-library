@@ -1,0 +1,53 @@
+{
+  "id": "Q072",
+  "title": "240. 搜索二维矩阵 II",
+  "question_url": "https://leetcode.cn/problems/search-a-2d-matrix-ii/",
+  "core_idea": "从右上角出发：当前值大于目标则左移，小于目标则下移；每步排除一行或一列。",
+  "invariant": "搜索区域始终保持左上角为当前元素，目标若存在必在该区域内。",
+  "complexity": {
+    "time": "O(m+n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(matrix, target) {\n  if (!matrix.length || !matrix[0].length) return false;\n  let i = 0, j = matrix[0].length - 1;\n  while (i < matrix.length && j >= 0) {\n    if (matrix[i][j] === target) return true;\n    if (matrix[i][j] > target) j--;\n    else i++;\n  }\n  return false;\n}",
+  "edge_cases": [
+    {
+      "call": "[[1,4,7],[2,5,8],[3,6,9]], 5",
+      "expected": true,
+      "why": "中间值"
+    },
+    {
+      "call": "[[1,4,7],[2,5,8],[3,6,9]], 10",
+      "expected": false,
+      "why": "越界后退出"
+    },
+    {
+      "call": "[[-5]], -5",
+      "expected": true,
+      "why": "单元素负数"
+    }
+  ],
+  "common_mistakes": [
+    "从左上角出发，两个方向都变大无法决策",
+    "只比较一处就返回",
+    "行列长度取错导致越界"
+  ],
+  "followups": [
+    "与 74 题（整体有序）的差别？",
+    "如何用二分每行做到 O(m log n) 并比较复杂度？"
+  ],
+  "rubric": [
+    {
+      "point": "从右上角开始搜索",
+      "weight": 2
+    },
+    {
+      "point": "大于目标左移、小于目标下移",
+      "weight": 1
+    },
+    {
+      "point": "空矩阵返回 false",
+      "weight": 1
+    }
+  ]
+}
