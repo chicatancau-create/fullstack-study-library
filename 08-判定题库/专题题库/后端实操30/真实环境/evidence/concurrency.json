@@ -1,0 +1,44 @@
+{
+  "captured_at": "2026-11-09T07:37:56.471Z",
+  "checks": [
+    {
+      "name": "C01 乐观锁：旧版本 0 行、新版本成功且版本递增",
+      "ok": true,
+      "detail": "stale=0 fresh=1 version=3"
+    },
+    {
+      "name": "C02 冲突重试：第二次成功；持续冲突 3 次后失败",
+      "ok": true,
+      "detail": "retried={\"ok\":true,\"attempts\":2} exhausted={\"ok\":false,\"attempts\":3}"
+    },
+    {
+      "name": "C03 进行中任务唯一：冲突 23505，完成后可再占用",
+      "ok": true,
+      "detail": "first=1 error=23505 second=1"
+    },
+    {
+      "name": "C04 互斥锁：持锁期间 55P03，释放后可获取",
+      "ok": true,
+      "detail": "blocked=55P03 after=ok"
+    },
+    {
+      "name": "C05 过期判断：过期 0 行、续期后认领成功",
+      "ok": true,
+      "detail": "expired=0 live=1"
+    },
+    {
+      "name": "C06 按 Key 串行：同 key 阻塞、异 key 不阻塞、释放后成功",
+      "ok": true,
+      "detail": "same=55P03 other=ok after=ok"
+    },
+    {
+      "name": "最终不变量：同 Owner 至多一个进行中",
+      "ok": true,
+      "detail": "in_progress=1"
+    }
+  ],
+  "final": {
+    "rows": 3,
+    "in_progress": 1
+  }
+}
