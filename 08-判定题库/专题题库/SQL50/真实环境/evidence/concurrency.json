@@ -1,0 +1,32 @@
+[
+  {
+    "name": "RC 写偏差复现：两名值班同时被取消",
+    "ok": true,
+    "detail": "on_call=0"
+  },
+  {
+    "name": "RR 写偏差仍存在：快照读不阻止交叉更新",
+    "ok": true,
+    "detail": "on_call=0"
+  },
+  {
+    "name": "Serializable 拒绝第二个提交（40001）",
+    "ok": true,
+    "detail": "40001"
+  },
+  {
+    "name": "反向锁顺序触发死锁（40P01）",
+    "ok": true,
+    "detail": "40P01"
+  },
+  {
+    "name": "统一锁顺序后同场景无死锁",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "lock_timeout 返回 55P03",
+    "ok": true,
+    "detail": "55P03"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "索引查询走 Index 路径",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "索引查询没有 orders 上的 Seq Scan",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "无索引条件不使用目标索引（错误答案必须失败）",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "两种查询结果一致",
+    "ok": true,
+    "detail": ""
+  }
+]

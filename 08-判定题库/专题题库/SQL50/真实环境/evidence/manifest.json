@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "experiment": "SQL50-REAL",
+  "generated_at": "2026-11-09T03:57:46.556Z",
+  "commit": "2a9351a243459ad7701d7e9dfb6e665d71627094",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [
+    {
+      "cmd": "bash run.sh",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/concurrency.txt",
+      "bytes": 351,
+      "sha256": "e7f19c0e91d2721a6d8b5d0ce1f63fcd1a56894834da315b4f03ab683735d42f"
+    },
+    {
+      "path": "evidence/concurrency.json",
+      "bytes": 630,
+      "sha256": "ed9f1f5302ca1e37454088c7657b798155772a406c9f1cecd3f268ec37edf905"
+    },
+    {
+      "path": "evidence/explain.txt",
+      "bytes": 255,
+      "sha256": "80b6ba36ebfb628d3b840fe30ee296c5357a0aed1fad06339bce3f825b4faba3"
+    },
+    {
+      "path": "evidence/explain.json",
+      "bytes": 394,
+      "sha256": "2e1806a01057264ac2f8b3a61d41b4f581eab1f7cb73630d15875b0ae2acb38f"
+    },
+    {
+      "path": "evidence/explain-good.json",
+      "bytes": 2162,
+      "sha256": "7dd86b639fb319461329c4e52774f6d5e15d1d516740670c5a49bf54d97326f4"
+    },
+    {
+      "path": "evidence/explain-bad.json",
+      "bytes": 1158,
+      "sha256": "7bc852d2abd49f442baadb1504510b1a062af4a08b4e089bd7ebf01f5d265f1c"
+    },
+    {
+      "path": "evidence/run.txt",
+      "bytes": 142,
+      "sha256": "79f828217515f0137f4934b2f661f7b7f5555ea478e5267143609d576e3e2e78"
+    }
+  ],
+  "unverified": []
+}

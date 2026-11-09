@@ -22,7 +22,20 @@ PGPASSWORD=... bash 判定脚本/judge.sh
 - 输出 `SQL50 PASS n/50`；任一不一致即非零。
 - 自测：`SELFTEST=1` 会把 Q01 替换为错误 SQL，预期判定失败（证明判定有牙齿）。
 
+## 真实环境层
+
+`真实环境/` 在 PostgreSQL 18.6 上用两个独立连接验证写偏差（RC/RR）、Serializable `40001`、死锁 `40P01`、`lock_timeout 55P03`，并用 `EXPLAIN (ANALYZE, BUFFERS, FORMAT JSON)` 判定索引使用。入口：
+
+```bash
+cd 真实环境
+npm install --no-audit --no-fund
+PGPASSWORD=<local-test-password> bash run.sh
+```
+
+证据在 `真实环境/evidence/`；它不替代上面 50 题的结果集判定。
+
 ## 边界
 
 - 判的是结果集，不检查 SQL 写法、索引是否真的被使用；执行计划题只验证数据结果。
 - 事务/锁题验证的是隔离级别、约束与行锁可执行性，不模拟双会话并发时序。
+- 真实环境层只覆盖 PostgreSQL；MySQL 方言、在线迁移/回滚尚未实现。
