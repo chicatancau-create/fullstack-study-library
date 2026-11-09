@@ -1,0 +1,5 @@
+captured_at: 2026-11-09T10:52:22+08:00
+release: RELEASE PASS
+stages: BLUEGREEN PASS CANARY PASS FAULT PASS EXPAND PASS SLO PASS 
+test: ℹ tests 5 ℹ pass 5 ℹ fail 0 
+gate_failures: 0

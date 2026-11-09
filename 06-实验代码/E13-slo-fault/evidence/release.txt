@@ -1,0 +1,17 @@
+PASS green artifact version=v2 and healthy before traffic
+PASS blue/green switch: traffic 100% v2 (v2)
+PASS rollback switch: traffic back to v1
+BLUEGREEN PASS
+PASS canary 10%: v2 ratio=16.7% of 60
+CANARY PASS
+PASS canary 5xx: error rate=100.0% -> auto abort
+PASS after abort: no further v2 traffic
+FAULT PASS
+PASS expand: old app still reads email during dual-write window
+PASS contract: new column backfilled, old version rollback remains readable
+EXPAND PASS
+PASS 1h window burn=20 > 14.4 (page)
+PASS 6h window burn=20 > 6 (ticket)
+PASS SLI=0.98000 below 99.9%
+SLO PASS
+RELEASE PASS

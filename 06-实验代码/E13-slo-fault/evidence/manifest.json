@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E13",
-  "generated_at": "2026-11-07T12:26:42.430Z",
-  "commit": "41b48490327600bb66a280f260df7245e5e76467",
+  "generated_at": "2026-11-09T02:52:22.537Z",
+  "commit": "0fbbf06f5ea4fa800b4b470702f9b8fbe677954b",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -14,13 +14,27 @@
     {
       "cmd": "bash scripts/run_evidence.sh",
       "exit": 0
+    },
+    {
+      "cmd": "npm test",
+      "exit": 0
     }
   ],
   "artifacts": [
     {
-      "path": "evidence/run.txt",
-      "bytes": 258,
-      "sha256": "8f61c6e2ad54ed7368c2eb2ab56d8efc2b749dada326ac86217832ceffb9cd09"
+      "path": "evidence/release.txt",
+      "bytes": 585,
+      "sha256": "9bbdfece32934141271d47c1408f97fb8cc5899a34ae54737f99894c56032911"
+    },
+    {
+      "path": "evidence/test.txt",
+      "bytes": 461,
+      "sha256": "f8f3a6364fc381ac3939db9cf90a7d9edab211055bdd4abbcd858bbac5f39add"
+    },
+    {
+      "path": "evidence/run-summary.txt",
+      "bytes": 187,
+      "sha256": "b45f74169a3bc9e5122ffe823353d65d6f2fac63257b904f8775840f72cd1fa1"
     },
     {
       "path": "evidence/slo.json",
@@ -31,14 +45,7 @@
       "path": "evidence/recovery.txt",
       "bytes": 114,
       "sha256": "fd2c541d89ecd8b940f71a19df1c9d1999d4361870a2f7bd87b3b537f105a887"
-    },
-    {
-      "path": "evidence/state.json",
-      "bytes": 9,
-      "sha256": "c07fe5bc73b4859df96b72b9625d6dbf4564ea8e2255040a5977bf990acf644b"
     }
   ],
-  "unverified": [
-    "合成窗口；无告警/回滚/备份/RPO/RTO/多实例"
-  ]
+  "unverified": []
 }

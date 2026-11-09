@@ -1,97 +1,90 @@
-# E13：SLI/SLO、故障与恢复（本地子集）
+# E13：蓝绿、金丝雀、故障中止与 SLO 燃烧率
 
 > 对应 [[../../01-阶段课程/专项-核心原理与深度实验|专项：核心原理与深度实验]] 的 E13。
-> 本实验只做**本地合成窗口**的 SLI/SLO、错误预算、慢响应超时、进程宕机与重启恢复；不覆盖真实告警、回滚、RPO/RTO、多实例。
-> 环境：Windows 10.0.28000 + Node v24.15.0
+> 本实验用**两个真实 HTTP 版本进程 + 加权网关 + PostgreSQL**演练蓝绿、金丝雀、5xx 自动中止、expand/contract 回滚与多窗口燃烧率；不是 Compose/kind 容器编排。
+> 环境：Windows 10.0.28000 + Node v24.15.0 + PostgreSQL 18.6
 
 ## 1. 做了什么、没做什么
 
 做了什么：
 
-- 定义一个 100 请求窗口的 SLI（200 成功 / 有效总请求），目标 99%，计算允许坏事件与消耗。
-- 注入 5 个 500，得到 SLI=0.95，错误预算被超出。
-- 慢响应：客户端 50ms 超时、服务端 200ms 后完成；超时后服务仍健康。
-- 进程宕机：停止服务后请求失败；重启后 `health=200`，从状态文件恢复 `ok=95`。
-- 输出 `slo.json`、`recovery.txt`、`run.txt`，9 条断言。
+- v1/v2 两个独立 HTTP 服务，网关按权重把 `/version` 分发；`/weight?p=N` 调整比例。
+- 蓝绿：先验证 green 制品版本与健康，再切 100%，再回滚到 v1。
+- 金丝雀：10% 权重跑 60 请求，实测 v2 比例 16.7%。
+- 5xx 注入：v2 返回 500，错误率超 5% 立即把权重置 0，之后不再有 v2 流量。
+- expand/contract：PG 加 `email_norm` → 回填 → 切读 → 旧版本回滚仍能读旧列。
+- SLO：1h/6h 双窗口燃烧率（99.9% 目标，1h > 14.4 触发 page，6h > 6 触发 ticket）。
+- `tests/release.test.js` 5 条，全部真实进程/HTTP/PG。
 
 没做什么：
 
-- 没有真实监控/告警/错误预算燃烧率；窗口是合成的一次性 100 请求。
-- 没有代码回滚/灰度；只有重启。
-- 没有备份/RPO/RTO/数据核对；状态文件是单文件，不是生产数据库。
-- 没有多实例/负载均衡/脑裂。
-- 没有真实故障演练（只停了本地进程）。
+- 没有 Compose/kind/Ingress 控制器；蓝绿与权重是多进程 + 自写网关。
+- 没有真实监控系统、告警路由与值班；燃烧率由脚本计算。
+- 延迟故障只实现服务端 `slow` 分支，没有在发布流程中自动中止延迟劣化。
+- 没有备份/RPO/RTO、多实例、跨机网络分区。
+- 回滚只覆盖旧版本进程与 schema 兼容，不是制品仓库/镜像回滚。
+- 不能据此宣称 G4/G7 通过。
 
 ## 2. 可证伪假设
 
 | # | 假设 | 判定方式 | 实际结果 |
 | --- | --- | --- | --- |
-| H1 | 95 成功 + 5 失败 → SLI=0.95，99% 目标的错误预算被超出 | 100 请求计数 | **成立**：`SLI=0.95`、`exceeded=true` |
-| H2 | 客户端超时不等于服务端未执行；服务仍健康 | 50ms 超时请求 `/slow?ms=200`，再 health | **成立**：TimeoutError，随后 health 200 |
-| H3 | 进程停止后请求失败 | kill 后 fetch | **成立**：请求异常 |
-| H4 | 重启后从状态文件恢复计数 | 读 `/state` | **成立**：`ok=95` |
+| H1 | green 未验证前不接流量，验证后 100% 切换 | 制品版本 + 权重 | **成立**：v2 先验证，再 100% v2 |
+| H2 | 10% 权重下 v2 比例落在合理区间 | 60 请求计数 | **成立**：16.7% |
+| H3 | 5xx 错误率 >5% 自动停止放量 | 逐请求错误率 | **成立**：100% 错误 → 权重 0 |
+| H4 | expand/contract 期间旧版本仍可读 | PG 旧列查询 | **成立**：回滚后读 email 正常 |
+| H5 | 1h/6h 燃烧率可触发 page/ticket | 错误率换算 | **成立**：burn=20/20 |
+| H6 | 任一门禁失败脚本非零 | 断言 | 由 `RELEASE PASS/FAIL` 保证 |
 
-## 3. 环境与工作负载
-
-```text
-OS     : Windows 10.0.28000 x64
-Node   : v24.15.0
-窗口   : 100 请求（合成，一次运行）
-路径   : /ok ×95、/fail ×5、/slow?ms=200、/health、/state
-状态   : evidence/state.json（每次 /ok 原子写）
-```
-
-## 4. 执行命令
+## 3. 执行命令
 
 ```bash
 cd 06-实验代码/E13-slo-fault
-bash scripts/run_evidence.sh
-cat evidence/run.txt
+npm ci
+PGPASSWORD=<local-test-password> npm test
+PGPASSWORD=<local-test-password> bash scripts/run_evidence.sh
+echo $?
 ```
 
-## 5. 结果
+单阶段：`node src/release_evidence.mjs bluegreen|canary|fault|expand|slo`。
 
-| 验收项 | 实际 | 证据 |
+## 4. 结果
+
+| 阶段 | 实际 | 证据 |
 | --- | --- | --- |
-| 95 个 200 / 5 个 500 | 符合 | `evidence/run.txt` |
-| SLI=0.95，允许坏事件 1，消耗 5 | 超出预算 | `evidence/slo.json` |
-| 慢响应超时 | `TimeoutError`，服务仍健康 | `evidence/recovery.txt` |
-| 进程宕机 | 请求失败 | `evidence/recovery.txt` |
-| 重启恢复 | health 200，`ok=95` | `evidence/recovery.txt` |
-| 门禁 | `checks=9 fails=0 : PASS` | `evidence/run.txt` |
+| 蓝绿 | green=v2 验证后 100% v2，再回滚 v1 | `evidence/release.txt` |
+| 金丝雀 | 10% 权重，60 请求中 v2 占 16.7% | 同上 |
+| 5xx 故障 | 错误率 100% → 自动权重 0，后续全 v1 | 同上 |
+| expand/contract | 旧版本回滚仍读 email；email_norm 已回填 | 同上 |
+| SLO | 1h burn=20 > 14.4；6h burn=20 > 6；SLI=0.98 | 同上 |
+| 测试 | 5 pass 0 fail | `evidence/test.txt` |
 
-## 6. Runbook（本实验版）
+## 5. 边界
 
-1. **发现**：5xx 比例/错误预算消耗超过阈值，或 health 连续失败。
-2. **判断范围**：单请求失败、依赖慢、进程退出、还是数据损坏；先看 health/state/日志，不直接重启。
-3. **止血**：停止继续写入/降级非核心功能；必要时回滚到上一版本（本实验未实现）。
-4. **恢复**：重启进程；从持久状态/备份核对关键计数与约束；确认没有半写/重复。
-5. **验证**：health 200、核心路径成功、状态计数与预期一致、错误预算停止消耗。
-6. **复盘**：记录时间线、根因、影响、检测缺口、改进项；不把“重启后没报错”当根因。
+1. 多进程 + 自写网关，不是容器编排或服务网格。
+2. 没有真实监控/告警；燃烧率是合成窗口计算。
+3. 5xx 是应用层注入；没有验证连接级失败、超时重试与重试风暴。
+4. 回滚只演练进程与 schema 兼容；没有镜像签名、制品仓库与数据库 PITR。
+5. 单机、合成数据；不能外推为生产发布能力。
 
-## 7. 边界
-
-1. 合成窗口/单次运行，不是生产 SLO；没有燃烧率/多窗口。
-2. 没有真实监控告警、无值班/升级流程。
-3. 没有代码回滚、数据库备份/RPO/RTO；状态文件不是事务数据库。
-4. 没有多实例/负载均衡/网络分区。
-5. 慢响应只测客户端超时，未验证服务端幂等/重复写。
-
-## 8. M / E / G 映射
+## 6. M / E / G 映射
 
 | 项 | 映射 | 说明 |
 | --- | --- | --- |
-| M12 发布与可靠性 | 部分 | SLI/SLO/错误预算、两类故障、重启恢复 |
-| E13 | **本实验（本地子集）** | 无告警/回滚/备份/多实例 |
-| G5/G6 | 不覆盖 | 无真实故障演练、RTO/RPO、兼容发布 |
+| M12 发布与可靠性 | 部分 | 蓝绿、金丝雀、自动中止、expand/contract、SLO |
+| E13 | **本实验** | 无容器编排/真实告警 |
+| G4/G7 | 仅子项 | 不代表关口通过 |
 
-## 9. 目录结构
+## 7. 目录结构
 
 ```text
 E13-slo-fault/
-├── src/server.mjs          health/state/ok/fail/slow
-├── scripts/check.mjs       SLO 窗口 + 超时 + 宕机 + 重启恢复
+├── src/release_evidence.mjs  蓝绿/金丝雀/故障/expand/SLO
+├── src/server.mjs            既有 SLI/故障子集（保留）
+├── scripts/check.mjs         既有 SLO 检查
 ├── scripts/run_evidence.sh
-├── evidence/               slo.json / recovery.txt / run.txt / state.json
-└── README.md
+├── tests/release.test.js     5 条
+├── scenarios/                01 蓝绿、02 金丝雀中止、03 expand 回滚
+├── evidence/                 release/test/run + 既有 slo/recovery
+└── package.json / package-lock.json
 ```

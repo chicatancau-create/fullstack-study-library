@@ -1,0 +1,13 @@
+✔ 蓝绿：green 先验证制品，再切 100%，可回滚 blue (317.7347ms)
+✔ 金丝雀：10% 权重下 v2 比例在 2%-30% (389.8771ms)
+✔ 5xx 故障注入：错误率超 5% 自动停止放量 (309.6007ms)
+✔ expand/contract：旧版本回滚仍可读，新列已回填 (343.8945ms)
+✔ 多窗口燃烧率：1h > 14.4、6h > 6 (203.668ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1689.9069
