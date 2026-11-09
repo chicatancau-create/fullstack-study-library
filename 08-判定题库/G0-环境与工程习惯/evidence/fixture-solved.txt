@@ -1,0 +1,8 @@
+ok R1 工作树干净
+ok R2 冲突已解且双方内容保留
+ok R3 合成秘密未入库
+ok R4 HEAD 是合并提交 parents=2
+ok R5 rollingSum([0,1,2,3])
+ok R5 rollingSum([]) 返回空数组
+ok R6 自带回归测试通过
+checks=8 fails=0

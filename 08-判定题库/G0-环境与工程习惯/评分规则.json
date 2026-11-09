@@ -1,0 +1,72 @@
+{
+  "pack": "G0-环境与工程习惯",
+  "version": 1,
+  "generated_from": "自测脚本/grade.mjs + 自测脚本/grade-repo.mjs",
+  "thresholds": {
+    "must_pass_all": true,
+    "machine_checks": 10
+  },
+  "dimensions": [
+    {
+      "id": "D1",
+      "name": "冲突合并正确性",
+      "weight": 30,
+      "signals": [
+        { "source": "grade-repo.mjs", "check": "R2 冲突已解且双方内容保留", "points": 20 },
+        { "source": "grade.mjs", "check": "合并双方独有行", "points": 10 }
+      ],
+      "full_marks_when": "无冲突标记，base 与 feature 双方独有行都保留，且不重复"
+    },
+    {
+      "id": "D2",
+      "name": "真实 Git 操作",
+      "weight": 20,
+      "signals": [
+        { "source": "grade-repo.mjs", "check": "R4 HEAD 是合并提交（两个父提交）", "points": 12 },
+        { "source": "grade-repo.mjs", "check": "R1 工作树干净", "points": 8 }
+      ],
+      "full_marks_when": "用 merge 产生真合并提交，结束后工作树干净（含无未跟踪垃圾）"
+    },
+    {
+      "id": "D3",
+      "name": "秘密与仓库卫生",
+      "weight": 20,
+      "signals": [
+        { "source": "grade-repo.mjs", "check": "R3 合成秘密未入库", "points": 14 },
+        { "source": "scripts/evidence.sh", "check": "clean_clone_no_secret=YES", "points": 6 }
+      ],
+      "full_marks_when": "被忽略的 config/local.env 既不在索引里，干净 clone 里也不存在"
+    },
+    {
+      "id": "D4",
+      "name": "缺陷修复与回归",
+      "weight": 20,
+      "signals": [
+        { "source": "grade-repo.mjs", "check": "R5 rollingSum([0,1,2,3])", "points": 12 },
+        { "source": "grade-repo.mjs", "check": "R6 自带回归测试通过", "points": 8 }
+      ],
+      "full_marks_when": "off-by-one 被修，仓库自带测试通过且未改测试断言"
+    },
+    {
+      "id": "D5",
+      "name": "改动范围与自述",
+      "weight": 10,
+      "signals": [
+        { "source": "人工", "check": "diff 只包含冲突文件 + 缺陷文件 + 合并提交", "points": 6 },
+        { "source": "人工", "check": "学习日志写清了最小复现命令与失败/修复输出", "points": 4 }
+      ],
+      "full_marks_when": "没有顺手改无关文件；日志能让人照着复跑"
+    }
+  ],
+  "grade_bands": [
+    { "min": 90, "label": "可接手遗留仓库" },
+    { "min": 75, "label": "能独立完成，边界还需补" },
+    { "min": 60, "label": "主路径能过，失败处理薄弱" },
+    { "min": 0, "label": "未通过：机器断言有 fail" }
+  ],
+  "notes": [
+    "机器断言任一 fail 即本关未通过，不看人工分。",
+    "人工分只用于定位薄弱点，不覆盖机器结论。",
+    "本 JSON 与 评分指南.md、自评指南.md 同源；改判据时三处一起改。"
+  ]
+}

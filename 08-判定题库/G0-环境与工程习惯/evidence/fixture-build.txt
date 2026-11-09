@@ -1,0 +1,7 @@
+{
+  "bare": "C:\\Users\\Admin\\AppData\\Local\\Temp\\g0-fixture-evidence\\legacy.bare.git",
+  "bundle": "C:\\Users\\Admin\\AppData\\Local\\Temp\\g0-fixture-evidence\\legacy.bundle",
+  "base": "63bf1ce8341ca257c292a60a44bbf731dd3a4f04",
+  "feature": "918aa43cf7287000f1fdfc8b67623854035b7163",
+  "baseTip": "99a60a297b77144ef6c9d003ab345fd302fc286c"
+}
