@@ -1,0 +1,62 @@
+{
+  "id": "Q057",
+  "title": "82. 删除排序链表中的重复元素 II",
+  "question_url": "https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/",
+  "core_idea": "哑节点 + 按连续相同值分段：一段长度大于 1 整段丢弃，否则接到结果尾部；只保留出现一次的值。",
+  "invariant": "tail 之后是新链表；扫描下标始终指向尚未处理段的起点。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(arr) {\n  const d = { next: null };\n  let tail = d, i = 0;\n  while (i < arr.length) {\n    let j = i;\n    while (j < arr.length && arr[j] === arr[i]) j++;\n    if (j - i === 1) { tail.next = { val: arr[i], next: null }; tail = tail.next; }\n    i = j;\n  }\n  const out = [];\n  for (let p = d.next; p; p = p.next) out.push(p.val);\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "[1,2,3,3,4,4,5]",
+      "expected": [
+        1,
+        2,
+        5
+      ],
+      "why": "3 与 4 成对删除"
+    },
+    {
+      "call": "[1,1,1,2,3]",
+      "expected": [
+        2,
+        3
+      ],
+      "why": "连续三个重复全删"
+    },
+    {
+      "call": "[1]",
+      "expected": [
+        1
+      ],
+      "why": "单节点保留"
+    }
+  ],
+  "common_mistakes": [
+    "只删相邻重复中的一个（那是 83 题）",
+    "删完重复后忘记接回 tail",
+    "用哈希计数破坏 O(1) 空间"
+  ],
+  "followups": [
+    "83 题只去重一个元素，代码差在哪？",
+    "无序链表怎么做？"
+  ],
+  "rubric": [
+    {
+      "point": "按相同值分段统计长度",
+      "weight": 2
+    },
+    {
+      "point": "长度大于 1 整段丢弃",
+      "weight": 1
+    },
+    {
+      "point": "哑节点 + tail 接链不丢头",
+      "weight": 1
+    }
+  ]
+}

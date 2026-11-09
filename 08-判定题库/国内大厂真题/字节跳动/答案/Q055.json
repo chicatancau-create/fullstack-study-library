@@ -1,0 +1,53 @@
+{
+  "id": "Q055",
+  "title": "209. 长度最小的子数组",
+  "question_url": "https://leetcode.cn/problems/minimum-size-subarray-sum/",
+  "core_idea": "正整数数组上的滑动窗口：右指针累加，窗口和 ≥target 时不断收缩左指针并更新最小长度。",
+  "invariant": "窗口 [l,r] 内元素和由 sum 精确维护；收缩过程中只会移除正数，因此 sum 单调不增。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(nums, target) {\n  let l = 0, sum = 0, best = Infinity;\n  for (let r = 0; r < nums.length; r++) {\n    sum += nums[r];\n    while (sum >= target) {\n      best = Math.min(best, r - l + 1);\n      sum -= nums[l];\n      l++;\n    }\n  }\n  return best === Infinity ? 0 : best;\n}",
+  "edge_cases": [
+    {
+      "call": "[2,3,1,2,4,3], 7",
+      "expected": 2,
+      "why": "最短为 4+3"
+    },
+    {
+      "call": "[1,4,4], 4",
+      "expected": 1,
+      "why": "单个元素达标"
+    },
+    {
+      "call": "[1,1,1,1], 11",
+      "expected": 0,
+      "why": "总和不足"
+    }
+  ],
+  "common_mistakes": [
+    "对含负数数组使用滑动窗口",
+    "先移左指针再判断窗口和",
+    "无解返回 -1 而不是 0"
+  ],
+  "followups": [
+    "元素含负数时该怎么做？",
+    "为什么窗口右移总复杂度仍是 O(n)？"
+  ],
+  "rubric": [
+    {
+      "point": "窗口和随右指针增加、随左指针减少",
+      "weight": 1
+    },
+    {
+      "point": "满足条件时循环收缩并记录最短",
+      "weight": 2
+    },
+    {
+      "point": "无解返回 0",
+      "weight": 1
+    }
+  ]
+}

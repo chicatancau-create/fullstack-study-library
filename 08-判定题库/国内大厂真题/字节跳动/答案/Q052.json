@@ -1,0 +1,53 @@
+{
+  "id": "Q052",
+  "title": "76. 最小覆盖子串",
+  "question_url": "https://leetcode.cn/problems/minimum-window-substring/",
+  "core_idea": "滑动窗口：右指针扩张直到覆盖 t 的全部字符计数，再收缩左指针并记录最短窗口，直到不再覆盖。",
+  "invariant": "formed 等于 need 中已满足计数的字符种类数；formed===required 时窗口合法。",
+  "complexity": {
+    "time": "O(m+n)",
+    "space": "O(k)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(s, t) {\n  if (!t.length) return '';\n  const need = new Map();\n  for (const c of t) need.set(c, (need.get(c) || 0) + 1);\n  const required = need.size;\n  let formed = 0, l = 0;\n  const window = new Map();\n  let best = [Infinity, 0, 0];\n  for (let r = 0; r < s.length; r++) {\n    const c = s[r];\n    window.set(c, (window.get(c) || 0) + 1);\n    if (need.has(c) && window.get(c) === need.get(c)) formed++;\n    while (formed === required) {\n      if (r - l + 1 < best[0]) best = [r - l + 1, l, r];\n      const d = s[l];\n      window.set(d, window.get(d) - 1);\n      if (need.has(d) && window.get(d) < need.get(d)) formed--;\n      l++;\n    }\n  }\n  return best[0] === Infinity ? '' : s.slice(best[1], best[2] + 1);\n}",
+  "edge_cases": [
+    {
+      "call": "\"ADOBECODEBANC\", \"ABC\"",
+      "expected": "BANC",
+      "why": "标准示例"
+    },
+    {
+      "call": "\"a\", \"a\"",
+      "expected": "a",
+      "why": "单字符覆盖"
+    },
+    {
+      "call": "\"a\", \"aa\"",
+      "expected": "",
+      "why": "字符数量不足"
+    }
+  ],
+  "common_mistakes": [
+    "用字符种类是否出现判断覆盖，忽略重复次数",
+    "收缩时先移动左指针再更新计数",
+    "相等时继续收缩导致丢失更短窗口"
+  ],
+  "followups": [
+    "若要求返回所有最短覆盖子串？",
+    "字符集很大时 Map 与数组计数如何取舍？"
+  ],
+  "rubric": [
+    {
+      "point": "按字符计数而非仅出现判断",
+      "weight": 2
+    },
+    {
+      "point": "formed 在计数恰好满足时递增、低于需求时递减",
+      "weight": 1
+    },
+    {
+      "point": "无解返回空串",
+      "weight": 1
+    }
+  ]
+}

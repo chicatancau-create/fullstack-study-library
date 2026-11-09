@@ -5,13 +5,14 @@ import { ANSWERS } from './answers-data.mjs';
 import { ANSWERS2 } from './answers-data-2.mjs';
 import { ANSWERS3 } from './answers-data-3.mjs';
 import { ANSWERS4 } from './answers-data-4.mjs';
+import { ANSWERS5 } from './answers-data-5.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const BANK = path.resolve(here, '..');
 const ANSWERS_DIR = path.join(BANK, '字节跳动', '答案');
 fs.mkdirSync(ANSWERS_DIR, { recursive: true });
 
-const all = [...ANSWERS, ...ANSWERS2, ...ANSWERS3, ...ANSWERS4];
+const all = [...ANSWERS, ...ANSWERS2, ...ANSWERS3, ...ANSWERS4, ...ANSWERS5];
 for (const a of all) {
   fs.writeFileSync(path.join(ANSWERS_DIR, `${a.id}.json`), JSON.stringify(a, null, 2) + '\n');
 }

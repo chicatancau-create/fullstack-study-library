@@ -1,0 +1,53 @@
+{
+  "id": "Q051",
+  "title": "662. 二叉树最大宽度",
+  "question_url": "https://leetcode.cn/problems/maximum-width-of-binary-tree/",
+  "core_idea": "层序遍历时为每个节点维护完全二叉树下标：左孩子 2i、右孩子 2i+1；每层宽度 = 末节点下标 - 首节点下标 + 1。",
+  "invariant": "同层节点下标单调递增，空节点占位但不下沉队列，因此宽度包含中间空洞。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(a) {\n  function build(arr) {\n    if (!arr.length || arr[0] === null) return null;\n    const root = { val: arr[0], left: null, right: null };\n    const q = [root];\n    let i = 1;\n    while (i < arr.length && q.length) {\n      const n = q.shift();\n      if (i < arr.length) { if (arr[i] !== null) { n.left = { val: arr[i], left: null, right: null }; q.push(n.left); } i++; }\n      if (i < arr.length) { if (arr[i] !== null) { n.right = { val: arr[i], left: null, right: null }; q.push(n.right); } i++; }\n    }\n    return root;\n  }\n  const root = build(a);\n  if (!root) return 0;\n  let q = [[root, 0]], best = 0;\n  while (q.length) {\n    const len = q.length;\n    const first = q[0][1], last = q[len - 1][1];\n    best = Math.max(best, last - first + 1);\n    const next = [];\n    for (const [n, idx] of q) {\n      if (n.left) next.push([n.left, 2 * idx]);\n      if (n.right) next.push([n.right, 2 * idx + 1]);\n    }\n    q = next;\n  }\n  return best;\n}",
+  "edge_cases": [
+    {
+      "call": "[1,3,2,5,3,null,9]",
+      "expected": 4,
+      "why": "第三层下标跨空洞"
+    },
+    {
+      "call": "[1,3,2,5]",
+      "expected": 2,
+      "why": "只有左侧更深时宽度为 2"
+    },
+    {
+      "call": "[1]",
+      "expected": 1,
+      "why": "单节点"
+    }
+  ],
+  "common_mistakes": [
+    "用每层节点个数当宽度，忽略空洞",
+    "下标从 1 开始但孩子算成 2i+1/2i+2",
+    "把 null 孩子也压入队列导致无限展开"
+  ],
+  "followups": [
+    "下标在极端链状树下会溢出 32 位，如何处理？",
+    "如何同时返回最宽层号？"
+  ],
+  "rubric": [
+    {
+      "point": "孩子下标为 2i 与 2i+1",
+      "weight": 2
+    },
+    {
+      "point": "宽度用末下标减首下标而不是节点数",
+      "weight": 1
+    },
+    {
+      "point": "空孩子不下沉队列",
+      "weight": 1
+    }
+  ]
+}

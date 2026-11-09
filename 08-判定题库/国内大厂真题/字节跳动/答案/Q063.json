@@ -1,0 +1,53 @@
+{
+  "id": "Q063",
+  "title": "122. 买卖股票的最佳时机 II",
+  "question_url": "https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/",
+  "core_idea": "贪心：只要次日价格高于当日就当日买次日卖，累加所有正收益，等价于抓住每一段上升区间。",
+  "invariant": "任意多段上涨的总收益等于逐日正收益之和，交易次数不限因此贪心最优。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(prices) {\n  let profit = 0;\n  for (let i = 1; i < prices.length; i++) {\n    if (prices[i] > prices[i - 1]) profit += prices[i] - prices[i - 1];\n  }\n  return profit;\n}",
+  "edge_cases": [
+    {
+      "call": "[7,1,5,3,6,4]",
+      "expected": 7,
+      "why": "1→5 与 3→6 两段"
+    },
+    {
+      "call": "[1,2,3,4,5]",
+      "expected": 4,
+      "why": "连续上涨等价于一次持有"
+    },
+    {
+      "call": "[7,6,4,3,1]",
+      "expected": 0,
+      "why": "单边下跌不交易"
+    }
+  ],
+  "common_mistakes": [
+    "沿用 121 题的“只能交易一次”模型",
+    "在下跌日卖出造成亏损",
+    "用 DP 但状态转移写错"
+  ],
+  "followups": [
+    "含手续费（714）如何改 DP？",
+    "限制最多 k 次交易（188）怎么建模？"
+  ],
+  "rubric": [
+    {
+      "point": "累加所有相邻正差价",
+      "weight": 2
+    },
+    {
+      "point": "单边下跌返回 0",
+      "weight": 1
+    },
+    {
+      "point": "理解贪心与不限次数交易的等价性",
+      "weight": 1
+    }
+  ]
+}

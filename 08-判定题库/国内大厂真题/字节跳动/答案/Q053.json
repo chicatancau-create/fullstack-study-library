@@ -1,0 +1,60 @@
+{
+  "id": "Q053",
+  "title": "232. 用栈实现队列",
+  "question_url": "https://leetcode.cn/problems/implement-queue-using-stacks/",
+  "core_idea": "两个栈：输入栈只接收 push，输出栈只在为空时把输入栈整体倒入；pop/peek 都走输出栈。",
+  "invariant": "输出栈非空时，其栈顶就是队首；倒入只在输出栈为空时发生，保证顺序不倒错。",
+  "complexity": {
+    "time": "摊还 O(1)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(ops, args) {\n  const inS = [], outS = [];\n  const move = () => { if (!outS.length) while (inS.length) outS.push(inS.pop()); };\n  const out = [];\n  for (let i = 0; i < ops.length; i++) {\n    const a = args[i] || [];\n    if (ops[i] === 'MyQueue') out.push(null);\n    else if (ops[i] === 'push') { inS.push(a[0]); out.push(null); }\n    else if (ops[i] === 'pop') { move(); out.push(outS.pop()); }\n    else if (ops[i] === 'peek') { move(); out.push(outS[outS.length - 1]); }\n    else if (ops[i] === 'empty') out.push(inS.length === 0 && outS.length === 0);\n  }\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "[\"MyQueue\",\"push\",\"push\",\"peek\",\"pop\",\"empty\"], [[],[1],[2],[],[],[]]",
+      "expected": [
+        null,
+        null,
+        null,
+        1,
+        1,
+        false
+      ],
+      "why": "先进先出"
+    },
+    {
+      "call": "[\"MyQueue\",\"push\",\"pop\",\"empty\"], [[],[1],[],[]]",
+      "expected": [
+        null,
+        null,
+        1,
+        true
+      ],
+      "why": "单元素弹出后为空"
+    }
+  ],
+  "common_mistakes": [
+    "每次 pop 都把输入栈倒一遍，导致顺序反转",
+    "peek 也直接弹栈",
+    "empty 只看一个栈"
+  ],
+  "followups": [
+    "为什么摊还复杂度是 O(1)？",
+    "如何用两个队列模拟栈？"
+  ],
+  "rubric": [
+    {
+      "point": "倾倒只在输出栈为空时进行",
+      "weight": 2
+    },
+    {
+      "point": "pop 与 peek 都从输出栈顶取",
+      "weight": 1
+    },
+    {
+      "point": "empty 同时检查两个栈",
+      "weight": 1
+    }
+  ]
+}

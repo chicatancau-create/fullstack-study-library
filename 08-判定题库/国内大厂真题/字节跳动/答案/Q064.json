@@ -1,0 +1,53 @@
+{
+  "id": "Q064",
+  "title": "695. 岛屿的最大面积",
+  "question_url": "https://leetcode.cn/problems/max-area-of-island/",
+  "core_idea": "DFS 洪水填充：遍历每个未访问的 1，向四邻扩散并计数，取所有连通块面积最大值；访问后置 0 或标记。",
+  "invariant": "每次 dfs 只访问同一连通块，返回该块面积；已访问格不会再次贡献计数。",
+  "complexity": {
+    "time": "O(mn)",
+    "space": "O(mn)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(grid) {\n  const m = grid.length;\n  if (!m) return 0;\n  const n = grid[0].length;\n  let best = 0;\n  function dfs(i, j) {\n    if (i < 0 || j < 0 || i >= m || j >= n || grid[i][j] !== 1) return 0;\n    grid[i][j] = 0;\n    return 1 + dfs(i + 1, j) + dfs(i - 1, j) + dfs(i, j + 1) + dfs(i, j - 1);\n  }\n  for (let i = 0; i < m; i++) {\n    for (let j = 0; j < n; j++) {\n      if (grid[i][j] === 1) best = Math.max(best, dfs(i, j));\n    }\n  }\n  return best;\n}",
+  "edge_cases": [
+    {
+      "call": "[[1,1,0],[1,0,0],[0,0,1]]",
+      "expected": 3,
+      "why": "一个 3 格岛加一个 1 格岛"
+    },
+    {
+      "call": "[[0,0],[0,0]]",
+      "expected": 0,
+      "why": "无岛屿"
+    },
+    {
+      "call": "[[1]]",
+      "expected": 1,
+      "why": "单格岛屿"
+    }
+  ],
+  "common_mistakes": [
+    "访问后不标记导致重复计数与爆栈",
+    "只向两个方向扩散",
+    "在越界检查前访问数组"
+  ],
+  "followups": [
+    "如何避免递归爆栈（迭代栈/BFS）？",
+    "求岛屿数量（200）与本题的差别？"
+  ],
+  "rubric": [
+    {
+      "point": "四邻扩散且访问即标记",
+      "weight": 2
+    },
+    {
+      "point": "越界与水域返回 0",
+      "weight": 1
+    },
+    {
+      "point": "取所有连通块最大值，无岛屿返回 0",
+      "weight": 1
+    }
+  ]
+}

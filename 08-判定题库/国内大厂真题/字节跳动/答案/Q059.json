@@ -1,0 +1,53 @@
+{
+  "id": "Q059",
+  "title": "142. 环形链表 II",
+  "question_url": "https://leetcode.cn/problems/linked-list-cycle-ii/",
+  "core_idea": "Floyd 判圈：快慢指针相遇后，一个指针回到头，两指针同速前进，再次相遇处即入环点。",
+  "invariant": "设头到环入口为 a、入口到相遇点为 b、环长 c，则相遇时 2(a+b)=a+b+kc，故 a=(k-1)c+(c-b)。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(arr, pos) {\n  if (!arr.length) return -1;\n  const nodes = arr.map((v) => ({ val: v, next: null }));\n  for (let i = 0; i < nodes.length - 1; i++) nodes[i].next = nodes[i + 1];\n  if (pos >= 0) nodes[nodes.length - 1].next = nodes[pos];\n  let slow = nodes[0], fast = nodes[0];\n  while (fast && fast.next) {\n    slow = slow.next;\n    fast = fast.next.next;\n    if (slow === fast) {\n      let p = nodes[0];\n      while (p !== slow) { p = p.next; slow = slow.next; }\n      return nodes.indexOf(p);\n    }\n  }\n  return -1;\n}",
+  "edge_cases": [
+    {
+      "call": "[3,2,0,-4], 1",
+      "expected": 1,
+      "why": "环入口在第二个节点"
+    },
+    {
+      "call": "[1,2], 0",
+      "expected": 0,
+      "why": "入口是头节点"
+    },
+    {
+      "call": "[1], -1",
+      "expected": -1,
+      "why": "无环"
+    }
+  ],
+  "common_mistakes": [
+    "相遇后直接返回相遇点而不是入环点",
+    "快指针步进前不检查 fast.next",
+    "用哈希集合冒充 O(1) 空间"
+  ],
+  "followups": [
+    "如何求环长？",
+    "为什么第二次相遇一定在入口？"
+  ],
+  "rubric": [
+    {
+      "point": "快慢指针先判是否有环",
+      "weight": 1
+    },
+    {
+      "point": "相遇后一指针回头同速再相遇",
+      "weight": 2
+    },
+    {
+      "point": "无环返回 -1 且不越界",
+      "weight": 1
+    }
+  ]
+}

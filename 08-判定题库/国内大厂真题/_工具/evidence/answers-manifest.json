@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "BYTE_ANSWERS",
-  "generated_at": "2026-11-09T08:15:02.463Z",
-  "commit": "8113d482bc6bb14180dbcac0d54ce2cb1e3bc513",
+  "generated_at": "2026-11-09T08:18:13.694Z",
+  "commit": "a851fdc118b9966712b914611a4e43408589888c",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -23,13 +23,13 @@
   "artifacts": [
     {
       "path": "evidence/answers-index.json",
-      "bytes": 676,
-      "sha256": "770d7f0f3bf22d3cc509d628f05f8c6ec941b05c5e380762f0c3f34994ec9dde"
+      "bytes": 868,
+      "sha256": "480fdea615c5b40bdabe4dd2afe93bc29a1734dac027023f4253ff02f15d91bf"
     },
     {
       "path": "evidence/answers-check.json",
       "bytes": 673,
-      "sha256": "b8374e89b6bdefe71711f3255a8cf342e70a36346c7bb7c2eae9e5befa3ffd56"
+      "sha256": "bacab25c2709257ba7f55cefd1d3aa4101aeaa3c2367068bbdb8dad6df8a19c8"
     },
     {
       "path": "../字节跳动/答案/Q001.json",
@@ -270,6 +270,86 @@
       "path": "../字节跳动/答案/Q048.json",
       "bytes": 2117,
       "sha256": "01965d45f969540983c88141336669da71c7e3bbaf05073a8ebcf75697c38460"
+    },
+    {
+      "path": "../字节跳动/答案/Q049.json",
+      "bytes": 1814,
+      "sha256": "d32237f94061a952813c93f0aa25ee94c578eb352d138feeedab2e8bcb42855b"
+    },
+    {
+      "path": "../字节跳动/答案/Q050.json",
+      "bytes": 2145,
+      "sha256": "2fb05174601eeec4b5ea150cb5a4fc4b38641499a0622b67ea50febe9d53a9b8"
+    },
+    {
+      "path": "../字节跳动/答案/Q051.json",
+      "bytes": 2428,
+      "sha256": "b29dcc2d553b5ff213d97653f5a5dfa8a794dd146a00c38fd07ce6b2a2b2a9d3"
+    },
+    {
+      "path": "../字节跳动/答案/Q052.json",
+      "bytes": 2192,
+      "sha256": "39196ab34d21524003905605f874a566a57ed258b50f0460bc80f3ee11ef4197"
+    },
+    {
+      "path": "../字节跳动/答案/Q053.json",
+      "bytes": 2107,
+      "sha256": "cfb7311c7e2fa74d57ebac9155e6ff54f7c6fbcd5b9ee95adeb05c0f2b72a65d"
+    },
+    {
+      "path": "../字节跳动/答案/Q054.json",
+      "bytes": 1880,
+      "sha256": "ff56c461276fdbe501c6f08d6c16003ba80cf60b1b8d89ae21bce79e3b8f6ddd"
+    },
+    {
+      "path": "../字节跳动/答案/Q055.json",
+      "bytes": 1654,
+      "sha256": "a934d2dce34fd5b85fbd86e03400b5d51858cc80a088b6e69252bee0df7e23d5"
+    },
+    {
+      "path": "../字节跳动/答案/Q056.json",
+      "bytes": 2388,
+      "sha256": "339c8062e9b672bdfaffeff648661ec88a1ade405cf2ce81f4c5e0826d930a64"
+    },
+    {
+      "path": "../字节跳动/答案/Q057.json",
+      "bytes": 1818,
+      "sha256": "6feedefa5a75002c1c866b331a6c5f91d18f2dc62dcaa54d5c3daf5811aa0270"
+    },
+    {
+      "path": "../字节跳动/答案/Q058.json",
+      "bytes": 1934,
+      "sha256": "8e4c0aeb580bb625e8b9d8aa6a48849185b4a0dbfc1fdfd128470bf02e6d4b5c"
+    },
+    {
+      "path": "../字节跳动/答案/Q059.json",
+      "bytes": 1884,
+      "sha256": "c4ee3810b33668cdef08beaeb0169b33527b1e1ea98229d73554a392004d6b71"
+    },
+    {
+      "path": "../字节跳动/答案/Q060.json",
+      "bytes": 1524,
+      "sha256": "a54beb321138bb077d499cb57adb8b76a18eb2da4d6b419ba20e91925e87e3a8"
+    },
+    {
+      "path": "../字节跳动/答案/Q061.json",
+      "bytes": 1858,
+      "sha256": "13fe60c4f91ad112c158966b5924d11ed498f3a803c4468ecacf0912c1ff9a5d"
+    },
+    {
+      "path": "../字节跳动/答案/Q062.json",
+      "bytes": 1830,
+      "sha256": "45e646423fe254935782959d4e9552e4178e96694dd79d037d2ada399811c6a2"
+    },
+    {
+      "path": "../字节跳动/答案/Q063.json",
+      "bytes": 1585,
+      "sha256": "e800210fb334dc4518dede362861d452678903fe29caa9519dbecdedc8bf7b5d"
+    },
+    {
+      "path": "../字节跳动/答案/Q064.json",
+      "bytes": 1862,
+      "sha256": "84fb278128a0dd8a92300439203cbefe744ac0451131622668f9a7b57d28f035"
     }
   ],
   "unverified": []

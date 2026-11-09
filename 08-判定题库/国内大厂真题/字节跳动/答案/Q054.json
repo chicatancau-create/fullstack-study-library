@@ -1,0 +1,60 @@
+{
+  "id": "Q054",
+  "title": "19. 删除链表的倒数第N个节点",
+  "question_url": "https://leetcode.cn/problems/remove-nth-node-from-end-of-list/",
+  "core_idea": "哑节点 + 快慢指针：快指针先走 n 步，再与慢指针同步前进，快指针到尾时慢指针正好在待删节点前驱。",
+  "invariant": "快慢指针间距恒为 n，因此慢指针最终停在倒数第 n+1 个节点。",
+  "complexity": {
+    "time": "O(L)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(arr, n) {\n  const d = { val: 0, next: null };\n  let tail = d;\n  for (const v of arr) { tail.next = { val: v, next: null }; tail = tail.next; }\n  let fast = d, slow = d;\n  for (let i = 0; i < n; i++) fast = fast.next;\n  while (fast.next) { fast = fast.next; slow = slow.next; }\n  slow.next = slow.next.next;\n  const out = [];\n  for (let p = d.next; p; p = p.next) out.push(p.val);\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "[1,2,3,4,5], 2",
+      "expected": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "why": "删除中间节点"
+    },
+    {
+      "call": "[1], 1",
+      "expected": [],
+      "why": "删除唯一节点需要哑节点"
+    },
+    {
+      "call": "[1,2], 1",
+      "expected": [
+        1
+      ],
+      "why": "删除尾节点"
+    }
+  ],
+  "common_mistakes": [
+    "没有哑节点导致删头节点时丢链",
+    "快指针先走 n-1 步导致慢指针停在待删节点",
+    "删除后忘记接回后继"
+  ],
+  "followups": [
+    "如何用一次遍历完成？",
+    "若 n 可能大于链表长度如何防护？"
+  ],
+  "rubric": [
+    {
+      "point": "快指针先走 n 步再同步移动",
+      "weight": 2
+    },
+    {
+      "point": "哑节点统一处理删头",
+      "weight": 1
+    },
+    {
+      "point": "前驱指向后继完成删除",
+      "weight": 1
+    }
+  ]
+}

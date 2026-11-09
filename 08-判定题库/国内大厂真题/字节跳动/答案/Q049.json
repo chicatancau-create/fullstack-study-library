@@ -1,0 +1,53 @@
+{
+  "id": "Q049",
+  "title": "394. 字符串解码",
+  "question_url": "https://leetcode.cn/problems/decode-string/",
+  "core_idea": "双栈：数字栈存重复次数、字符串栈存进入括号前的前缀；遇到 \"]\" 弹栈并按次数重复当前段再拼回前缀。",
+  "invariant": "扫描到任意位置时，cur 是当前层已解码内容，两个栈保存外层待恢复状态。",
+  "complexity": {
+    "time": "O(n·k)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(s) {\n  const numSt = [], strSt = [];\n  let cur = '', num = 0;\n  for (const ch of s) {\n    if (ch >= '0' && ch <= '9') num = num * 10 + (ch.charCodeAt(0) - 48);\n    else if (ch === '[') { numSt.push(num); strSt.push(cur); num = 0; cur = ''; }\n    else if (ch === ']') { const k = numSt.pop(); cur = strSt.pop() + cur.repeat(k); }\n    else cur += ch;\n  }\n  return cur;\n}",
+  "edge_cases": [
+    {
+      "call": "\"3[a]2[bc]\"",
+      "expected": "aaabcbc",
+      "why": "多段拼接"
+    },
+    {
+      "call": "\"3[a2[c]]\"",
+      "expected": "accaccacc",
+      "why": "嵌套解码"
+    },
+    {
+      "call": "\"2[abc]3[cd]ef\"",
+      "expected": "abcabccdcdcdef",
+      "why": "尾部无括号字符保留"
+    }
+  ],
+  "common_mistakes": [
+    "只用一个栈导致前缀丢失",
+    "多位数按单字符解析",
+    "遇到 \"]\" 后忘记把结果拼回外层前缀"
+  ],
+  "followups": [
+    "如何支持乘数含变量或表达式？",
+    "递归写法如何避免深嵌套爆栈？"
+  ],
+  "rubric": [
+    {
+      "point": "数字可跨多位且遇 \"[\" 归零",
+      "weight": 1
+    },
+    {
+      "point": "双栈保存前缀与次数，嵌套正确恢复",
+      "weight": 2
+    },
+    {
+      "point": "括号外字符按序拼接",
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "Q056",
+  "title": "剑指 Offer 26. 树的子结构",
+  "question_url": "https://leetcode.cn/problems/shu-de-zi-jie-gou-lcof/",
+  "core_idea": "双重递归：外层遍历 A 的每个节点作为候选根，内层检查 A 的该子树是否与 B 完全匹配（B 可为 A 的一部分）。",
+  "invariant": "match(a,b) 为真要求 a 存在、值相等且左右子树继续匹配；B 为空即匹配成功。",
+  "complexity": {
+    "time": "O(mn)",
+    "space": "O(h)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(A, B) {\n  function build(arr) {\n    if (!arr.length || arr[0] === null) return null;\n    const root = { val: arr[0], left: null, right: null };\n    const q = [root];\n    let i = 1;\n    while (i < arr.length && q.length) {\n      const n = q.shift();\n      if (i < arr.length) { if (arr[i] !== null) { n.left = { val: arr[i], left: null, right: null }; q.push(n.left); } i++; }\n      if (i < arr.length) { if (arr[i] !== null) { n.right = { val: arr[i], left: null, right: null }; q.push(n.right); } i++; }\n    }\n    return root;\n  }\n  function match(a, b) {\n    if (!b) return true;\n    if (!a) return false;\n    if (a.val !== b.val) return false;\n    return match(a.left, b.left) && match(a.right, b.right);\n  }\n  function dfs(a, b) {\n    if (!a) return false;\n    return match(a, b) || dfs(a.left, b) || dfs(a.right, b);\n  }\n  return dfs(build(A), build(B));\n}",
+  "edge_cases": [
+    {
+      "call": "[3,4,5,1,2], [4,1]",
+      "expected": true,
+      "why": "B 是 A 左子树的头部"
+    },
+    {
+      "call": "[3,4,5,1,2], [4,2]",
+      "expected": false,
+      "why": "B 的 2 应挂在左孩子位置"
+    },
+    {
+      "call": "[1], [1]",
+      "expected": true,
+      "why": "单节点相同"
+    }
+  ],
+  "common_mistakes": [
+    "用“子树完全相同”判断，导致 B 是局部结构时误判",
+    "B 为空时返回 false",
+    "外层遍历与内层匹配混用同一个 null 判断"
+  ],
+  "followups": [
+    "与“判断 B 是否为 A 的子树”区别在哪？",
+    "如何在 O(m+n) 内借助序列化做匹配？"
+  ],
+  "rubric": [
+    {
+      "point": "match 中 B 先判空返回 true",
+      "weight": 2
+    },
+    {
+      "point": "外层对 A 每个节点尝试匹配",
+      "weight": 1
+    },
+    {
+      "point": "结构不匹配立即返回 false",
+      "weight": 1
+    }
+  ]
+}

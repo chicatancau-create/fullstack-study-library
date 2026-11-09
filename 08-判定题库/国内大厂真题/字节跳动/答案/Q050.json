@@ -1,0 +1,78 @@
+{
+  "id": "Q050",
+  "title": "39. 组合总和",
+  "question_url": "https://leetcode.cn/problems/combination-sum/",
+  "core_idea": "回溯：每层从 start 开始选，允许重复选同一元素（下一层仍传 i），剩余目标为 0 时收集，超过时剪枝。",
+  "invariant": "path 中元素非降序，因此同一组合只会以一种顺序出现；start 保证不回头选更小下标。",
+  "complexity": {
+    "time": "O(n^(T/m))",
+    "space": "O(T/m)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(candidates, target) {\n  const out = [];\n  function dfs(start, remain, path) {\n    if (remain === 0) { out.push(path.slice()); return; }\n    for (let i = start; i < candidates.length; i++) {\n      if (candidates[i] > remain) continue;\n      path.push(candidates[i]);\n      dfs(i, remain - candidates[i], path);\n      path.pop();\n    }\n  }\n  dfs(0, target, []);\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "[2,3,6,7], 7",
+      "expected": [
+        [
+          2,
+          2,
+          3
+        ],
+        [
+          7
+        ]
+      ],
+      "why": "标准示例"
+    },
+    {
+      "call": "[2,3,5], 8",
+      "expected": [
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "why": "多次复用同一元素"
+    },
+    {
+      "call": "[2], 1",
+      "expected": [],
+      "why": "最小元素已超过目标"
+    }
+  ],
+  "common_mistakes": [
+    "下一层传 i+1，退化成不可重复选择",
+    "把重复组合用 set 去重而不是用 start 控制顺序",
+    "remain<0 才停止，缺少提前剪枝"
+  ],
+  "followups": [
+    "若候选含重复元素（40 题）如何去重？",
+    "如果每个数只能用一次，改动哪一行？"
+  ],
+  "rubric": [
+    {
+      "point": "下一层仍从 i 开始，允许重复使用",
+      "weight": 2
+    },
+    {
+      "point": "start 保证组合不重复且有序",
+      "weight": 1
+    },
+    {
+      "point": "remain 为 0 才收集，超出剪枝",
+      "weight": 1
+    }
+  ]
+}
