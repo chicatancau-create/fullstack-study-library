@@ -1,0 +1,13 @@
+✔ 朴素反例：publish 后回滚产生幻影消息，Outbox 不产生 (573.7805ms)
+✔ DB 提交后发布前崩溃：relay 恢复 pending 并投递一次 (527.4713ms)
+✔ 外部 HTTP 副作用：消费崩溃重投后只发生一次真实扣费 (598.9051ms)
+✔ 顺序语义：同 key 有序、跨 key 并行、乱序拒收、重投去重 (500.9141ms)
+✔ Outbox 主链路：提交、重复投递、inbox 去重、DLQ、对账 (1841.6018ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4143.5364

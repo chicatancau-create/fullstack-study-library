@@ -1,0 +1,9 @@
+naive publish-then-rollback: message=published order_rows=0
+outbox: rolled-back event invisible, nothing to publish
+PHANTOM PASS
+crash-after-commit: pending_before=1 pending_after=0 delivered=1
+CRASH PASS
+external-http: chargeId=ch_1 redelivered_deduped=true real_charges=1
+SIDEEFFECT PASS
+ordering: same-key=applied/applied/applied cross-key=applied/applied out-of-order=stale then=applied redelivery=duplicate rows=6
+ORDER PASS

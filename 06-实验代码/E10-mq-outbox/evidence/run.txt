@@ -9,4 +9,3 @@
   "second_applied": "duplicate"
 }
 E10 PASS
-exit=0

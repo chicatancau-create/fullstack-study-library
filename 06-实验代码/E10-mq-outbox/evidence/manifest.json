@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E10",
-  "generated_at": "2026-11-08T10:26:08.661Z",
-  "commit": "01538c2b1835b0b98fbde8b14214025f2eb307b0",
+  "generated_at": "2026-11-09T02:35:01.914Z",
+  "commit": "4b988cf1ebcb814f5824da1738ae9c74bd6a0a03",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -12,32 +12,24 @@
   },
   "commands": [
     {
-      "cmd": "PGPASSWORD=<local-test-password> bash scripts/run_evidence.sh",
+      "cmd": "bash scripts/run_evidence.sh",
       "exit": 0
     },
     {
-      "cmd": "PGPASSWORD=<local-test-password> bash scripts/run_backlog.sh",
-      "exit": 0
-    },
-    {
-      "cmd": "QEMU 3 RabbitMQ 4.4 containers: cluster_status 3 running nodes",
-      "exit": 0
-    },
-    {
-      "cmd": "QEMU 3 RabbitMQ containers: network disconnect/reconnect, cluster recovers",
+      "cmd": "npm test",
       "exit": 0
     }
   ],
   "artifacts": [
     {
       "path": "evidence/run.txt",
-      "bytes": 191,
-      "sha256": "71610033953f3c16dfa108df954c97ca531c31d661be654baa86eef7e6a4dbca"
+      "bytes": 184,
+      "sha256": "18759c207de3f01e811cbc4baed0cfba376848fb874ce26b2bf534d91e512457"
     },
     {
       "path": "evidence/result.json",
       "bytes": 220,
-      "sha256": "81bd5dfe3972a1a5f3c61f328e29f023fdf9c7aa52f4ab2c61c7edd2219a62a4"
+      "sha256": "2ddfcd65c6bf0e7ee5bab0b9ab0d0740f51b915c4c6bfc7cd2ed5bf582c81f66"
     },
     {
       "path": "evidence/result.txt",
@@ -45,9 +37,19 @@
       "sha256": "f1e5b2aa7fcc07dd275bbb61478eae98da663a190fbad018a75380bbcbc4f4cb"
     },
     {
-      "path": "evidence/backlog_replay.txt",
-      "bytes": 331,
-      "sha256": "d6e6031374e671b191eea32c2b6e76640df41370d38b4a4e2d7ef83e1e1dd33c"
+      "path": "evidence/crash-windows.txt",
+      "bytes": 430,
+      "sha256": "d9e9078ad62d20ce56c7de394f797d0da422b4dc8bb2a16de5fb99a52011de7b"
+    },
+    {
+      "path": "evidence/test.txt",
+      "bytes": 558,
+      "sha256": "30e17bcb77aee36e9d77838f33c1ef440563044e2ddec0de5e535df8db979264"
+    },
+    {
+      "path": "evidence/run-summary.txt",
+      "bytes": 176,
+      "sha256": "ee9349cc202b7c35f4828ef16d5d7db1b8c14ff66a2b990f5f164011b418cf31"
     },
     {
       "path": "evidence/cluster.txt",
@@ -58,9 +60,12 @@
       "path": "evidence/partition.txt",
       "bytes": 524,
       "sha256": "d4f83c639fe4e945afa66d3417172fb77f77627b30867ac58ee4769e635d6cd3"
+    },
+    {
+      "path": "evidence/backlog_replay.txt",
+      "bytes": 331,
+      "sha256": "d6e6031374e671b191eea32c2b6e76640df41370d38b4a4e2d7ef83e1e1dd33c"
     }
   ],
-  "unverified": [
-    "主实验单节点；集群为同一VM内3容器，非多机；分区为容器网络断开，非多机网络故障"
-  ]
+  "unverified": []
 }

@@ -1,0 +1,5 @@
+captured_at: 2026-11-09T10:34:55+08:00
+reconcile: E10 PASS
+crash: PHANTOM PASS CRASH PASS SIDEEFFECT PASS ORDER PASS 
+gate: ℹ tests 5 ℹ pass 5 ℹ fail 0 
+gate_failures: 0

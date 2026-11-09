@@ -1,7 +1,7 @@
 # E10：RabbitMQ Outbox、幂等消费、重投与 DLQ
 
 > 对应 [[../../01-阶段课程/专项-核心原理与深度实验|专项：核心原理与深度实验]] 的 E10。
-> 本实验在**真实 RabbitMQ 4.4.0 + PostgreSQL 18.6** 上验证 Outbox、重复投递、消费后崩溃重投、inbox 去重、DLQ、对账、1000 条积压与重放；另在单 VM 内做 3 容器集群成员与容器网络分区/恢复验证；不覆盖多机/分区自动愈合保证/顺序。
+> 本实验在**真实 RabbitMQ 4.4.0 + PostgreSQL 18.6** 上验证 Outbox、幻影消息反例、提交后发布前崩溃恢复、外部 HTTP 副作用幂等、顺序语义、inbox 去重、DLQ、对账与 1000 条积压重放。主链路是单节点 RabbitMQ；`cluster.txt` 只记录 3 容器集群成员盘点，不作为多机/quorum 故障证据。
 > 环境：Windows 10.0.28000 + Node v24.15.0 + RabbitMQ 4.4.0 + Erlang 29.1.2 + PostgreSQL 18.6
 
 ## 1. 做了什么、没做什么
@@ -87,12 +87,28 @@ E10 PASS
 - 某次本机读数：发布约 29ms，首次消费约 697ms，重放消费约 103ms；绝对值受机器影响，只用于同口径比较。
 - 边界：单节点、单消费者、无顺序保证/集群/持续压测。
 
+## 6.6 崩溃窗口与顺序语义（`src/crash_windows.mjs`）
+
+| 场景 | 实际 | 证据 |
+| --- | --- | --- |
+| 先 publish 后回滚 | 消息已发布、订单 0 行（幻影） | `evidence/crash-windows.txt` |
+| Outbox + 回滚 | outbox 行随事务消失，无可发布事件 | 同上 |
+| 提交后发布前崩溃 | pending 1 → relay 恢复 → 投递 1 次 → pending 0 | 同上 |
+| 外部 HTTP 副作用 | 重投后 `deduped=true`，真实扣费 1 次 | 同上 |
+| 同 key 顺序 | v1/v2/v3 全部 applied | 同上 |
+| 跨 key 并行 | k2/k4 的 v1 同时 applied | 同上 |
+| 乱序 | v2 先到 stale，v1 到达后 applied | 同上 |
+| 重复重投 | 已应用版本返回 duplicate | 同上 |
+| 门禁 | tests 5 pass 0 fail | `evidence/test.txt` |
+
+命令：`npm test`；单跑某场景：`node src/crash_windows.mjs phantom|crash|sideeffect|ordering`。
+
 ## 7. 边界
 
-1. 单节点 RabbitMQ；没有集群/quorum/镜像/分区。
-2. 积压/重放只做 1000 条单节点；没有顺序保证/集群/持续压测。
-3. 副作用是 PG 表写入；没有外部 HTTP/支付等不可事务副作用。
-4. Outbox 没有清理/归档；inbox 没有保留期策略。
+1. 主链路为单节点 RabbitMQ；`cluster.txt` 的 3 容器只做成员盘点，没有多机/quorum/镜像/分区故障注入。
+2. 积压/重放只做 1000 条单节点；顺序语义由单消费者脚本模拟，没有多消费者分区与真实网络乱序。
+3. 外部副作用用本机 HTTP 替身验证幂等；没有真实支付网关、超时重试与对账差异。
+4. Outbox 没有清理/归档；inbox 没有保留期策略；relay 为单实例轮询。
 5. 对账是一次脚本，不是定时任务/告警。
 6. 同机合成数据；不是生产可靠性证明。
 
@@ -111,6 +127,9 @@ E10-mq-outbox/
 ├── src/db.mjs            PG schema/reset/count
 ├── src/broker.mjs        RabbitMQ durable exchange/queue + DLX
 ├── src/experiment.mjs    Outbox/重复/崩溃/DLQ/对账
+├── src/crash_windows.mjs 幻影/崩溃恢复/外部副作用/顺序
+├── tests/outbox.test.js  5 条真实 RabbitMQ+PG 集成测试
+├── scenarios/            01 幻影、02 提交后崩溃、03 顺序
 ├── scripts/run_evidence.sh
 ├── evidence/             run.txt / result.json / result.txt
 └── package.json / package-lock.json
