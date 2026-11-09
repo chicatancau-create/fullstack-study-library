@@ -1,0 +1,60 @@
+{
+  "captured_at": "2026-11-09T07:35:58.443Z",
+  "pg": "PostgreSQL 18.6 on x86_64-windows, compiled by msvc-19.44.35229, 64-bit",
+  "mysql": "8.4.13",
+  "cases": [
+    {
+      "name": "字符串拼接",
+      "pg": "ab",
+      "mysql": "0",
+      "note": "PG: || 拼接；MySQL: || 是逻辑或，拼接用 CONCAT()"
+    },
+    {
+      "name": "NULL 排序（ASC）",
+      "pg": [
+        "a",
+        "b",
+        null
+      ],
+      "mysql": [
+        null,
+        "a",
+        "b"
+      ],
+      "note": "PG 默认 NULLS LAST；MySQL 默认 NULL 最小排最前"
+    },
+    {
+      "name": "非法数字转换",
+      "pg": "22P02:无效的类型 integer 输入语法: \"12abc\"",
+      "mysql": "12",
+      "note": "PG 直接报错；MySQL 截取前缀并给 warning"
+    },
+    {
+      "name": "JSON 取值",
+      "pg": "v",
+      "mysql": "v",
+      "note": "PG: ->>；MySQL: JSON_UNQUOTE(JSON_EXTRACT(..)) 或 ->>"
+    },
+    {
+      "name": "日期截断",
+      "pg": "2026-03-01",
+      "mysql": "2026-03-01",
+      "note": "PG: date_trunc；MySQL: DATE_FORMAT 拼月初"
+    },
+    {
+      "name": "UPSERT",
+      "pg": 9,
+      "mysql": 9,
+      "note": "PG: ON CONFLICT；MySQL 8.4: AS new + ON DUPLICATE KEY UPDATE"
+    },
+    {
+      "name": "OFFSET 写法",
+      "pg": 1,
+      "mysql": {
+        "withLimit": "1",
+        "alone": "ERROR 1064 (42000) at line 1: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0' at line 1"
+      },
+      "note": "PG 允许 OFFSET 单独出现；MySQL 要求先有 LIMIT"
+    }
+  ]
+}

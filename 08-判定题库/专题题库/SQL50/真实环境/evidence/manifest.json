@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "SQL50_REAL",
-  "generated_at": "2026-11-09T07:33:36.286Z",
-  "commit": "791fcba7b46e8eb222eeaa154fa6eab9ff252264",
+  "generated_at": "2026-11-09T07:36:08.961Z",
+  "commit": "cfa4300d0b0d6ca5e13b745700c01eafe7541a51",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -35,12 +35,12 @@
     {
       "path": "evidence/explain-good.json",
       "bytes": 2163,
-      "sha256": "661d93165be1d2223d41a31f2db8fbf89aa8421f32383cc6413cc262736d4180"
+      "sha256": "53e43fc6d43bdb433629edbd74625ee8105c9b8bb0c4cfd0c0e84f7a5ed6a19f"
     },
     {
       "path": "evidence/explain-bad.json",
-      "bytes": 1159,
-      "sha256": "9ea399fb2fc98cd03cc32c061208960e77e13eb9d9aab8d437bd4b9ac448e673"
+      "bytes": 1157,
+      "sha256": "08c621b3c0430a78c44d5f9fc0a6e5454763cd56eabbba99abea30221e3cd588"
     },
     {
       "path": "evidence/migration.txt",
@@ -50,16 +50,25 @@
     {
       "path": "evidence/migration.json",
       "bytes": 1585,
-      "sha256": "169f9e8cff2ee3b6dc6d1df356c60eaac6c76329b5905382389c622978535755"
+      "sha256": "630396050f6c2d709c1017b009234ee4fee5592b039f8d1a8cb50297536e1a73"
+    },
+    {
+      "path": "evidence/dialects.txt",
+      "bytes": 1345,
+      "sha256": "0f020ccd8338ab961e259998e4373afa852533a1e1d3ac222f44a556d8f46fd9"
+    },
+    {
+      "path": "evidence/dialects.json",
+      "bytes": 1626,
+      "sha256": "2e0517babbf641aed82b35f9191e28c17ee1e6bf52d3d56994c3e4dc147866d3"
     },
     {
       "path": "evidence/run.txt",
-      "bytes": 174,
-      "sha256": "d0668ad99db5225042c161a54ddce9d964b758b35cc85268109400ff82cfe5e5"
+      "bytes": 201,
+      "sha256": "216dfde2ffc813ec2bfd3ce7e38e673404145b52a48b030b0398e11674c3e19e"
     }
   ],
   "unverified": [
-    "MySQL 方言对照未实现",
-    "证据来自本机 PostgreSQL 18.6，未在 CI 服务容器复跑"
+    "证据来自本机 PG 18.6 + MySQL 8.4.13，未在 CI 服务容器复跑"
   ]
 }

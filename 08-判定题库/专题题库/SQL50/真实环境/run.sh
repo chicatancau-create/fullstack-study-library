@@ -26,6 +26,10 @@ node migration.mjs 2>&1 | tee evidence/migration.txt
 rc=${PIPESTATUS[0]}
 [ "$rc" -eq 0 ] || fails=$((fails + 1))
 
+node dialects.mjs 2>&1 | tee evidence/dialects.txt
+rc=${PIPESTATUS[0]}
+[ "$rc" -eq 0 ] || fails=$((fails + 1))
+
 {
   echo "captured_at: $(date -Is)"
   echo "node: $(node -v)"
@@ -33,6 +37,7 @@ rc=${PIPESTATUS[0]}
   echo "concurrency: $(tail -1 evidence/concurrency.txt)"
   echo "explain: $(tail -1 evidence/explain.txt)"
   echo "migration: $(tail -1 evidence/migration.txt)"
+  echo "dialects: $(tail -1 evidence/dialects.txt)"
   echo "gate_failures: $fails"
 } | tee evidence/run.txt
 
