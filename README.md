@@ -35,13 +35,15 @@
 | MS0 审查修复 | 22/22（含本轮微调） | H1–H8 / M1–M7 / L1–L7 全部闭合 |
 | MS1 项目实现 | 核心子集 | P02/P03/P04 均有源码+测试+CI+证据；状态机/深度模块为子集 |
 | MS2 实验补齐 | 核心子集 | E01–E13 全部有目录与证据；部分实验缺 tests/scenarios |
-| MS3 判定题库 | 骨架版 | G0–G9 十关骨架 + 自动判定通过；物理隔离与 G8/G9 完整版待补 |
-| MS4 自建题库 | 接近完成 | SQL50 / RAG65 / 后端 30 / 英文面试 10 套全部落地 |
-| MS5 真题扩充 | 接近完成 | 6 家大厂 250 条 CodeTop 真实数据；字节 408 去重账本待补 |
+| MS3 判定题库 | 完成（自学版） | G0–G9 十关与自动判定通过；答案、评分标准公开，不做教师端/盲测隔离 |
+| MS4 自建题库 | 完成（离线+本机真实环境） | SQL50 / RAG65 / 后端 30 / 英文面试 10 套全部落地；RAG 为哈希向量+SQL 检索，无神经 embedding/真实 LLM |
+| MS5 真题扩充 | 部分完成 | 6 家 250 题；字节 100 题答案 100/100、前端全栈补题 16 道、408 账本完成；原始面经仅 2/250 已核源 |
 
 ## 工程证据
 
-- 项目与 E01/E02 在 GitHub Actions Ubuntu runner 跑通；source-only 0 错误。
+- 本机门禁：题库 `check_bank` 6/6、答案 `check_answers` 5/5、前端题 `check_frontend` 5/5、408/答案 manifest 校验通过。
+- P02/P03/P04 源码与证据在外部私有仓库 `E:\fullstack-code`，本仓库只有索引；本仓库 CI 无法构建三项目。
+- GitHub Actions 自 2026-11-08 起受计费阻断，最新提交未在云端实跑；“全绿”只代表历史基线。
 - 实验与项目 manifest：E01–E13 + G1 + P02/P03/P04 共 17 份全部校验通过。
 - Docker/Compose、K3s 两节点（同 VM）+Traefik Ingress、RabbitMQ 3 容器集群+断网恢复、Prometheus/Alertmanager 本地+ntfy、Testcontainers、E01 ASan/UBSan/Valgrind、E02 worker_threads/父子 IPC 取消均有证据。
 - 项目 01 持久公网：<https://chicatancau-create.github.io/learning-blog-demo/>（无自定义域名）。
