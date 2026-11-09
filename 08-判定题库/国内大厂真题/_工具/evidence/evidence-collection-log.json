@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "note": "面经采集尝试记录：仅记录公开访问结果，遇到登录墙/仅作者可见即停止，不绕过、不猜测 URL。成功记录进入 interview-evidence.json；失败记录留档以便下一轮换源。",
+  "accessed_at": "2026-11-09",
+  "attempts": [
+    {
+      "url": "https://www.nowcoder.com/discuss/463389394737598464",
+      "title": "字节跳动-今日头条后端开发一面面经",
+      "result": "success",
+      "evidence_id": "NC-BD-001",
+      "mapped": ["Q067"]
+    },
+    {
+      "url": "https://www.nowcoder.com/discuss/942507302752428032",
+      "title": "字节飞书一面",
+      "result": "success",
+      "evidence_id": "NC-BD-002",
+      "mapped": ["Q002"]
+    },
+    {
+      "url": "https://www.nowcoder.com/feed/main/detail/adbbc0f372324a538be3368291061fa8",
+      "title": "字节面试避坑指南（含血泪教训）",
+      "result": "success",
+      "evidence_id": "NC-BD-003",
+      "mapped": ["Q002"],
+      "unmapped": ["3. 无重复字符的最长子串", "206. 反转链表", "第 K 大（题名不具体）"]
+    },
+    {
+      "url": "https://www.nowcoder.com/feed/main/detail/cd8334673acf4c45bea289e0a5f11e49",
+      "title": "字节财经 三面 手撕居然出了hard",
+      "result": "success-unmapped",
+      "reason": "题目为“删除无效的括号”（LeetCode 301），当前 100 题库无对应题，未建立映射"
+    },
+    {
+      "url": "https://www.nowcoder.com/feed/main/detail/742257c2ead94976a08d8a7256c841de",
+      "title": "字节跳动后端开发面试经验分享",
+      "result": "login-required",
+      "reason": "页面 isLogin:false，正文不公开；按规则不绕过登录"
+    },
+    {
+      "url": "https://www.nowcoder.com/discuss/925185107952939008",
+      "title": "腾讯后端开发岗面经-08",
+      "result": "author-only",
+      "reason": "页面提示仅作者可见"
+    },
+    {
+      "url": "https://www.nowcoder.com/discuss/927380289666453504",
+      "title": "美团面经-美团测试开发岗面经-05",
+      "result": "login-required",
+      "reason": "正文登录后可见"
+    },
+    {
+      "url": "https://www.nowcoder.com/discuss/922860300762611712",
+      "title": "腾讯面经-腾讯后端开发岗面经-01",
+      "result": "login-required",
+      "reason": "正文登录后可见"
+    },
+    {
+      "url": "https://www.nowcoder.com/feed/main/detail/3f6622142a6640e6a6e84d1f8166ab5e",
+      "title": "27日常实习面经分享-美团后端ai开发",
+      "result": "content-missing",
+      "reason": "页面可打开但正文未渲染，未取得可引用短句"
+    }
+  ]
+}
