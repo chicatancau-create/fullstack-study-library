@@ -21,14 +21,14 @@
 | --- | --- | --- | --- |
 | P02 | 38/38 测试、前端 10/10、E2E 2/2、覆盖率 96.61/85.07/97.29 | `projects/project02-collab/evidence/` | compose 未在本机复跑（Windows 无 Docker） |
 | P03 | 31/31 测试、覆盖率 84.09/80.33/82.93、E2E 1/1、100 并发双锁、MQ/故障演练 | `projects/project03-trade/evidence/` | compose 前端/worker 拓扑已写入，未在本机实跑；依赖审计受 npmmirror 限制 |
-| P04 | 27/27 测试、覆盖率 93.34/80.26/97.73、E2E 2/2、ESLint 0 告警、RBAC/审计/RLS/调度证据 | `projects/project04-saas/evidence/` | compose 未在本机实跑；CI 门禁已写入，受 Actions 计费阻断未实跑 |
+| P04 | 30/30 测试、覆盖率 96.59/80.00/100.00、E2E 2/2、ESLint 0 告警、SIGTERM/SSE 自动化、容量扩容路径实测、RBAC/审计/RLS/调度证据 | `projects/project04-saas/evidence/` | compose 未在本机实跑；CI 门禁已写入，受 Actions 计费阻断未实跑 |
 
-三套项目均有 `evidence/manifest.json` 与 `scripts/run_project.sh`；数字以脚本现场输出为准，不手改 evidence。
+三套项目均有 `evidence/manifest.json`；入口脚本不统一：P02 用 `npm run evidence`（`bash scripts/evidence.sh`），P03/P04 用 `bash scripts/run_project.sh`（P02 该文件不存在，P03/P04 也没有 `evidence` script）。数字以脚本现场输出为准，不手改 evidence。
 
 ## 验收口径
 
 - 代码：`src/` 可启动，测试覆盖主路径与失败路径。
-- 证据：`npm run evidence` 现场生成，不手改 `evidence/*.txt`。
+- 证据：按上表入口脚本现场生成（P02 `npm run evidence`；P03/P04 `bash scripts/run_project.sh`），不手改 `evidence/*.txt`。
 - 部署：`docker-compose.yml` + `scripts/deploy-evidence.sh`；Windows 宿主机无 Docker 时只做静态检查。
 - 状态只按实际证据更新，见 [[../03-执行计划/进度看板|进度看板]] 与 [[../02-项目实战/README|项目实战索引]]。
 
