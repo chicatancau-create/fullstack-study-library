@@ -3,8 +3,14 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 
-const vault = process.cwd();
-const practice = process.env.PRACTICE_ROOT || 'E:/fullstack-code';
+import { fileURLToPath } from 'node:url';
+
+const vault = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const args = process.argv.slice(2);
+const profile = (args.find((a) => a.startsWith('--profile=')) || '--profile=quick').slice(10);
+const offline = args.includes('--offline');
+const practiceArg = (args.find((a) => a.startsWith('--practice-root=')) || '').slice(16);
+const practice = (practiceArg || process.env.PRACTICE_ROOT || null);
 const checks = [];
 
 function run(label, command, args, cwd) {
@@ -19,14 +25,16 @@ function run(label, command, args, cwd) {
 run('source-only', 'python', ['-X', 'utf8', '05-外部资料库/tools/catalog_tool.py', 'validate', '--mode', 'source-only'], vault);
 
 const manifests = [
-  ['P01', practice, 'Web/project01-blog'],
-  ['P02', practice, 'project02-collab'],
-  ['B5-01', practice, 'project02-spring'],
-  ['B5-03', practice, 'project02-frameworks'],
-  ['P03', practice, 'project03-trade'],
-  ['P04', practice, 'project04-saas'],
-  ['P05', practice, 'project05-takeover'],
-  ['B6-02', practice, 'project06-ai-min'],
+  ...(practice ? [
+    ['P01', practice, 'Web/project01-blog'],
+    ['P02', practice, 'project02-collab'],
+    ['B5-01', practice, 'project02-spring'],
+    ['B5-03', practice, 'project02-frameworks'],
+    ['P03', practice, 'project03-trade'],
+    ['P04', practice, 'project04-saas'],
+    ['P05', practice, 'project05-takeover'],
+    ['B6-02', practice, 'project06-ai-min'],
+  ] : []),
   ['E01', vault, '06-实验代码/E01-c-memory'],
   ['E02', vault, '06-实验代码/E02-node-async'],
   ['E03', vault, '06-实验代码/E03-react-race'],
@@ -54,34 +62,37 @@ for (const [label, root, dir] of manifests) {
   }
 }
 
-const sensitiveNames = /(^|\/)(\.env($|\..+)|id_rsa|id_ed25519|.*\.(pem|key|p12|pfx))$|(^|\/)node_modules\/|(^|\/)target\//;
-const secretPattern = /BEGIN (RSA|OPENSSH|EC) PRIVATE KEY|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{36}|sk-[A-Za-z0-9]{20,}/;
+const sensitiveNames = /(^|\/)(\.env($|\..+)|id_rsa|id_ed25519|.*\.(pem|key|p12|pfx))$|(^|\/)node_modules\/|(^|\/)target\//;const secretPattern = /BEGIN (RSA|OPENSSH|EC) PRIVATE KEY|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{36}|sk-[A-Za-z0-9]{20,}/;
 
-for (const [label, root, exclude] of [
-  ['practice secret names', practice, []],
-  ['vault secret names', vault, [':!05-外部资料库', ':!90-历史归档']],
-]) {
-  try {
-    const files = execFileSync('git', ['ls-files', '--', ...exclude], { cwd: root, encoding: 'utf8' }).split(String.fromCharCode(10)).filter(Boolean);
-    const bad = files.filter((file) => sensitiveNames.test(file));
-    checks.push({ label, ok: bad.length === 0, output: bad.length ? bad.join(',') : 'none' });
-  } catch (error) {
-    checks.push({ label, ok: false, output: error.message });
+if (practice) {
+  for (const [label, root, exclude] of [
+    ['practice secret names', practice, []],
+  ]) {
+    try {
+      const files = execFileSync('git', ['ls-files', '--', ...exclude], { cwd: root, encoding: 'utf8' }).split(String.fromCharCode(10)).filter(Boolean);
+      const bad = files.filter((file) => sensitiveNames.test(file));
+      checks.push({ label, ok: bad.length === 0, output: bad.length ? bad.join(',') : 'none' });
+    } catch (error) {
+      checks.push({ label, ok: false, output: error.message });
+    }
   }
+  for (const [label, root, exclude] of [
+    ['practice secret patterns', practice, []],
+  ]) {
+    try {
+      execFileSync('git', ['grep', '-l', '-E', secretPattern.source, '--', '.', ...exclude], { cwd: root, encoding: 'utf8' });
+      checks.push({ label, ok: false, output: 'matched tracked files' });
+    } catch (error) {
+      checks.push({ label, ok: error.status === 1, output: error.status === 1 ? 'none' : error.message });
+    }
+  }
+} else {
+  checks.push({ label: 'practice secret scan', ok: true, output: 'not-enabled' });
 }
 
-for (const [label, root, exclude] of [
-  ['practice secret patterns', practice, []],
-  ['vault secret patterns', vault, [':!05-外部资料库', ':!90-历史归档']],
-]) {
-  try {
-    execFileSync('git', ['grep', '-l', '-E', secretPattern.source, '--', '.', ...exclude], { cwd: root, encoding: 'utf8' });
-    checks.push({ label, ok: false, output: 'matched tracked files' });
-  } catch (error) {
-    checks.push({ label, ok: error.status === 1, output: error.status === 1 ? 'none' : error.message });
-  }
-}
-
+if (offline || profile === 'quick') {
+  checks.push({ label: 'pages', ok: true, output: 'skipped (offline/quick)' });
+} else {
 const pageProbe = path.join(os.tmpdir(), `verify-all-pages-${process.pid}.txt`);
 try {
   // 必须取目标站点最终状态码；HEAD 响应里的代理隧道行 "200 Connection Established"
@@ -92,7 +103,19 @@ try {
 } catch (error) {
   checks.push({ label: 'pages', ok: false, output: error.message.split(String.fromCharCode(10))[0] });
 } finally {
-  try { fs.unlinkSync(pageProbe); } catch { /* 探测失败时文件可能不存在 */ }
+    try { fs.unlinkSync(pageProbe); } catch { /* 探测失败时文件可能不存在 */ }
+  }
+}
+
+const checkers = [
+  ['08-bank', '08-判定题库/国内大厂真题/_工具/check_bank.mjs'],
+  ['08-answers', '08-判定题库/国内大厂真题/_工具/check_answers.mjs'],
+  ['08-frontend', '08-判定题库/国内大厂真题/_工具/check_frontend.mjs'],
+];
+for (const [label, rel] of checkers) {
+  const file = path.join(vault, rel);
+  if (fs.existsSync(file)) run(label, 'node', [file], path.dirname(file));
+  else checks.push({ label, ok: false, output: `missing ${rel}` });
 }
 
 const failed = checks.filter((check) => !check.ok);

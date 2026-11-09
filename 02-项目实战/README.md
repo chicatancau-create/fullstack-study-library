@@ -34,7 +34,7 @@
 | P04 综合 SaaS | `projects/project04-saas` | [[项目04-综合SaaS毕业项目]] | 项目内 `evidence/`、`deploy/` |
 | P05 陌生系统接手 | `projects/project05-takeover` | [[项目05-陌生系统接手与团队交付]] | 项目内 `evidence/`、交接包 |
 | P06 最小 LLM 应用 | `projects/project06-ai-min` | 无独立笔记（边界：本机无真实 LLM 端点） | 项目内 `evidence/`、`scripts/eval.mjs` |
-| JD 采集与复核 | `jd-audit` | 无独立笔记（工具） | 产出到 [[../04-资源与评估/data/jd-samples-2026-11-07.json|JD 样本]] |
+| JD 采集与复核 | `jd-audit` | 无独立笔记（工具） | 产出到 [[../04-资源与评估/data/jd-samples-2026-11-07.json]]（JD 样本） |
 
 > `07-项目实现/` 的副本已于 2026-11-08 合并并删除（P02 是另一套实现，已替换旧的 pg 版），详见下方「已完成」。
 
