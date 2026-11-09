@@ -15,6 +15,16 @@
 
 同一批项目的其他变体也在同一仓库：`projects/project02-frameworks`（Express/NestJS 对照）、`projects/project02-spring`（Spring Boot/MySQL 跨栈），P01 在 `Web/project01-blog`。
 
+## MS6 完整版状态（2026-11-09）
+
+| 项目 | 本机验证 | 证据（`E:\fullstack-code` 内） | 未验证边界 |
+| --- | --- | --- | --- |
+| P02 | 38/38 测试、前端 10/10、E2E 2/2、覆盖率 96.61/85.07/97.29 | `projects/project02-collab/evidence/` | compose 未在本机复跑（Windows 无 Docker） |
+| P03 | 31/31 测试、覆盖率 84.09/80.33/82.93、E2E 1/1、100 并发双锁、MQ/故障演练 | `projects/project03-trade/evidence/` | compose 前端/worker 拓扑已写入，未在本机实跑；依赖审计受 npmmirror 限制 |
+| P04 | 27/27 测试、覆盖率 93.34/80.26/97.73、E2E 2/2、ESLint 0 告警、RBAC/审计/RLS/调度证据 | `projects/project04-saas/evidence/` | compose 未在本机实跑；CI 门禁已写入，受 Actions 计费阻断未实跑 |
+
+三套项目均有 `evidence/manifest.json` 与 `scripts/run_project.sh`；数字以脚本现场输出为准，不手改 evidence。
+
 ## 验收口径
 
 - 代码：`src/` 可启动，测试覆盖主路径与失败路径。
