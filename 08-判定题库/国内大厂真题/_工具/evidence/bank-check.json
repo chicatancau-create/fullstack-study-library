@@ -1,0 +1,37 @@
+{
+  "captured_at": "2026-11-09T08:00:22.797Z",
+  "total": 250,
+  "withPrimary": 0,
+  "results": [
+    {
+      "name": "B01 六家公司题目总数 = 250",
+      "ok": true,
+      "detail": "total=250"
+    },
+    {
+      "name": "B02 必填字段完整（含证据与岗位字段）",
+      "ok": true,
+      "detail": "all-present"
+    },
+    {
+      "name": "B03 题目链接均为 LeetCode 题面",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "B04 聚合来源均为 CodeTop",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "B05 岗位不再统一推断为后端",
+      "ok": true,
+      "detail": "inferred=0"
+    },
+    {
+      "name": "B06 原始面经证据字段结构已就位",
+      "ok": true,
+      "detail": "primary=0（尚未采集）"
+    }
+  ]
+}

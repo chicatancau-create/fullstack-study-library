@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "experiment": "BANK_FIELDS",
+  "generated_at": "2026-11-09T08:01:15.430Z",
+  "commit": "1b6aaf3aeefa84a3c617805fd97c94377eff59e3",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [
+    {
+      "cmd": "node normalize_questions.mjs",
+      "exit": 0
+    },
+    {
+      "cmd": "node check_bank.mjs",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/evidence-index.json",
+      "bytes": 796,
+      "sha256": "9ee8b798fedcd4dcb93d8d7563fbb9ee3704583c61e5a1d9aeef892ceee7123e"
+    },
+    {
+      "path": "evidence/bank-check.json",
+      "bytes": 802,
+      "sha256": "07a947cb63e1f4977867f4e5ef26172308d4e50264bf0e32537c233a6933f8b9"
+    },
+    {
+      "path": "岗位矩阵.csv",
+      "bytes": 194,
+      "sha256": "494f3b36a45562ec286b553ea160c517f6ae3b0a2dce737e9ecc4c0e65b97f28"
+    },
+    {
+      "path": "../字节跳动/题目索引.json",
+      "bytes": 86500,
+      "sha256": "e32a4f50f4e573f8ba9ade0757ba051d64cb031970b8709f90ce35ad5e07d26c"
+    },
+    {
+      "path": "../腾讯/题目索引.json",
+      "bytes": 25906,
+      "sha256": "53440ae14510447a55428080ff082d61fda35f8ffaa2d341de9175a44e53ee88"
+    },
+    {
+      "path": "../阿里巴巴/题目索引.json",
+      "bytes": 26005,
+      "sha256": "e396a352a11870096b76ec3bd861fae0eacdfb91666779e732a335df1a530cb9"
+    },
+    {
+      "path": "../美团/题目索引.json",
+      "bytes": 25883,
+      "sha256": "677c703aaff37e59a80fbecefcdfe2e8b432268e8fa7cd36ccf1c090c3e3d036"
+    },
+    {
+      "path": "../滴滴/题目索引.json",
+      "bytes": 25945,
+      "sha256": "d3ea3aa46cceabc2fd883dcdbacb2b799f13715f77a20c1393d8e68828a287b1"
+    },
+    {
+      "path": "../华为/题目索引.json",
+      "bytes": 25607,
+      "sha256": "6a561368c287e0d7042492ec9f53aa058944a4366146d932fedd9a20dd186f18"
+    }
+  ],
+  "unverified": [
+    "原始面经未采集；岗位未分类；逐题答案未补齐"
+  ]
+}

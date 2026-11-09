@@ -9,7 +9,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/longest-substring-without-repeating-characters/",
-    "heat": 698
+    "heat": 698,
+    "question_url": "https://leetcode.cn/problems/longest-substring-without-repeating-characters/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q002",
@@ -21,7 +29,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/lru-cache/",
-    "heat": 367
+    "heat": 367,
+    "question_url": "https://leetcode.cn/problems/lru-cache/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q003",
@@ -33,7 +49,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/reverse-nodes-in-k-group/",
-    "heat": 305
+    "heat": 305,
+    "question_url": "https://leetcode.cn/problems/reverse-nodes-in-k-group/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q004",
@@ -45,7 +69,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/reverse-linked-list/",
-    "heat": 244
+    "heat": 244,
+    "question_url": "https://leetcode.cn/problems/reverse-linked-list/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q005",
@@ -57,7 +89,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/kth-largest-element-in-an-array/",
-    "heat": 206
+    "heat": 206,
+    "question_url": "https://leetcode.cn/problems/kth-largest-element-in-an-array/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q006",
@@ -69,7 +109,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/number-of-islands/",
-    "heat": 192
+    "heat": 192,
+    "question_url": "https://leetcode.cn/problems/number-of-islands/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q007",
@@ -81,7 +129,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/",
-    "heat": 189
+    "heat": 189,
+    "question_url": "https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q008",
@@ -93,7 +149,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/3sum/",
-    "heat": 188
+    "heat": 188,
+    "question_url": "https://leetcode.cn/problems/3sum/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q009",
@@ -105,7 +169,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/search-in-rotated-sorted-array/",
-    "heat": 162
+    "heat": 162,
+    "question_url": "https://leetcode.cn/problems/search-in-rotated-sorted-array/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q010",
@@ -117,7 +189,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/",
-    "heat": 148
+    "heat": 148,
+    "question_url": "https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q011",
@@ -129,7 +209,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/longest-palindromic-substring/",
-    "heat": 140
+    "heat": 140,
+    "question_url": "https://leetcode.cn/problems/longest-palindromic-substring/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q012",
@@ -141,7 +229,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/spiral-matrix/",
-    "heat": 139
+    "heat": 139,
+    "question_url": "https://leetcode.cn/problems/spiral-matrix/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q013",
@@ -153,7 +249,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/",
-    "heat": 134
+    "heat": 134,
+    "question_url": "https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q014",
@@ -165,7 +269,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/trapping-rain-water/",
-    "heat": 130
+    "heat": 130,
+    "question_url": "https://leetcode.cn/problems/trapping-rain-water/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q015",
@@ -177,7 +289,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/two-sum/",
-    "heat": 127
+    "heat": 127,
+    "question_url": "https://leetcode.cn/problems/two-sum/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q016",
@@ -189,7 +309,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/permutations/",
-    "heat": 124
+    "heat": 124,
+    "question_url": "https://leetcode.cn/problems/permutations/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q017",
@@ -201,7 +329,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/maximum-subarray/",
-    "heat": 119
+    "heat": 119,
+    "question_url": "https://leetcode.cn/problems/maximum-subarray/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q018",
@@ -213,7 +349,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/intersection-of-two-linked-lists/",
-    "heat": 116
+    "heat": 116,
+    "question_url": "https://leetcode.cn/problems/intersection-of-two-linked-lists/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q019",
@@ -225,7 +369,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/merge-k-sorted-lists/",
-    "heat": 114
+    "heat": 114,
+    "question_url": "https://leetcode.cn/problems/merge-k-sorted-lists/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q020",
@@ -237,7 +389,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/longest-increasing-subsequence/",
-    "heat": 109
+    "heat": 109,
+    "question_url": "https://leetcode.cn/problems/longest-increasing-subsequence/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q021",
@@ -249,7 +409,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/next-permutation/",
-    "heat": 103
+    "heat": 103,
+    "question_url": "https://leetcode.cn/problems/next-permutation/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q022",
@@ -261,7 +429,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/merge-sorted-array/",
-    "heat": 97
+    "heat": 97,
+    "question_url": "https://leetcode.cn/problems/merge-sorted-array/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q023",
@@ -273,7 +449,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/valid-parentheses/",
-    "heat": 91
+    "heat": 91,
+    "question_url": "https://leetcode.cn/problems/valid-parentheses/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q024",
@@ -285,7 +469,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/reorder-list/",
-    "heat": 91
+    "heat": 91,
+    "question_url": "https://leetcode.cn/problems/reorder-list/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q025",
@@ -297,7 +489,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/binary-tree-right-side-view/",
-    "heat": 90
+    "heat": 90,
+    "question_url": "https://leetcode.cn/problems/binary-tree-right-side-view/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q026",
@@ -309,7 +509,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/binary-tree-level-order-traversal/",
-    "heat": 88
+    "heat": 88,
+    "question_url": "https://leetcode.cn/problems/binary-tree-level-order-traversal/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q027",
@@ -321,7 +529,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/edit-distance/",
-    "heat": 87
+    "heat": 87,
+    "question_url": "https://leetcode.cn/problems/edit-distance/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q028",
@@ -333,7 +549,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/add-strings/",
-    "heat": 86
+    "heat": 86,
+    "question_url": "https://leetcode.cn/problems/add-strings/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q029",
@@ -345,7 +569,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/merge-two-sorted-lists/",
-    "heat": 84
+    "heat": 84,
+    "question_url": "https://leetcode.cn/problems/merge-two-sorted-lists/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q030",
@@ -357,7 +589,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/linked-list-cycle/",
-    "heat": 84
+    "heat": 84,
+    "question_url": "https://leetcode.cn/problems/linked-list-cycle/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q031",
@@ -369,7 +609,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/merge-intervals/",
-    "heat": 81
+    "heat": 81,
+    "question_url": "https://leetcode.cn/problems/merge-intervals/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q032",
@@ -381,7 +629,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/reverse-linked-list-ii/",
-    "heat": 80
+    "heat": 80,
+    "question_url": "https://leetcode.cn/problems/reverse-linked-list-ii/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q033",
@@ -393,7 +649,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/binary-tree-maximum-path-sum/",
-    "heat": 79
+    "heat": 79,
+    "question_url": "https://leetcode.cn/problems/binary-tree-maximum-path-sum/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q034",
@@ -405,7 +669,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/first-missing-positive/",
-    "heat": 74
+    "heat": 74,
+    "question_url": "https://leetcode.cn/problems/first-missing-positive/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q035",
@@ -417,7 +689,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/compare-version-numbers/",
-    "heat": 71
+    "heat": 71,
+    "question_url": "https://leetcode.cn/problems/compare-version-numbers/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q036",
@@ -429,7 +709,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/maximal-square/",
-    "heat": 71
+    "heat": 71,
+    "question_url": "https://leetcode.cn/problems/maximal-square/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q037",
@@ -441,7 +729,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/sort-list/",
-    "heat": 70
+    "heat": 70,
+    "question_url": "https://leetcode.cn/problems/sort-list/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q038",
@@ -453,7 +749,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/longest-valid-parentheses/",
-    "heat": 70
+    "heat": 70,
+    "question_url": "https://leetcode.cn/problems/longest-valid-parentheses/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q039",
@@ -465,7 +769,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/sqrtx/",
-    "heat": 69
+    "heat": 69,
+    "question_url": "https://leetcode.cn/problems/sqrtx/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q040",
@@ -477,7 +789,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/median-of-two-sorted-arrays/",
-    "heat": 69
+    "heat": 69,
+    "question_url": "https://leetcode.cn/problems/median-of-two-sorted-arrays/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q041",
@@ -489,7 +809,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/generate-parentheses/",
-    "heat": 67
+    "heat": 67,
+    "question_url": "https://leetcode.cn/problems/generate-parentheses/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q042",
@@ -501,7 +829,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/sort-an-array/",
-    "heat": 65
+    "heat": 65,
+    "question_url": "https://leetcode.cn/problems/sort-an-array/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q043",
@@ -513,7 +849,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/restore-ip-addresses/",
-    "heat": 63
+    "heat": 63,
+    "question_url": "https://leetcode.cn/problems/restore-ip-addresses/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q044",
@@ -525,7 +869,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/symmetric-tree/",
-    "heat": 63
+    "heat": 63,
+    "question_url": "https://leetcode.cn/problems/symmetric-tree/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q045",
@@ -537,7 +889,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/longest-common-subsequence/",
-    "heat": 62
+    "heat": 62,
+    "question_url": "https://leetcode.cn/problems/longest-common-subsequence/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q046",
@@ -549,7 +909,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/",
-    "heat": 62
+    "heat": 62,
+    "question_url": "https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q047",
@@ -561,7 +929,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/coin-change/",
-    "heat": 60
+    "heat": 60,
+    "question_url": "https://leetcode.cn/problems/coin-change/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q048",
@@ -573,7 +949,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/sum-root-to-leaf-numbers/",
-    "heat": 59
+    "heat": 59,
+    "question_url": "https://leetcode.cn/problems/sum-root-to-leaf-numbers/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q049",
@@ -585,7 +969,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/decode-string/",
-    "heat": 58
+    "heat": 58,
+    "question_url": "https://leetcode.cn/problems/decode-string/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q050",
@@ -597,7 +989,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/combination-sum/",
-    "heat": 56
+    "heat": 56,
+    "question_url": "https://leetcode.cn/problems/combination-sum/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q051",
@@ -609,7 +1009,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/maximum-width-of-binary-tree/",
-    "heat": 54
+    "heat": 54,
+    "question_url": "https://leetcode.cn/problems/maximum-width-of-binary-tree/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q052",
@@ -621,7 +1029,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/minimum-window-substring/",
-    "heat": 53
+    "heat": 53,
+    "question_url": "https://leetcode.cn/problems/minimum-window-substring/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q053",
@@ -633,7 +1049,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/implement-queue-using-stacks/",
-    "heat": 52
+    "heat": 52,
+    "question_url": "https://leetcode.cn/problems/implement-queue-using-stacks/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q054",
@@ -645,7 +1069,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/remove-nth-node-from-end-of-list/",
-    "heat": 51
+    "heat": 51,
+    "question_url": "https://leetcode.cn/problems/remove-nth-node-from-end-of-list/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q055",
@@ -657,7 +1089,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/minimum-size-subarray-sum/",
-    "heat": 51
+    "heat": 51,
+    "question_url": "https://leetcode.cn/problems/minimum-size-subarray-sum/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q056",
@@ -669,7 +1109,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/shu-de-zi-jie-gou-lcof/",
-    "heat": 49
+    "heat": 49,
+    "question_url": "https://leetcode.cn/problems/shu-de-zi-jie-gou-lcof/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q057",
@@ -681,7 +1129,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/",
-    "heat": 49
+    "heat": 49,
+    "question_url": "https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q058",
@@ -693,7 +1149,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/multiply-strings/",
-    "heat": 49
+    "heat": 49,
+    "question_url": "https://leetcode.cn/problems/multiply-strings/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q059",
@@ -705,7 +1169,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/linked-list-cycle-ii/",
-    "heat": 49
+    "heat": 49,
+    "question_url": "https://leetcode.cn/problems/linked-list-cycle-ii/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q060",
@@ -717,7 +1189,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/find-peak-element/",
-    "heat": 49
+    "heat": 49,
+    "question_url": "https://leetcode.cn/problems/find-peak-element/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q061",
@@ -729,7 +1209,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/subsets/",
-    "heat": 49
+    "heat": 49,
+    "question_url": "https://leetcode.cn/problems/subsets/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q062",
@@ -741,7 +1229,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/add-two-numbers/",
-    "heat": 49
+    "heat": 49,
+    "question_url": "https://leetcode.cn/problems/add-two-numbers/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q063",
@@ -753,7 +1249,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/",
-    "heat": 48
+    "heat": 48,
+    "question_url": "https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q064",
@@ -765,7 +1269,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/max-area-of-island/",
-    "heat": 47
+    "heat": 47,
+    "question_url": "https://leetcode.cn/problems/max-area-of-island/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q065",
@@ -777,7 +1289,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/implement-rand10-using-rand7/",
-    "heat": 47
+    "heat": 47,
+    "question_url": "https://leetcode.cn/problems/implement-rand10-using-rand7/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q066",
@@ -789,7 +1309,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/sliding-window-maximum/",
-    "heat": 47
+    "heat": 47,
+    "question_url": "https://leetcode.cn/problems/sliding-window-maximum/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q067",
@@ -801,7 +1329,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/path-sum/",
-    "heat": 47
+    "heat": 47,
+    "question_url": "https://leetcode.cn/problems/path-sum/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q068",
@@ -813,7 +1349,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/https://mp.weixin.qq.com/s/0WVa2wIAeG0nYnVndZiEXQ/",
-    "heat": 46
+    "heat": 46,
+    "question_url": "https://leetcode.cn/problems/https://mp.weixin.qq.com/s/0WVa2wIAeG0nYnVndZiEXQ/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q069",
@@ -825,7 +1369,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/validate-binary-search-tree/",
-    "heat": 46
+    "heat": 46,
+    "question_url": "https://leetcode.cn/problems/validate-binary-search-tree/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q070",
@@ -837,7 +1389,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/binary-tree-inorder-traversal/",
-    "heat": 45
+    "heat": 45,
+    "question_url": "https://leetcode.cn/problems/binary-tree-inorder-traversal/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q071",
@@ -849,7 +1409,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/word-break/",
-    "heat": 44
+    "heat": 44,
+    "question_url": "https://leetcode.cn/problems/word-break/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q072",
@@ -861,7 +1429,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/search-a-2d-matrix-ii/",
-    "heat": 43
+    "heat": 43,
+    "question_url": "https://leetcode.cn/problems/search-a-2d-matrix-ii/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q073",
@@ -873,7 +1449,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/longest-consecutive-sequence/",
-    "heat": 42
+    "heat": 42,
+    "question_url": "https://leetcode.cn/problems/longest-consecutive-sequence/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q074",
@@ -885,7 +1469,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/minimum-path-sum/",
-    "heat": 42
+    "heat": 42,
+    "question_url": "https://leetcode.cn/problems/minimum-path-sum/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q075",
@@ -897,7 +1489,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/path-sum-ii/",
-    "heat": 42
+    "heat": 42,
+    "question_url": "https://leetcode.cn/problems/path-sum-ii/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q076",
@@ -909,7 +1509,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/min-stack/",
-    "heat": 42
+    "heat": 42,
+    "question_url": "https://leetcode.cn/problems/min-stack/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q077",
@@ -921,7 +1529,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/word-search/",
-    "heat": 41
+    "heat": 41,
+    "question_url": "https://leetcode.cn/problems/word-search/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q078",
@@ -933,7 +1549,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order/",
-    "heat": 40
+    "heat": 40,
+    "question_url": "https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q079",
@@ -945,7 +1569,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/maximum-product-subarray/",
-    "heat": 40
+    "heat": 40,
+    "question_url": "https://leetcode.cn/problems/maximum-product-subarray/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q080",
@@ -957,7 +1589,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/climbing-stairs/",
-    "heat": 40
+    "heat": 40,
+    "question_url": "https://leetcode.cn/problems/climbing-stairs/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q081",
@@ -969,7 +1609,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/",
-    "heat": 40
+    "heat": 40,
+    "question_url": "https://leetcode.cn/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q082",
@@ -981,7 +1629,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/house-robber/",
-    "heat": 38
+    "heat": 38,
+    "question_url": "https://leetcode.cn/problems/house-robber/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q083",
@@ -993,7 +1649,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/rotate-image/",
-    "heat": 37
+    "heat": 37,
+    "question_url": "https://leetcode.cn/problems/rotate-image/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q084",
@@ -1005,7 +1669,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/https://mp.weixin.qq.com/s/pCRscwKqQdYYN7M1Sia7xA/",
-    "heat": 36
+    "heat": 36,
+    "question_url": "https://leetcode.cn/problems/https://mp.weixin.qq.com/s/pCRscwKqQdYYN7M1Sia7xA/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q085",
@@ -1017,7 +1689,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/diameter-of-binary-tree/",
-    "heat": 36
+    "heat": 36,
+    "question_url": "https://leetcode.cn/problems/diameter-of-binary-tree/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q086",
@@ -1029,7 +1709,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/remove-k-digits/",
-    "heat": 36
+    "heat": 36,
+    "question_url": "https://leetcode.cn/problems/remove-k-digits/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q087",
@@ -1041,7 +1729,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/course-schedule/",
-    "heat": 35
+    "heat": 35,
+    "question_url": "https://leetcode.cn/problems/course-schedule/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q088",
@@ -1053,7 +1749,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/unique-paths/",
-    "heat": 35
+    "heat": 35,
+    "question_url": "https://leetcode.cn/problems/unique-paths/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q089",
@@ -1065,7 +1769,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/https://mp.weixin.qq.com/s/NZPaFsFrTybO3K3s7p7EVg/",
-    "heat": 35
+    "heat": 35,
+    "question_url": "https://leetcode.cn/problems/https://mp.weixin.qq.com/s/NZPaFsFrTybO3K3s7p7EVg/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q090",
@@ -1077,7 +1789,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/largest-number/",
-    "heat": 32
+    "heat": 32,
+    "question_url": "https://leetcode.cn/problems/largest-number/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q091",
@@ -1089,7 +1809,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/swap-nodes-in-pairs/",
-    "heat": 31
+    "heat": 31,
+    "question_url": "https://leetcode.cn/problems/swap-nodes-in-pairs/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q092",
@@ -1101,7 +1829,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/subarray-sum-equals-k/",
-    "heat": 30
+    "heat": 30,
+    "question_url": "https://leetcode.cn/problems/subarray-sum-equals-k/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q093",
@@ -1113,7 +1849,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/check-completeness-of-a-binary-tree/",
-    "heat": 30
+    "heat": 30,
+    "question_url": "https://leetcode.cn/problems/check-completeness-of-a-binary-tree/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q094",
@@ -1125,7 +1869,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/balanced-binary-tree/",
-    "heat": 29
+    "heat": 29,
+    "question_url": "https://leetcode.cn/problems/balanced-binary-tree/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q095",
@@ -1137,7 +1889,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/maximum-depth-of-binary-tree/",
-    "heat": 29
+    "heat": 29,
+    "question_url": "https://leetcode.cn/problems/maximum-depth-of-binary-tree/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q096",
@@ -1149,7 +1909,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/reverse-words-in-a-string/",
-    "heat": 29
+    "heat": 29,
+    "question_url": "https://leetcode.cn/problems/reverse-words-in-a-string/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q097",
@@ -1161,7 +1929,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/longest-increasing-path-in-a-matrix/",
-    "heat": 29
+    "heat": 29,
+    "question_url": "https://leetcode.cn/problems/longest-increasing-path-in-a-matrix/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q098",
@@ -1173,7 +1949,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/string-to-integer-atoi/",
-    "heat": 29
+    "heat": 29,
+    "question_url": "https://leetcode.cn/problems/string-to-integer-atoi/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q099",
@@ -1185,7 +1969,15 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/jump-game/",
-    "heat": 28
+    "heat": 28,
+    "question_url": "https://leetcode.cn/problems/jump-game/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   },
   {
     "id": "Q100",
@@ -1197,6 +1989,14 @@
     "credibility": "候选人回忆（第三方统计）",
     "real": "真题（面经统计，非官方）",
     "leetcode": "https://leetcode.cn/problems/candy/",
-    "heat": 28
+    "heat": 28,
+    "question_url": "https://leetcode.cn/problems/candy/",
+    "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
+    "primary_evidence": [],
+    "evidence_status": "third_party_aggregate",
+    "evidence_note": "第三方聚合，待逐题核源",
+    "role_recorded": "后端/算法",
+    "role_class": "岗位未标注",
+    "role_source": "codetop_aggregate"
   }
 ]
