@@ -1,19 +1,20 @@
 {
   "name": "e11-authz-matrix",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
-  "description": "E11：两租户对象级授权矩阵",
+  "description": "E11：对象级授权矩阵与 OWASP A01-A10 手工靶场",
   "engines": {
     "node": ">=24"
   },
   "scripts": {
     "start": "node src/server.js",
-    "test": "node --test tests/*.test.js",
+    "test": "node --test --test-concurrency=1 tests/app.test.js tests/security.test.js",
     "demo": "node examples/demo.mjs",
     "evidence": "bash scripts/run_unit.sh"
   },
   "dependencies": {
-    "fastify": "5.12.8"
+    "fastify": "5.12.8",
+    "pg": "^8.23.1"
   }
 }

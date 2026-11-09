@@ -1,48 +1,56 @@
-# E11：跨租户对象级授权矩阵
+# E11：对象级授权矩阵与 OWASP 手工靶场
 
 > 对应 [[../../01-阶段课程/专项-核心原理与深度实验|专项：核心原理与深度实验]] 的 E11。
-> 本实验用内存数据 + 真实 Fastify HTTP 请求验证**对象级授权**；不接真实 DB/SQL、不做浏览器 XSS 执行、不做 SSRF。
-> 环境：Windows 10.0.28000 + Node v24.15.0 + Fastify 5.12.8
+> 本实验在 **Fastify + 真实 PostgreSQL 18.6 + 真实 Edge（CDP）** 上验证对象级授权，以及 A01/A03/A04/A05/A07/A09/A10 的攻击、修复与回归；ZAP 未执行，不宣称扫描通过。
+> 环境：Windows 10.0.28000 + Node v24.15.0 + PostgreSQL 18.6 + Edge 157
 
 ## 1. 做了什么、没做什么
 
 做了什么：
 
-- 两个租户（t1/t2）× 两个角色（owner/member），四个合成用户；scrypt 密码哈希 + 随机 token。
-- 覆盖列表、详情、创建、修改、删除、搜索、聚合计数、缓存键、文件、导出、后台任务、消息、日志的租户隔离。
-- 会话：logout 撤销、TTL 过期；上传：类型/大小/路径；导出 CSV 公式注入前缀；JSON `nosniff`。
-- 13 条 `node:test` 测试，全部通过；未认证访问统一 401。
+- 原授权矩阵（两租户：列表/详情/改/删/搜索缓存/统计/文件/上传）保留，10 条测试。
+- 新增 `src/security_lab.mjs`：真实 PG `e11` schema、Cookie 会话、CSRF、SQLi、XSS、SSRF 靶场。
+- SQLi：同一查询的拼接版与参数化版，同一 payload 下 3 行 vs 0 行。
+- XSS：存储、反射、DOM 三种；raw 与 safe 页面对照，safe 页输出编码 + CSP。
+- DOM XSS 用真实 Edge（`_shared/headless.mjs` CDP）执行，检查 `data-pwned`。
+- CSRF：`HttpOnly; SameSite=Lax` Cookie + `X-CSRF-Token` + Origin 允许列表。
+- SSRF：协议、主机允许列表、DNS 解析、私网段、重定向、响应大小限制。
+- 登录失败 5 次锁定；审计表记录登录与转账。
+- `tests/security.test.js` 8 条 + `tests/app.test.js` 13 条，共 21 条全过。
 
 没做什么：
 
-- **没有真实数据库/SQL**：SQL 注入不适用；参数化查询在 E07/E08/项目 02 验证。
-- **没有浏览器 XSS 执行**：只验证 JSON Content-Type/nosniff；没有前端 DOM 注入 sink。
-- **没有 CSRF**：本实验用 `Authorization: Bearer` 头，不是自动携带的 Cookie；若改 Cookie 会话需另测 CSRF。
-- **没有 SSRF/开放重定向**：服务端没有出站请求/重定向端点，标不适用。
-- **没有真实认证提供商/密码策略/限流/MFA**；密码是合成值。
-- **没有前端按钮隐藏**：所有限制在服务端；隐藏按钮不能作为授权证据。
+- **ZAP 未执行**：本机没有 ZAP，Java 25 可用但未安装 ZAP；不把手工 PoC 冒充扫描结果。
+- A02 只做机制核对（scrypt + timingSafeEqual + 随机 token），没有弱加密 PoC。
+- A06 只固定 fastify 5.12.8，未跑 `npm audit`，不作组件漏洞结论。
+- A08 只做 CSRF token 比对；没有制品签名/供应链完整性。
+- 没有覆盖 XXE、反序列化、原型污染、开放重定向、JWT 算法混淆。
+- 靶场是本地合成数据与单进程，不是生产渗透测试。
 
-## 2. 可证伪假设
+## 2. OWASP 2025 A01–A10 映射
 
-| # | 假设 | 判定方式 | 实际结果 |
-| --- | --- | --- | --- |
-| H1 | 跨租户详情必须 404，不能泄露存在性 | t1 用户读 t2 item | **成立**：404 |
-| H2 | member 不能删/改他人资源，owner 可以 | bob/alice 对 t1 item | **成立**：403/200/204 |
-| H3 | 搜索缓存必须把 tenant 放进 key | t1/t2 同 q 查询 | **成立**：结果不串 |
-| H4 | 文件路径穿越必须拒绝 | `..%2Ft2%2Fsecret.txt` | **成立**：400 |
-| H5 | 上传类型/大小/路径必须校验 | exe/2KB/`../x` | **成立**：415/413/400 |
-| H6 | 导出只含本租户，公式前缀防 CSV 注入 | t1 导出 + `=cmd` | **成立**：无 B secret、`'=cmd` |
-| H7 | logout/过期后 token 失效 | logout、ttl=10ms | **成立**：401 |
-| H8 | XSS 载荷在 JSON 中不成为 HTML | 创建 `<script>` 标题 | **成立**：`application/json` + nosniff |
+| 类别 | 本实验覆盖 | 证据 |
+| --- | --- | --- |
+| A01 Broken Access Control | 跨租户 404、CSRF token + Origin、SameSite | `evidence/security.txt`、`evidence/test.txt` |
+| A02 Cryptographic Failures | 机制核对：scrypt、timingSafeEqual、48 hex 会话 token；无 PoC | 同上 |
+| A03 Injection | SQLi（拼接 3 行 vs 参数化 0 行）、存储/反射/DOM XSS | 同上 |
+| A04 Insecure Design | 登录失败 5 次锁定、会话 TTL；机制核对 | 同上 |
+| A05 Security Misconfiguration | 安全页 CSP、nosniff、Referrer-Policy | 同上 |
+| A06 Vulnerable Components | fastify 5.12.8 固定；未跑 audit | 未证实 |
+| A07 Auth Failures | 锁定、HttpOnly/SameSite、错误密码统一 401 | 同上 |
+| A08 Integrity Failures | CSRF 比对；无制品签名 | 部分 |
+| A09 Logging Failures | `e11.audit` 记录登录/转账 | 同上 |
+| A10 SSRF | 协议/主机/私网/重定向/大小限制；vuln 跟随重定向取到内部 secret | 同上 |
 
 ## 3. 环境
 
 ```text
-OS     : Windows 10.0.28000 x64
-Node   : v24.15.0
-Fastify: 5.12.8（package-lock.json 固定）
-数据   : 进程内存；每个 app 实例独立 seed
-测试   : node:test + app.inject（不占端口）
+OS        : Windows 10.0.28000 x64
+Node      : v24.15.0
+Fastify   : 5.12.8
+PostgreSQL: 18.6（study_lab，schema e11）
+浏览器    : Edge（CDP，9544 临时端口）
+凭据      : PGPASSWORD 只从环境变量读取；不写入仓库
 ```
 
 ## 4. 执行命令
@@ -50,72 +58,80 @@ Fastify: 5.12.8（package-lock.json 固定）
 ```bash
 cd 06-实验代码/E11-authz-matrix
 npm ci
-bash scripts/run_unit.sh
+PGPASSWORD=<local-test-password> npm test
+PGPASSWORD=<local-test-password> bash scripts/run_evidence.sh
 echo $?
 ```
 
-## 5. 授权矩阵
+单跑攻击取证：`node src/attack_evidence.mjs`（会启动临时靶场与 Edge）。
 
-| 资源/操作 | owner（本租户） | member（本租户） | 其他租户 | 未认证 |
-| --- | --- | --- | --- | --- |
-| 列表/搜索/统计 | 本租户 | 本租户 | 不可见 | 401 |
-| 详情 | 本租户 | 本租户 | 404 | 401 |
-| 创建 | 允许 | 允许 | 归属本租户 | 401 |
-| 改他人 | 允许 | 403 | 404 | 401 |
-| 改自己 | 允许 | 允许 | 404 | 401 |
-| 删 | 允许 | 403 | 404 | 401 |
-| 文件/导出/任务/消息/日志 | 本租户 | 本租户 | 404/不可见 | 401 |
-| 上传 | 允许（类型/大小/路径校验） | 允许 | 归属本租户 | 401 |
+## 5. 关键实现
+
+```js
+// SQLi 修复：参数化
+SELECT id, tenant, title FROM e11.items
+WHERE tenant = $1 AND title ILIKE $2;
+
+// XSS 修复：输出编码 + CSP
+escapeHtml(body);
+content-security-policy: default-src 'none'; script-src 'none'
+
+// CSRF：token + Origin
+if (token !== session.csrf) return 403;
+if (origin && !allowedOrigins.has(origin)) return 403;
+
+// SSRF：协议 + 主机允许列表 + 不跟随重定向
+if (!['http:', 'https:'].includes(url.protocol)) return 400;
+if (!allowedHosts.has(`${host}:${port}`)) return 403;
+fetch(url, { redirect: 'manual' });
+```
 
 ## 6. 结果
 
-| 验收项 | 实际 | 证据 |
+| 项 | 实际 | 证据 |
 | --- | --- | --- |
-| 13 条测试 | `tests 13 pass 13 fail 0` | `evidence/test.txt` |
-| 语法 | 0 错误 | `evidence/syntax.txt` |
-| 门禁 | `gate_failures: 0` | `evidence/run.txt` |
+| 授权矩阵 | 10 条通过 | `evidence/test.txt` |
+| SQLi | 拼接 3 行（跨租户），参数化 0 行 | `evidence/security.txt` |
+| 存储 XSS | raw 含可执行标记；safe 转义 + CSP | 同上 |
+| 反射 XSS | raw 原样；safe `&lt;img` | 同上 |
+| DOM XSS | Edge 中 `onerror` 执行（约 1.4s）；safe 不执行 | 同上 |
+| CSRF | 缺 token 403、恶意 Origin 403、合法 200 | 同上 |
+| SSRF | file 400、元数据 403、重定向 403、白名单 200；vuln 取到 `internal-secret` | 同上 |
+| 登录锁定 | 5 次失败后 429 | 同上 |
+| 审计 | `e11.audit` 有登录/转账记录 | 同上 |
+| 测试 | 21 pass 0 fail | `evidence/test.txt` |
+| ZAP | **未执行** | `evidence/security.txt` |
 
-## 7. OWASP Top 10 风险映射（本实验范围）
+## 7. 边界
 
-> 按常见 A01–A10 编号做映射；2025 官方条目措辞未逐条核验，不能把本表当完整 ASVS 审计。
+1. ZAP baseline/主动扫描未运行；只有手工 PoC。
+2. A02/A04/A06/A08 是机制核对或版本固定，不是完整攻击复现。
+3. 没有 XXE、反序列化、原型污染、开放重定向、JWT 混淆。
+4. 浏览器只测 Edge 157；其他浏览器未复测。
+5. 单进程、本地合成数据；不是生产渗透或合规证明。
+6. 没有把靶场接入项目 02；不能据此宣称 G4/G7 通过。
 
-| 编号 | 本实验的证据 | 未覆盖 |
-| --- | --- | --- |
-| A01 访问控制失效 | 跨租户列表/详情/搜索/统计/文件/导出/任务/消息/日志 + 角色矩阵 | 真实 DB 行级权限、缓存/异步全链路 |
-| A02 加密失效 | scrypt 密码哈希、随机 token、token 过期 | TLS、密钥管理、密码策略 |
-| A03 注入 | 文件/上传路径、CSV 公式前缀、JSON 输出 | SQL 注入（本实验无 SQL） |
-| A04 不安全设计 | 两租户两角色矩阵、404 不泄露存在性 | 威胁建模、业务滥用 |
-| A05 安全配置错误 | nosniff、统一错误不返回堆栈、bodyLimit | 生产头/CSP/限流 |
-| A06 组件漏洞 | Fastify 固定版本 + lockfile | 依赖审计/供应链签名 |
-| A07 认证失败 | 登录失败 401、logout、TTL | MFA、锁定、密码重置 |
-| A08 数据完整性 | 未覆盖 | 更新/CI/反序列化 |
-| A09 日志监控 | 日志按租户、不含密码/token | 告警、保留期、防篡改 |
-| A10 SSRF | 服务端无出站请求，标不适用 | 未来若加 webhook 需重测 |
-
-## 8. 边界
-
-1. 内存数据；重启即丢失，不是持久化授权。
-2. 没有真实 DB 行级安全/事务；E07/E08 另行验证。
-3. 没有浏览器端 XSS/CSRF；JSON API 不是 HTML 渲染。
-4. 没有限流/锁定/MFA/密码策略；合成密码不是生产认证。
-5. 没有前端；不能证明“按钮隐藏”之类的客户端授权。
-6. 测试是单进程 `inject`，没有真实网络/TLS/代理。
-
-## 9. M / E / G 映射
+## 8. M / E / G 映射
 
 | 项 | 映射 | 说明 |
 | --- | --- | --- |
-| M10 安全与隐私 | 部分 | 对象级授权、上传、导出、日志、会话 |
-| E11 | **本实验** | 无真实 DB/浏览器/SSRF |
-| G4–G6 | 仅授权子项 | 不代表 G4/G5/G6 通过 |
+| M11 安全 | 部分 | 授权、注入、XSS、CSRF、SSRF、日志 |
+| E11 | **本实验** | A01–A10 映射；ZAP 缺失 |
+| G4/G7 | 仅子项 | 不代表关口通过 |
 
-## 10. 目录结构
+## 9. 目录结构
 
 ```text
 E11-authz-matrix/
-├── src/app.js             Fastify 两租户 API + 授权矩阵
-├── tests/app.test.js      13 条跨租户/角色/上传/会话测试
-├── scripts/run_unit.sh
-├── evidence/              syntax/test/run + manifest
+├── src/
+│   ├── app.js              原对象级授权矩阵（内存）
+│   ├── lab_db.mjs          PG e11 schema
+│   ├── security_lab.mjs    真实 PG 靶场（SQLi/XSS/CSRF/SSRF）
+│   └── attack_evidence.mjs 攻击/修复证据 + Edge DOM XSS
+├── tests/app.test.js       授权矩阵 13 条
+├── tests/security.test.js  安全靶场 8 条
+├── scenarios/              SQLi、DOM XSS、CSRF、SSRF
+├── scripts/run_evidence.sh
+├── evidence/               syntax/security/test/run
 └── package.json / package-lock.json
 ```

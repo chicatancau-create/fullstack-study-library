@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E11",
-  "generated_at": "2026-11-08T10:28:18.174Z",
-  "commit": "dc094b10725a3382e86fa26910719b143f4139ac",
+  "generated_at": "2026-11-09T02:42:27.935Z",
+  "commit": "d5bc90e08ec08d034daf727a87a37bdbf41feb95",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -12,7 +12,11 @@
   },
   "commands": [
     {
-      "cmd": "bash scripts/run_unit.sh",
+      "cmd": "bash scripts/run_evidence.sh",
+      "exit": 0
+    },
+    {
+      "cmd": "npm test",
       "exit": 0
     }
   ],
@@ -23,17 +27,25 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
+      "path": "evidence/syntax-lab.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/security.txt",
+      "bytes": 1154,
+      "sha256": "2752fe0efa5bb7abe1a3ebf142acdc624acf28d5e703673bb5b5306eeb5d7007"
+    },
+    {
       "path": "evidence/test.txt",
-      "bytes": 931,
-      "sha256": "882d56b356cf1380095440f41c29c1331e0cf9636aa8687a2aa5071c68bf4c50"
+      "bytes": 1459,
+      "sha256": "5757a2211c2a88a4fd399ecc3f85561b5eda1b2d5385759506c9f9e247c5cbd7"
     },
     {
       "path": "evidence/run.txt",
-      "bytes": 116,
-      "sha256": "329568072c29bcbda3d337763f910db45528b8b71547e985ba3aa3a3a703ad29"
+      "bytes": 236,
+      "sha256": "f7554ab6824d2012b5a03e0c6992bff2a487ff33a00cdeb0754781f7090571f7"
     }
   ],
-  "unverified": [
-    "内存数据；无真实 DB/SQL、浏览器 XSS/CSRF、SSRF、TLS、限流/MFA"
-  ]
+  "unverified": []
 }
