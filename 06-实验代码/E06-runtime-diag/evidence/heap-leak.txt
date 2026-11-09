@@ -1,0 +1,13 @@
+闭包泄漏与修复对照（--expose-gc，120 条/轮，每条约 16KB 堆数据）
+base: heapUsed=4.32MB
+round-1: heapUsed=6.22MB
+round-2: heapUsed=8.12MB
+round-3: heapUsed=10.02MB
+round-4: heapUsed=11.92MB
+清理后: heapUsed=4.21MB
+
+leaked snapshot: nodes=64196 edges=277220 strings=28865
+fixed  snapshot: nodes=61796 edges=267609 strings=28866
+leaked 中 LeakBuffer 顶层聚合: (未进入前 12)
+retainer path(leaked): (synthetic,0B) -> (GC roots)(synthetic,0B) -> (Stack roots)(synthetic,0B) -> system / Context(object,56B) -> Array(object,32B) -> LeakBuffer(object,40B)
+retainer path(fixed): (not found，符合清理预期)

@@ -1,12 +1,17 @@
 {
   "name": "e06-runtime-diag",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "engines": {
     "node": ">=24"
   },
   "scripts": {
+    "test": "node --test tests/runtime.test.mjs",
+    "flame": "node node_modules/0x/cmd.js --output-dir evidence/flame scenarios/cpu_loop.mjs",
     "evidence": "bash scripts/run_evidence.sh"
+  },
+  "devDependencies": {
+    "0x": "^5.8.0"
   }
 }

@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E06",
-  "generated_at": "2026-11-08T09:56:19.328Z",
-  "commit": "c9d17ab1d3532e872a71d56690daf0feb8eae8e4",
+  "generated_at": "2026-11-09T01:59:30.352Z",
+  "commit": "934df62a837ce9bcbbb4e00e326d49fe4147d294",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -10,27 +10,66 @@
     "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
     "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
   },
-  "commands": [],
-  "artifacts": [
+  "commands": [
     {
-      "path": "evidence/env.txt",
-      "bytes": 133,
-      "sha256": "a79658e89a5b26f36f561ef2cac0a8d5ea720de43f77ae46644169c61a2e772b"
+      "cmd": "bash scripts/run_evidence.sh",
+      "exit": 0
     },
     {
-      "path": "evidence/run.txt",
-      "bytes": 247,
-      "sha256": "0202f29feac489972afdb717032f85d61a03a4d1742b6b4020456e8eb16f87fa"
+      "cmd": "npm test",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/test.txt",
+      "bytes": 340,
+      "sha256": "d889f881305317ac24ad8e7dd123bb5b95dbc2ff9a55b8624fd8e11dd8a99f18"
+    },
+    {
+      "path": "evidence/flame/flamegraph.html",
+      "bytes": 472720,
+      "sha256": "16b3a4a9ed27fee124800268c614f861119a9743305c32827b42a25592180696"
+    },
+    {
+      "path": "evidence/flame/meta.json",
+      "bytes": 710,
+      "sha256": "0b67e828845489bb5739e434a7046717a03807d8adcfa8fee3e0e35676947fc1"
+    },
+    {
+      "path": "evidence/cpu/CPU.20261109.095757.71316.0.001.cpuprofile",
+      "bytes": 14541,
+      "sha256": "146f9245b17e9b43ced92999936b405ed00b45540bd5edf0bb3694fa64c5e80f"
+    },
+    {
+      "path": "evidence/cpu-hot.txt",
+      "bytes": 401,
+      "sha256": "18d0c6ff6a43f10f92ac607b6e687a4b870fb24205b1f73c7ca9bafd2eda2b66"
     },
     {
       "path": "evidence/cpu_loop.txt",
       "bytes": 37,
-      "sha256": "1af25cabd714b6318b225d83d4c3c1051ddd9e07da337c92daa209d11e983b1a"
+      "sha256": "6f1243312ec8e0812b776030dc9b4faf0064e164c072b561c1da990b6545af01"
     },
     {
-      "path": "evidence/heap.txt",
-      "bytes": 100,
-      "sha256": "58342bd696397f84fea9be1a71a07b44cf6ce2bc55e8b42cf53b2ed28e71c80f"
+      "path": "evidence/heap-leak.txt",
+      "bytes": 635,
+      "sha256": "38cefc3c850bd1d5a920c38b1958d65abc332d9cf18d6edfc768088c7bfa1637"
+    },
+    {
+      "path": "evidence/heap/leaked.heapsnapshot",
+      "bytes": 5571112,
+      "sha256": "05c9190926ac0d6b78b63f6c9892567c3127c184f5878650e47a3dd57240273a"
+    },
+    {
+      "path": "evidence/heap/fixed.heapsnapshot",
+      "bytes": 5373419,
+      "sha256": "b43c7e8775b03dd34c06e61a889ff40045391e8032c5a812ba0213d35c0fcd71"
+    },
+    {
+      "path": "evidence/busy-fix.txt",
+      "bytes": 272,
+      "sha256": "90732e1b939da2d4ee2e7f7ea06daeae14d2c35727a4b5f6a61d7c4d37137d79"
     },
     {
       "path": "evidence/fd.txt",
@@ -41,7 +80,21 @@
       "path": "evidence/eventloop.txt",
       "bytes": 60,
       "sha256": "b1edcea9617702d2ddd7456034cd1225cc64ca18abb5824d4d4f5e54096b951d"
+    },
+    {
+      "path": "evidence/heap.txt",
+      "bytes": 100,
+      "sha256": "58342bd696397f84fea9be1a71a07b44cf6ce2bc55e8b42cf53b2ed28e71c80f"
+    },
+    {
+      "path": "evidence/run.txt",
+      "bytes": 407,
+      "sha256": "fe4f9c497d860a15fef11b17cad85cb6e5e414710276b33b81b0646361d3b347"
     }
   ],
-  "unverified": []
+  "unverified": [
+    "单进程 Node；无系统级 fd/容器诊断",
+    "泄漏场景为受控合成对象图，不代表业务对象",
+    "CPU profile 为采样，火焰图不含原生/内核栈"
+  ]
 }

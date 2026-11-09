@@ -1,0 +1,11 @@
+✔ hotFunctions：按样本时间聚合自耗时并降序 (0.9129ms)
+✔ heap：统计节点并按 retainer path 找到目标对象 (0.9874ms)
+✔ chunkedCompute：结果确定，且不长时间阻塞事件循环 (327.0702ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 453.8341

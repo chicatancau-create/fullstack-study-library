@@ -1,0 +1,4 @@
+忙循环 200ms 的三种处理（monitorEventLoopDelay, resolution=5ms）
+阻塞     : max=216.4ms mean=39.6ms p99=216.4ms
+分片     : max=25.9ms mean=11.9ms p99=25.9ms（setImmediate，10ms/片）
+worker   : max=19.3ms mean=14.4ms p99=19.3ms（主线程只等消息）
