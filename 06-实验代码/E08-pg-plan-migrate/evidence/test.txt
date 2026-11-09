@@ -1,0 +1,13 @@
+✔ expand/contract 全流程：catalog-only 加列、分批回填、双写漂移、切读、删旧列 (415.652ms)
+✔ 兼容矩阵：old/new 应用 × schema N-1/N/N+1 的 12 个读写格子 (265.8741ms)
+✔ 改类型：观察到未授予锁与排队写入，释放后完成并保留行数 (1360.576ms)
+✔ 回滚：坏迁移被拒绝、前向修复、down 迁移丢列值、dump 恢复丢快照后写入 (612.5408ms)
+✔ Prisma migrate diff 生成的 DDL 与手写 SQL 列结构一致 (2305.2363ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5064.5584

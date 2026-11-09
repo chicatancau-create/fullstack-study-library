@@ -1,0 +1,4 @@
+PASS prisma migrate diff produced 11 lines
+PASS prisma table matches hand-written DDL (4 columns)
+prisma columns: created_at:timestamp without time zone, email:character varying, email_norm:character varying, id:bigint
+PRISMA PASS

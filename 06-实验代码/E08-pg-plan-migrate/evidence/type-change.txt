@@ -1,0 +1,6 @@
+PASS lock wait observed: mode=AccessExclusiveLock wait=Lock/relation
+PASS type change completes after lock release in 204ms
+PASS type=bigint rows=50000
+PASS concurrent writes: attempts=11 ok=11 failed=0 maxStall=180.4ms
+PASS lock_timeout aborts type change: 55P03
+TYPE PASS

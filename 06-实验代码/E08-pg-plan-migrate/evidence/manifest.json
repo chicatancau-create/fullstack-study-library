@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E08",
-  "generated_at": "2026-11-08T09:56:20.194Z",
-  "commit": "c9d17ab1d3532e872a71d56690daf0feb8eae8e4",
+  "generated_at": "2026-11-09T02:29:03.418Z",
+  "commit": "734ea073804b5359f9c62d723abd29ab41f0a085",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -10,7 +10,16 @@
     "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
     "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
   },
-  "commands": [],
+  "commands": [
+    {
+      "cmd": "bash scripts/run_evidence.sh",
+      "exit": 0
+    },
+    {
+      "cmd": "npm test",
+      "exit": 0
+    }
+  ],
   "artifacts": [
     {
       "path": "evidence/env.txt",
@@ -25,17 +34,17 @@
     {
       "path": "evidence/explain.txt",
       "bytes": 93,
-      "sha256": "ec47a38335dbecdf5a87d3e1cd46f15e91eaddadf2ef8318de262a7952530414"
+      "sha256": "388e225cafc3d987682f7c3e66bbb0e2bfffdfcad9c507cda26e48f29a42c9e1"
     },
     {
       "path": "evidence/explain-before.json",
-      "bytes": 3046,
-      "sha256": "7a336cc54aa95a039a79d5f7147b64e8750dba6f4e8b7ae44ff7af6886930fe2"
+      "bytes": 3044,
+      "sha256": "3fba1b143ff0321ffc8981b3f32a629f35e2f468e649cedb9b16f04414e14d44"
     },
     {
       "path": "evidence/explain-after.json",
-      "bytes": 2100,
-      "sha256": "9cd7da788c9da7499fe301fadee5754db1b2ee9e6d81db20d90bd1739e599513"
+      "bytes": 2099,
+      "sha256": "a262aabb18546d1b49536c533124850de8daa65b727278e261c25705ca93aa92"
     },
     {
       "path": "evidence/migrate.txt",
@@ -45,12 +54,52 @@
     {
       "path": "evidence/backup.txt",
       "bytes": 83,
-      "sha256": "6c5567db06ec4558a2449ea37ee13d6f83f0480540daaa3039365382e23e4856"
+      "sha256": "8ec942d2cd944a028f5a19c95608c3e2b78e0622ea6789f684d1ef63ef000a79"
+    },
+    {
+      "path": "evidence/stages.txt",
+      "bytes": 358,
+      "sha256": "3bde0770def1e748553790577c51c7e25708b87629a29ab3808eb498fa3bb70d"
+    },
+    {
+      "path": "evidence/compat.txt",
+      "bytes": 300,
+      "sha256": "d60b7f7f34f2060c61bb2d1841e9160d370edfc0cd6a64b65924ff9834b3f514"
+    },
+    {
+      "path": "evidence/type-change.txt",
+      "bytes": 274,
+      "sha256": "578dcfea908ae60205e88a73ce815ae29611ca276cbbfe477aecd367e83111c7"
+    },
+    {
+      "path": "evidence/rollback.txt",
+      "bytes": 255,
+      "sha256": "cebef0a621eb24d248045705efbb1662eadf81920dd9afb36f481e55809a3ab1"
+    },
+    {
+      "path": "evidence/rollback-dump.sql",
+      "bytes": 1842,
+      "sha256": "7a3c121dd879d3fd30f4f1a2776b7c5787307dc896b4ffc9a5041a1550a85299"
+    },
+    {
+      "path": "evidence/prisma.txt",
+      "bytes": 231,
+      "sha256": "cd545391fbd3a46112e2dde31902a52a4f984c7befd670bcbcc637f26001d297"
+    },
+    {
+      "path": "evidence/prisma-diff.sql",
+      "bytes": 266,
+      "sha256": "b04a02d6a65bbacff157715b9df117d83b70d39a419624c0c6c48835d263c773"
+    },
+    {
+      "path": "evidence/test.txt",
+      "bytes": 615,
+      "sha256": "1bcf0bde5db2cd4653bf3160262212e84116c9c347dda044417c315d9880d0ff"
     },
     {
       "path": "evidence/run.txt",
-      "bytes": 291,
-      "sha256": "dd3ea014e6d1a9b885bcde6906946dd85fbea409d72c025634b1585ea8059915"
+      "bytes": 450,
+      "sha256": "59d91a8e198cac4f4195ee47cc625236a6df9e56e97fc0c01f20af7af90c19d1"
     }
   ],
   "unverified": []

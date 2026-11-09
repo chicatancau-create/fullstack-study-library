@@ -1,0 +1,8 @@
+PASS N stage: old app reads email
+PASS expand: catalog-only relfilenode 89450, 1212416B, 0.81ms
+PASS backfill: 5 batches, missing=0
+PASS dual-write window: old writer leaves 1 row without email_norm
+PASS verify: mismatched rows=0
+PASS switch read: both readers work during overlap
+PASS contract: new reader ok, old reader error=42703, rows=20003
+STAGES PASS

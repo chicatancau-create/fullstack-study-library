@@ -1,0 +1,17 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Account {
+  id        BigInt   @id @default(autoincrement())
+  email     String   @db.VarChar(320)
+  emailNorm String   @map("email_norm") @db.VarChar(320)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("accounts")
+}

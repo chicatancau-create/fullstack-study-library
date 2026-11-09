@@ -1,0 +1,8 @@
+PASS old app vs schema N-1: read=OK write=OK
+PASS old app vs schema N: read=OK write=OK
+PASS old app vs schema N+1: read=OK write=OK
+PASS new app vs schema N-1: read=42703 write=42703
+PASS new app vs schema N: read=OK write=OK
+PASS new app vs schema N+1: read=OK write=OK
+matrix cells=12
+COMPAT PASS

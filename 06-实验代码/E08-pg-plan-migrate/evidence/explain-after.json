@@ -4,11 +4,11 @@
     "Parallel Aware": false,
     "Async Capable": false,
     "Startup Cost": 0.41,
-    "Total Cost": 12.21,
+    "Total Cost": 12.17,
     "Plan Rows": 20,
     "Plan Width": 28,
-    "Actual Startup Time": 0.08,
-    "Actual Total Time": 0.087,
+    "Actual Startup Time": 0.089,
+    "Actual Total Time": 0.098,
     "Actual Rows": 20,
     "Actual Loops": 1,
     "Disabled": false,
@@ -33,11 +33,11 @@
         "Relation Name": "events",
         "Alias": "events",
         "Startup Cost": 0.41,
-        "Total Cost": 988.49,
-        "Plan Rows": 1676,
+        "Total Cost": 987.37,
+        "Plan Rows": 1679,
         "Plan Width": 28,
-        "Actual Startup Time": 0.078,
-        "Actual Total Time": 0.085,
+        "Actual Startup Time": 0.088,
+        "Actual Total Time": 0.094,
         "Actual Rows": 20,
         "Actual Loops": 1,
         "Disabled": false,
@@ -58,7 +58,7 @@
     ]
   },
   "Planning": {
-    "Shared Hit Blocks": 23,
+    "Shared Hit Blocks": 21,
     "Shared Read Blocks": 1,
     "Shared Dirtied Blocks": 0,
     "Shared Written Blocks": 0,
@@ -69,7 +69,7 @@
     "Temp Read Blocks": 0,
     "Temp Written Blocks": 0
   },
-  "Planning Time": 0.336,
+  "Planning Time": 0.3,
   "Triggers": [],
-  "Execution Time": 0.105
+  "Execution Time": 0.121
 }

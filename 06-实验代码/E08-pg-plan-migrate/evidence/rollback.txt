@@ -1,0 +1,5 @@
+PASS bad NOT NULL migration rejected on non-empty table: 23502
+PASS forward fix keeps rows: rows=3 totals=3
+PASS down migration: column dropped, rows preserved, 2 rows lost written total
+PASS restore: dump=1842B rows=3, post-dump write lost
+ROLLBACK PASS
