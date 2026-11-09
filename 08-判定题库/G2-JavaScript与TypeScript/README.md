@@ -19,7 +19,7 @@ TS 版另要求通过 `tsc` 严格类型检查与 `type-coverage ≥80%`。
 | `node 自测脚本/grade.mjs 参考答案/index.mjs` | JS 版 3 条断言（并发/FIFO/结果） |
 | `node 自测脚本/grade-ts.mjs 参考答案/ts/pool.ts` | TS 池 16 条断言：并发上限、FIFO、拒绝后继续、队列满、`limit` 非法、多轮 `await` 交错、`stats` 快照不可污染 |
 | `node 自测脚本/grade-cli.mjs` | CLI 14 条验收：帮助/退出码/未知参数/schema/队列满/取消/并发生效 |
-| `npm run typecheck` | `tsc -p tsconfig.json` 零错误（起始代码 + 参考答案都检查） |
+| `npm run typecheck` | `tsc -p tsconfig.json` 零错误（起始代码 + 参考答案 + `类型测试/` 类型层断言） |
 | `npm run type-coverage` | 类型覆盖率 ≥80%（实测 99.32%，439/442） |
 | `npm run evidence` | 全套重跑并写 `evidence/`，同时验证“答案通过、起始代码被拒绝” |
 

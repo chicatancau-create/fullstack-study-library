@@ -28,7 +28,7 @@ Gx/
 | --- | --- | --- |
 | G0 环境与工程习惯 | 冲突合并：保留双方独有行、去标记 | [G0](G0-环境与工程习惯/README.md) |
 | G1 计算机与 Web 基础 | 静态可访问性检查（lang/alt/label/viewport） | [G1](G1-计算机与Web基础/README.md) |
-| G2 JavaScript/TypeScript | 有界异步池：并发上限/FIFO/拒绝后继续 | [G2](G2-JavaScript与TypeScript/README.md) |
+| G2 JavaScript/TypeScript | 有界异步池 + TS CLI（并发上限/FIFO/拒绝后继续/取消/退出码/type-coverage ≥80%） | [G2](G2-JavaScript与TypeScript/README.md) |
 | G3 React 前端工程 | 竞态保护：只接受最后一次响应 | [G3](G3-React前端工程/README.md) |
 | G4 Node.js 后端与数据库 | 租户隔离 + RBAC 矩阵 | [G4](G4-Node后端与数据库/README.md) |
 | G5 测试安全与性能 | 输入校验：数量/SKU/XSS | [G5](G5-测试安全与性能/README.md) |

@@ -39,6 +39,7 @@ for (const pack of packs) {
   }
 
   const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => {
+    if (e.name === 'node_modules' || e.name === '__pycache__') return [];
     const p = path.join(d, e.name);
     return e.isDirectory() ? walk(p) : [p];
   });

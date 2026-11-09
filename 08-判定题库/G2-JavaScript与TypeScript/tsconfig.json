@@ -15,5 +15,5 @@
     "skipLibCheck": true,
     "types": ["node"]
   },
-  "include": ["起始代码/ts/**/*.ts", "参考答案/ts/**/*.ts"]
+  "include": ["起始代码/ts/**/*.ts", "参考答案/ts/**/*.ts", "类型测试/**/*.ts"]
 }
