@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E04",
-  "generated_at": "2026-11-08T10:28:35.613Z",
-  "commit": "775a4d626aa33078d657367be7e0f28fd80712bd",
+  "generated_at": "2026-11-09T01:43:18.637Z",
+  "commit": "07937ba59ffd5e0c27b8b15f65c0e8f5d79a580c",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -10,32 +10,41 @@
     "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
     "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
   },
-  "commands": [],
+  "commands": [
+    {
+      "cmd": "bash scripts/run_evidence.sh",
+      "exit": 0
+    },
+    {
+      "cmd": "npm test",
+      "exit": 0
+    }
+  ],
   "artifacts": [
     {
       "path": "evidence/status-codes.txt",
       "bytes": 3924,
-      "sha256": "7ffa6d07cb10812ee4a96772c63d69c388a135dd8ac4e3dea2ceb10f470e58a2"
+      "sha256": "a4cc27484cbaaf31449817d06c6c304f0b6d433aa572f8a8766c1e82005e1ea9"
     },
     {
       "path": "evidence/cache.txt",
       "bytes": 1267,
-      "sha256": "2547cd687cd24357f9bb2842adb57de7183ffcdc193b23d9efa6dd3e2060128c"
+      "sha256": "4af55fdb2b3a2788f803831e9cc80ef8e0d71d17700a7af1b4aa75ce1fc1b747"
     },
     {
       "path": "evidence/cookies.txt",
       "bytes": 1919,
-      "sha256": "189393901b3009d0746c4b842612fc14754411dd68f987c1e20733fe489be2f2"
+      "sha256": "2397c6e1b64cb710fd4621281aa332abed258a4e0c7934b20cf72b4db61aff7d"
     },
     {
       "path": "evidence/cookie-jar.txt",
       "bytes": 258,
-      "sha256": "418afde7913893776c5642779a8a9d9b754e5f9a9e574d4d3ad4733fbf6313da"
+      "sha256": "afbc7a0af8466fe1b26d934d5b99a441a22a6068bfc7b81a01c60f4a1f5c9a95"
     },
     {
       "path": "evidence/cors-curl.txt",
       "bytes": 2722,
-      "sha256": "767516401da7004933debc7ed8792a9928e9270978524826eb339b4e595d413a"
+      "sha256": "94ad58c0d43a18f30ba3982bc71fcedfcb531d45a72b08a4ec29586134b14334"
     },
     {
       "path": "evidence/browser-cors.txt",
@@ -45,7 +54,7 @@
     {
       "path": "evidence/browser-cors.json",
       "bytes": 4085,
-      "sha256": "e7b818725005b381b2e7a3d021ba67014e621a53810819a58c3a753b6924d7ca"
+      "sha256": "f5359476a597d109f6cdfcbe6d749575e640619b18076e3b4017ec49e990043c"
     },
     {
       "path": "evidence/cors-browser.png",
@@ -55,13 +64,27 @@
     {
       "path": "evidence/failures.txt",
       "bytes": 1001,
-      "sha256": "810ddeaaee0ceedbbb848b1a6a0b096b3f0f9de7b7c27e7158c7f665d998301f"
+      "sha256": "0b650ae7f87999ff035679f8d055eab72e18fe910720043b62e23e25f5c3b69a"
     },
     {
       "path": "evidence/server.log",
       "bytes": 3065,
-      "sha256": "57d901f8c7953c91027cd79f11854d0cf56b5da97194302968eafb69f973a193"
+      "sha256": "ac2688079f0d0cbcf1c9c324a21d8184cd26110cc015367bd1bb8640e0cfc6ec"
+    },
+    {
+      "path": "evidence/network-depth.txt",
+      "bytes": 1156,
+      "sha256": "38264cb4e71a00552e070fa4709eebe14f73624a56e7bfc5ae28c19c713a2aa1"
+    },
+    {
+      "path": "evidence/tls-handshake.txt",
+      "bytes": 251,
+      "sha256": "21cebd2ac59a81272ee63073ea445da0caba7d9de525d284b10909840f4e175b"
     }
   ],
-  "unverified": []
+  "unverified": [
+    "本机无 tcpdump/dumpcap/tshark，未生成 .pcap；TCP/TLS/HTTP2 证据来自 socket API 观测，不是抓包解码",
+    "DNS 只覆盖解析器不可达（resolver=127.0.0.1:1），未覆盖 NXDOMAIN/超时/劫持",
+    "TLS 只覆盖自签证书 + Node 客户端，未验证真实 CA 链、OCSP、证书轮换"
+  ]
 }

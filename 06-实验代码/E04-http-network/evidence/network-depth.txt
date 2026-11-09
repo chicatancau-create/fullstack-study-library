@@ -1,0 +1,14 @@
+E04 完整版：TCP/TLS/HTTP2/DNS/ECONNREFUSED 取证
+生成时间：2026-11-09T01:42:38.228Z
+边界：本机无 tcpdump，未生成 .pcap；TCP 证据来自 socket API 的连接事件与端口复用，不是抓包解码。
+
+TCP：3 次独立连接建立耗时 4.6ms/local:52538, 2.32ms/local:52539, 1.45ms/local:52540
+TCP：服务端观察到 3 个入站连接，端口各异 => 每次新建连接（短连接）
+TCP 复用：同一 keep-alive Agent 发 2 个请求，服务端新建连接数=1（期望 1）
+TLS：protocol=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 ALPN=h2 peerCN=localhost；详见 evidence/tls-handshake.txt
+HTTP/1.1 单连接串行 2 请求=430ms（TLS 连接数=1）；HTTP/2 单连接 2 并发流=220ms（TLS 连接数=1，stream id=1,3）
+DNS：resolver=127.0.0.1:1 解析 example.com -> ECONNREFUSED: queryA ECONNREFUSED example.com
+ECONNREFUSED：连接 127.0.0.1:1 -> ECONNREFUSED
+
+结论：TCP 短连接/keep-alive 复用、TLS 1.3 握手与 ALPN、H2 多流、DNS 失败与连接拒绝均在本机真实复现。
+未证实：无 .pcap 字节级解码；DNS 失败只覆盖“解析器不可达”，不覆盖 NXDOMAIN 与劫持。

@@ -1,0 +1,6 @@
+TLS 握手结果（Node tls API 观测；本机无 pcap，未保存 ClientHello 原始字节）
+protocol=TLSv1.3
+cipher=TLS_AES_256_GCM_SHA384
+alpn=h2
+authorized=false（自签证书，客户端显式关闭校验，仅本机测试）
+peerCN=localhost

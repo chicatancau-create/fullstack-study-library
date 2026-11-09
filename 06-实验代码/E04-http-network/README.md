@@ -3,6 +3,7 @@
 > 对应 [[../../01-阶段课程/专项-核心原理与深度实验|专项：核心原理与深度实验]] 的 E04。
 > **本实验只提供 G1 中"网络解释"这一项的证据**，不覆盖键盘操作与内存定位，因此**不能据此把 G1 标为通过**。
 > 记录日期：2026-11-07｜执行环境：Windows 10.0.28000 + Node.js v24.15.0 + curl 8.17.0 + Edge 157.0.4341.42
+> 2026-11-09 增补：TCP / TLS / HTTP2 / DNS 失败 / ECONNREFUSED 的传输层证据与 `tests/`、`scenarios/`。原第 1、9 节的"没有做"条目已被第 6.6 节与新版边界替换。
 
 ## 1. 这次做了什么、没做什么
 
@@ -16,12 +17,15 @@
 - 覆盖 CORS：预检、允许、拒绝（无 ACAO）、`*` 与 credentials 同时出现的错误组合。
 - 覆盖失败分层：未监听端口超时、慢响应超时、服务端断开连接、客户端超时但服务端已提交。
 - 用 headless Edge 执行同一批 CORS 用例，记录浏览器 console 的真实拦截文本，并与服务端日志对照。
+- 用 Node 内置 `net/http/https/http2/tls/dns` 观测传输层：短连接与 keep-alive 复用、TLS 1.3 握手与 ALPN、HTTP/1.1 单连接串行 vs HTTP/2 单连接多流、解析器不可达、`ECONNREFUSED`。
+- 把 curl/浏览器断言整理成 `tests/`（13 条，`npm test` 可重复运行），把四类反例写成 `scenarios/`。
 
 没做什么（避免夸大）：
 
-- 没有验证 DNS 解析失败：本机解析器把任意域名（包括 `.invalid`）解析到代理地址，curl 得到的是空响应而不是 DNS 错误，无法用它复现解析失败。
-- 没有复现 `ECONNREFUSED`：本机对未监听端口表现为超时（exit 28），不是立即拒绝（exit 7）；这是本机网络栈行为，不能外推为 TCP 语义。
-- 没有验证 TCP 握手细节、TLS 握手与 HTTP/2：全部请求是 `http://127.0.0.1`，只走 HTTP/1.1。
+- 没有保存 `.pcap` 字节流：本机没有 tcpdump/dumpcap/tshark，传输层结论来自 socket API 观测（连接数、时间窗、协议、错误码），不是抓包解码。
+- DNS 只复现"解析器不可达"：把 resolver 指向 `127.0.0.1:1` 得到 `ECONNREFUSED`；没有复现 NXDOMAIN、超时、劫持。
+- TLS 只覆盖本机自签证书与 Node 客户端：没有验证真实 CA 链、OCSP、证书轮换、客户端证书。
+- `ECONNREFUSED` 的证据来自 Node `net.connect` 与 PowerShell `TcpClient`；同一端口上 Git Bash 的 curl 仍表现为 exit 28 超时（见第 6.6 节），因此不能拿单一客户端退出码外推 TCP 行为。
 - 没有接真实 CDN / 反向代理 / 共享缓存；缓存证据只覆盖单机服务端响应头与浏览器无关的 `curl` 行为。
 - 没有执行 XSS 或 CSRF 攻击；Cookie 与 localStorage 的安全差异只做机制解释，不冒充实验结论。
 - 没有测试真实域名下的 `Domain` 属性、跨站 Cookie、第三方 Cookie 策略。
@@ -38,7 +42,7 @@
 | H5 | `ETag` 条件请求在未修改时返回 304 且无响应体 | 用第一次响应的 ETag 发 `If-None-Match` | **成立**：304，无 body；换过期 ETag 则 200 |
 | H6 | HttpOnly Cookie 在浏览器里读不到，但会随同源请求自动发送 | 登录后读 `document.cookie` 再请求 `/api/session` | **成立**：`document.cookie` 只有 `theme=light`，`sid` 不可读；带凭据请求返回 200 |
 | H7 | 客户端超时不等于服务端没执行 | 1 秒超时发 `POST /api/slow-write`，再查列表 | **成立**：客户端 exit 28，服务端 `[commit] id=4`，随后列表出现该条 |
-| H8 | 未监听端口应立即得到 connection refused | `curl http://127.0.0.1:8791/` | **未成立（环境差异）**：本机返回超时 exit 28，不是 exit 7；不据此断言 TCP 行为 |
+| H8 | 未监听端口应立即得到 connection refused | `curl http://127.0.0.1:8791/` 与 Node `net.connect` 对照 | **部分成立（客户端相关）**：Node/PowerShell 立即得到 `ECONNREFUSED`；同端口 curl 仍超时 exit 28。不能只凭 curl 退出码判断 TCP 语义（第 6.6 节） |
 
 ## 3. 干净环境
 
@@ -58,12 +62,24 @@ cd 06-实验代码/E04-http-network
 bash scripts/run_evidence.sh
 ```
 
-脚本做四件事：启动服务端 → 用 curl 采集原始 HTTP → 用 headless Edge 跑 CORS 用例 → 关服务端。退出码 0 表示 8 条浏览器断言全部通过。
+脚本做五件事：启动服务端 → 用 curl 采集原始 HTTP → 跑传输层取证（Node socket API）→ 用 headless Edge 跑 CORS 用例 → 关服务端。退出码 0 表示传输层取证与 8 条浏览器断言都通过。
+
+只跑应用层与传输层断言（不需要 Edge，约 1 秒）：
+
+```bash
+npm test
+```
 
 单独复跑浏览器部分（服务端需已在运行）：
 
 ```bash
 node scripts/browser_probe.mjs
+```
+
+单独复跑传输层（不依赖 8787/8788）：
+
+```bash
+node scripts/network_depth.mjs
 ```
 
 ## 5. 证据文件与读法
@@ -80,6 +96,11 @@ node scripts/browser_probe.mjs
 | `evidence/browser-cors.txt` | 浏览器侧结果、console 拦截文本、8 条断言 | 8/8 PASS；两条拦截文本可直接引用 |
 | `evidence/browser-cors.json` | 同上，机器可读，含浏览器版本与时间 | 便于以后比对 |
 | `evidence/cors-browser.png` | 取证页截图 | 页面上的结果表与 console 结论一致 |
+| `evidence/network-depth.txt` | TCP 短连接/复用、TLS、HTTP1 vs HTTP2、DNS、ECONNREFUSED 的实测行 | 3 个不同源端口；复用 1 连接；TLS1.3/ALPN=h2；H1 425ms vs H2 219ms（stream id 1,3）；两处 `ECONNREFUSED` |
+| `evidence/tls-handshake.txt` | TLS 协商结果 | protocol/cipher/alpn/authorized/peerCN 五项；`authorized=false` 是自签证书的预期值，不是失败 |
+| `evidence/tls-key.pem`、`tls-cert.pem` | 本机自签证书（2 天有效期） | 本地生成，不入库（`.gitignore` 已排除）；只用于回环测试，首次运行时自动重建 |
+| `tests/` | 13 条断言（`npm test`） | 应用层 7 条 + 传输层 6 条；不依赖 Edge，约 1 秒 |
+| `scenarios/` | 四个反例与修法 | 短连接风暴、HTTP/1.1 队头阻塞、ALPN 回落、失败信号误判 |
 
 ## 6. 观察结果
 
@@ -176,34 +197,88 @@ Cookie 与 localStorage 的差异（机制解释，未做 XSS 实验）：
 - **0 字节 + 超时**不能当作"没发生"；要区分"请求未发出 / 服务端未处理 / 响应丢失 / 结果未知"。
 - 只有拿到 4xx/5xx 或完整响应，才算拿到了服务端的判定。
 - 结果未知时先查询/对账，再用幂等键安全重试；不能凭客户端超时直接重放写操作。
-- 本机无法复现 DNS 解析失败与 `ECONNREFUSED`，见第 9 节；不要把本机超时行为写成 TCP 通用结论。
+- 客户端超时只说明"期限内没拿到结果"；要不要重试取决于操作是否幂等，而不是取决于错误文案。
+
+### 6.6 传输层：TCP / TLS / HTTP2 / DNS / ECONNREFUSED
+
+证据来源：`scripts/network_depth.mjs` → `evidence/network-depth.txt`、`evidence/tls-handshake.txt`；断言固化在 `tests/network.test.js`。
+所有服务只绑定 `127.0.0.1` 与随机端口，不访问外网。
+
+**TCP 短连接 vs 复用**
+
+```text
+TCP：3 次独立连接建立耗时 2.67ms/local:58271, 1.14ms/local:58272, 0.61ms/local:58273
+TCP：服务端观察到 3 个入站连接，端口各异 => 每次新建连接（短连接）
+TCP 复用：同一 keep-alive Agent 发 2 个请求，服务端新建连接数=1（期望 1）
+```
+
+**TLS 握手**
+
+```text
+protocol=TLSv1.3
+cipher=TLS_AES_256_GCM_SHA384
+alpn=h2
+authorized=false（自签证书，客户端显式关闭校验，仅本机测试）
+peerCN=localhost
+```
+
+**HTTP/1.1 vs HTTP/2（服务端固定延迟 200ms）**
+
+```text
+HTTP/1.1 单连接串行 2 请求=425ms（TLS 连接数=1）
+HTTP/2 单连接 2 并发流=219ms（TLS 连接数=1，stream id=1,3）
+```
+
+判读：两者都只用了 1 条 TLS 连接，差异来自"同一连接能否并行"。测试不比较毫秒数（CI 会抖动），而是断言服务端时间窗：HTTP/1.1 两请求不重叠，HTTP/2 两流重叠，且流 id 为奇数序列。
+
+**DNS 与连接拒绝**
+
+```text
+DNS：resolver=127.0.0.1:1 解析 example.com -> ECONNREFUSED: queryA ECONNREFUSED example.com
+ECONNREFUSED：连接 127.0.0.1:1 -> ECONNREFUSED
+```
+
+**同一端口，不同客户端，不同观测**（这是本实验最值得记住的一条）：
+
+| 客户端 | 结果 |
+| --- | --- |
+| Node `net.connect` | `ECONNREFUSED`，约 3ms |
+| PowerShell `TcpClient` | `ConnectionRefused`，立即 |
+| Git Bash `curl 8.17` | exit 28 超时（`--max-time 2`） |
+
+TCP 层已回 RST，curl 却等到超时。所以上一版"本机无法复现 ECONNREFUSED"的结论，是**用 curl 的退出码外推了传输层**；现在更正为：`ECONNREFUSED` 可复现，但必须换一个能直接暴露 socket 错误的客户端。
+
+**没有做**：本机无 tcpdump/dumpcap/tshark，未保存 `.pcap`，因此没有字节级解码（SYN 标志位、TLS 记录层、SETTINGS 帧）；上述结论均来自 socket API 的返回值、事件与时间窗。DNS 只覆盖"解析器不可达"，未覆盖 NXDOMAIN 与劫持。
 
 ## 7. "输入 URL 到页面显示"的链路解释（标注观测边界）
 
 | 步骤 | 机制 | 本实验是否直接观测 |
 | --- | --- | --- |
 | 1. 解析 URL | scheme / host / port / path 决定目标与是否跨源 | 是（8787 与 8788 端口不同即不同源） |
-| 2. DNS | 域名 → IP | **否**：使用 `127.0.0.1` 字面量，无解析 |
-| 3. TCP 连接 | 三次握手、端口 | **否**：只用 `127.0.0.1`；观察到未监听端口的连接超时，但未抓包、未测握手与复用 |
-| 4. TLS | 证书、加密、ALPN | **否**：全程 `http://`，未验证 HTTPS/HTTP2 |
-| 5. HTTP 请求 | 请求行、Header、body | 是（curl 原始请求 + 服务端日志） |
+| 2. DNS | 域名 → IP | **部分**：`127.0.0.1` 字面量不解析；单独用 resolver 指向 `127.0.0.1:1` 复现了"解析器不可达"（不是 NXDOMAIN） |
+| 3. TCP 连接 | 三次握手、端口、复用 | **是（socket 观测）**：短连接 3 个不同源端口、keep-alive 复用为 1 条连接、未监听端口 `ECONNREFUSED`；未抓包看 SYN/SYN-ACK/ACK 标志位 |
+| 4. TLS | 证书、加密、ALPN | **是（API 观测）**：TLS 1.3、`TLS_AES_256_GCM_SHA384`、ALPN=h2、自签证书 CN；未解码 ClientHello/ServerHello 原始字节 |
+| 5. HTTP 请求 | 请求行、Header、body | 是（curl 原始请求 + 服务端日志）；HTTP/2 侧观测到同一连接上的流 id 1、3 |
 | 6. 服务端处理 | 路由、校验、会话、状态码 | 是（11 类状态码、Cookie 会话、校验分支） |
 | 7. 响应与缓存决策 | 状态、Cache-Control/ETag、304 | 是（304 与过期 ETag 对照） |
 | 8. 浏览器安全判定 | 同源策略、CORS、Cookie 附加 | 是（浏览器 console 与服务端日志对照） |
 | 9. 解析与渲染 | HTML→DOM、CSS→CSSOM、布局、绘制、合成 | **否**：E04 不做渲染测量；见 G1 响应式站点实验 |
 
-不确定处明确写出：DNS/TCP/TLS/HTTP2 与渲染阶段没有本轮证据，不能凭本实验解释它们的时序或性能。
+不确定处明确写出：TCP/TLS/HTTP2 是 socket API 层观测（无 `.pcap`）；DNS 只覆盖解析器不可达；渲染阶段没有本轮证据，不能凭本实验解释它的时序或性能。
 
 ## 8. 复现与判读
 
 ```bash
 cd 06-实验代码/E04-http-network
-bash scripts/run_evidence.sh
-echo $?                      # 期望 0
+npm test                     # 13 条应用层 + 传输层断言，约 1 秒
+bash scripts/run_evidence.sh # 完整取证（需要本机 Edge），期望退出码 0
+echo $?
 grep -c '^HTTP/1.1' evidence/status-codes.txt
 grep -A2 'If-None-Match' evidence/cache.txt | head
 grep 'blocked by CORS policy' evidence/browser-cors.txt
 grep -E 'exit=|Empty reply|\[commit\]' evidence/failures.txt evidence/server.log
+grep -E '^TCP|^TLS|^HTTP|^DNS|^ECONNREFUSED' evidence/network-depth.txt
+cat evidence/tls-handshake.txt
 tail -20 evidence/server.log
 ```
 
@@ -213,26 +288,29 @@ tail -20 evidence/server.log
 2. `cookies.txt` 的 jar 是否有 `#HttpOnly_...sid`，无 Cookie 是否 401、有 Cookie 是否 200。
 3. `browser-cors.txt` 是否 8/8 PASS，且 console 有两条拦截文本。
 4. `server.log` 是否能看到被拦截的 `/api/cors/deny` 请求——这一步证明"拦截发生在浏览器，不是请求没发出"。
+5. `network-depth.txt` 是否出现：3 个不同源端口、复用连接数 1、TLS 1.3 + ALPN h2、H1 串行与 H2 并发的时延差与流 id、`ECONNREFUSED` 两处。
+6. `npm test` 是否 13/13 通过；任何一条失败都说明上面的结论无法在当前离线环境复现。
 
 任何一步缺失，都不算网络证据完整。
 
 ## 9. 边界：这套装置**没有**证明什么
 
-1. 只覆盖 HTTP/1.1 与 `127.0.0.1`，不能外推到真实 DNS、TLS、CDN、HTTP/2 多路复用。
-2. DNS 解析失败未复现：本机解析器把任意域名（含 `.invalid`）解析到代理地址，curl 得到空响应而非 DNS 错误。
-3. `ECONNREFUSED` 未复现：本机未监听端口返回超时（exit 28），不是立即拒绝（exit 7）。这是环境行为，不是 TCP 规范结论。
-4. 客户端超时只测了 curl `--max-time`；浏览器 `fetch` 的取消依赖 `AbortController`，行为未测。
-5. 缓存只覆盖响应头与条件请求，没有共享缓存、`Vary` 实际分桶、`private/no-store` 的代理行为。
-6. CORS 只覆盖若干典型组合，不是 CORS 规范全集（如 `Access-Control-Allow-Private-Network`、多 Origin 列表）。
-7. 没有做 XSS/CSRF 攻击实验；相关段落是机制解释。
-8. 浏览器行为绑定 Edge 157；其他浏览器/版本可能有差异，未复测。
-9. 服务端是取证用最小实现，没有生产级的限流、鉴权、日志脱敏。
+1. 传输层只覆盖回环 `127.0.0.1` 与受控本地服务，不能外推到真实 DNS、跨机房 RTT、CDN、NAT、丢包与重传。
+2. 没有 `.pcap`：本机无 tcpdump/dumpcap/tshark，未做字节级解码（SYN/SYN-ACK/ACK 标志位、TLS 记录、HTTP/2 SETTINGS 帧）。TCP/TLS/HTTP2 结论来自 socket API 观测。
+3. DNS 只复现"解析器不可达"（resolver 指向 `127.0.0.1:1`）；NXDOMAIN、解析超时、DNS 劫持、DoH 未覆盖。
+4. `ECONNREFUSED` 可复现，但存在客户端差异：Node/PowerShell 立即得到拒绝，同端口 curl 超时 exit 28。不要把任一客户端的退出码当作 TCP 通用结论。
+5. 客户端超时只测了 curl `--max-time` 与 Node 的 `setTimeout`；浏览器 `fetch` 的取消依赖 `AbortController`，行为未测。
+6. 缓存只覆盖响应头与条件请求，没有共享缓存、`Vary` 实际分桶、`private/no-store` 的代理行为。
+7. CORS 只覆盖若干典型组合，不是 CORS 规范全集（如 `Access-Control-Allow-Private-Network`、多 Origin 列表）。
+8. 没有做 XSS/CSRF 攻击实验；相关段落是机制解释。
+9. 浏览器行为绑定 Edge 157；其他浏览器/版本可能有差异，未复测。
+10. 服务端是取证用最小实现，没有生产级的限流、鉴权、日志脱敏。
 
 ## 10. G1 映射
 
 | G1 要求 | 本实验覆盖 | 证据 |
 | --- | --- | --- |
-| 网络解释：状态码、Cookie、缓存、CORS、链路 | **是**（第 6、7 节） | `evidence/status-codes.txt`、`cache.txt`、`cookies.txt`、`failures.txt`、`cors-curl.txt`、`browser-cors.txt`、`server.log` |
+| 网络解释：状态码、Cookie、缓存、CORS、链路 | **是**（第 6、7 节） | `status-codes.txt`、`cache.txt`、`cookies.txt`、`failures.txt`、`cors-curl.txt`、`browser-cors.txt`、`server.log`、`network-depth.txt`、`tls-handshake.txt` |
 | 键盘操作与可访问性 | 否 | 见 `06-实验代码/G1-responsive-site/` |
 | 内存定位 | 否 | 见 `06-实验代码/E01-c-memory/` |
 
@@ -246,9 +324,18 @@ E04-http-network/
 │   ├── server.mjs            零依赖 API + 静态源（8787/8788）
 │   └── cors-client.html      浏览器侧 CORS 取证页（8788）
 ├── scripts/
-│   ├── run_evidence.sh       启动服务、curl 取证、浏览器取证、清理
+│   ├── run_evidence.sh       启动服务、curl 取证、传输层取证、浏览器取证、清理
+│   ├── network_depth.mjs     TCP/TLS/HTTP2/DNS/ECONNREFUSED，生成两份 depth 证据
 │   └── browser_probe.mjs     headless Edge + CDP，8 条断言
-├── evidence/                 原始 HTTP、console、截图、服务端日志（入库）
+├── tests/
+│   ├── network.test.js       6 条传输层断言（node:test）
+│   └── http.test.js          7 条应用层断言（spawn server + fetch）
+├── scenarios/
+│   ├── 01-短连接风暴.md
+│   ├── 02-http1-队头阻塞.md
+│   ├── 03-alpn回落.md
+│   └── 04-失败信号误判.md
+├── evidence/                 原始 HTTP、depth、console、截图、证书、服务端日志（入库）
 └── README.md
 ```
 

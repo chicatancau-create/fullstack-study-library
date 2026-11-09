@@ -98,7 +98,12 @@ req cors-curl.txt -H "Origin: $WEB" "$API/api/cors/wildcard"
 
 printf '原始 HTTP 证据已写入 %s/\n' "$OUT"
 
+node scripts/network_depth.mjs
+rc_net=$?
+printf 'network_depth exit=%s\n' "$rc_net"
+
 node scripts/browser_probe.mjs
 rc=$?
 printf 'browser_probe exit=%s\n' "$rc"
+[ "$rc_net" -eq 0 ] || exit "$rc_net"
 exit "$rc"

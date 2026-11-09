@@ -1,10 +1,10 @@
 $ curl --max-time 2 http://127.0.0.1:8791/
-curl: (28) Connection timed out after 2005 milliseconds
+curl: (28) Connection timed out after 2015 milliseconds
 
 exit=28
 
 $ curl --max-time 1 http://127.0.0.1:8787/api/slow?ms=1500
-curl: (28) Operation timed out after 1009 milliseconds with 0 bytes received
+curl: (28) Operation timed out after 1010 milliseconds with 0 bytes received
 
 exit=28
 
@@ -14,7 +14,7 @@ curl: (52) Empty reply from server
 exit=52
 
 $ curl --max-time 1 -X POST http://127.0.0.1:8787/api/slow-write
-curl: (28) Operation timed out after 1014 milliseconds with 0 bytes received
+curl: (28) Operation timed out after 1012 milliseconds with 0 bytes received
 
 exit=28
 
@@ -26,7 +26,7 @@ Content-Length: 157
 ETag: "items-v1"
 Cache-Control: public, max-age=60
 Vary: Accept-Language, Origin
-Date: Sun, 08 Nov 2026 09:53:32 GMT
+Date: Mon, 09 Nov 2026 01:42:37 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
 
