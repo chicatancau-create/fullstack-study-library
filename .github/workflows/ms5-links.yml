@@ -1,0 +1,43 @@
+name: ms5-links
+
+on:
+  schedule:
+    - cron: '0 3 * * 1'
+  workflow_dispatch:
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: 原始面经链接复验（标题/软 404/登录页）
+        working-directory: 08-判定题库/国内大厂真题/_工具
+        run: node verify_evidence_links.mjs
+      - name: LeetCode 题面链接抽样
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+          const base = '08-判定题库/国内大厂真题';
+          const files = fs.readdirSync(base).filter((d) => fs.existsSync(path.join(base, d, '题目索引.json')));
+          let checked = 0;
+          for (const d of files) {
+            const list = JSON.parse(fs.readFileSync(path.join(base, d, '题目索引.json'), 'utf8'));
+            for (const q of list.slice(0, 3)) {
+              const res = await fetch(q.question_url, { redirect: 'follow', signal: AbortSignal.timeout(15000) });
+              if (!res.ok) throw new Error(`${q.id} ${q.question_url} HTTP ${res.status}`);
+              checked++;
+            }
+          }
+          console.log(`LeetCode sample OK ${checked}`);
+          NODE
+      - name: 上传链接校验结果
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ms5-links
+          path: 08-判定题库/国内大厂真题/_工具/evidence/interview-evidence.json
+          if-no-files-found: error
