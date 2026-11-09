@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<OWASPZAPReport programName="ZAP" version="2.17.0" generated="Mon, 9 Nov 2026 11:37:28" created="2026-11-09T03:37:28.122045300Z">
+<OWASPZAPReport programName="ZAP" version="2.17.0" generated="Mon, 9 Nov 2026 21:29:43" created="2026-11-09T13:29:43.560727200Z">
 	
 		<site name="http://127.0.0.1:4789" host="127.0.0.1" port="4789" ssl="false">
 			<alerts>
@@ -39,7 +39,7 @@
 							
 							
 								<instance>
-									<uri>http://127.0.0.1:4789/scan/echo?q=hello</uri>
+									<uri>http://127.0.0.1:4789/scan/echo?q=ZAP</uri>
 									<nodeName>http://127.0.0.1:4789/scan/echo (q)</nodeName>
 									<method>GET</method>
 									<param></param>
@@ -73,6 +73,17 @@
 						<instances>
 							
 								<instance>
+									<uri>http://127.0.0.1:4789/lab/dom?mode=vuln&amp;q=hello</uri>
+									<nodeName>http://127.0.0.1:4789/lab/dom (mode,q)</nodeName>
+									<method>GET</method>
+									<param>x-frame-options</param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo></otherinfo>
+								</instance>
+							
+							
+								<instance>
 									<uri>http://127.0.0.1:4789/scan</uri>
 									<nodeName>http://127.0.0.1:4789/scan</nodeName>
 									<method>GET</method>
@@ -94,14 +105,14 @@
 								</instance>
 							
 						</instances>
-						<count>2</count>
+						<count>3</count>
 						<systemic>true</systemic>
 						<solution>&lt;p&gt;Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.&lt;/p&gt;&lt;p&gt;If you expect the page to be framed only by pages on your server (e.g. it&apos;s part of a FRAMESET) then you&apos;ll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy&apos;s &quot;frame-ancestors&quot; directive.&lt;/p&gt;</solution>
 						<otherinfo></otherinfo>
 						<reference>&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Frame-Options&lt;/p&gt;</reference>
 						<cweid>1021</cweid>
 						<wascid>15</wascid>
-						<sourceid>7</sourceid>
+						<sourceid>12</sourceid>
 					</alertitem>
 				
 				

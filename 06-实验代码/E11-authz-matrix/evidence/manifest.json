@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E11",
-  "generated_at": "2026-11-09T03:42:13.330Z",
-  "commit": "47278a99ff71d478076d6aec4f88ae41aa48b2aa",
+  "generated_at": "2026-11-09T13:33:10.990Z",
+  "commit": "d0eada0c0f42c7c5c9377ce0435b2b1aec567c8b",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -42,8 +42,8 @@
     },
     {
       "path": "evidence/test.txt",
-      "bytes": 1456,
-      "sha256": "479bd8e52a82bb67d154c6663488aa48429c39ca43176caef588636ec751a9ea"
+      "bytes": 1639,
+      "sha256": "3a4473f824d4eebdf1eeb67240eff72b058dac5f109a27faad0b6acd15ea1f31"
     },
     {
       "path": "evidence/run.txt",
@@ -52,21 +52,19 @@
     },
     {
       "path": "evidence/zap.txt",
-      "bytes": 274,
-      "sha256": "376126518d62e51f74c73b5822cc52d1f7cec94782956fb3cdf16dc73cf435a8"
+      "bytes": 462,
+      "sha256": "ca72529a218e82f01658197379606a7cfc1cdc89d1f0200f67267160a20e33bb"
     },
     {
       "path": "evidence/zap-report.html",
-      "bytes": 29555,
-      "sha256": "efcd48cc879fd968ccc55ab6899df1dacfdf6b42c712f96b1eb82e0211e29e39"
+      "bytes": 30480,
+      "sha256": "78fd31d88d02c197d75e8b1030eb9b9d8a8df187b35123ee203beaa4de81bb71"
     },
     {
       "path": "evidence/zap-report.xml",
-      "bytes": 6922,
-      "sha256": "f5784a3ac9ebe85178156314cccc9f2e2e4b07363c6a90fb81e3d597f9a099a2"
+      "bytes": 7278,
+      "sha256": "3383e66ad242215dab52f27dcfe1709218699002b7234fb8b82de1dc646a77e2"
     }
   ],
-  "unverified": [
-    "ZAP 主动扫描未运行（仅 baseline）"
-  ]
+  "unverified": []
 }

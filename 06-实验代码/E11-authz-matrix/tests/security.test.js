@@ -137,3 +137,19 @@ test('A09 审计日志记录了登录与转账', async () => {
     await db.end();
   }
 });
+
+test('A05 加固面补齐 CSP 与 X-Frame-Options，且输出编码', async () => {
+  const page = await app.inject({ method: 'GET', url: '/scan-safe' });
+  assert.equal(page.statusCode, 200);
+  assert.match(String(page.headers['content-security-policy']), /frame-ancestors 'none'/);
+  assert.equal(page.headers['x-frame-options'], 'DENY');
+
+  const echo = await app.inject({ method: 'GET', url: '/scan-safe/echo?q=' + encodeURIComponent(XSS) });
+  assert.equal(echo.statusCode, 200);
+  assert.ok(!echo.body.includes('<img src=x'), '加固面必须输出编码，不能回显原始标签');
+  assert.ok(echo.body.includes('&lt;img'));
+
+  const vuln = await app.inject({ method: 'GET', url: '/scan/echo?q=' + encodeURIComponent(XSS) });
+  assert.ok(vuln.body.includes('<img src=x'), '对照面必须保留未编码回显，证明两者确有差别');
+  assert.equal(vuln.headers['x-frame-options'], undefined);
+});

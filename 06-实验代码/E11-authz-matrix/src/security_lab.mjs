@@ -194,6 +194,28 @@ export function buildLabApp({ allowlist = [], allowedOrigins = [], logger = fals
     .type('text/html; charset=utf-8')
     .send(`<!doctype html><meta charset="utf-8"><p id="out">${String(request.query.q ?? '')}</p>`));
 
+  // 加固扫描面：与 /scan 同一组路径，但补齐 CSP / X-Frame-Options / 输出编码，用于 ZAP 门禁对照
+  const HARDENED_CSP = "default-src 'none'; script-src 'none'; style-src 'none'; img-src 'none'; "
+    + "connect-src 'none'; font-src 'none'; object-src 'none'; media-src 'none'; "
+    + "frame-src 'none'; worker-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'";
+  const harden = (reply) => {
+    reply.header('content-security-policy', HARDENED_CSP);
+    reply.header('x-frame-options', 'DENY');
+  };
+  app.get('/scan-safe', async (request, reply) => {
+    harden(reply);
+    return reply.type('text/html; charset=utf-8').send(
+      '<!doctype html><meta charset="utf-8"><h1>scan target (hardened)</h1>'
+      + '<a href="/scan-safe/echo?q=hello">echo</a>'
+      + '<form action="/scan-safe/echo"><input name="q"><button>go</button></form>',
+    );
+  });
+  app.get('/scan-safe/echo', async (request, reply) => {
+    harden(reply);
+    return reply.type('text/html; charset=utf-8')
+      .send(`<!doctype html><meta charset="utf-8"><p id="out">${escapeHtml(String(request.query.q ?? ''))}</p>`);
+  });
+
   app.get('/lab/dom-safe.js', async (request, reply) => reply
     .type('application/javascript; charset=utf-8')
     .send('const q=new URLSearchParams(location.search).get("q")||"";document.getElementById("out").textContent=q;'));

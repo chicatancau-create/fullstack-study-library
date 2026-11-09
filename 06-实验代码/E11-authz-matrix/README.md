@@ -1,7 +1,7 @@
 # E11：对象级授权矩阵与 OWASP 手工靶场
 
 > 对应 [[../../01-阶段课程/专项-核心原理与深度实验|专项：核心原理与深度实验]] 的 E11。
-> 本实验在 **Fastify + 真实 PostgreSQL 18.6 + 真实 Edge（CDP）** 上验证对象级授权，以及 A01/A03/A04/A05/A07/A09/A10 的攻击、修复与回归；ZAP 2.17.0 通过 daemon API 完成 spider + 被动扫描（baseline），产出 HTML/XML 报告，未运行主动扫描。
+> 本实验在 **Fastify + 真实 PostgreSQL 18.6 + 真实 Edge（CDP）** 上验证对象级授权，以及 A01/A03/A04/A05/A07/A09/A10 的攻击、修复与回归；ZAP 2.17.0 通过 daemon API 完成 spider + 被动扫描（baseline），产出 HTML/XML 报告；并对加固面 `/scan-safe` 设零 Medium/High 门禁（未运行主动扫描）。
 > 环境：Windows 10.0.28000 + Node v24.15.0 + PostgreSQL 18.6 + Edge 157
 
 ## 1. 做了什么、没做什么
@@ -21,6 +21,7 @@
 没做什么：
 
 - **ZAP 只做 baseline**：已下载 ZAP 2.17.0 Core（D:/ZAP/ZAP_2.17.0），通过 daemon API 对 `/scan` 做 spider + 被动扫描，产出 HTML/XML 报告；未运行主动扫描（active scan），攻击类结论仍以手工 PoC 为准。
+- 基线扫描本身不是门禁（漏洞面 `/scan` 会正常报 Medium）。门禁建在加固面 `/scan-safe`：同一组路径补齐完整 CSP 指令、`X-Frame-Options: DENY` 与输出编码，要求 Medium/High 均为 0，同时要求对照面确实报出 Medium，证明扫描器有效；两条任一不满足即脚本非零退出。
 - A02 只做机制核对（scrypt + timingSafeEqual + 随机 token），没有弱加密 PoC。
 - A06 只固定 fastify 5.12.8，未跑 `npm audit`，不作组件漏洞结论。
 - A08 只做 CSRF token 比对；没有制品签名/供应链完整性。
@@ -65,7 +66,7 @@ echo $?
 
 单跑攻击取证：`node src/attack_evidence.mjs`（会启动临时靶场与 Edge）。
 
-ZAP 复跑（需 `ZAP_HOME`，默认 `D:/ZAP/ZAP_2.17.0`）：`node scripts/run_zap_api.mjs`；扫描入口为公开页 `/scan`，结果写入 `evidence/zap.txt`、`evidence/zap-report.html`、`evidence/zap-report.xml`。
+ZAP 复跑（需 `ZAP_HOME`，默认 `D:/ZAP/ZAP_2.17.0`）：`node scripts/run_zap_api.mjs`；扫描入口为公开页 `/scan`，加固对照面为 `/scan-safe`，结果写入 `evidence/zap.txt`、`evidence/zap-report.html`、`evidence/zap-report.xml`；`evidence/zap.txt` 的 `gate:` 行为通过判据。
 
 ## 5. 关键实现
 
@@ -102,7 +103,7 @@ fetch(url, { redirect: 'manual' });
 | 登录锁定 | 5 次失败后 429 | 同上 |
 | 审计 | `e11.audit` 有登录/转账记录 | 同上 |
 | 测试 | 21 pass 0 fail | `evidence/test.txt` |
-| ZAP | baseline：spider 100%、被动扫描完成；High 0 / Low 0 / Medium 4 / Informational 0；未跑主动扫描 | `evidence/zap.txt`、`evidence/zap-report.html`、`evidence/zap-report.xml` |
+| ZAP | baseline：spider 100%、被动扫描完成；漏洞面 High 0 / Low 0 / Medium 4 / Informational 0；加固面 High 0 / Medium 0 → gate PASS；未跑主动扫描 | `evidence/zap.txt`、`evidence/zap-report.html`、`evidence/zap-report.xml`、`evidence/test.txt` |
 
 ## 7. 边界
 

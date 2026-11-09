@@ -35,6 +35,7 @@ await labReset();
 const app = buildLabApp();
 await app.listen({ port: TARGET_PORT, host: '127.0.0.1' });
 const target = `http://127.0.0.1:${TARGET_PORT}/scan`;
+const hardTarget = `http://127.0.0.1:${TARGET_PORT}/scan-safe`;
 
 const zap = spawn('cmd.exe', [
   '/c', `${ZAP_HOME.replace(/\//g, '\\')}\\zap.bat`,
@@ -71,12 +72,38 @@ try {
   fs.writeFileSync(`${OUT_DIR}/zap-report.html`, html);
   fs.writeFileSync(`${OUT_DIR}/zap-report.xml`, xml);
 
+  // 门禁：加固面必须零 Medium/High（对照 vuln 面确实报出来，证明扫描器有效）
+  await api(`/JSON/core/action/newSession/?name=e11-hardened&overwrite=true`);
+  await api(`/JSON/spider/action/scan/?url=${encodeURIComponent(hardTarget)}&maxChildren=10&recurse=true`);
+  await waitFor(async () => Number((await json('/JSON/spider/view/status/')).status) >= 100, 'hardened spider', 120000);
+  await waitFor(async () => Number((await json('/JSON/pscan/view/recordsToScan/')).recordsToScan) === 0, 'hardened passive', 120000);
+  const hardSummary = (await json(`/JSON/alert/view/alertsSummary/?baseurl=${encodeURIComponent(hardTarget)}`)).alertsSummary || {};
+  const hardHigh = Number(hardSummary.High || 0);
+  const hardMedium = Number(hardSummary.Medium || 0);
+  const vulnHigh = Number(summary.alertsSummary?.High || 0);
+  const vulnMedium = Number(summary.alertsSummary?.Medium || 0);
+  const gate = hardHigh === 0 && hardMedium === 0;
+  console.log(`zap hardened alerts High=${hardHigh} Medium=${hardMedium} (vuln surface High=${vulnHigh} Medium=${vulnMedium})`);
+  if (!gate) {
+    const detail = await json(`/JSON/alert/view/alerts/?baseurl=${encodeURIComponent(hardTarget)}&start=0&count=50`);
+    for (const alert of detail.alerts || []) {
+      if (alert.risk === 'Medium' || alert.risk === 'High') {
+        console.log(`  HARDENED ALERT ${alert.risk} ${alert.name} ${alert.url} param=${alert.param || '-'}`);
+      }
+    }
+  }
+  if (!gate) throw new Error(`加固面仍有 Medium/High 告警：High=${hardHigh} Medium=${hardMedium}`);
+  if (vulnMedium === 0) throw new Error('对照面未报出任何 Medium，扫描器可能未生效');
+
   const lines = [
     `captured_at: ${new Date().toISOString()}`,
     `zap_home: ${ZAP_HOME}`,
-    `target: ${target}`,
+    `target: ${target} (intentionally vulnerable)`,
+    `hardened_target: ${hardTarget}`,
     `scan: spider + passive (baseline; no active scan)`,
     `alerts_summary: ${JSON.stringify(summary.alertsSummary)}`,
+    `hardened_alerts_summary: ${JSON.stringify(hardSummary)}`,
+    `gate: hardened High=0 Medium=0 -> ${gate ? 'PASS' : 'FAIL'}`,
     `reports: ${OUT_DIR}/zap-report.html, ${OUT_DIR}/zap-report.xml`,
   ];
   fs.writeFileSync(`${OUT_DIR}/zap.txt`, lines.join('\n') + '\n');
