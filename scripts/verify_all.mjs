@@ -24,17 +24,26 @@ function run(label, command, args, cwd) {
 
 run('source-only', 'python', ['-X', 'utf8', '05-外部资料库/tools/catalog_tool.py', 'validate', '--mode', 'source-only'], vault);
 
+const PRACTICE_PROJECTS = [
+  ['P01', 'project01-blog'],
+  ['P02', 'project02-collab'],
+  ['B5-01', 'project02-spring'],
+  ['B5-03', 'project02-frameworks'],
+  ['P03', 'project03-trade'],
+  ['P04', 'project04-saas'],
+  ['P05', 'project05-takeover'],
+  ['B6-02', 'project06-ai-min'],
+];
+
+function resolvePracticeDir(root, name) {
+  for (const candidate of [name, path.join('projects', name), path.join('Web', name)]) {
+    if (fs.existsSync(path.join(root, candidate))) return path.join(root, candidate);
+  }
+  return path.join(root, name);
+}
+
 const manifests = [
-  ...(practice ? [
-    ['P01', practice, 'Web/project01-blog'],
-    ['P02', practice, 'project02-collab'],
-    ['B5-01', practice, 'project02-spring'],
-    ['B5-03', practice, 'project02-frameworks'],
-    ['P03', practice, 'project03-trade'],
-    ['P04', practice, 'project04-saas'],
-    ['P05', practice, 'project05-takeover'],
-    ['B6-02', practice, 'project06-ai-min'],
-  ] : []),
+  ...(practice ? PRACTICE_PROJECTS.map(([label, dir]) => [label, practice, resolvePracticeDir(practice, dir)]) : []),
   ['E01', vault, '06-实验代码/E01-c-memory'],
   ['E02', vault, '06-实验代码/E02-node-async'],
   ['E03', vault, '06-实验代码/E03-react-race'],
@@ -52,13 +61,38 @@ const manifests = [
 ];
 
 for (const [label, root, dir] of manifests) {
-  const cwd = path.join(root, dir);
+  const cwd = path.isAbsolute(dir) ? dir : path.join(root, dir);
   const local = path.join(cwd, 'scripts/manifest.mjs');
   const vaultTool = path.join(vault, '06-实验代码/_template/manifest.mjs');
   if (fs.existsSync(local)) {
     run(`manifest ${label}`, 'node', ['scripts/manifest.mjs', 'verify', 'evidence/manifest.json'], cwd);
   } else {
     run(`manifest ${label}`, 'node', [vaultTool, 'verify', path.join(cwd, 'evidence/manifest.json')], vault);
+  }
+}
+
+if (practice) {
+  const runProjects = args.includes('--run-projects') || profile === 'full';
+  for (const [label, name] of [['P02', 'project02-collab'], ['P03', 'project03-trade'], ['P04', 'project04-saas']]) {
+    if (!runProjects) {
+      checks.push({ label: `project ${label}`, ok: true, output: 'not-enabled' });
+      continue;
+    }
+    const dir = resolvePracticeDir(practice, name);
+    let scripts = {};
+    try {
+      scripts = JSON.parse(fs.readFileSync(path.join(dir, 'package.json'), 'utf8')).scripts || {};
+    } catch {
+      checks.push({ label: `project ${label}`, ok: false, output: '缺少 package.json' });
+      continue;
+    }
+    for (const step of ['lint', 'test', 'build']) {
+      if (!scripts[step]) {
+        checks.push({ label: `project ${label} ${step}`, ok: false, output: 'package.json 无该 script' });
+        continue;
+      }
+      run(`project ${label} ${step}`, 'npm', ['run', step], dir);
+    }
   }
 }
 
