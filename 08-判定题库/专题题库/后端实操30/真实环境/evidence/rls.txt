@@ -1,0 +1,9 @@
+PASS B01 跨租户读取被 RLS 过滤 (ids=1,2,3)
+PASS B02 仅返回本租户且属于该 Owner 的任务 (ids=2)
+PASS B03 公开视图隐藏 internal_note (cols=id,title,status err=42703)
+PASS B04 WITH CHECK 拒绝跨租户写入（42501） (err=42501)
+PASS B05 Owner 可改、他人不可改、Admin 可改 (bob=0 alice=1 admin=1)
+PASS B06 邮箱脱敏视图 (masked=a***@example.com)
+PASS B07 is_admin() 按会话角色返回 (member=false admin=true)
+PASS B08 拒绝访问写入审计记录 (allowed=false)
+BACKEND30-B PASS 8/8

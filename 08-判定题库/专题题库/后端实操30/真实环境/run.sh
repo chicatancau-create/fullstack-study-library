@@ -14,6 +14,10 @@ fi
 mkdir -p evidence
 fails=0
 
+node rls.mjs 2>&1 | tee evidence/rls.txt
+rc=${PIPESTATUS[0]}
+[ "$rc" -eq 0 ] || fails=$((fails + 1))
+
 node concurrency.mjs 2>&1 | tee evidence/concurrency.txt
 rc=${PIPESTATUS[0]}
 [ "$rc" -eq 0 ] || fails=$((fails + 1))
@@ -30,6 +34,7 @@ rc=${PIPESTATUS[0]}
   echo "captured_at: $(date -Is)"
   echo "node: $(node -v)"
   echo "pg: $(node -p "require('pg/package.json').version")"
+  echo "rls: $(tail -1 evidence/rls.txt)"
   echo "concurrency: $(tail -1 evidence/concurrency.txt)"
   echo "outbox: $(tail -1 evidence/outbox.txt)"
   echo "jvm: $(tail -1 jvm/evidence/diagnose.txt)"

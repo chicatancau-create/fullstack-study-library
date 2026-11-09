@@ -1,6 +1,4 @@
 PASS D01 Outbox 同事务落库且状态 pending (status=pending)
-(node:32116) DeprecationWarning: Calling client.query() when the client is already executing a query is deprecated and will be removed in pg@9.0. Use async/await or an external async flow control mechanism instead.
-(Use `node --trace-deprecation ...` to show where the warning was created)
 PASS D02 去重：生产者 23505、重复消费只产生一次副作用 (producer=23505 consumed=2 effects=1)
 PASS D03 重试 3 次后进入死信队列且保留 attempts (seen=1,2,3 dlq=1 attempts=3)
 PASS D04 对账：无遗留 pending，已发布记录带发布时间 (pending=0 published=1)

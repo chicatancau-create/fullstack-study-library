@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-11-09T07:44:14.057Z",
+  "checks": [
+    {
+      "name": "B01 跨租户读取被 RLS 过滤",
+      "ok": true,
+      "detail": "ids=1,2,3"
+    },
+    {
+      "name": "B02 仅返回本租户且属于该 Owner 的任务",
+      "ok": true,
+      "detail": "ids=2"
+    },
+    {
+      "name": "B03 公开视图隐藏 internal_note",
+      "ok": true,
+      "detail": "cols=id,title,status err=42703"
+    },
+    {
+      "name": "B04 WITH CHECK 拒绝跨租户写入（42501）",
+      "ok": true,
+      "detail": "err=42501"
+    },
+    {
+      "name": "B05 Owner 可改、他人不可改、Admin 可改",
+      "ok": true,
+      "detail": "bob=0 alice=1 admin=1"
+    },
+    {
+      "name": "B06 邮箱脱敏视图",
+      "ok": true,
+      "detail": "masked=a***@example.com"
+    },
+    {
+      "name": "B07 is_admin() 按会话角色返回",
+      "ok": true,
+      "detail": "member=false admin=true"
+    },
+    {
+      "name": "B08 拒绝访问写入审计记录",
+      "ok": true,
+      "detail": "allowed=false"
+    }
+  ],
+  "final": {
+    "tenants_seen": 3,
+    "visible_tasks": 3
+  }
+}

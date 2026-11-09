@@ -1,8 +1,8 @@
 {
   "schema": 1,
-  "experiment": "BACKEND30_CDE",
-  "generated_at": "2026-11-09T07:42:50.428Z",
-  "commit": "64464ab44c0b10d2d773bbdf36a7b1e78af199c4",
+  "experiment": "BACKEND30_BCDE",
+  "generated_at": "2026-11-09T07:44:43.745Z",
+  "commit": "eb74e5bee023c249bca81b021a9825e345830947",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -18,6 +18,16 @@
   ],
   "artifacts": [
     {
+      "path": "evidence/rls.txt",
+      "bytes": 533,
+      "sha256": "2f2cf8eac4c4d02641dafc8f5cd59637ee6eb28a79cca909d6a9ad0b1f47fe9e"
+    },
+    {
+      "path": "evidence/rls.json",
+      "bytes": 1114,
+      "sha256": "373cfed83d449c76f97d57586c010b14e0fbbd3b3a718697bc6cf5aac0302d01"
+    },
+    {
       "path": "evidence/concurrency.txt",
       "bytes": 708,
       "sha256": "da9c2702426605e2609885314b755d8b0653f68a2334ca27ca14ce7702685ab5"
@@ -25,42 +35,42 @@
     {
       "path": "evidence/concurrency.json",
       "bytes": 1228,
-      "sha256": "2272af80195d8dd0c65353027b5f9be3ef6c1f1cfaba07fe62ef67d3510edbf5"
+      "sha256": "2286b68a931194bca94ed12d4a1b056ff0cfb85c801b44bbdc7053b57e28e5d4"
     },
     {
       "path": "evidence/outbox.txt",
-      "bytes": 672,
-      "sha256": "5279f574487b8d5642c99235f67fc083a967fbed3134567d6b46d7832006813f"
+      "bytes": 382,
+      "sha256": "361d65cbe193221c74ef08b497061adc408b6a82a4c02b968fa942f74890bdd1"
     },
     {
       "path": "evidence/outbox.json",
       "bytes": 710,
-      "sha256": "78b937f2ef1e1f95c23ff18bd8175e7308a71c9fbb8d29d518af7cb90e888481"
+      "sha256": "e85669e8e94fd3fbbe960edaf30c2dd8c2f433672c763c1ea168a2077eef4945"
     },
     {
       "path": "evidence/run.txt",
-      "bytes": 171,
-      "sha256": "ea46cae8c89ec2fdfc6a677b3619bddef6f8080101dbc71f3b262ba27b6ed1e0"
+      "bytes": 197,
+      "sha256": "cd7507514080a0da5dd978bf68d3e09609d767b2f2b44c5733ae0f524b449050"
     },
     {
       "path": "jvm/evidence/diagnose.txt",
       "bytes": 401,
-      "sha256": "5d5f19589c22ca61514fafcd213b51f4f3fac380b009ae39cf5dce122d4e7f9b"
+      "sha256": "970a325fec83996118e34f8a212a3fb66c2d9663c6c56d2a6492858ea454bb7d"
     },
     {
       "path": "jvm/evidence/gc.log",
-      "bytes": 171341,
-      "sha256": "d0924cf9769faf4f8c6bba3489288e59ba1cb36ed2476e21f619b1f62d496f7b"
+      "bytes": 119726,
+      "sha256": "4392766a801533253910175d8d37fcf0bd312ac17dae0694d36228fa50a9e59b"
     },
     {
       "path": "jvm/evidence/jfr-summary.txt",
       "bytes": 12164,
-      "sha256": "8a0b71820b842114aa0a5358debad2bd26d4ee8ea11ac220e1f7645735bff62b"
+      "sha256": "f9f8187d59e61e63e5d5395d5fdb4f05c9a41617c90fcdb4bf0ef081e1744e14"
     },
     {
       "path": "jvm/evidence/jstack.txt",
       "bytes": 7390,
-      "sha256": "c549071c04f318cc68e0191ff7400ee0667169b65f473f6654f4b821072ddd91"
+      "sha256": "dd811b4d927e045413e04f4cc9852f26d472dece35bb40650bddbc42961c6067"
     },
     {
       "path": "jvm/evidence/oom.txt",
@@ -70,10 +80,10 @@
     {
       "path": "jvm/evidence/jvm.json",
       "bytes": 1184,
-      "sha256": "daa75c07494bbe337a08c309bab401b72d9983fdd920c67254bfca4a9a4cb843"
+      "sha256": "88bf717dc86daf0a429cf6058373e10d09d7f55f9733c0baabeba4d3a64894fd"
     }
   ],
   "unverified": [
-    "A/B 组未升级；E 组为纯 JVM 程序非 Spring Boot；hprof/JFR 二进制不入库"
+    "A 组未升级；E 组为纯 JVM 程序非 Spring Boot；hprof/JFR 二进制不入库"
   ]
 }
