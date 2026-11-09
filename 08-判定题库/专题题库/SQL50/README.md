@@ -38,4 +38,5 @@ PGPASSWORD=<local-test-password> bash run.sh
 
 - 判的是结果集，不检查 SQL 写法、索引是否真的被使用；执行计划题只验证数据结果。
 - 事务/锁题验证的是隔离级别、约束与行锁可执行性，不模拟双会话并发时序。
-- 真实环境层只覆盖 PostgreSQL；MySQL 方言、在线迁移/回滚尚未实现。
+- 真实环境层已覆盖：PostgreSQL 18 双连接并发、`EXPLAIN` 索引使用、加列双写/回填/回滚/切读迁移、PostgreSQL 与 MySQL 8.4 方言对照（各 6/4/11/8 项）。
+- 50 题结果集本身只在 PostgreSQL 上判定；MySQL 侧只跑方言对照，不含 50 题等价重写。

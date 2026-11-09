@@ -1,0 +1,120 @@
+name: ms4-sql
+
+on:
+  push:
+    paths:
+      - '08-判定题库/专题题库/SQL50/**'
+      - '.github/workflows/ms4-sql.yml'
+  pull_request:
+    paths:
+      - '08-判定题库/专题题库/SQL50/**'
+      - '.github/workflows/ms4-sql.yml'
+
+jobs:
+  result-set:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_USER: study
+          POSTGRES_PASSWORD: study-pass
+          POSTGRES_DB: study_lab
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U study -d study_lab"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      PGHOST: 127.0.0.1
+      PGPORT: '5432'
+      PGUSER: study
+      PGPASSWORD: study-pass
+      PGDATABASE: study_lab
+    steps:
+      - uses: actions/checkout@v5
+      - name: 安装 PostgreSQL 客户端
+        run: sudo apt-get update && sudo apt-get install -y postgresql-client
+      - name: 50 题结果集判定 + 自伤测试
+        working-directory: 08-判定题库/专题题库/SQL50
+        run: SELFTEST=1 bash 判定脚本/judge.sh
+      - name: 校验判定证据
+        working-directory: 08-判定题库/专题题库/SQL50
+        run: |
+          grep -q '^passed=50 failed=0$' evidence/judge.txt
+          grep -q '^selftest_rejected=YES$' evidence/judge.txt
+      - name: 上传结果集证据
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ms4-sql-result-set
+          path: 08-判定题库/专题题库/SQL50/evidence/**
+          if-no-files-found: ignore
+
+  real-env:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_USER: study
+          POSTGRES_PASSWORD: study-pass
+          POSTGRES_DB: study_lab
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U study -d study_lab"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+      mysql:
+        image: mysql:8.4
+        env:
+          MYSQL_ROOT_PASSWORD: study-pass
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd "mysqladmin ping -h 127.0.0.1 -uroot -pstudy-pass"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 30
+    env:
+      PGHOST: 127.0.0.1
+      PGPORT: '5432'
+      PGUSER: study
+      PGPASSWORD: study-pass
+      PGDATABASE: study_lab
+      MYSQL_BIN: mysql
+      MYSQL_HOST: 127.0.0.1
+      MYSQL_PORT: '3306'
+      MYSQL_USER: root
+      MYSQL_PASSWORD: study-pass
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: 安装 MySQL 客户端
+        run: sudo apt-get update && sudo apt-get install -y default-mysql-client
+      - name: 真实环境层（并发/执行计划/迁移/方言）
+        working-directory: 08-判定题库/专题题库/SQL50/真实环境
+        run: |
+          npm install --no-audit --no-fund
+          bash run.sh
+      - name: 校验真实环境证据
+        working-directory: 08-判定题库/专题题库/SQL50/真实环境
+        run: |
+          grep -q 'concurrency: CONCURRENCY PASS 6/6' evidence/run.txt
+          grep -q 'explain: EXPLAIN PASS 4/4' evidence/run.txt
+          grep -q 'migration: MIGRATION PASS 11/11' evidence/run.txt
+          grep -q 'dialects: DIALECT PASS 8/8' evidence/run.txt
+          grep -q 'gate_failures: 0' evidence/run.txt
+      - name: 上传真实环境证据
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ms4-sql-real-env
+          path: 08-判定题库/专题题库/SQL50/真实环境/evidence/**
+          if-no-files-found: ignore
