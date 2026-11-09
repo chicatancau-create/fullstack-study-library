@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-11-09T08:26:12.248Z",
+  "counts": {
+    "items": 16,
+    "types": 14
+  },
+  "results": [
+    {
+      "name": "F01 题目数量与 ID 唯一",
+      "ok": true,
+      "detail": "items=16 unique=16"
+    },
+    {
+      "name": "F02 字段完整（≥5 答案点、≥3 评分点、≥2 追问、https 来源）",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "name": "F03 评分点逐题不同（无统一模板）",
+      "ok": true,
+      "detail": "points=48"
+    },
+    {
+      "name": "F04 覆盖前端/全栈主题 ≥12 类",
+      "ok": true,
+      "detail": "React,JavaScript,CSS,浏览器,可访问性,SSR,构建,性能,Node,缓存,SQL,契约,部署,故障"
+    },
+    {
+      "name": "F05 无原始面经的题目标记为模拟题",
+      "ok": true,
+      "detail": "simulated=16/16"
+    }
+  ]
+}

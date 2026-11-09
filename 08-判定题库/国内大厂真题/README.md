@@ -34,3 +34,11 @@
 ## 字段分离与质量门禁
 
 `_工具/` 已把 250 题拆出 `question_url`（题面）、`aggregate_source_url`（CodeTop 聚合）与 `primary_evidence`（原始面经），并把岗位统一标为“岗位未标注”而非默认后端。当前原始面经证据为 0，质量门禁 6/6 通过；运行方式见 `_工具/README.md`。
+
+## 前端 / 全栈补充题
+
+`前端全栈/` 补齐 16 道面向原岗位方向的题（前端 10、全栈 6，覆盖 React、JS、CSS、浏览器、可访问性、SSR、构建、性能、Node、缓存、SQL、契约、部署、故障）。每题含专属答案、评分点与追问，来源为 React/MDN/Node/PostgreSQL 官方文档；**没有原始面经，全部标为模拟题**。质量门禁 `_工具/check_frontend.mjs` 当前 5/5 通过。
+
+## 公司×岗位×题型矩阵
+
+`岗位矩阵.csv` 由 `_工具/build_role_matrix.mjs` 从各公司 `题目索引.json` 与 `前端全栈/questions.json` 生成：算法题 250 道（岗位未标注）、前端 10 道、全栈 6 道，共 266 道。`_工具/evidence/role-matrix.json` 同时记录 `verified_raw_evidence = 0`，不把聚合来源冒充已核验真题。

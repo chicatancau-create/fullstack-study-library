@@ -1,0 +1,454 @@
+{
+  "schema": 1,
+  "note": "前端/全栈补充题：题目公开、无原始面经，按 MS10 规则标为模拟题；每题答案针对该题，不与其他题共用模板。",
+  "items": [
+    {
+      "id": "FE01",
+      "company": "通用",
+      "role": "前端",
+      "type": "React",
+      "title": "React 列表 key 的作用与错误 key 的后果",
+      "question": "渲染列表时为什么需要 key？用数组下标作 key 在什么场景会出错？",
+      "answer": [
+        "key 是 React 在协调（reconciliation）时识别同一层级节点身份的标识，而不是给开发者读的属性，也不会出现在 DOM 上。",
+        "同层级 diff 时 React 用 key 匹配旧节点与新节点：key 相同才复用组件实例与 DOM，key 不同则卸载重建。",
+        "用下标作 key 时，插入或删除头部元素会让后续元素的下标整体偏移，React 把“位置”当成身份，导致状态错位。",
+        "典型故障：受控输入框内容跟着位置走、动画重放、uncontrolled 输入丢失焦点、组件内部 state 串到相邻行。",
+        "稳定 key 应来自业务主键（如后端 id）；没有主键时可用稳定哈希，并在数据变化时保证唯一。",
+        "key 只需在兄弟节点间唯一，不需要全局唯一；key 变化等价于“删旧建新”，可用于强制重置组件。"
+      ],
+      "rubric": [
+        { "point": "说明 key 是协调阶段的身份标识而非 DOM 属性", "weight": 2 },
+        { "point": "能举出下标 key 导致状态错位的具体场景", "weight": 2 },
+        { "point": "给出以业务主键作 key 的替代方案", "weight": 1 }
+      ],
+      "followups": [
+        "key 相同但组件类型不同，React 会复用还是重建？",
+        "为什么 key 不需要全局唯一？"
+      ],
+      "source_url": "https://react.dev/learn/rendering-lists",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE02",
+      "company": "通用",
+      "role": "前端",
+      "type": "React",
+      "title": "useEffect 依赖数组与闭包陷阱",
+      "question": "useEffect 的依赖数组如何决定执行时机？遗漏依赖为什么会产生陈旧值？",
+      "answer": [
+        "依赖数组在每次渲染后按 Object.is 逐项比较：数组长度或任一项变化才重新执行 effect；空数组只在挂载后执行一次。",
+        "effect 回调捕获的是当次渲染的 props 与 state；遗漏依赖时闭包一直指向旧值，异步回调里读到的就是陈旧状态。",
+        "典型现象：定时器里读到的 count 永远停在初始值、订阅回调使用旧的 userId、请求回填覆盖了新输入。",
+        "正确做法是把 effect 内读取的响应式值全部列入依赖，或用函数式更新 setCount(c => c + 1) 避免读取旧值。",
+        "需要“只执行一次但读最新值”时用 ref 保存最新值，而不是删依赖；清理函数必须与订阅成对出现。",
+        "依赖是对象或函数时，每次渲染都是新引用；应把其定义移入 effect、用 useCallback/useMemo 稳定，或改依赖为原始值。"
+      ],
+      "rubric": [
+        { "point": "解释依赖数组的比较方式与执行时机", "weight": 1 },
+        { "point": "说明闭包捕获的是当次渲染的快照", "weight": 2 },
+        { "point": "给出函数式更新或 ref 的修复方式", "weight": 2 }
+      ],
+      "followups": [
+        "StrictMode 下 effect 为什么执行两次？",
+        "清理函数在依赖变化时的执行顺序是什么？"
+      ],
+      "source_url": "https://react.dev/reference/react/useEffect",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE03",
+      "company": "通用",
+      "role": "前端",
+      "type": "JavaScript",
+      "title": "事件循环：宏任务与微任务的输出顺序",
+      "question": "setTimeout、Promise.then、queueMicrotask、requestAnimationFrame 在同一轮里的执行顺序如何判断？",
+      "answer": [
+        "同步代码先执行完当前宏任务；每个宏任务结束后清空微任务队列，再进入渲染与下一个宏任务。",
+        "Promise.then、queueMicrotask、MutationObserver 属于微任务，按入队顺序 FIFO 执行。",
+        "setTimeout/setInterval、I/O 回调、MessageChannel 属于宏任务，每轮事件循环取一个执行。",
+        "requestAnimationFrame 在渲染前执行，属于渲染步骤而非宏/微任务队列，顺序取决于浏览器渲染时机。",
+        "微任务中继续产生微任务会在同一轮清空，可能饿死渲染；长微任务链会导致页面卡顿。",
+        "await 之后的代码等价于 Promise.then 的续体，进入微任务队列，而不是同步继续。"
+      ],
+      "rubric": [
+        { "point": "区分宏任务、微任务与渲染步骤", "weight": 2 },
+        { "point": "说明每个宏任务后清空微任务队列", "weight": 2 },
+        { "point": "指出微任务链饿死渲染的风险", "weight": 1 }
+      ],
+      "followups": [
+        "Node.js 的事件循环阶段与浏览器有哪些差异？",
+        "为什么 setTimeout(fn, 0) 不保证 0ms 执行？"
+      ],
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE04",
+      "company": "通用",
+      "role": "前端",
+      "type": "JavaScript",
+      "title": "闭包与 var/let 在循环中的差异",
+      "question": "for 循环里用 var 注册回调为什么会全部打印同一个值？let 如何解决？",
+      "answer": [
+        "闭包捕获的是变量的绑定而不是值；var 在函数作用域内只有一个绑定，循环结束后该绑定等于终值。",
+        "let 在 for 头部为每次迭代创建新的绑定，并把上一轮的值复制到下一轮，因此每个回调捕获各自的值。",
+        "var 场景的修复方式：IIFE 传参、在循环体内用 const 保存当前值、或改用 forEach 的回调参数。",
+        "闭包会延长变量生命周期，持有大对象时可能造成内存滞留；不再需要时应解除引用。",
+        "let 的“每轮新绑定”是规范行为，不是转译器魔法；ES5 转译会用闭包模拟。",
+        "该差异同样影响 setTimeout、事件监听与 Promise 回调中的循环变量。"
+      ],
+      "rubric": [
+        { "point": "说明闭包捕获绑定而非值", "weight": 2 },
+        { "point": "解释 let 每轮创建新绑定", "weight": 2 },
+        { "point": "给出 IIFE 或循环体内 const 的替代写法", "weight": 1 }
+      ],
+      "followups": [
+        "闭包与内存泄漏的关系是什么？",
+        "for...of 与 for...in 在这个问题上有什么不同？"
+      ],
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE05",
+      "company": "通用",
+      "role": "前端",
+      "type": "CSS",
+      "title": "BFC 与外边距塌陷、浮动包含",
+      "question": "什么是 BFC？它能解决哪些布局问题，如何触发？",
+      "answer": [
+        "BFC 是块级格式化上下文，内部块级盒在独立容器内布局，内外互不影响。",
+        "触发方式包括 display: flow-root、float 非 none、position: absolute/fixed、overflow 非 visible、contain: layout。",
+        "解决父子外边距塌陷：父元素形成 BFC 后，子元素 margin 不再与父元素合并。",
+        "包含浮动子元素：BFC 会计算浮动高度，可用于替代 clearfix 撑开父容器。",
+        "阻止相邻元素 margin 合并与浮动环绕：BFC 盒子不会与外部浮动重叠。",
+        "flow-root 是最无副作用的触发方式；overflow: hidden 会裁剪溢出内容，需权衡。"
+      ],
+      "rubric": [
+        { "point": "定义 BFC 为独立布局上下文", "weight": 1 },
+        { "point": "列出至少三种触发方式并说明副作用", "weight": 2 },
+        { "point": "对应到外边距塌陷或浮动包含的具体问题", "weight": 2 }
+      ],
+      "followups": [
+        "Flex/Grid 容器是否形成 BFC？",
+        "margin 合并发生在哪些相邻关系上？"
+      ],
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_display/Block_formatting_context",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE06",
+      "company": "通用",
+      "role": "前端",
+      "type": "浏览器",
+      "title": "强缓存与协商缓存的组合策略",
+      "question": "Cache-Control、ETag、Last-Modified 分别如何工作？发布新版本时如何避免用户拿到旧资源？",
+      "answer": [
+        "强缓存命中时浏览器不发请求，直接使用本地副本，由 Cache-Control 的 max-age/s-maxage 与 Expires 决定。",
+        "协商缓存由 ETag/If-None-Match 与 Last-Modified/If-Modified-Since 触发，命中返回 304 且无响应体。",
+        "ETag 基于内容指纹更精确，Last-Modified 只有秒级精度且无法区分内容是否真变。",
+        "HTML 入口应使用 no-cache（允许缓存但必须协商），避免用户长期拿到旧入口。",
+        "带 hash 的静态资源可设 immutable + 一年 max-age，内容变化即换 URL，天然避开旧缓存。",
+        "发布后旧资源需保留一段时间，防止尚未刷新 HTML 的用户请求 404。"
+      ],
+      "rubric": [
+        { "point": "区分强缓存不发请求与协商缓存返回 304", "weight": 2 },
+        { "point": "说明 ETag 与 Last-Modified 的精度差异", "weight": 1 },
+        { "point": "给出 HTML no-cache + hash 资源 immutable 的发布策略", "weight": 2 }
+      ],
+      "followups": [
+        "CDN 回源缓存与浏览器缓存如何叠加？",
+        "为什么 304 响应仍可能消耗带宽？"
+      ],
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE07",
+      "company": "通用",
+      "role": "前端",
+      "type": "可访问性",
+      "title": "自定义对话框的焦点管理与 ARIA",
+      "question": "用 div 实现模态框时，键盘与读屏用户会遇到什么问题？应如何补齐？",
+      "answer": [
+        "原生 dialog 元素自带焦点陷阱、Esc 关闭与顶层渲染；用 div 模拟时这些行为都要自己实现。",
+        "打开时把焦点移到对话框内首个可聚焦元素或标题，关闭后焦点回到触发按钮。",
+        "Tab/Shift+Tab 需在对话框内循环，背景内容应设为 inert 或 aria-hidden 并从 tab 序列移除。",
+        "对话框需 role=dialog、aria-modal=true、aria-labelledby 指向标题，读屏才会播报正确语义。",
+        "Esc 关闭、点击遮罩关闭要与业务确认（表单未保存时不应静默丢弃）。",
+        "焦点可见性不能仅靠 outline: none 移除，需提供替代的可见焦点样式。"
+      ],
+      "rubric": [
+        { "point": "说明打开/关闭时的焦点转移规则", "weight": 2 },
+        { "point": "实现焦点陷阱并隔离背景内容", "weight": 2 },
+        { "point": "补齐 role/aria-modal/aria-labelledby 语义", "weight": 1 }
+      ],
+      "followups": [
+        "inert 与 aria-hidden 的差别是什么？",
+        "读屏用户如何感知对话框已关闭？"
+      ],
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE08",
+      "company": "通用",
+      "role": "前端",
+      "type": "SSR",
+      "title": "SSR 水合不匹配的成因与排查",
+      "question": "React 服务端渲染后水合报错一般由什么引起？如何定位与修复？",
+      "answer": [
+        "水合要求首次客户端渲染与服务端 HTML 完全一致；任何依赖浏览器环境的分支都会造成差异。",
+        "常见成因：直接读 window/localStorage、使用 Date.now()/Math.random()、按浏览器语言格式化、无效 HTML 嵌套被浏览器纠正。",
+        "列表 key 不稳定或数据顺序在两端不同，也会让 React 复用到错误节点。",
+        "排查方式：看 hydration mismatch 的 diff 提示，临时禁用相关组件做二分，或用 suppressHydrationWarning 仅掩盖文本差异。",
+        "修复思路：把浏览器相关逻辑移到 useEffect，用两阶段渲染（占位 → 客户端数据），或统一时区与随机种子。",
+        "水合失败会退化为整树客户端重渲染，性能与交互可用性都会下降，因此不能长期靠 suppress 掩盖。"
+      ],
+      "rubric": [
+        { "point": "说明首屏 HTML 必须两端一致", "weight": 1 },
+        { "point": "列出环境依赖、时间随机、无效嵌套等成因", "weight": 2 },
+        { "point": "用 effect 延后或两阶段渲染修复而不是长期 suppress", "weight": 2 }
+      ],
+      "followups": [
+        "流式 SSR 下水合边界如何划分？",
+        "suppressHydrationWarning 适用哪些场景？"
+      ],
+      "source_url": "https://react.dev/reference/react-dom/client/hydrateRoot",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE09",
+      "company": "通用",
+      "role": "前端",
+      "type": "构建",
+      "title": "代码分割与 tree-shaking 的生效条件",
+      "question": "为什么配置了 tree-shaking 体积仍不下降？动态 import 的拆分粒度如何决定？",
+      "answer": [
+        "tree-shaking 依赖 ESM 静态结构；CommonJS、副作用未标注、桶文件 re-export 都会阻止摇除。",
+        "package.json 的 sideEffects 声明与打包器 mode=production 是前提，否则模块被保守保留。",
+        "动态 import() 会生成独立 chunk，但被多处同步引用或进入同一入口共享依赖时会被合并。",
+        "拆分应以路由或重型依赖（图表、编辑器）为边界；过细会产生大量小请求与瀑布。",
+        "用打包分析器查看 chunk 组成，确认是业务代码、第三方还是重复依赖（多版本共存）。",
+        "preload/prefetch 与 HTTP 缓存影响拆分收益：首屏关键 chunk 不宜过度拆分。"
+      ],
+      "rubric": [
+        { "point": "说明 ESM 与 sideEffects 是摇树前提", "weight": 2 },
+        { "point": "解释动态 import 的 chunk 生成与合并条件", "weight": 2 },
+        { "point": "用分析器确认体积来源而非猜", "weight": 1 }
+      ],
+      "followups": [
+        "为什么桶文件会拖累 tree-shaking？",
+        "拆分过细会带来什么副作用？"
+      ],
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE10",
+      "company": "通用",
+      "role": "前端",
+      "type": "性能",
+      "title": "LCP/INP/CLS 的定位与优化顺序",
+      "question": "线上核心网页指标变差时，你如何定位是 LCP、INP 还是 CLS，并分别采取什么措施？",
+      "answer": [
+        "先按真实用户监控拆分指标与设备/地区/页面维度，确认是全局退化还是局部页面。",
+        "LCP 差：检查最大元素是图片、视频封面还是文本块；优化图片尺寸与格式、预加载关键资源、减少阻塞渲染的请求。",
+        "INP 差：定位长任务与事件处理耗时，拆分同步计算、用 Web Worker、避免布局抖动与过度重渲染。",
+        "CLS 差：为图片/广告/嵌入预留尺寸，避免插入内容顶飞布局，字体加载使用 font-display 与尺寸匹配。",
+        "实验室数据与真实用户数据要分开看：Lighthouse 只代表单次受控环境，不能替代 field 数据。",
+        "优化顺序按影响面与成本排序，先处理首屏关键路径，再处理交互长任务。"
+      ],
+      "rubric": [
+        { "point": "区分 LCP、INP、CLS 对应的用户问题", "weight": 2 },
+        { "point": "给出每个指标至少一条针对性措施", "weight": 2 },
+        { "point": "说明实验室数据与真实用户数据的差异", "weight": 1 }
+      ],
+      "followups": [
+        "LCP 元素如何确定？",
+        "INP 与总阻塞时间 TBT 的关系是什么？"
+      ],
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/Performance",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE11",
+      "company": "通用",
+      "role": "全栈",
+      "type": "Node",
+      "title": "Node API 的幂等与重复提交",
+      "question": "用户重复点击或网络重试导致重复下单，如何在 Node 服务端保证幂等？",
+      "answer": [
+        "客户端生成幂等键（如 UUID）随请求提交，服务端以“用户+幂等键”建立唯一约束。",
+        "同一幂等键的并发请求只有一个能插入成功，其余读取已有结果并返回相同响应。",
+        "数据库唯一索引是最终防线；仅靠先查后写会有竞态窗口。",
+        "幂等记录要保存结果摘要与状态，失败请求应允许重试而不是永久占用键。",
+        "超时重试要区分“未执行”和“已执行但响应丢失”，后者必须返回首次结果。",
+        "幂等键应有 TTL 或归档策略，避免无限增长。"
+      ],
+      "rubric": [
+        { "point": "用客户端幂等键 + 唯一约束防重", "weight": 2 },
+        { "point": "说明并发下先查后写的竞态", "weight": 2 },
+        { "point": "重试返回首次结果并处理失败态", "weight": 1 }
+      ],
+      "followups": [
+        "幂等键放在请求头还是请求体更合适？",
+        "分布式锁能否替代唯一索引？"
+      ],
+      "source_url": "https://nodejs.org/api/http.html",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE12",
+      "company": "通用",
+      "role": "全栈",
+      "type": "缓存",
+      "title": "Cache-Aside 的失效与一致性",
+      "question": "读多写少的接口用 Cache-Aside，为什么“先更库再删缓存”仍可能读到旧值？如何收敛？",
+      "answer": [
+        "并发读写下，删除缓存与更新数据库之间存在窗口：读请求可能把旧值重新写回缓存。",
+        "先更库再删缓存的窗口通常比先删缓存再更库更小，但不能完全消除竞态。",
+        "收敛手段：延迟双删、给缓存设置较短 TTL、用版本号/逻辑过期避免旧值长期驻留。",
+        "强一致场景可让写请求删除缓存并等待主从同步，或直接读主库；代价是吞吐下降。",
+        "缓存穿透用空值缓存或布隆过滤器；缓存击穿用互斥重建或逻辑过期。",
+        "必须监控命中率与陈旧读比例，不能假设“删了就一致”。"
+      ],
+      "rubric": [
+        { "point": "指出删缓存与并发读回填的竞态窗口", "weight": 2 },
+        { "point": "给出延迟双删/TTL/版本号等收敛手段", "weight": 2 },
+        { "point": "区分穿透、击穿与雪崩的处理", "weight": 1 }
+      ],
+      "followups": [
+        "为什么一般不推荐“先删缓存再更库”？",
+        "逻辑过期如何避免大量请求同时重建？"
+      ],
+      "source_url": "https://www.postgresql.org/docs/current/mvcc.html",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE13",
+      "company": "通用",
+      "role": "全栈",
+      "type": "SQL",
+      "title": "N+1 查询的识别与消除",
+      "question": "接口返回 20 条订单及各自明细，日志出现 21 次查询，如何确认并消除 N+1？",
+      "answer": [
+        "先看查询日志或 ORM 的 SQL 计数：1 次列表查询 + N 次关联查询即典型 N+1。",
+        "用 EXPLAIN 确认单次查询是否走索引，排除“慢查询被误判为 N+1”。",
+        "消除方式：JOIN 一次取回、IN 批量查询后内存分组、或 ORM 的预加载（include/select_related）。",
+        "批量 IN 要注意参数上限与索引命中，超大列表需分批。",
+        "一对多 JOIN 会产生行膨胀，需评估去重成本与网络传输量。",
+        "修复后用查询计数与 P95 延迟验证，而不是只看功能正确。"
+      ],
+      "rubric": [
+        { "point": "用 SQL 计数确认 N+1 而不是凭感觉", "weight": 2 },
+        { "point": "给出 JOIN 或批量 IN 的具体消除方式", "weight": 2 },
+        { "point": "说明批量方案的参数上限与行膨胀权衡", "weight": 1 }
+      ],
+      "followups": [
+        "ORM 预加载在分页场景下有什么陷阱？",
+        "如何为这次修复加回归测试？"
+      ],
+      "source_url": "https://www.postgresql.org/docs/current/using-explain.html",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE14",
+      "company": "通用",
+      "role": "全栈",
+      "type": "契约",
+      "title": "分页接口：offset 与游标的取舍",
+      "question": "列表接口用 offset/limit 分页，在数据频繁写入时会出现什么问题？游标分页如何设计？",
+      "answer": [
+        "offset 分页在数据插入或删除后会漂移：同一页可能重复或漏掉记录。",
+        "深分页 offset 很大时数据库需要扫描并丢弃前 N 行，延迟随页码增长。",
+        "游标分页以排序键（如 created_at + id）为锚点，查询“严格小于上一页最后一条”的记录。",
+        "排序键必须唯一或带唯一列兜底，否则同一时间戳的记录会跨页丢失或重复。",
+        "游标需编码并校验，防止客户端篡改；同时返回 next_cursor 而不是页码。",
+        "业务需要跳页或总数时，offset 仍可保留，但要接受漂移并限制最大页深。"
+      ],
+      "rubric": [
+        { "point": "说明 offset 漂移与深分页扫描成本", "weight": 2 },
+        { "point": "游标基于排序键且需唯一兜底", "weight": 2 },
+        { "point": "明确游标编码校验与 next_cursor 契约", "weight": 1 }
+      ],
+      "followups": [
+        "如何同时支持按时间倒序与按热度排序的游标？",
+        "总数统计在大表上如何降级？"
+      ],
+      "source_url": "https://www.postgresql.org/docs/current/queries-limit.html",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE15",
+      "company": "通用",
+      "role": "全栈",
+      "type": "部署",
+      "title": "蓝绿/金丝雀发布与数据库兼容",
+      "question": "做金丝雀发布时，新旧版本同时在线，数据库变更应遵循什么顺序才能安全回滚？",
+      "answer": [
+        "采用扩展-收缩（expand-contract）：先加新列/新表并双写，再切读，最后删除旧结构。",
+        "任何一次发布都保证新旧代码都能读写当前 schema，禁止同一发布里既改代码又删列。",
+        "金丝雀按流量比例或用户分桶放量，观察错误率、延迟与业务指标再扩大。",
+        "回滚预案要包含代码回滚与数据回滚两个方向；删除列不可逆，必须后置。",
+        "双写期间要校验两边一致性，并明确以哪边为准。",
+        "迁移脚本需可重入、可断点续跑，避免大表长时间锁。"
+      ],
+      "rubric": [
+        { "point": "扩展-收缩顺序：加列→双写→切读→删旧", "weight": 2 },
+        { "point": "新旧版本同时在线时的 schema 兼容要求", "weight": 2 },
+        { "point": "金丝雀放量与回滚判据", "weight": 1 }
+      ],
+      "followups": [
+        "大表加非空列如何避免长时间锁表？",
+        "双写失败时以哪边数据为准？"
+      ],
+      "source_url": "https://www.postgresql.org/docs/current/ddl-alter.html",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE16",
+      "company": "通用",
+      "role": "全栈",
+      "type": "故障",
+      "title": "线上 500 升高的排查顺序",
+      "question": "发布后 5xx 从 0.1% 升到 8%，你按什么顺序定位并止血？",
+      "answer": [
+        "先确认影响面：哪些接口、哪些地区/版本、是否与发布批次时间吻合。",
+        "看错误分布与堆栈：是新异常、依赖超时，还是连接池耗尽/线程池打满。",
+        "对照最近变更：代码、配置、schema、依赖版本、证书与 DNS。",
+        "止血优先：回滚发布、摘除异常实例、限流降级，再继续根因分析。",
+        "检查下游依赖与数据库：慢查询、锁等待、连接数、队列堆积。",
+        "恢复后补监控与告警阈值，并用同一批流量做回归验证。"
+      ],
+      "rubric": [
+        { "point": "按影响面与时间相关性缩小范围", "weight": 1 },
+        { "point": "区分应用异常、资源耗尽与下游依赖", "weight": 2 },
+        { "point": "先止血（回滚/摘除/限流）再根因", "weight": 2 }
+      ],
+      "followups": [
+        "如何判断是连接池耗尽而不是下游慢？",
+        "回滚后仍不恢复说明什么？"
+      ],
+      "source_url": "https://nodejs.org/api/http.html",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    }
+  ]
+}
