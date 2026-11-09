@@ -1,0 +1,53 @@
+{
+  "id": "Q096",
+  "title": "151. 翻转字符串里的单词",
+  "question_url": "https://leetcode.cn/problems/reverse-words-in-a-string/",
+  "core_idea": "按空白切分并过滤空串，反转单词数组后用单个空格拼接；等价于原地先整体反转再逐词反转。",
+  "invariant": "过滤后数组中每项都是非空单词，拼接结果不含多余空格。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(s) {\n  return s.split(/\\s+/).filter(Boolean).reverse().join(' ');\n}",
+  "edge_cases": [
+    {
+      "call": "\"the sky is blue\"",
+      "expected": "blue is sky the",
+      "why": "标准示例"
+    },
+    {
+      "call": "\"  hello world  \"",
+      "expected": "world hello",
+      "why": "首尾空格被去除"
+    },
+    {
+      "call": "\"a good   example\"",
+      "expected": "example good a",
+      "why": "多个空格折叠为一个"
+    }
+  ],
+  "common_mistakes": [
+    "只按单空格切分，残留空串产生双空格",
+    "反转字符而不是单词",
+    "忘记去除首尾空格"
+  ],
+  "followups": [
+    "如何用 O(1) 额外空间原地完成？",
+    "若输入是字符数组且要求不申请新数组？"
+  ],
+  "rubric": [
+    {
+      "point": "按任意空白切分并过滤空串",
+      "weight": 2
+    },
+    {
+      "point": "反转单词顺序",
+      "weight": 1
+    },
+    {
+      "point": "单空格拼接无多余空格",
+      "weight": 1
+    }
+  ]
+}

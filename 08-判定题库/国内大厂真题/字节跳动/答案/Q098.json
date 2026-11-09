@@ -1,0 +1,53 @@
+{
+  "id": "Q098",
+  "title": "8. 字符串转换整数 (atoi)",
+  "question_url": "https://leetcode.cn/problems/string-to-integer-atoi/",
+  "core_idea": "按规则逐段解析：跳前导空格、读可选符号、读连续数字并在累加时做 32 位边界裁剪，遇到非数字立即停止。",
+  "invariant": "每一步累加后的值都被夹在 [MIN, MAX] 内，因此不会溢出。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(s) {\n  const MAX = 2147483647, MIN = -2147483648;\n  let i = 0, sign = 1, num = 0;\n  while (i < s.length && s[i] === ' ') i++;\n  if (s[i] === '+' || s[i] === '-') { sign = s[i] === '-' ? -1 : 1; i++; }\n  while (i < s.length && s[i] >= '0' && s[i] <= '9') {\n    num = num * 10 + (s.charCodeAt(i) - 48);\n    if (sign === 1 && num > MAX) return MAX;\n    if (sign === -1 && -num < MIN) return MIN;\n    i++;\n  }\n  return sign * num;\n}",
+  "edge_cases": [
+    {
+      "call": "\"42\"",
+      "expected": 42,
+      "why": "纯数字"
+    },
+    {
+      "call": "\"   -42\"",
+      "expected": -42,
+      "why": "前导空格与负号"
+    },
+    {
+      "call": "\"-91283472332\"",
+      "expected": -2147483648,
+      "why": "下溢裁剪到 INT_MIN"
+    }
+  ],
+  "common_mistakes": [
+    "用 parseInt，后者的边界与规则不同",
+    "符号后无数字时返回符号而非 0",
+    "溢出判断放在最后导致精度丢失"
+  ],
+  "followups": [
+    "\"words and 987\" 应返回什么？",
+    "如何支持 64 位整数？"
+  ],
+  "rubric": [
+    {
+      "point": "跳过前导空格并只读一个符号",
+      "weight": 1
+    },
+    {
+      "point": "逐位读数字遇到非数字停止",
+      "weight": 1
+    },
+    {
+      "point": "累加过程中按 32 位边界裁剪",
+      "weight": 2
+    }
+  ]
+}

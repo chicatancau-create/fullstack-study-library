@@ -1,0 +1,60 @@
+{
+  "id": "Q091",
+  "title": "24. 两两交换链表中的节点",
+  "question_url": "https://leetcode.cn/problems/swap-nodes-in-pairs/",
+  "core_idea": "哑节点 + 迭代：每轮取 first、second 两个节点，让 second 接到前驱后、first 接到 second 后，并把 second 的后继作为下一轮起点。",
+  "invariant": "prev 始终指向已处理部分的最后一个节点，其 next 指向待处理段的第一个节点。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(arr) {\n  const d = { val: 0, next: null };\n  let tail = d;\n  for (const v of arr) { tail.next = { val: v, next: null }; tail = tail.next; }\n  const dummy = { next: d.next };\n  let prev = dummy;\n  while (prev.next && prev.next.next) {\n    const a = prev.next, b = a.next;\n    a.next = b.next;\n    b.next = a;\n    prev.next = b;\n    prev = a;\n  }\n  const out = [];\n  for (let p = dummy.next; p; p = p.next) out.push(p.val);\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "[1,2,3,4]",
+      "expected": [
+        2,
+        1,
+        4,
+        3
+      ],
+      "why": "两两交换"
+    },
+    {
+      "call": "[1]",
+      "expected": [
+        1
+      ],
+      "why": "奇数个尾部不动"
+    },
+    {
+      "call": "[]",
+      "expected": [],
+      "why": "空链表"
+    }
+  ],
+  "common_mistakes": [
+    "交换后 prev 没移到已交换的第二个节点",
+    "丢头节点（无哑节点）",
+    "奇数长度时越界"
+  ],
+  "followups": [
+    "如何用递归实现？",
+    "K 个一组反转（25）如何推广？"
+  ],
+  "rubric": [
+    {
+      "point": "哑节点统一处理头两个节点",
+      "weight": 1
+    },
+    {
+      "point": "三指针重连顺序正确",
+      "weight": 2
+    },
+    {
+      "point": "奇数长度与空链表正确",
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "Q088",
+  "title": "62. 不同路径",
+  "question_url": "https://leetcode.cn/problems/unique-paths/",
+  "core_idea": "DP：dp[i][j]=dp[i-1][j]+dp[i][j-1]；第一行第一列均为 1，可滚动成一维。",
+  "invariant": "dp[j] 在处理第 i 行时先表示上方值，加上左侧 dp[j-1] 后表示当前格。",
+  "complexity": {
+    "time": "O(mn)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(m, n) {\n  const dp = new Array(n).fill(1);\n  for (let i = 1; i < m; i++) {\n    for (let j = 1; j < n; j++) {\n      dp[j] += dp[j - 1];\n    }\n  }\n  return dp[n - 1];\n}",
+  "edge_cases": [
+    {
+      "call": "3, 7",
+      "expected": 28,
+      "why": "标准示例"
+    },
+    {
+      "call": "3, 2",
+      "expected": 3,
+      "why": "小网格"
+    },
+    {
+      "call": "1, 1",
+      "expected": 1,
+      "why": "单格"
+    }
+  ],
+  "common_mistakes": [
+    "第一行初始化成 0",
+    "滚动数组先更新 dp[j-1] 再读导致重复",
+    "把路径数当组合数溢出"
+  ],
+  "followups": [
+    "有障碍物（63）如何改？",
+    "为什么答案等于 C(m+n-2, m-1)？"
+  ],
+  "rubric": [
+    {
+      "point": "一维 dp 初始全 1 对应第一行",
+      "weight": 2
+    },
+    {
+      "point": "逐行累加左值与上值",
+      "weight": 1
+    },
+    {
+      "point": "单行/单列返回 1",
+      "weight": 1
+    }
+  ]
+}

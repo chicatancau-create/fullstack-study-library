@@ -1,0 +1,53 @@
+{
+  "id": "Q100",
+  "title": "135. 分发糖果",
+  "question_url": "https://leetcode.cn/problems/candy/",
+  "core_idea": "两次贪心：从左到右保证比左邻高者多得，再从右到左保证比右邻高者多得，每个孩子取两次约束的较大值。",
+  "invariant": "两轮结束后每个位置同时满足左右两侧的相邻约束，因此总和最小。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(ratings) {\n  const n = ratings.length;\n  const candies = new Array(n).fill(1);\n  for (let i = 1; i < n; i++) {\n    if (ratings[i] > ratings[i - 1]) candies[i] = candies[i - 1] + 1;\n  }\n  for (let i = n - 2; i >= 0; i--) {\n    if (ratings[i] > ratings[i + 1]) candies[i] = Math.max(candies[i], candies[i + 1] + 1);\n  }\n  return candies.reduce((a, b) => a + b, 0);\n}",
+  "edge_cases": [
+    {
+      "call": "[1,0,2]",
+      "expected": 5,
+      "why": "1,2,1 共 5 颗"
+    },
+    {
+      "call": "[1,2,2]",
+      "expected": 4,
+      "why": "相等不要求更多"
+    },
+    {
+      "call": "[1]",
+      "expected": 1,
+      "why": "单孩子"
+    }
+  ],
+  "common_mistakes": [
+    "只从左扫一遍，右侧下降段不足",
+    "相等时也加一导致浪费",
+    "第二轮直接赋值而不是取较大值"
+  ],
+  "followups": [
+    "环形排列（补充题）如何分情况？",
+    "如何用 O(1) 空间完成？"
+  ],
+  "rubric": [
+    {
+      "point": "左到右处理左邻约束",
+      "weight": 2
+    },
+    {
+      "point": "右到左处理右邻约束并取 max",
+      "weight": 1
+    },
+    {
+      "point": "相等时不多给",
+      "weight": 1
+    }
+  ]
+}

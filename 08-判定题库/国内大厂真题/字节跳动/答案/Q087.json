@@ -1,0 +1,53 @@
+{
+  "id": "Q087",
+  "title": "207. 课程表",
+  "question_url": "https://leetcode.cn/problems/course-schedule/",
+  "core_idea": "建图后拓扑排序：入度为 0 的课先修，统计能修完的课程数，若小于总数说明有环。",
+  "invariant": "队列只放当前可修的课；每修完一门，其后续课程入度减一。",
+  "complexity": {
+    "time": "O(V+E)",
+    "space": "O(V+E)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(n, pre) {\n  const adj = Array.from({ length: n }, () => []);\n  const indeg = new Array(n).fill(0);\n  for (const [a, b] of pre) { adj[b].push(a); indeg[a]++; }\n  const q = [];\n  for (let i = 0; i < n; i++) if (indeg[i] === 0) q.push(i);\n  let done = 0;\n  while (q.length) {\n    const v = q.shift();\n    done++;\n    for (const w of adj[v]) if (--indeg[w] === 0) q.push(w);\n  }\n  return done === n;\n}",
+  "edge_cases": [
+    {
+      "call": "2, [[1,0]]",
+      "expected": true,
+      "why": "先修 0 再修 1"
+    },
+    {
+      "call": "2, [[1,0],[0,1]]",
+      "expected": false,
+      "why": "互相依赖成环"
+    },
+    {
+      "call": "1, []",
+      "expected": true,
+      "why": "无依赖"
+    }
+  ],
+  "common_mistakes": [
+    "边方向建成 a→b 但入度加在 b 上",
+    "只判断直接自环，漏掉长环",
+    "课程编号不从 0 开始时越界"
+  ],
+  "followups": [
+    "如何输出一个合法修课顺序（210）？",
+    "DFS 版本如何检测环？"
+  ],
+  "rubric": [
+    {
+      "point": "边 b→a 与入度累加一致",
+      "weight": 2
+    },
+    {
+      "point": "入度归零才入队",
+      "weight": 1
+    },
+    {
+      "point": "完成数等于 n 才无环",
+      "weight": 1
+    }
+  ]
+}

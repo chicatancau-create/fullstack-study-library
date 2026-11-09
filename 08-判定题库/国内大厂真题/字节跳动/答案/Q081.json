@@ -1,0 +1,53 @@
+{
+  "id": "Q081",
+  "title": "剑指 Offer 22. 链表中倒数第k个节点",
+  "question_url": "https://leetcode.cn/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/",
+  "core_idea": "快慢指针：快指针先走 k 步，再与慢指针同步前进，快指针到尾时慢指针即倒数第 k 个节点。",
+  "invariant": "快慢指针间距恒为 k，因此 slow 最终停在正数第 n-k+1 个节点。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(arr, k) {\n  let fast = 0, slow = 0;\n  while (fast < arr.length && k > 0) { fast++; k--; }\n  while (fast < arr.length) { fast++; slow++; }\n  return arr[slow];\n}",
+  "edge_cases": [
+    {
+      "call": "[1,2,3,4,5], 2",
+      "expected": 4,
+      "why": "倒数第二个是 4"
+    },
+    {
+      "call": "[1], 1",
+      "expected": 1,
+      "why": "单节点"
+    },
+    {
+      "call": "[1,2], 2",
+      "expected": 1,
+      "why": "倒数第二个是头节点"
+    }
+  ],
+  "common_mistakes": [
+    "先求长度再遍历两遍（可行但不是最优）",
+    "快指针先走 k-1 步导致偏移",
+    "k 大于长度时越界"
+  ],
+  "followups": [
+    "k 大于链表长度时如何返回 null？",
+    "与 19 题删除倒数第 k 个的区别？"
+  ],
+  "rubric": [
+    {
+      "point": "快指针先走 k 步",
+      "weight": 2
+    },
+    {
+      "point": "同步前进直到快指针到尾",
+      "weight": 1
+    },
+    {
+      "point": "返回慢指针所指节点值",
+      "weight": 1
+    }
+  ]
+}

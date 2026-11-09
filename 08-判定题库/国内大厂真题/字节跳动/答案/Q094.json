@@ -1,0 +1,53 @@
+{
+  "id": "Q094",
+  "title": "110. 平衡二叉树",
+  "question_url": "https://leetcode.cn/problems/balanced-binary-tree/",
+  "core_idea": "后序求高度：左右子树高度差超过 1 或子树已不平衡时返回 -1 作为失败标记，向上短路。",
+  "invariant": "height(n) 返回 n 的真实高度，或 -1 表示该子树不平衡。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(h)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(a) {\n  function build(arr) {\n    if (!arr.length || arr[0] === null) return null;\n    const root = { val: arr[0], left: null, right: null };\n    const q = [root];\n    let i = 1;\n    while (i < arr.length && q.length) {\n      const n = q.shift();\n      if (i < arr.length) { if (arr[i] !== null) { n.left = { val: arr[i], left: null, right: null }; q.push(n.left); } i++; }\n      if (i < arr.length) { if (arr[i] !== null) { n.right = { val: arr[i], left: null, right: null }; q.push(n.right); } i++; }\n    }\n    return root;\n  }\n  function height(n) {\n    if (!n) return 0;\n    const l = height(n.left);\n    if (l === -1) return -1;\n    const r = height(n.right);\n    if (r === -1) return -1;\n    if (Math.abs(l - r) > 1) return -1;\n    return 1 + Math.max(l, r);\n  }\n  return height(build(a)) !== -1;\n}",
+  "edge_cases": [
+    {
+      "call": "[3,9,20,null,null,15,7]",
+      "expected": true,
+      "why": "标准平衡树"
+    },
+    {
+      "call": "[1,2,2,3,3,null,null,4,4]",
+      "expected": false,
+      "why": "深层左右差 2"
+    },
+    {
+      "call": "[]",
+      "expected": true,
+      "why": "空树平衡"
+    }
+  ],
+  "common_mistakes": [
+    "只检查根节点左右高度",
+    "每个节点重复求高度导致 O(n²)",
+    "用 -1 标记后仍继续加高度"
+  ],
+  "followups": [
+    "如何同时返回不平衡的节点？",
+    "红黑树如何保证近似平衡？"
+  ],
+  "rubric": [
+    {
+      "point": "后序返回高度或 -1 标记",
+      "weight": 2
+    },
+    {
+      "point": "左右差大于 1 判定失败",
+      "weight": 1
+    },
+    {
+      "point": "空树返回 true",
+      "weight": 1
+    }
+  ]
+}

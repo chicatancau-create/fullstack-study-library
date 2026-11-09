@@ -1,0 +1,53 @@
+{
+  "id": "Q086",
+  "title": "402. 移掉K位数字",
+  "question_url": "https://leetcode.cn/problems/remove-k-digits/",
+  "core_idea": "单调栈：遇到比栈顶小的数字就弹出栈顶并消耗 k，得到最小的剩余序列；最后去掉前导零。",
+  "invariant": "栈内数字单调不降，且已移除的数字数不超过 k。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(num, k) {\n  const st = [];\n  for (const ch of num) {\n    while (k > 0 && st.length && st[st.length - 1] > ch) {\n      st.pop();\n      k--;\n    }\n    st.push(ch);\n  }\n  while (k-- > 0) st.pop();\n  let i = 0;\n  while (i < st.length && st[i] === '0') i++;\n  const out = st.slice(i).join('');\n  return out === '' ? '0' : out;\n}",
+  "edge_cases": [
+    {
+      "call": "\"1432219\", 3",
+      "expected": "1219",
+      "why": "弹出 4、3、2"
+    },
+    {
+      "call": "\"10200\", 1",
+      "expected": "200",
+      "why": "移除 1 后前导零被去掉"
+    },
+    {
+      "call": "\"10\", 2",
+      "expected": "0",
+      "why": "全部移除返回 0"
+    }
+  ],
+  "common_mistakes": [
+    "只删连续下降的一段，漏掉后续更优删除",
+    "忘记处理剩余 k",
+    "结果为空串而不是 \"0\""
+  ],
+  "followups": [
+    "如何保证删除后数字位数最少？",
+    "若要求保留恰好 k 位呢？"
+  ],
+  "rubric": [
+    {
+      "point": "单调栈弹出更大栈顶并消耗 k",
+      "weight": 2
+    },
+    {
+      "point": "循环后仍有 k 则从尾部删除",
+      "weight": 1
+    },
+    {
+      "point": "去前导零并处理空结果",
+      "weight": 1
+    }
+  ]
+}

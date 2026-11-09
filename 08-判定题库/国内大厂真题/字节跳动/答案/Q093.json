@@ -1,0 +1,53 @@
+{
+  "id": "Q093",
+  "title": "958. 二叉树的完全性检验",
+  "question_url": "https://leetcode.cn/problems/check-completeness-of-a-binary-tree/",
+  "core_idea": "层序遍历包含空孩子：一旦遇到 null，其后不能再出现非空节点；全部遍历完即完全。",
+  "invariant": "遇到 null 之后队列中剩余节点必须全为 null，否则存在“空洞”。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(a) {\n  function build(arr) {\n    if (!arr.length || arr[0] === null) return null;\n    const root = { val: arr[0], left: null, right: null };\n    const q = [root];\n    let i = 1;\n    while (i < arr.length && q.length) {\n      const n = q.shift();\n      if (i < arr.length) { if (arr[i] !== null) { n.left = { val: arr[i], left: null, right: null }; q.push(n.left); } i++; }\n      if (i < arr.length) { if (arr[i] !== null) { n.right = { val: arr[i], left: null, right: null }; q.push(n.right); } i++; }\n    }\n    return root;\n  }\n  const root = build(a);\n  if (!root) return true;\n  const q = [root];\n  let seenNull = false;\n  while (q.length) {\n    const n = q.shift();\n    if (!n) { seenNull = true; continue; }\n    if (seenNull) return false;\n    q.push(n.left);\n    q.push(n.right);\n  }\n  return true;\n}",
+  "edge_cases": [
+    {
+      "call": "[1,2,3,4,5,6]",
+      "expected": true,
+      "why": "最后一层从左连续填充"
+    },
+    {
+      "call": "[1,2,3,4,5,null,7]",
+      "expected": false,
+      "why": "6 的位置空缺但 7 存在"
+    },
+    {
+      "call": "[1]",
+      "expected": true,
+      "why": "单节点"
+    }
+  ],
+  "common_mistakes": [
+    "层序只压非空孩子，无法发现空洞",
+    "遇到 null 后仍允许非空节点",
+    "忽略右孩子缺失但左孩子存在的情况"
+  ],
+  "followups": [
+    "如何用编号法（堆式下标）判断？",
+    "满二叉树与完全二叉树的区别？"
+  ],
+  "rubric": [
+    {
+      "point": "层序把 null 孩子也入队",
+      "weight": 2
+    },
+    {
+      "point": "遇到 null 后出现非空即返回 false",
+      "weight": 1
+    },
+    {
+      "point": "空树视为完全",
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "Q097",
+  "title": "329. 矩阵中的最长递增路径",
+  "question_url": "https://leetcode.cn/problems/longest-increasing-path-in-a-matrix/",
+  "core_idea": "记忆化 DFS：memo[i][j] 存从该格出发的最长递增路径，向四个方向中值更大的邻格递归，结果取 1+最大值。",
+  "invariant": "严格递增保证递归无环，memo 命中即可直接复用。",
+  "complexity": {
+    "time": "O(mn)",
+    "space": "O(mn)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(matrix) {\n  const m = matrix.length, n = matrix[0].length;\n  const memo = Array.from({ length: m }, () => new Array(n).fill(0));\n  const dirs = [[1, 0], [-1, 0], [0, 1], [0, -1]];\n  function dfs(i, j) {\n    if (memo[i][j]) return memo[i][j];\n    let best = 1;\n    for (const [di, dj] of dirs) {\n      const x = i + di, y = j + dj;\n      if (x >= 0 && y >= 0 && x < m && y < n && matrix[x][y] > matrix[i][j]) {\n        best = Math.max(best, 1 + dfs(x, y));\n      }\n    }\n    memo[i][j] = best;\n    return best;\n  }\n  let ans = 0;\n  for (let i = 0; i < m; i++) for (let j = 0; j < n; j++) ans = Math.max(ans, dfs(i, j));\n  return ans;\n}",
+  "edge_cases": [
+    {
+      "call": "[[9,9,4],[6,6,8],[2,1,1]]",
+      "expected": 4,
+      "why": "1→2→6→9"
+    },
+    {
+      "call": "[[3,4,5],[3,2,6],[2,2,1]]",
+      "expected": 4,
+      "why": "3→4→5→6"
+    },
+    {
+      "call": "[[1]]",
+      "expected": 1,
+      "why": "单格"
+    }
+  ],
+  "common_mistakes": [
+    "只判断更大但未记忆化导致指数级",
+    "把等于也当作递增",
+    "memo 在递归返回后才写入，重复计算"
+  ],
+  "followups": [
+    "拓扑排序解法如何写？",
+    "若允许上下左右走且不要求递增，如何求最长路径？"
+  ],
+  "rubric": [
+    {
+      "point": "严格大于才递归",
+      "weight": 2
+    },
+    {
+      "point": "memo 命中直接返回",
+      "weight": 1
+    },
+    {
+      "point": "四方向越界检查",
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "Q099",
+  "title": "55. 跳跃游戏",
+  "question_url": "https://leetcode.cn/problems/jump-game/",
+  "core_idea": "贪心维护最远可达下标 reach：遍历到 i 时若 i>reach 则不可达，否则用 i+nums[i] 更新 reach。",
+  "invariant": "reach 始终是从起点出发能到达的最远下标。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(nums) {\n  let reach = 0;\n  for (let i = 0; i < nums.length; i++) {\n    if (i > reach) return false;\n    reach = Math.max(reach, i + nums[i]);\n  }\n  return true;\n}",
+  "edge_cases": [
+    {
+      "call": "[2,3,1,1,4]",
+      "expected": true,
+      "why": "可跳到终点"
+    },
+    {
+      "call": "[3,2,1,0,4]",
+      "expected": false,
+      "why": "卡在下标 3"
+    },
+    {
+      "call": "[0]",
+      "expected": true,
+      "why": "已在终点"
+    }
+  ],
+  "common_mistakes": [
+    "在 i>reach 时仍更新 reach 造成假可达",
+    "只检查前一步能否跳",
+    "把 nums[0]=0 判为 true 但数组长度大于 1"
+  ],
+  "followups": [
+    "最少跳跃次数（45）如何改？",
+    "为什么贪心不需要回溯？"
+  ],
+  "rubric": [
+    {
+      "point": "以最远可达下标作为状态",
+      "weight": 2
+    },
+    {
+      "point": "i>reach 立即失败",
+      "weight": 1
+    },
+    {
+      "point": "单元素与 0 起点边界正确",
+      "weight": 1
+    }
+  ]
+}

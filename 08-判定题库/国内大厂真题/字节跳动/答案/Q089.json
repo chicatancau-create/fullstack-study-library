@@ -1,0 +1,53 @@
+{
+  "id": "Q089",
+  "title": "补充题2. 圆环回原点问题",
+  "question_url": "https://leetcode.cn/problems/count-all-possible-routes/",
+  "core_idea": "环上 0..n-1 每次走 ±1，求恰好 k 步回到 0 的方案数；dp[step][pos] 由 step-1 的左右邻转移。",
+  "invariant": "dp 只依赖上一步状态，按步数递增计算即可；位置取模保证环形。",
+  "complexity": {
+    "time": "O(kn)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(n, k) {\n  let dp = new Array(n).fill(0);\n  dp[0] = 1;\n  for (let s = 0; s < k; s++) {\n    const next = new Array(n).fill(0);\n    for (let i = 0; i < n; i++) {\n      if (!dp[i]) continue;\n      next[(i + 1) % n] += dp[i];\n      next[(i - 1 + n) % n] += dp[i];\n    }\n    dp = next;\n  }\n  return dp[0];\n}",
+  "edge_cases": [
+    {
+      "call": "10, 1",
+      "expected": 0,
+      "why": "一步无法回到原点"
+    },
+    {
+      "call": "10, 2",
+      "expected": 2,
+      "why": "顺时针或逆时针各一步再返回"
+    },
+    {
+      "call": "3, 2",
+      "expected": 2,
+      "why": "三节点环两条往返路径"
+    }
+  ],
+  "common_mistakes": [
+    "不做取模导致下标越界",
+    "把 k 步写成最多 k 步并累加",
+    "n=1 时左右邻居重合需累加两次"
+  ],
+  "followups": [
+    "n=2 时答案与什么数列有关？",
+    "如何用矩阵快速幂做到 O(n³ log k)？"
+  ],
+  "rubric": [
+    {
+      "point": "dp 状态为步数与位置",
+      "weight": 2
+    },
+    {
+      "point": "左右邻居按模运算回绕",
+      "weight": 1
+    },
+    {
+      "point": "恰好 k 步而不是至多 k 步",
+      "weight": 1
+    }
+  ]
+}

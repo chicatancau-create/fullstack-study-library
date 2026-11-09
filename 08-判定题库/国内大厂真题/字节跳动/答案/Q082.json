@@ -1,0 +1,53 @@
+{
+  "id": "Q082",
+  "title": "198. 打家劫舍",
+  "question_url": "https://leetcode.cn/problems/house-robber/",
+  "core_idea": "DP：dp[i]=max(dp[i-1], dp[i-2]+nums[i])，即不抢当前或抢当前加前前；用两个变量滚动。",
+  "invariant": "prev 是 dp[i-2]、cur 是 dp[i-1]，每轮更新后仍保持该含义。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(nums) {\n  let prev = 0, cur = 0;\n  for (const x of nums) {\n    const next = Math.max(cur, prev + x);\n    prev = cur;\n    cur = next;\n  }\n  return cur;\n}",
+  "edge_cases": [
+    {
+      "call": "[1,2,3,1]",
+      "expected": 4,
+      "why": "抢 1 和 3"
+    },
+    {
+      "call": "[2,7,9,3,1]",
+      "expected": 12,
+      "why": "抢 2+9+1"
+    },
+    {
+      "call": "[0]",
+      "expected": 0,
+      "why": "单间为 0"
+    }
+  ],
+  "common_mistakes": [
+    "把 dp[i-2]+nums[i] 写成 dp[i-1]+nums[i]",
+    "用贪心选局部最大导致相邻冲突",
+    "空数组未返回 0"
+  ],
+  "followups": [
+    "环形房屋（213）如何拆成两段？",
+    "如何输出抢了哪些房子？"
+  ],
+  "rubric": [
+    {
+      "point": "转移为 max(不抢, 抢+前前)",
+      "weight": 2
+    },
+    {
+      "point": "两个变量滚动不覆盖 dp[i-2]",
+      "weight": 1
+    },
+    {
+      "point": "单元素与零值正确",
+      "weight": 1
+    }
+  ]
+}

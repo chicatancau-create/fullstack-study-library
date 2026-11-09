@@ -1,0 +1,53 @@
+{
+  "id": "Q095",
+  "title": "104. 二叉树的最大深度",
+  "question_url": "https://leetcode.cn/problems/maximum-depth-of-binary-tree/",
+  "core_idea": "后序递归：空节点深度 0，否则 1+max(左深度,右深度)；也可用层序统计层数。",
+  "invariant": "depth(n) 等于从 n 到最远叶子经过的节点数。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(h)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(a) {\n  function build(arr) {\n    if (!arr.length || arr[0] === null) return null;\n    const root = { val: arr[0], left: null, right: null };\n    const q = [root];\n    let i = 1;\n    while (i < arr.length && q.length) {\n      const n = q.shift();\n      if (i < arr.length) { if (arr[i] !== null) { n.left = { val: arr[i], left: null, right: null }; q.push(n.left); } i++; }\n      if (i < arr.length) { if (arr[i] !== null) { n.right = { val: arr[i], left: null, right: null }; q.push(n.right); } i++; }\n    }\n    return root;\n  }\n  function depth(n) {\n    if (!n) return 0;\n    return 1 + Math.max(depth(n.left), depth(n.right));\n  }\n  return depth(build(a));\n}",
+  "edge_cases": [
+    {
+      "call": "[3,9,20,null,null,15,7]",
+      "expected": 3,
+      "why": "三层"
+    },
+    {
+      "call": "[]",
+      "expected": 0,
+      "why": "空树深度 0"
+    },
+    {
+      "call": "[0]",
+      "expected": 1,
+      "why": "单节点深度 1"
+    }
+  ],
+  "common_mistakes": [
+    "空树返回 1",
+    "把深度按边数计算",
+    "只走一条分支"
+  ],
+  "followups": [
+    "最小深度（111）有什么陷阱？",
+    "如何用层序迭代求深度？"
+  ],
+  "rubric": [
+    {
+      "point": "空节点返回 0",
+      "weight": 2
+    },
+    {
+      "point": "取左右较大者加 1",
+      "weight": 1
+    },
+    {
+      "point": "单节点深度为 1",
+      "weight": 1
+    }
+  ]
+}

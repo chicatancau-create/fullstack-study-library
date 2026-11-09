@@ -1,0 +1,53 @@
+{
+  "id": "Q084",
+  "title": "补充题23. 检测循环依赖",
+  "question_url": "https://leetcode.cn/problems/course-schedule/",
+  "core_idea": "把依赖对 (a,b) 视作 b→a 的有向边，用 Kahn 拓扑排序统计入度；能处理的节点数不足则存在环。",
+  "invariant": "队列中始终是入度为 0 的节点；处理一个节点就删除其出边。",
+  "complexity": {
+    "time": "O(V+E)",
+    "space": "O(V+E)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(edges) {\n  const nodes = new Set();\n  for (const [a, b] of edges) { nodes.add(a); nodes.add(b); }\n  const adj = new Map(), indeg = new Map();\n  for (const v of nodes) { adj.set(v, []); indeg.set(v, 0); }\n  for (const [a, b] of edges) { adj.get(b).push(a); indeg.set(a, indeg.get(a) + 1); }\n  const q = [...nodes].filter((v) => indeg.get(v) === 0);\n  let seen = 0;\n  while (q.length) {\n    const v = q.shift();\n    seen++;\n    for (const w of adj.get(v)) {\n      indeg.set(w, indeg.get(w) - 1);\n      if (indeg.get(w) === 0) q.push(w);\n    }\n  }\n  return seen !== nodes.size;\n}",
+  "edge_cases": [
+    {
+      "call": "[[0,1],[1,2],[2,0]]",
+      "expected": true,
+      "why": "三点成环"
+    },
+    {
+      "call": "[[0,1],[1,2]]",
+      "expected": false,
+      "why": "链式依赖无环"
+    },
+    {
+      "call": "[]",
+      "expected": false,
+      "why": "空依赖无环"
+    }
+  ],
+  "common_mistakes": [
+    "把 (a,b) 当成 a→b，拓扑方向反了",
+    "入度只统计不递减",
+    "忽略孤立节点导致误判"
+  ],
+  "followups": [
+    "DFS 三色标记法如何写？",
+    "若存在环，如何输出环上的节点？"
+  ],
+  "rubric": [
+    {
+      "point": "依赖方向 b→a 与入度一致",
+      "weight": 2
+    },
+    {
+      "point": "处理节点后递减出边入度",
+      "weight": 1
+    },
+    {
+      "point": "已处理数不足即存在环",
+      "weight": 1
+    }
+  ]
+}

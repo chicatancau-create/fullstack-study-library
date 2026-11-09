@@ -1,0 +1,53 @@
+{
+  "id": "Q090",
+  "title": "179. 最大数",
+  "question_url": "https://leetcode.cn/problems/largest-number/",
+  "core_idea": "自定义比较器：a 排在 b 前当且仅当 a+b > b+a（字符串拼接比较），排序后拼接并处理全零。",
+  "invariant": "比较器满足传递性，因此排序结果使任意相邻交换都不会得到更大的拼接数。",
+  "complexity": {
+    "time": "O(n log n)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(nums) {\n  const strs = nums.map(String);\n  strs.sort((a, b) => (b + a).localeCompare(a + b));\n  if (strs[0] === '0') return '0';\n  return strs.join('');\n}",
+  "edge_cases": [
+    {
+      "call": "[10,2]",
+      "expected": "210",
+      "why": "210 > 102"
+    },
+    {
+      "call": "[3,30,34,5,9]",
+      "expected": "9534330",
+      "why": "标准示例"
+    },
+    {
+      "call": "[0,0]",
+      "expected": "0",
+      "why": "全零返回单个 0"
+    }
+  ],
+  "common_mistakes": [
+    "按数值降序排序，30 会排在 3 前面",
+    "比较 a+b 与 b+a 时用数值相减导致溢出",
+    "全零时返回 \"00\""
+  ],
+  "followups": [
+    "比较器为什么满足传递性？",
+    "若拼接后的数超过 64 位如何处理？"
+  ],
+  "rubric": [
+    {
+      "point": "比较器按 a+b 与 b+a 的字典序",
+      "weight": 2
+    },
+    {
+      "point": "排序后直接拼接",
+      "weight": 1
+    },
+    {
+      "point": "全零结果返回 \"0\"",
+      "weight": 1
+    }
+  ]
+}

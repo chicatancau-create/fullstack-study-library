@@ -1,0 +1,82 @@
+{
+  "id": "Q083",
+  "title": "48. 旋转图像",
+  "question_url": "https://leetcode.cn/problems/rotate-image/",
+  "core_idea": "先沿主对角线转置，再左右翻转每一行，等价于顺时针旋转 90°；全程原地交换。",
+  "invariant": "转置后 matrix[i][j] 变为原 matrix[j][i]；左右翻转后列序反转，组合即顺时针旋转。",
+  "complexity": {
+    "time": "O(n²)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(matrix) {\n  const n = matrix.length;\n  for (let i = 0; i < n; i++) {\n    for (let j = i + 1; j < n; j++) {\n      const t = matrix[i][j];\n      matrix[i][j] = matrix[j][i];\n      matrix[j][i] = t;\n    }\n  }\n  for (const row of matrix) row.reverse();\n  return matrix;\n}",
+  "edge_cases": [
+    {
+      "call": "[[1,2,3],[4,5,6],[7,8,9]]",
+      "expected": [
+        [
+          7,
+          4,
+          1
+        ],
+        [
+          8,
+          5,
+          2
+        ],
+        [
+          9,
+          6,
+          3
+        ]
+      ],
+      "why": "标准 3×3"
+    },
+    {
+      "call": "[[1,2],[3,4]]",
+      "expected": [
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "why": "2×2"
+    },
+    {
+      "call": "[[1]]",
+      "expected": [
+        [
+          1
+        ]
+      ],
+      "why": "单元素"
+    }
+  ],
+  "common_mistakes": [
+    "双层循环 j 从 0 开始，转置交换两次回到原状",
+    "用额外矩阵冒充原地",
+    "顺时针与逆时针方向弄反"
+  ],
+  "followups": [
+    "逆时针旋转如何改？",
+    "如何旋转非方阵？"
+  ],
+  "rubric": [
+    {
+      "point": "转置只遍历上三角 j>i",
+      "weight": 2
+    },
+    {
+      "point": "再逐行反转完成顺时针",
+      "weight": 1
+    },
+    {
+      "point": "空间 O(1) 原地交换",
+      "weight": 1
+    }
+  ]
+}

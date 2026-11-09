@@ -1,0 +1,53 @@
+{
+  "id": "Q092",
+  "title": "560. 和为K的子数组",
+  "question_url": "https://leetcode.cn/problems/subarray-sum-equals-k/",
+  "core_idea": "前缀和 + 哈希：遍历时把此前出现过的前缀和计数，若 sum-k 出现过则以其计数累加答案。",
+  "invariant": "map 记录的是当前下标之前所有前缀和的出现次数，因此每个合法区间只被统计一次。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(nums, k) {\n  const map = new Map([[0, 1]]);\n  let sum = 0, count = 0;\n  for (const x of nums) {\n    sum += x;\n    count += map.get(sum - k) || 0;\n    map.set(sum, (map.get(sum) || 0) + 1);\n  }\n  return count;\n}",
+  "edge_cases": [
+    {
+      "call": "[1,1,1], 2",
+      "expected": 2,
+      "why": "两个长度为 2 的区间"
+    },
+    {
+      "call": "[1,2,3], 3",
+      "expected": 2,
+      "why": "[3] 与 [1,2]"
+    },
+    {
+      "call": "[1], 0",
+      "expected": 0,
+      "why": "无满足区间"
+    }
+  ],
+  "common_mistakes": [
+    "先存 map 再查，把自己算进区间",
+    "忘记初始化 map(0)=1",
+    "用滑动窗口处理含负数数组"
+  ],
+  "followups": [
+    "为什么不能用双指针？",
+    "若要求和为 K 且长度最短呢？"
+  ],
+  "rubric": [
+    {
+      "point": "map 初始含前缀和 0 计数 1",
+      "weight": 2
+    },
+    {
+      "point": "先查 sum-k 再写入当前 sum",
+      "weight": 1
+    },
+    {
+      "point": "计数累加而非仅判断存在",
+      "weight": 1
+    }
+  ]
+}
