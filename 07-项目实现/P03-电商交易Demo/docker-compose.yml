@@ -44,3 +44,10 @@ services:
         condition: service_healthy
     ports:
       - "8796:8796"
+
+  web:
+    build: ./web
+    depends_on:
+      - app
+    ports:
+      - "8081:80"

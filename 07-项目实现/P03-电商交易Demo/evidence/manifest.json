@@ -1,89 +1,53 @@
 {
   "schema": 1,
   "experiment": "P03",
-  "generated_at": "2026-11-08T13:42:15.166Z",
-  "commit": "01329dcb710c27de4d1e557e09558ef1d228d19f",
+  "generated_at": "2026-11-09T00:49:07.689Z",
+  "commit": "33b4e0e27ecee203dd55f114f5f3fd5d1cd7986c",
   "runtime": {
-    "platform": "linux arm64",
+    "platform": "win32 x64",
     "os_release": null,
-    "node": "v22.11.0",
-    "gcc": "gcc (GCC) 12.3.1 (openEuler 12.3.1-62.r1.hce3)",
-    "gdb": null
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
   },
   "commands": [
     {
-      "cmd": "PGPASSWORD=<local-test-password> bash scripts/run_project.sh",
+      "cmd": "npm test",
       "exit": 0
     },
     {
-      "cmd": "PGPASSWORD=<local-test-password> bash scripts/deploy_local.sh",
+      "cmd": "npm run coverage",
       "exit": 0
     },
     {
-      "cmd": "PGPASSWORD=<local-test-password> bash scripts/rollback_check.sh",
+      "cmd": "npm run e2e",
+      "exit": 0
+    },
+    {
+      "cmd": "npm run load:locks",
       "exit": 0
     }
   ],
   "artifacts": [
     {
-      "path": "evidence/backup.txt",
-      "bytes": 197,
-      "sha256": "83dbfc490825225dea87853012c0c731657dac08d8b97f540baf76b8daf451d6"
-    },
-    {
-      "path": "evidence/bug-001-failure.txt",
-      "bytes": 639,
-      "sha256": "ee7dba58312633308be02956c7c8225831ce1b26087a5cd88772d042632336c4"
-    },
-    {
-      "path": "evidence/deploy.txt",
-      "bytes": 3129,
-      "sha256": "34c0e933092fead918135826f51791762b35dbb63570a2428dfd75eb82d99816"
-    },
-    {
-      "path": "evidence/https-app.log",
-      "bytes": 924,
-      "sha256": "428a0c83a75fa503df93bf603afd6778c16281044fb1206509015b5919a6cb07"
-    },
-    {
-      "path": "evidence/https-gateway.log",
-      "bytes": 48,
-      "sha256": "2f1c757844fb2fe403cc35e668bed0c5bc285b40500cc1ab1b43f5e7573e1065"
-    },
-    {
-      "path": "evidence/load.txt",
-      "bytes": 214,
-      "sha256": "d7fcc1abc22f410c72a8d32d409a74b1d7b5870429c0a925d690b318186ff1ba"
-    },
-    {
-      "path": "evidence/migrate.txt",
-      "bytes": 94,
-      "sha256": "855d392c04cb15c16c2357b043b21387b5180aff51f6bd2bc663bf675793e5a7"
-    },
-    {
-      "path": "evidence/mq.txt",
-      "bytes": 230,
-      "sha256": "9db4d53804055cb8f818d3363cf7366bcbf41fbed82b114736e1713939d6dae4"
-    },
-    {
-      "path": "evidence/rollback.txt",
-      "bytes": 79,
-      "sha256": "4d95d35c666be3d222baeb6a113a503dcf9904571a8f4723de5253cea96702b2"
-    },
-    {
-      "path": "evidence/run.txt",
-      "bytes": 131,
-      "sha256": "831fedf80194e14d5e227cd47fe906d2ac8d522ffc5fefb3c0cd9186398d25e9"
-    },
-    {
       "path": "evidence/test.txt",
-      "bytes": 1211,
-      "sha256": "e894ba0e1b79d02b67b5233a2d9b934f1a10587cfff3be04934b4c130275a4e1"
+      "bytes": 2022,
+      "sha256": "799eadd7a6622519775e6a492997865cc5f2ccd569cc10f934fe4170f0baf77c"
     },
     {
-      "path": "evidence/toolchain.txt",
-      "bytes": 24,
-      "sha256": "d72d32fb565c56d0975c38559f4194eb80b1e226fc2f341c023c21420f8d6d01"
+      "path": "evidence/coverage.txt",
+      "bytes": 3352,
+      "sha256": "4e8176db54cbb1b47158c99609693b5e0559a47c6214b00715c94ad83483cd50"
+    },
+    {
+      "path": "evidence/load-locks.json",
+      "bytes": 691,
+      "sha256": "c509b3dbbf617035e740007cff8aa9b9e69ae16ff41c1c634e3e7edbecf0872a"
+    },
+    {
+      "path": "evidence/e2e.txt",
+      "bytes": 142,
+      "sha256": "de4128b2d579733cb9efd0da31eac50a67f79d41c7c7d5aa5951a7dfe6dde9c3"
     }
   ],
   "unverified": []

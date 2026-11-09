@@ -9,14 +9,20 @@
   },
   "scripts": {
     "migrate": "node scripts/migrate.mjs",
-    "test": "node --test tests/*.test.js",
+    "test": "node --test --test-concurrency=1 tests/*.test.js",
     "build": "node scripts/check-syntax.mjs",
     "load": "node scripts/load.mjs",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "coverage": "node --test --test-concurrency=1 --experimental-test-coverage --test-coverage-lines=80 --test-coverage-functions=80 --test-coverage-branches=75 tests/*.test.js",
+    "e2e": "playwright test",
+    "load:locks": "node scripts/load-locks.mjs"
   },
   "dependencies": {
     "amqplib": "^2.2.1",
     "fastify": "5.12.8",
     "pg": "8.23.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0"
   }
 }

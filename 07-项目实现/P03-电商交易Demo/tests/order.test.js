@@ -23,8 +23,9 @@ after(async () => {
 });
 
 beforeEach(async () => {
-  await pool.query('TRUNCATE p03.notifications, p03.outbox, p03.payment_events, p03.order_items, p03.orders RESTART IDENTITY CASCADE');
-  await pool.query('TRUNCATE p03.inventory');
+  await pool.query('TRUNCATE p03.notifications, p03.outbox, p03.payment_events, p03.order_items, p03.orders, p03.audit_log, p03.payments, p03.refunds RESTART IDENTITY CASCADE');
+  await pool.query('TRUNCATE p03.inventory, p03.products CASCADE');
+  await pool.query(`INSERT INTO p03.products (sku, title, price_cents) VALUES ('sku-1','机械键盘',299),('sku-2','显示器',1299)`);
   await pool.query(
     `INSERT INTO p03.inventory (sku, title, unit_price, stock) VALUES
      ('sku-1', '机械键盘', 299, 10), ('sku-2', '显示器', 1299, 1)`,
@@ -58,7 +59,7 @@ test('创建订单返回 201、服务端金额与快照，库存扣减一次', a
   const order = response.json();
   assert.equal(order.amount, 598);
   assert.equal(order.unit_price, 299);
-  assert.equal(order.status, 'created');
+  assert.equal(order.status, 'pending_payment');
   assert.deepEqual(order.items, [{ sku: 'sku-1', title: '机械键盘', unit_price: 299, qty: 2 }]);
   assert.equal(await stock('sku-1'), 8);
 });
@@ -125,18 +126,18 @@ test('取消未支付订单恢复库存，重复取消幂等', async () => {
 
 test('已支付订单不能取消，库存保持扣减', async () => {
   const order = (await createOrder({}, { sku: 'sku-1', qty: 1 })).json();
-  const body = { event_id: crypto.randomUUID(), order_id: order.id, result: 'success' };
+  const body = { event_id: crypto.randomUUID(), order_id: order.id, result: 'success', timestamp: Date.now() };
   const pay = await app.inject({ method: 'POST', url: '/payments/callback', headers: { 'x-signature': sign(body) }, payload: body });
   assert.equal(pay.statusCode, 200);
   const cancel = await app.inject({ method: 'POST', url: `/orders/${order.id}/cancel`, headers: API });
   assert.equal(cancel.statusCode, 409);
-  assert.equal(cancel.json().error, 'already_paid');
+  assert.equal(cancel.json().error, 'illegal_transition');
   assert.equal(await stock('sku-1'), 9);
 });
 
 test('支付成功把订单推进到 paid，重复事件不重复应用', async () => {
   const order = (await createOrder({}, { sku: 'sku-1', qty: 1 })).json();
-  const body = { event_id: 'evt-100', order_id: order.id, result: 'success' };
+  const body = { event_id: 'evt-100', order_id: order.id, result: 'success', timestamp: Date.now() };
   const first = await app.inject({ method: 'POST', url: '/payments/callback', headers: { 'x-signature': sign(body) }, payload: body });
   assert.equal(first.statusCode, 200);
   assert.equal(first.json().applied, true);
@@ -150,7 +151,7 @@ test('支付成功把订单推进到 paid，重复事件不重复应用', async 
 test('订单取消后到达的支付回调返回 202 且不改变状态', async () => {
   const order = (await createOrder({}, { sku: 'sku-1', qty: 1 })).json();
   await app.inject({ method: 'POST', url: `/orders/${order.id}/cancel`, headers: API });
-  const body = { event_id: 'evt-late', order_id: order.id, result: 'success' };
+  const body = { event_id: 'evt-late', order_id: order.id, result: 'success', timestamp: Date.now() };
   const pay = await app.inject({ method: 'POST', url: '/payments/callback', headers: { 'x-signature': sign(body) }, payload: body });
   assert.equal(pay.statusCode, 202);
   assert.equal(pay.json().applied, false);
@@ -162,9 +163,9 @@ test('订单取消后到达的支付回调返回 202 且不改变状态', async 
 
 test('签名错误或事件字段非法被拒绝', async () => {
   const order = (await createOrder({}, { sku: 'sku-1', qty: 1 })).json();
-  const body = { event_id: 'evt-bad', order_id: order.id, result: 'success' };
+  const body = { event_id: 'evt-bad', order_id: order.id, result: 'success', timestamp: Date.now() };
   assert.equal((await app.inject({ method: 'POST', url: '/payments/callback', headers: { 'x-signature': 'deadbeef' }, payload: body })).statusCode, 401);
-  const badResult = { event_id: 'evt-bad2', order_id: order.id, result: 'maybe' };
+  const badResult = { event_id: 'evt-bad2', order_id: order.id, result: 'maybe', timestamp: Date.now() };
   assert.equal((await app.inject({ method: 'POST', url: '/payments/callback', headers: { 'x-signature': sign(badResult) }, payload: badResult })).statusCode, 400);
   assert.equal((await app.inject({ method: 'POST', url: '/payments/callback', headers: { 'x-signature': sign({ ...body, order_id: 999999 }) }, payload: { ...body, order_id: 999999 } })).statusCode, 404);
 });
@@ -190,7 +191,7 @@ test('订单详情按用户隔离，其他用户拿到 404', async () => {
 
 test('取消与支付并发时终态一致，库存与状态不矛盾', async () => {
   const order = (await createOrder({}, { sku: 'sku-1', qty: 2 })).json();
-  const body = { event_id: crypto.randomUUID(), order_id: order.id, result: 'success' };
+  const body = { event_id: crypto.randomUUID(), order_id: order.id, result: 'success', timestamp: Date.now() };
   const [cancel, pay] = await Promise.all([
     app.inject({ method: 'POST', url: `/orders/${order.id}/cancel`, headers: API }),
     app.inject({ method: 'POST', url: '/payments/callback', headers: { 'x-signature': sign(body) }, payload: body }),
