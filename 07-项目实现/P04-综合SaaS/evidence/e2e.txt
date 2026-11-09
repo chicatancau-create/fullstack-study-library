@@ -1,0 +1,7 @@
+
+Running 2 tests using 1 worker
+
+  ok 1 e2e\flow.spec.ts:5:1 › 注册→建组织→建客户→写跟进带提醒→后台任务出现 (1.6s)
+  ok 2 e2e\flow.spec.ts:37:1 › viewer 只读：界面禁用写操作 (740ms)
+
+  2 passed (7.6s)

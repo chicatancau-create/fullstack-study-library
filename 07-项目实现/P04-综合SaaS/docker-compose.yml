@@ -42,3 +42,26 @@ services:
         condition: service_healthy
     ports:
       - "8797:8797"
+
+  worker:
+    build: .
+    command: ["node", "src/worker.js"]
+    environment:
+      PGHOST: db
+      PGUSER: p04
+      PGPASSWORD: p04-local-pass
+      PGDATABASE: study_lab
+      WORKER_PORT: "8798"
+      HOST: 0.0.0.0
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8798:8798"
+
+  web:
+    build: ./web
+    depends_on:
+      - app
+    ports:
+      - "8082:80"

@@ -1,6 +1,9 @@
 # 项目 04：多租户客户跟进 SaaS
 
 > MS1 实现仓库（2026-11-08 迁入资料库并在本机复跑，另补 Redis 登录令牌桶）。
+> **MS6 完整版（2026-11-09）**：四角色 RBAC、审计 before/after/request_id、提醒 Job + 公平调度/重试死信、
+> React 前端 + Playwright E2E、覆盖率门槛、CI 三 job、独立 evidence。当前本机证据：27/27 测试、
+> 覆盖率行 96.94% / 分支 81.58% / 函数 100%、E2E 2/2。
 
 一个小型销售团队的组织、成员、客户、跟进与审计闭环。重点是多租户边界、RBAC、
 席位不变量与审计同事务，而不是页面数量。
@@ -52,11 +55,30 @@ docker compose up --build   # PostgreSQL 18 + Redis 7 + app
 
 ## 证据（本机真实 PostgreSQL 18.6）
 
-- [evidence/test.txt](evidence/test.txt)：15/15 通过，含并发邀请只成功 1 个、跨租户 404、
-  旧邀请重放 409、审计失败回滚。
+- [evidence/test.txt](evidence/test.txt)：历史 15 项测试记录（MS1）。
 - [evidence/migrate.txt](evidence/migrate.txt)：9 张表（含迁移记录）。
 - [evidence/backup.txt](evidence/backup.txt)：`tenants/memberships/audit` 恢复前后一致。
 - [evidence/run.txt](evidence/run.txt)：本轮时间与 PASS 汇总。
+- [evidence/rbac.txt](evidence/rbac.txt)：5 角色 × 10 端点 × 双租户共 50 个组合，期望不符 0。
+- [evidence/audit_log.txt](evidence/audit_log.txt)：8 条真实审计，含 before/after/request_id/actor。
+- [evidence/multi_tenant.txt](evidence/multi_tenant.txt)：跨租户 404、未登录 401、RLS 策略与 owner 绕过说明。
+- [evidence/workers-load.txt](evidence/workers-load.txt)：200 任务吞吐/延迟/公平性/重试死信/容量三档/DB 故障。
+- [evidence/jobs.txt](evidence/jobs.txt)：重复入队幂等、通知与 Inbox 计数、dead letter。
+
+## 完整版验证命令
+
+```bash
+export PGHOST=127.0.0.1 PGUSER=study PGDATABASE=study_lab PGPASSWORD=study-pass
+npm run migrate
+npm run lint
+npm run coverage          # 27 tests；行 96.94 / 分支 81.58 / 函数 100
+npm run rbac:evidence
+npm run audit:evidence
+npm run workers:load
+node scripts/jobs_check.mjs
+npm run build --prefix web
+npm run e2e               # Playwright 2/2（本机 msedge）
+```
 
 ## 文档
 
@@ -73,11 +95,12 @@ docker compose up --build   # PostgreSQL 18 + Redis 7 + app
 
 ## 已知限制（未验证）
 
-- 没有前端；没有邮件发送，邀请 token 只在创建响应出现一次。
-- 登录限流已用 Redis 令牌桶实现（默认 20 次/桶，0.2/s 回填）；仍无 MFA、密码重置、自助删号。
+- 无邮件发送，邀请 token 只在创建响应出现一次；通知通道为 SSE（前端当前用轮询展示）。
+- 仍无 MFA、密码重置、自助删号。
 - 已有 Docker/Compose、GitHub Actions、K8s 两节点（同 VM）、Traefik Ingress、本地 HTTPS、Prometheus/Alertmanager 本地+ntfy 外部告警；无多机/HA/公网入口，项目本身未做持久公网部署。
 - 审计与客户列表无分页；`sessions` 过期行无清理任务。
-- 后台任务深度模块已完成（200 任务/0 重复/崩溃恢复）；Feed/实时/RAG 的容量与故障演练未做。
+- SSE 通道已实现但本机自动验证未完成（`evidence/workers-load.txt` 已标注“未证实”）；Windows 下无法实测 SIGTERM 优雅关闭。
+- RLS 已启用，但 `study` 角色是表 owner，默认绕过 RLS；跨租户隔离由应用层 `roleIn` + `tenant_id` 保证（证据见 `multi_tenant.txt`）。
 - 备份不支持按用户删除；软删除数据仍留在库中。
 
 ## AI 辅助范围

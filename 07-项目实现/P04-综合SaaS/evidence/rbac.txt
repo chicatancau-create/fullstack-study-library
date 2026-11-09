@@ -1,0 +1,18 @@
+P04 RBAC 全端点 × 角色 × 租户 矩阵
+生成时间：2026-11-09T01:08:40.525Z
+租户 A=1（成员 owner/admin/member/viewer），租户 B=2（outsider 自建）
+
+| 端点 | owner | admin | member | viewer | outsider |
+|---|---|---|---|---|---|
+| GET /tenants/{A}/clients | 200 | 200 | 200 | 200 | 404 |
+| POST /tenants/{A}/clients | 201 | 201 | 201 | 403 | 404 |
+| POST /tenants/{A}/clients/{A}/followups | 201 | 201 | 201 | 403 | 404 |
+| GET /tenants/{A}/members | 200 | 200 | 200 | 200 | 404 |
+| GET /tenants/{A}/audit | 200 | 200 | 403 | 403 | 404 |
+| PATCH /tenants/{A}/plan | 200 | 403 | 403 | 403 | 404 |
+| GET /tenants/{A}/jobs | 200 | 200 | 403 | 403 | 404 |
+| POST /tenants/{A}/jobs | 202 | 202 | 403 | 403 | 404 |
+| GET /tenants/{A}/notifications | 200 | 200 | 200 | 200 | 404 |
+| GET /tenants/{B}/clients | 404 | 404 | 404 | 404 | 200 |
+
+结果：50 个组合，期望不符 0 个

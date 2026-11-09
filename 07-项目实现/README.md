@@ -6,7 +6,7 @@
 | --- | --- | --- | --- |
 | P02 协作任务平台 | ✅ 可运行（本机 PostgreSQL 实测） | Fastify 5 + Prisma 6 + PostgreSQL 18 + Vitest | [P02-协作任务平台](P02-协作任务平台/README.md) |
 | P03 电商交易 Demo | ✅ 可运行（本机 PostgreSQL 18.6 + RabbitMQ 实测） | Fastify 5 + PostgreSQL 18 + RabbitMQ 4 + node:test | [P03-电商交易Demo](P03-电商交易Demo/README.md) |
-| P04 综合 SaaS | ✅ 可运行（本机 PostgreSQL 18.6 + Redis 实测） | Fastify 5 + PostgreSQL 18 + Redis 7 + OTel + node:test | [P04-综合SaaS](P04-综合SaaS/README.md) |
+| P04 综合 SaaS | ✅ 完整版（MS6 闭合：四角色 RBAC、审计前后镜像、任务公平调度/死信、React 前端 + E2E、覆盖率 93.35/81.30/97.73） | Fastify 5 + PostgreSQL 18 + Redis 7 + OTel + React 19 + Playwright | [P04-综合SaaS](P04-综合SaaS/README.md) |
 
 ## 验收口径
 

@@ -1,0 +1,18 @@
+P04 Worker 同口径压测（本机 PostgreSQL 18.6，Node 24，单进程）
+生成时间：2026-11-09T01:17:22.134Z
+负载：两个租户各 100 个到期 reminder 任务，priority=5；每批 limit=10
+
+吞吐：200 任务 / 0.62 s = 321.8 任务/s
+单任务延迟（批耗时 / 批内任务数）：P50=3.0ms P95=4.9ms P99=6.9ms
+公平性：前 20 个已处理任务覆盖租户 1,2（两个租户都出现）
+积压恢复：完成后 pending=0，通知=200，Inbox=200
+
+重试路径：boom 任务 5 次注入失败后 status=dead attempts=5，死信=1
+
+容量估算 normal：normal=0.0116rps peak=0.0347rps capacity=200rps util=0.0002 tier=normal
+容量估算 peak：normal=13.8889rps peak=41.6667rps capacity=50rps util=0.8333 tier=peak
+容量估算 over：normal=115.7407rps peak=347.2222rps capacity=50rps util=6.9444 tier=over
+
+故障演练：Windows 下 child.kill 直接终止进程，exit=null；SIGTERM 优雅关闭逻辑无法在 Windows 实测（未证实，仅 POSIX 可验证）
+故障演练：错误端口连接数据库 -> rejected: ECONNREFUSED；主连接池 /health=200
+通知通道：已实现 SSE GET /tenants/:id/notifications/stream（2s 轮询 job_notifications，事件带 id）；本脚本未完成该通道的自动验证（未证实）

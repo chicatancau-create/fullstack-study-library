@@ -1,68 +1,86 @@
 {
   "schema": 1,
   "experiment": "P04",
-  "generated_at": "2026-11-08T13:42:44.138Z",
-  "commit": "01329dcb710c27de4d1e557e09558ef1d228d19f",
+  "generated_at": "2026-11-09T01:19:27.560Z",
+  "commit": "f53c60a537254e52fd02427e92af127763e6d8cc",
   "runtime": {
-    "platform": "linux arm64",
+    "platform": "win32 x64",
     "os_release": null,
-    "node": "v22.11.0",
-    "gcc": "gcc (GCC) 12.3.1 (openEuler 12.3.1-62.r1.hce3)",
-    "gdb": null
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
   },
   "commands": [
     {
-      "cmd": "bash scripts/run_project.sh",
+      "cmd": "npm run coverage",
       "exit": 0
     },
     {
-      "cmd": "bash scripts/deploy_local.sh",
+      "cmd": "npx playwright test",
       "exit": 0
     },
     {
-      "cmd": "bash scripts/rollback_check.sh",
+      "cmd": "npm run rbac:evidence",
       "exit": 0
     },
     {
-      "cmd": "QEMU K8s run9/10: pods+rollout+undo+resources",
+      "cmd": "npm run audit:evidence",
       "exit": 0
     },
     {
-      "cmd": "QEMU Docker/Compose run6",
+      "cmd": "npm run workers:load",
       "exit": 0
     },
     {
-      "cmd": "Prometheus 3.5.0 + Alertmanager 0.28.1 webhook",
-      "exit": 0
-    },
-    {
-      "cmd": "QEMU K3s 1.37.2 Traefik Ingress: web.local -> nginx",
-      "exit": 0
-    },
-    {
-      "cmd": "QEMU K3s two nodes: server + agent container, pod on agent-1",
-      "exit": 0
-    },
-    {
-      "cmd": "ntfy.sh public topic external alert delivery",
+      "cmd": "node scripts/jobs_check.mjs",
       "exit": 0
     }
   ],
   "artifacts": [
     {
-      "path": "evidence/alertmanager-external.txt",
-      "bytes": 311,
-      "sha256": "fa85966510439257b38d8a5376d87295c6c95137f867a8d169f5c71c7ab05549"
+      "path": "evidence/test.txt",
+      "bytes": 2150,
+      "sha256": "2e6b76900802e8c89c841ca0d30d4a9fcd4ec20bdb1c474c85f63fb4dd7a9a0a"
     },
     {
-      "path": "evidence/alertmanager.txt",
-      "bytes": 212,
-      "sha256": "24da696c995a8cc91ddc885a6cd1aad6a264cf96354485da394bd1d2e89da761"
+      "path": "evidence/coverage.txt",
+      "bytes": 3297,
+      "sha256": "204b58377fed43480b08bb92b36cf6a837d58be87b129c8dd7d64dc37eda574f"
     },
     {
-      "path": "evidence/alerts.txt",
-      "bytes": 128,
-      "sha256": "e9df54affd4bf5651ed9f999dc9ccd9533864ca71d7cae295fa07e1ce613efcb"
+      "path": "evidence/e2e.txt",
+      "bytes": 243,
+      "sha256": "d608c322cda08ed204ae468963a0bd516ba5f65ba1ccfe01f1eae63e53b75476"
+    },
+    {
+      "path": "evidence/migrate.txt",
+      "bytes": 124,
+      "sha256": "9363c1ca3421d944f1eeaedfd3f3347c7d056a58c7543c769b4711690db4d955"
+    },
+    {
+      "path": "evidence/rbac.txt",
+      "bytes": 900,
+      "sha256": "702733fe0bc20b031029d17c4ce4b1fa8f433e986d89a6f59cc1ee4343c1d15f"
+    },
+    {
+      "path": "evidence/audit_log.txt",
+      "bytes": 1706,
+      "sha256": "24ed211e02500da8789f980c831f63bacd5f3735c78907d8195b8b5f6d9e8342"
+    },
+    {
+      "path": "evidence/multi_tenant.txt",
+      "bytes": 819,
+      "sha256": "22c12957e1b0ccdc12adf60d78e4a3c9513160bc298db4140421fd4adaeb0276"
+    },
+    {
+      "path": "evidence/workers-load.txt",
+      "bytes": 1265,
+      "sha256": "d0e438fb9eb0d2bcdade2e4560cb99c8dae09ce5e924e6b38813bb0d9756a213"
+    },
+    {
+      "path": "evidence/jobs.txt",
+      "bytes": 320,
+      "sha256": "bf5c054f727b37568387bd2765bfc0bbcbc18554f68cbafcd23fa1b4ee4449a8"
     },
     {
       "path": "evidence/backup.txt",
@@ -73,57 +91,9 @@
       "path": "evidence/deploy.txt",
       "bytes": 3983,
       "sha256": "fbdf7d58ff9e9b122a03bad5c67f841005f87c8a2acf261897fd38ad33a876cc"
-    },
-    {
-      "path": "evidence/https-app.log",
-      "bytes": 1053,
-      "sha256": "74fb6a2c234076f9f8167dda57d8825a35d6375a2e959936187e3dfdb7178e02"
-    },
-    {
-      "path": "evidence/https-gateway.log",
-      "bytes": 48,
-      "sha256": "f58fa8434737b6a6a1ae18b30a09d280afb4d8514e52fffa6360d1140cdd6216"
-    },
-    {
-      "path": "evidence/jobs.txt",
-      "bytes": 148,
-      "sha256": "cb829d314554c3b439c2afec896941940c8ec9822d4ffdafd46eadea7d0d7caa"
-    },
-    {
-      "path": "evidence/migrate.txt",
-      "bytes": 124,
-      "sha256": "9363c1ca3421d944f1eeaedfd3f3347c7d056a58c7543c769b4711690db4d955"
-    },
-    {
-      "path": "evidence/prometheus.txt",
-      "bytes": 90,
-      "sha256": "8ca82ca467a7128f566202874891dd8baeea2c73bd2e64211085d403fd8064a2"
-    },
-    {
-      "path": "evidence/rollback.txt",
-      "bytes": 79,
-      "sha256": "0c42cffb2ba357ff69188e29905534919c6c27423729de2a919bf11f887691f2"
-    },
-    {
-      "path": "evidence/run.txt",
-      "bytes": 145,
-      "sha256": "062572c10082172a14d1928bfc6d8da206ebd54efae5c9be80d887693e8a9e9b"
-    },
-    {
-      "path": "evidence/test.txt",
-      "bytes": 1313,
-      "sha256": "41922b41c417375f51e48b8efa9fb6d4fb665a16cfe8198a0d2b9303280522fc"
-    },
-    {
-      "path": "evidence/toolchain.txt",
-      "bytes": 24,
-      "sha256": "d72d32fb565c56d0975c38559f4194eb80b1e226fc2f341c023c21420f8d6d01"
-    },
-    {
-      "path": "evidence/trace.txt",
-      "bytes": 955,
-      "sha256": "cb9078040e1b0f0e02b10d163eee9a9284f420150d23fe8caf00da4f7b4a6eaf"
     }
   ],
-  "unverified": []
+  "unverified": [
+    "Windows 无 Docker：compose 证据来自此前隔离 VM；SSE 通道与 SIGTERM 优雅关闭未在本机自动验证"
+  ]
 }

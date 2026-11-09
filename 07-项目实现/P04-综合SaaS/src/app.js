@@ -369,11 +369,22 @@ export function buildApp({ pool, logger = false, loginLimiter = null } = {}) {
     const role = await roleIn(pool, tenantId, request.user.id);
     if (!role) return reply.code(404).send({ error: 'not_found' });
     if (role === 'viewer') return reply.code(403).send({ error: 'forbidden' });
-    const result = await pool.query(
-      'INSERT INTO p04.clients (tenant_id, name, note) VALUES ($1, $2, $3) RETURNING id, name, note, created_at',
-      [tenantId, name.trim(), note],
-    );
-    return reply.code(201).send(result.rows[0]);
+    const client = await pool.connect();
+    try {
+      await client.query('BEGIN');
+      const result = await client.query(
+        'INSERT INTO p04.clients (tenant_id, name, note) VALUES ($1, $2, $3) RETURNING id, name, note, created_at',
+        [tenantId, name.trim(), note],
+      );
+      await audit(client, tenantId, request.user.id, 'client.create', `client:${result.rows[0].id}`, { name: name.trim() }, request.id, null, result.rows[0]);
+      await client.query('COMMIT');
+      return reply.code(201).send(result.rows[0]);
+    } catch (error) {
+      await client.query('ROLLBACK');
+      throw error;
+    } finally {
+      client.release();
+    }
   });
 
   app.get('/tenants/:id/clients', auth, async (request, reply) => {
@@ -496,6 +507,33 @@ export function buildApp({ pool, logger = false, loginLimiter = null } = {}) {
         WHERE n.tenant_id = $1 ORDER BY n.id DESC LIMIT 50`, [tenantId],
     );
     return { notifications: result.rows };
+  });
+
+  app.get('/tenants/:id/notifications/stream', auth, async (request, reply) => {
+    const tenantId = Number(request.params.id);
+    const role = await roleIn(pool, tenantId, request.user.id);
+    if (!role) return reply.code(404).send({ error: 'not_found' });
+    const raw = request.raw;
+    reply.hijack();
+    raw.writeHead(200, { 'content-type': 'text/event-stream', 'cache-control': 'no-cache', connection: 'keep-alive' });
+    raw.write(': connected\n\n');
+    let last = 0;
+    const timer = setInterval(async () => {
+      try {
+        const rows = (await pool.query(
+          `SELECT id, message, created_at FROM p04.job_notifications
+            WHERE tenant_id = $1 AND id > $2 ORDER BY id`, [tenantId, last],
+        )).rows;
+        for (const row of rows) {
+          raw.write(`id: ${row.id}\ndata: ${JSON.stringify(row)}\n\n`);
+          last = row.id;
+        }
+      } catch {
+        clearInterval(timer);
+        raw.end();
+      }
+    }, 2000);
+    request.raw.on('close', () => clearInterval(timer));
   });
 
   app.get('/tenants/:id/audit', auth, async (request, reply) => {
