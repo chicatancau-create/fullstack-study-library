@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E11",
-  "generated_at": "2026-11-09T02:42:27.935Z",
-  "commit": "d5bc90e08ec08d034daf727a87a37bdbf41feb95",
+  "generated_at": "2026-11-09T02:56:11.027Z",
+  "commit": "de55f3e379650eb3efa593e7e777d813fad7b84c",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -33,18 +33,18 @@
     },
     {
       "path": "evidence/security.txt",
-      "bytes": 1154,
-      "sha256": "2752fe0efa5bb7abe1a3ebf142acdc624acf28d5e703673bb5b5306eeb5d7007"
+      "bytes": 1166,
+      "sha256": "8a1d7e0433016aa7b0807cc4167a1263e867d1b0d1917d5342923211bfaa5b71"
     },
     {
       "path": "evidence/test.txt",
-      "bytes": 1459,
-      "sha256": "5757a2211c2a88a4fd399ecc3f85561b5eda1b2d5385759506c9f9e247c5cbd7"
+      "bytes": 1457,
+      "sha256": "b725966ecb48677d83c51470fe0541685dad78851fb4d56b1d6336fe94424451"
     },
     {
       "path": "evidence/run.txt",
-      "bytes": 236,
-      "sha256": "f7554ab6824d2012b5a03e0c6992bff2a487ff33a00cdeb0754781f7090571f7"
+      "bytes": 248,
+      "sha256": "179fd52f306c791ee02d4b7d41e7cb131b5a6c6490ffcdf02feba7afe239b4c6"
     }
   ],
   "unverified": []

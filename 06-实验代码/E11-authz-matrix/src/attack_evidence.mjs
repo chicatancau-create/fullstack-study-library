@@ -155,7 +155,7 @@ try {
   console.log(`A02 crypto: scrypt + timingSafeEqual, session token 48 hex chars`);
   console.log(`A06 components: fastify 5.12.8（未跑 npm audit，不作为漏洞结论）`);
   console.log(`A08 integrity: CSRF token 比对；未做制品签名`);
-  console.log('ZAP: 未执行（本机无 ZAP，以下为手工 PoC）');
+  console.log('ZAP: quick scan 尝试超时 420s，无报告；以下为手工 PoC');
   console.log(failures === 0 ? 'E11 PASS' : 'E11 FAIL');
   if (failures > 0) process.exitCode = 1;
 } finally {

@@ -1,6 +1,6 @@
-captured_at: 2026-11-09T10:41:51+08:00
+captured_at: 2026-11-09T10:56:10+08:00
 syntax: evidence/syntax.txt:0 evidence/syntax-lab.txt:0 
 security: E11 PASS
-zap: ZAP: 未执行（本机无 ZAP，以下为手工 PoC）
+zap: ZAP: quick scan 尝试超时 420s，无报告；以下为手工 PoC
 test: ℹ tests 21 ℹ pass 21 ℹ fail 0 
 gate_failures: 0

@@ -183,6 +183,17 @@ export function buildLabApp({ allowlist = [], allowedOrigins = [], logger = fals
     );
   });
 
+  // 公开扫描面：ZAP quick scan 的入口（故意保留反射 XSS 与缺失安全头）
+  app.get('/scan', async (request, reply) => reply.type('text/html; charset=utf-8').send(
+    '<!doctype html><meta charset="utf-8"><h1>scan target</h1>'
+    + '<a href="/scan/echo?q=hello">echo</a> '
+    + '<a href="/lab/dom?mode=vuln&q=hello">dom</a>'
+    + '<form action="/scan/echo"><input name="q"><button>go</button></form>',
+  ));
+  app.get('/scan/echo', async (request, reply) => reply
+    .type('text/html; charset=utf-8')
+    .send(`<!doctype html><meta charset="utf-8"><p id="out">${String(request.query.q ?? '')}</p>`));
+
   app.get('/lab/dom-safe.js', async (request, reply) => reply
     .type('application/javascript; charset=utf-8')
     .send('const q=new URLSearchParams(location.search).get("q")||"";document.getElementById("out").textContent=q;'));
