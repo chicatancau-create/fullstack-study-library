@@ -14,20 +14,12 @@ jobs:
           ! git grep -q -E 'BEGIN (RSA|OPENSSH|EC) PRIVATE KEY|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{36}|sk-[A-Za-z0-9]{20,}' -- . ':!05-外部资料库' ':!90-历史归档'
           ! git ls-files -- . ':!05-外部资料库' ':!90-历史归档' | grep -E '(^|/)(\.env|\.env\.(local|production|development|test)|id_rsa|id_ed25519|.*\.(pem|key|p12|pfx))$|(^|/)node_modules/|(^|/)target/'
       - run: python3 -X utf8 05-外部资料库/tools/catalog_tool.py validate --mode source-only
-      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E01-c-memory/evidence/manifest.json
-      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E02-node-async/evidence/manifest.json
-      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E04-http-network/evidence/manifest.json
-      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/G1-responsive-site/evidence/manifest.json
-      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E03-react-race/evidence/manifest.json
-      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E05-build-render/evidence/manifest.json
-      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E06-runtime-diag/evidence/manifest.json
-      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E07-pg-owner-race/evidence/manifest.json
-      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E08-pg-plan-migrate/evidence/manifest.json
-      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E09-redis-cache/evidence/manifest.json
-      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E11-authz-matrix/evidence/manifest.json
-      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E12-load-capacity/evidence/manifest.json
-      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E13-slo-fault/evidence/manifest.json
-      - run: node 06-实验代码/_template/manifest.mjs verify 06-实验代码/E10-mq-outbox/evidence/manifest.json
+      - name: manifest 校验（E01–E13 + G1）
+        run: |
+          for m in $(find 06-实验代码 -path '*/evidence/manifest.json' | sort); do
+            echo "== $m"
+            node 06-实验代码/_template/manifest.mjs verify "$m"
+          done
 
   e01-asan:
     runs-on: ubuntu-latest
@@ -49,3 +41,214 @@ jobs:
         with:
           node-version: '24'
       - run: bash 06-实验代码/E02-node-async/scripts/run_all.sh
+
+  node-fast:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - dir: E03-react-race
+            script: run_unit.sh
+          - dir: E04-http-network
+            script: scripts/run_evidence.sh
+          - dir: E05-build-render
+            script: run_unit.sh
+          - dir: E06-runtime-diag
+            script: scripts/run_evidence.sh
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - name: 安装依赖
+        working-directory: 06-实验代码/${{ matrix.dir }}
+        run: |
+          if [ -f package.json ]; then
+            npm install --no-audit --no-fund
+          fi
+      - name: 运行实验
+        working-directory: 06-实验代码/${{ matrix.dir }}
+        run: bash ${{ matrix.script }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ matrix.dir }}-evidence
+          path: 06-实验代码/${{ matrix.dir }}/evidence/**
+          if-no-files-found: ignore
+
+  postgres:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        dir: [E07-pg-owner-race, E08-pg-plan-migrate]
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_USER: study
+          POSTGRES_PASSWORD: study-pass
+          POSTGRES_DB: study_lab
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U study -d study_lab"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      PGHOST: 127.0.0.1
+      PGPORT: '5432'
+      PGUSER: study
+      PGPASSWORD: study-pass
+      PGDATABASE: study_lab
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - name: 安装依赖
+        working-directory: 06-实验代码/${{ matrix.dir }}
+        run: |
+          if [ -f package.json ]; then npm install --no-audit --no-fund; fi
+          if [ -d prisma ]; then npx prisma generate; fi
+      - run: bash 06-实验代码/${{ matrix.dir }}/scripts/run_evidence.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ matrix.dir }}-evidence
+          path: 06-实验代码/${{ matrix.dir }}/evidence/**
+          if-no-files-found: ignore
+
+  redis:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_USER: study
+          POSTGRES_PASSWORD: study-pass
+          POSTGRES_DB: study_lab
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U study -d study_lab"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      PGHOST: 127.0.0.1
+      PGPORT: '5432'
+      PGUSER: study
+      PGPASSWORD: study-pass
+      PGDATABASE: study_lab
+      REDIS_BIN: redis-server
+      REDIS_PORT: '6379'
+      REDLOCK_PORTS: 7001,7002,7003
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - run: sudo apt-get update && sudo apt-get install -y redis-server
+      - name: 安装依赖
+        working-directory: 06-实验代码/E09-redis-cache
+        run: |
+          if [ -f package.json ]; then npm install --no-audit --no-fund; fi
+      - run: bash 06-实验代码/E09-redis-cache/scripts/run_evidence.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: E09-redis-cache-evidence
+          path: 06-实验代码/E09-redis-cache/evidence/**
+          if-no-files-found: ignore
+
+  rabbitmq:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_USER: study
+          POSTGRES_PASSWORD: study-pass
+          POSTGRES_DB: study_lab
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U study -d study_lab"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+      rabbitmq:
+        image: rabbitmq:4
+        ports:
+          - 5672:5672
+        options: >-
+          --health-cmd "rabbitmq-diagnostics -q ping"
+          --health-interval 5s
+          --health-timeout 10s
+          --health-retries 20
+    env:
+      PGHOST: 127.0.0.1
+      PGPORT: '5432'
+      PGUSER: study
+      PGPASSWORD: study-pass
+      PGDATABASE: study_lab
+      AMQP_URL: amqp://guest:guest@127.0.0.1:5672
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - name: 安装依赖
+        working-directory: 06-实验代码/E10-mq-outbox
+        run: |
+          if [ -f package.json ]; then npm install --no-audit --no-fund; fi
+      - run: bash 06-实验代码/E10-mq-outbox/scripts/run_evidence.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: E10-mq-outbox-evidence
+          path: 06-实验代码/E10-mq-outbox/evidence/**
+          if-no-files-found: ignore
+
+  authz:
+    runs-on: ubuntu-latest
+    env:
+      PGPASSWORD: study-pass
+      PGHOST: 127.0.0.1
+      PGUSER: study
+      PGDATABASE: study_lab
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_USER: study
+          POSTGRES_PASSWORD: study-pass
+          POSTGRES_DB: study_lab
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U study -d study_lab"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - name: 安装依赖
+        working-directory: 06-实验代码/E11-authz-matrix
+        run: |
+          if [ -f package.json ]; then npm install --no-audit --no-fund; fi
+      - name: 授权矩阵单测（不含 ZAP）
+        working-directory: 06-实验代码/E11-authz-matrix
+        run: bash run_unit.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: E11-authz-evidence
+          path: 06-实验代码/E11-authz-matrix/evidence/**
+          if-no-files-found: ignore

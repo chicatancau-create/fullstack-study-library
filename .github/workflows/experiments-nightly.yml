@@ -1,0 +1,92 @@
+name: experiments-nightly
+
+on:
+  schedule:
+    - cron: '30 19 * * *'
+  workflow_dispatch:
+
+jobs:
+  capacity:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_USER: study
+          POSTGRES_PASSWORD: study-pass
+          POSTGRES_DB: study_lab
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U study -d study_lab"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      PGHOST: 127.0.0.1
+      PGPORT: '5432'
+      PGUSER: study
+      PGPASSWORD: study-pass
+      PGDATABASE: study_lab
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - name: 安装依赖
+        working-directory: 06-实验代码/E12-load-capacity
+        run: |
+          if [ -f package.json ]; then npm install --no-audit --no-fund; fi
+      - name: 单测
+        working-directory: 06-实验代码/E12-load-capacity
+        run: bash run_unit.sh
+      - name: 容量证据
+        working-directory: 06-实验代码/E12-load-capacity
+        run: bash scripts/run_evidence.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: E12-load-capacity
+          path: 06-实验代码/E12-load-capacity/evidence/**
+          if-no-files-found: ignore
+
+  slo:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_USER: study
+          POSTGRES_PASSWORD: study-pass
+          POSTGRES_DB: study_lab
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U study -d study_lab"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      PGHOST: 127.0.0.1
+      PGPORT: '5432'
+      PGUSER: study
+      PGPASSWORD: study-pass
+      PGDATABASE: study_lab
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - name: 安装依赖
+        working-directory: 06-实验代码/E13-slo-fault
+        run: |
+          if [ -f package.json ]; then npm install --no-audit --no-fund; fi
+      - name: 故障与 SLO 证据
+        working-directory: 06-实验代码/E13-slo-fault
+        run: bash scripts/run_evidence.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: E13-slo-fault
+          path: 06-实验代码/E13-slo-fault/evidence/**
+          if-no-files-found: ignore
