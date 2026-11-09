@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-11-09T08:33:34.037Z",
+  "items": [
+    {
+      "item": "408 去重账本",
+      "ok": true,
+      "detail": "raw=650 valid=650 local_hit=367 unique=211 evidence=0"
+    },
+    {
+      "item": "字节 100 题答案",
+      "ok": true,
+      "detail": "published=100 pending=0"
+    },
+    {
+      "item": "前端/全栈补充题",
+      "ok": true,
+      "detail": "items=16 gate=5/5"
+    },
+    {
+      "item": "公司×岗位×题型矩阵",
+      "ok": true,
+      "detail": "rows=20 questions=266"
+    },
+    {
+      "item": "逐题原始面经",
+      "ok": false,
+      "detail": "linked=2/250"
+    }
+  ],
+  "evidence": {
+    "records": 3,
+    "linked_questions": 2,
+    "attempts": 9,
+    "success": 4,
+    "blocked": 5
+  },
+  "complete": false,
+  "gaps": [
+    "逐题原始面经（linked=2/250）"
+  ]
+}
