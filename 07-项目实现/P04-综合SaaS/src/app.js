@@ -2,8 +2,8 @@ import Fastify from 'fastify';
 import crypto from 'node:crypto';
 
 const PLANS = { free: 2, team: 5 };
-const ROLES = ['owner', 'admin', 'member'];
-const INVITE_ROLES = ['admin', 'member'];
+const ROLES = ['owner', 'admin', 'member', 'viewer'];
+const INVITE_ROLES = ['admin', 'member', 'viewer'];
 const SESSION_HOURS = 12;
 const INVITE_DAYS = 7;
 
@@ -71,10 +71,12 @@ export function buildApp({ pool, logger = false, loginLimiter = null } = {}) {
     return result.rows[0]?.role ?? null;
   }
 
-  async function audit(client, tenantId, actorId, action, target, metadata = {}) {
+  async function audit(client, tenantId, actorId, action, target, metadata = {}, requestId = '', before = null, after = null) {
     await client.query(
-      'INSERT INTO p04.audit_events (tenant_id, actor_id, action, target, metadata) VALUES ($1, $2, $3, $4, $5::jsonb)',
-      [tenantId, actorId, action, target, JSON.stringify(metadata)],
+      `INSERT INTO p04.audit_events (tenant_id, actor_id, action, target, metadata, request_id, before, after)
+       VALUES ($1, $2, $3, $4, $5::jsonb, $6, $7::jsonb, $8::jsonb)`,
+      [tenantId, actorId, action, target, JSON.stringify(metadata), requestId,
+        before ? JSON.stringify(before) : null, after ? JSON.stringify(after) : null],
     );
   }
 
@@ -160,7 +162,7 @@ export function buildApp({ pool, logger = false, loginLimiter = null } = {}) {
         [name.trim(), plan, PLANS[plan]],
       );
       await client.query("INSERT INTO p04.memberships (tenant_id, user_id, role) VALUES ($1, $2, 'owner')", [tenant.rows[0].id, request.user.id]);
-      await audit(client, tenant.rows[0].id, request.user.id, 'tenant.create', `tenant:${tenant.rows[0].id}`, { plan });
+      await audit(client, tenant.rows[0].id, request.user.id, 'tenant.create', `tenant:${tenant.rows[0].id}`, { plan }, request.id, null, tenant.rows[0]);
       await client.query('COMMIT');
       return reply.code(201).send(tenant.rows[0]);
     } catch (error) {
@@ -201,7 +203,7 @@ export function buildApp({ pool, logger = false, loginLimiter = null } = {}) {
     const client = await pool.connect();
     try {
       await client.query('BEGIN');
-      const tenant = await client.query('SELECT id FROM p04.tenants WHERE id = $1 FOR UPDATE', [tenantId]);
+      const tenant = await client.query('SELECT id, plan, seat_limit FROM p04.tenants WHERE id = $1 FOR UPDATE', [tenantId]);
       if (tenant.rowCount === 0) { await client.query('ROLLBACK'); return reply.code(404).send({ error: 'not_found' }); }
       const role = await roleIn(client, tenantId, request.user.id);
       if (role !== 'owner') { await client.query('ROLLBACK'); return reply.code(role ? 403 : 404).send({ error: role ? 'forbidden' : 'not_found' }); }
@@ -212,7 +214,7 @@ export function buildApp({ pool, logger = false, loginLimiter = null } = {}) {
         return reply.code(409).send({ error: 'seats_exceed_plan', members: seats.members, pending: seats.pending, limit });
       }
       await client.query('UPDATE p04.tenants SET plan = $2, seat_limit = $3 WHERE id = $1', [tenantId, plan, limit]);
-      await audit(client, tenantId, request.user.id, 'tenant.plan_change', `tenant:${tenantId}`, { plan, seat_limit: limit });
+      await audit(client, tenantId, request.user.id, 'tenant.plan_change', `tenant:${tenantId}`, { plan, seat_limit: limit }, request.id, { plan: tenant.rows[0].plan, seat_limit: tenant.rows[0].seat_limit }, { plan, seat_limit: limit });
       await client.query('COMMIT');
       return { plan, seat_limit: limit };
     } catch (error) {
@@ -248,7 +250,7 @@ export function buildApp({ pool, logger = false, loginLimiter = null } = {}) {
          VALUES ($1, $2, $3, $4, $5, $6) RETURNING id, email, role, expires_at`,
         [tenantId, email.toLowerCase(), role, sha256(token), nowPlus(INVITE_DAYS * 24), request.user.id],
       );
-      await audit(client, tenantId, request.user.id, 'invitation.create', `invitation:${invitation.rows[0].id}`, { email: email.toLowerCase(), role });
+      await audit(client, tenantId, request.user.id, 'invitation.create', `invitation:${invitation.rows[0].id}`, { email: email.toLowerCase(), role }, request.id);
       await client.query('COMMIT');
       return reply.code(201).send({ ...invitation.rows[0], token });
     } catch (error) {
@@ -294,7 +296,7 @@ export function buildApp({ pool, logger = false, loginLimiter = null } = {}) {
         [row.tenant_id, request.user.id, row.role],
       );
       await client.query("UPDATE p04.invitations SET status = 'accepted', accepted_at = now() WHERE id = $1", [row.id]);
-      await audit(client, row.tenant_id, request.user.id, 'invitation.accept', `invitation:${row.id}`, { role: row.role });
+      await audit(client, row.tenant_id, request.user.id, 'invitation.accept', `invitation:${row.id}`, { role: row.role }, request.id);
       await client.query('COMMIT');
       return { tenant_id: row.tenant_id, role: row.role, idempotent: false };
     } catch (error) {
@@ -319,7 +321,7 @@ export function buildApp({ pool, logger = false, loginLimiter = null } = {}) {
       }
       if (row.status !== 'pending') { await client.query('ROLLBACK'); return reply.code(409).send({ error: 'not_pending' }); }
       await client.query("UPDATE p04.invitations SET status = 'revoked' WHERE id = $1", [row.id]);
-      await audit(client, row.tenant_id, request.user.id, 'invitation.revoke', `invitation:${row.id}`, {});
+      await audit(client, row.tenant_id, request.user.id, 'invitation.revoke', `invitation:${row.id}`, {}, request.id);
       await client.query('COMMIT');
       return { status: 'revoked' };
     } catch (error) {
@@ -348,7 +350,7 @@ export function buildApp({ pool, logger = false, loginLimiter = null } = {}) {
       if (target === 'owner') { await client.query('ROLLBACK'); return reply.code(409).send({ error: 'cannot_remove_owner' }); }
       if (targetId === request.user.id) { await client.query('ROLLBACK'); return reply.code(409).send({ error: 'cannot_remove_self' }); }
       await client.query('DELETE FROM p04.memberships WHERE tenant_id = $1 AND user_id = $2', [tenantId, targetId]);
-      await audit(client, tenantId, request.user.id, 'member.remove', `user:${targetId}`, { role: target });
+      await audit(client, tenantId, request.user.id, 'member.remove', `user:${targetId}`, { role: target }, request.id);
       await client.query('COMMIT');
       return reply.code(204).send();
     } catch (error) {
@@ -366,6 +368,7 @@ export function buildApp({ pool, logger = false, loginLimiter = null } = {}) {
     if (typeof note !== 'string' || note.length > 1000) return reply.code(400).send({ error: 'invalid_note' });
     const role = await roleIn(pool, tenantId, request.user.id);
     if (!role) return reply.code(404).send({ error: 'not_found' });
+    if (role === 'viewer') return reply.code(403).send({ error: 'forbidden' });
     const result = await pool.query(
       'INSERT INTO p04.clients (tenant_id, name, note) VALUES ($1, $2, $3) RETURNING id, name, note, created_at',
       [tenantId, name.trim(), note],
@@ -397,12 +400,10 @@ export function buildApp({ pool, logger = false, loginLimiter = null } = {}) {
         await client.query('ROLLBACK');
         return reply.code(role ? 403 : 404).send({ error: role ? 'forbidden' : 'not_found' });
       }
-      const updated = await client.query(
-        'UPDATE p04.clients SET deleted_at = now() WHERE id = $1 AND tenant_id = $2 AND deleted_at IS NULL RETURNING id',
-        [clientId, tenantId],
-      );
-      if (updated.rowCount === 0) { await client.query('ROLLBACK'); return reply.code(404).send({ error: 'not_found' }); }
-      await audit(client, tenantId, request.user.id, 'client.delete', `client:${clientId}`, {});
+      const current = await client.query('SELECT id, name, note FROM p04.clients WHERE id = $1 AND tenant_id = $2 AND deleted_at IS NULL FOR UPDATE', [clientId, tenantId]);
+      if (current.rowCount === 0) { await client.query('ROLLBACK'); return reply.code(404).send({ error: 'not_found' }); }
+      await client.query('UPDATE p04.clients SET deleted_at = now() WHERE id = $1', [clientId]);
+      await audit(client, tenantId, request.user.id, 'client.delete', `client:${clientId}`, {}, request.id, current.rows[0], { deleted: true });
       await client.query('COMMIT');
       return reply.code(204).send();
     } catch (error) {
@@ -421,14 +422,80 @@ export function buildApp({ pool, logger = false, loginLimiter = null } = {}) {
     if (nextAt !== null && Number.isNaN(Date.parse(nextAt))) return reply.code(400).send({ error: 'invalid_next_at' });
     const role = await roleIn(pool, tenantId, request.user.id);
     if (!role) return reply.code(404).send({ error: 'not_found' });
+    if (role === 'viewer') return reply.code(403).send({ error: 'forbidden' });
     const existing = await pool.query('SELECT id FROM p04.clients WHERE id = $1 AND tenant_id = $2 AND deleted_at IS NULL', [clientId, tenantId]);
     if (existing.rowCount === 0) return reply.code(404).send({ error: 'not_found' });
+    const client = await pool.connect();
+    try {
+      await client.query('BEGIN');
+      const result = await client.query(
+        `INSERT INTO p04.followups (tenant_id, client_id, author_id, summary, next_at)
+         VALUES ($1, $2, $3, $4, $5) RETURNING id, client_id, summary, next_at, created_at`,
+        [tenantId, clientId, request.user.id, summary.trim(), nextAt],
+      );
+      if (nextAt) {
+        const followupId = result.rows[0].id;
+        await client.query(
+          `INSERT INTO p04.reminders (tenant_id, followup_id, due_at) VALUES ($1,$2,$3)
+           ON CONFLICT DO NOTHING`, [tenantId, followupId, nextAt],
+        );
+        await client.query(
+          `INSERT INTO p04.jobs (tenant_id, kind, dedupe_key, payload, run_at, priority)
+           VALUES ($1,'reminder',$2,$3::jsonb,$4,5) ON CONFLICT (tenant_id, dedupe_key) DO NOTHING`,
+          [tenantId, `followup:${followupId}:reminder`, JSON.stringify({ followup_id: followupId, client_id: clientId }), nextAt],
+        );
+      }
+      await audit(client, tenantId, request.user.id, 'followup.create', `followup:${result.rows[0].id}`, { client_id: clientId }, request.id, null, result.rows[0]);
+      await client.query('COMMIT');
+      return reply.code(201).send(result.rows[0]);
+    } catch (error) {
+      await client.query('ROLLBACK');
+      throw error;
+    } finally {
+      client.release();
+    }
+  });
+
+  app.post('/tenants/:id/jobs', auth, async (request, reply) => {
+    const tenantId = Number(request.params.id);
+    const role = await roleIn(pool, tenantId, request.user.id);
+    if (!role) return reply.code(404).send({ error: 'not_found' });
+    if (role !== 'owner' && role !== 'admin') return reply.code(403).send({ error: 'forbidden' });
+    const { kind, dedupe_key: dedupeKey, payload = {}, run_at: runAt = new Date().toISOString(), priority = 0 } = request.body || {};
+    if (typeof kind !== 'string' || typeof dedupeKey !== 'string' || !dedupeKey) return reply.code(400).send({ error: 'invalid_job' });
+    if (!Number.isInteger(priority) || priority < 0 || priority > 100) return reply.code(400).send({ error: 'invalid_priority' });
     const result = await pool.query(
-      `INSERT INTO p04.followups (tenant_id, client_id, author_id, summary, next_at)
-       VALUES ($1, $2, $3, $4, $5) RETURNING id, client_id, summary, next_at, created_at`,
-      [tenantId, clientId, request.user.id, summary.trim(), nextAt],
+      `INSERT INTO p04.jobs (tenant_id, kind, dedupe_key, payload, run_at, priority)
+       VALUES ($1,$2,$3,$4::jsonb,$5,$6)
+       ON CONFLICT (tenant_id, dedupe_key) DO UPDATE SET payload=EXCLUDED.payload, run_at=EXCLUDED.run_at, priority=EXCLUDED.priority
+       RETURNING id, kind, status, priority, run_at`,
+      [tenantId, kind, dedupeKey, JSON.stringify(payload), runAt, priority],
     );
-    return reply.code(201).send(result.rows[0]);
+    await audit(pool, tenantId, request.user.id, 'job.enqueue', `job:${result.rows[0].id}`, { kind, priority }, request.id);
+    return reply.code(202).send(result.rows[0]);
+  });
+
+  app.get('/tenants/:id/jobs', auth, async (request, reply) => {
+    const tenantId = Number(request.params.id);
+    const role = await roleIn(pool, tenantId, request.user.id);
+    if (!role) return reply.code(404).send({ error: 'not_found' });
+    if (role !== 'owner' && role !== 'admin') return reply.code(403).send({ error: 'forbidden' });
+    const result = await pool.query(
+      `SELECT id, kind, status, priority, attempts, run_at, last_error FROM p04.jobs
+        WHERE tenant_id = $1 ORDER BY priority DESC, run_at, id LIMIT 50`, [tenantId],
+    );
+    return { jobs: result.rows };
+  });
+
+  app.get('/tenants/:id/notifications', auth, async (request, reply) => {
+    const tenantId = Number(request.params.id);
+    const role = await roleIn(pool, tenantId, request.user.id);
+    if (!role) return reply.code(404).send({ error: 'not_found' });
+    const result = await pool.query(
+      `SELECT n.id, n.message, n.created_at FROM p04.job_notifications n
+        WHERE n.tenant_id = $1 ORDER BY n.id DESC LIMIT 50`, [tenantId],
+    );
+    return { notifications: result.rows };
   });
 
   app.get('/tenants/:id/audit', auth, async (request, reply) => {
