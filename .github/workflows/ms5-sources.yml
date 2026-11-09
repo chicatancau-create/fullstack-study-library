@@ -1,0 +1,46 @@
+name: ms5-sources
+
+on:
+  push:
+    paths:
+      - '08-判定题库/**'
+      - '.github/workflows/ms5-sources.yml'
+  pull_request:
+    paths:
+      - '08-判定题库/**'
+      - '.github/workflows/ms5-sources.yml'
+
+jobs:
+  sources:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: 结构、岗位与证据字段
+        working-directory: 08-判定题库/国内大厂真题/_工具
+        run: node check_bank.mjs
+      - name: 逐题答案与边界用例
+        working-directory: 08-判定题库/国内大厂真题/_工具
+        run: node check_answers.mjs
+      - name: 前端/全栈补题
+        working-directory: 08-判定题库/国内大厂真题/_工具
+        run: node check_frontend.mjs
+      - name: 岗位矩阵与证据缺口
+        working-directory: 08-判定题库/国内大厂真题/_工具
+        run: |
+          node build_role_matrix.mjs
+          node ms10_status.mjs
+      - name: 答案证据 manifest
+        working-directory: 08-判定题库/国内大厂真题/_工具
+        run: node ../../../06-实验代码/_template/manifest.mjs verify evidence/answers-manifest.json
+      - name: 上传证据
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ms5-sources-evidence
+          path: |
+            08-判定题库/国内大厂真题/_工具/evidence/*.json
+            08-判定题库/国内大厂真题/岗位矩阵.csv
+          if-no-files-found: error
