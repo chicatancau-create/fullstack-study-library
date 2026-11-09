@@ -1,0 +1,35 @@
+name: student-packages
+
+on:
+  push:
+    paths:
+      - '08-判定题库/**'
+      - 'scripts/check_student_packages.mjs'
+      - '.github/workflows/student-packages.yml'
+  pull_request:
+    paths:
+      - '08-判定题库/**'
+      - 'scripts/check_student_packages.mjs'
+      - '.github/workflows/student-packages.yml'
+
+jobs:
+  packages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: G0–G9 学生包结构与公开性
+        run: node scripts/check_student_packages.mjs
+      - name: 答案/隐藏路径扫描
+        run: |
+          test ! -d 08-判定题库/teacher
+          test ! -d 08-判定题库/hidden
+      - name: 上传证据
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: student-packages
+          path: 08-判定题库/evidence/student-packages.json
+          if-no-files-found: error
