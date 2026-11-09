@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "experiment": "BYTE408_LEDGER",
+  "generated_at": "2026-11-09T07:58:13.242Z",
+  "commit": "74b81bc287ed7580f868dbacc3aa91e4b3a12eb6",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [
+    {
+      "cmd": "bash run.sh",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "dedupe-ledger.csv",
+      "bytes": 227292,
+      "sha256": "0e969dad3ba2d14cbe764bae618ce48c27df0f749444a650db1519f93759563c"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 7656,
+      "sha256": "85627ded2d06e07de185e037723ac3bebfe7ff503e9c3deae8cd7976dbf99543"
+    },
+    {
+      "path": "input-manifest.json",
+      "bytes": 6343,
+      "sha256": "d110c5dd3b769624df21b47645464fe1b26c1db96deefb2902d7e206027ae53f"
+    },
+    {
+      "path": "evidence/run.txt",
+      "bytes": 357,
+      "sha256": "c56223549327086cfd4619a56f3b653c6e5120ef4ddc80c1f304a0be14c969db"
+    }
+  ],
+  "unverified": [
+    "未采集牛客原始面经；possible_alias 未逐组人工复核；未把 CSV 当官方题库"
+  ]
+}

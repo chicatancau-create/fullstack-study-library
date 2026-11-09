@@ -1,0 +1,122 @@
+{
+  "generated_at": "2026-11-09T07:57:49.127Z",
+  "files": [
+    {
+      "source": "krishnadey30",
+      "upstream": "https://github.com/krishnadey30/LeetCode-Questions-CompanyWise",
+      "file": "05-外部资料库/题库/公司高频题/krishnadey30/LeetCode-Questions-CompanyWise/bytedance_1year.csv",
+      "snapshot": "880a59e8b129f60d8a0e04fa238f13c5499e23f9ef1d02370a9adc0888dd0859",
+      "fetched": "2026-11-04 20:03",
+      "rows": 97,
+      "sha256": "700ea30058af04ab8eca97ca9e0e7841b8c5511ba7c0f24e1174c6ab70f1e86d"
+    },
+    {
+      "source": "krishnadey30",
+      "upstream": "https://github.com/krishnadey30/LeetCode-Questions-CompanyWise",
+      "file": "05-外部资料库/题库/公司高频题/krishnadey30/LeetCode-Questions-CompanyWise/bytedance_2year.csv",
+      "snapshot": "880a59e8b129f60d8a0e04fa238f13c5499e23f9ef1d02370a9adc0888dd0859",
+      "fetched": "2026-11-04 20:03",
+      "rows": 116,
+      "sha256": "22b39559f6e786d7452538c48092f0b472529416b94cc1dcaf9192cd3ef91348"
+    },
+    {
+      "source": "krishnadey30",
+      "upstream": "https://github.com/krishnadey30/LeetCode-Questions-CompanyWise",
+      "file": "05-外部资料库/题库/公司高频题/krishnadey30/LeetCode-Questions-CompanyWise/bytedance_6months.csv",
+      "snapshot": "880a59e8b129f60d8a0e04fa238f13c5499e23f9ef1d02370a9adc0888dd0859",
+      "fetched": "2026-11-04 20:03",
+      "rows": 83,
+      "sha256": "53ce4dda0cb79ec43be9318d4a53698c6ea0ce228d37a06eb7d7b46d9d9030ea"
+    },
+    {
+      "source": "krishnadey30",
+      "upstream": "https://github.com/krishnadey30/LeetCode-Questions-CompanyWise",
+      "file": "05-外部资料库/题库/公司高频题/krishnadey30/LeetCode-Questions-CompanyWise/bytedance_alltime.csv",
+      "snapshot": "880a59e8b129f60d8a0e04fa238f13c5499e23f9ef1d02370a9adc0888dd0859",
+      "fetched": "2026-11-04 20:03",
+      "rows": 116,
+      "sha256": "2536111aafd9fb4d53e6ff98b47de9b1d03a604979a01d4cd1d1416032d660cc"
+    },
+    {
+      "source": "krishnadey30",
+      "upstream": "https://github.com/krishnadey30/LeetCode-Questions-CompanyWise",
+      "file": "05-外部资料库/题库/公司高频题/krishnadey30/LeetCode-Questions-CompanyWise/bytedancetoutiao_alltime.csv",
+      "snapshot": "880a59e8b129f60d8a0e04fa238f13c5499e23f9ef1d02370a9adc0888dd0859",
+      "fetched": "2026-11-04 20:03",
+      "rows": 1,
+      "sha256": "114869460b4d429c65022d359f977e3dfee5967495851a3db10d2f30fafbb5cc"
+    },
+    {
+      "source": "liquidslr",
+      "upstream": "https://github.com/liquidslr/leetcode-company-wise-problems",
+      "file": "05-外部资料库/题库/公司高频题/liquidslr/leetcode-company-wise-problems/ByteDance/1. Thirty Days.csv",
+      "snapshot": "365cdff7e90e64499b5d48e9f272936de34e28f46f85b626116ce2b8d53d7ebb",
+      "fetched": "2026-11-04 20:03",
+      "rows": 0,
+      "sha256": "40b4ad35ae1c536f45700d437ce7069a965f8d9a6363623d09181398987342ca"
+    },
+    {
+      "source": "liquidslr",
+      "upstream": "https://github.com/liquidslr/leetcode-company-wise-problems",
+      "file": "05-外部资料库/题库/公司高频题/liquidslr/leetcode-company-wise-problems/ByteDance/2. Three Months.csv",
+      "snapshot": "365cdff7e90e64499b5d48e9f272936de34e28f46f85b626116ce2b8d53d7ebb",
+      "fetched": "2026-11-04 20:03",
+      "rows": 1,
+      "sha256": "4370c3a1634da88a9eb424acfe8259a4b7b5f129ef3d05589468abc8322e2a74"
+    },
+    {
+      "source": "liquidslr",
+      "upstream": "https://github.com/liquidslr/leetcode-company-wise-problems",
+      "file": "05-外部资料库/题库/公司高频题/liquidslr/leetcode-company-wise-problems/ByteDance/3. Six Months.csv",
+      "snapshot": "365cdff7e90e64499b5d48e9f272936de34e28f46f85b626116ce2b8d53d7ebb",
+      "fetched": "2026-11-04 20:03",
+      "rows": 3,
+      "sha256": "9d491f226efa2414ab5189d92bfb2f111d592f573df9d6904f2438e88e64c99b"
+    },
+    {
+      "source": "liquidslr",
+      "upstream": "https://github.com/liquidslr/leetcode-company-wise-problems",
+      "file": "05-外部资料库/题库/公司高频题/liquidslr/leetcode-company-wise-problems/ByteDance/4. More Than Six Months.csv",
+      "snapshot": "365cdff7e90e64499b5d48e9f272936de34e28f46f85b626116ce2b8d53d7ebb",
+      "fetched": "2026-11-04 20:03",
+      "rows": 49,
+      "sha256": "fc55798d7f80b97b9670193d976d4f89079de93253404400d60f09e62368036f"
+    },
+    {
+      "source": "liquidslr",
+      "upstream": "https://github.com/liquidslr/leetcode-company-wise-problems",
+      "file": "05-外部资料库/题库/公司高频题/liquidslr/leetcode-company-wise-problems/ByteDance/5. All.csv",
+      "snapshot": "365cdff7e90e64499b5d48e9f272936de34e28f46f85b626116ce2b8d53d7ebb",
+      "fetched": "2026-11-04 20:03",
+      "rows": 59,
+      "sha256": "96c9d18cbe2325ae01f767ee223e50e8949597869ca97581c8b2ab5e0c4b644a"
+    },
+    {
+      "source": "snehasishroy",
+      "upstream": "https://github.com/snehasishroy/leetcode-companywise-interview-questions",
+      "file": "05-外部资料库/题库/公司高频题/snehasishroy/leetcode-companywise-interview-questions/bytedance/all.csv",
+      "snapshot": "e51804a8805b5ed39d2d4a228a80d3dbe1805453f97ed2b13a923fbb6e03f713",
+      "fetched": "2026-11-04 20:03",
+      "rows": 63,
+      "sha256": "9f449692adfe5615c5a9cdb4e80e8f6fe3e3730930f477ead730a2fcf139e5f3"
+    },
+    {
+      "source": "snehasishroy",
+      "upstream": "https://github.com/snehasishroy/leetcode-companywise-interview-questions",
+      "file": "05-外部资料库/题库/公司高频题/snehasishroy/leetcode-companywise-interview-questions/bytedance/more-than-six-months.csv",
+      "snapshot": "e51804a8805b5ed39d2d4a228a80d3dbe1805453f97ed2b13a923fbb6e03f713",
+      "fetched": "2026-11-04 20:03",
+      "rows": 58,
+      "sha256": "440fadd6056a2561e276c573451030b8d7fbddfa291982c3ec962ad925bbc572"
+    },
+    {
+      "source": "snehasishroy",
+      "upstream": "https://github.com/snehasishroy/leetcode-companywise-interview-questions",
+      "file": "05-外部资料库/题库/公司高频题/snehasishroy/leetcode-companywise-interview-questions/bytedance/six-months.csv",
+      "snapshot": "e51804a8805b5ed39d2d4a228a80d3dbe1805453f97ed2b13a923fbb6e03f713",
+      "fetched": "2026-11-04 20:03",
+      "rows": 4,
+      "sha256": "3677bdf66275b8d36d05e03591d2f4f6f4ca6105b6419ddb46cc0f847183ee46"
+    }
+  ]
+}

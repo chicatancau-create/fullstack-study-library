@@ -1,0 +1,5 @@
+RAW=650 VALID=650 UNIQUE=211 LOCAL_HITS=110 UNMATCHED_CURRENT=24
+LEDGER_OK rows-match
+captured_at: 2026-11-09T15:57:49+08:00
+node: v24.15.0
+summary: {"raw_records":650,"valid_records":650,"local_hit_rows":367,"unique_canonical":211,"evidence_backed_questions":0,"evidence_note":"尚无逐题牛客原始面经证据，当前全部为第三方聚合统计"}
