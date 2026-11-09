@@ -1,0 +1,15 @@
+✔ segment plan is 5/25/20/10 and totals 60 minutes (0.9505ms)
+✔ segmentAt maps boundaries to the right phase (0.1224ms)
+✔ drawSet is deterministic with an injected rng (1.565ms)
+✔ weighted score uses the fourdimension weights (0.3654ms)
+✔ invalid scores are rejected (0.3021ms)
+✔ redlines cap the final score at 2 (0.2406ms)
+✔ record keeps duration and local-only recording flag (0.1612ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 93.9978

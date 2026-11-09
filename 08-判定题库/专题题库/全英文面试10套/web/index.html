@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>English Interview Self-Test</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>English Interview Self-Test</h1>
+    <p>60 minutes · 5 / 25 / 20 / 10 · answers and scores are public; recording stays local.</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="row">
+        <button id="draw">Draw random set</button>
+        <button id="start">Start</button>
+        <button id="pause">Pause</button>
+        <button id="reset">Reset</button>
+      </div>
+      <p id="set-label">No set selected.</p>
+      <p class="clock"><span id="phase">idle</span> · <span id="time">00:00</span></p>
+      <div class="segments" id="segments"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Recording (local only)</h2>
+      <div class="row">
+        <button id="record">Start recording</button>
+        <button id="stop-record" disabled>Stop</button>
+        <button id="download-record" disabled>Download audio</button>
+      </div>
+      <p id="record-status">Not recording. Audio is kept in memory and never uploaded.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Self score</h2>
+      <div id="scores" class="scores"></div>
+      <label class="check"><input type="checkbox" id="codeNotRun"> Code did not run</label>
+      <label class="check"><input type="checkbox" id="noTradeoff"> Could not explain tradeoffs</label>
+      <label class="notes">Evidence quotes / notes
+        <textarea id="notes" rows="4" placeholder="Quote one sentence per dimension; note timestamps."></textarea>
+      </label>
+      <p id="score-result">Weighted score: -</p>
+      <div class="row">
+        <button id="save">Export JSON</button>
+        <button id="clear">Delete local record</button>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

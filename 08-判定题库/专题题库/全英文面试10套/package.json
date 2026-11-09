@@ -1,0 +1,14 @@
+{
+  "name": "english-interview-selftest",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/core.test.js",
+    "evidence": "bash scripts/evidence.sh",
+    "serve": "npx --yes http-server web -p 8099 -c-1"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

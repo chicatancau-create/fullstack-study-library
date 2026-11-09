@@ -1,0 +1,4 @@
+captured_at: 2026-11-09T15:29:57+08:00
+syntax: app= core=
+test: ℹ tests 7 ℹ pass 7 ℹ fail 0 
+gate_failures: 0

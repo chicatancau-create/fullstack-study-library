@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "experiment": "INTERVIEW10",
+  "generated_at": "2026-11-09T07:30:10.610Z",
+  "commit": "ea8265c7cd53f3800bf61f7bb76bad59d6b992f3",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [
+    {
+      "cmd": "bash scripts/evidence.sh",
+      "exit": 0
+    },
+    {
+      "cmd": "node --test tests/core.test.js",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/syntax-app.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/syntax-core.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/test.txt",
+      "bytes": 516,
+      "sha256": "64ab6ebeff45076cc7bba434d47d90bd6d146965783c90fbeb782bf585abb6c5"
+    },
+    {
+      "path": "evidence/run.txt",
+      "bytes": 116,
+      "sha256": "eade7ecac2902d0ef82a518527650c02b9dbd7c64882a15be242d4d6566ad9bb"
+    }
+  ],
+  "unverified": [
+    "真实录音未在自动化中执行（需麦克风与浏览器交互）",
+    "页面未做跨浏览器实机走查"
+  ]
+}
