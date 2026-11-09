@@ -1,0 +1,1 @@
+E07 事务证据：serializable / deadlock / lock-timeout / pool / plans 全部 PASS

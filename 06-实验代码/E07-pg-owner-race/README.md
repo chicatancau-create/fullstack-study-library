@@ -3,6 +3,7 @@
 > 对应 [[../../01-阶段课程/专项-核心原理与深度实验|专项：核心原理与深度实验]] 的 E07。
 > 本实验在**真实 PostgreSQL 18.6** 上用两个独立连接复现写偏差，再用父行锁修复；不覆盖迁移/恢复（E08）。
 > 环境：Windows 10.0.28000 + Node v24.15.0 + PostgreSQL 18.6
+> 2026-11-09 增补：Serializable 40001 与有界重试、死锁 40P01 + `pg_locks`、`lock_timeout` 55P03、连接池耗尽/长事务、EXPLAIN ANALYZE 证据与 `scenarios/`。
 
 ## 1. 做了什么、没做什么
 
@@ -16,10 +17,16 @@
 
 没做什么：
 
-- 没有用 Serializable 重试方案对照；没有测死锁/序列化失败。
 - 没有接业务 API/项目 02；没有迁移、备份、恢复（E08）。
-- 没有多机/连接池/长事务；没有测性能。
-- 没有把 `study` 账号用于生产；凭据只从环境变量读取。
+- 没有多机/网络分区；连接池只在本机单进程内压测。
+- 没有把 `study` 账号用于生产；凭据只从环境变量读取（本机测试口令不写入仓库）。
+
+## 1.1 完整版补充（2026-11-09）
+
+- `src/tx.mjs`：`client(isolation)`、`retrySerializable`（仅 40001/40P01 有界重试）、`serializableWriteSkew`、`deadlock`（含 `pg_locks` 观察）、`consistentOrder`、`lockTimeout`、`poolBehaviour`、`plans`。
+- `tests/transaction.test.js`：5 条真实数据库测试（Serializable、死锁、lock_timeout、连接池、执行计划）。
+- `scripts/txn_evidence.mjs`：生成 `evidence/serializable.txt`、`deadlock.txt`、`lock-timeout.txt`、`pool.txt`、`plans.txt`。
+- `scenarios/`：Serializable 重试、死锁顺序、连接池耗尽三个反例。
 
 ## 2. 可证伪假设
 
@@ -64,6 +71,20 @@ echo $?
 
 `run_evidence.sh` 没有 `PGPASSWORD` 会直接退出 2，不会用默认弱口令。
 
+```bash
+cd 06-实验代码/E07-pg-owner-race
+npm ci
+npm test                                  # 8 条真实数据库测试（串行）
+node scripts/txn_evidence.mjs             # 生成事务证据
+bash scripts/run_evidence.sh              # env + txn + test + 汇总
+```
+
+单独复跑死锁与锁视图：
+
+```bash
+node -e "import('./src/tx.mjs').then(async (m) => console.log(await m.deadlock()))"
+```
+
 ## 5. 关键 SQL
 
 反例：
@@ -99,7 +120,12 @@ UPDATE e07.inventory SET qty = qty - 1 WHERE sku = 'x' AND qty >= 1 RETURNING qt
 | 写偏差反例 | 最终 ownerCount=0 | `evidence/test.txt` |
 | 父行锁修复 | 第二个事务 count=1，回滚，ownerCount=1 | `evidence/test.txt` |
 | 库存条件扣减 | 一个成功、一个 0 行，qty=0 | `evidence/test.txt` |
-| 门禁 | `tests 3 pass 3 fail 0`，`gate_failures: 0` | `evidence/run.txt` |
+| Serializable | 后提交 `40001`；重试读到 1 后业务拒绝 | `evidence/serializable.txt` |
+| 死锁 | `40P01`；等待窗口内 `pg_locks` 有 2 条未授予锁；统一顺序后无错误 | `evidence/deadlock.txt` |
+| lock_timeout | `55P03`，约 200ms 放弃 | `evidence/lock-timeout.txt` |
+| 连接池 | max=2 时第 3 个约 300ms 超时；释放后 total=2 idle=2 | `evidence/pool.txt` |
+| 执行计划 | 两条 `EXPLAIN (ANALYZE, BUFFERS)` 含 Execution Time | `evidence/plans.txt` |
+| 门禁 | `tests 8 pass 8 fail 0`，`gate_failures: 0` | `evidence/run.txt` |
 
 ## 7. 边界
 
@@ -114,18 +140,25 @@ UPDATE e07.inventory SET qty = qty - 1 WHERE sku = 'x' AND qty >= 1 RETURNING qt
 
 | 项 | 映射 | 说明 |
 | --- | --- | --- |
-| M07 数据与 SQL | 部分 | 真实 PG、事务、写偏差、父行锁、条件扣减 |
-| E07 | **本实验** | 无 Serializable 对照/连接池/迁移 |
-| G4 | 仅 Owner/库存子项 | 无项目 02、迁移恢复、完整权限矩阵 |
+| M07 数据与 SQL | 部分 | 真实 PG、事务、写偏差、父行锁、条件扣减、Serializable、死锁、连接池、执行计划 |
+| E07 | **本实验** | 不含迁移/恢复（E08） |
+| G4 | 仅 Owner/库存/隔离子项 | 无项目 02、迁移恢复、完整权限矩阵 |
 
 ## 9. 目录结构
 
 ```text
 E07-pg-owner-race/
-├── src/db.mjs             连接、schema、reset、查询
-├── tests/owner.test.js    写偏差/父行锁/库存
-├── scripts/env.mjs        版本与隔离级别
-├── scripts/run_evidence.sh
-├── evidence/              env/test/run + manifest
+├── src/
+│   ├── db.mjs              连接、schema（含 on_call）、reset、查询
+│   └── tx.mjs              Serializable 重试、死锁/pg_locks、lock_timeout、连接池、EXPLAIN
+├── tests/
+│   ├── owner.test.js       写偏差 / 父行锁 / 库存
+│   └── transaction.test.js Serializable / 死锁 / 锁超时 / 连接池 / 执行计划
+├── scripts/
+│   ├── env.mjs             版本与隔离级别
+│   ├── txn_evidence.mjs    生成 5 份事务证据
+│   └── run_evidence.sh
+├── scenarios/              01-serializable-retry / 02-deadlock-order / 03-pool-exhaustion
+├── evidence/               env/test/run + serializable/deadlock/lock-timeout/pool/plans + manifest
 └── package.json / package-lock.json
 ```

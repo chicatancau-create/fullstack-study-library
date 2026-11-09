@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E07",
-  "generated_at": "2026-11-08T09:56:19.783Z",
-  "commit": "c9d17ab1d3532e872a71d56690daf0feb8eae8e4",
+  "generated_at": "2026-11-09T02:23:12.651Z",
+  "commit": "84e921189f7322bbc692a60f0e1e478c7c4b7d97",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -10,7 +10,16 @@
     "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
     "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
   },
-  "commands": [],
+  "commands": [
+    {
+      "cmd": "bash scripts/run_evidence.sh",
+      "exit": 0
+    },
+    {
+      "cmd": "npm test",
+      "exit": 0
+    }
+  ],
   "artifacts": [
     {
       "path": "evidence/env.txt",
@@ -18,14 +27,44 @@
       "sha256": "e878745ce7021533432589d0608b8f91fe938bdf4aab9698d26f3a4f114d0202"
     },
     {
+      "path": "evidence/txn-run.txt",
+      "bytes": 85,
+      "sha256": "c1fedff5d3fc5b442558bc09471561b84ecc8464ddef3f7d276ce249702c7c7f"
+    },
+    {
       "path": "evidence/test.txt",
-      "bytes": 364,
-      "sha256": "f37ed80bf65be2ff4ef17ddbddc50fc9b885629f2da4b21159d8a966b913566f"
+      "bytes": 803,
+      "sha256": "409559ce6b5feddc8c2267b2ea9dfeab092460bf23596b2ece08ec343f861fb7"
     },
     {
       "path": "evidence/run.txt",
-      "bytes": 173,
-      "sha256": "c938e9be9f065452248551648b3ec9bb9897702a58361770c4e9ea38652d5a8d"
+      "bytes": 363,
+      "sha256": "3694190abc547c3374227635ad90a9af5d54197b286bae0aea37637dabcf3dc4"
+    },
+    {
+      "path": "evidence/serializable.txt",
+      "bytes": 311,
+      "sha256": "ba7abede74a1ead5d3a6fbb2c0ada89dd046f192aa3062da86b30a5889859a2f"
+    },
+    {
+      "path": "evidence/deadlock.txt",
+      "bytes": 297,
+      "sha256": "e70264344b035370e4176a57a55461d3f48835258afe442deb6d297519ce8b52"
+    },
+    {
+      "path": "evidence/lock-timeout.txt",
+      "bytes": 97,
+      "sha256": "d0bc40f8ea55a5323400891c40da48a4dde89c47d17119a7e98bb00c052275ea"
+    },
+    {
+      "path": "evidence/pool.txt",
+      "bytes": 232,
+      "sha256": "6cd159a20a61e1e65d5ef5971e545d509f5f0c29e2446708aa53349b59d4c27b"
+    },
+    {
+      "path": "evidence/plans.txt",
+      "bytes": 1291,
+      "sha256": "ee42a23e1f4d7719887678f3268aa5d26a43a6745a2f2fb50296da9c29cafc91"
     }
   ],
   "unverified": []

@@ -38,12 +38,17 @@ export async function reset() {
         sku text PRIMARY KEY,
         qty integer NOT NULL CHECK (qty >= 0)
       );
+      CREATE TABLE e07.on_call (
+        name text PRIMARY KEY,
+        on_call boolean NOT NULL
+      );
     `);
     await client.query("INSERT INTO e07.workspaces (name) VALUES ('demo')");
     await client.query(
       "INSERT INTO e07.members (workspace_id, user_id, role) VALUES (1, 'alice', 'owner'), (1, 'bob', 'owner')",
     );
-    await client.query("INSERT INTO e07.inventory (sku, qty) VALUES ('x', 1)");
+    await client.query("INSERT INTO e07.inventory (sku, qty) VALUES ('x', 1), ('y', 1)");
+    await client.query("INSERT INTO e07.on_call (name, on_call) VALUES ('alice', true), ('bob', true)");
   } finally {
     await client.end();
   }

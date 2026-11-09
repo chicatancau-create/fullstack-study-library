@@ -1,0 +1,7 @@
+# 连接池：耗尽、获取超时、长事务与释放
+captured_at: 2026-11-09T02:22:53.115Z
+
+max=2 已获取=2
+第 3 个获取: timeout（311ms）
+长事务期间另一连接查询: ok=1
+释放后 stats: total=2 idle=2 waiting=0

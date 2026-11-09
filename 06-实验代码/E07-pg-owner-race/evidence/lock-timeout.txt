@@ -1,0 +1,4 @@
+# lock_timeout：等待锁超时
+captured_at: 2026-11-09T02:22:52.530Z
+
+error=55P03 waited=208ms

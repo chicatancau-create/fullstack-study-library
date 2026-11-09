@@ -1,11 +1,16 @@
-✔ 反例：两个 Owner 各自 count=2 后删除自己，最终 0 个 Owner (572.9787ms)
-✔ 修复：锁 workspace 父行后，第二个事务看到只剩 1 个 Owner 并回滚 (574.8626ms)
-✔ 库存：并发条件扣减不会为负 (482.1388ms)
-ℹ tests 3
+✔ 反例：两个 Owner 各自 count=2 后删除自己，最终 0 个 Owner (469.4165ms)
+✔ 修复：锁 workspace 父行后，第二个事务看到只剩 1 个 Owner 并回滚 (536.8129ms)
+✔ 库存：并发条件扣减不会为负 (451.1839ms)
+✔ Serializable：写偏差被 40001 拦截，有界重试后保留 1 个 on_call (950.503ms)
+✔ 死锁：反向锁顺序触发 40P01，且 pg_locks 能看到未授予锁 (1822.457ms)
+✔ lock_timeout：等待锁超时返回 55P03 (567.1073ms)
+✔ 连接池：max=2 时第 3 个获取超时，长事务不阻塞另一连接，释放后回收 (729.3318ms)
+✔ 执行计划：EXPLAIN ANALYZE 输出可判读的计划与耗时 (241.0592ms)
+ℹ tests 8
 ℹ suites 0
-ℹ pass 3
+ℹ pass 8
 ℹ fail 0
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 1784.4533
+ℹ duration_ms 6066.6777

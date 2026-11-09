@@ -1,0 +1,8 @@
+# 死锁：反向锁顺序 + pg_locks 未授予锁
+captured_at: 2026-11-09T02:22:51.449Z
+
+错误码: 40P01
+未授予锁 2 条:
+  pid=39788 state=active wait=Lock lock=transactionid/ShareLock rel=-
+  pid=67704 state=active wait=Lock lock=transactionid/ShareLock rel=-
+统一顺序后错误: (none)

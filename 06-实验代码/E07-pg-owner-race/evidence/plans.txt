@@ -1,0 +1,31 @@
+# EXPLAIN (ANALYZE, BUFFERS)：Owner 计数与库存更新
+captured_at: 2026-11-09T02:22:53.363Z
+
+-- SELECT count(*) ... role = owner
+Aggregate  (cost=12.65..12.66 rows=1 width=8) (actual time=0.033..0.034 rows=1.00 loops=1)
+  Buffers: shared hit=2
+  ->  Bitmap Heap Scan on members  (cost=4.18..12.65 rows=1 width=0) (actual time=0.025..0.026 rows=2.00 loops=1)
+        Recheck Cond: (workspace_id = 1)
+        Filter: (role = 'owner'::text)
+        Heap Blocks: exact=1
+        Buffers: shared hit=2
+        ->  Bitmap Index Scan on members_pkey  (cost=0.00..4.18 rows=4 width=0) (actual time=0.007..0.007 rows=2.00 loops=1)
+              Index Cond: (workspace_id = 1)
+              Index Searches: 1
+              Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=86
+Planning Time: 0.377 ms
+Execution Time: 0.115 ms
+
+-- UPDATE inventory ... sku = 'x'
+Update on inventory  (cost=0.15..8.17 rows=0 width=0) (actual time=0.054..0.054 rows=0.00 loops=1)
+  Buffers: shared hit=7
+  ->  Index Scan using inventory_pkey on inventory  (cost=0.15..8.17 rows=1 width=10) (actual time=0.015..0.015 rows=1.00 loops=1)
+        Index Cond: (sku = 'x'::text)
+        Index Searches: 1
+        Buffers: shared hit=2
+Planning:
+  Buffers: shared hit=25
+Planning Time: 0.267 ms
+Execution Time: 0.180 ms
