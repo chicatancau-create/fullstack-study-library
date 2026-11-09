@@ -1,0 +1,65 @@
+{
+  "captured_at": "2026-11-09T07:54:54.808Z",
+  "checks": [
+    {
+      "name": "R01 真实 PG 落库：语料与分块可查询",
+      "ok": true,
+      "detail": "docs=17 chunks=17"
+    },
+    {
+      "name": "R02 记录嵌入元数据（模型/维度/归一化/索引版本）",
+      "ok": true,
+      "detail": "model=local-hash-bigram-v1 dim=256 index=flat-sql-cosine-v1"
+    },
+    {
+      "name": "R03 嵌入确定性（同文本向量一致）",
+      "ok": true,
+      "detail": "dim=256"
+    },
+    {
+      "name": "R04 混合检索 recall@3 达到既有阈值",
+      "ok": true,
+      "detail": "hybrid=100% bm25=100%"
+    },
+    {
+      "name": "R05 混合检索不劣于纯 BM25",
+      "ok": true,
+      "detail": "hybrid=100% bm25=100%"
+    },
+    {
+      "name": "R06 跨租户检索零泄漏",
+      "ok": true,
+      "detail": "leaks=0"
+    },
+    {
+      "name": "R07 全部向量非空且为 256 维",
+      "ok": true,
+      "detail": "rows=17"
+    },
+    {
+      "name": "R08 本机 P95 延迟 ≤ 2000ms",
+      "ok": true,
+      "detail": "p95=3.1ms n=40"
+    },
+    {
+      "name": "R09 单次上下文 token 估算 ≤ 1200",
+      "ok": true,
+      "detail": "avg_tokens=83"
+    }
+  ],
+  "metrics": {
+    "retrieval_questions": 30,
+    "cross_tenant_questions": 10,
+    "hybrid_recall_at_3": 1,
+    "bm25_recall_at_3": 1,
+    "cross_tenant_leaks": 0,
+    "p95_ms": 3.06,
+    "avg_context_tokens_estimate": 83,
+    "chunks": 17,
+    "embedding_model": "local-hash-bigram-v1",
+    "embedding_dim": 256,
+    "index_version": "flat-sql-cosine-v1",
+    "snapshot": "c2ec622666330431f0c52289a0baf90290ecb9e7756beb11acea1339f9355ee8",
+    "license": "repository-authored training material (CC BY 4.0)"
+  }
+}

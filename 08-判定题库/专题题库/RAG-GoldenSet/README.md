@@ -68,3 +68,7 @@ PYTHON=python bash 评测脚本/run.sh
 - 该评测不衡量大模型生成质量；作答由文档句子抽取产生，`faithfulness` 通过"引用文档 + 标准答案子串"间接判定。
 - 延迟为本机单次实测，受机器状态影响；token 数为字符估算，不能当作计费口径。
 - 学生替换自己的 RAG 实现时，只需保持 `answer(question, tenant)` 返回 `answer/cited/retrieved/tenants/tokens` 结构，即可复用同一 golden set 与阈值。
+
+## 真实环境层
+
+`真实环境/` 使用同一份 65 条 golden set，在 PostgreSQL 中落库分块与向量，并以「租户过滤 + BM25 + 向量 + RRF」复核检索。当前嵌入为确定性哈希基线，未接神经模型或 pgvector；边界见该目录 `README.md`。

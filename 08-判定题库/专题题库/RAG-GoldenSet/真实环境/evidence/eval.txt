@@ -1,0 +1,10 @@
+PASS R01 真实 PG 落库：语料与分块可查询 (docs=17 chunks=17)
+PASS R02 记录嵌入元数据（模型/维度/归一化/索引版本） (model=local-hash-bigram-v1 dim=256 index=flat-sql-cosine-v1)
+PASS R03 嵌入确定性（同文本向量一致） (dim=256)
+PASS R04 混合检索 recall@3 达到既有阈值 (hybrid=100% bm25=100%)
+PASS R05 混合检索不劣于纯 BM25 (hybrid=100% bm25=100%)
+PASS R06 跨租户检索零泄漏 (leaks=0)
+PASS R07 全部向量非空且为 256 维 (rows=17)
+PASS R08 本机 P95 延迟 ≤ 2000ms (p95=3.1ms n=40)
+PASS R09 单次上下文 token 估算 ≤ 1200 (avg_tokens=83)
+RAG-REAL PASS 9/9
