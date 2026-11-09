@@ -1,0 +1,9 @@
+PASS A01 废弃字段在 v2 中移除 (v2_keys=id,status,note,currency)
+PASS A02 次版本号递增（2.x） (version=2.1.0)
+PASS A03 向后兼容：v2 保留必需字段、只新增字段 (added=note,currency)
+PASS A04 OpenAPI 文档基础校验（3.1、路径、responses） (paths=5)
+PASS A05 V1 载荷迁移为 V2 规范字段 (status=201 cents=1999)
+PASS A06 按 Accept 选择版本，未知版本 406 (bad=406 good=200)
+PASS A07 端点增删可对比（legacy 删除、audit 新增） (legacy=200/404 audit=404/200)
+PASS A08 废弃操作在文档与响应中可识别 (header=true)
+BACKEND30-A PASS 8/8

@@ -1,6 +1,7 @@
-captured_at: 2026-11-09T15:44:34+08:00
+captured_at: 2026-11-09T15:46:44+08:00
 node: v24.15.0
 pg: 8.23.1
+contract: BACKEND30-A PASS 8/8
 rls: BACKEND30-B PASS 8/8
 concurrency: BACKEND30-C PASS 7/7
 outbox: BACKEND30-D PASS 4/4

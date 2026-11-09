@@ -1,0 +1,45 @@
+{
+  "captured_at": "2026-11-09T07:46:24.266Z",
+  "checks": [
+    {
+      "name": "A01 废弃字段在 v2 中移除",
+      "ok": true,
+      "detail": "v2_keys=id,status,note,currency"
+    },
+    {
+      "name": "A02 次版本号递增（2.x）",
+      "ok": true,
+      "detail": "version=2.1.0"
+    },
+    {
+      "name": "A03 向后兼容：v2 保留必需字段、只新增字段",
+      "ok": true,
+      "detail": "added=note,currency"
+    },
+    {
+      "name": "A04 OpenAPI 文档基础校验（3.1、路径、responses）",
+      "ok": true,
+      "detail": "paths=5"
+    },
+    {
+      "name": "A05 V1 载荷迁移为 V2 规范字段",
+      "ok": true,
+      "detail": "status=201 cents=1999"
+    },
+    {
+      "name": "A06 按 Accept 选择版本，未知版本 406",
+      "ok": true,
+      "detail": "bad=406 good=200"
+    },
+    {
+      "name": "A07 端点增删可对比（legacy 删除、audit 新增）",
+      "ok": true,
+      "detail": "legacy=200/404 audit=404/200"
+    },
+    {
+      "name": "A08 废弃操作在文档与响应中可识别",
+      "ok": true,
+      "detail": "header=true"
+    }
+  ]
+}
