@@ -1,6 +1,0 @@
-P04 作业调度证据（真实 PostgreSQL）
-生成时间：2026-11-09T01:17:40.976Z
-200 个到期任务在 1210ms 内处理完成，吞吐 165.3 任务/s
-done=200 pending=0 notifications=200 inbox=200
-重复入队 3 次未产生重复行（UNIQUE tenant_id+dedupe_key）
-故障注入：status=dead attempts=5 死信=1

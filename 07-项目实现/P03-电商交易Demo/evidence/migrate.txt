@@ -1,1 +1,0 @@
-p03 tables=inventory,notifications,order_items,orders,outbox,payment_events,schema_migrations

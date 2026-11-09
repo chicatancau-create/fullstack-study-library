@@ -1,1 +1,0 @@
-p04 tables=audit_events,clients,followups,invitations,job_results,jobs,memberships,schema_migrations,sessions,tenants,users

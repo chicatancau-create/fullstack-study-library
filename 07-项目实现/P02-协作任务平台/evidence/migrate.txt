@@ -1,7 +1,0 @@
-Prisma schema loaded from prisma\schema.prisma
-Datasource "db": PostgreSQL database "study_lab_p02ms1", schema "public" at "127.0.0.1:5432"
-
-1 migration found in prisma/migrations
-
-
-No pending migrations to apply.

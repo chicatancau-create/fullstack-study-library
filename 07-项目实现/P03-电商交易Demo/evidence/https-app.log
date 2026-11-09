@@ -1,6 +1,0 @@
-{"level":30,"time":1794065743581,"pid":2572,"hostname":"zhoumo","msg":"Server listening at http://127.0.0.1:8796"}
-project03 listening on http://127.0.0.1:8796
-{"level":30,"time":1794065743969,"pid":2572,"hostname":"zhoumo","reqId":"req-1","req":{"method":"GET","url":"/health","host":"127.0.0.1:9443","remoteAddress":"127.0.0.1","remotePort":57179},"msg":"incoming request"}
-{"level":30,"time":1794065743972,"pid":2572,"hostname":"zhoumo","reqId":"req-1","res":{"statusCode":200},"responseTime":2.832499999999982,"msg":"request completed"}
-{"level":30,"time":1794065744052,"pid":2572,"hostname":"zhoumo","reqId":"req-2","req":{"method":"GET","url":"/health","host":"127.0.0.1:9443","remoteAddress":"127.0.0.1","remotePort":57179},"msg":"incoming request"}
-{"level":30,"time":1794065744053,"pid":2572,"hostname":"zhoumo","reqId":"req-2","res":{"statusCode":200},"responseTime":0.24549999999999272,"msg":"request completed"}

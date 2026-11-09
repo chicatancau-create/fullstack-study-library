@@ -1,5 +1,0 @@
-http_total=17 errors=10 error_ratio=0.59
-jobs_pending=60
-ALERT HighErrorRate (59% > 20%)
-ALERT JobBacklog (60 > 50)
-ALERTS PASS

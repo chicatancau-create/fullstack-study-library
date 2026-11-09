@@ -8,7 +8,7 @@
 
 ## 当前实现状态（2026-11-08）
 
-本机 `E:/fullstack-code/project04-saas` 已落地选题 1「团队客户跟进工具」的主路径切片：
+本机 `E:/fullstack-code/projects/project04-saas` 已落地选题 1「团队客户跟进工具」的主路径切片：
 
 - 已实现：注册登录（scrypt、令牌哈希、12h）、组织与套餐（free 2 席 / team 5 席）、邀请与接受、
   RBAC（owner/admin/member）、成员移除、客户与跟进、客户软删除、审计同事务、迁移与备份恢复。

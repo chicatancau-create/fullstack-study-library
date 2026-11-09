@@ -1,7 +1,0 @@
-
-test-results/
-playwright-report/
-
-coverage/*
-!coverage/lcov.info
-!coverage/coverage-summary.json

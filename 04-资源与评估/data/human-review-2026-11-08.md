@@ -97,7 +97,7 @@ exit=1
 
 ### 3.1 项目 05 回归 12/12 —— 成立
 
-`project05-takeover/evidence/test.txt` 实测内容：12 个具名用例（3 个缺陷回归 + 3 个正向/边界 + D88 四条 + D89 一条），
+`projects/project05-takeover/evidence/test.txt` 实测内容：12 个具名用例（3 个缺陷回归 + 3 个正向/边界 + D88 四条 + D89 一条），
 `tests 12 / pass 12 / fail 0 / duration_ms 2016`。用例名与声明一致，**不是笼统计数**。
 
 ### 3.2 E01 AddressSanitizer / UBSan / Valgrind —— 成立
@@ -165,7 +165,7 @@ gh run view 42453771068 --repo chicatancau-create/fullstack-study-library
 
 ### D5：证据文件重复（低）
 
-`project05-takeover/evidence/d90-perf.txt` 与 `d90-perf-run.txt` 经 `cmp` 比对**内容完全相同**。
+`projects/project05-takeover/evidence/d90-perf.txt` 与 `d90-perf-run.txt` 经 `cmp` 比对**内容完全相同**。
 两份都被 manifest 收录，等于同一事实记两次，不增加可信度，反而让「证据数量 9」显得虚高。
 
 ## 5. 本次对验收脚本的改动（所有者已授权提交，2026-11-08）

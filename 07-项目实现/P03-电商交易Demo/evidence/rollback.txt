@@ -1,3 +1,0 @@
-current=cabc4ee previous=1fc9f70
-rollback_health={"status":"ok"}
-ROLLBACK PASS

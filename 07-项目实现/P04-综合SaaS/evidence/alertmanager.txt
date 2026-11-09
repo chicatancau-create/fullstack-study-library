@@ -1,4 +1,0 @@
-webhook_payloads=1 receiver=webhook status=firing
-alerts_received=JobBacklog
-alertmanager_version=alertmanager, version 0.28.1 (branch: HEAD, revision: b2099eaa2c9ebc25edb26517cb9c732738e93910)
-ALERTMANAGER PASS

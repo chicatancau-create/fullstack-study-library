@@ -1,5 +1,0 @@
-load target=http://127.0.0.1:53693 concurrency=20 requests=240 stock=150
-responses=240 success=150 out_of_stock=90 other=0
-p50=22.1ms p95=68.0ms p99=503.4ms max=567.5ms
-final_stock=0 persisted_orders=150
-LOAD PASS
