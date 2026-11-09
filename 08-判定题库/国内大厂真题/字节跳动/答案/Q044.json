@@ -1,0 +1,53 @@
+{
+  "id": "Q044",
+  "title": "101. 对称二叉树",
+  "question_url": "https://leetcode.cn/problems/symmetric-tree/",
+  "core_idea": "把“对称”转成两棵子树互为镜像：左子树的左孩子对右子树的右孩子，左子树的右孩子对右子树的左孩子。",
+  "invariant": "mirror(x,y) 为真当且仅当两棵以 x、y 为根的子树镜像相等。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(h)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(a) {\n  function build(arr) {\n    if (!arr.length || arr[0] === null) return null;\n    const root = { val: arr[0], left: null, right: null };\n    const q = [root];\n    let i = 1;\n    while (i < arr.length && q.length) {\n      const n = q.shift();\n      if (i < arr.length) { if (arr[i] !== null) { n.left = { val: arr[i], left: null, right: null }; q.push(n.left); } i++; }\n      if (i < arr.length) { if (arr[i] !== null) { n.right = { val: arr[i], left: null, right: null }; q.push(n.right); } i++; }\n    }\n    return root;\n  }\n  function mirror(x, y) {\n    if (!x && !y) return true;\n    if (!x || !y) return false;\n    return x.val === y.val && mirror(x.left, y.right) && mirror(x.right, y.left);\n  }\n  const root = build(a);\n  return root ? mirror(root.left, root.right) : true;\n}",
+  "edge_cases": [
+    {
+      "call": "[1,2,2,3,4,4,3]",
+      "expected": true,
+      "why": "左右完全镜像"
+    },
+    {
+      "call": "[1,2,2,null,3,null,3]",
+      "expected": false,
+      "why": "3 都在右侧不再镜像"
+    },
+    {
+      "call": "[1]",
+      "expected": true,
+      "why": "单节点对称"
+    }
+  ],
+  "common_mistakes": [
+    "比较左右子树自身是否相等而不是镜像",
+    "只比较值不比较结构",
+    "镜像递归时交叉方向写反"
+  ],
+  "followups": [
+    "如何用层序队列迭代实现？",
+    "若允许删除节点使树对称，最少删几个？"
+  ],
+  "rubric": [
+    {
+      "point": "镜像递归使用 x.left↔y.right 交叉比较",
+      "weight": 2
+    },
+    {
+      "point": "空节点与结构不等的情况区分",
+      "weight": 1
+    },
+    {
+      "point": "单节点/空树返回 true",
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "Q036",
+  "title": "221. 最大正方形",
+  "question_url": "https://leetcode.cn/problems/maximal-square/",
+  "core_idea": "DP：dp[i][j] 表示以 (i,j) 为右下角的最大全 1 正方形边长，等于 左、上、左上 三者最小值 +1。",
+  "invariant": "dp[i][j] 只依赖上一行与当前行左侧，可用一维滚动；答案取最大边长的平方。",
+  "complexity": {
+    "time": "O(mn)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(matrix) {\n  const rows = matrix.length;\n  if (!rows) return 0;\n  const cols = matrix[0].length;\n  const dp = new Array(cols + 1).fill(0);\n  let best = 0;\n  for (let i = 1; i <= rows; i++) {\n    let prev = 0;\n    for (let j = 1; j <= cols; j++) {\n      const cur = dp[j];\n      if (matrix[i - 1][j - 1] === '1') {\n        dp[j] = Math.min(dp[j], dp[j - 1], prev) + 1;\n        best = Math.max(best, dp[j]);\n      } else {\n        dp[j] = 0;\n      }\n      prev = cur;\n    }\n  }\n  return best * best;\n}",
+  "edge_cases": [
+    {
+      "call": "[[\"1\",\"1\"],[\"1\",\"1\"]]",
+      "expected": 4,
+      "why": "2×2 全 1"
+    },
+    {
+      "call": "[[\"1\",\"0\",\"1\"],[\"1\",\"1\",\"1\"]]",
+      "expected": 1,
+      "why": "无法构成 2×2"
+    },
+    {
+      "call": "[[\"0\"]]",
+      "expected": 0,
+      "why": "无 1"
+    }
+  ],
+  "common_mistakes": [
+    "返回边长而不是面积",
+    "一维滚动时 prev 保存的是已更新的 dp[j-1]",
+    "只检查左和上，漏掉左上"
+  ],
+  "followups": [
+    "如何输出最大正方形的左上角坐标？",
+    "若允许任意矩形，最大全 1 矩形怎么求？"
+  ],
+  "rubric": [
+    {
+      "point": "dp 定义以当前格为右下角",
+      "weight": 2
+    },
+    {
+      "point": "转移取左/上/左上最小值 +1",
+      "weight": 1
+    },
+    {
+      "point": "返回面积而不是边长",
+      "weight": 1
+    }
+  ]
+}

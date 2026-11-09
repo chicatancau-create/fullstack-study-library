@@ -1,0 +1,63 @@
+{
+  "id": "Q037",
+  "title": "148. 排序链表",
+  "question_url": "https://leetcode.cn/problems/sort-list/",
+  "core_idea": "自顶向下归并：快慢指针找中点并断开，递归排序两半，再合并两个有序链表。",
+  "invariant": "每次递归处理的链表区间相互不重叠，合并后整体有序。",
+  "complexity": {
+    "time": "O(n log n)",
+    "space": "O(log n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(arr) {\n  function build(a) {\n    let head = null;\n    for (let i = a.length - 1; i >= 0; i--) head = { val: a[i], next: head };\n    return head;\n  }\n  function sortList(h) {\n    if (!h || !h.next) return h;\n    let slow = h, fast = h.next;\n    while (fast && fast.next) { slow = slow.next; fast = fast.next.next; }\n    const mid = slow.next;\n    slow.next = null;\n    const merge = (x, y) => {\n      const d = { next: null };\n      let t = d;\n      while (x && y) {\n        if (x.val <= y.val) { t.next = x; x = x.next; }\n        else { t.next = y; y = y.next; }\n        t = t.next;\n      }\n      t.next = x || y;\n      return d.next;\n    };\n    return merge(sortList(h), sortList(mid));\n  }\n  let p = sortList(build(arr));\n  const out = [];\n  while (p) { out.push(p.val); p = p.next; }\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "[4,2,1,3]",
+      "expected": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "why": "常规乱序"
+    },
+    {
+      "call": "[]",
+      "expected": [],
+      "why": "空链表"
+    },
+    {
+      "call": "[5,5,-1,0]",
+      "expected": [
+        -1,
+        0,
+        5,
+        5
+      ],
+      "why": "含负数与重复值，稳定性不影响值序列"
+    }
+  ],
+  "common_mistakes": [
+    "找中点后忘记 slow.next=null 导致无限递归",
+    "快指针从 head 起步导致中点偏左",
+    "合并时没有接上剩余链表"
+  ],
+  "followups": [
+    "自底向上归并如何做到 O(1) 空间？",
+    "为什么链表排序通常选归并而不是快排？"
+  ],
+  "rubric": [
+    {
+      "point": "快慢指针找中点并断开",
+      "weight": 2
+    },
+    {
+      "point": "合并两个有序链表并接上剩余部分",
+      "weight": 1
+    },
+    {
+      "point": "边界（空/单节点）直接返回",
+      "weight": 1
+    }
+  ]
+}

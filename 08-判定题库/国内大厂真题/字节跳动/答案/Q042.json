@@ -1,0 +1,65 @@
+{
+  "id": "Q042",
+  "title": "补充题4. 手撕快速排序",
+  "question_url": "https://leetcode.cn/problems/sort-an-array/",
+  "core_idea": "选基准做分区，小于基准的放左、大于的放右，递归处理两侧；本实现用额外数组分区，保证重复元素不会退化。",
+  "invariant": "分区后左段元素 ≤ 基准 ≤ 右段元素，且基准位置已确定。",
+  "complexity": {
+    "time": "平均 O(n log n)，最坏 O(n²)",
+    "space": "O(n log n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(nums) {\n  if (nums.length <= 1) return nums.slice();\n  const pivot = nums[Math.floor(nums.length / 2)];\n  const left = [], mid = [], right = [];\n  for (const v of nums) {\n    if (v < pivot) left.push(v);\n    else if (v > pivot) right.push(v);\n    else mid.push(v);\n  }\n  return [...solve(left), ...mid, ...solve(right)];\n}",
+  "edge_cases": [
+    {
+      "call": "[3,1,2]",
+      "expected": [
+        1,
+        2,
+        3
+      ],
+      "why": "常规乱序"
+    },
+    {
+      "call": "[5,5,1]",
+      "expected": [
+        1,
+        5,
+        5
+      ],
+      "why": "重复元素不退化"
+    },
+    {
+      "call": "[-2,10,0]",
+      "expected": [
+        -2,
+        0,
+        10
+      ],
+      "why": "负数参与比较"
+    }
+  ],
+  "common_mistakes": [
+    "三路分区缺失导致全相同元素 O(n²)",
+    "基准取边界且已排序时退化",
+    "原地分区时交换条件写错丢元素"
+  ],
+  "followups": [
+    "如何改成原地 Lomuto/Hoare 分区？",
+    "随机基准为什么能把期望复杂度降到 O(n log n)？"
+  ],
+  "rubric": [
+    {
+      "point": "划分保证左 ≤ 基准 ≤ 右",
+      "weight": 2
+    },
+    {
+      "point": "重复元素使用三路或等价处理",
+      "weight": 1
+    },
+    {
+      "point": "递归终止条件与切片不修改输入",
+      "weight": 1
+    }
+  ]
+}

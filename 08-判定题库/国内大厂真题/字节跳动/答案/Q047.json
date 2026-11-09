@@ -1,0 +1,53 @@
+{
+  "id": "Q047",
+  "title": "322. 零钱兑换",
+  "question_url": "https://leetcode.cn/problems/coin-change/",
+  "core_idea": "完全背包：dp[x] 表示凑出金额 x 的最少硬币数，dp[x]=min(dp[x-coin]+1)；初始化 dp[0]=0，其余为无穷。",
+  "invariant": "遍历到金额 x 时，所有小于 x 的金额已是最优解，因此 dp[x-coin]+1 可信。",
+  "complexity": {
+    "time": "O(amount·k)",
+    "space": "O(amount)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(coins, amount) {\n  const dp = new Array(amount + 1).fill(Infinity);\n  dp[0] = 0;\n  for (let x = 1; x <= amount; x++) {\n    for (const c of coins) {\n      if (c <= x && dp[x - c] + 1 < dp[x]) dp[x] = dp[x - c] + 1;\n    }\n  }\n  return dp[amount] === Infinity ? -1 : dp[amount];\n}",
+  "edge_cases": [
+    {
+      "call": "[1,2,5], 11",
+      "expected": 3,
+      "why": "5+5+1"
+    },
+    {
+      "call": "[2], 3",
+      "expected": -1,
+      "why": "无法凑出"
+    },
+    {
+      "call": "[1], 0",
+      "expected": 0,
+      "why": "金额 0 不需要硬币"
+    }
+  ],
+  "common_mistakes": [
+    "dp 初始化为 0 导致无法凑出时返回 0",
+    "外层遍历硬币内层遍历金额却按 0/1 背包倒序",
+    "忘记判断 Infinity 直接返回"
+  ],
+  "followups": [
+    "如何同时输出使用的硬币组合？",
+    "与 0/1 背包在遍历顺序上的区别是什么？"
+  ],
+  "rubric": [
+    {
+      "point": "dp[0]=0，其余初始化为无穷",
+      "weight": 2
+    },
+    {
+      "point": "完全背包正序遍历金额",
+      "weight": 1
+    },
+    {
+      "point": "不可达返回 -1",
+      "weight": 1
+    }
+  ]
+}

@@ -722,7 +722,8 @@
     "role_recorded": "后端/算法",
     "role_class": "岗位未标注",
     "role_source": "codetop_aggregate",
-    "answer_status": "pending"
+    "answer_status": "published",
+    "answer_file": "答案/Q033.json"
   },
   {
     "id": "Q034",
@@ -743,7 +744,8 @@
     "role_recorded": "后端/算法",
     "role_class": "岗位未标注",
     "role_source": "codetop_aggregate",
-    "answer_status": "pending"
+    "answer_status": "published",
+    "answer_file": "答案/Q034.json"
   },
   {
     "id": "Q035",
@@ -764,7 +766,8 @@
     "role_recorded": "后端/算法",
     "role_class": "岗位未标注",
     "role_source": "codetop_aggregate",
-    "answer_status": "pending"
+    "answer_status": "published",
+    "answer_file": "答案/Q035.json"
   },
   {
     "id": "Q036",
@@ -785,7 +788,8 @@
     "role_recorded": "后端/算法",
     "role_class": "岗位未标注",
     "role_source": "codetop_aggregate",
-    "answer_status": "pending"
+    "answer_status": "published",
+    "answer_file": "答案/Q036.json"
   },
   {
     "id": "Q037",
@@ -806,7 +810,8 @@
     "role_recorded": "后端/算法",
     "role_class": "岗位未标注",
     "role_source": "codetop_aggregate",
-    "answer_status": "pending"
+    "answer_status": "published",
+    "answer_file": "答案/Q037.json"
   },
   {
     "id": "Q038",
@@ -827,7 +832,8 @@
     "role_recorded": "后端/算法",
     "role_class": "岗位未标注",
     "role_source": "codetop_aggregate",
-    "answer_status": "pending"
+    "answer_status": "published",
+    "answer_file": "答案/Q038.json"
   },
   {
     "id": "Q039",
@@ -848,7 +854,8 @@
     "role_recorded": "后端/算法",
     "role_class": "岗位未标注",
     "role_source": "codetop_aggregate",
-    "answer_status": "pending"
+    "answer_status": "published",
+    "answer_file": "答案/Q039.json"
   },
   {
     "id": "Q040",
@@ -869,7 +876,8 @@
     "role_recorded": "后端/算法",
     "role_class": "岗位未标注",
     "role_source": "codetop_aggregate",
-    "answer_status": "pending"
+    "answer_status": "published",
+    "answer_file": "答案/Q040.json"
   },
   {
     "id": "Q041",
@@ -890,7 +898,8 @@
     "role_recorded": "后端/算法",
     "role_class": "岗位未标注",
     "role_source": "codetop_aggregate",
-    "answer_status": "pending"
+    "answer_status": "published",
+    "answer_file": "答案/Q041.json"
   },
   {
     "id": "Q042",
@@ -911,7 +920,8 @@
     "role_recorded": "后端/算法",
     "role_class": "岗位未标注",
     "role_source": "codetop_aggregate",
-    "answer_status": "pending"
+    "answer_status": "published",
+    "answer_file": "答案/Q042.json"
   },
   {
     "id": "Q043",
@@ -932,7 +942,8 @@
     "role_recorded": "后端/算法",
     "role_class": "岗位未标注",
     "role_source": "codetop_aggregate",
-    "answer_status": "pending"
+    "answer_status": "published",
+    "answer_file": "答案/Q043.json"
   },
   {
     "id": "Q044",
@@ -953,7 +964,8 @@
     "role_recorded": "后端/算法",
     "role_class": "岗位未标注",
     "role_source": "codetop_aggregate",
-    "answer_status": "pending"
+    "answer_status": "published",
+    "answer_file": "答案/Q044.json"
   },
   {
     "id": "Q045",
@@ -974,7 +986,8 @@
     "role_recorded": "后端/算法",
     "role_class": "岗位未标注",
     "role_source": "codetop_aggregate",
-    "answer_status": "pending"
+    "answer_status": "published",
+    "answer_file": "答案/Q045.json"
   },
   {
     "id": "Q046",
@@ -995,7 +1008,8 @@
     "role_recorded": "后端/算法",
     "role_class": "岗位未标注",
     "role_source": "codetop_aggregate",
-    "answer_status": "pending"
+    "answer_status": "published",
+    "answer_file": "答案/Q046.json"
   },
   {
     "id": "Q047",
@@ -1016,7 +1030,8 @@
     "role_recorded": "后端/算法",
     "role_class": "岗位未标注",
     "role_source": "codetop_aggregate",
-    "answer_status": "pending"
+    "answer_status": "published",
+    "answer_file": "答案/Q047.json"
   },
   {
     "id": "Q048",
@@ -1037,7 +1052,8 @@
     "role_recorded": "后端/算法",
     "role_class": "岗位未标注",
     "role_source": "codetop_aggregate",
-    "answer_status": "pending"
+    "answer_status": "published",
+    "answer_file": "答案/Q048.json"
   },
   {
     "id": "Q049",

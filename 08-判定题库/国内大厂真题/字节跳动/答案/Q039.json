@@ -1,0 +1,53 @@
+{
+  "id": "Q039",
+  "title": "69. x 的平方根",
+  "question_url": "https://leetcode.cn/problems/sqrtx/",
+  "core_idea": "在 [0,x] 上二分找最大的 mid 使 mid*mid ≤ x；用除法 mid ≤ x/mid 避免乘法溢出。",
+  "invariant": "答案始终在 [lo,hi] 内；循环结束时 lo 越过 hi，hi 即下取整平方根。",
+  "complexity": {
+    "time": "O(log x)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(x) {\n  let lo = 0, hi = x, ans = 0;\n  while (lo <= hi) {\n    const mid = lo + Math.floor((hi - lo) / 2);\n    if (mid === 0 || mid <= Math.floor(x / mid)) { ans = mid; lo = mid + 1; }\n    else hi = mid - 1;\n  }\n  return ans;\n}",
+  "edge_cases": [
+    {
+      "call": "4",
+      "expected": 2,
+      "why": "完全平方数"
+    },
+    {
+      "call": "8",
+      "expected": 2,
+      "why": "下取整而不是四舍五入"
+    },
+    {
+      "call": "0",
+      "expected": 0,
+      "why": "零边界与除零保护"
+    }
+  ],
+  "common_mistakes": [
+    "用 Math.sqrt 直接返回浮点结果",
+    "mid*mid 在 32 位溢出",
+    "返回 lo 而不是记录的最后可行值"
+  ],
+  "followups": [
+    "如何返回保留 k 位小数的平方根？",
+    "牛顿迭代怎么写？"
+  ],
+  "rubric": [
+    {
+      "point": "二分查找最大的 mid 使 mid² ≤ x",
+      "weight": 2
+    },
+    {
+      "point": "用除法或 BigInt 避免乘法溢出",
+      "weight": 1
+    },
+    {
+      "point": "x=0 时返回 0 且不除零",
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "Q048",
+  "title": "129. 求根到叶子节点数字之和",
+  "question_url": "https://leetcode.cn/problems/sum-root-to-leaf-numbers/",
+  "core_idea": "前序携带当前路径数值 cur=cur*10+node.val；到叶子时把 cur 累加进总和。",
+  "invariant": "cur 等于从根到当前节点路径拼成的十进制数；只有叶子才计入答案。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(h)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(a) {\n  function build(arr) {\n    if (!arr.length || arr[0] === null) return null;\n    const root = { val: arr[0], left: null, right: null };\n    const q = [root];\n    let i = 1;\n    while (i < arr.length && q.length) {\n      const n = q.shift();\n      if (i < arr.length) { if (arr[i] !== null) { n.left = { val: arr[i], left: null, right: null }; q.push(n.left); } i++; }\n      if (i < arr.length) { if (arr[i] !== null) { n.right = { val: arr[i], left: null, right: null }; q.push(n.right); } i++; }\n    }\n    return root;\n  }\n  let sum = 0;\n  function dfs(n, cur) {\n    if (!n) return;\n    const v = cur * 10 + n.val;\n    if (!n.left && !n.right) { sum += v; return; }\n    dfs(n.left, v);\n    dfs(n.right, v);\n  }\n  dfs(build(a), 0);\n  return sum;\n}",
+  "edge_cases": [
+    {
+      "call": "[1,2,3]",
+      "expected": 25,
+      "why": "12 + 13"
+    },
+    {
+      "call": "[4,9,0,5,1]",
+      "expected": 1026,
+      "why": "495 + 491 + 40"
+    },
+    {
+      "call": "[0]",
+      "expected": 0,
+      "why": "单节点 0"
+    }
+  ],
+  "common_mistakes": [
+    "在非叶子节点也累加导致重复计数",
+    "用字符串拼接再转数字，大数时精度丢失",
+    "把 cur 传引用导致兄弟分支串值"
+  ],
+  "followups": [
+    "如果路径要从叶子回到根拼接，结果一样吗？",
+    "如何用迭代栈实现？"
+  ],
+  "rubric": [
+    {
+      "point": "cur=cur*10+val 沿路径传递",
+      "weight": 2
+    },
+    {
+      "point": "只在叶子节点累加",
+      "weight": 1
+    },
+    {
+      "point": "单节点与含 0 的路径正确",
+      "weight": 1
+    }
+  ]
+}

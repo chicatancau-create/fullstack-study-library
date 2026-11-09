@@ -1,0 +1,53 @@
+{
+  "id": "Q043",
+  "title": "93. 复原IP地址",
+  "question_url": "https://leetcode.cn/problems/restore-ip-addresses/",
+  "core_idea": "DFS 依次切出 4 段，每段长度 1–3 且数值 ≤255，禁止前导零（除了 \"0\" 本身）；四段用尽且恰好耗完字符串才收集。",
+  "invariant": "已切出的段数 + 剩余字符数必须落在 [剩余段数, 3×剩余段数] 内，否则剪枝。",
+  "complexity": {
+    "time": "O(3^4)",
+    "space": "O(4)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(s) {\n  const out = [];\n  function dfs(i, parts) {\n    if (parts.length === 4) {\n      if (i === s.length) out.push(parts.join('.'));\n      return;\n    }\n    if (s.length - i > (4 - parts.length) * 3) return;\n    let num = 0;\n    for (let j = i; j < s.length && j < i + 3; j++) {\n      num = num * 10 + (s.charCodeAt(j) - 48);\n      if (num > 255) break;\n      parts.push(s.slice(i, j + 1));\n      dfs(j + 1, parts);\n      parts.pop();\n      if (num === 0) break;\n    }\n  }\n  dfs(0, []);\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "\"25525511135\"",
+      "expected": [
+        "255.255.11.135",
+        "255.255.111.35"
+      ],
+      "why": "两种切法都合法"
+    },
+    {
+      "call": "\"0000\"",
+      "expected": [
+        "0.0.0.0"
+      ],
+      "why": "前导零禁止，但单个 0 合法"
+    }
+  ],
+  "common_mistakes": [
+    "允许 \"01\" 这样的前导零段",
+    "段数到 4 但字符串未耗完仍然收集",
+    "忘记 num>255 后 break 导致后续更长段也尝试"
+  ],
+  "followups": [
+    "IPv6 的合法地址如何校验？",
+    "如何把 DFS 改成迭代写法？"
+  ],
+  "rubric": [
+    {
+      "point": "每段长度 1–3 且值 ≤255",
+      "weight": 2
+    },
+    {
+      "point": "禁止前导零（单 0 除外）并正确剪枝",
+      "weight": 1
+    },
+    {
+      "point": "四段耗尽且下标到末尾才收集",
+      "weight": 1
+    }
+  ]
+}

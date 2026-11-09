@@ -1,0 +1,53 @@
+{
+  "id": "Q035",
+  "title": "165. 比较版本号",
+  "question_url": "https://leetcode.cn/problems/compare-version-numbers/",
+  "core_idea": "按点切分，逐段转数字比较；缺失段视为 0，因此 1.0 与 1.0.0 相等，前导零无意义。",
+  "invariant": "每轮比较第 i 段时，两版本的前 i-1 段已判定相等。",
+  "complexity": {
+    "time": "O(m+n)",
+    "space": "O(m+n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(a, b) {\n  const x = a.split('.'), y = b.split('.');\n  const n = Math.max(x.length, y.length);\n  for (let i = 0; i < n; i++) {\n    const p = Number(x[i] || 0), q = Number(y[i] || 0);\n    if (p > q) return 1;\n    if (p < q) return -1;\n  }\n  return 0;\n}",
+  "edge_cases": [
+    {
+      "call": "\"1.01\", \"1.001\"",
+      "expected": 0,
+      "why": "前导零不影响数值"
+    },
+    {
+      "call": "\"1.0\", \"1.0.0\"",
+      "expected": 0,
+      "why": "缺失段补 0"
+    },
+    {
+      "call": "\"1.2\", \"1.10\"",
+      "expected": -1,
+      "why": "按数值而不是字典序比较"
+    }
+  ],
+  "common_mistakes": [
+    "按字符串字典序比较，得到 1.10 < 1.2 的错误结论",
+    "只比较到较短长度",
+    "用 parseInt 处理超长版本号导致精度丢失"
+  ],
+  "followups": [
+    "版本号段可能超过 Number 安全整数时怎么办？",
+    "如何支持 pre-release 后缀（1.0.0-beta）？"
+  ],
+  "rubric": [
+    {
+      "point": "逐段按数值比较而非字典序",
+      "weight": 2
+    },
+    {
+      "point": "缺失段补 0，长度不同也能正确判等",
+      "weight": 1
+    },
+    {
+      "point": "前导零不影响结果",
+      "weight": 1
+    }
+  ]
+}

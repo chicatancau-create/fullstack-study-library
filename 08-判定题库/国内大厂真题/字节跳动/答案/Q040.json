@@ -1,0 +1,53 @@
+{
+  "id": "Q040",
+  "title": "4. 寻找两个正序数组的中位数",
+  "question_url": "https://leetcode.cn/problems/median-of-two-sorted-arrays/",
+  "core_idea": "在较短数组上二分划分点 i，另一数组划分点 j=(m+n+1)/2-i；满足 a[i-1]≤b[j] 且 b[j-1]≤a[i] 时，由四邻值算中位数。",
+  "invariant": "划分把两数组合并后的前 half 个元素放到左侧，且左半最大值 ≤ 右半最小值。",
+  "complexity": {
+    "time": "O(log min(m,n))",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(a, b) {\n  if (a.length > b.length) return solve(b, a);\n  const m = a.length, n = b.length, total = m + n, half = Math.floor((total + 1) / 2);\n  let lo = 0, hi = m;\n  while (lo <= hi) {\n    const i = Math.floor((lo + hi) / 2), j = half - i;\n    const aL = i > 0 ? a[i - 1] : -Infinity, aR = i < m ? a[i] : Infinity;\n    const bL = j > 0 ? b[j - 1] : -Infinity, bR = j < n ? b[j] : Infinity;\n    if (aL <= bR && bL <= aR) {\n      if (total % 2 === 1) return Math.max(aL, bL);\n      return (Math.max(aL, bL) + Math.min(aR, bR)) / 2;\n    } else if (aL > bR) hi = i - 1;\n    else lo = i + 1;\n  }\n  return 0;\n}",
+  "edge_cases": [
+    {
+      "call": "[1,3], [2]",
+      "expected": 2,
+      "why": "奇数个元素取中间值"
+    },
+    {
+      "call": "[1,2], [3,4]",
+      "expected": 2.5,
+      "why": "偶数个取两个中间值平均"
+    },
+    {
+      "call": "[], [1]",
+      "expected": 1,
+      "why": "一个数组为空"
+    }
+  ],
+  "common_mistakes": [
+    "在长数组上二分导致边界处理复杂与越界",
+    "half 用 (m+n)/2 忘记 +1 导致奇数长度偏左",
+    "越界侧不用 ±Infinity 而直接取 0"
+  ],
+  "followups": [
+    "为什么必须把二分限制在较短数组上？",
+    "若要求 O(log(m+n)) 且不比较数值大小，如何做？"
+  ],
+  "rubric": [
+    {
+      "point": "在较短数组上二分划分点",
+      "weight": 2
+    },
+    {
+      "point": "四邻值与 ±Infinity 边界处理正确",
+      "weight": 1
+    },
+    {
+      "point": "奇偶长度分别返回单值与平均值",
+      "weight": 1
+    }
+  ]
+}

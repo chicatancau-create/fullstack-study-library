@@ -1,0 +1,53 @@
+{
+  "id": "Q041",
+  "title": "22. 括号生成",
+  "question_url": "https://leetcode.cn/problems/generate-parentheses/",
+  "core_idea": "回溯：已用左括号数小于 n 时可放 \"(\"，右括号数小于左括号数时可放 \")\"；长度到 2n 收集结果。",
+  "invariant": "递归过程中任意前缀的右括号数不超过左括号数，因此生成的都是合法序列且不重复。",
+  "complexity": {
+    "time": "O(C(2n,n))",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(n) {\n  const out = [];\n  function dfs(open, close, cur) {\n    if (cur.length === 2 * n) { out.push(cur); return; }\n    if (open < n) dfs(open + 1, close, cur + '(');\n    if (close < open) dfs(open, close + 1, cur + ')');\n  }\n  dfs(0, 0, '');\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "1",
+      "expected": [
+        "()"
+      ],
+      "why": "只有一对"
+    },
+    {
+      "call": "2",
+      "expected": [
+        "(())",
+        "()()"
+      ],
+      "why": "先放左括号的枚举顺序"
+    }
+  ],
+  "common_mistakes": [
+    "先枚举右括号导致顺序与期望不同",
+    "用 set 去重掩盖了非法序列",
+    "只在 open<n 时递归而漏掉右括号分支"
+  ],
+  "followups": [
+    "如何按字典序输出？",
+    "结果数量为什么是第 n 个卡特兰数？"
+  ],
+  "rubric": [
+    {
+      "point": "左括号数与右括号数双约束",
+      "weight": 2
+    },
+    {
+      "point": "前缀合法性由 close<open 保证",
+      "weight": 1
+    },
+    {
+      "point": "长度到 2n 才收集且顺序稳定",
+      "weight": 1
+    }
+  ]
+}

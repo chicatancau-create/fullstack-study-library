@@ -1,0 +1,53 @@
+{
+  "id": "Q034",
+  "title": "41. 缺失的第一个正数",
+  "question_url": "https://leetcode.cn/problems/first-missing-positive/",
+  "core_idea": "原地哈希：把值 v∈[1,n] 放到下标 v-1，使 nums[i]=i+1；最后第一个不满足的位置即答案，否则答案是 n+1。",
+  "invariant": "扫描结束后 [0,i) 区间内 nums[j]=j+1；交换只发生在值域内且目标位置尚未正确时。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(nums) {\n  const n = nums.length;\n  for (let i = 0; i < n; i++) {\n    while (nums[i] > 0 && nums[i] <= n && nums[nums[i] - 1] !== nums[i]) {\n      const j = nums[i] - 1;\n      [nums[i], nums[j]] = [nums[j], nums[i]];\n    }\n  }\n  for (let i = 0; i < n; i++) if (nums[i] !== i + 1) return i + 1;\n  return n + 1;\n}",
+  "edge_cases": [
+    {
+      "call": "[1,2,0]",
+      "expected": 3,
+      "why": "1..n 都在位，答案 n+1"
+    },
+    {
+      "call": "[3,4,-1,1]",
+      "expected": 2,
+      "why": "2 缺失"
+    },
+    {
+      "call": "[7,8,9,11,12]",
+      "expected": 1,
+      "why": "1 缺失，越界值不参与"
+    }
+  ],
+  "common_mistakes": [
+    "用排序 O(n log n) 冒充 O(n)",
+    "while 条件写成 if，漏掉被换来的值仍需归位",
+    "把 0 和负数也放进桶"
+  ],
+  "followups": [
+    "为什么交换次数总计是 O(n)？",
+    "若允许修改输入数组，如何用符号标记法？"
+  ],
+  "rubric": [
+    {
+      "point": "值 v 映射到下标 v-1 且只处理 1..n",
+      "weight": 2
+    },
+    {
+      "point": "用 while 处理换入的未归位值",
+      "weight": 1
+    },
+    {
+      "point": "全都在位时返回 n+1",
+      "weight": 1
+    }
+  ]
+}

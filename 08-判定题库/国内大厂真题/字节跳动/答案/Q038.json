@@ -1,0 +1,53 @@
+{
+  "id": "Q038",
+  "title": "32. 最长有效括号",
+  "question_url": "https://leetcode.cn/problems/longest-valid-parentheses/",
+  "core_idea": "栈存下标，栈底始终是“最后一个未匹配的右括号位置”；遇到右括号弹栈后栈非空则用当前下标减栈顶更新答案。",
+  "invariant": "栈内自底向上下标递增；栈底元素的右侧到当前下标的区间是潜在有效区间。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(s) {\n  const st = [-1];\n  let best = 0;\n  for (let i = 0; i < s.length; i++) {\n    if (s[i] === '(') st.push(i);\n    else {\n      st.pop();\n      if (!st.length) st.push(i);\n      else best = Math.max(best, i - st[st.length - 1]);\n    }\n  }\n  return best;\n}",
+  "edge_cases": [
+    {
+      "call": "\"(()\"",
+      "expected": 2,
+      "why": "末尾右括号无处匹配"
+    },
+    {
+      "call": "\")()())\"",
+      "expected": 4,
+      "why": "中间 4 个字符有效"
+    },
+    {
+      "call": "\"\"",
+      "expected": 0,
+      "why": "空串"
+    }
+  ],
+  "common_mistakes": [
+    "栈为空时仍计算长度导致越界或错值",
+    "把栈底哨兵也弹出",
+    "只统计括号数量不看位置"
+  ],
+  "followups": [
+    "DP 解法如何定义状态？",
+    "如何同时返回最长有效子串内容？"
+  ],
+  "rubric": [
+    {
+      "point": "栈底哨兵表示最后一个未匹配右括号",
+      "weight": 2
+    },
+    {
+      "point": "弹栈后按栈是否为空分支处理",
+      "weight": 1
+    },
+    {
+      "point": "空串返回 0",
+      "weight": 1
+    }
+  ]
+}

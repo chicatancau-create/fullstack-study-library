@@ -1,0 +1,64 @@
+{
+  "id": "Q046",
+  "title": "105. 从前序与中序遍历序列构造二叉树",
+  "question_url": "https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/",
+  "core_idea": "前序首元素是根；在中序中找到根的位置切出左右子树长度，再按长度切前序，递归构造。",
+  "invariant": "每次递归传入的前序与中序片段描述同一棵子树且长度相等。",
+  "complexity": {
+    "time": "O(n²)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(pre, ino) {\n  function build(p, i) {\n    if (!p.length) return null;\n    const root = { val: p[0], left: null, right: null };\n    const k = i.indexOf(p[0]);\n    root.left = build(p.slice(1, k + 1), i.slice(0, k));\n    root.right = build(p.slice(k + 1), i.slice(k + 1));\n    return root;\n  }\n  const root = build(pre, ino);\n  const out = [], q = [root];\n  while (q.length) {\n    const n = q.shift();\n    out.push(n.val);\n    if (n.left) q.push(n.left);\n    if (n.right) q.push(n.right);\n  }\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "[3,9,20,15,7], [9,3,15,20,7]",
+      "expected": [
+        3,
+        9,
+        20,
+        15,
+        7
+      ],
+      "why": "标准示例，层序还原"
+    },
+    {
+      "call": "[1,2], [2,1]",
+      "expected": [
+        1,
+        2
+      ],
+      "why": "只有左子树"
+    },
+    {
+      "call": "[-1], [-1]",
+      "expected": [
+        -1
+      ],
+      "why": "单节点"
+    }
+  ],
+  "common_mistakes": [
+    "前序切片长度用中序下标但忘了从 1 开始",
+    "左右子树顺序颠倒",
+    "用值作哈希键但题目允许重复值时失效"
+  ],
+  "followups": [
+    "如何用哈希表把复杂度降到 O(n)？",
+    "若给的是中序与后序，如何调整？"
+  ],
+  "rubric": [
+    {
+      "point": "前序首元素为根并定位中序下标",
+      "weight": 2
+    },
+    {
+      "point": "按左子树长度切分两段前序",
+      "weight": 1
+    },
+    {
+      "point": "空片段返回 null，单节点正确",
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "Q045",
+  "title": "1143. 最长公共子序列",
+  "question_url": "https://leetcode.cn/problems/longest-common-subsequence/",
+  "core_idea": "dp[i][j] 表示 a 前 i 个字符与 b 前 j 个字符的 LCS 长度；末字符相同则 dp[i-1][j-1]+1，否则取左/上较大者。",
+  "invariant": "dp 只依赖上一行与当前行左侧，滚动数组时用 prev 保存左上角。",
+  "complexity": {
+    "time": "O(mn)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(a, b) {\n  const n = b.length;\n  const dp = new Array(n + 1).fill(0);\n  for (let i = 1; i <= a.length; i++) {\n    let prev = 0;\n    for (let j = 1; j <= n; j++) {\n      const cur = dp[j];\n      if (a[i - 1] === b[j - 1]) dp[j] = prev + 1;\n      else dp[j] = Math.max(dp[j], dp[j - 1]);\n      prev = cur;\n    }\n  }\n  return dp[n];\n}",
+  "edge_cases": [
+    {
+      "call": "\"abcde\", \"ace\"",
+      "expected": 3,
+      "why": "LCS 为 ace"
+    },
+    {
+      "call": "\"abc\", \"def\"",
+      "expected": 0,
+      "why": "无公共字符"
+    },
+    {
+      "call": "\"abc\", \"abc\"",
+      "expected": 3,
+      "why": "完全相同时等于长度"
+    }
+  ],
+  "common_mistakes": [
+    "把子序列误当成子串，字符不等时清零",
+    "滚动数组 prev 记住的是更新后的值",
+    "行列方向与下标错位"
+  ],
+  "followups": [
+    "子串版本（718）的转移有什么不同？",
+    "如何回溯输出一个具体的 LCS？"
+  ],
+  "rubric": [
+    {
+      "point": "空串边界由 0 行 0 列自然覆盖",
+      "weight": 1
+    },
+    {
+      "point": "字符相等走左上 +1，否则取左/上最大",
+      "weight": 2
+    },
+    {
+      "point": "滚动数组的 prev 保存旧左上值",
+      "weight": 1
+    }
+  ]
+}
