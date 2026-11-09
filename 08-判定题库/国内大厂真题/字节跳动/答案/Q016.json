@@ -1,0 +1,90 @@
+{
+  "id": "Q016",
+  "title": "46. 全排列",
+  "question_url": "https://leetcode.cn/problems/permutations/",
+  "core_idea": "回溯：用 used 标记已选元素，递归填满每个位置；到达叶子时复制路径，回溯时撤销选择。",
+  "invariant": "path 中的元素互不重复且都属于原数组；used 与 path 一一对应。",
+  "complexity": {
+    "time": "O(n·n!)",
+    "space": "O(n)（不计输出）"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(nums) {\n  const out = [];\n  const path = [];\n  const used = new Array(nums.length).fill(false);\n  const dfs = () => {\n    if (path.length === nums.length) { out.push(path.slice()); return; }\n    for (let i = 0; i < nums.length; i++) {\n      if (used[i]) continue;\n      used[i] = true;\n      path.push(nums[i]);\n      dfs();\n      path.pop();\n      used[i] = false;\n    }\n  };\n  dfs();\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "[1,2,3]",
+      "expected": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          3,
+          1,
+          2
+        ],
+        [
+          3,
+          2,
+          1
+        ]
+      ],
+      "why": "3 个元素 6 种排列"
+    },
+    {
+      "call": "[1]",
+      "expected": [
+        [
+          1
+        ]
+      ],
+      "why": "单元素"
+    },
+    {
+      "call": "[]",
+      "expected": [
+        []
+      ],
+      "why": "空数组有一种空排列"
+    }
+  ],
+  "common_mistakes": [
+    "push path 而不是 path.slice()，后续回溯把已存结果改掉",
+    "回溯时忘记 pop 或忘记复位 used",
+    "含重复元素时未先去重/未用排序跳过同层重复（47 题）"
+  ],
+  "followups": [
+    "含重复元素时如何避免重复排列？",
+    "如何用交换法原地生成排列？"
+  ],
+  "rubric": [
+    {
+      "point": "回溯路径、选择、撤销三件事完整",
+      "weight": 2
+    },
+    {
+      "point": "叶子处复制 path，避免引用被修改",
+      "weight": 1
+    },
+    {
+      "point": "复杂度 O(n·n!)，能解释输出规模",
+      "weight": 1
+    }
+  ]
+}

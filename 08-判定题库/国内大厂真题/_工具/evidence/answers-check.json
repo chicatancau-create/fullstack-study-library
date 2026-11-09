@@ -1,11 +1,11 @@
 {
-  "captured_at": "2026-11-09T08:04:19.063Z",
-  "answers": 8,
+  "captured_at": "2026-11-09T08:06:24.949Z",
+  "answers": 16,
   "results": [
     {
       "name": "A01 答案文件存在且字段完整",
       "ok": true,
-      "detail": "files=8 missing=0"
+      "detail": "files=16 missing=0"
     },
     {
       "name": "A02 每题代码可编译执行",

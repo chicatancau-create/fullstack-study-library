@@ -1,0 +1,72 @@
+{
+  "id": "Q012",
+  "title": "54. 螺旋矩阵",
+  "question_url": "https://leetcode.cn/problems/spiral-matrix/",
+  "core_idea": "维护上下左右四个边界，按右、下、左、上顺序遍历并收缩边界；每走完一条边就检查边界是否相交。",
+  "invariant": "边界内的格子恰好是尚未访问的部分；收缩后不会重复访问。",
+  "complexity": {
+    "time": "O(mn)",
+    "space": "O(1)（不计输出）"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(matrix) {\n  if (!matrix.length) return [];\n  const out = [];\n  let top = 0;\n  let bottom = matrix.length - 1;\n  let left = 0;\n  let right = matrix[0].length - 1;\n  while (top <= bottom && left <= right) {\n    for (let c = left; c <= right; c++) out.push(matrix[top][c]);\n    top++;\n    for (let r = top; r <= bottom; r++) out.push(matrix[r][right]);\n    right--;\n    if (top <= bottom) {\n      for (let c = right; c >= left; c--) out.push(matrix[bottom][c]);\n      bottom--;\n    }\n    if (left <= right) {\n      for (let r = bottom; r >= top; r--) out.push(matrix[r][left]);\n      left++;\n    }\n  }\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "[[1,2,3],[4,5,6],[7,8,9]]",
+      "expected": [
+        1,
+        2,
+        3,
+        6,
+        9,
+        8,
+        7,
+        4,
+        5
+      ],
+      "why": "3x3 标准螺旋"
+    },
+    {
+      "call": "[[1,2,3,4]]",
+      "expected": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "why": "单行不重复"
+    },
+    {
+      "call": "[[1],[2],[3]]",
+      "expected": [
+        1,
+        2,
+        3
+      ],
+      "why": "单列不重复"
+    }
+  ],
+  "common_mistakes": [
+    "最后两条边不检查边界，单行/单列会重复输出",
+    "收缩顺序错误导致少一行或多一列",
+    "空矩阵未提前返回"
+  ],
+  "followups": [
+    "如何生成螺旋矩阵 II（59 题）？",
+    "若要求逆时针，只需改哪些遍历顺序？"
+  ],
+  "rubric": [
+    {
+      "point": "四条边遍历顺序正确且每次收缩边界",
+      "weight": 2
+    },
+    {
+      "point": "单行/单列时用边界检查避免重复",
+      "weight": 2
+    },
+    {
+      "point": "空矩阵与不规则输入处理",
+      "weight": 1
+    }
+  ]
+}

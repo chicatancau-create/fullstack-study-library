@@ -1,0 +1,53 @@
+{
+  "id": "Q009",
+  "title": "33. 搜索旋转排序数组",
+  "question_url": "https://leetcode.cn/problems/search-in-rotated-sorted-array/",
+  "core_idea": "二分时总有一半是有序的：判断 mid 落在左半有序段还是右半有序段，再看 target 是否落在该有序区间内，决定收缩哪一侧。",
+  "invariant": "每一步都把 target 可能存在的区间缩小一半；区间外的一定不含 target。",
+  "complexity": {
+    "time": "O(log n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(nums, target) {\n  let lo = 0;\n  let hi = nums.length - 1;\n  while (lo <= hi) {\n    const mid = (lo + hi) >> 1;\n    if (nums[mid] === target) return mid;\n    if (nums[lo] <= nums[mid]) {\n      if (nums[lo] <= target && target < nums[mid]) hi = mid - 1;\n      else lo = mid + 1;\n    } else {\n      if (nums[mid] < target && target <= nums[hi]) lo = mid + 1;\n      else hi = mid - 1;\n    }\n  }\n  return -1;\n}",
+  "edge_cases": [
+    {
+      "call": "[4,5,6,7,0,1,2],0",
+      "expected": 4,
+      "why": "旋转点在中间"
+    },
+    {
+      "call": "[4,5,6,7,0,1,2],3",
+      "expected": -1,
+      "why": "不存在返回 -1"
+    },
+    {
+      "call": "[1],0",
+      "expected": -1,
+      "why": "单元素不匹配"
+    }
+  ],
+  "common_mistakes": [
+    "用 nums[lo] < nums[mid] 而不是 <=，单元素区间判断错",
+    "只判断 target 与 nums[mid] 的大小，忽略旋转导致的分段有序",
+    "收缩时漏掉等号，target 正好在边界时漏解"
+  ],
+  "followups": [
+    "数组含重复元素时（81 题）为什么最坏退化到 O(n)？",
+    "如何先二分找旋转点再二分查找？"
+  ],
+  "rubric": [
+    {
+      "point": "能判断哪一半有序，并说明依据 nums[lo] 与 nums[mid] 的关系",
+      "weight": 2
+    },
+    {
+      "point": "target 落在有序半区才收缩该侧，否则收缩另一侧",
+      "weight": 2
+    },
+    {
+      "point": "边界等号与单元素数组处理正确",
+      "weight": 1
+    }
+  ]
+}

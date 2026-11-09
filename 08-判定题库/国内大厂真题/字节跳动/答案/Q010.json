@@ -1,0 +1,53 @@
+{
+  "id": "Q010",
+  "title": "121. 买卖股票的最佳时机",
+  "question_url": "https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/",
+  "core_idea": "一次遍历维护历史最低价，用当前价减最低价更新最大利润；卖出必须在买入之后，因此最低价只取当前之前的价格。",
+  "invariant": "遍历到第 i 天时，minPrice 是 [0, i] 的最低买入价，best 是以某天卖出的最大利润。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(prices) {\n  let minPrice = Infinity;\n  let best = 0;\n  for (const p of prices) {\n    if (p < minPrice) minPrice = p;\n    else if (p - minPrice > best) best = p - minPrice;\n  }\n  return best;\n}",
+  "edge_cases": [
+    {
+      "call": "[7,1,5,3,6,4]",
+      "expected": 5,
+      "why": "1 买入 6 卖出"
+    },
+    {
+      "call": "[7,6,4,3,1]",
+      "expected": 0,
+      "why": "单边下跌不交易"
+    },
+    {
+      "call": "[1]",
+      "expected": 0,
+      "why": "单日无法完成买卖"
+    }
+  ],
+  "common_mistakes": [
+    "先更新 minPrice 再算利润，同一天买入卖出被允许",
+    "初始 best 设为 -Infinity，单边下跌返回负数",
+    "把它当成可多次交易（122 题）"
+  ],
+  "followups": [
+    "允许无限次交易时状态如何变化？",
+    "含冷冻期（309 题）需要增加哪几个状态？"
+  ],
+  "rubric": [
+    {
+      "point": "维护历史最低价，且只与之前价格比较",
+      "weight": 2
+    },
+    {
+      "point": "单边下跌返回 0 而不是负数",
+      "weight": 1
+    },
+    {
+      "point": "能区分本题与多次交易/冷冻期变体",
+      "weight": 1
+    }
+  ]
+}

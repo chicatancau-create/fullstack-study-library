@@ -1,0 +1,53 @@
+{
+  "id": "Q011",
+  "title": "5. 最长回文子串",
+  "question_url": "https://leetcode.cn/problems/longest-palindromic-substring/",
+  "core_idea": "中心扩展：以每个字符（奇数长度）和每对相邻字符（偶数长度）为中心向两侧扩展，记录最长回文区间。",
+  "invariant": "扩展时左右字符相等才继续，区间 [l+1, r-1] 始终是回文；越界或不等即停止。",
+  "complexity": {
+    "time": "O(n^2)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(s) {\n  if (!s) return '';\n  let bestL = 0;\n  let bestR = 0;\n  const expand = (l, r) => {\n    while (l >= 0 && r < s.length && s[l] === s[r]) { l--; r++; }\n    return [l + 1, r - 1];\n  };\n  for (let i = 0; i < s.length; i++) {\n    const [l1, r1] = expand(i, i);\n    const [l2, r2] = expand(i, i + 1);\n    if (r1 - l1 > bestR - bestL) { bestL = l1; bestR = r1; }\n    if (r2 - l2 > bestR - bestL) { bestL = l2; bestR = r2; }\n  }\n  return s.slice(bestL, bestR + 1);\n}",
+  "edge_cases": [
+    {
+      "call": "\"babad\"",
+      "expected": "bab",
+      "why": "奇数长度；aba 同长时返回先找到的"
+    },
+    {
+      "call": "\"cbbd\"",
+      "expected": "bb",
+      "why": "偶数长度中心在缝隙"
+    },
+    {
+      "call": "\"a\"",
+      "expected": "a",
+      "why": "单字符"
+    }
+  ],
+  "common_mistakes": [
+    "只处理奇数中心，漏掉 \"cbbd\" 这类偶数回文",
+    "扩展返回 [l, r] 而不是 [l+1, r-1]，截取多一个字符",
+    "比较长度时用 r-l 而不是 r-l+1 造成差一"
+  ],
+  "followups": [
+    "Manacher 如何做到 O(n)？",
+    "如果要求返回所有最长回文，如何去重？"
+  ],
+  "rubric": [
+    {
+      "point": "同时枚举奇偶中心",
+      "weight": 2
+    },
+    {
+      "point": "扩展停止后正确回退到有效区间",
+      "weight": 1
+    },
+    {
+      "point": "能说明 O(n^2) 时间 O(1) 空间",
+      "weight": 1
+    }
+  ]
+}

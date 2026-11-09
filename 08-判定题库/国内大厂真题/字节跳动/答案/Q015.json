@@ -1,0 +1,59 @@
+{
+  "id": "Q015",
+  "title": "1. 两数之和",
+  "question_url": "https://leetcode.cn/problems/two-sum/",
+  "core_idea": "一次遍历用哈希表记录已见数值到下标；对当前值查 target - 当前值是否已出现，避免同一元素用两次。",
+  "invariant": "哈希表只包含当前下标之前的元素；因此找到的配对一定是一前一后。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(nums, target) {\n  const seen = new Map();\n  for (let i = 0; i < nums.length; i++) {\n    const need = target - nums[i];\n    if (seen.has(need)) return [seen.get(need), i];\n    seen.set(nums[i], i);\n  }\n  return [];\n}",
+  "edge_cases": [
+    {
+      "call": "[2,7,11,15],9",
+      "expected": [
+        0,
+        1
+      ],
+      "why": "标准示例"
+    },
+    {
+      "call": "[3,3],6",
+      "expected": [
+        0,
+        1
+      ],
+      "why": "重复值但不同下标"
+    },
+    {
+      "call": "[1,2],7",
+      "expected": [],
+      "why": "无解"
+    }
+  ],
+  "common_mistakes": [
+    "先把当前值写入哈希再查找，导致同一个下标被用两次",
+    "返回值写反或返回数值而不是下标",
+    "用对象存储时键被转成字符串，数值与字符串混淆"
+  ],
+  "followups": [
+    "数组已排序时如何用双指针做到 O(1) 额外空间？",
+    "三数之和如何复用本题的去重思路？"
+  ],
+  "rubric": [
+    {
+      "point": "边查边存，先查后存避免自配",
+      "weight": 2
+    },
+    {
+      "point": "返回下标而非数值，重复值用不同下标",
+      "weight": 1
+    },
+    {
+      "point": "能说明 O(n) 时间与空间换时间",
+      "weight": 1
+    }
+  ]
+}

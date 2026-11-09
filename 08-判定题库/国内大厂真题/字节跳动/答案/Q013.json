@@ -1,0 +1,53 @@
+{
+  "id": "Q013",
+  "title": "236. 二叉树的最近公共祖先",
+  "question_url": "https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/",
+  "core_idea": "后序遍历：若当前节点为空或等于 p/q 返回自身；左右子树分别找，若两侧都非空则当前节点是 LCA，否则返回非空的一侧。",
+  "invariant": "返回值表示该子树中是否找到 p 或 q（或它们的 LCA）；自底向上第一个两侧都命中的节点就是最近公共祖先。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(h)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(values, p, q) {\n  if (!values.length || values[0] === null) return null;\n  const nodes = values.map((v) => (v === null ? null : { val: v, left: null, right: null }));\n  for (let i = 0; i < nodes.length; i++) {\n    if (!nodes[i]) continue;\n    if (2 * i + 1 < nodes.length) nodes[i].left = nodes[2 * i + 1];\n    if (2 * i + 2 < nodes.length) nodes[i].right = nodes[2 * i + 2];\n  }\n  const dfs = (node) => {\n    if (!node || node.val === p || node.val === q) return node;\n    const l = dfs(node.left);\n    const r = dfs(node.right);\n    if (l && r) return node;\n    return l || r;\n  };\n  const ans = dfs(nodes[0]);\n  return ans ? ans.val : null;\n}",
+  "edge_cases": [
+    {
+      "call": "[3,5,1,6,2,0,8,null,null,7,4],5,1",
+      "expected": 3,
+      "why": "p/q 分居两侧"
+    },
+    {
+      "call": "[3,5,1,6,2,0,8,null,null,7,4],5,4",
+      "expected": 5,
+      "why": "p 是 q 的祖先"
+    },
+    {
+      "call": "[1,2],1,2",
+      "expected": 1,
+      "why": "根是祖先"
+    }
+  ],
+  "common_mistakes": [
+    "自顶向下比较路径，复杂且易错",
+    "找到一侧非空就立即返回，未检查另一侧",
+    "p 或 q 不在树中时仍返回节点（本题保证存在）"
+  ],
+  "followups": [
+    "如果是 BST（235 题），如何用值域剪枝？",
+    "若需要支持多次查询，如何预处理？"
+  ],
+  "rubric": [
+    {
+      "point": "后序返回命中信息，两侧都命中才返回当前节点",
+      "weight": 2
+    },
+    {
+      "point": "p 为 q 祖先时正确返回 p",
+      "weight": 1
+    },
+    {
+      "point": "能说明 O(n) 时间与递归栈 O(h)",
+      "weight": 1
+    }
+  ]
+}
