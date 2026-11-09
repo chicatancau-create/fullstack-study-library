@@ -1,0 +1,76 @@
+{
+  "id": "Q031",
+  "title": "56. 合并区间",
+  "question_url": "https://leetcode.cn/problems/merge-intervals/",
+  "core_idea": "按起点排序，顺序扫描；若当前区间起点 <= 上一区间终点则合并（终点取最大），否则开启新区间。",
+  "invariant": "结果中相邻区间互不重叠且按起点有序。",
+  "complexity": {
+    "time": "O(n log n)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(intervals) {\n  const a = intervals.map((x) => x.slice()).sort((x, y) => x[0] - y[0]);\n  const out = [];\n  for (const [s, e] of a) {\n    const last = out[out.length - 1];\n    if (last && s <= last[1]) last[1] = Math.max(last[1], e);\n    else out.push([s, e]);\n  }\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "[[1,3],[2,6],[8,10],[15,18]]",
+      "expected": [
+        [
+          1,
+          6
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          15,
+          18
+        ]
+      ],
+      "why": "标准示例"
+    },
+    {
+      "call": "[[1,4],[4,5]]",
+      "expected": [
+        [
+          1,
+          5
+        ]
+      ],
+      "why": "端点相接也算重叠"
+    },
+    {
+      "call": "[[1,4],[0,4]]",
+      "expected": [
+        [
+          0,
+          4
+        ]
+      ],
+      "why": "包含关系取最大终点"
+    }
+  ],
+  "common_mistakes": [
+    "不排序直接扫描",
+    "条件写成 s < last[1]，漏掉端点相接",
+    "合并时直接替换终点而不是取 max"
+  ],
+  "followups": [
+    "插入区间（57）如何一次完成？",
+    "会议室 II 用什么数据结构？"
+  ],
+  "rubric": [
+    {
+      "point": "按起点排序后线性合并",
+      "weight": 2
+    },
+    {
+      "point": "重叠条件含等号，终点取 max",
+      "weight": 1
+    },
+    {
+      "point": "复杂度 O(n log n)",
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "id": "Q022",
+  "title": "88. 合并两个有序数组",
+  "question_url": "https://leetcode.cn/problems/merge-sorted-array/",
+  "core_idea": "从后往前填：比较 nums1 有效尾部与 nums2 尾部，把较大者放到 nums1 的写指针处，避免覆盖未处理元素。",
+  "invariant": "写指针右侧已合并有序；i、j 左侧仍是未处理元素。",
+  "complexity": {
+    "time": "O(m+n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(nums1, m, nums2, n) {\n  const a = nums1.slice();\n  let i = m - 1;\n  let j = n - 1;\n  let k = m + n - 1;\n  while (j >= 0) {\n    if (i >= 0 && a[i] > nums2[j]) a[k--] = a[i--];\n    else a[k--] = nums2[j--];\n  }\n  return a;\n}",
+  "edge_cases": [
+    {
+      "call": "[1,2,3,0,0,0],3,[2,5,6],3",
+      "expected": [
+        1,
+        2,
+        2,
+        3,
+        5,
+        6
+      ],
+      "why": "标准示例"
+    },
+    {
+      "call": "[1],1,[],0",
+      "expected": [
+        1
+      ],
+      "why": "nums2 为空"
+    },
+    {
+      "call": "[0],0,[1],1",
+      "expected": [
+        1
+      ],
+      "why": "nums1 无有效元素"
+    }
+  ],
+  "common_mistakes": [
+    "从前往后写覆盖 nums1 未处理元素",
+    "循环条件用 i>=0，nums2 剩余未拷贝",
+    "相等时选错分支导致不稳定但结果仍错"
+  ],
+  "followups": [
+    "如果从前往后必须怎么做？",
+    "合并 k 个有序数组如何推广？"
+  ],
+  "rubric": [
+    {
+      "point": "从后往前写，避免覆盖",
+      "weight": 2
+    },
+    {
+      "point": "循环以 nums2 用尽为终止",
+      "weight": 1
+    },
+    {
+      "point": "空数组边界正确",
+      "weight": 1
+    }
+  ]
+}

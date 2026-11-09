@@ -1,0 +1,62 @@
+{
+  "id": "Q029",
+  "title": "21. 合并两个有序链表",
+  "question_url": "https://leetcode.cn/problems/merge-two-sorted-lists/",
+  "core_idea": "哑节点 + 尾指针：每次接上较小头节点并推进对应链表，最后接剩余部分。",
+  "invariant": "尾指针之前已合并有序；两个当前头是各自剩余部分的最小值。",
+  "complexity": {
+    "time": "O(m+n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(a, b) {\n  const build = (vals) => { let h = null; for (let i = vals.length - 1; i >= 0; i--) h = { val: vals[i], next: h }; return h; };\n  let p = build(a);\n  let q = build(b);\n  const dummy = { val: 0, next: null };\n  let tail = dummy;\n  while (p && q) {\n    if (p.val <= q.val) { tail.next = p; p = p.next; }\n    else { tail.next = q; q = q.next; }\n    tail = tail.next;\n  }\n  tail.next = p || q;\n  const out = [];\n  for (let n = dummy.next; n; n = n.next) out.push(n.val);\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "[1,2,4],[1,3,4]",
+      "expected": [
+        1,
+        1,
+        2,
+        3,
+        4,
+        4
+      ],
+      "why": "标准示例"
+    },
+    {
+      "call": "[],[0]",
+      "expected": [
+        0
+      ],
+      "why": "一侧为空"
+    },
+    {
+      "call": "[],[ ]",
+      "expected": [],
+      "why": "两侧为空"
+    }
+  ],
+  "common_mistakes": [
+    "相等时没有稳定选择导致丢节点",
+    "忘记接剩余部分",
+    "tail 没有随结果前移"
+  ],
+  "followups": [
+    "递归版如何写？栈深度？",
+    "合并 k 个链表如何复用？"
+  ],
+  "rubric": [
+    {
+      "point": "哑节点与尾指针维护结果链",
+      "weight": 2
+    },
+    {
+      "point": "循环后接剩余部分",
+      "weight": 1
+    },
+    {
+      "point": "空链表边界",
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "id": "Q026",
+  "title": "102. 二叉树的层序遍历",
+  "question_url": "https://leetcode.cn/problems/binary-tree-level-order-traversal/",
+  "core_idea": "BFS：循环处理当前队列长度，收集本层值，同时把子节点放入下一层队列。",
+  "invariant": "每次 while 开始时队列恰好包含一层节点。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(w)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(values) {\n  if (!values.length || values[0] === null) return [];\n  const nodes = values.map((v) => (v === null ? null : { val: v, left: null, right: null }));\n  for (let i = 0; i < nodes.length; i++) {\n    if (!nodes[i]) continue;\n    if (2 * i + 1 < nodes.length) nodes[i].left = nodes[2 * i + 1];\n    if (2 * i + 2 < nodes.length) nodes[i].right = nodes[2 * i + 2];\n  }\n  const out = [];\n  let queue = [nodes[0]];\n  while (queue.length) {\n    out.push(queue.map((n) => n.val));\n    const next = [];\n    for (const n of queue) { if (n.left) next.push(n.left); if (n.right) next.push(n.right); }\n    queue = next;\n  }\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "[3,9,20,null,null,15,7]",
+      "expected": [
+        [
+          3
+        ],
+        [
+          9,
+          20
+        ],
+        [
+          15,
+          7
+        ]
+      ],
+      "why": "标准三层"
+    },
+    {
+      "call": "[1]",
+      "expected": [
+        [
+          1
+        ]
+      ],
+      "why": "单节点"
+    },
+    {
+      "call": "[]",
+      "expected": [],
+      "why": "空树"
+    }
+  ],
+  "common_mistakes": [
+    "不按层切分，输出一维数组",
+    "边遍历边 push 导致层边界丢失",
+    "null 子节点被加入队列"
+  ],
+  "followups": [
+    "锯齿遍历（103）如何改？",
+    "如何自底向上层序（107）？"
+  ],
+  "rubric": [
+    {
+      "point": "按当前队列长度切分层",
+      "weight": 2
+    },
+    {
+      "point": "子节点只入下一层",
+      "weight": 1
+    },
+    {
+      "point": "空树处理",
+      "weight": 1
+    }
+  ]
+}

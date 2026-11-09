@@ -1,0 +1,53 @@
+{
+  "id": "Q028",
+  "title": "415. 字符串相加",
+  "question_url": "https://leetcode.cn/problems/add-strings/",
+  "core_idea": "双指针从末尾逐位相加，处理进位，最后反转结果；不允许转整数。",
+  "invariant": "carry 只可能是 0 或 1；每位结果由两数字与 carry 相加取模。",
+  "complexity": {
+    "time": "O(max(m,n))",
+    "space": "O(max(m,n))"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(num1, num2) {\n  let i = num1.length - 1;\n  let j = num2.length - 1;\n  let carry = 0;\n  const out = [];\n  while (i >= 0 || j >= 0 || carry) {\n    const a = i >= 0 ? num1.charCodeAt(i--) - 48 : 0;\n    const b = j >= 0 ? num2.charCodeAt(j--) - 48 : 0;\n    const sum = a + b + carry;\n    out.push(String(sum % 10));\n    carry = Math.floor(sum / 10);\n  }\n  return out.reverse().join('');\n}",
+  "edge_cases": [
+    {
+      "call": "\"11\",\"123\"",
+      "expected": "134",
+      "why": "标准示例"
+    },
+    {
+      "call": "\"0\",\"0\"",
+      "expected": "0",
+      "why": "零"
+    },
+    {
+      "call": "\"999\",\"1\"",
+      "expected": "1000",
+      "why": "连续进位"
+    }
+  ],
+  "common_mistakes": [
+    "转 Number 失去精度",
+    "忘记最后 carry",
+    "结果未反转"
+  ],
+  "followups": [
+    "如何做字符串相减/相乘（43）？",
+    "含负号如何处理？"
+  ],
+  "rubric": [
+    {
+      "point": "逐位相加并处理进位",
+      "weight": 2
+    },
+    {
+      "point": "不转整数，支持超长数字",
+      "weight": 1
+    },
+    {
+      "point": "最终 carry 与反转正确",
+      "weight": 1
+    }
+  ]
+}

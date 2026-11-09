@@ -1,0 +1,53 @@
+{
+  "id": "Q017",
+  "title": "53. 最大子数组和",
+  "question_url": "https://leetcode.cn/problems/maximum-subarray/",
+  "core_idea": "Kadane：以当前元素结尾的最大和要么接上前一段（cur+nums[i]），要么从当前元素重开；全局取最大。",
+  "invariant": "cur 始终是以 i 结尾的最大子数组和；best 是 [0,i] 内的最大子数组和。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(nums) {\n  let best = nums[0];\n  let cur = nums[0];\n  for (let i = 1; i < nums.length; i++) {\n    cur = Math.max(nums[i], cur + nums[i]);\n    best = Math.max(best, cur);\n  }\n  return best;\n}",
+  "edge_cases": [
+    {
+      "call": "[-2,1,-3,4,-1,2,1,-5,4]",
+      "expected": 6,
+      "why": "最大段 4,-1,2,1"
+    },
+    {
+      "call": "[-1]",
+      "expected": -1,
+      "why": "全负时答案是最大单元素"
+    },
+    {
+      "call": "[-3,-2,-5]",
+      "expected": -2,
+      "why": "不能返回 0"
+    }
+  ],
+  "common_mistakes": [
+    "把 best 初始化为 0，全负返回 0",
+    "写成 cur = max(0, cur)+x，改变题意",
+    "忘记 cur 可以从当前元素重开"
+  ],
+  "followups": [
+    "如何返回最大子数组的起止下标？",
+    "分治解法如何合并左右跨中点的最大和？"
+  ],
+  "rubric": [
+    {
+      "point": "cur 状态定义是“以 i 结尾”，允许重开",
+      "weight": 2
+    },
+    {
+      "point": "全负数组返回最大单元素而不是 0",
+      "weight": 1
+    },
+    {
+      "point": "O(n) 时间 O(1) 空间",
+      "weight": 1
+    }
+  ]
+}

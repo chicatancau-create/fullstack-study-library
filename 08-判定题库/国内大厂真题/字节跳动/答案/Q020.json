@@ -1,0 +1,53 @@
+{
+  "id": "Q020",
+  "title": "300. 最长上升子序列",
+  "question_url": "https://leetcode.cn/problems/longest-increasing-subsequence/",
+  "core_idea": "维护 tails：tails[i] 是长度为 i+1 的上升子序列的最小结尾；对每个数二分替换第一个 >= 它的位置。",
+  "invariant": "tails 严格递增；其长度等于当前已见元素的最长上升子序列长度。",
+  "complexity": {
+    "time": "O(n log n)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(nums) {\n  const tails = [];\n  for (const x of nums) {\n    let lo = 0;\n    let hi = tails.length;\n    while (lo < hi) {\n      const mid = (lo + hi) >> 1;\n      if (tails[mid] < x) lo = mid + 1;\n      else hi = mid;\n    }\n    tails[lo] = x;\n  }\n  return tails.length;\n}",
+  "edge_cases": [
+    {
+      "call": "[10,9,2,5,3,7,101,18]",
+      "expected": 4,
+      "why": "2,3,7,101"
+    },
+    {
+      "call": "[7,7,7,7]",
+      "expected": 1,
+      "why": "严格递增，不能合并相等元素"
+    },
+    {
+      "call": "[]",
+      "expected": 0,
+      "why": "空数组"
+    }
+  ],
+  "common_mistakes": [
+    "二分用 <= 导致相等元素替换，严格递增变非递减",
+    "把 tails 当成真实子序列返回",
+    "用 O(n^2) DP 却声称 O(n log n)"
+  ],
+  "followups": [
+    "如何还原具体子序列？",
+    "俄罗斯套娃信封（354）如何转化为本题？"
+  ],
+  "rubric": [
+    {
+      "point": "tails 定义与二分替换规则正确",
+      "weight": 2
+    },
+    {
+      "point": "严格递增用 lower_bound",
+      "weight": 1
+    },
+    {
+      "point": "能说明 tails 不是答案子序列本身",
+      "weight": 1
+    }
+  ]
+}

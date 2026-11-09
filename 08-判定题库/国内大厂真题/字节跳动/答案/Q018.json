@@ -1,0 +1,48 @@
+{
+  "id": "Q018",
+  "title": "160. 相交链表",
+  "question_url": "https://leetcode.cn/problems/intersection-of-two-linked-lists/",
+  "core_idea": "双指针走完各自链表后跳到对方头部，两指针走过的总长度相同，第一次相遇即交点；无交点则同时为 null。",
+  "invariant": "两指针位移总和相同，若存在交点必然同时到达。",
+  "complexity": {
+    "time": "O(m+n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(a, b, skipA, skipB) {\n  const build = (vals, tail) => {\n    let head = tail;\n    for (let i = vals.length - 1; i >= 0; i--) head = { val: vals[i], next: head };\n    return head;\n  };\n  const common = build(b.slice(skipB), null);\n  const headA = build(a.slice(0, skipA), common);\n  const headB = build(b.slice(0, skipB), common);\n  let p = headA;\n  let q = headB;\n  while (p !== q) {\n    p = p ? p.next : headB;\n    q = q ? q.next : headA;\n  }\n  return p ? p.val : null;\n}",
+  "edge_cases": [
+    {
+      "call": "[4,1,8,4,5],[5,6,1,8,4,5],2,3",
+      "expected": 8,
+      "why": "交点值为 8"
+    },
+    {
+      "call": "[2,6,4],[1,5],3,2",
+      "expected": null,
+      "why": "无交点返回 null"
+    }
+  ],
+  "common_mistakes": [
+    "只比较值不比较节点引用",
+    "切换头部的条件写错导致死循环",
+    "无交点时没有同时到达 null"
+  ],
+  "followups": [
+    "如何用哈希集合做？空间代价是什么？",
+    "若链表可能有环，如何先判环再找交点？"
+  ],
+  "rubric": [
+    {
+      "point": "走完自身后跳到对方头部，总步数相等",
+      "weight": 2
+    },
+    {
+      "point": "比较节点引用而非值",
+      "weight": 1
+    },
+    {
+      "point": "无交点时两指针同时为 null 终止",
+      "weight": 1
+    }
+  ]
+}

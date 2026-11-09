@@ -1,0 +1,66 @@
+{
+  "id": "Q024",
+  "title": "143. 重排链表",
+  "question_url": "https://leetcode.cn/problems/reorder-list/",
+  "core_idea": "找中点、反转后半、交替合并；本实现用数组重排，逻辑等价但空间 O(n)。",
+  "invariant": "结果顺序为 L0,Ln,L1,Ln-1,…；前半与反转后的后半交替取。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(values) {\n  const out = [];\n  let l = 0;\n  let r = values.length - 1;\n  let takeLeft = true;\n  while (l <= r) {\n    out.push(takeLeft ? values[l++] : values[r--]);\n    takeLeft = !takeLeft;\n  }\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "[1,2,3,4]",
+      "expected": [
+        1,
+        4,
+        2,
+        3
+      ],
+      "why": "偶数长度"
+    },
+    {
+      "call": "[1,2,3,4,5]",
+      "expected": [
+        1,
+        5,
+        2,
+        4,
+        3
+      ],
+      "why": "奇数长度中点最后"
+    },
+    {
+      "call": "[1]",
+      "expected": [
+        1
+      ],
+      "why": "单节点"
+    }
+  ],
+  "common_mistakes": [
+    "奇数长度时中点被跳过或重复",
+    "交替标志未翻转",
+    "原地链表实现未断开中点导致环"
+  ],
+  "followups": [
+    "原地 O(1) 空间的三步法？",
+    "如何避免反转后丢失后半头？"
+  ],
+  "rubric": [
+    {
+      "point": "左右交替取数的顺序正确",
+      "weight": 2
+    },
+    {
+      "point": "奇偶长度都能终止",
+      "weight": 1
+    },
+    {
+      "point": "能说明原地版找中点+反转+合并",
+      "weight": 1
+    }
+  ]
+}

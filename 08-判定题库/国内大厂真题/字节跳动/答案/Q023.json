@@ -1,0 +1,58 @@
+{
+  "id": "Q023",
+  "title": "20. 有效的括号",
+  "question_url": "https://leetcode.cn/problems/valid-parentheses/",
+  "core_idea": "栈：左括号入栈；右括号必须与栈顶匹配并弹出；结束时栈必须为空。",
+  "invariant": "栈中只保存尚未闭合的左括号，且自底向上是嵌套顺序。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(s) {\n  const pairs = { ')': '(', ']': '[', '}': '{' };\n  const stack = [];\n  for (const ch of s) {\n    if (!pairs[ch]) stack.push(ch);\n    else if (stack.pop() !== pairs[ch]) return false;\n  }\n  return stack.length === 0;\n}",
+  "edge_cases": [
+    {
+      "call": "\"()[]{}\"",
+      "expected": true,
+      "why": "三种括号"
+    },
+    {
+      "call": "\"(]\"",
+      "expected": false,
+      "why": "类型不匹配"
+    },
+    {
+      "call": "\"(\"",
+      "expected": false,
+      "why": "未闭合"
+    },
+    {
+      "call": "\")\"",
+      "expected": false,
+      "why": "右括号无对应左括号"
+    }
+  ],
+  "common_mistakes": [
+    "只统计数量不检查嵌套顺序",
+    "右括号时栈空仍 pop，得到 undefined 比较",
+    "忘记最后检查栈空"
+  ],
+  "followups": [
+    "如果只有一种括号，能否用计数器？",
+    "如何求最长有效括号子串（32）？"
+  ],
+  "rubric": [
+    {
+      "point": "右括号必须与栈顶匹配",
+      "weight": 2
+    },
+    {
+      "point": "结束后栈为空",
+      "weight": 1
+    },
+    {
+      "point": "栈空 pop 与多余右括号处理",
+      "weight": 1
+    }
+  ]
+}

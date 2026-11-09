@@ -1,0 +1,53 @@
+{
+  "id": "Q030",
+  "title": "141. 环形链表",
+  "question_url": "https://leetcode.cn/problems/linked-list-cycle/",
+  "core_idea": "快慢指针：慢走一步、快走两步；有环必相遇，无环快指针先到 null。",
+  "invariant": "若存在环，快指针相对慢指针每轮靠近一步，必然相遇。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(values, pos) {\n  const nodes = values.map((v) => ({ val: v, next: null }));\n  for (let i = 0; i < nodes.length - 1; i++) nodes[i].next = nodes[i + 1];\n  if (pos >= 0 && nodes.length) nodes[nodes.length - 1].next = nodes[pos];\n  let slow = nodes[0] || null;\n  let fast = nodes[0] || null;\n  while (fast && fast.next) {\n    slow = slow.next;\n    fast = fast.next.next;\n    if (slow === fast) return true;\n  }\n  return false;\n}",
+  "edge_cases": [
+    {
+      "call": "[3,2,0,-4],1",
+      "expected": true,
+      "why": "尾节点回到下标 1"
+    },
+    {
+      "call": "[1,2],-1",
+      "expected": false,
+      "why": "无环"
+    },
+    {
+      "call": "[1],0",
+      "expected": true,
+      "why": "单节点自环"
+    }
+  ],
+  "common_mistakes": [
+    "循环条件只判断 fast",
+    "比较值而不是节点引用",
+    "空链表未处理"
+  ],
+  "followups": [
+    "如何找环入口（142）？",
+    "为什么快指针步长必须是 2？"
+  ],
+  "rubric": [
+    {
+      "point": "快慢指针相遇判环",
+      "weight": 2
+    },
+    {
+      "point": "fast 与 fast.next 双重判空",
+      "weight": 1
+    },
+    {
+      "point": "比较引用而非值",
+      "weight": 1
+    }
+  ]
+}

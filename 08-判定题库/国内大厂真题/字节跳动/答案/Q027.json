@@ -1,0 +1,53 @@
+{
+  "id": "Q027",
+  "title": "72. 编辑距离",
+  "question_url": "https://leetcode.cn/problems/edit-distance/",
+  "core_idea": "二维 DP：dp[i][j] 为 word1 前 i 个字符变到 word2 前 j 个字符的最少操作数；相等取左上，否则取增删改三者最小 +1。",
+  "invariant": "dp[i][j] 只依赖左、上、左上三个已计算状态。",
+  "complexity": {
+    "time": "O(mn)",
+    "space": "O(mn)（可滚动到 O(n)）"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(a, b) {\n  const m = a.length;\n  const n = b.length;\n  const dp = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));\n  for (let i = 0; i <= m; i++) dp[i][0] = i;\n  for (let j = 0; j <= n; j++) dp[0][j] = j;\n  for (let i = 1; i <= m; i++) {\n    for (let j = 1; j <= n; j++) {\n      if (a[i - 1] === b[j - 1]) dp[i][j] = dp[i - 1][j - 1];\n      else dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);\n    }\n  }\n  return dp[m][n];\n}",
+  "edge_cases": [
+    {
+      "call": "\"horse\",\"ros\"",
+      "expected": 3,
+      "why": "标准示例"
+    },
+    {
+      "call": "\"\",\"abc\"",
+      "expected": 3,
+      "why": "全插入"
+    },
+    {
+      "call": "\"abc\",\"abc\"",
+      "expected": 0,
+      "why": "完全相同"
+    }
+  ],
+  "common_mistakes": [
+    "字符相等时仍加 1",
+    "初始化第一行/列遗漏",
+    "下标与字符位置差一"
+  ],
+  "followups": [
+    "如何只保留两行？",
+    "若操作代价不同（增删改不同价）如何改转移？"
+  ],
+  "rubric": [
+    {
+      "point": "状态定义与三种操作对应正确",
+      "weight": 2
+    },
+    {
+      "point": "边界初始化 i/j",
+      "weight": 1
+    },
+    {
+      "point": "相等时直接继承左上",
+      "weight": 1
+    }
+  ]
+}
