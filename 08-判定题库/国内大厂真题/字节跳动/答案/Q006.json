@@ -1,0 +1,53 @@
+{
+  "id": "Q006",
+  "title": "200. 岛屿数量",
+  "question_url": "https://leetcode.cn/problems/number-of-islands/",
+  "core_idea": "遍历网格，遇到未访问的陆地就计数 +1，并用 DFS/BFS 把同一连通块的陆地全部标记为已访问。",
+  "invariant": "每次进入 DFS 的格子一定是未访问陆地；标记后不会被重复计数。",
+  "complexity": {
+    "time": "O(mn)",
+    "space": "O(mn)（递归栈/队列）"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(grid) {\n  const g = grid.map((row) => row.slice());\n  const m = g.length;\n  if (!m) return 0;\n  const n = g[0].length;\n  let count = 0;\n  const flood = (r, c) => {\n    if (r < 0 || r >= m || c < 0 || c >= n || g[r][c] !== '1') return;\n    g[r][c] = '0';\n    flood(r + 1, c);\n    flood(r - 1, c);\n    flood(r, c + 1);\n    flood(r, c - 1);\n  };\n  for (let r = 0; r < m; r++) {\n    for (let c = 0; c < n; c++) {\n      if (g[r][c] === '1') {\n        count++;\n        flood(r, c);\n      }\n    }\n  }\n  return count;\n}",
+  "edge_cases": [
+    {
+      "call": "[[\"1\",\"1\",\"0\"],[\"1\",\"0\",\"0\"],[\"0\",\"0\",\"1\"]]",
+      "expected": 2,
+      "why": "两个不连通岛屿"
+    },
+    {
+      "call": "[[\"0\"]]",
+      "expected": 0,
+      "why": "全水返回 0"
+    },
+    {
+      "call": "[[\"1\",\"1\",\"1\"],[\"1\",\"1\",\"1\"]]",
+      "expected": 1,
+      "why": "整块连通只算一个"
+    }
+  ],
+  "common_mistakes": [
+    "只标记访问而忘记在四个方向递归，导致连通块被拆成多块",
+    "把字符 \"1\" 与数字 1 混用，判断永远不成立",
+    "DFS 深度过大时栈溢出（大网格应改 BFS/并查集）"
+  ],
+  "followups": [
+    "如何用并查集实现？合并条件与计数方式是什么？",
+    "若允许把一格 0 改成 1，如何判断能否连通两岛？"
+  ],
+  "rubric": [
+    {
+      "point": "遇到未访问陆地才计数，DFS 淹没整块",
+      "weight": 2
+    },
+    {
+      "point": "边界与字符类型判断正确",
+      "weight": 1
+    },
+    {
+      "point": "能指出递归栈风险并给出 BFS/并查集替代",
+      "weight": 1
+    }
+  ]
+}

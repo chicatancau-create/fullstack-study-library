@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "BANK_FIELDS",
-  "generated_at": "2026-11-09T08:01:15.430Z",
-  "commit": "1b6aaf3aeefa84a3c617805fd97c94377eff59e3",
+  "generated_at": "2026-11-09T08:04:34.698Z",
+  "commit": "565e85b476e2b150b685c307b4477cbf9344232c",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -38,8 +38,8 @@
     },
     {
       "path": "../字节跳动/题目索引.json",
-      "bytes": 86500,
-      "sha256": "e32a4f50f4e573f8ba9ade0757ba051d64cb031970b8709f90ce35ad5e07d26c"
+      "bytes": 90028,
+      "sha256": "2fb6e93d4ff649a72dab14d1124ecae76413f0f31d7a0bb4f69ceb550ab4df0a"
     },
     {
       "path": "../腾讯/题目索引.json",
@@ -68,6 +68,6 @@
     }
   ],
   "unverified": [
-    "原始面经未采集；岗位未分类；逐题答案未补齐"
+    "原始面经未采集；岗位未分类；部分答案 pending"
   ]
 }

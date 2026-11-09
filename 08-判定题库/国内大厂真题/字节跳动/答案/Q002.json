@@ -1,0 +1,61 @@
+{
+  "id": "Q002",
+  "title": "146. LRU缓存机制",
+  "question_url": "https://leetcode.cn/problems/lru-cache/",
+  "core_idea": "哈希表 + 双向链表：哈希表 O(1) 定位节点，双向链表维持访问顺序；get/put 命中后把节点移到表头，容量超限时删除表尾。",
+  "invariant": "链表头部是最近使用，尾部是最久未使用；哈希表中的每个 key 恰好对应链表中一个节点，节点删除时两者同步移除。",
+  "complexity": {
+    "time": "get/put 均摊 O(1)",
+    "space": "O(capacity)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(ops, args) {\n  const cap = args[0][0];\n  const map = new Map();\n  const order = [];\n  const out = [];\n  const touch = (k) => {\n    const i = order.indexOf(k);\n    if (i >= 0) order.splice(i, 1);\n    order.push(k);\n  };\n  for (let i = 1; i < ops.length; i++) {\n    const op = ops[i];\n    const a = args[i];\n    if (op === 'put') {\n      const [k, v] = a;\n      map.set(k, v);\n      touch(k);\n      if (map.size > cap) {\n        const oldest = order.shift();\n        map.delete(oldest);\n      }\n      out.push(null);\n    } else {\n      const k = a[0];\n      if (!map.has(k)) out.push(-1);\n      else { touch(k); out.push(map.get(k)); }\n    }\n  }\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "[\"LRUCache\",\"put\",\"put\",\"get\",\"put\",\"get\",\"put\",\"get\",\"get\",\"get\"],[[2],[1,1],[2,2],[1],[3,3],[2],[4,4],[1],[3],[4]]",
+      "expected": [
+        null,
+        null,
+        1,
+        null,
+        -1,
+        null,
+        -1,
+        3,
+        4
+      ],
+      "why": "标准示例：容量 2 时淘汰最久未使用"
+    },
+    {
+      "call": "[\"LRUCache\",\"put\",\"get\"],[[1],[1,1],[1]]",
+      "expected": [
+        null,
+        1
+      ],
+      "why": "容量 1 时 get 命中不淘汰"
+    }
+  ],
+  "common_mistakes": [
+    "get 命中后忘记更新访问顺序，导致淘汰了刚访问的 key",
+    "先删除再移动节点导致链表断链，或哈希表与链表不同步",
+    "容量为 0 时未特殊处理（本题通常 capacity ≥ 1，但实现应有防御）"
+  ],
+  "followups": [
+    "为什么不能用数组 unshift 实现 O(1)？在 JS 中如何用 Map 的插入顺序模拟？",
+    "如果要求支持过期时间（TTL），数据结构需要增加什么？"
+  ],
+  "rubric": [
+    {
+      "point": "能说明哈希表与双向链表各自职责，以及为什么是 O(1)",
+      "weight": 2
+    },
+    {
+      "point": "get 命中会改变淘汰顺序，代码体现 touch/移动到表头",
+      "weight": 1
+    },
+    {
+      "point": "容量超限删除最久未使用而不是任意元素",
+      "weight": 1
+    }
+  ]
+}

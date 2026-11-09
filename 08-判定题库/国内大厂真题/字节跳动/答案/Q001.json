@@ -1,0 +1,52 @@
+{
+  "id": "Q001",
+  "title": "3. 无重复字符的最长子串",
+  "question_url": "https://leetcode.cn/problems/longest-substring-without-repeating-characters/",
+  "core_idea": "滑动窗口：右指针逐个扩张，遇到窗口内已出现的字符时，把左指针跳到该字符上次出现位置的下一位，保证窗口内始终无重复。",
+  "invariant": "任意时刻窗口 [left, right] 内没有重复字符；left 只增不减，因此每个字符最多被左右指针各访问一次。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(min(n, 字符集大小))"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(s) {\n  const last = new Map();\n  let left = 0;\n  let best = 0;\n  for (let right = 0; right < s.length; right++) {\n    const ch = s[right];\n    if (last.has(ch) && last.get(ch) >= left) {\n      left = last.get(ch) + 1;\n    }\n    last.set(ch, right);\n    best = Math.max(best, right - left + 1);\n  }\n  return best;\n}",
+  "edge_cases": [
+    {
+      "call": "\"abcabcbb\"",
+      "expected": 3,
+      "why": "窗口在第二个 a 处收缩为 bca"
+    },
+    {
+      "call": "\"bbbbb\"",
+      "expected": 1,
+      "why": "每次都把 left 推到当前字符之后"
+    },
+    {
+      "call": "\"\"",
+      "expected": 0,
+      "why": "空串不能返回 1"
+    }
+  ],
+  "common_mistakes": [
+    "只判断 last.has(ch) 而不判断 last.get(ch) >= left，会把窗口外旧位置误当重复",
+    "把 left 设为 last.get(ch) 而不是 +1，窗口仍包含重复字符"
+  ],
+  "followups": [
+    "如果字符集是 Unicode 码点而不是 UTF-16 单元，如何按码点滑动？",
+    "若要求返回具体子串而不是长度，left 更新时如何同步记录起点？"
+  ],
+  "rubric": [
+    {
+      "point": "能说出 left 必须跳到上次位置 +1，并解释旧位置在窗口外时不能跳",
+      "weight": 2
+    },
+    {
+      "point": "代码里同时维护 last 与 best，边界为空串返回 0",
+      "weight": 1
+    },
+    {
+      "point": "能分析每个字符最多进出窗口一次，复杂度 O(n)",
+      "weight": 1
+    }
+  ]
+}

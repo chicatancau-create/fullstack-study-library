@@ -1,0 +1,53 @@
+{
+  "id": "Q005",
+  "title": "215. 数组中的第K个最大元素",
+  "question_url": "https://leetcode.cn/problems/kth-largest-element-in-an-array/",
+  "core_idea": "快速选择：以基准分区，若基准最终下标等于 n-k 则返回；否则只递归包含目标下标的一侧，平均 O(n)。",
+  "invariant": "分区后基准左侧均不大于基准、右侧均不小于基准；目标下标 n-k 始终落在当前区间内。",
+  "complexity": {
+    "time": "平均 O(n)，最坏 O(n^2)",
+    "space": "O(1)（迭代版）"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(nums, k) {\n  const target = nums.length - k;\n  let lo = 0;\n  let hi = nums.length - 1;\n  const a = nums.slice();\n  while (lo <= hi) {\n    const pivot = a[hi];\n    let store = lo;\n    for (let i = lo; i < hi; i++) {\n      if (a[i] < pivot) { [a[store], a[i]] = [a[i], a[store]]; store++; }\n    }\n    [a[store], a[hi]] = [a[hi], a[store]];\n    if (store === target) return a[store];\n    if (store < target) lo = store + 1;\n    else hi = store - 1;\n  }\n  return -1;\n}",
+  "edge_cases": [
+    {
+      "call": "[3,2,1,5,6,4],2",
+      "expected": 5,
+      "why": "第 2 大是 5"
+    },
+    {
+      "call": "[3,2,3,1,2,4,5,5,6],4",
+      "expected": 4,
+      "why": "含重复元素"
+    },
+    {
+      "call": "[1],1",
+      "expected": 1,
+      "why": "单元素边界"
+    }
+  ],
+  "common_mistakes": [
+    "把第 k 大当成升序下标 k-1，正确目标是 n-k",
+    "分区后仍递归两侧，退化为 O(n log n)",
+    "基准选择不当（如总取首元素）在有序输入上退化为 O(n^2)"
+  ],
+  "followups": [
+    "如何在最坏 O(n) 内完成？简述 median-of-medians。",
+    "数据流场景为什么改用大小为 k 的小顶堆？"
+  ],
+  "rubric": [
+    {
+      "point": "目标下标是 n-k，能解释为什么",
+      "weight": 2
+    },
+    {
+      "point": "分区后只处理一侧，平均 O(n)",
+      "weight": 1
+    },
+    {
+      "point": "能指出最坏 O(n^2) 与随机化/三数取中改进",
+      "weight": 1
+    }
+  ]
+}

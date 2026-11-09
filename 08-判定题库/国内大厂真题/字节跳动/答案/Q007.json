@@ -1,0 +1,69 @@
+{
+  "id": "Q007",
+  "title": "103. 二叉树的锯齿形层次遍历",
+  "question_url": "https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/",
+  "core_idea": "BFS 逐层遍历，用层号奇偶决定本层结果是否反转；每层结束后换下一层队列。",
+  "invariant": "队列中始终只有当前层节点；层号从 0 开始，偶数层从左到右、奇数层从右到左。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(w)，w 为最大层宽"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(values) {\n  if (!values.length || values[0] === null) return [];\n  const nodes = values.map((v) => (v === null ? null : { val: v, left: null, right: null }));\n  for (let i = 0; i < nodes.length; i++) {\n    if (!nodes[i]) continue;\n    const li = 2 * i + 1;\n    const ri = 2 * i + 2;\n    if (li < nodes.length) nodes[i].left = nodes[li];\n    if (ri < nodes.length) nodes[i].right = nodes[ri];\n  }\n  const out = [];\n  let queue = [nodes[0]];\n  let level = 0;\n  while (queue.length) {\n    const vals = queue.map((x) => x.val);\n    out.push(level % 2 === 0 ? vals : vals.reverse());\n    const next = [];\n    for (const node of queue) {\n      if (node.left) next.push(node.left);\n      if (node.right) next.push(node.right);\n    }\n    queue = next;\n    level++;\n  }\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "[3,9,20,null,null,15,7]",
+      "expected": [
+        [
+          3
+        ],
+        [
+          20,
+          9
+        ],
+        [
+          15,
+          7
+        ]
+      ],
+      "why": "第二层反向"
+    },
+    {
+      "call": "[1]",
+      "expected": [
+        [
+          1
+        ]
+      ],
+      "why": "单节点"
+    },
+    {
+      "call": "[]",
+      "expected": [],
+      "why": "空树"
+    }
+  ],
+  "common_mistakes": [
+    "用全局栈做反转导致跨层顺序错乱",
+    "反转队列本身而不是本层结果，影响下一层扩展顺序",
+    "层号从 1 开始导致奇偶颠倒"
+  ],
+  "followups": [
+    "如果要求不使用 reverse，如何用双端队列实现？",
+    "锯齿遍历与普通层序遍历的复杂度是否相同？"
+  ],
+  "rubric": [
+    {
+      "point": "按层处理，反转只作用于本层输出",
+      "weight": 2
+    },
+    {
+      "point": "层号奇偶与起点方向正确",
+      "weight": 1
+    },
+    {
+      "point": "空树/单节点边界正确",
+      "weight": 1
+    }
+  ]
+}

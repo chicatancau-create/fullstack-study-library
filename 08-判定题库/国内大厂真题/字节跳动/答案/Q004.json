@@ -1,0 +1,60 @@
+{
+  "id": "Q004",
+  "title": "206. 反转链表",
+  "question_url": "https://leetcode.cn/problems/reverse-linked-list/",
+  "core_idea": "三指针迭代：prev 指向已反转部分，cur 为当前节点，next 暂存后继；每次把 cur.next 指向 prev 后整体前移。",
+  "invariant": "prev 之前的节点已全部反转，cur 及其之后仍未处理；循环结束时 prev 是新头。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(values) {\n  let head = null;\n  for (let i = values.length - 1; i >= 0; i--) head = { val: values[i], next: head };\n  let prev = null;\n  let cur = head;\n  while (cur) {\n    const next = cur.next;\n    cur.next = prev;\n    prev = cur;\n    cur = next;\n  }\n  const out = [];\n  for (let p = prev; p; p = p.next) out.push(p.val);\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "[1,2,3,4,5]",
+      "expected": [
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "why": "标准反转"
+    },
+    {
+      "call": "[]",
+      "expected": [],
+      "why": "空链表返回空"
+    },
+    {
+      "call": "[1]",
+      "expected": [
+        1
+      ],
+      "why": "单节点不变"
+    }
+  ],
+  "common_mistakes": [
+    "先 cur.next = prev 再保存 next，导致链断裂丢失后继",
+    "返回 cur 而不是 prev，返回时 cur 已是 null"
+  ],
+  "followups": [
+    "递归版本如何写？返回值和栈深度是什么？",
+    "反转区间 [m,n] 与整表反转的边界差异在哪？"
+  ],
+  "rubric": [
+    {
+      "point": "明确 prev/cur/next 三指针职责",
+      "weight": 1
+    },
+    {
+      "point": "返回 prev 而不是 cur，空链表不崩",
+      "weight": 1
+    },
+    {
+      "point": "能说明 O(1) 空间，并指出递归版 O(n) 栈",
+      "weight": 1
+    }
+  ]
+}

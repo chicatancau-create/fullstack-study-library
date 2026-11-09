@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "experiment": "BYTE_ANSWERS",
+  "generated_at": "2026-11-09T08:04:35.090Z",
+  "commit": "565e85b476e2b150b685c307b4477cbf9344232c",
+  "runtime": {
+    "platform": "win32 x64",
+    "os_release": null,
+    "node": "v24.15.0",
+    "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
+    "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
+  },
+  "commands": [
+    {
+      "cmd": "node split_answers.mjs",
+      "exit": 0
+    },
+    {
+      "cmd": "node check_answers.mjs",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/answers-index.json",
+      "bytes": 195,
+      "sha256": "5983c374341332e47063ae896345258beafdeff29f5c65f0c1178593f4ba9288"
+    },
+    {
+      "path": "evidence/answers-check.json",
+      "bytes": 671,
+      "sha256": "51469cf8fb3fe9135a8d79b94e2db2bb7f039a92850fba1bc1515e6e20c87223"
+    },
+    {
+      "path": "../字节跳动/答案/Q001.json",
+      "bytes": 2121,
+      "sha256": "36a07131808f3e9b8c3d8ec5e589aa05c980efb4bde50bbf378bf36a05ccdcdd"
+    },
+    {
+      "path": "../字节跳动/答案/Q002.json",
+      "bytes": 2724,
+      "sha256": "6501e58e5ef1d677de81cab7d03ab4abf67124a15ee5ca061f0da976b90d1bdd"
+    },
+    {
+      "path": "../字节跳动/答案/Q003.json",
+      "bytes": 2609,
+      "sha256": "a6fe4f716d5b4f651cbc8a71e7463b7e79d2832bb9daf66d1acc8107b3f90899"
+    },
+    {
+      "path": "../字节跳动/答案/Q004.json",
+      "bytes": 1851,
+      "sha256": "d6149f546b0c9ed88778b315b3203becbf7780e9303e4fcfbfe8031dce585f5c"
+    },
+    {
+      "path": "../字节跳动/答案/Q005.json",
+      "bytes": 2078,
+      "sha256": "ccba611dbde1a48295ba664855947df0cddc5bf87c324f86a08247d4c688d50b"
+    },
+    {
+      "path": "../字节跳动/答案/Q006.json",
+      "bytes": 2163,
+      "sha256": "11ffd7d1492f6c8d02fe343ad01b5aee27540ad90e60a772c4e1477cf7a59666"
+    },
+    {
+      "path": "../字节跳动/答案/Q007.json",
+      "bytes": 2448,
+      "sha256": "aea60c3bcf2e6bf16467484fe5c9367e1ecef60bb19962f594271562438aeaec"
+    },
+    {
+      "path": "../字节跳动/答案/Q008.json",
+      "bytes": 2238,
+      "sha256": "c13747daf61ec9290b604d5ceb611230a23cea09fb0501c82b79847efb1e0185"
+    }
+  ],
+  "unverified": [
+    "剩余 92 题答案 pending；答案非官方题解"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "id": "Q003",
+  "title": "25. K 个一组翻转链表",
+  "question_url": "https://leetcode.cn/problems/reverse-nodes-in-k-group/",
+  "core_idea": "先数出剩余节点是否够 k 个；够则用头插法翻转这一段，接回前驱与后继；不足 k 个保持原序。",
+  "invariant": "已处理部分与未处理部分通过 prevGroupTail.next 连接；每组内部翻转后，原组头变成组尾，原组尾变成组头。",
+  "complexity": {
+    "time": "O(n)",
+    "space": "O(1)"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(values, k) {\n  const dummy = { val: 0, next: null };\n  let tail = dummy;\n  for (const v of values) { tail.next = { val: v, next: null }; tail = tail.next; }\n  let prevTail = dummy;\n  let cur = dummy.next;\n  while (cur) {\n    let probe = cur;\n    for (let i = 0; i < k; i++) {\n      if (!probe) return toArray(dummy.next);\n      probe = probe.next;\n    }\n    let prev = null;\n    let node = cur;\n    for (let i = 0; i < k; i++) {\n      const next = node.next;\n      node.next = prev;\n      prev = node;\n      node = next;\n    }\n    prevTail.next = prev;\n    cur.next = node;\n    prevTail = cur;\n    cur = node;\n  }\n  return toArray(dummy.next);\n}\nfunction toArray(head) {\n  const out = [];\n  for (let p = head; p; p = p.next) out.push(p.val);\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "[1,2,3,4,5],2",
+      "expected": [
+        2,
+        1,
+        4,
+        3,
+        5
+      ],
+      "why": "最后一组不足 2 个时保持原序"
+    },
+    {
+      "call": "[1,2,3,4,5],3",
+      "expected": [
+        3,
+        2,
+        1,
+        4,
+        5
+      ],
+      "why": "第三组不足 3 个不翻转"
+    },
+    {
+      "call": "[1],2",
+      "expected": [
+        1
+      ],
+      "why": "不足 k 个直接返回原链表"
+    }
+  ],
+  "common_mistakes": [
+    "先翻转再判断剩余长度，导致不足 k 个也被翻转",
+    "翻转后忘记把原组头（现组尾）接到下一段，造成丢链或环",
+    "prevTail 更新错误，导致下一组接不回前驱"
+  ],
+  "followups": [
+    "如果要求从尾部开始每 k 个翻转，如何避免先求长度？",
+    "如何用递归实现？递归深度与栈空间代价是什么？"
+  ],
+  "rubric": [
+    {
+      "point": "先探测剩余是否够 k 个，不足则原样保留",
+      "weight": 2
+    },
+    {
+      "point": "组内翻转后正确接回前驱与后继，无断链/环",
+      "weight": 2
+    },
+    {
+      "point": "能说明 O(n) 时间 O(1) 空间，不使用额外数组",
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "id": "Q008",
+  "title": "15. 三数之和",
+  "question_url": "https://leetcode.cn/problems/3sum/",
+  "core_idea": "排序后固定第一个数，剩下两数用左右指针相向移动；遇到满足条件的三元组后同时跳过重复值。",
+  "invariant": "固定 i 后，[l, r] 覆盖所有可能的两数组合；排序保证指针移动方向可判定和的大小。",
+  "complexity": {
+    "time": "O(n^2)",
+    "space": "O(1)（不计排序与输出）"
+  },
+  "code_lang": "javascript",
+  "code": "function solve(nums) {\n  const a = nums.slice().sort((x, y) => x - y);\n  const out = [];\n  for (let i = 0; i < a.length - 2; i++) {\n    if (i > 0 && a[i] === a[i - 1]) continue;\n    if (a[i] > 0) break;\n    let l = i + 1;\n    let r = a.length - 1;\n    while (l < r) {\n      const sum = a[i] + a[l] + a[r];\n      if (sum === 0) {\n        out.push([a[i], a[l], a[r]]);\n        while (l < r && a[l] === a[l + 1]) l++;\n        while (l < r && a[r] === a[r - 1]) r--;\n        l++;\n        r--;\n      } else if (sum < 0) l++;\n      else r--;\n    }\n  }\n  return out;\n}",
+  "edge_cases": [
+    {
+      "call": "[-1,0,1,2,-1,-4]",
+      "expected": [
+        [
+          -1,
+          -1,
+          2
+        ],
+        [
+          -1,
+          0,
+          1
+        ]
+      ],
+      "why": "标准示例，结果不重复"
+    },
+    {
+      "call": "[0,0,0,0]",
+      "expected": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "why": "重复零只输出一次"
+    },
+    {
+      "call": "[1,2,-2,-1]",
+      "expected": [],
+      "why": "无解返回空"
+    }
+  ],
+  "common_mistakes": [
+    "找到解后不跳过重复元素，输出重复三元组",
+    "外层去重写成 a[i] === a[i+1] 导致漏解",
+    "对每个 i 都从 0 开始双指针，退化为 O(n^3)"
+  ],
+  "followups": [
+    "三数之和最接近目标值如何改？",
+    "四数之和如何去重与剪枝？"
+  ],
+  "rubric": [
+    {
+      "point": "排序 + 固定 i + 双指针，复杂度 O(n^2)",
+      "weight": 2
+    },
+    {
+      "point": "外层与内层都正确跳过重复值",
+      "weight": 2
+    },
+    {
+      "point": "a[i] > 0 提前退出等剪枝",
+      "weight": 1
+    }
+  ]
+}

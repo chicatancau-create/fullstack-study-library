@@ -1,0 +1,31 @@
+{
+  "captured_at": "2026-11-09T08:04:19.063Z",
+  "answers": 8,
+  "results": [
+    {
+      "name": "A01 答案文件存在且字段完整",
+      "ok": true,
+      "detail": "files=8 missing=0"
+    },
+    {
+      "name": "A02 每题代码可编译执行",
+      "ok": true,
+      "detail": "failures=0"
+    },
+    {
+      "name": "A03 全部边界用例通过",
+      "ok": true,
+      "detail": "failures=0"
+    },
+    {
+      "name": "A04 评分点逐题不同（无统一模板）",
+      "ok": true,
+      "detail": "duplicates=0"
+    },
+    {
+      "name": "A05 每题至少 3 个专属评分点、2 个边界用例",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}
