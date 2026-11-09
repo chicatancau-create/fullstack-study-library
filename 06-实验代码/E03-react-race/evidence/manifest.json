@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E03",
-  "generated_at": "2026-11-08T09:56:17.994Z",
-  "commit": "c9d17ab1d3532e872a71d56690daf0feb8eae8e4",
+  "generated_at": "2026-11-09T01:27:28.777Z",
+  "commit": "568b3e8fe1428a232c7e17eaece6fde32d785449",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -10,7 +10,16 @@
     "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
     "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
   },
-  "commands": [],
+  "commands": [
+    {
+      "cmd": "bash scripts/run_unit.sh",
+      "exit": 0
+    },
+    {
+      "cmd": "npx playwright test",
+      "exit": 0
+    }
+  ],
   "artifacts": [
     {
       "path": "evidence/typecheck.txt",
@@ -19,18 +28,18 @@
     },
     {
       "path": "evidence/test.txt",
-      "bytes": 378,
-      "sha256": "035c169b20397109b077ee77cf9cd62eca9da2785733babec59e2a30670e8d01"
+      "bytes": 464,
+      "sha256": "7892a5b269266242ed17247e84511a800790e77ff4484cc8f9046aa8dcda261a"
     },
     {
       "path": "evidence/build.txt",
       "bytes": 285,
-      "sha256": "2e0fdaa9b2fd699b45261705e819e954d9b59f518e1fe2c109c9d0696562d47a"
+      "sha256": "f8dc9518fcf985bcbf98d1ae49b4dc37576b6efc5cca2821ee5ec6f61e8c5212"
     },
     {
-      "path": "evidence/run.txt",
-      "bytes": 161,
-      "sha256": "baef311e9d69b7a540a49b3a400acc850ac1c169eb9d55806674e0aab7f9c1dc"
+      "path": "evidence/e2e.txt",
+      "bytes": 147,
+      "sha256": "c9e4b16d6de6c5fa5d8170a0d17adb32d50f804d119c48a9ac07466917bfd920"
     }
   ],
   "unverified": []

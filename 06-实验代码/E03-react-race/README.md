@@ -14,13 +14,35 @@
 - 卸载测试：卸载后 resolve 旧请求，`signal.aborted === true`，无 `console.error`/act 警告。
 - 用 Vitest + Testing Library 做确定性顺序测试；`tsc --noEmit` 与 `vite build` 通过。
 
-没做什么：
+没做什么（完整版更新后仍不覆盖）：
 
-- 没有 E2E/真实浏览器交互；没有 React Profiler 长任务测量。
-- 没有路由卸载（用组件 unmount 代替），没有 SSR/SSG。
-- 没有真实网络/后端；“下游”是 deferred 测试替身。
+- 没有真实后端；“下游”是 deferred 测试替身或 Playwright 路由拦截。
+- 没有流式 SSR、选择性 hydration、跨标签页缓存同步。
 - 没有乐观更新的并发冲突/服务端版本号；只覆盖单次保存失败回滚。
 - 没有把 E03 接进项目 01。
+- 没有 React Profiler 长任务测量（在 E05 覆盖）。
+
+## 完整版增量（MS7）
+
+- **SSR/hydration 反例与修复**：`Clock` / `BadHydration` / `GoodHydration`，jsdom 中 `renderToString` + `hydrateRoot`；
+  反例 hydration 后 `request-id` 与 SSR 不同，修复注入服务端快照后无错误且 DOM 一致。
+- **缓存键/失效/SWR**：`src/cache.ts`；反例只用 filter 做 key 导致 locale 串数据，修复 key 含 locale+schemaVersion；
+  `invalidate` 前缀清理；`readWithSWR` 新鲜/陈旧/网络三态。
+- **真实浏览器路由竞态**：`RouteRace` + `e2e/race.spec.ts`，Playwright 拦截 A 延迟 800ms、B 50ms，快速切换后只保留 B。
+- **scenarios/**：[路由迟到覆盖](scenarios/race-stale-write.md)、[缓存键失配](scenarios/cache-key-mismatch.md)、[hydration 不一致](scenarios/hydration-mismatch.md)。
+
+### 完整版命令
+
+```bash
+npm ci
+npm run test        # 11 个测试（含 hydration/cache）
+npm run typecheck
+npm run build
+npm run e2e         # Playwright 1/1（本机 msedge）
+node ../_template/manifest.mjs verify evidence/manifest.json
+```
+
+证据：`evidence/test.txt`、`evidence/typecheck.txt`、`evidence/build.txt`、`evidence/e2e.txt`、`evidence/manifest.json`。
 
 ## 2. 可证伪假设
 

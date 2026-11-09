@@ -1,5 +1,5 @@
-captured_at: 2026-11-08T17:53:23+08:00
+captured_at: 2026-11-09T09:27:18+08:00
 typecheck: 0 errors
-test:  Test Files  3 passed (3)       Tests  5 passed (5) 
-build: ✓ built in 159ms
+test:  Test Files  5 passed (5)       Tests  11 passed (11) 
+build: ✓ built in 132ms
 gate_failures: 0

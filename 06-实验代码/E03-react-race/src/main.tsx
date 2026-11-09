@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { GoodList } from './GoodList';
+import { RouteRace } from './Hydration';
 import type { Loader } from './types';
 
 const demoLoader: Loader = async (filter, signal) => {
@@ -13,6 +14,8 @@ const demoLoader: Loader = async (filter, signal) => {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <h1>E03 React 竞态与缓存</h1>
     <GoodList load={demoLoader} />
+    <RouteRace />
   </StrictMode>,
 );
