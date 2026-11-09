@@ -1,0 +1,17 @@
+ok 并发上限=2 峰值不超
+ok 全部结果返回
+ok 四次启动时在跑数都不超过 2
+ok 结束后无在跑任务
+ok 结束后队列为空
+ok FIFO 顺序
+ok 异常任务向外抛错
+ok 异常后队列继续推进
+ok 异常后无残留
+ok 队列满时拒绝
+ok 在跑任务不受影响
+ok 排队任务仍执行
+ok limit=0 抛 RangeError
+ok limit=1.5 抛 RangeError
+ok 多轮 await 下峰值仍在 3 以内
+ok stats 快照不被外部污染
+checks=16 fails=0

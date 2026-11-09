@@ -4,9 +4,20 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "smoke": "node 自测脚本/smoke.mjs",
+    "grade": "node 自测脚本/grade.mjs 参考答案/index.mjs",
+    "grade:ts": "node 自测脚本/grade-ts.mjs 参考答案/ts/pool.ts",
+    "grade:cli": "node 自测脚本/grade-cli.mjs",
+    "typecheck": "tsc -p tsconfig.json",
+    "type-coverage": "type-coverage --project tsconfig.json --at-least 80",
     "evidence": "bash scripts/evidence.sh"
   },
   "engines": {
     "node": ">=24"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "type-coverage": "^2.29.7",
+    "typescript": "^5.9.3"
   }
 }

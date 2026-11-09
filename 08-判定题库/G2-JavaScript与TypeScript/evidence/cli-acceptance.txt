@@ -1,0 +1,15 @@
+ok --help 退出码 0
+ok 无参数退出码 2 并打印用法
+ok 未知参数退出码 2
+ok --limit 缺值退出码 2
+ok --limit 0 退出码 2
+ok 正常执行退出码 0 且 --json 结构正确 ids=a,b,c,d
+ok 并发上限生效 elapsed=295ms
+ok 顶层不是数组退出码 3
+ok 非法 JSON 退出码 3
+ok 缺少 id 退出码 3
+ok ms 为负数退出码 3
+ok 文件不存在退出码 4
+ok 队列满退出码 4 且逐项报 queue_full
+ok 取消后有任务被标记 cancelled cancelled=6 ok=0
+checks=14 fails=0

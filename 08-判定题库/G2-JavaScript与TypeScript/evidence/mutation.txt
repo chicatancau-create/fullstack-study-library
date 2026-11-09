@@ -1,0 +1,5 @@
+ok V1 rc=1 pump 循环放宽到 <= limit -> FAIL 并发上限=2 峰值不超: 3 != 2
+ok V3 rc=1 队列满判断用 > 代替 >= -> FAIL 队列满时拒绝: 应当拒绝但成功了
+ok V4 rc=1 limit 下界从 1 放宽到 0 -> FAIL limit=0 抛 RangeError: 没有抛错
+ok V5 rc=1 stats 直接返回内部对象 -> FAIL stats 快照不被外部污染: 99 != 0
+variants=4 fails=0
