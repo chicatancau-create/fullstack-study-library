@@ -1,0 +1,30 @@
+name: ms4-rag
+
+on:
+  push:
+    paths:
+      - '08-判定题库/专题题库/RAG-GoldenSet/**'
+      - '.github/workflows/ms4-rag.yml'
+  pull_request:
+    paths:
+      - '08-判定题库/专题题库/RAG-GoldenSet/**'
+      - '.github/workflows/ms4-rag.yml'
+
+jobs:
+  golden:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 65 条 golden 离线评测
+        working-directory: 08-判定题库/专题题库/RAG-GoldenSet
+        run: python -X utf8 评测脚本/eval.py
+      - name: 上传评测结果
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ms4-rag
+          path: 08-判定题库/专题题库/RAG-GoldenSet/evidence/**
+          if-no-files-found: ignore
