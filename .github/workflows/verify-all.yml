@@ -1,0 +1,27 @@
+name: verify-all
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: git config --global core.quotePath false
+      - name: 全仓校验（离线档）
+        run: node scripts/verify_all.mjs --profile=ci --offline
+      - name: 文档表格与差异
+        run: |
+          git diff --check
+      - name: 上传校验结果
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verify-all
+          path: 03-执行计划/evidence/verify-all.json
+          if-no-files-found: ignore
