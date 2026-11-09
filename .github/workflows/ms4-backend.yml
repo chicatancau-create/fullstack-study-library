@@ -1,0 +1,30 @@
+name: ms4-backend
+
+on:
+  push:
+    paths:
+      - '08-判定题库/专题题库/后端实操30/**'
+      - '.github/workflows/ms4-backend.yml'
+  pull_request:
+    paths:
+      - '08-判定题库/专题题库/后端实操30/**'
+      - '.github/workflows/ms4-backend.yml'
+
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: 30 题 solution/starter 双向判定
+        working-directory: 08-判定题库/专题题库/后端实操30
+        run: node judge.mjs
+      - name: 上传判定输出
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ms4-backend
+          path: 08-判定题库/专题题库/后端实操30/evidence/*.txt
+          if-no-files-found: ignore
