@@ -25,6 +25,9 @@ rc=$?; echo "ssr exit=$rc"; [ "$rc" -eq 0 ] || fails=$((fails + 1))
 node scripts/inspect-build.mjs > evidence/inspect.txt 2>&1
 rc=$?; echo "inspect exit=$rc"; [ "$rc" -eq 0 ] || fails=$((fails + 1))
 
+NO_COLOR=1 node scripts/bundle-compare.mjs > evidence/bundle-run.txt 2>&1
+rc=$?; echo "bundle exit=$rc"; [ "$rc" -eq 0 ] || fails=$((fails + 1))
+
 node scripts/serve-check.mjs > evidence/cache-run.txt 2>&1
 rc=$?; echo "cache exit=$rc"; [ "$rc" -eq 0 ] || fails=$((fails + 1))
 
@@ -35,6 +38,7 @@ rc=$?; echo "cache exit=$rc"; [ "$rc" -eq 0 ] || fails=$((fails + 1))
   echo "build: $(grep -E 'built in|modules transformed' evidence/build.txt | tail -1)"
   echo "ssr: $(tail -1 evidence/ssr-run.txt)"
   echo "inspect: $(tail -1 evidence/inspect.txt)"
+  echo "bundle: $(grep '入口节省' evidence/bundle-compare.txt || true)"
   echo "cache: $(grep 'CACHE PASS' evidence/cache-run.txt || true)"
   echo "gate_failures: $fails"
 } | tee evidence/run.txt

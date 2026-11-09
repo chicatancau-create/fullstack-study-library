@@ -13,6 +13,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "render": "tsx scripts/render.tsx",
+    "bundle": "node scripts/bundle-compare.mjs",
     "evidence": "bash scripts/run_unit.sh"
   },
   "dependencies": {

@@ -1,0 +1,13 @@
+E05 bundle 对照（同源、同 minify=esbuild、同 sourcemap=true）
+generated_at: 2026-11-09T01:51:51.201Z
+
+baseline : entry=assets/index.baseline-BRQRMXlt.js raw=224531B gzip=70203B chunks=1 total_raw=224531B total_gzip=70203B
+optimized: entry=assets/index-BVL1-OCa.js raw=223602B gzip=70074B chunks=2 total_raw=226305B total_gzip=71132B
+入口节省: 929B（0.4%）；动态 chunk: 1 个
+tree-shaking: baseline/optimized 均不含 "UNUSED_MARKER_7f3a" => 未使用导出已剔除
+sourcemap: baseline=true optimized=true
+预算: 入口 gzip <= 150000B，实际 70074B => PASS
+
+优化后 JS 文件:
+  assets/index-BVL1-OCa.js raw=223602B gzip=70074B
+  assets/LabPanel-Wfl3Boi7.js raw=2703B gzip=1058B

@@ -1,4 +1,4 @@
 index: 200 cache-control=no-cache
-asset: 200 cache-control=public, max-age=31536000, immutable etag="92f017b8b1351657"
+asset: 200 cache-control=public, max-age=31536000, immutable etag="f2d27556417164c6"
 conditional: 304
 CACHE PASS

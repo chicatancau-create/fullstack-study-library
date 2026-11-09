@@ -1,18 +1,23 @@
 {
-  "captured_at": "2026-11-08T09:54:14.385Z",
-  "entry": "assets/index-DEFdGYln.js",
+  "captured_at": "2026-11-09T01:51:49.979Z",
+  "entry": "assets/index-CDtPj5Tn.js",
   "files": [
     {
-      "path": "assets/index-DEFdGYln.js",
-      "bytes": 219886,
-      "sha256": "92f017b8b1351657e619820be8d7ab5ab46945a3531903774a93ec52633972b7"
+      "path": "assets/index-CDtPj5Tn.js",
+      "bytes": 221673,
+      "sha256": "f2d27556417164c656da6272fa16fe58031fcc3686809054ea08ce5af3df1070"
+    },
+    {
+      "path": "assets/LabPanel-3OBFeo3L.js",
+      "bytes": 2641,
+      "sha256": "b77f6d9445c8ca14406925cd7368e7b72fd04a94af3a199f4b8ae3d66e5720e2"
     },
     {
       "path": "index.html",
       "bytes": 321,
-      "sha256": "996dbc64ff56fb4f94a774c605baa5bc1f95253bec85c696b35905dacd266fa4"
+      "sha256": "712ff77b5c95585f0758160098dd608566eea6970b21f912c757089e568db0fb"
     }
   ],
-  "total_bytes": 220207,
+  "total_bytes": 224635,
   "secret_leak": false
 }

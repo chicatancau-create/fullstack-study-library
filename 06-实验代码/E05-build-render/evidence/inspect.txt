@@ -1,1 +1,1 @@
-INSPECT PASS entry=assets/index-DEFdGYln.js total_bytes=220207 secret_leak=false
+INSPECT PASS entry=assets/index-CDtPj5Tn.js total_bytes=224635 secret_leak=false
