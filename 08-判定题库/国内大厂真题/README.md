@@ -33,7 +33,7 @@
 
 ## 字段分离与质量门禁
 
-`_工具/` 已把 250 题拆出 `question_url`（题面）、`aggregate_source_url`（CodeTop 聚合）与 `primary_evidence`（原始面经），并把岗位统一标为“岗位未标注”而非默认后端。当前原始面经证据为 0，质量门禁 6/6 通过；运行方式见 `_工具/README.md`。
+`_工具/` 已把 250 题拆出 `question_url`（题面）、`aggregate_source_url`（CodeTop 聚合）与 `primary_evidence`（原始面经），并把岗位统一标为“岗位未标注”而非默认后端。当前已核验公开牛客面经 3 条、覆盖 2 道题（Q002、Q067），其余 248 题仍为第三方聚合；质量门禁 6/6 通过；运行方式见 `_工具/README.md`。
 
 ## 前端 / 全栈补充题
 
@@ -41,4 +41,4 @@
 
 ## 公司×岗位×题型矩阵
 
-`岗位矩阵.csv` 由 `_工具/build_role_matrix.mjs` 从各公司 `题目索引.json` 与 `前端全栈/questions.json` 生成：算法题 250 道（岗位未标注）、前端 10 道、全栈 6 道，共 266 道。`_工具/evidence/role-matrix.json` 同时记录 `verified_raw_evidence = 0`，不把聚合来源冒充已核验真题。
+`岗位矩阵.csv` 由 `_工具/build_role_matrix.mjs` 从各公司 `题目索引.json` 与 `前端全栈/questions.json` 生成：算法题 250 道（岗位未标注）、前端 10 道、全栈 6 道，共 266 道。`_工具/evidence/role-matrix.json` 同时记录 `verified_raw_evidence = 3`（3 条证据覆盖 2 道题），其余仍按聚合来源标记，不冒充已核验真题。

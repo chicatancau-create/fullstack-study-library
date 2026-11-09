@@ -34,9 +34,34 @@
     "heat": 367,
     "question_url": "https://leetcode.cn/problems/lru-cache/",
     "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
-    "primary_evidence": [],
-    "evidence_status": "third_party_aggregate",
-    "evidence_note": "第三方聚合，待逐题核源",
+    "primary_evidence": [
+      {
+        "evidence_id": "NC-BD-002",
+        "url": "https://www.nowcoder.com/discuss/942507302752428032",
+        "title": "字节飞书一面",
+        "published_at": "10-21 19:49（页面仅显示月日）",
+        "accessed_at": "2026-11-09",
+        "quote": "手写代码题：基于基础数据结构（双向链表 + 哈希表）实现一个标准的 LRU 缓存类",
+        "role": "AI 全栈开发",
+        "role_basis": "页面标注 ByteDance Feishu / AI Full Stack Developer",
+        "status": "verified-public",
+        "verifier": "qoder-agent"
+      },
+      {
+        "evidence_id": "NC-BD-003",
+        "url": "https://www.nowcoder.com/feed/main/detail/adbbc0f372324a538be3368291061fa8",
+        "title": "字节面试避坑指南（含血泪教训）",
+        "published_at": null,
+        "accessed_at": "2026-11-09",
+        "quote": "手撕代码是重点，高频考察无重复字符最长子串、第 K 大、LRU 缓存、反转链表这 4 道题",
+        "role": "岗位未标注",
+        "role_basis": "正文只写“字节”，未写岗位；按规则不推断为后端",
+        "status": "verified-public",
+        "verifier": "qoder-agent"
+      }
+    ],
+    "evidence_status": "primary_verified",
+    "evidence_note": "已核验公开牛客面经，见 primary_evidence",
     "role_recorded": "后端/算法",
     "role_class": "岗位未标注",
     "role_source": "codetop_aggregate",
@@ -1464,9 +1489,22 @@
     "heat": 47,
     "question_url": "https://leetcode.cn/problems/path-sum/",
     "aggregate_source_url": "https://codetop.cc/api/questions/?company=1&page=1&page_size=20",
-    "primary_evidence": [],
-    "evidence_status": "third_party_aggregate",
-    "evidence_note": "第三方聚合，待逐题核源",
+    "primary_evidence": [
+      {
+        "evidence_id": "NC-BD-001",
+        "url": "https://www.nowcoder.com/discuss/463389394737598464",
+        "title": "字节跳动-今日头条后端开发一面面经",
+        "published_at": "2023-03-09 17:04",
+        "accessed_at": "2026-11-09",
+        "quote": "Leetcode112. 二叉树路径总和",
+        "role": "后端开发",
+        "role_basis": "标题写“今日头条后端开发一面”，页面岗位标注一致",
+        "status": "verified-public",
+        "verifier": "qoder-agent"
+      }
+    ],
+    "evidence_status": "primary_verified",
+    "evidence_note": "已核验公开牛客面经，见 primary_evidence",
     "role_recorded": "后端/算法",
     "role_class": "岗位未标注",
     "role_source": "codetop_aggregate",

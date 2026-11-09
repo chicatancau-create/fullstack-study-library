@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T08:26:12.408Z",
+  "generated_at": "2026-11-09T08:29:45.830Z",
   "rows": 20,
   "totals": {
     "questions": 266,
@@ -8,8 +8,8 @@
       "前端": 10,
       "全栈": 6
     },
-    "verified_raw_evidence": 0
+    "verified_raw_evidence": 3
   },
   "note": "算法题岗位来自 CodeTop 聚合，未标注岗位统一记为“岗位未标注”；前端/全栈补充题为公开文档模拟题，无原始面经。",
-  "policy": "严格已核验真题 = 0（primary_evidence 全为空）"
+  "policy": "partial"
 }
