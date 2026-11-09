@@ -118,6 +118,10 @@ for (const [label, rel] of checkers) {
   else checks.push({ label, ok: false, output: `missing ${rel}` });
 }
 
+const studentChecker = path.join(vault, 'scripts/check_student_packages.mjs');
+if (fs.existsSync(studentChecker)) run('G0-G9 packages', 'node', [studentChecker], vault);
+else checks.push({ label: 'G0-G9 packages', ok: false, output: 'missing scripts/check_student_packages.mjs' });
+
 const failed = checks.filter((check) => !check.ok);
 for (const check of checks) {
   console.log(`${check.ok ? 'OK  ' : 'FAIL'} ${check.label}: ${check.output}`);
