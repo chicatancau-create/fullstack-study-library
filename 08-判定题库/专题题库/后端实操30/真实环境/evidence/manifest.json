@@ -1,8 +1,8 @@
 {
   "schema": 1,
-  "experiment": "BACKEND30_CD",
-  "generated_at": "2026-11-09T07:40:19.378Z",
-  "commit": "2e991e4fb57c8e87557ee8969aa0ba031cd484d7",
+  "experiment": "BACKEND30_CDE",
+  "generated_at": "2026-11-09T07:42:50.428Z",
+  "commit": "64464ab44c0b10d2d773bbdf36a7b1e78af199c4",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -25,25 +25,55 @@
     {
       "path": "evidence/concurrency.json",
       "bytes": 1228,
-      "sha256": "685fd2e2e4462196fc976a0a9eae7cb3a4e0f171293682e72b26db252c4e9a50"
+      "sha256": "2272af80195d8dd0c65353027b5f9be3ef6c1f1cfaba07fe62ef67d3510edbf5"
     },
     {
       "path": "evidence/outbox.txt",
       "bytes": 672,
-      "sha256": "1b97c1ae5ffbfe3de710be015a14a06bc09dd73c13571aed05f74bd43656412c"
+      "sha256": "5279f574487b8d5642c99235f67fc083a967fbed3134567d6b46d7832006813f"
     },
     {
       "path": "evidence/outbox.json",
       "bytes": 710,
-      "sha256": "e1aa00f0e5878f1b91588db19bbe80080b64329628d30adfb8d40600577580b1"
+      "sha256": "78b937f2ef1e1f95c23ff18bd8175e7308a71c9fbb8d29d518af7cb90e888481"
     },
     {
       "path": "evidence/run.txt",
-      "bytes": 145,
-      "sha256": "bffc5fef413693d757ad5e5c00b6239342911a090cc6a499c321792165508f6e"
+      "bytes": 171,
+      "sha256": "ea46cae8c89ec2fdfc6a677b3619bddef6f8080101dbc71f3b262ba27b6ed1e0"
+    },
+    {
+      "path": "jvm/evidence/diagnose.txt",
+      "bytes": 401,
+      "sha256": "5d5f19589c22ca61514fafcd213b51f4f3fac380b009ae39cf5dce122d4e7f9b"
+    },
+    {
+      "path": "jvm/evidence/gc.log",
+      "bytes": 171341,
+      "sha256": "d0924cf9769faf4f8c6bba3489288e59ba1cb36ed2476e21f619b1f62d496f7b"
+    },
+    {
+      "path": "jvm/evidence/jfr-summary.txt",
+      "bytes": 12164,
+      "sha256": "8a0b71820b842114aa0a5358debad2bd26d4ee8ea11ac220e1f7645735bff62b"
+    },
+    {
+      "path": "jvm/evidence/jstack.txt",
+      "bytes": 7390,
+      "sha256": "c549071c04f318cc68e0191ff7400ee0667169b65f473f6654f4b821072ddd91"
+    },
+    {
+      "path": "jvm/evidence/oom.txt",
+      "bytes": 97,
+      "sha256": "95b7f528be84193cd4dd4e91d7bf3b7848f5d2492f8f86228181caac3ee0bf83"
+    },
+    {
+      "path": "jvm/evidence/jvm.json",
+      "bytes": 1184,
+      "sha256": "daa75c07494bbe337a08c309bab401b72d9983fdd920c67254bfca4a9a4cb843"
     }
   ],
   "unverified": [
-    "仅 C/D 组；A/B/E 未升级；RabbitMQ 为单机默认 vhost，未做集群或仲裁队列"
+    "A/B 组未升级；E 组为纯 JVM 程序非 Spring Boot；hprof/JFR 二进制不入库"
   ]
 }

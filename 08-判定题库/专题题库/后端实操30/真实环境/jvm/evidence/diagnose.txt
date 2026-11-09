@@ -1,0 +1,6 @@
+PASS E01 真实 GC 日志：至少 3 次停顿并给出最大停顿 (pauses=1854 max_ms=4.561)
+PASS E01 JFR 记录非空且可解析 (bytes=5888886)
+PASS E03 jstack 识别 Java 级死锁与线程名
+PASS E04 jstack 线程状态可统计且包含阻塞态 ({"TIMED_WAITING":2,"RUNNABLE":8,"WAITING":1,"BLOCKED":2})
+PASS E02 OOM 触发并生成非空堆快照 (heap_bytes=35702814)
+BACKEND30-E PASS 5/5

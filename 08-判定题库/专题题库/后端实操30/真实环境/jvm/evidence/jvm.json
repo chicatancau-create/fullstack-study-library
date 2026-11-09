@@ -1,0 +1,43 @@
+{
+  "captured_at": "2026-11-09T07:42:28.757Z",
+  "java": "java version \"25.0.2\" 2026-01-20 LTS\r\nJava(TM) SE Runtime Environment (build 25.0.2+10-LTS-69)\r\nJava HotSpot(TM) 64-Bit Server VM (build 25.0.2+10-LTS-69, mixed mode, sharing)\r\n",
+  "checks": [
+    {
+      "name": "E01 真实 GC 日志：至少 3 次停顿并给出最大停顿",
+      "ok": true,
+      "detail": "pauses=1854 max_ms=4.561"
+    },
+    {
+      "name": "E01 JFR 记录非空且可解析",
+      "ok": true,
+      "detail": "bytes=5888886"
+    },
+    {
+      "name": "E03 jstack 识别 Java 级死锁与线程名",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "E04 jstack 线程状态可统计且包含阻塞态",
+      "ok": true,
+      "detail": "{\"TIMED_WAITING\":2,\"RUNNABLE\":8,\"WAITING\":1,\"BLOCKED\":2}"
+    },
+    {
+      "name": "E02 OOM 触发并生成非空堆快照",
+      "ok": true,
+      "detail": "heap_bytes=35702814"
+    }
+  ],
+  "metrics": {
+    "gcPauses": 1854,
+    "maxPauseMs": 4.561,
+    "jfrBytes": 5888886,
+    "threadStates": {
+      "TIMED_WAITING": 2,
+      "RUNNABLE": 8,
+      "WAITING": 1,
+      "BLOCKED": 2
+    },
+    "heapBytes": 35702814
+  }
+}
