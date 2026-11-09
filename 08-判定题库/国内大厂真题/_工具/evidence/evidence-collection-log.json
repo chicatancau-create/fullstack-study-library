@@ -8,22 +8,32 @@
       "title": "字节跳动-今日头条后端开发一面面经",
       "result": "success",
       "evidence_id": "NC-BD-001",
-      "mapped": ["Q067"]
+      "mapped": [
+        "Q067"
+      ]
     },
     {
       "url": "https://www.nowcoder.com/discuss/942507302752428032",
       "title": "字节飞书一面",
       "result": "success",
       "evidence_id": "NC-BD-002",
-      "mapped": ["Q002"]
+      "mapped": [
+        "Q002"
+      ]
     },
     {
       "url": "https://www.nowcoder.com/feed/main/detail/adbbc0f372324a538be3368291061fa8",
       "title": "字节面试避坑指南（含血泪教训）",
       "result": "success",
       "evidence_id": "NC-BD-003",
-      "mapped": ["Q002"],
-      "unmapped": ["3. 无重复字符的最长子串", "206. 反转链表", "第 K 大（题名不具体）"]
+      "mapped": [
+        "Q002"
+      ],
+      "unmapped": [
+        "3. 无重复字符的最长子串",
+        "206. 反转链表",
+        "第 K 大（题名不具体）"
+      ]
     },
     {
       "url": "https://www.nowcoder.com/feed/main/detail/cd8334673acf4c45bea289e0a5f11e49",
@@ -60,6 +70,18 @@
       "title": "27日常实习面经分享-美团后端ai开发",
       "result": "content-missing",
       "reason": "页面可打开但正文未渲染，未取得可引用短句"
+    },
+    {
+      "url": "https://www.nowcoder.com/discuss/930155293864914944",
+      "title": "字节跳动AI Agent研发工程师｜AI算力基础设施27秋招面经",
+      "result": "login-required",
+      "reason": "页面正文需登录，搜索摘要提到“手撕 LRU”，但正文不可公开核验，按规则不采纳"
+    },
+    {
+      "url": "https://www.nowcoder.com/discuss/926274355078664192",
+      "title": "字节跳动- 后端开发岗（高并发/ 中间件）",
+      "result": "login-required",
+      "reason": "页面正文需登录；搜索摘要含“手撕是‘实现线程安全的 LRU’”，但正文不可公开核验，按规则不采纳"
     }
   ]
 }
