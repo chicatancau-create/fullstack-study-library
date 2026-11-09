@@ -1,8 +1,8 @@
 {
   "schema": 1,
-  "experiment": "BACKEND30_C",
-  "generated_at": "2026-11-09T07:38:13.491Z",
-  "commit": "8ad7bc569d28493a564adfeb8e450478bc64fcea",
+  "experiment": "BACKEND30_CD",
+  "generated_at": "2026-11-09T07:40:19.378Z",
+  "commit": "2e991e4fb57c8e87557ee8969aa0ba031cd484d7",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -25,15 +25,25 @@
     {
       "path": "evidence/concurrency.json",
       "bytes": 1228,
-      "sha256": "248b0a55c5821b98d99356f71ae7a2cf3eb52795f10e61757acca033a04da9ed"
+      "sha256": "685fd2e2e4462196fc976a0a9eae7cb3a4e0f171293682e72b26db252c4e9a50"
+    },
+    {
+      "path": "evidence/outbox.txt",
+      "bytes": 672,
+      "sha256": "1b97c1ae5ffbfe3de710be015a14a06bc09dd73c13571aed05f74bd43656412c"
+    },
+    {
+      "path": "evidence/outbox.json",
+      "bytes": 710,
+      "sha256": "e1aa00f0e5878f1b91588db19bbe80080b64329628d30adfb8d40600577580b1"
     },
     {
       "path": "evidence/run.txt",
-      "bytes": 116,
-      "sha256": "c7d0ee459f87b50bce75d08196d330d7ceb0906a0e2e3ec7920179cfc4781278"
+      "bytes": 145,
+      "sha256": "bffc5fef413693d757ad5e5c00b6239342911a090cc6a499c321792165508f6e"
     }
   ],
   "unverified": [
-    "仅 C 组；A/B/D/E 未升级；未做生产压测"
+    "仅 C/D 组；A/B/E 未升级；RabbitMQ 为单机默认 vhost，未做集群或仲裁队列"
   ]
 }

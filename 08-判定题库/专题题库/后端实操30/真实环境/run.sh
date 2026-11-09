@@ -18,11 +18,16 @@ node concurrency.mjs 2>&1 | tee evidence/concurrency.txt
 rc=${PIPESTATUS[0]}
 [ "$rc" -eq 0 ] || fails=$((fails + 1))
 
+node outbox.mjs 2>&1 | tee evidence/outbox.txt
+rc=${PIPESTATUS[0]}
+[ "$rc" -eq 0 ] || fails=$((fails + 1))
+
 {
   echo "captured_at: $(date -Is)"
   echo "node: $(node -v)"
   echo "pg: $(node -p "require('pg/package.json').version")"
   echo "concurrency: $(tail -1 evidence/concurrency.txt)"
+  echo "outbox: $(tail -1 evidence/outbox.txt)"
   echo "gate_failures: $fails"
 } | tee evidence/run.txt
 
