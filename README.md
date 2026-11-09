@@ -41,7 +41,8 @@
 
 ## 工程证据
 
-- 本机门禁：题库 `check_bank` 6/6、答案 `check_answers` 5/5、前端题 `check_frontend` 5/5、408/答案 manifest 校验通过。
+- 本机门禁：题库 `check_bank` 6/6、答案 `check_answers` 5/5、前端题 `check_frontend` 5/5、学生包 `check_student_packages` 7/7、后端 30 `judge.mjs` 30/30、RAG 离线评测 PASS；`verify_all --profile=ci --offline` 21/21。
+- 根 workflow 10 个（experiments、ms1-p02/p03/p04、verify-all、ms5-sources、ms5-links、student-packages、ms4-backend、ms4-rag）；均未在 Actions 实跑。
 - P02/P03/P04 源码与证据在外部私有仓库 `E:\fullstack-code`，本仓库只有索引；本仓库 CI 无法构建三项目。
 - GitHub Actions 自 2026-11-08 起受计费阻断，最新提交未在云端实跑；“全绿”只代表历史基线。
 - 实验与项目 manifest：E01–E13 + G1 + P02/P03/P04 共 17 份全部校验通过。
