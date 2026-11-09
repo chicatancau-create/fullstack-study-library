@@ -1,0 +1,13 @@
+✔ 普通档：开放到达率 50/s，无 dropped、无失败 (3911.1632ms)
+✔ 峰值档：120/s 出现排队但请求仍完成 (4343.0171ms)
+✔ 超容量档：260/s 出现 dropped/失败或 corrected p99 明显上升 (4367.1252ms)
+✔ DB 档：连接池 max=4 被采样，coordinated omission 校正生效 (2854.2428ms)
+✔ 证据包含 CPU profile 热点与三档汇总 (1.2073ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15576.0117

@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E12",
-  "generated_at": "2026-11-08T10:28:18.538Z",
-  "commit": "dc094b10725a3382e86fa26910719b143f4139ac",
+  "generated_at": "2026-11-09T02:49:19.723Z",
+  "commit": "e0f64473052ae9b458130f9f8af41160c0ba9a6d",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -12,28 +12,40 @@
   },
   "commands": [
     {
-      "cmd": "bash scripts/run_unit.sh",
+      "cmd": "bash scripts/run_evidence.sh",
+      "exit": 0
+    },
+    {
+      "cmd": "npm test",
       "exit": 0
     }
   ],
   "artifacts": [
     {
       "path": "evidence/run.txt",
-      "bytes": 293,
-      "sha256": "c215dbaa32feb7b745e4e6667328159bb118e1e12b6dd3e2a021aeb2f07e51fb"
+      "bytes": 285,
+      "sha256": "3a6eaff723fb109a232d968025535cd3ff4c7ece7ffc7330a1075b10fa228db4"
     },
     {
-      "path": "evidence/load.json",
-      "bytes": 1061,
-      "sha256": "f0bf9161d261cb022c7f4431ce8072d52d3e527a2db2dfa1ae33d57b3f09a068"
+      "path": "evidence/open-load.json",
+      "bytes": 2700,
+      "sha256": "b28dd76a199fedb632395d4f672441f6bbf323cf6c9f67a4db105467f97dae88"
     },
     {
-      "path": "evidence/load.txt",
-      "bytes": 359,
-      "sha256": "a3d80479c8c41216ddaa2d47b506a457cd699745bede61a4ce33e04ee3128090"
+      "path": "evidence/open-load.txt",
+      "bytes": 846,
+      "sha256": "9e1150a2bac40bb208f76d1411de57560eebafb4c5a67546bc90f1b66231f062"
+    },
+    {
+      "path": "evidence/run-summary.txt",
+      "bytes": 713,
+      "sha256": "540c22b8b613856edbc7420b197497a2ae4e2e8fd739d77d07be8ac36aae1aff"
+    },
+    {
+      "path": "evidence/test.txt",
+      "bytes": 501,
+      "sha256": "07a1d3dce779071b5b31a48ed1d1632d8209da00702d85889fcb8b6ee8908d8f"
     }
   ],
-  "unverified": [
-    "本地闭环/合成下游；无开放模型/饱和度/真实 DB/容量结论"
-  ]
+  "unverified": []
 }

@@ -1,6 +1,5 @@
-round-1: completed=300 failures=0 rps=1199.19 p50=15.53ms p95=22.33ms p99=25.49ms
-round-2: completed=300 failures=0 rps=1288.84 p50=15.22ms p95=17.06ms p99=18.54ms
-round-3: completed=300 failures=0 rps=1267.65 p50=15.63ms p95=16.82ms p99=17.27ms
+round-1: completed=300 failures=0 rps=1194.25 p50=15.64ms p95=24.08ms p99=26.81ms
+round-2: completed=300 failures=0 rps=1273.82 p50=15.56ms p95=17.1ms p99=17.86ms
+round-3: completed=300 failures=0 rps=1273.09 p50=15.66ms p95=16.68ms p99=17.79ms
 rounds=3 failures=0 bad_p95=0
 LOAD PASS
-exit=0

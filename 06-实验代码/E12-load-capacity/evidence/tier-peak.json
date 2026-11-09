@@ -1,0 +1,43 @@
+{
+  "captured_at": "2026-11-09T02:49:03.692Z",
+  "node": "v24.15.0",
+  "workload": {
+    "model": "open",
+    "max_in_flight": 150,
+    "tiers": [
+      "ordinary",
+      "peak",
+      "over",
+      "db"
+    ]
+  },
+  "results": [
+    {
+      "tier": "peak",
+      "rate": 120,
+      "duration_ms": 3000,
+      "route": "/limited",
+      "scheduled": 360,
+      "sent": 360,
+      "completed": 360,
+      "dropped": 0,
+      "failures": 14,
+      "throughput_rps": 96.9,
+      "raw_p50": 352.94,
+      "raw_p95": 556.17,
+      "raw_p99": 559.29,
+      "corrected_p50": 353.72,
+      "corrected_p95": 557.33,
+      "corrected_p99": 565.69,
+      "saturation": {
+        "cpu_pct_max": 23.8,
+        "rss_mb_max": 69.9,
+        "event_loop_max_ms": 22.87,
+        "active_max": 5,
+        "queued_max": 50,
+        "pool_waiting_max": 0
+      }
+    }
+  ],
+  "cpu_hot": []
+}

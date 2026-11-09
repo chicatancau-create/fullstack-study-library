@@ -1,0 +1,3 @@
+node=v24.15.0 model=open max_in_flight=150
+ordinary: rate=50/s sent=150 completed=150 dropped=0 failures=0 raw_p99=53.43 corrected_p99=66.14 cpu=23% loop=22.3ms queued=0 pool_waiting=0
+cpu_hot: (no profile)

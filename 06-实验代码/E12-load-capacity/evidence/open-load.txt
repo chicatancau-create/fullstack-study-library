@@ -1,0 +1,13 @@
+node=v24.15.0 model=open max_in_flight=150
+ordinary: rate=50/s sent=150 completed=150 dropped=0 failures=0 raw_p99=53.63 corrected_p99=66.07 cpu=29.9% loop=22.66ms queued=0 pool_waiting=0
+peak: rate=120/s sent=360 completed=360 dropped=0 failures=14 raw_p99=562.3 corrected_p99=570.42 cpu=23.6% loop=22.95ms queued=50 pool_waiting=0
+over: rate=260/s sent=780 completed=780 dropped=0 failures=433 raw_p99=560 corrected_p99=569.19 cpu=36.5% loop=22.95ms queued=50 pool_waiting=0
+db: rate=80/s sent=160 completed=160 dropped=0 failures=0 raw_p99=254.64 corrected_p99=265.35 cpu=25.PASS ordinary 0 dropped
+PASS ordinary 0 failures
+PASS over 有 dropped/失败或 p99 明显上升
+PASS ordinary corrected >= raw p99
+PASS peak corrected >= raw p99
+PASS over corrected >= raw p99
+PASS db corrected >= raw p99
+PASS db 连接池不超过 4
+OPEN LOAD PASS

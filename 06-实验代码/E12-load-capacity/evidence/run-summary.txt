@@ -1,0 +1,6 @@
+captured_at: 2026-11-09T10:49:11+08:00
+closed-loop: LOAD PASS
+open-loop: OPEN LOAD PASS
+tiers: ordinary: rate=50/s sent=150 completed=150 dropped=0 failures=0 raw_p99=53.63 corrected_p99=66.07 cpu=29.9% loop=22.66ms queued=0 pool_waiting=0 peak: rate=120/s sent=360 completed=360 dropped=0 failures=14 raw_p99=562.3 corrected_p99=570.42 cpu=23.6% loop=22.95ms queued=50 pool_waiting=0 over: rate=260/s sent=780 completed=780 dropped=0 failures=433 raw_p99=560 corrected_p99=569.19 cpu=36.5% loop=22.95ms queued=50 pool_waiting=0 db: rate=80/s sent=160 completed=160 dropped=0 failures=0 raw_p99=254.64 corrected_p99=265.35 cpu=25.PASS ordinary 0 dropped 
+test: ℹ tests 5 ℹ pass 5 ℹ fail 0 
+gate_failures: 0
