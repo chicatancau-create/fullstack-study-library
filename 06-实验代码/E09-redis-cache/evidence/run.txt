@@ -1,4 +1,7 @@
-captured_at: 2026-11-08T17:54:22+08:00
-redis: redis_version:3.0.504
-test: ℹ tests 5 ℹ pass 5 ℹ fail 0 
+captured_at: 2026-11-09T10:32:23+08:00
+cache-redis: redis_version:3.0.504
+redlock-redis: redis: Redis server v=8.10.3 sha=00000000:0 malloc=libc bits=64 build=836bf75a30e8839f
+instances: instances: 7001,7002,7003 quorum=2 started=7001,7002,7003
+redlock: REDLOCK PASS
+test: ℹ tests 11 ℹ pass 11 ℹ fail 0 
 gate_failures: 0

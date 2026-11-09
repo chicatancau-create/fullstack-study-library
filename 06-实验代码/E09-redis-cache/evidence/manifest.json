@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E09",
-  "generated_at": "2026-11-08T09:56:20.586Z",
-  "commit": "c9d17ab1d3532e872a71d56690daf0feb8eae8e4",
+  "generated_at": "2026-11-09T02:32:30.364Z",
+  "commit": "3829a546f496ea8d054b5fc07ab909598cd2c6ba",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -10,7 +10,16 @@
     "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0",
     "gdb": "GNU gdb (GDB for MinGW-W64 x86_64, built by Brecht Sanders, r7) 17.1"
   },
-  "commands": [],
+  "commands": [
+    {
+      "cmd": "bash scripts/run_evidence.sh",
+      "exit": 0
+    },
+    {
+      "cmd": "npm test",
+      "exit": 0
+    }
+  ],
   "artifacts": [
     {
       "path": "evidence/env.txt",
@@ -18,14 +27,19 @@
       "sha256": "aa7028856ffd5376af1a80824f4f371c074a17b978e3121955e4621e282197d7"
     },
     {
+      "path": "evidence/redlock.txt",
+      "bytes": 878,
+      "sha256": "76bf054b9aee5d5bde470005171c4b9d45b114a577f6ef43b86463b67ed8815f"
+    },
+    {
       "path": "evidence/test.txt",
-      "bytes": 467,
-      "sha256": "8153694141d255f69e286669e284ca1b8dc830d334f47e126a9c6e0eca3ee16b"
+      "bytes": 955,
+      "sha256": "b236fc7b567c1d44be2e5462908bc2957ef76e31e096146143ff8d340d42ebb4"
     },
     {
       "path": "evidence/run.txt",
-      "bytes": 126,
-      "sha256": "4f23ec85e22b2fe0530f900bf2f273fbc4153e3195a2bab780c3817a05fd03ec"
+      "bytes": 327,
+      "sha256": "9e8db05a66d3f104f571b75c6f2062d3749198bc4cba8e6bdd7140423d695433"
     }
   ],
   "unverified": []

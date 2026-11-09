@@ -1,0 +1,17 @@
+redis: Redis server v=8.10.3 sha=00000000:0 malloc=libc bits=64 build=836bf75a30e8839f
+instances: 7001,7002,7003 quorum=2 started=7001,7002,7003
+PASS acquire: okCount=3 validity=1976.6ms
+PASS all instances hold the same owner token
+PASS competing client is rejected while lock held
+PASS wrong-owner release deletes 0 keys, lock intact
+PASS owner release removes lock from all instances
+PASS quorum lost: acquire fails (1/3 and 1/2 alive)
+PASS quorum kept: 2/2 alive -> 2
+PASS extend keeps ownership: pttl=1199ms validity=1195.9ms
+PASS expiry: old token=64eeecfb new token=e9e69f9b
+PASS without fencing: stale writer overwrites -> stale-write
+PASS with fencing: stale token 1 rejected, status=newer-write fencing=2
+PASS idempotent: outcomes=created/duplicate, handler calls=1
+PASS same key different body: conflict
+PASS duplicate request returns the stored response
+REDLOCK PASS
