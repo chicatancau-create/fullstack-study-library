@@ -3,3 +3,4 @@ ok 跨租户拒绝
 ok member 不能写
 ok admin 可写不可管
 checks=4 fails=0
+PASS 函数题·参考答案通过

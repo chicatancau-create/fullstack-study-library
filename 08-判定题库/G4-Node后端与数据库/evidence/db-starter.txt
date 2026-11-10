@@ -1,0 +1,12 @@
+FAIL D1 跨租户列表为空: [{"id":"k-t2-1","tenant_id":"t2","title":"T2 任务 1","owner_id":"m-t2-owner","version":1,"status":"todo"}] != []
+ok D2 同租户列表有数据
+FAIL D3 注入不泄露他租户: [{"id":"k-t2-1","title":"T2 任务 1"}] != []
+FAIL D4 恶意/畸形输入不抛未处理错误: "未结束的引用字符串 在 \"'\" 或附近的" != ""
+ok D4 主表仍在
+FAIL D5 版本不匹配拒绝更新（返回 null 且数据未变）: [{"id":"k-t1-1","title":"改坏","version":1},"改坏:1"] != [null,"T1 任务 1:1"]
+FAIL D6 版本匹配更新成功且 version+1: [true,"T1 任务 1（改）:1"] != [true,"T1 任务 1（改）:2"]
+FAIL D7 20 并发同版本只有 1 个成功（version=2）: [20,1] != [1,2]
+FAIL D8 keyset 分页不重不漏（26 行）: [30,10] != [26,26]
+FAIL D9 事务回滚: 未导出 renameProjectAtomically
+checks=10 fails=8
+starter_rejected=YES rc=1

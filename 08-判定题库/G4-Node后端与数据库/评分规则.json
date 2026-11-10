@@ -1,0 +1,76 @@
+{
+  "pack": "G4-Node后端与数据库",
+  "version": 2,
+  "generated_from": ["自测脚本/grade.mjs", "自测脚本/grade-db.mjs"],
+  "thresholds": { "must_pass_all": true, "machine_checks": 14 },
+  "environment": {
+    "database": "PostgreSQL 18.6 @ 127.0.0.1:5432/study_lab",
+    "schemas": ["g4_lab", "g4_lab_migrate"],
+    "client": "pg 8.23.1（判分不用 psql，避免 Windows 代码页问题）"
+  },
+  "dimensions": [
+    {
+      "id": "tenant",
+      "name": "租户隔离与授权",
+      "weight": 30,
+      "signals": [
+        { "source": "grade.mjs", "check": "函数题 RBAC 四条", "points": 10 },
+        { "source": "grade-db.mjs", "check": "D1 跨租户列表为空", "points": 12 },
+        { "source": "grade-db.mjs", "check": "D3 注入不泄露他租户", "points": 8 }
+      ],
+      "full_marks_when": "授权条件进 SQL，不只是应用层过滤"
+    },
+    {
+      "id": "inject",
+      "name": "注入与输入边界",
+      "weight": 20,
+      "signals": [
+        { "source": "grade-db.mjs", "check": "D4 畸形输入不抛未处理错误 + 主表仍在", "points": 12 },
+        { "source": "人工", "check": "全部查询参数化，无字符串拼接", "points": 8 }
+      ],
+      "full_marks_when": "注入样本按字面匹配、无副作用"
+    },
+    {
+      "id": "concurrency",
+      "name": "并发与事务",
+      "weight": 30,
+      "signals": [
+        { "source": "grade-db.mjs", "check": "D5 版本不匹配拒绝 + D6 版本匹配成功", "points": 10 },
+        { "source": "grade-db.mjs", "check": "D7 20 并发只有 1 个成功", "points": 10 },
+        { "source": "grade-db.mjs", "check": "D9 事务整笔回滚", "points": 10 }
+      ],
+      "full_marks_when": "乐观锁在 SQL 层生效，事务用同一 client"
+    },
+    {
+      "id": "paging",
+      "name": "分页与查询正确性",
+      "weight": 10,
+      "signals": [
+        { "source": "grade-db.mjs", "check": "D2 同租户列表有数据", "points": 4 },
+        { "source": "grade-db.mjs", "check": "D8 keyset 26 行不重不漏", "points": 6 }
+      ],
+      "full_marks_when": "keyset 分页，翻页期间插入不产生重复/漏页"
+    },
+    {
+      "id": "ship",
+      "name": "改动范围与可复现",
+      "weight": 10,
+      "signals": [
+        { "source": "人工", "check": "只动 g4_lab / g4_lab_migrate；没碰其它 schema", "points": 6 },
+        { "source": "人工", "check": "学习日志含基线与修复后两份输出", "points": 4 }
+      ],
+      "full_marks_when": "别人能照日志复现 10/10"
+    }
+  ],
+  "evidence_notes": [
+    "答案：10/10。起始代码：8 条 fail（D2 通过）。",
+    "变异检测 4/4：去租户条件 / 改回拼接 / 去乐观锁 / 改回 OFFSET 全部被抓。",
+    "迁移回滚：db/migrate_rollback.sql 的 up→down 在 scripts/db_setup.sh 中执行并校验行数。"
+  ],
+  "grade_bands": [
+    { "min": 90, "label": "能独立写安全的数据访问层" },
+    { "min": 75, "label": "可用，并发/事务还需练" },
+    { "min": 60, "label": "主路径过，隔离或注入有洞" },
+    { "min": 0, "label": "未通过：机器断言有 fail" }
+  ]
+}

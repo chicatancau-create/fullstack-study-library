@@ -1,0 +1,12 @@
+apply db/schema.sql
+psql:db/schema.sql:4: 注意:  模式 "g4_lab" 已存在, 跳过
+apply db/migrate_rollback.sql
+psql:db/migrate_rollback.sql:6: 注意:  模式 "g4_lab_migrate" 已存在, 跳过
+ rows_total 
+------------
+          3
+(1 row)
+
+g4_lab.task rows=2
+DB-SETUP OK
+PASS 数据库环境

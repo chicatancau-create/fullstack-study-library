@@ -1,0 +1,6 @@
+ok M1 rc=1 去掉租户条件（跨租户可读） -> FAIL D1 跨租户列表为空: [{"id":"k-t2-1","tenant_id":"t2","title":"T2 任务 1","owner_id":"
+ok M2 rc=1 searchTasks 改回字符串拼接 -> FAIL D3 注入不泄露他租户: [{"id":"k-t2-1","title":"T2 任务 1"}] != []
+ok M3 rc=1 去掉乐观锁版本校验 -> FAIL D5 版本不匹配拒绝更新（返回 null 且数据未变）: [{"id":"k-t1-1","title":"改坏","version":2},"改坏:
+ok M4 rc=1 分页改回 OFFSET（不稳定） -> FAIL D8 keyset 分页不重不漏（26 行）: [30,10] != [26,26]
+variants=4 fails=0
+PASS 变异检测 4/4
