@@ -1,0 +1,63 @@
+{
+  "pack": "G2-JavaScript与TypeScript",
+  "version": 2,
+  "generated_from": [
+    "自测脚本/grade.mjs",
+    "自测脚本/grade-ts.mjs",
+    "自测脚本/grade-cli.mjs"
+  ],
+  "thresholds": { "must_pass_all": true, "machine_checks": 32, "type_coverage_min": 0.8 },
+  "dimensions": [
+    {
+      "id": "invariants",
+      "name": "并发池不变量",
+      "weight": 30,
+      "signals": [
+        { "source": "grade.mjs", "check": "JS 版并发/FIFO/结果", "points": 8 },
+        { "source": "grade-ts.mjs", "check": "TS 版 16 条（并发/队列满/取消/边界/交错/快照）", "points": 22 }
+      ],
+      "full_marks_when": "并发上限、FIFO、拒绝后继续、队列满、stats 快照五类都在"
+    },
+    {
+      "id": "cli",
+      "name": "CLI 契约",
+      "weight": 30,
+      "signals": [
+        { "source": "grade-cli.mjs", "check": "14 条：帮助/退出码 2·3·4/schema/队列满/取消/并发生效", "points": 30 }
+      ],
+      "full_marks_when": "退出码语义与 --json 结构都对，未知参数与非法取值有明确码"
+    },
+    {
+      "id": "types",
+      "name": "类型质量",
+      "weight": 30,
+      "signals": [
+        { "source": "tsc -p tsconfig.json", "check": "起始代码 + 答案 + 类型测试零错误", "points": 18 },
+        { "source": "type-coverage --at-least 80", "check": "类型覆盖率 ≥80%（实测 100.00%）", "points": 6 },
+        { "source": "类型测试/pool.test-d.ts", "check": "泛型透传、stats 字段、参数类型断言", "points": 6 }
+      ],
+      "full_marks_when": "严格模式零错误且类型层断言也在编译期生效"
+    },
+    {
+      "id": "ship",
+      "name": "改动范围与证据",
+      "weight": 10,
+      "signals": [
+        { "source": "人工", "check": "只改 起始代码/ts/；没动 参考答案/", "points": 6 },
+        { "source": "人工", "check": "学习日志含基线与修复后输出", "points": 4 }
+      ],
+      "full_marks_when": "别人能照日志复现 32 条断言"
+    }
+  ],
+  "evidence_notes": [
+    "答案：JS 2/2、TS 16/16、CLI 14/14、tsc 0 错、type-coverage 100.00%（440/440）。",
+    "起始代码：三条 grader 全部被拒；tsc 对起始代码也零错误（未实现但类型正确）。",
+    "变异检测 4/4：放宽 pump、队列满判断、limit 下界、stats 快照 全部被抓。"
+  ],
+  "grade_bands": [
+    { "min": 90, "label": "能写类型正确的并发工具库" },
+    { "min": 75, "label": "可用，CLI 退出码或边界还需练" },
+    { "min": 60, "label": "主路径过，类型覆盖率不足" },
+    { "min": 0, "label": "未通过：机器断言有 fail" }
+  ]
+}

@@ -4,7 +4,7 @@ ok 未知参数退出码 2
 ok --limit 缺值退出码 2
 ok --limit 0 退出码 2
 ok 正常执行退出码 0 且 --json 结构正确 ids=a,b,c,d
-ok 并发上限生效 elapsed=294ms
+ok 并发上限生效 elapsed=292ms
 ok 顶层不是数组退出码 3
 ok 非法 JSON 退出码 3
 ok 缺少 id 退出码 3

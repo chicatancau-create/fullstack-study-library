@@ -10,7 +10,8 @@
     "grade:cli": "node 自测脚本/grade-cli.mjs",
     "typecheck": "tsc -p tsconfig.json",
     "type-coverage": "type-coverage --project tsconfig.json --at-least 80",
-    "evidence": "bash scripts/evidence.sh"
+    "evidence": "bash scripts/evidence.sh",
+    "mutation": "node scripts/mutation_check.mjs"
   },
   "engines": {
     "node": ">=24"
