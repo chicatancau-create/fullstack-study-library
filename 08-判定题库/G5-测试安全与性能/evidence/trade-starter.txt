@@ -1,0 +1,12 @@
+FAIL T1 100 并发抢 10 件恰好成功 10 单: [100,0,0] != [10,0,0]
+ok T2 同键 5 次并发只落 1 单
+ok T2 同键只扣一次库存（5→3）
+FAIL T2 重放不算失败: 1 != 5
+FAIL T3 库存不足明确失败且不落单: [true,0] != [false,0]
+FAIL T4 非法数量: 抛出未处理错误 关系 "order" 的新列违反了检查约束 "order_qty_check"
+FAIL T5 少付被发现: false != true
+FAIL T5 多付/少付按期望值报告: undefined != {"orderId":"o-recon-1","kind":"paid_mismatch","expected":100,"actual":80}
+FAIL T6 拒单有支付被发现: false != true
+FAIL T7 负载模型: 未导出 capacityEstimate
+checks=13 fails=8
+starter_rejected=YES rc=1

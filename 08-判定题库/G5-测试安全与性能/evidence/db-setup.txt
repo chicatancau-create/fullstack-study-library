@@ -1,0 +1,6 @@
+apply db/schema.sql
+psql:db/schema.sql:4: 注意:  模式 "g5_lab" 已存在, 跳过
+psql:db/schema.sql:6: 注意:  表 "order_item" 不存在
+g5_lab.stock sku-hot available=10
+DB-SETUP OK
+PASS 交易库环境

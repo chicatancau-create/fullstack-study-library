@@ -1,0 +1,75 @@
+{
+  "pack": "G5-测试安全与性能",
+  "version": 2,
+  "generated_from": ["自测脚本/grade.mjs", "自测脚本/grade-trade.mjs"],
+  "thresholds": { "must_pass_all": true, "machine_checks": 17 },
+  "environment": {
+    "database": "PostgreSQL 18.6 @ 127.0.0.1:5432/study_lab",
+    "schema": "g5_lab",
+    "client": "pg 8.23.1（判分不用 psql）",
+    "concurrency": "100 并发经 Promise.allSettled，跑在单进程多连接池"
+  },
+  "dimensions": [
+    {
+      "id": "concurrency",
+      "name": "并发与库存一致性",
+      "weight": 30,
+      "signals": [
+        { "source": "grade-trade.mjs", "check": "T1 100 并发恰好成功 10 单、库存 0、无异常", "points": 20 },
+        { "source": "人工", "check": "扣减是单条条件 UPDATE，不是先查后改", "points": 10 }
+      ],
+      "full_marks_when": "条件扣减 + rowCount 判失败 + 回滚"
+    },
+    {
+      "id": "idempotent",
+      "name": "幂等与重放",
+      "weight": 25,
+      "signals": [
+        { "source": "grade-trade.mjs", "check": "T2 同键 5 并发只落 1 单、只扣一次、5 次都成功", "points": 18 },
+        { "source": "人工", "check": "瞬时冲突（23505/40P01/40001）有重试，不冒充业务失败", "points": 7 }
+      ],
+      "full_marks_when": "唯一键兜底 + DO NOTHING + 回查原单 + 有限重试"
+    },
+    {
+      "id": "reconcile",
+      "name": "对账与失败语义",
+      "weight": 25,
+      "signals": [
+        { "source": "grade-trade.mjs", "check": "T5 paid_mismatch 带期望/实际", "points": 10 },
+        { "source": "grade-trade.mjs", "check": "T6 拒单有支付被发现", "points": 8 },
+        { "source": "grade-trade.mjs", "check": "T3/T4 缺货与非法数量明确失败", "points": 7 }
+      ],
+      "full_marks_when": "四账对齐，失败有 reason，不伪装成功"
+    },
+    {
+      "id": "model",
+      "name": "负载模型",
+      "weight": 10,
+      "signals": [
+        { "source": "grade-trade.mjs", "check": "T7 capacityEstimate 数值 + 参数校验", "points": 10 }
+      ],
+      "full_marks_when": "能算并发下的理论吞吐与饱和度，而不是拍脑袋压测"
+    },
+    {
+      "id": "ship",
+      "name": "改动范围与可复现",
+      "weight": 10,
+      "signals": [
+        { "source": "人工", "check": "只动 g5_lab；没碰其它 schema", "points": 6 },
+        { "source": "人工", "check": "学习日志含基线与修复后输出", "points": 4 }
+      ],
+      "full_marks_when": "别人能照日志复现 15/15"
+    }
+  ],
+  "evidence_notes": [
+    "答案：15/15（含一次并发幂等重试路径）。起始代码：8 条 fail。",
+    "变异检测 4/4：不扣库存 / 去 ON CONFLICT / 对账漏拒单支付 / 缺货伪装成功 全部被抓。",
+    "幂等重试是实测逼出来的：无重试时并发同键出现过 4/5 成功。"
+  ],
+  "grade_bands": [
+    { "min": 90, "label": "能写正确的并发交易代码" },
+    { "min": 75, "label": "可用，幂等/对账还需练" },
+    { "min": 60, "label": "主路径过，并发下会超卖" },
+    { "min": 0, "label": "未通过：机器断言有 fail" }
+  ]
+}

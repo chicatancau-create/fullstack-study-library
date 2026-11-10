@@ -3,3 +3,4 @@ ok 数量越界
 ok SKU 非法
 ok XSS 字符
 checks=4 fails=0
+PASS 函数题·参考答案通过
