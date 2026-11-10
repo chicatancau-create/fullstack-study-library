@@ -1,0 +1,8 @@
+ok R1 构建产物存在 assets=1
+ok R2 首屏渲染 items=4
+FAIL R3 竞态保护: 旧响应覆盖了新结果: alpha 任务|alpine 任务|beta 任务|bravo 任务
+FAIL R4 memo 依赖: 点击后 aria-pressed 没变: false -> false
+FAIL R5 可访问性: 输入框没有可访问名
+ok R7 无未捕获错误
+checks=6 fails=3
+starter_rejected=YES rc=1

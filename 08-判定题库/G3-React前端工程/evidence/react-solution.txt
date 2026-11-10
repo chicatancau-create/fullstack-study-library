@@ -1,0 +1,8 @@
+ok R1 构建产物存在 assets=1
+ok R2 首屏渲染 items=4
+ok R3 竞态保护 titles=2
+ok R4 memo 依赖 aria-pressed false->true->false, 切换次数 2
+ok R5 可访问性 label=搜索任务 axe=0
+ok R7 无未捕获错误
+checks=6 fails=0
+PASS 应用·参考答案 6/6

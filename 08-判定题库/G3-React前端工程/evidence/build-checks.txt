@@ -1,0 +1,6 @@
+ok B1 产物引用完整 refs=1
+ok B2 无绝对路径引用（可部署到子路径） base="./"
+ok B4 单 chunk ≤ 400 kB max=215.7 kB
+ok B3 旧 chunk 可被检测 404=1，页面为空而非假成功
+checks=4 fails=0
+PASS 应用·构建产物 4/4

@@ -1,3 +1,4 @@
 ok 新请求生效
 ok 旧响应被丢弃
 checks=2 fails=0
+PASS 函数题·参考答案通过

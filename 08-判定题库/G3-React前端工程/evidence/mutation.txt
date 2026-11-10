@@ -1,0 +1,7 @@
+ok F1 rc=1 函数题：去掉 stale 判断 -> FAIL 旧响应被丢弃: false != true
+ok F2 rc=1 函数题：不再更新 latest 序号 -> FAIL 新请求生效: null != "new"
+ok R3 rc=1 去掉请求序号（竞态回来） -> FAIL R3 竞态保护: 旧响应覆盖了新结果: alpha 任务|alpine 任务|beta 任务|bravo 任务
+ok R4 rc=1 TaskRow 改回只比 id 的 memo -> FAIL R4 memo 依赖: 点击后 aria-pressed 没变: false -> false
+ok R5 rc=1 去掉输入框的 label -> FAIL R5 可访问性: 输入框没有可访问名
+variants=5 fails=0
+PASS 变异检测 5/5

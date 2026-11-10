@@ -1,0 +1,65 @@
+{
+  "pack": "G3-React前端工程",
+  "version": 2,
+  "generated_from": [
+    "自测脚本/grade.mjs",
+    "自测脚本/grade-react.mjs",
+    "自测脚本/grade-build.mjs"
+  ],
+  "thresholds": { "must_pass_all": true, "machine_checks": 12 },
+  "dimensions": [
+    {
+      "id": "D1",
+      "name": "竞态与数据一致性",
+      "weight": 35,
+      "signals": [
+        { "source": "grade.mjs", "check": "函数题 latestOnly", "points": 10 },
+        { "source": "grade-react.mjs", "check": "R3 竞态保护（a→al 只有 al 生效）", "points": 15 },
+        { "source": "grade-react.mjs", "check": "R2 首屏渲染", "points": 10 }
+      ],
+      "full_marks_when": "慢响应被丢弃，界面永远是最后一次查询的结果"
+    },
+    {
+      "id": "D2",
+      "name": "渲染正确性",
+      "weight": 25,
+      "signals": [
+        { "source": "grade-react.mjs", "check": "R4 memo 依赖（aria-pressed 往返 + 计数=2）", "points": 15 },
+        { "source": "grade-react.mjs", "check": "R7 无未捕获错误", "points": 10 }
+      ],
+      "full_marks_when": "状态更新能穿透 memo，console 无异常"
+    },
+    {
+      "id": "D3",
+      "name": "可访问性与构建质量",
+      "weight": 25,
+      "signals": [
+        { "source": "grade-react.mjs", "check": "R5 可访问名 + axe 零违规", "points": 12 },
+        { "source": "grade-build.mjs", "check": "B1 引用完整 + B2 无绝对路径", "points": 8 },
+        { "source": "grade-build.mjs", "check": "B3 旧 chunk 可检测 + B4 体积预算", "points": 5 }
+      ],
+      "full_marks_when": "axe 零违规，产物可部署到子路径，旧 chunk 不会假成功"
+    },
+    {
+      "id": "D4",
+      "name": "改动范围与说明",
+      "weight": 15,
+      "signals": [
+        { "source": "人工", "check": "只改 src/（不动 search.js 的延迟曲线、不动自测脚本）", "points": 10 },
+        { "source": "人工", "check": "学习日志记了修前 3 条 fail 与修后 6/6 的输出", "points": 5 }
+      ],
+      "full_marks_when": "能用一句话说清三个缺陷各自的根因"
+    }
+  ],
+  "evidence_notes": [
+    "答案 app：grade-react 6/6、grade-build 4/4。",
+    "起始 app：构建通过，grade-react 3 条 fail（R3/R4/R5）。",
+    "变异检测：函数题 2 条 + 应用 3 条修复逐一改回，全部被抓（5/5）。"
+  ],
+  "grade_bands": [
+    { "min": 90, "label": "能独立维护 React 应用" },
+    { "min": 75, "label": "能修，边界意识还要练" },
+    { "min": 60, "label": "主路径能过，一致性问题仍在" },
+    { "min": 0, "label": "未通过：机器断言有 fail" }
+  ]
+}
