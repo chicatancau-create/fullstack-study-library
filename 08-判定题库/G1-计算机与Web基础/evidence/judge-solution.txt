@@ -1,3 +1,4 @@
 ok 合格页面无问题
 ok 缺失项全部报出
 checks=2 fails=0
+PASS 函数题·参考答案通过

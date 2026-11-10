@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>G1 站点（起始代码，故意有缺陷）</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 0; }
+  .skip { position: absolute; left: -9999px; }
+  .skip:focus { left: 1rem; top: 1rem; padding: .5rem; background: #fff; color: #000; z-index: 10; }
+  nav a { margin-right: 1rem; }
+  /* 缺陷 1：浅灰底 + 浅灰字，对比度约 1.7:1 */
+  .low-contrast { background: #eeeeee; color: #bbbbbb; padding: .5rem; }
+  table { border-collapse: collapse; }
+  td, th { border: 1px solid #767676; padding: .25rem .5rem; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要内容</a>
+<nav aria-label="站点">
+  <a href="/about">关于</a>
+  <a href="/courses">课程</a>
+</nav>
+<h1>课程站点</h1>
+<main id="main">
+  <p>这是一个起始页面，含 5 类可访问性缺陷，请逐条修。</p>
+
+  <!-- 缺陷 2：img 没有 alt -->
+  <img src="/assets/banner.svg" width="640" height="240">
+
+  <form>
+    <label for="email">邮箱</label>
+    <!-- 缺陷 3：输入框没有任何可访问名称（label for 指向不存在的 id） -->
+    <input id="mail" type="email" name="email" placeholder="邮箱">
+    <button type="submit">订阅</button>
+  </form>
+
+  <table>
+    <caption>课程时长</caption>
+    <!-- 缺陷 4：表头用 td，屏幕阅读器无法关联列 -->
+    <tr><td>课程</td><td>时长</td></tr>
+    <tr><td>G1</td><td>40 分钟</td></tr>
+  </table>
+
+  <!-- 缺陷 1 的实例 -->
+  <p class="low-contrast">浅灰底上的浅灰字，对比度不足。</p>
+
+  <!-- 缺陷 5：只有 onclick 的 div 当按钮用，键盘无法触达 -->
+  <div class="fake-btn" onclick="document.body.dataset.sent='1'">订阅（div 假按钮）</div>
+  <p id="status" role="status" aria-live="polite"></p>
+</main>
+</body>
+</html>

@@ -4,9 +4,19 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "smoke": "node 自测脚本/smoke.mjs",
+    "grade": "node 自测脚本/grade.mjs 参考答案/index.mjs",
+    "grade:site": "node 自测脚本/grade-site.mjs 参考答案/site/index.html",
+    "grade:http": "node 自测脚本/grade-http.mjs 参考答案/server.mjs",
+    "grade:c": "bash scripts/run_c.sh 参考答案/c/ring_buffer.c \"${TMPDIR:-/tmp}/g1-c-answer\"",
+    "mutation": "node scripts/mutation_check.mjs",
     "evidence": "bash scripts/evidence.sh"
   },
   "engines": {
     "node": ">=24"
+  },
+  "devDependencies": {
+    "axe-core": "^4.14.0",
+    "playwright": "^1.65.0"
   }
 }

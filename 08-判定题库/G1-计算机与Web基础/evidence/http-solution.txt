@@ -1,0 +1,10 @@
+ok H1 /health 200 JSON
+ok H2 /items 200 + ETag etag="503a908cf5079210"
+ok H3 If-None-Match → 304 空 body
+ok H4 单项 200/404
+ok H5 非 GET → 405 + Allow allow=GET, HEAD, OPTIONS
+ok H6 未知路径 404
+ok H7 CORS 白名单 + vary
+ok H8 HEAD /items 无 body 且头一致
+checks=8 fails=0
+PASS HTTP·参考答案通过

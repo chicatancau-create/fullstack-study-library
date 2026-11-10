@@ -1,0 +1,10 @@
+FAIL H1 /health 200: content-type=undefined
+FAIL H2 /items 200: content-type=undefined
+FAIL H3 If-None-Match → 304: status=200
+FAIL H4 单项 200/404: /items/999 status=200 body={}
+FAIL H5 非 GET → 405: status=200
+ok H6 未知路径 404
+FAIL H7 CORS 白名单: 白名单 origin 未回显: (缺)
+ok H8 HEAD /items 无 body 且头一致
+checks=8 fails=6
+starter_rejected=YES rc=1

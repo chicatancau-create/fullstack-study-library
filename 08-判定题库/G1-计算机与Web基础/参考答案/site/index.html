@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>G1 站点（参考答案：已修 5 类缺陷）</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 0; }
+  .skip { position: absolute; left: -9999px; }
+  .skip:focus { left: 1rem; top: 1rem; padding: .5rem; background: #fff; color: #000; z-index: 10; }
+  nav a { margin-right: 1rem; }
+  /* 修 1：底色 #f5f5f5 + 字色 #333333，对比度 12.0:1 */
+  .low-contrast { background: #f5f5f5; color: #333333; padding: .5rem; }
+  table { border-collapse: collapse; }
+  th, td { border: 1px solid #767676; padding: .25rem .5rem; text-align: left; }
+  button, .fake-btn { font: inherit; padding: .4rem .8rem; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要内容</a>
+<header>
+  <nav aria-label="站点">
+    <a href="/about">关于</a>
+    <a href="/courses">课程</a>
+  </nav>
+  <h1>课程站点</h1>
+</header>
+<main id="main">
+  <p>这是一个已修复的参考页面：5 类可访问性缺陷都修掉了。</p>
+
+  <!-- 修 2：有意义的 alt -->
+  <img src="/assets/banner.svg" width="640" height="240" alt="课程站点横幅：左侧课程目录，右侧进度环">
+
+  <form>
+    <label for="mail">邮箱</label>
+    <!-- 修 3：label for 指向真实 id -->
+    <input id="mail" type="email" name="email" autocomplete="email">
+    <button type="submit">订阅</button>
+  </form>
+
+  <table>
+    <caption>课程时长</caption>
+    <!-- 修 4：表头用 th scope=col -->
+    <thead>
+      <tr><th scope="col">课程</th><th scope="col">时长</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>G1</td><td>40 分钟</td></tr>
+    </tbody>
+  </table>
+
+  <p class="low-contrast">浅灰底上的深色字，对比度达标。</p>
+
+  <!-- 修 5：用真 button，键盘与读屏都能触发 -->
+  <button type="button" class="fake-btn" onclick="document.body.dataset.sent='1'">订阅提醒</button>
+  <p id="status" role="status" aria-live="polite"></p>
+</main>
+<footer><p>G1 参考答案页</p></footer>
+</body>
+</html>

@@ -1,0 +1,10 @@
+ok F1 rc=1 函数题：去掉 img-alt 检查 -> FAIL 缺失项全部报出: ["html-lang","input-label","viewport"] != ["html-lang","img-alt","
+ok F2 rc=1 函数题：去掉 viewport 检查 -> FAIL 缺失项全部报出: ["html-lang","img-alt","input-label"] != ["html-lang","img-alt","i
+ok S1 rc=1 站点：删掉 img 的 alt -> FAIL A1 axe 无违规: violations=1 serious_or_critical=1: image-alt(critical)
+ok S2 rc=1 站点：把低对比度改回去 -> FAIL A1 axe 无违规: violations=1 serious_or_critical=1: color-contrast(serious)
+ok H1 rc=1 HTTP：去掉 ETag 协商缓存 -> FAIL H3 If-None-Match → 304: status=200
+ok H2 rc=1 HTTP：CORS 无条件回显 origin -> FAIL H7 CORS 白名单: 非白名单也回 ACAO: http://evil.example
+ok C1 rc=2 C：满时不做检查（越界写） -> probe: FAIL(2) 满时越界写，len 超过 cap
+ok C2 rc=3 C：负索引检查改成有符号比较也拦不住大负数 -> probe: FAIL(3) 负索引未被拒
+variants=8 fails=0
+PASS 变异检测 8/8

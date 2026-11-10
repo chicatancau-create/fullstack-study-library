@@ -1,0 +1,72 @@
+{
+  "pack": "G1-计算机与Web基础",
+  "version": 2,
+  "generated_from": [
+    "自测脚本/grade.mjs",
+    "自测脚本/grade-site.mjs",
+    "自测脚本/grade-http.mjs",
+    "scripts/run_c.sh"
+  ],
+  "thresholds": {
+    "must_pass_all": true,
+    "machine_checks": 17
+  },
+  "dimensions": [
+    {
+      "id": "D1",
+      "name": "可访问性（静态 + 真站点）",
+      "weight": 35,
+      "signals": [
+        { "source": "grade.mjs", "check": "合格页面无问题 / 缺失项全部报出", "points": 10 },
+        { "source": "grade-site.mjs", "check": "A1 axe 无违规", "points": 12 },
+        { "source": "grade-site.mjs", "check": "A2 lang + A3 img alt + A4 表单名", "points": 8 },
+        { "source": "grade-site.mjs", "check": "A5 键盘可达 + A6 无假按钮", "points": 5 }
+      ],
+      "full_marks_when": "axe 零违规，且键盘/语义层面也没有回退"
+    },
+    {
+      "id": "D2",
+      "name": "HTTP 协议正确性",
+      "weight": 30,
+      "signals": [
+        { "source": "grade-http.mjs", "check": "H1 content-type + H2 ETag", "points": 8 },
+        { "source": "grade-http.mjs", "check": "H3 304 协商缓存", "points": 6 },
+        { "source": "grade-http.mjs", "check": "H4 404 语义 + H6 未知路径", "points": 6 },
+        { "source": "grade-http.mjs", "check": "H5 405 + Allow", "points": 5 },
+        { "source": "grade-http.mjs", "check": "H7 CORS 白名单 + vary", "points": 5 }
+      ],
+      "full_marks_when": "八个契约全过；不是“能返回 200 就算对”"
+    },
+    {
+      "id": "D3",
+      "name": "C 内存安全",
+      "weight": 25,
+      "signals": [
+        { "source": "run_c.sh", "check": "gcc -Werror 零警告", "points": 8 },
+        { "source": "c_probe.c", "check": "满时拒绝（rc≠2）", "points": 10 },
+        { "source": "c_probe.c", "check": "负索引拒绝（rc≠3）", "points": 7 }
+      ],
+      "full_marks_when": "满时返回 -2 且 len 冻结；负索引返回 -1 且不读内存"
+    },
+    {
+      "id": "D4",
+      "name": "改动范围与说明",
+      "weight": 10,
+      "signals": [
+        { "source": "人工", "check": "diff 只动该动的文件，没改自测脚本", "points": 6 },
+        { "source": "人工", "check": "学习日志写了每题的基线失败与修复后输出", "points": 4 }
+      ],
+      "full_marks_when": "四题的“修前 fail / 修后 pass”都能照着复跑"
+    }
+  ],
+  "environment_notes": [
+    "站点题需要 playwright chromium-headless-shell；本机 D:\\dev-cache\\ms-playwright 已装 1228/1254 两版。",
+    "MinGW 15.2 无 -lasan，C 题改用 -Werror + 探针返回码；ASan 未运行这一点写在 evidence 里，不冒充已跑。"
+  ],
+  "grade_bands": [
+    { "min": 90, "label": "Web 基础扎实" },
+    { "min": 75, "label": "可用，缓存/语义仍有洞" },
+    { "min": 60, "label": "主路径过，失败语义弱" },
+    { "min": 0, "label": "未通过：机器断言有 fail" }
+  ]
+}

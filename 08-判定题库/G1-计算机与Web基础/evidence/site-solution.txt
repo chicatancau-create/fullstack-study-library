@@ -1,0 +1,8 @@
+ok A1 axe 无违规
+ok A2 html lang 存在 lang=zh-CN
+ok A3 图片 alt 完整 images=1
+ok A4 表单控件都有可访问名
+ok A5 键盘可达且有可见焦点 reached=6/6
+ok A6 没有 div 假按钮
+checks=6 fails=0
+PASS 站点·参考答案通过

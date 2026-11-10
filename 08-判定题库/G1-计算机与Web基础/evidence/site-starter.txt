@@ -1,0 +1,8 @@
+FAIL A1 axe 无违规: violations=3 serious_or_critical=2: color-contrast(serious), image-alt(critical), region(moderate)
+ok A2 html lang 存在 lang=zh-CN
+FAIL A3 图片 alt 完整: /assets/banner.svg
+FAIL A4 表单控件都有可访问名: <input id="mail" type="email" name="email" placeholder="邮箱">
+ok A5 键盘可达且有可见焦点 reached=5/5
+FAIL A6 没有 div 假按钮: <div class="fake-btn" onclick="document.body.dataset.sent='1'">订阅（div 假按钮）</div>
+checks=6 fails=4
+starter_rejected=YES rc=1

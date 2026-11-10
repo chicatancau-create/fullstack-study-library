@@ -1,0 +1,6 @@
+compiler: gcc.exe (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0
+build: OK（-Wall -Wextra -Werror 零警告）
+full-push rc=0 len=4
+probe: FAIL(2) 满时越界写，len 超过 cap
+probe_rc=2
+starter_rejected=YES rc=2

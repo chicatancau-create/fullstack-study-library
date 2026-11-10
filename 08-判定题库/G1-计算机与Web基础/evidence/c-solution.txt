@@ -1,0 +1,6 @@
+compiler: gcc.exe (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r7) 15.2.0
+build: OK（-Wall -Wextra -Werror 零警告）
+c-probe ok
+probe: PASS（满时拒绝 + 负索引拒绝 + 边界参数都对）
+probe_rc=0
+PASS C·参考答案通过
