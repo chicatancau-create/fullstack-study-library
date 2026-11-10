@@ -8,6 +8,7 @@
 | --- | --- | --- |
 | 函数题 | `起始代码/index.mjs` → `compareContract` | 缺失/多余/不一致字段与兼容判定 |
 | MySQL 实验 | `起始代码/db/mysql_lab.mjs` | 4 处真实缺陷：不切隔离级别、先查后改超卖、座位无行锁、假死锁 |
+| JVM 死锁 | `jvm/Deadlock.java` | 真构造线程死锁，用 `ThreadMXBean.findDeadlockedThreads` 检测（实测 2 条） |
 
 ## 函数题
 
@@ -56,14 +57,24 @@ node 自测脚本/grade-mysql.mjs 起始代码/db/mysql_lab.mjs     # 目标 7/7
 - `evidence/mysql-solution.txt` / `mysql-starter.txt` —— 7 条
 - `evidence/mutation.txt` —— 4 个注入缺陷全部被抓
 
+## JVM 死锁诊断
+
+```bash
+cd jvm && javac -d "$TEMP/g7-jvm" Deadlock.java && java -cp "$TEMP/g7-jvm" Deadlock 3000
+# 期望输出 deadlocked_threads=2
+```
+
+判据：轮询 `ThreadMXBean.findDeadlockedThreads()` 直到超时，返回 `ids.length`；`0` 即判失败。不是靠 `sleep` 猜耗时。
+
 ## 环境说明
 
 - MySQL 8.4.13 @127.0.0.1:3307，库 `g7_lab`（已授予 `study` 全部权限）。
+- JDK 25（`D:/JAVA/jdk`）可用于 JVM 题；`npm run evidence` 会自动编译并跑检测，无 `javac` 时写 SKIP。
 - `mysql2` 3.x 装在包内；建库脚本用 mysql CLI，判分只用 Node 客户端。
 - 没有 MySQL 时 `evidence.sh` 写 `SKIP` 并返回非 0，不伪造通过。
 
 ## 边界
 
 - 不跑 Testcontainers（本机无 Docker；容器化 MySQL 的验证记录见 `04-资源与评估`）。
-- JVM 堆/GC/线程死锁与 RabbitMQ 未纳入本包判据：Java 25 + Maven 缓存具备，但容器化 RabbitMQ 未在本机启动，如实标注为未实测。
+- JVM 线程死锁已实测（见上）；**JVM 堆/GC 诊断与 RabbitMQ 仍未实测**：容器化 RabbitMQ 未在本机启动，`rabbitmq-server` 只有安装目录没有运行服务。如实标注为未实测，不写成“已通过”。
 - 本包为自学设计：起手代码故意做坏，不含隔离或防作弊。

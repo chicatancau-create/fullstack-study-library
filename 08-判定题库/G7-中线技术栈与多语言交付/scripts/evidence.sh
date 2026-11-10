@@ -37,5 +37,26 @@ else
   FAILED=1
 fi
 
+# 3) JVM 死锁诊断（真编译 + 真检测 ThreadMXBean）
+if command -v javac >/dev/null 2>&1; then
+  JVM_OUT="${TMPDIR:-/tmp}/g7-jvm"
+  rm -rf "$JVM_OUT"; mkdir -p "$JVM_OUT"
+  if javac -d "$JVM_OUT" jvm/Deadlock.java > evidence/jvm-compile.txt 2>&1; then
+    echo "PASS JVM 编译" | tee -a evidence/jvm-compile.txt
+    java -cp "$JVM_OUT" Deadlock 3000 > evidence/jvm-deadlock.txt 2>&1
+    if grep -q "deadlocked_threads=2" evidence/jvm-deadlock.txt; then
+      echo "PASS JVM 死锁检测（ThreadMXBean 找到 2 条）" | tee -a evidence/jvm-deadlock.txt
+    else
+      echo "FAIL JVM 死锁检测" | tee -a evidence/jvm-deadlock.txt
+      FAILED=1
+    fi
+  else
+    echo "FAIL JVM 编译" | tee -a evidence/jvm-compile.txt
+    FAILED=1
+  fi
+else
+  echo "SKIP 本机无 javac；JVM 题未实测" | tee evidence/jvm-compile.txt
+fi
+
 if [ "$FAILED" -ne 0 ]; then echo "SELF-TEST FAIL"; exit 1; fi
 echo "SELF-TEST PASS"

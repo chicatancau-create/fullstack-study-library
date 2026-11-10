@@ -1,0 +1,2 @@
+deadlocked_threads=2
+PASS JVM 死锁检测（ThreadMXBean 找到 2 条）
