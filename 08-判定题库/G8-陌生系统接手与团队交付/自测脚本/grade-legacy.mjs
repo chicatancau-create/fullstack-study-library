@@ -133,7 +133,8 @@ try {
   await step('D 丢失更新', async () => {
     const before = await db.query("SELECT version FROM g8_lab.task WHERE id='k-acme-1'");
     eq('D 迁移后 version 存在', Number(before.rows[0].version), 1);
-    const attempts = Array.from({ length: 5 }, (_, i) => mod.updateTask(db, {
+    // 并发读写必须走 pool：同一个 Client 上并发 query 已被 pg 标记弃用
+    const attempts = Array.from({ length: 5 }, (_, i) => mod.updateTask(pool, {
       tenantId: 't-acme', taskId: 'k-acme-1', title: `并发-${i}`, version: 1,
     }));
     const results = await Promise.all(attempts);

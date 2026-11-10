@@ -5,8 +5,6 @@ ok B 篡改签名被拒
 ok C 不回 stack
 ok C 回稳定错误码
 ok D 迁移后 version 存在
-(node:71336) DeprecationWarning: Calling client.query() when the client is already executing a query is deprecated and will be removed in pg@9.0. Use async/await or an external async flow control mechanism instead.
-(Use `node --trace-deprecation ...` to show where the warning was created)
 ok D 同版本只有 1 个赢
 ok E 两页不重复
 ok E 同秒行按 id 降序
