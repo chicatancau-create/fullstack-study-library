@@ -1,0 +1,16 @@
+ok G1 只返回本租户
+ok G2 已删任务默认不可见
+ok G2 includeDeleted 可见
+ok G3 跨租户写入被拒且数据未变
+ok G4 viewer 写入被拒
+ok G5 更新成功
+ok G5 审计 who
+ok G5 审计 before 有旧标题
+ok G5 审计 after 有新标题
+ok G6 逐项结果
+ok G6 成功项已落库
+ok G7 member 批量被逐项拒绝
+ok G8 加列后列表仍可用
+ok G8 due_at 可空列已加
+checks=14 fails=0
+PASS 多租户·参考答案 14/14

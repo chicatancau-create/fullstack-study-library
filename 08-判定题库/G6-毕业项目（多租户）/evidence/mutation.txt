@@ -1,0 +1,7 @@
+ok M1 rc=1 updateTask 去掉租户条件（跨租户越权） -> FAIL G3 跨租户写入被拒且数据未变: [true,"Globex 任务 1"] != [false,"Globex 任务 1"]
+ok M2 rc=1 去掉 viewer 的写入拦截 -> FAIL G4 viewer 写入被拒: true != false
+ok M3 rc=1 审计不写 before -> FAIL G5 更新成功: [false,null] != [true,2]
+ok M4 rc=1 批量遇错整体抛错（不逐项） -> FAIL G6 逐项结果: [["k-acme-1",false],["k-acme-2",false],["k-missing",false]] != [["
+ok M5 rc=1 列表不过滤软删（条件恒真） -> FAIL G2 已删任务默认不可见: ["k-acme-1","k-acme-2"] != ["k-acme-1"]
+variants=5 fails=0
+PASS 变异检测 5/5

@@ -1,0 +1,74 @@
+{
+  "pack": "G6-毕业项目（多租户）",
+  "version": 2,
+  "generated_from": ["自测脚本/grade.mjs", "自测脚本/grade-tenant.mjs"],
+  "thresholds": { "must_pass_all": true, "machine_checks": 17 },
+  "environment": {
+    "database": "PostgreSQL 18.6 @ 127.0.0.1:5432/study_lab",
+    "schema": "g6_lab",
+    "client": "pg 8.23.1"
+  },
+  "dimensions": [
+    {
+      "id": "isolation",
+      "name": "租户隔离",
+      "weight": 30,
+      "signals": [
+        { "source": "grade-tenant.mjs", "check": "G1 列表只回本租户", "points": 10 },
+        { "source": "grade-tenant.mjs", "check": "G3 跨租户写入被拒且数据未变", "points": 20 }
+      ],
+      "full_marks_when": "每条读写 SQL 都带 tenant_id，不是应用层过滤"
+    },
+    {
+      "id": "rbac",
+      "name": "角色与权限",
+      "weight": 20,
+      "signals": [
+        { "source": "grade-tenant.mjs", "check": "G4 viewer 写入被拒", "points": 10 },
+        { "source": "grade-tenant.mjs", "check": "G7 member 批量被逐项拒", "points": 10 }
+      ],
+      "full_marks_when": "写要 member+，批量要 admin+，逐项返回原因"
+    },
+    {
+      "id": "audit",
+      "name": "审计完整性",
+      "weight": 20,
+      "signals": [
+        { "source": "grade.mjs", "check": "函数题审计五字段", "points": 6 },
+        { "source": "grade-tenant.mjs", "check": "G5 who + before + after 都在", "points": 14 }
+      ],
+      "full_marks_when": "before 与 after 在同一事务里落库，who 是真实操作者"
+    },
+    {
+      "id": "batch",
+      "name": "批量与软删",
+      "weight": 20,
+      "signals": [
+        { "source": "grade-tenant.mjs", "check": "G6 批量逐项结果", "points": 12 },
+        { "source": "grade-tenant.mjs", "check": "G2 软删默认不可见 / includeDeleted 可见", "points": 8 }
+      ],
+      "full_marks_when": "单项失败不影响其余项，软删默认过滤"
+    },
+    {
+      "id": "ship",
+      "name": "兼容变更与可复现",
+      "weight": 10,
+      "signals": [
+        { "source": "grade-tenant.mjs", "check": "G8 expand 加列后旧查询仍可用", "points": 6 },
+        { "source": "人工", "check": "学习日志含基线与修复后输出", "points": 4 }
+      ],
+      "full_marks_when": "expand/contract 分两步，旧查询不破"
+    }
+  ],
+  "evidence_notes": [
+    "答案：14/14。起始代码：7 条 fail。",
+    "变异检测 5/5：去租户条件 / 去 viewer 拦截 / 审计丢 before / 批量整体抛错 / 软删恒真 全部被抓。",
+    "每段判据前都重放 schema，避免缺陷互相污染导致归因错误。"
+  ],
+  "grade_bands": [
+    { "min": 90, "label": "能独立维护多租户服务" },
+    { "min": 75, "label": "可用，审计或批量还需练" },
+    { "min": 60, "label": "主路径过，越权有洞" },
+    { "min": 0, "label": "未通过：机器断言有 fail" }
+  ]
+}

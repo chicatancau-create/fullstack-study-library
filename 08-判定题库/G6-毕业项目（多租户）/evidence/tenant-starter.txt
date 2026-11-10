@@ -1,0 +1,14 @@
+ok G1 只返回本租户
+FAIL G2 已删任务默认不可见: ["k-acme-1","k-acme-2"] != ["k-acme-1"]
+ok G2 includeDeleted 可见
+FAIL G3 跨租户写入被拒且数据未变: [true,"越权改名"] != [false,"Globex 任务 1"]
+FAIL G4 viewer 写入被拒: true != false
+ok G5 更新成功
+ok G5 审计 who
+FAIL G5 审计 before 有旧标题: undefined != "Acme 任务 1"
+ok G5 审计 after 有新标题
+FAIL G6 批量逐项: 抛出未处理错误 missing:k-missing
+FAIL G7 member 批量被逐项拒绝: [true] != [false]
+FAIL G8 兼容变更: 未导出 expandSchema
+checks=12 fails=7
+starter_rejected=YES rc=1

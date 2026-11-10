@@ -1,0 +1,5 @@
+apply db/schema.sql
+psql:db/schema.sql:3: 注意:  模式 "g6_lab" 已存在, 跳过
+g6_lab.task rows=3
+DB-SETUP OK
+PASS 多租户库环境

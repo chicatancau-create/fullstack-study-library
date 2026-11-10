@@ -2,3 +2,4 @@ ok 只返回本租户
 ok 审计字段齐全
 ok 审计 before/after
 checks=3 fails=0
+PASS 函数题·参考答案通过
