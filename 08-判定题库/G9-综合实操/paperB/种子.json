@@ -1,0 +1,119 @@
+{
+  "stock": {
+    "sku-a": 5,
+    "sku-b": 1,
+    "sku-c": 0,
+    "sku-d": 3
+  },
+  "events": [
+    {
+      "kind": "create",
+      "orderId": "o1",
+      "sku": "sku-a",
+      "qty": 2,
+      "idempotencyKey": "k1",
+      "at": 1
+    },
+    {
+      "kind": "create",
+      "orderId": "o2",
+      "sku": "sku-a",
+      "qty": 2,
+      "idempotencyKey": "k2",
+      "at": 2
+    },
+    {
+      "kind": "create",
+      "orderId": "o1",
+      "sku": "sku-a",
+      "qty": 2,
+      "idempotencyKey": "k1",
+      "at": 3
+    },
+    {
+      "kind": "create",
+      "orderId": "o3",
+      "sku": "sku-a",
+      "qty": 2,
+      "idempotencyKey": "k3",
+      "at": 4
+    },
+    {
+      "kind": "create",
+      "orderId": "o4",
+      "sku": "sku-c",
+      "qty": 1,
+      "idempotencyKey": "k4",
+      "at": 5
+    },
+    {
+      "kind": "pay",
+      "orderId": "o1",
+      "eventId": "p1",
+      "amount": 200,
+      "at": 6
+    },
+    {
+      "kind": "pay",
+      "orderId": "o1",
+      "eventId": "p1",
+      "amount": 200,
+      "at": 7
+    },
+    {
+      "kind": "ship",
+      "orderId": "o1",
+      "at": 8
+    },
+    {
+      "kind": "deliver",
+      "orderId": "o1",
+      "at": 9
+    },
+    {
+      "kind": "refund",
+      "orderId": "o1",
+      "refundId": "r1",
+      "amount": 50,
+      "at": 10
+    },
+    {
+      "kind": "refund",
+      "orderId": "o1",
+      "refundId": "r2",
+      "amount": 200,
+      "at": 11
+    },
+    {
+      "kind": "pay",
+      "orderId": "o2",
+      "eventId": "p2",
+      "amount": 200,
+      "at": 12
+    },
+    {
+      "kind": "ship",
+      "orderId": "o2",
+      "at": 13
+    }
+  ],
+  "outbox": {
+    "messages": [
+      {
+        "messageId": "m1",
+        "orderId": "o1"
+      },
+      {
+        "messageId": "m1",
+        "orderId": "o1"
+      },
+      {
+        "messageId": "m2",
+        "orderId": "o2"
+      }
+    ],
+    "delivered": [
+      "m1"
+    ]
+  }
+}

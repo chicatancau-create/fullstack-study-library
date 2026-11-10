@@ -1,0 +1,8 @@
+ok A-tz rc=1 A 卷：不换算时区，直接比字符串 -> FAIL A1 已接受预约: [] != ["b1","b5","b7","b8","b9"]
+ok A-hold rc=1 A 卷：过期 hold 不再被拒绝 -> FAIL A1 已接受预约: ["b1","b10","b5","b7","b8","b9"] != ["b1","b5","b7","b8
+ok A-dep rc=1 A 卷：忽略 dependsOn -> FAIL A10 依赖未满足被拒: [] != ["dep:blocked","ok:blocked"]
+ok B-idem rc=1 B 卷：幂等键不去重（重放也扣库存） -> FAIL B1 种子事件流可执行: illegal_transition:rejected->paid
+ok B-paid rc=1 B 卷：支付回调不去重 -> FAIL B1 种子事件流可执行: illegal_transition:paid->paid
+ok B-fsm rc=1 B 卷：状态机不校验 -> FAIL B5 非法迁移抛错: false != true
+variants=6 fails=0
+PASS 变异检测

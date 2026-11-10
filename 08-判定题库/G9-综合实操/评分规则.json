@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "tier": "self-study",
+  "duration_minutes": 720,
+  "phases": [
+    { "id": "read", "label": "读题与拆解", "minutes": 60, "deliverable": "两卷的验收点清单 + 自己的拆解" },
+    { "id": "A", "label": "A 卷实现", "minutes": 300, "deliverable": "paperA 13/13" },
+    { "id": "B", "label": "B 卷实现", "minutes": 120, "deliverable": "paperB 12/12" },
+    { "id": "cross", "label": "交叉复测", "minutes": 90, "deliverable": "两卷互相用对方种子跑一遍" },
+    { "id": "self", "label": "自评", "minutes": 90, "deliverable": "按六维打分表填写" },
+    { "id": "retro", "label": "复盘", "minutes": 60, "deliverable": "复盘模板四问" }
+  ],
+  "dimensions": [
+    {
+      "id": "business",
+      "name": "业务正确性",
+      "points": 25,
+      "breakdown": [
+        { "label": "主路径", "points": 8 },
+        { "label": "数据不变量", "points": 8 },
+        { "label": "状态/并发/幂等", "points": 5 },
+        { "label": "边界与失败语义", "points": 4 }
+      ]
+    },
+    {
+      "id": "sec",
+      "name": "安全与隐私",
+      "points": 20,
+      "breakdown": [
+        { "label": "对象/租户授权", "points": 8 },
+        { "label": "认证与可信输入", "points": 5 },
+        { "label": "秘密和错误边界", "points": 4 },
+        { "label": "数据最小化", "points": 3 }
+      ]
+    },
+    {
+      "id": "test",
+      "name": "测试与诊断",
+      "points": 20,
+      "breakdown": [
+        { "label": "失败先行", "points": 5 },
+        { "label": "单元/集成/E2E", "points": 6 },
+        { "label": "真实依赖和并发", "points": 5 },
+        { "label": "根因证据", "points": 4 }
+      ]
+    },
+    {
+      "id": "delivery",
+      "name": "工程与可靠交付",
+      "points": 15,
+      "breakdown": [
+        { "label": "干净启动", "points": 4 },
+        { "label": "可复现/CI", "points": 3 },
+        { "label": "迁移兼容", "points": 3 },
+        { "label": "发布恢复", "points": 3 },
+        { "label": "资源清理", "points": 2 }
+      ]
+    },
+    {
+      "id": "theory",
+      "name": "原理、算法与 SQL",
+      "points": 10,
+      "breakdown": [
+        { "label": "算法正确性/复杂度", "points": 4 },
+        { "label": "SQL", "points": 3 },
+        { "label": "机制解释与反例", "points": 3 }
+      ]
+    },
+    {
+      "id": "comm",
+      "name": "沟通、评审与交接",
+      "points": 10,
+      "breakdown": [
+        { "label": "澄清", "points": 2 },
+        { "label": "设计/取舍", "points": 2 },
+        { "label": "评审处置", "points": 2 },
+        { "label": "Runbook", "points": 2 },
+        { "label": "答辩与自我修正", "points": 2 }
+      ]
+    }
+  ],
+  "pass_rules": {
+    "per_round_total_min": 80,
+    "per_dimension_min_ratio": 0.6,
+    "rounds_required": 2,
+    "note": "两轮（A 卷、B 卷各一次完整 12 小时）都达标才算通过；每轮总分 ≥80 且每维 ≥60%。"
+  },
+  "timer": {
+    "script": "自测脚本/timer.mjs",
+    "commands": ["start", "status", "pause", "resume", "checkpoint <名称>", "finalize"]
+  }
+}

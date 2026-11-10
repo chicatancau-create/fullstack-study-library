@@ -4,6 +4,13 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "smoke": "node 自测脚本/smoke.mjs",
+    "grade": "node 自测脚本/grade.mjs 参考答案/index.mjs",
+    "grade:a": "node 自测脚本/grade-paper-a.mjs paperA/参考答案/index.mjs",
+    "grade:b": "node 自测脚本/grade-paper-b.mjs paperB/参考答案/index.mjs",
+    "timer": "node 自测脚本/timer.mjs",
+    "score": "node 自测脚本/score.mjs",
+    "mutation": "node scripts/mutation_check.mjs",
     "evidence": "bash scripts/evidence.sh"
   },
   "engines": {

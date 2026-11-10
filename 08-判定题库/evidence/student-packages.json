@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-10T01:04:03.776Z",
+  "generated_at": "2026-11-10T01:19:03.760Z",
   "packs": 10,
-  "starterTodos": 11,
+  "starterTodos": 13,
   "results": [
     {
       "name": "S01 G0–G9 十个包齐全",
@@ -31,7 +31,7 @@
     {
       "name": "S06 TODO 仅存在于起始代码",
       "ok": true,
-      "detail": "starter=11 outside=0"
+      "detail": "starter=13 outside=0"
     },
     {
       "name": "S07 答案与自评公开（无隐藏目录）",

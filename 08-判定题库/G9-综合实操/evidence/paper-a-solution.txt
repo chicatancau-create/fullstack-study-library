@@ -1,0 +1,16 @@
+ok A1 已接受预约
+ok A2 冲突被拒
+ok A3 超容量被拒
+ok A4 跨租户被拒
+ok A5 过期 hold 被拒
+ok A6 时区换算后判冲突
+ok A7 并发按 id 定序
+ok A8 候补按 createdAt
+ok A9 上限内只接受最早一条
+ok A10 依赖未满足被拒
+ok A11 viewer 被拒
+ok A12 非法区间被拒
+ok A13 利用率
+ok A14 释放过期 hold
+checks=14 fails=0
+PASS A 卷·参考答案 14/14

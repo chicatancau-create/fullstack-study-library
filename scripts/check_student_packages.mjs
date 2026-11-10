@@ -47,7 +47,8 @@ for (const pack of packs) {
     const rel = path.relative(dir, file).split(path.sep).join('/');
     const text = fs.readFileSync(file, 'utf8');
     if (!text.includes('TODO')) continue;
-    if (rel.startsWith('起始代码/')) starterTodos++;
+    // 允许任意层级下的「起始代码/」子目录（如 G9 的 paperA/起始代码/）
+    if (/(^|\/)起始代码\//.test(rel)) starterTodos++;
     else todoOutsideStarter.push(`${pack}:${rel}`);
   }
 }

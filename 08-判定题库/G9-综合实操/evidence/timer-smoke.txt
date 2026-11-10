@@ -1,0 +1,15 @@
+started stage=read budget=60m 总预算=720m
+stage=read(读题与拆解) spent=0m00s budget=60m left=60m00s
+checkpoints=0
+checkpoint t1 stage=read spent=0m00s head=n/a
+paused at stage=read spent=0m00s
+resumed stage=read
+阶段	预算	实际
+read	60m	0m00s
+A	300m	0m00s
+B	120m	0m00s
+cross	90m	0m00s
+self	90m	0m00s
+retro	60m	0m00s
+总预算=720m 实际=0m00s checkpoints=1
+PASS 计时器冒烟
