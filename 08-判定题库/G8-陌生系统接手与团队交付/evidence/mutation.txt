@@ -1,0 +1,9 @@
+ok A rc=1 rotate 改回无条件更新（并发全部重放成功） -> FAIL A 同一 refresh 只能轮换 1 次: 5 != 1
+ok B rc=1 无密钥时退回常量（可伪造签名） -> FAIL B 无 JWT_SECRET 时拒绝签发: false != true
+ok C rc=1 把 stack 回给调用方 -> FAIL C 不回 stack: true != false
+ok D rc=1 更新不带 version -> FAIL D 同版本只有 1 个赢: [5,6] != [1,2]
+ok E rc=1 排序只按 created_at（同秒不稳） -> FAIL E 同秒行按 id 降序: ["k-acme-1","k-acme-2"] != ["k-acme-2","k-acme-1"]
+ok F rc=1 getTask 去掉租户条件 -> FAIL F 跨租户 getTask 返回 null: {"id":"k-globex-1","tenant_id":"t-globex","title":"G
+ok G rc=1 改回前导通配 %x% -> FAIL G 不用前导通配 %x%: true != false
+variants=7 fails=0
+PASS 变异检测 7/7

@@ -1,0 +1,19 @@
+ok A 同一 refresh 只能轮换 1 次
+ok B 无 JWT_SECRET 时拒绝签发
+ok B 有密钥时签验一致
+ok B 篡改签名被拒
+ok C 不回 stack
+ok C 回稳定错误码
+ok D 迁移后 version 存在
+(node:71336) DeprecationWarning: Calling client.query() when the client is already executing a query is deprecated and will be removed in pg@9.0. Use async/await or an external async flow control mechanism instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ok D 同版本只有 1 个赢
+ok E 两页不重复
+ok E 同秒行按 id 降序
+ok F 跨租户 getTask 返回 null
+ok F 同租户能读
+ok G 不用前导通配 %x%
+ok G 前缀索引存在
+ok G 稳定分页索引存在
+checks=15 fails=0
+PASS 遗留系统·参考答案 15/15

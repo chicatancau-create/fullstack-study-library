@@ -1,0 +1,73 @@
+{
+  "pack": "G8-陌生系统接手与团队交付",
+  "version": 2,
+  "generated_from": ["自测脚本/grade.mjs", "自测脚本/grade-legacy.mjs"],
+  "thresholds": { "must_pass_all": true, "machine_checks": 17, "baseline_groups": ["A", "B", "C", "D", "E", "F", "G"] },
+  "environment": {
+    "database": "PostgreSQL 18.6 @ 127.0.0.1:5432/study_lab",
+    "schema": "g8_lab",
+    "client": "pg 8.23.1"
+  },
+  "dimensions": [
+    {
+      "id": "auth",
+      "name": "认证与凭证",
+      "weight": 25,
+      "signals": [
+        { "source": "grade-legacy.mjs", "check": "A refresh 并发只能轮换 1 次", "points": 13 },
+        { "source": "grade-legacy.mjs", "check": "B 无密钥拒绝签发 / 签验一致 / 篡改被拒", "points": 12 }
+      ],
+      "full_marks_when": "轮换有条件守卫且吊销旧 token；密钥缺失 fail closed"
+    },
+    {
+      "id": "errors",
+      "name": "错误边界",
+      "weight": 15,
+      "signals": [
+        { "source": "grade-legacy.mjs", "check": "C 不回 stack + 回稳定错误码", "points": 15 }
+      ],
+      "full_marks_when": "对外只有稳定码，stack 只进日志"
+    },
+    {
+      "id": "data",
+      "name": "数据一致性与隔离",
+      "weight": 30,
+      "signals": [
+        { "source": "grade-legacy.mjs", "check": "D 同版本只有 1 个赢", "points": 12 },
+        { "source": "grade-legacy.mjs", "check": "E 分页不重复 + 同秒按 id 定序", "points": 10 },
+        { "source": "grade-legacy.mjs", "check": "F 跨租户 getTask 返回 null", "points": 8 }
+      ],
+      "full_marks_when": "乐观锁、稳定排序、租户条件都在 SQL 层"
+    },
+    {
+      "id": "query",
+      "name": "查询与索引",
+      "weight": 15,
+      "signals": [
+        { "source": "grade-legacy.mjs", "check": "G 不用前导通配 + 两条索引存在", "points": 15 }
+      ],
+      "full_marks_when": "前缀匹配可走索引，不是 %x%"
+    },
+    {
+      "id": "handover",
+      "name": "交接文档与自评",
+      "weight": 15,
+      "signals": [
+        { "source": "人工", "check": "交接模板 6 节齐全（仓库地图/运行手册/风险/未修/自评/一句话）", "points": 10 },
+        { "source": "人工", "check": "自评分数与实测分数差异有解释", "points": 5 }
+      ],
+      "full_marks_when": "新人能照文档自行复现基线与 15/15"
+    }
+  ],
+  "evidence_notes": [
+    "基线：起始代码 8 条 fail，A–G 七组每组至少 1 条（--baseline 通过）。",
+    "参考答案：15/15。变异检测 7/7。",
+    "G 用「源码模式 + pg_indexes」判，不用 EXPLAIN：本机三行表 Seq Scan 也很快，EXPLAIN 不可靠。"
+  ],
+  "grade_bands": [
+    { "min": 90, "label": "可接手遗留仓库" },
+    { "min": 75, "label": "能修，交接文档还需补" },
+    { "min": 60, "label": "修了主路径，安全类缺陷仍在" },
+    { "min": 0, "label": "未通过：机器断言有 fail" }
+  ]
+}

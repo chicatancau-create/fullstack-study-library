@@ -4,9 +4,18 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "smoke": "node 自测脚本/smoke.mjs",
+    "grade": "node 自测脚本/grade.mjs 参考答案/index.mjs",
+    "db:setup": "bash scripts/db_setup.sh",
+    "baseline": "node 自测脚本/grade-legacy.mjs 起始代码/src/legacy.mjs --baseline",
+    "grade:legacy": "node 自测脚本/grade-legacy.mjs 参考答案/src/legacy.mjs",
+    "mutation": "node scripts/mutation_check.mjs",
     "evidence": "bash scripts/evidence.sh"
   },
   "engines": {
     "node": ">=24"
+  },
+  "devDependencies": {
+    "pg": "^8.23.1"
   }
 }

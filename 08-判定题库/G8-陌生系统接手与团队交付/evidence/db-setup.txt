@@ -1,0 +1,6 @@
+apply db/schema.sql（含故意遗留的缺陷结构）
+psql:db/schema.sql:4: 注意:  模式 "g8_lab" 已存在, 跳过
+apply db/migrate_fix.sql（修复所需迁移）
+g8_lab.task rows=0 version_column=1
+DB-SETUP OK
+PASS 遗留库环境
