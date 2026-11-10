@@ -1,0 +1,6 @@
+ok M1 rc=1 不切隔离级别（脏读看不到） -> FAIL M1 READ UNCOMMITTED 能脏读未提交值: 5 != 99
+ok M2 rc=1 扣减改回先查后改（并发超卖） -> FAIL M3 不超卖: [false,true,-5] != [true,true,4]
+ok M3 rc=1 座位不加 FOR UPDATE -> FAIL M5 并发抢同座位只有 1 人成功: [2,1] != [1,1]
+ok M4 rc=1 乐观锁去掉 version 条件 -> FAIL M4 乐观锁同版本只有 1 个赢（version=1）: [10,10] != [1,1]
+variants=4 fails=0
+PASS 变异检测 4/4

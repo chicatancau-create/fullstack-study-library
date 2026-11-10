@@ -1,0 +1,9 @@
+ok M1 READ UNCOMMITTED 能脏读未提交值
+ok M2 RR 内两次读一致（快照）
+ok M2 RC 内能看到已提交的新值
+ok M3 不超卖
+ok M4 乐观锁同版本只有 1 个赢（version=1）
+ok M5 并发抢同座位只有 1 人成功
+ok M6 死锁错误码 1213 或一方成功
+checks=7 fails=0
+PASS MySQL·参考答案 7/7

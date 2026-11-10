@@ -2,3 +2,4 @@ ok 完全一致
 ok 缺字段不兼容
 ok 多字段兼容
 checks=3 fails=0
+PASS 函数题·参考答案通过

@@ -1,0 +1,3 @@
+mysql isolation=REPEATABLE-READ stock.hot=5
+DB-SETUP OK
+PASS MySQL 环境

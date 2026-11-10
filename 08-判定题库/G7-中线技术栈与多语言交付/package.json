@@ -4,9 +4,17 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "smoke": "node 自测脚本/smoke.mjs",
+    "grade": "node 自测脚本/grade.mjs 参考答案/index.mjs",
+    "db:setup": "bash scripts/db_setup.sh",
+    "grade:mysql": "node 自测脚本/grade-mysql.mjs 参考答案/db/mysql_lab.mjs",
+    "mutation": "node scripts/mutation_check.mjs",
     "evidence": "bash scripts/evidence.sh"
   },
   "engines": {
     "node": ">=24"
+  },
+  "devDependencies": {
+    "mysql2": "^3.15.5"
   }
 }

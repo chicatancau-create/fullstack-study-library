@@ -1,0 +1,66 @@
+{
+  "pack": "G7-中线技术栈与多语言交付",
+  "version": 2,
+  "generated_from": ["自测脚本/grade.mjs", "自测脚本/grade-mysql.mjs"],
+  "thresholds": { "must_pass_all": true, "machine_checks": 10 },
+  "environment": {
+    "mysql": "MySQL 8.4.13 @ 127.0.0.1:3307 / g7_lab",
+    "default_isolation": "REPEATABLE-READ",
+    "client": "mysql2 3.x"
+  },
+  "dimensions": [
+    {
+      "id": "contract",
+      "name": "契约对照",
+      "weight": 15,
+      "signals": [{ "source": "grade.mjs", "check": "缺失/多余/不一致 + 兼容判定", "points": 15 }],
+      "full_marks_when": "缺字段即不兼容，多余字段仍兼容"
+    },
+    {
+      "id": "isolation",
+      "name": "隔离级别",
+      "weight": 25,
+      "signals": [
+        { "source": "grade-mysql.mjs", "check": "M1 READ UNCOMMITTED 脏读", "points": 13 },
+        { "source": "grade-mysql.mjs", "check": "M2 RR 快照 vs RC 可见新值", "points": 12 }
+      ],
+      "full_marks_when": "级别切换有行为证据，不只是执行了一句 SET"
+    },
+    {
+      "id": "lock",
+      "name": "锁与并发",
+      "weight": 35,
+      "signals": [
+        { "source": "grade-mysql.mjs", "check": "M3 10 并发不超卖", "points": 13 },
+        { "source": "grade-mysql.mjs", "check": "M4 乐观锁同版本只有 1 个赢", "points": 12 },
+        { "source": "grade-mysql.mjs", "check": "M5 并发抢同座位只有 1 人成功", "points": 10 }
+      ],
+      "full_marks_when": "条件扣减 + FOR UPDATE + CAS 都在 SQL 层生效"
+    },
+    {
+      "id": "deadlock",
+      "name": "死锁与诊断",
+      "weight": 15,
+      "signals": [{ "source": "grade-mysql.mjs", "check": "M6 交叉加锁被检测（1213）", "points": 15 }],
+      "full_marks_when": "能主动构造并识别死锁，而不是顺序加锁假装成功"
+    },
+    {
+      "id": "ship",
+      "name": "改动范围与可复现",
+      "weight": 10,
+      "signals": [{ "source": "人工", "check": "只动 g7_lab；日志含基线与修复后输出", "points": 10 }],
+      "full_marks_when": "别人能照日志复现 7/7"
+    }
+  ],
+  "evidence_notes": [
+    "答案 7/7。起始代码 6 条 fail（M1/M2-RC/M3/M4/M5/M6）。",
+    "变异检测 4/4：不切级别 / 先查后改 / 去 FOR UPDATE / 去 version 条件 全部被抓。",
+    "M3 与 M5 用真并发（Promise.allSettled）而不是顺序调用：顺序调用测不出锁缺失。"
+  ],
+  "grade_bands": [
+    { "min": 90, "label": "能写正确的 MySQL 并发代码" },
+    { "min": 75, "label": "可用，隔离或死锁还需练" },
+    { "min": 60, "label": "主路径过，并发下会超卖" },
+    { "min": 0, "label": "未通过：机器断言有 fail" }
+  ]
+}
