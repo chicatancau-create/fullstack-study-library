@@ -47,3 +47,6 @@ __pycache__/
 **/node_modules/
 **/dist/
 **/*.tsbuildinfo
+
+# 面经采集的标题缓存（可从 sitemap 重建，体积大不入库）
+08-判定题库/国内大厂真题/_工具/evidence/sitemap-titles.json

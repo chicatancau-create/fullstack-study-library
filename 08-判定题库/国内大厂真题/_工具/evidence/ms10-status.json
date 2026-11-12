@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T08:33:34.037Z",
+  "generated_at": "2026-11-12T05:31:11.515Z",
   "items": [
     {
       "item": "408 去重账本",
@@ -24,18 +24,18 @@
     {
       "item": "逐题原始面经",
       "ok": false,
-      "detail": "linked=2/250"
+      "detail": "linked=13/250"
     }
   ],
   "evidence": {
-    "records": 3,
-    "linked_questions": 2,
-    "attempts": 9,
-    "success": 4,
-    "blocked": 5
+    "records": 16,
+    "linked_questions": 13,
+    "attempts": 153,
+    "success": 17,
+    "blocked": 136
   },
   "complete": false,
   "gaps": [
-    "逐题原始面经（linked=2/250）"
+    "逐题原始面经（linked=13/250）"
   ]
 }

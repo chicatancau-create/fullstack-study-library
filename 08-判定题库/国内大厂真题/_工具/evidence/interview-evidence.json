@@ -24,7 +24,7 @@
       "verifier": "qoder-agent",
       "status": "verified-public",
       "link_check": {
-        "checked_at": "2026-11-09T08:31:18.595Z",
+        "checked_at": "2026-11-12T05:31:20.764Z",
         "http_status": 200,
         "title_seen": "字节跳动-今日头条后端开发一面面经_牛客网",
         "soft404_markers": [],
@@ -53,7 +53,7 @@
       "verifier": "qoder-agent",
       "status": "verified-public",
       "link_check": {
-        "checked_at": "2026-11-09T08:31:19.425Z",
+        "checked_at": "2026-11-12T05:31:20.876Z",
         "http_status": 200,
         "title_seen": "字节飞书一面_牛客网",
         "soft404_markers": [],
@@ -87,9 +87,520 @@
       "verifier": "qoder-agent",
       "status": "verified-public",
       "link_check": {
-        "checked_at": "2026-11-09T08:31:19.571Z",
+        "checked_at": "2026-11-12T05:31:20.965Z",
         "http_status": 200,
         "title_seen": "字节面试避坑指南（含血泪教训）_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-BD-004",
+      "url": "https://www.nowcoder.com/discuss/940039518206414848",
+      "title": "字节面经 字节跳动后端开发岗面经-18",
+      "published_at": "10-15 00:21（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "字节跳动",
+      "role": "后端",
+      "role_basis": "标题明确标注岗位",
+      "quote": "岛屿数量（LeetCode 200）",
+      "supports_questions": [
+        "Q006"
+      ],
+      "matches": [
+        {
+          "question": "Q006",
+          "by": "leetcode-number",
+          "quote": "岛屿数量（LeetCode 200）"
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 164134,
+      "raw_html_sha256": "66ce8a74032276960593742a8f9e35babec7f9d9746e5c5f8585eb5762cb7962",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "a3c0ba358a32a1309aabc17902bb970bdf4c0575d962c77cb171e96b333e7c3d",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:21.240Z",
+        "http_status": 200,
+        "title_seen": "字节面经 字节跳动后端开发岗面经-18_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-BD-005",
+      "url": "https://www.nowcoder.com/discuss/940040254214389760",
+      "title": "字节面经 字节跳动AI Agent开发岗面经-08",
+      "published_at": "10-15 00:24（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "字节跳动",
+      "role": "未标注",
+      "role_basis": "标题与正文首段未明确岗位",
+      "quote": "有效的括号，先讲解思路，再实现代码。",
+      "supports_questions": [
+        "Q023",
+        "Q025"
+      ],
+      "matches": [
+        {
+          "question": "Q023",
+          "by": "unique-name",
+          "quote": "有效的括号，先讲解思路，再实现代码。"
+        },
+        {
+          "question": "Q025",
+          "by": "unique-name",
+          "quote": "手撕二叉树的右视图"
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 6308,
+      "raw_html_sha256": "0b9e42a30039fb51fd3ebc94ee98b9426c640879a33d6454cdc080fc6072afca",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "5b3ddfccb9c7e36cfdf581fed862c3b8e4220acc5e442d53e74d0482bc5e09f8",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:21.964Z",
+        "http_status": 200,
+        "title_seen": "字节面经 字节跳动AI Agent开发岗面经-08_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-BD-006",
+      "url": "https://www.nowcoder.com/discuss/940040388780232704",
+      "title": "字节面经 字节跳动后端开发岗面经-19",
+      "published_at": "10-15 00:24（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "字节跳动",
+      "role": "后端",
+      "role_basis": "标题明确标注岗位",
+      "quote": "岛屿数量算法题。",
+      "supports_questions": [
+        "Q006"
+      ],
+      "matches": [
+        {
+          "question": "Q006",
+          "by": "unique-name",
+          "quote": "岛屿数量算法题。"
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 6377,
+      "raw_html_sha256": "3cc9bcbde513bff870c83b28da3cf4954f95610a2d52001e76c23dd478b8656f",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "eb9861e88d1e67bc6d18d4f0a9a72f7f3ba67c466a0d067a122c851fb874ddf7",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:22.064Z",
+        "http_status": 200,
+        "title_seen": "字节面经 字节跳动后端开发岗面经-19_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-BD-007",
+      "url": "https://www.nowcoder.com/discuss/940040633475928064",
+      "title": "字节面经 字节跳动后端开发岗面经-17",
+      "published_at": "10-15 00:25（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "字节跳动",
+      "role": "后端",
+      "role_basis": "标题明确标注岗位",
+      "quote": "手撕：力扣3：无重复字符的最长字串",
+      "supports_questions": [
+        "Q001",
+        "Q006",
+        "Q079"
+      ],
+      "matches": [
+        {
+          "question": "Q001",
+          "by": "leetcode-number",
+          "quote": "手撕：力扣3：无重复字符的最长字串"
+        },
+        {
+          "question": "Q006",
+          "by": "leetcode-number",
+          "quote": "LeetCode 200：岛屿数量。"
+        },
+        {
+          "question": "Q079",
+          "by": "leetcode-number",
+          "quote": "算法题第一题LeetCode152乘积最大子数组"
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 179134,
+      "raw_html_sha256": "b285874bff407c98f9db73f4467c617f1adf5676f26d1d990d193b251617ab72",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "e111c18b66dc91b9565c48be8b42ba2487ba51a4dd596698678c7b562c434ddd",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:22.154Z",
+        "http_status": 200,
+        "title_seen": "字节面经 字节跳动后端开发岗面经-17_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-BD-008",
+      "url": "https://www.nowcoder.com/feed/main/detail/c687af27a503401888e6b41c0f5ece93",
+      "title": "10.13 秋招 字节 抖音架构 后端一面",
+      "published_at": "10-13 16:10（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "字节跳动",
+      "role": "后端",
+      "role_basis": "标题明确标注岗位",
+      "quote": "13、手撕：力扣3：无重复字符的最长字串",
+      "supports_questions": [
+        "Q001"
+      ],
+      "matches": [
+        {
+          "question": "Q001",
+          "by": "leetcode-number",
+          "quote": "13、手撕：力扣3：无重复字符的最长字串"
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 223621,
+      "raw_html_sha256": "60765ce25bf3793e0225511759ac209ebc4f17b269e946b3452b089069786426",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "a82360b0d64a4ab5127a0c7e289c63582b13722136312e5e5613ca321e0b2f6d",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:22.253Z",
+        "http_status": 200,
+        "title_seen": "10.13 秋招 字节 抖音架构 后端一面_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-BD-009",
+      "url": "https://www.nowcoder.com/feed/main/detail/cacc7228647242eea82c4591d0518efa",
+      "title": "字节跳动 后端开发实习生 一面 TikTok国际直播基础业务(时长一个小时)",
+      "published_at": "10-13 16:24（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "字节跳动",
+      "role": "后端",
+      "role_basis": "标题明确标注岗位",
+      "quote": "20. LeetCode 200：岛屿数量。",
+      "supports_questions": [
+        "Q006",
+        "Q079"
+      ],
+      "matches": [
+        {
+          "question": "Q006",
+          "by": "leetcode-number",
+          "quote": "20. LeetCode 200：岛屿数量。"
+        },
+        {
+          "question": "Q079",
+          "by": "leetcode-number",
+          "quote": "算法题第一题LeetCode152乘积最大子数组，因为前几天刚好背过，所以写的很快，几分钟就写完了，面试官看我写得快，又给我来了一题岛屿数量🤡🤡这题印象不深，没写完面试官就让我结束了，下次再写算法题我就算会也尽量装作思考的样子吧😄"
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 6668,
+      "raw_html_sha256": "21a3203ee8d28f12f689690e829a62d6714a0abed80059d4ed9bd0f16da68dfd",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "513d49bcce9e41dce95e628e2a249584a65585f3f5163f4ef4caf2dce8d70bd1",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:22.378Z",
+        "http_status": 200,
+        "title_seen": "字节跳动 后端开发实习生 一面 TikTok国际直播基础业务(时长一个小时)_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-BD-010",
+      "url": "https://www.nowcoder.com/feed/main/detail/1cf76a70672a4b7f86db1ec773189121",
+      "title": "字节后端实习一面",
+      "published_at": "10-14 22:01（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "字节跳动",
+      "role": "后端",
+      "role_basis": "标题明确标注岗位",
+      "quote": "1. 算法：无重复字符的最长子串（Hot100，mid）",
+      "supports_questions": [
+        "Q001",
+        "Q082"
+      ],
+      "matches": [
+        {
+          "question": "Q001",
+          "by": "unique-name",
+          "quote": "1. 算法：无重复字符的最长子串（Hot100，mid）"
+        },
+        {
+          "question": "Q082",
+          "by": "leetcode-number",
+          "quote": "力扣198打家劫舍原题"
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 6419,
+      "raw_html_sha256": "533f143e6ccbd30ae21bedc6801a267e917a744f2745a1d32316ac67215b300a",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "2232790aca3e3a32d4bf2f7126ce8bc80a2b812e3afb60ff4b5642582152bf11",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:22.472Z",
+        "http_status": 200,
+        "title_seen": "字节后端实习一面_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-BD-011",
+      "url": "https://www.nowcoder.com/feed/main/detail/9cd459d87a754e07a490ba7f1c03b495",
+      "title": "字节 AI Agent 开发一面",
+      "published_at": "10-17 03:22（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "字节跳动",
+      "role": "未标注",
+      "role_basis": "标题与正文首段未明确岗位",
+      "quote": "13. 算法题：二叉树的层序遍历，请讲解思路并手写代码。",
+      "supports_questions": [
+        "Q026"
+      ],
+      "matches": [
+        {
+          "question": "Q026",
+          "by": "unique-name",
+          "quote": "13. 算法题：二叉树的层序遍历，请讲解思路并手写代码。"
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 289792,
+      "raw_html_sha256": "09e0c22f2926a3632300bb9dc1b6d5af257dfc7ba39c462a4033cde28516c901",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "e4767948103a4cd28bc2a9b860edf500e8527041a389ba524b28c6dd6bebd1ea",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:23.109Z",
+        "http_status": 200,
+        "title_seen": "字节 AI Agent 开发一面_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-BD-012",
+      "url": "https://www.nowcoder.com/feed/main/detail/d8822fc2b4ae4b2fbdb03c95fa2a427d",
+      "title": "字节全栈一二三四面面经",
+      "published_at": "10-17 18:23（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "字节跳动",
+      "role": "全栈",
+      "role_basis": "标题明确标注岗位",
+      "quote": "14.最长连续序列Leetcode 128",
+      "supports_questions": [
+        "Q073"
+      ],
+      "matches": [
+        {
+          "question": "Q073",
+          "by": "leetcode-number",
+          "quote": "14.最长连续序列Leetcode 128"
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 6151,
+      "raw_html_sha256": "ff821b2228b929cb0ebbcd9ac3046d92901a4cc3f7597745f5be2bddb6adc857",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "e9aab33371c1b06e2459889ceff31e9385cf42da1fe49bb61b3330175ce319ed",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:23.197Z",
+        "http_status": 200,
+        "title_seen": "字节全栈一二三四面面经_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-BD-013",
+      "url": "https://www.nowcoder.com/feed/main/detail/b4fb3bee56134c3d9bcde6a3166a1711",
+      "title": "字节Agent全三轮面经",
+      "published_at": "10-18 02:05（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "字节跳动",
+      "role": "未标注",
+      "role_basis": "标题与正文首段未明确岗位",
+      "quote": "算法：将一组正整数重新排列，拼接成最大的整数。（力扣179题）#秋招# #面经#",
+      "supports_questions": [
+        "Q090"
+      ],
+      "matches": [
+        {
+          "question": "Q090",
+          "by": "leetcode-number",
+          "quote": "算法：将一组正整数重新排列，拼接成最大的整数。（力扣179题）#秋招# #面经#"
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 6365,
+      "raw_html_sha256": "a641a03bdb1ecfe4efd6bd15b4b81cdd65deeb180c948dcd368cff2a9b7be24f",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "83e022e636f37e679f95a9e80ad484b3cac897ec39de108233c91f506c2d16ae",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:23.345Z",
+        "http_status": 200,
+        "title_seen": "字节Agent全三轮面经_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-TX-001",
+      "url": "https://www.nowcoder.com/discuss/939827187992088576",
+      "title": "腾讯内推腾讯面经",
+      "published_at": "10-14 10:17（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "腾讯",
+      "role": "后端",
+      "role_basis": "正文首段含「后端」相关字样",
+      "quote": "“字节面试出乎意料地没有八股，全程围绕实习项目和 AI 使用习惯。面试官问：‘你如何确保 AI 生成的代码逻辑不烂？’我答得磕磕绊绊。手撕反转链表，后面追问线程池。面试官说：‘校招生应具备用 AI 提效但能兜 ...  查看更多",
+      "supports_questions": [
+        "Q002"
+      ],
+      "matches": [
+        {
+          "question": "Q002",
+          "by": "unique-name",
+          "quote": "“字节面试出乎意料地没有八股，全程围绕实习项目和 AI 使用习惯。面试官问：‘你如何确保 AI 生成的代码逻辑不烂？’我答得磕磕绊绊。手撕反转链表，后面追问线程池。面试官说：‘校招生应具备用 AI 提效但能兜 ...  查看更多"
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 6314,
+      "raw_html_sha256": "20008de51f3dc18213620b534fae030ece5bbfc838b0c21564a82337a335bfa6",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "0e69f567abac7a9cbc47775b03ebfe3c3b2af8ab02c8144298004b409e61bad2",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:23.443Z",
+        "http_status": 200,
+        "title_seen": "腾讯内推腾讯面经_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-TX-002",
+      "url": "https://www.nowcoder.com/discuss/940391491124391936",
+      "title": "腾讯面经 腾讯测试开发岗面经-03",
+      "published_at": "10-15 23:40（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "腾讯",
+      "role": "测试开发岗",
+      "role_basis": "正文 3 场面试的岗位标注，最常见为「测试开发岗」（1 场）",
+      "quote": "面经 01面试岗位：快手 测试开发岗 ｜ 面试时间：2025 年 3 月 5 日对侧开的认识MySQL事务特性MySQL聚簇索引定位慢sql 优化jvm设置内存是否可以手动GC对电商的理解手撕两数之和但是快手那个输入输出有问题不 ...",
+      "supports_questions": [
+        "Q019"
+      ],
+      "matches": [
+        {
+          "question": "Q019",
+          "by": "unique-name",
+          "quote": "面经 01面试岗位：快手 测试开发岗 ｜ 面试时间：2025 年 3 月 5 日对侧开的认识MySQL事务特性MySQL聚簇索引定位慢sql 优化jvm设置内存是否可以手动GC对电商的理解手撕两数之和但是快手那个输入输出有问题不 ..."
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 267521,
+      "raw_html_sha256": "bf3acd32070a88737ca4573db2e783d7b6b28dfbc4b46116f536640351bfeab4",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "3110a7c49dcadf9e258561609ec1de4e49cac8930a8d05677eefce2600c07bc6",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:23.551Z",
+        "http_status": 200,
+        "title_seen": "腾讯面经 腾讯测试开发岗面经-03_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-TX-003",
+      "url": "https://www.nowcoder.com/feed/main/detail/1e6300b2c3834e6eabaa560d2daabcc2",
+      "title": "求腾讯瑞驰测开面经",
+      "published_at": "10-14 13:34（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "腾讯",
+      "role": "快手 测试开发岗",
+      "role_basis": "正文标注「面试岗位：快手 测试开发岗」",
+      "quote": "面经 01面试岗位：快手 测试开发岗 ｜ 面试时间：2025 年 3 月 5 日对侧开的认识MySQL事务特性MySQL聚簇索引定位慢sql 优化jvm设置内存是否可以手动GC对电商的理解手撕两数之和但是快手那个输入输出有问题不 ...",
+      "supports_questions": [
+        "Q019"
+      ],
+      "matches": [
+        {
+          "question": "Q019",
+          "by": "unique-name",
+          "quote": "面经 01面试岗位：快手 测试开发岗 ｜ 面试时间：2025 年 3 月 5 日对侧开的认识MySQL事务特性MySQL聚簇索引定位慢sql 优化jvm设置内存是否可以手动GC对电商的理解手撕两数之和但是快手那个输入输出有问题不 ..."
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 159046,
+      "raw_html_sha256": "9668a3591ebff20b2da863e134d0fd20be55813db825fb0c366c343d9027d9e4",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "42ddd61ee586e8c30e9a7aadd7a64579424a1bd7d3723c20c4960e7041a66594",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:23.668Z",
+        "http_status": 200,
+        "title_seen": "求腾讯瑞驰测开面经_牛客网",
         "soft404_markers": [],
         "ok": true
       }

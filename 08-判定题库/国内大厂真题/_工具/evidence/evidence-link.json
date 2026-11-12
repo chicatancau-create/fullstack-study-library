@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T08:31:19.670Z",
+  "generated_at": "2026-11-12T05:31:11.376Z",
   "companies": {
     "华为": {
       "questions": 30,
@@ -8,8 +8,8 @@
     },
     "字节跳动": {
       "questions": 100,
-      "linked": 2,
-      "evidence": 2
+      "linked": 11,
+      "evidence": 11
     },
     "滴滴": {
       "questions": 30,
@@ -23,8 +23,8 @@
     },
     "腾讯": {
       "questions": 30,
-      "linked": 0,
-      "evidence": 0
+      "linked": 2,
+      "evidence": 2
     },
     "阿里巴巴": {
       "questions": 30,
@@ -33,8 +33,8 @@
     }
   },
   "totals": {
-    "evidence": 3,
-    "linked_questions": 2,
+    "evidence": 16,
+    "linked_questions": 13,
     "questions": 250
   }
 }

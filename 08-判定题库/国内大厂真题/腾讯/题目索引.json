@@ -32,9 +32,22 @@
     "heat": 109,
     "question_url": "https://leetcode.cn/problems/reverse-linked-list/",
     "aggregate_source_url": "https://codetop.cc/api/questions/?company=6&page=1&page_size=20",
-    "primary_evidence": [],
-    "evidence_status": "third_party_aggregate",
-    "evidence_note": "第三方聚合，待逐题核源",
+    "primary_evidence": [
+      {
+        "evidence_id": "NC-TX-001",
+        "url": "https://www.nowcoder.com/discuss/939827187992088576",
+        "title": "腾讯内推腾讯面经",
+        "published_at": "10-14 10:17（页面仅显示月日）",
+        "accessed_at": "2026-11-12",
+        "quote": "“字节面试出乎意料地没有八股，全程围绕实习项目和 AI 使用习惯。面试官问：‘你如何确保 AI 生成的代码逻辑不烂？’我答得磕磕绊绊。手撕反转链表，后面追问线程池。面试官说：‘校招生应具备用 AI 提效但能兜 ...  查看更多",
+        "role": "后端",
+        "role_basis": "正文首段含「后端」相关字样",
+        "status": "verified-public",
+        "verifier": "qoder-agent"
+      }
+    ],
+    "evidence_status": "primary_verified",
+    "evidence_note": "已核验公开牛客面经，见 primary_evidence",
     "role_recorded": "后端/算法",
     "role_class": "岗位未标注",
     "role_source": "codetop_aggregate"
@@ -372,9 +385,34 @@
     "heat": 30,
     "question_url": "https://leetcode.cn/problems/two-sum/",
     "aggregate_source_url": "https://codetop.cc/api/questions/?company=6&page=1&page_size=20",
-    "primary_evidence": [],
-    "evidence_status": "third_party_aggregate",
-    "evidence_note": "第三方聚合，待逐题核源",
+    "primary_evidence": [
+      {
+        "evidence_id": "NC-TX-002",
+        "url": "https://www.nowcoder.com/discuss/940391491124391936",
+        "title": "腾讯面经 腾讯测试开发岗面经-03",
+        "published_at": "10-15 23:40（页面仅显示月日）",
+        "accessed_at": "2026-11-12",
+        "quote": "面经 01面试岗位：快手 测试开发岗 ｜ 面试时间：2025 年 3 月 5 日对侧开的认识MySQL事务特性MySQL聚簇索引定位慢sql 优化jvm设置内存是否可以手动GC对电商的理解手撕两数之和但是快手那个输入输出有问题不 ...",
+        "role": "测试开发岗",
+        "role_basis": "正文 3 场面试的岗位标注，最常见为「测试开发岗」（1 场）",
+        "status": "verified-public",
+        "verifier": "qoder-agent"
+      },
+      {
+        "evidence_id": "NC-TX-003",
+        "url": "https://www.nowcoder.com/feed/main/detail/1e6300b2c3834e6eabaa560d2daabcc2",
+        "title": "求腾讯瑞驰测开面经",
+        "published_at": "10-14 13:34（页面仅显示月日）",
+        "accessed_at": "2026-11-12",
+        "quote": "面经 01面试岗位：快手 测试开发岗 ｜ 面试时间：2025 年 3 月 5 日对侧开的认识MySQL事务特性MySQL聚簇索引定位慢sql 优化jvm设置内存是否可以手动GC对电商的理解手撕两数之和但是快手那个输入输出有问题不 ...",
+        "role": "快手 测试开发岗",
+        "role_basis": "正文标注「面试岗位：快手 测试开发岗」",
+        "status": "verified-public",
+        "verifier": "qoder-agent"
+      }
+    ],
+    "evidence_status": "primary_verified",
+    "evidence_note": "已核验公开牛客面经，见 primary_evidence",
     "role_recorded": "后端/算法",
     "role_class": "岗位未标注",
     "role_source": "codetop_aggregate"
