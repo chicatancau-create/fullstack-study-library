@@ -14,8 +14,8 @@
 只能作为**待签字的复核底稿**——真实人类只需复核下列命令与证据，确认后补签即可生效。
 
 - 环境：Windows（win32）+ Git Bash；Node v22.22.2；Python 3.13.14；curl 8.22.0；PostgreSQL 18.6
-- 资料库：`E:/OBsidian/全栈工程师学习资料库`，分支 `chore/fullstack-upgrade`，HEAD `a5ad87b`
-- 练习仓库：`E:/fullstack-code`，分支 `main`，HEAD `8f0d436`
+- 资料库：`<资料库根>`，分支 `chore/fullstack-upgrade`，HEAD `a5ad87b`
+- 练习仓库：`<练习仓库>`，分支 `main`，HEAD `8f0d436`
 - 执行时点：2026-11-08 15:35–15:43（+08:00）
 - 执行前现场：资料库 `04-资源与评估/` 下有 16 个已存在的未提交改动（他人在场工作），**本次未触碰**
 
@@ -74,11 +74,11 @@ exit=1
 
 定位过程（最小复现，非猜测）：
 
-1. `mktemp -d` 在 Git Bash 下返回 `C:\Users\Admin\AppData\Local\Temp/tmp.xxxx`；
+1. `mktemp -d` 在 Git Bash 下返回 `<临时目录>/tmp.xxxx`；
 2. 脚本以 `trap 'rm -rf "$TMP"' EXIT` 清理；
 3. 当**工作目录位于 E: 盘**时，环境的 `rm` 安全包装把路径内的 `C:` 判为
    「嵌套盘符前缀」并拒绝删除；`set -euo pipefail` 下 trap 失败 → 脚本退出码 1；
-4. 最小复现验证：同一脚本在 `/tmp` 下运行 exit 0，在 `E:/OBsidian/...` 下运行 exit 1。
+4. 最小复现验证：同一脚本在 `/tmp` 下运行 exit 0，在 `<资料库根>/...` 下运行 exit 1。
 
 影响：任何按退出码判定的门禁（CI、pre-push、自动化）都会把**验证成功判为失败**；
 只看 stdout 的人则会误以为通过。二者必有一方被误导。

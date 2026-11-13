@@ -10,13 +10,13 @@ Markdown: 124 份｜Wiki: 435｜普通本地链接: 567｜镜像未随包提供:
 通过：catalog、Schema、统计、视图、Markdown 与链接检查无错误。
 
 == manifests ==
--- E:/fullstack-code/Web/project01-blog
+-- <练习仓库>/Web/project01-blog
 manifest OK: P01, 12 artifacts, commit dbf866f850c43923aa995258e566433534a63f25
--- E:/fullstack-code/project02-spring
+-- <练习仓库>/project02-spring
 manifest OK: B5-01, 20 artifacts, commit befe95bd4cd64cb8f6654e2a83c90820fd3baa55
--- E:/fullstack-code/project04-saas
+-- <练习仓库>/project04-saas
 manifest OK: P04, 25 artifacts, commit d7faa0a5a40dcdf8b6132b8a7162563f9979c4d8
--- E:/fullstack-code/project05-takeover
+-- <练习仓库>/project05-takeover
 manifest OK: P05, 9 artifacts, commit b22ba009c2c1f8b389d94e05ae1764bb190b4fec
 -- 06-实验代码/E01-c-memory
 manifest OK: E01, 10 artifacts, commit 8ed6291596bbac04fd597a2550cac97fd27ebcec

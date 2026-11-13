@@ -1,5 +1,5 @@
 captured_at: 2026-11-09T13:29:47.108Z
-zap_home: D:/ZAP/ZAP_2.17.0
+zap_home: <ZAP_HOME>
 target: http://127.0.0.1:4789/scan (intentionally vulnerable)
 hardened_target: http://127.0.0.1:4789/scan-safe
 scan: spider + passive (baseline; no active scan)

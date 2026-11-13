@@ -39,7 +39,7 @@
 ```text
 OS        : Windows 10.0.28000 x64
 Node      : v24.15.0
-RabbitMQ  : 4.4.0（D:\RabbitMQ\rabbitmq_server-4.4.0，127.0.0.1:5672）
+RabbitMQ  : 4.4.0（<RabbitMQ_HOME>/rabbitmq_server-4.4.0，127.0.0.1:5672）
 Erlang    : 29.1.2（D:\Erlang）
 PostgreSQL: 18.6（study_lab，schema e10）
 客户端    : amqplib 2.2.1、pg 8.23.1

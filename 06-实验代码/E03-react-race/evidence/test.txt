@@ -1,5 +1,5 @@
 
- RUN  v5.1.0 E:/OBsidian/全栈工程师学习资料库/06-实验代码/E03-react-race
+ RUN  v5.1.0 <资料库根>/06-实验代码/E03-react-race
 
  ✓ tests/cache.test.ts (4 tests) 6ms
  ✓ tests/unmount.test.tsx (1 test) 54ms

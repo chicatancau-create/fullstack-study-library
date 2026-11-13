@@ -4,7 +4,7 @@
 
 ## 全栈工程师学习计划-recover
 
-原外部路径：`E:\OBsidian\全栈工程师学习计划-recover`  
+原外部路径：`<资料库根>/全栈工程师学习计划-recover`  
 当前路径：`90-历史归档/全栈工程师学习计划-recover`  
 迁入日期：2026-11-05  
 性质：深化过程中的分轮修改前快照，不是完整旧版、不是当前文件副本，也不是可直接覆盖现行计划的恢复包。
@@ -26,7 +26,7 @@
 
 ## plan-backups-并入
 
-原外部路径：`E:\OBsidian\.plan-backups\fullstack-20261104-f2291a90`  
+原外部路径：`<资料库根>/.plan-backups\fullstack-20261104-f2291a90`  
 当前路径：`90-历史归档/plan-backups-并入/fullstack-20261104-f2291a90`  
 迁入日期：2026-11-05  
 性质：2026-11-04 改版时的审计与恢复材料，含 `original` 完整原副本、`before/after/change-manifest.json` 三向哈希、`diffs`、`validation-results.json` 以及 `validate_plan.py`、`rollback_plan.py` 两个校验与回滚脚本。原外部目录已按"一个项目一个文件夹"原则并入本库并移除。

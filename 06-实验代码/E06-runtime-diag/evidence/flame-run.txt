@@ -1,3 +1,3 @@
 Profilingcpu_loop done x=864209 elapsed=300ms
 [1000D[0KProcess exited, generating flamegraph[1000D[0KFlamegraph generated in
-file://E:\OBsidian\全栈工程师学习资料库\06-实验代码\E06-runtime-diag\evidence\flame\flamegraph.html
+file://<资料库根>\06-实验代码\E06-runtime-diag\evidence\flame\flamegraph.html

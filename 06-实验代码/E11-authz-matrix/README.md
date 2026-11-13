@@ -20,7 +20,7 @@
 
 没做什么：
 
-- **ZAP 只做 baseline**：已下载 ZAP 2.17.0 Core（D:/ZAP/ZAP_2.17.0），通过 daemon API 对 `/scan` 做 spider + 被动扫描，产出 HTML/XML 报告；未运行主动扫描（active scan），攻击类结论仍以手工 PoC 为准。
+- **ZAP 只做 baseline**：已下载 ZAP 2.17.0 Core（<ZAP_HOME>），通过 daemon API 对 `/scan` 做 spider + 被动扫描，产出 HTML/XML 报告；未运行主动扫描（active scan），攻击类结论仍以手工 PoC 为准。
 - 基线扫描本身不是门禁（漏洞面 `/scan` 会正常报 Medium）。门禁建在加固面 `/scan-safe`：同一组路径补齐完整 CSP 指令、`X-Frame-Options: DENY` 与输出编码，要求 Medium/High 均为 0，同时要求对照面确实报出 Medium，证明扫描器有效；两条任一不满足即脚本非零退出。
 - A02 只做机制核对（scrypt + timingSafeEqual + 随机 token），没有弱加密 PoC。
 - A06 只固定 fastify 5.12.8，未跑 `npm audit`，不作组件漏洞结论。
@@ -66,7 +66,7 @@ echo $?
 
 单跑攻击取证：`node src/attack_evidence.mjs`（会启动临时靶场与 Edge）。
 
-ZAP 复跑（需 `ZAP_HOME`，默认 `D:/ZAP/ZAP_2.17.0`）：`node scripts/run_zap_api.mjs`；扫描入口为公开页 `/scan`，加固对照面为 `/scan-safe`，结果写入 `evidence/zap.txt`、`evidence/zap-report.html`、`evidence/zap-report.xml`；`evidence/zap.txt` 的 `gate:` 行为通过判据。
+ZAP 复跑（需 `ZAP_HOME`，默认 `<ZAP_HOME>`）：`node scripts/run_zap_api.mjs`；扫描入口为公开页 `/scan`，加固对照面为 `/scan-safe`，结果写入 `evidence/zap.txt`、`evidence/zap-report.html`、`evidence/zap-report.xml`；`evidence/zap.txt` 的 `gate:` 行为通过判据。
 
 ## 5. 关键实现
 

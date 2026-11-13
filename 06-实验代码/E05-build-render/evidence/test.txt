@@ -1,5 +1,5 @@
 
- RUN  v5.1.0 E:/OBsidian/全栈工程师学习资料库/06-实验代码/E05-build-render
+ RUN  v5.1.0 <资料库根>/06-实验代码/E05-build-render
 
  ✓ tests/app.test.tsx (2 tests) 84ms
  ✓ tests/render.test.tsx (8 tests) 156ms

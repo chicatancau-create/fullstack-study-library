@@ -1,5 +1,5 @@
 profile=CPU.20261109.095757.71316.0.001.cpuprofile
-288.92ms  (anonymous)  /E:/OBsidian/%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E5%BA%93/06-%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81/E06-runtime-diag/scenarios/cpu_loop.mjs:1
+288.92ms  (anonymous)  /<资料库根>/%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E5%BA%93/06-%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81/E06-runtime-diag/scenarios/cpu_loop.mjs:1
 12.57ms  (program)  :0
 8.34ms  (garbage collector)  :0
 2.59ms  evaluate  :0

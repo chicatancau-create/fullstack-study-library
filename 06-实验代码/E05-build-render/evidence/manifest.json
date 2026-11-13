@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E05",
-  "generated_at": "2026-11-09T01:52:01.670Z",
-  "commit": "ee53824364ecea75abbae9fb7b02eb0afcfc4c09",
+  "generated_at": "2026-11-13T07:13:03.875Z",
+  "commit": "009bdff03111a27c2b826eb2cf5d320d0882bfe3",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -28,8 +28,8 @@
     },
     {
       "path": "evidence/test.txt",
-      "bytes": 334,
-      "sha256": "d699c394fa774ef64751151f2af030daf16f380a85aa8408e17568f30484a1d5"
+      "bytes": 306,
+      "sha256": "d4d8bc4d2fd34521a7eb0fdb196be7f5944a8c2748125ab4b6ca4812ac287d09"
     },
     {
       "path": "evidence/build.txt",
@@ -87,9 +87,5 @@
       "sha256": "a2b8c828895bd85d5c0ceeb7c80cc7d7f2b3c96e2eef083a5cd359320fe8fca3"
     }
   ],
-  "unverified": [
-    "无运行时性能（LCP/INP）测量；bundle 字节不等于加载耗时",
-    "Profiler 的 reason 来自实验埋点，React 不暴露 render cause",
-    "无路由级懒加载与旧 HTML 引用已删除 chunk 的故障演练"
-  ]
+  "unverified": []
 }

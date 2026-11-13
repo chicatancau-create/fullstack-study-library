@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E11",
-  "generated_at": "2026-11-09T13:33:10.990Z",
-  "commit": "d0eada0c0f42c7c5c9377ce0435b2b1aec567c8b",
+  "generated_at": "2026-11-13T07:13:04.649Z",
+  "commit": "009bdff03111a27c2b826eb2cf5d320d0882bfe3",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -52,8 +52,8 @@
     },
     {
       "path": "evidence/zap.txt",
-      "bytes": 462,
-      "sha256": "ca72529a218e82f01658197379606a7cfc1cdc89d1f0200f67267160a20e33bb"
+      "bytes": 455,
+      "sha256": "f8ceafe1eb5831efcc6580b1f62809dab0b9cc57331c3dbf7c169c1a55735bc9"
     },
     {
       "path": "evidence/zap-report.html",

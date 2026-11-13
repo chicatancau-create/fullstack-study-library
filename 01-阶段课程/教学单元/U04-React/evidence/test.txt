@@ -1,5 +1,5 @@
 
- RUN  v5.1.0 E:/OBsidian/全栈工程师学习资料库/01-阶段课程/教学单元/U04-React
+ RUN  v5.1.0 <资料库根>/01-阶段课程/教学单元/U04-React
 
  ✓ tests/RecordApp.test.tsx (4 tests) 213ms
 

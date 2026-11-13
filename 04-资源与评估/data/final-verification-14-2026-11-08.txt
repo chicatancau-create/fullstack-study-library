@@ -10,21 +10,21 @@ Markdown: 131 份｜Wiki: 506｜普通本地链接: 582｜镜像未随包提供:
 通过：catalog、Schema、统计、视图、Markdown 与链接检查无错误。
 
 == all manifests ==
--- E:/fullstack-code/Web/project01-blog
+-- <练习仓库>/Web/project01-blog
 manifest OK: P01, 15 artifacts, commit a40b91130f55b001b339ef7a0e5245196a00a746
--- E:/fullstack-code/project02-collab
+-- <练习仓库>/project02-collab
 manifest OK: P02, 12 artifacts, commit e616905512ebcd0ec0571d7ed9a303c314434466
--- E:/fullstack-code/project02-spring
+-- <练习仓库>/project02-spring
 manifest OK: B5-01, 20 artifacts, commit befe95bd4cd64cb8f6654e2a83c90820fd3baa55
--- E:/fullstack-code/project02-frameworks
+-- <练习仓库>/project02-frameworks
 manifest OK: B5-03, 4 artifacts, commit 3ac07eb289e60f2f7b17c10e401f46fcf7804065
--- E:/fullstack-code/project03-trade
+-- <练习仓库>/project03-trade
 manifest OK: P03, 12 artifacts, commit 677087d47204e1872c96f6ab1a7f7561c471829a
--- E:/fullstack-code/project04-saas
+-- <练习仓库>/project04-saas
 manifest OK: P04, 25 artifacts, commit d7faa0a5a40dcdf8b6132b8a7162563f9979c4d8
--- E:/fullstack-code/project05-takeover
+-- <练习仓库>/project05-takeover
 manifest OK: P05, 9 artifacts, commit b22ba009c2c1f8b389d94e05ae1764bb190b4fec
--- E:/fullstack-code/project06-ai-min
+-- <练习仓库>/project06-ai-min
 manifest OK: B6-02, 9 artifacts, commit aea6e7b739743d5c00a3146246824987b63af7ef
 -- 06-实验代码/E01-c-memory
 manifest OK: E01, 10 artifacts, commit 8ed6291596bbac04fd597a2550cac97fd27ebcec

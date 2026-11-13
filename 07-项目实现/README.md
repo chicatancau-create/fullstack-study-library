@@ -5,7 +5,7 @@
 
 ## 代码位置
 
-所有可运行项目都在 `E:\fullstack-code`（GitHub + GitCode 双远端）：
+所有可运行项目都在 `<练习仓库>/`（GitHub + GitCode 双远端）：
 
 | 项目 | 代码目录 | 实现要点 |
 | --- | --- | --- |
@@ -17,7 +17,7 @@
 
 ## MS6 完整版状态（2026-11-09）
 
-| 项目 | 本机验证 | 证据（`E:\fullstack-code` 内） | 未验证边界 |
+| 项目 | 本机验证 | 证据（`<练习仓库>/` 内） | 未验证边界 |
 | --- | --- | --- | --- |
 | P02 | 38/38 测试、前端 10/10、E2E 2/2、覆盖率 96.61/85.07/97.29 | `projects/project02-collab/evidence/` | compose 未在本机复跑（Windows 无 Docker） |
 | P03 | 31/31 测试、覆盖率 84.09/80.33/82.93、E2E 1/1、100 并发双锁、MQ/故障演练 | `projects/project03-trade/evidence/` | compose 前端/worker 拓扑已写入，未在本机实跑；依赖审计受 npmmirror 限制 |
@@ -34,7 +34,7 @@
 
 ## 历史
 
-- 2026-11-08：P02/P03/P04 副本（含依赖，约 760 MB）已并入 `E:\fullstack-code`，本地副本删除。
+- 2026-11-08：P02/P03/P04 副本（含依赖，约 760 MB）已并入 `<练习仓库>/`，本地副本删除。
   项目内的 `.github/workflows/` 未并入（本仓库以根目录 CI 为准）；
   P02 由 pg/node:test 版换成了 Prisma/Vitest 版（旧实现与旧 docs 在归档里）。
   归档位置：`D:\_recover\07-merge-20261109-094019\`。

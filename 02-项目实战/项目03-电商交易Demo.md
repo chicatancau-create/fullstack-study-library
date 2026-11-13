@@ -6,7 +6,7 @@
 
 ## 当前实现状态（2026-11-07）
 
-本机 `E:/fullstack-code/projects/project03-trade` 已落地交易核心切片，验证入口为 `scripts/run_project.sh`：
+本机 `<练习仓库>/projects/project03-trade` 已落地交易核心切片，验证入口为 `scripts/run_project.sh`：
 
 - 已实现：单 SKU 下单、库存行锁与 `CHECK (stock >= 0)`、服务端计价、订单快照、`(user_id, idem_key)` 幂等、
   取消回补、支付回调 HMAC 验签与 `event_id` 去重、取消/支付竞争状态机、用户隔离、迁移与备份恢复。

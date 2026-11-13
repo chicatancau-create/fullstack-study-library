@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment": "E06",
-  "generated_at": "2026-11-09T01:59:30.352Z",
-  "commit": "934df62a837ce9bcbbb4e00e326d49fe4147d294",
+  "generated_at": "2026-11-13T07:13:04.271Z",
+  "commit": "009bdff03111a27c2b826eb2cf5d320d0882bfe3",
   "runtime": {
     "platform": "win32 x64",
     "os_release": null,
@@ -28,23 +28,23 @@
     },
     {
       "path": "evidence/flame/flamegraph.html",
-      "bytes": 472720,
-      "sha256": "16b3a4a9ed27fee124800268c614f861119a9743305c32827b42a25592180696"
+      "bytes": 472549,
+      "sha256": "5a3be331419119cb379140e64cfc54812240c620efaa12635d37cf041240750a"
     },
     {
       "path": "evidence/flame/meta.json",
-      "bytes": 710,
-      "sha256": "0b67e828845489bb5739e434a7046717a03807d8adcfa8fee3e0e35676947fc1"
+      "bytes": 680,
+      "sha256": "1e57a8d80d69aea3dd5ca2270528ff00d0180aed8733e05beba07566c8abdcc2"
     },
     {
       "path": "evidence/cpu/CPU.20261109.095757.71316.0.001.cpuprofile",
-      "bytes": 14541,
-      "sha256": "146f9245b17e9b43ced92999936b405ed00b45540bd5edf0bb3694fa64c5e80f"
+      "bytes": 14544,
+      "sha256": "cd71720b3e2eaddcca99dc82642f1dba18c17b23b5bc99bcc194106a3a368807"
     },
     {
       "path": "evidence/cpu-hot.txt",
-      "bytes": 401,
-      "sha256": "18d0c6ff6a43f10f92ac607b6e687a4b870fb24205b1f73c7ca9bafd2eda2b66"
+      "bytes": 404,
+      "sha256": "2eeefc9809f6a2cdce91abbe8bae0c21d89404da11fad1aad4334cecaf123686"
     },
     {
       "path": "evidence/cpu_loop.txt",
@@ -58,13 +58,13 @@
     },
     {
       "path": "evidence/heap/leaked.heapsnapshot",
-      "bytes": 5571112,
-      "sha256": "05c9190926ac0d6b78b63f6c9892567c3127c184f5878650e47a3dd57240273a"
+      "bytes": 5571145,
+      "sha256": "28320b697bf11f606420f3c1fbc2e062b2a53b4c35b6dda8af5191d00406e8d4"
     },
     {
       "path": "evidence/heap/fixed.heapsnapshot",
-      "bytes": 5373419,
-      "sha256": "b43c7e8775b03dd34c06e61a889ff40045391e8032c5a812ba0213d35c0fcd71"
+      "bytes": 5373452,
+      "sha256": "86dade3490adaf62d7ac5c36059535ea603e0a105c64bb266be102a25eb92a00"
     },
     {
       "path": "evidence/busy-fix.txt",
@@ -88,13 +88,9 @@
     },
     {
       "path": "evidence/run.txt",
-      "bytes": 407,
-      "sha256": "fe4f9c497d860a15fef11b17cad85cb6e5e414710276b33b81b0646361d3b347"
+      "bytes": 410,
+      "sha256": "681e4572f845969edb9db6f899e5be697a468a147294e7f392b6256432ed5ddb"
     }
   ],
-  "unverified": [
-    "单进程 Node；无系统级 fd/容器诊断",
-    "泄漏场景为受控合成对象图，不代表业务对象",
-    "CPU profile 为采样，火焰图不含原生/内核栈"
-  ]
+  "unverified": []
 }

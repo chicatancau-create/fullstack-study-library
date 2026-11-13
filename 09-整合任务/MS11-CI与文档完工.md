@@ -66,7 +66,7 @@
 ## 二、工具现代化
 
 ### 当前缺口
-- `scripts/verify_all.mjs` 默认检查 `E:/fullstack-code` 外部练习仓库
+- `scripts/verify_all.mjs` 默认检查 `<练习仓库>` 外部练习仓库
 - P02/P03/P04 标签指向外部旧仓库，不是当前 `07-项目实现/`
 - 只检查 manifest，没有运行 07/08/09 的实际资产
 - 默认访问 Pages 网络
