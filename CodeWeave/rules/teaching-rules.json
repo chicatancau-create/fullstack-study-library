@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 2,
+  "ruleVersion": "2026-11-20-pilot.1",
+  "sourceRefs": [
+    {
+      "path": "CodeWeave/rules/教学规则.md",
+      "headingPath": [
+        "阶段与复习规则"
+      ]
+    }
+  ],
+  "ruleSections": [
+    {
+      "id": "R-PILOT-STAGES",
+      "path": "CodeWeave/rules/教学规则.md",
+      "headingPath": [
+        "阶段与复习规则"
+      ],
+      "covers": [
+        "stages",
+        "reviewOffsetsDays"
+      ]
+    }
+  ],
+  "sectionReviews": {
+    "R-PILOT-STAGES": {
+      "reviewedAt": "2026-11-20",
+      "reviewer": "CodeWeave 首批接入",
+      "fingerprint": "d9981af7f2d5656a2220a1c7a35609de28be55c8066ea4c312438868b5908ef9"
+    }
+  },
+  "stages": [
+    {
+      "id": "S0",
+      "title": "开发环境与工程习惯",
+      "checkpoint": "完成 U01 示例、练习与独立盲测并保留证据；不代表 G0 已通过。",
+      "deliverables": [
+        "Git 提交历史",
+        "冲突解决记录",
+        "Shell 退出码证据"
+      ],
+      "prerequisites": []
+    }
+  ],
+  "reviewOffsetsDays": [
+    0,
+    1,
+    3
+  ]
+}

@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "vaultId": "fullstack-study-library",
+  "publishWhitelist": {
+    "contentRoot": "CodeWeave/发布正文",
+    "contentTypes": [
+      "knowledge-volume"
+    ],
+    "excludedPathSegments": [],
+    "teachingUnitDir": "CodeWeave/教学单元",
+    "exerciseDir": "CodeWeave/练习",
+    "sourceRoot": "CodeWeave/知识来源",
+    "rulesPath": "CodeWeave/rules/teaching-rules.json",
+    "legacyMapPath": "CodeWeave/mappings/legacy-map.json",
+    "topicIdMapPath": "CodeWeave/mappings/topic-id-map.json",
+    "topicIndexPath": "CodeWeave/主题定位索引.md"
+  },
+  "sourceRegistry": {
+    "SRC-U01-GIT": {
+      "verificationStatus": "库内已存在",
+      "path": "01-阶段课程/教学单元/U01-Git与Shell/README.md"
+    }
+  },
+  "topics": [
+    {
+      "topicId": "topic-0001",
+      "path": "CodeWeave/发布正文/U01-Git与Shell.md",
+      "headingPath": [
+        "U01：Git 与 Shell",
+        "1. 目标 / 非目标 / 产出"
+      ],
+      "title": "1. 目标 / 非目标 / 产出",
+      "level": 2,
+      "line": 19,
+      "topicKind": "topic",
+      "sourceIds": [
+        "SRC-U01-GIT"
+      ],
+      "verificationStatus": "库内已存在",
+      "contentHash": "8cf9c0048b6f4ee0b59be2a23c63d12a737389c21b9dbaa193cd86d028cf5504",
+      "status": "active"
+    },
+    {
+      "topicId": "topic-0002",
+      "path": "CodeWeave/发布正文/U01-Git与Shell.md",
+      "headingPath": [
+        "U01：Git 与 Shell",
+        "2. 心智模型"
+      ],
+      "title": "2. 心智模型",
+      "level": 2,
+      "line": 38,
+      "topicKind": "topic",
+      "sourceIds": [
+        "SRC-U01-GIT"
+      ],
+      "verificationStatus": "库内已存在",
+      "contentHash": "b91bad8bceb856a152fa0359ac21c3816f09ac803a86e0e624259d8591474d8d",
+      "status": "active"
+    },
+    {
+      "topicId": "topic-0003",
+      "path": "CodeWeave/发布正文/U01-Git与Shell.md",
+      "headingPath": [
+        "U01：Git 与 Shell",
+        "3. 讲义"
+      ],
+      "title": "3. 讲义",
+      "level": 2,
+      "line": 46,
+      "topicKind": "topic",
+      "sourceIds": [
+        "SRC-U01-GIT"
+      ],
+      "verificationStatus": "库内已存在",
+      "contentHash": "a9d08f33e2348294aa220a40f6d04cf235bcf33cbbfa0c228fe90fe374b0de9f",
+      "status": "active"
+    },
+    {
+      "topicId": "topic-0004",
+      "path": "CodeWeave/发布正文/U01-Git与Shell.md",
+      "headingPath": [
+        "U01：Git 与 Shell",
+        "4. 最小可运行示例"
+      ],
+      "title": "4. 最小可运行示例",
+      "level": 2,
+      "line": 96,
+      "topicKind": "topic",
+      "sourceIds": [
+        "SRC-U01-GIT"
+      ],
+      "verificationStatus": "库内已存在",
+      "contentHash": "f671db7591e72f37454d612b714da8a8835e57a91cc5905b64036b9597c71685",
+      "status": "active"
+    },
+    {
+      "topicId": "topic-0005",
+      "path": "CodeWeave/发布正文/U01-Git与Shell.md",
+      "headingPath": [
+        "U01：Git 与 Shell",
+        "5. 常见错误"
+      ],
+      "title": "5. 常见错误",
+      "level": 2,
+      "line": 128,
+      "topicKind": "topic",
+      "sourceIds": [
+        "SRC-U01-GIT"
+      ],
+      "verificationStatus": "库内已存在",
+      "contentHash": "d78d08c30b1be4e3980906afc36ba9e1e2b42605308166d1145e5cf3491539fd",
+      "status": "active"
+    },
+    {
+      "topicId": "topic-0006",
+      "path": "CodeWeave/发布正文/U01-Git与Shell.md",
+      "headingPath": [
+        "U01：Git 与 Shell",
+        "6. 练习"
+      ],
+      "title": "6. 练习",
+      "level": 2,
+      "line": 165,
+      "topicKind": "topic",
+      "sourceIds": [
+        "SRC-U01-GIT"
+      ],
+      "verificationStatus": "库内已存在",
+      "contentHash": "b47ebec93a275a83c1ed2e04fb521096b0efff6523d65f9cdea9d3469f693632",
+      "status": "active"
+    },
+    {
+      "topicId": "topic-0007",
+      "path": "CodeWeave/发布正文/U01-Git与Shell.md",
+      "headingPath": [
+        "U01：Git 与 Shell",
+        "7. 自测"
+      ],
+      "title": "7. 自测",
+      "level": 2,
+      "line": 179,
+      "topicKind": "topic",
+      "sourceIds": [
+        "SRC-U01-GIT"
+      ],
+      "verificationStatus": "库内已存在",
+      "contentHash": "2fc2e072d0dd3bade967b5941cfb1d892d360ae341d73e9078e6923d5bb4a4b5",
+      "status": "active"
+    },
+    {
+      "topicId": "topic-0008",
+      "path": "CodeWeave/发布正文/U01-Git与Shell.md",
+      "headingPath": [
+        "U01：Git 与 Shell",
+        "8. 独立未见任务（盲测）"
+      ],
+      "title": "8. 独立未见任务（盲测）",
+      "level": 2,
+      "line": 189,
+      "topicKind": "topic",
+      "sourceIds": [
+        "SRC-U01-GIT"
+      ],
+      "verificationStatus": "库内已存在",
+      "contentHash": "7a504a01e0ee4d45cbdce087e728651a408018f87f8bde2a4ad48dba4c70932d",
+      "status": "active"
+    },
+    {
+      "topicId": "topic-0009",
+      "path": "CodeWeave/发布正文/U01-Git与Shell.md",
+      "headingPath": [
+        "U01：Git 与 Shell",
+        "9. M / E / G 映射"
+      ],
+      "title": "9. M / E / G 映射",
+      "level": 2,
+      "line": 193,
+      "topicKind": "topic",
+      "sourceIds": [
+        "SRC-U01-GIT"
+      ],
+      "verificationStatus": "库内已存在",
+      "contentHash": "e5834b916bf25dea06bf21b113a20af483875a68a5b2ad75ca231c20823751ec",
+      "status": "active"
+    },
+    {
+      "topicId": "topic-0010",
+      "path": "CodeWeave/发布正文/U01-Git与Shell.md",
+      "headingPath": [
+        "U01：Git 与 Shell",
+        "10. 官方资料与查阅日期"
+      ],
+      "title": "10. 官方资料与查阅日期",
+      "level": 2,
+      "line": 203,
+      "topicKind": "topic",
+      "sourceIds": [
+        "SRC-U01-GIT"
+      ],
+      "verificationStatus": "库内已存在",
+      "contentHash": "97981e938024f3cf0844da690158650b4a80e40f6ecae686381b644a64d1724a",
+      "status": "active"
+    },
+    {
+      "topicId": "topic-0011",
+      "path": "CodeWeave/发布正文/U01-Git与Shell.md",
+      "headingPath": [
+        "U01：Git 与 Shell",
+        "11. 证据"
+      ],
+      "title": "11. 证据",
+      "level": 2,
+      "line": 210,
+      "topicKind": "topic",
+      "sourceIds": [
+        "SRC-U01-GIT"
+      ],
+      "verificationStatus": "库内已存在",
+      "contentHash": "e54cd5cb65a5e5420faeba9f96c64fa474230aed78a6758e95e3c20495805976",
+      "status": "active"
+    }
+  ],
+  "publishedContentIds": [
+    "cw-u01-git-shell"
+  ]
+}

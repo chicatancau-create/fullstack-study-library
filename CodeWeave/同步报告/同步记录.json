@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-11-25T06:23:23.506Z",
+  "history": [
+    {
+      "finishedAt": "2026-11-25T06:23:23.506Z",
+      "bundleId": "f0654106d70355dc7615387e3525e0e0",
+      "counts": {
+        "volumes": 1,
+        "topics": 11,
+        "registeredTopics": 11,
+        "activeTopics": 11,
+        "compatPointerTopics": 0,
+        "emptyTopics": 0,
+        "indexAlignedTopics": 11,
+        "lessons": 1,
+        "exercises": 1,
+        "legacyEntries": 0
+      },
+      "rulesStatus": "current",
+      "addedTopics": 0,
+      "movedTopics": [],
+      "retiredTopics": [],
+      "gapSummary": {
+        "emptyTopics": 0,
+        "uncoveredTopics": 10,
+        "publishedWithoutExercise": 0,
+        "unmappedLegacy": 0
+      },
+      "operationId": "pub-2026-11-25T06-23-23-506Z-zttg0l"
+    }
+  ]
+}
