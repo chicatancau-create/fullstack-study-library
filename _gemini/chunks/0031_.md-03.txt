@@ -1,0 +1,20 @@
+| 知识库/后端进阶 | [doocs/advanced-java](https://github.com/doocs/advanced-java) | — | 2026-11-04 20:03 | 2026-10-19 | 297 | 10,109,802 | 9.64 | 93 | ed53e3768781 | 未知 | CC-BY-SA-4.0 | unknown |
+| 知识库/后端进阶 | [DreamCats/java-notes](https://github.com/DreamCats/java-notes) | — | 2026-11-04 20:03 | 2024-12-02 | 346 | 1,911,194 | 1.82 | 331 | a50175a25c30 | 未知 | 无 LICENSE | unknown |
+| 知识库/后端进阶 | [goldbergyoni/nodebestpractices](https://github.com/goldbergyoni/nodebestpractices) | — | 2026-11-04 20:03 | 2026-06-15 | 758 | 12,890,892 | 12.29 | 653 | 76cfb94e6b65 | 未知 | CC-BY-SA-4.0 | unknown |
+| 知识库/后端进阶 | [hoanhan101/ultimate-go](https://github.com/hoanhan101/ultimate-go) | — | 2026-11-04 20:03 | 2025-06-15 | 85 | 2,140,612 | 2.04 | 3 | 4ddc1fa9ea35 | 未知 | Apache-2.0 | unknown |
+| 知识库/后端进阶 | [itwanger/toBeBetterJavaer](https://github.com/itwanger/toBeBetterJavaer) | — | 2026-11-04 20:03 | 2026-11-05 | 1233 | 53,080,273 | 50.62 | 992 | 522e3a6868fa | 未知 | 无 LICENSE | unknown |
+| 知识库/后端进阶 | [macrozheng/mall-learning](https://github.com/macrozheng/mall-learning) | master | 2026-11-05 11:12 | 2024-09-15 | 2473 | 45,463,661 | 43.36 | 145 | 未知 | 878ded08350b | 无 LICENSE | unknown |
+| 知识库/后端进阶 | [nodejs/nodejs.org](https://github.com/nodejs/nodejs.org) | main | 2026-11-05 11:12 | 2026-11-04 | 2235 | 31,285,274 | 29.84 | 1,309 | 未知 | 1d11808d2211 | MIT | unknown |
+| 知识库/后端进阶 | [standard/standard](https://github.com/standard/standard) | master | 2026-11-05 11:12 | 2025-07-11 | 110 | 1,634,217 | 1.56 | 23 | 未知 | 247aeb5da0e7 | MIT | unknown |
+| 知识库/后端进阶 | [sunface/rust-course](https://github.com/sunface/rust-course) | main | 2026-11-05 11:12 | 2026-10-30 | 572 | 5,663,322 | 5.40 | 409 | 未知 | 1a7d8d92d6dc | 无 LICENSE | unknown |
+| 知识库/后端进阶 | [ty4z2008/Qix](https://github.com/ty4z2008/Qix) | master | 2026-11-05 11:12 | 2026-09-06 | 14 | 465,238 | 0.44 | 12 | 未知 | ca51aa4e2de4 | MIT | unknown |
+| 知识库/后端进阶 | [xingshaocheng/architect-awesome](https://github.com/xingshaocheng/architect-awesome) | — | 2026-11-04 20:03 | 2024-04-11 | 3 | 831,241 | 0.79 | 1 | c4d55a7d3c2d | 未知 | 无 LICENSE | stale |
+| 知识库/后端进阶 | [zhisheng17/flink-learning](https://github.com/zhisheng17/flink-learning) | master | 2026-11-05 11:12 | 2026-05-06 | 754 | 2,506,914 | 2.39 | 123 | 未知 | 79cbe577f18c | Apache-2.0 | unknown |
+| 知识库/安全 | [DerekBabb/CyberSecurity](https://github.com/DerekBabb/CyberSecurity) | master | 2026-11-05 11:12 | 2023-12-17 | 124 | 6,408,292 | 6.11 | 41 | 未知 | 712a5803f02c | GPL-3.0 | unknown |
+| 知识库/安全 | [OWASP/CheatSheetSeries](https://github.com/OWASP/CheatSheetSeries) | — | 2026-11-04 20:03 | 2026-11-03 | 392 | 24,074,597 | 22.96 | 170 | 1b1f0312f0ac | 未知 | CC-BY-SA-4.0 | unknown |
+| 知识库/安全 | [OWASP/Top10](https://github.com/OWASP/Top10) | — | 2026-11-04 20:03 | 2026-09-24 | 1140 | 277,154,340 | 264.31 | 727 | eca322edc98d | 未知 | CC-BY-SA-4.0 | unknown |
+| 知识库/安全 | [swisskyrepo/PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings) | master | 2026-11-05 11:12 | 2026-10-30 | 451 | 12,953,006 | 12.35 | 142 | 未知 | b2b9a0b2a81b | MIT | unknown |
+| 知识库/算法与数据结构 | [krahets/hello-algo](https://github.com/krahets/hello-algo) | — | 2026-11-04 20:03 | 2026-11-05 | 12257 | 274,919,154 | 262.18 | 1,125 | 782aecd16d1c | 未知 | CC-BY-NC-SA-4.0 | unknown |
+| 知识库/算法与数据结构 | [LongxingTan/Machine-learning-interview](https://github.com/LongxingTan/Machine-learning-interview) | main | 2026-11-05 11:12 | 2026-05-30 | 475 | 33,474,329 | 31.92 | 409 | 未知 | 7dda34f5f888 | 无 LICENSE | unknown |
+| 知识库/算法与数据结构 | [TheAlgorithms/Python](https://github.com/TheAlgorithms/Python) | — | 2026-11-04 20:03 | 2026-11-02 | 1738 | 15,684,714 | 14.96 | 37 | 6537237b9dff | 未知 | MIT | unknown |
+| 知识库/算法与数据结构 | [trekhleb/javascript-algorithms](https://github.com/trekhleb/javascript-algorithms) | — | 2026-11-04 20:03 | 2026-07-26 | 680 | 10,163,461 | 9.69 | 259 | 220e6b95cdfc | 未知 | MIT | unknown |

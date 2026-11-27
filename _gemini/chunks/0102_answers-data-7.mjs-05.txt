@@ -1,0 +1,101 @@
+    code: `function solve(a) {
+  function build(arr) {
+    if (!arr.length || arr[0] === null) return null;
+    const root = { val: arr[0], left: null, right: null };
+    const q = [root];
+    let i = 1;
+    while (i < arr.length && q.length) {
+      const n = q.shift();
+      if (i < arr.length) { if (arr[i] !== null) { n.left = { val: arr[i], left: null, right: null }; q.push(n.left); } i++; }
+      if (i < arr.length) { if (arr[i] !== null) { n.right = { val: arr[i], left: null, right: null }; q.push(n.right); } i++; }
+    }
+    return root;
+  }
+  function height(n) {
+    if (!n) return 0;
+    const l = height(n.left);
+    if (l === -1) return -1;
+    const r = height(n.right);
+    if (r === -1) return -1;
+    if (Math.abs(l - r) > 1) return -1;
+    return 1 + Math.max(l, r);
+  }
+  return height(build(a)) !== -1;
+}`,
+    edge_cases: [
+      { call: '[3,9,20,null,null,15,7]', expected: true, why: '标准平衡树' },
+      { call: '[1,2,2,3,3,null,null,4,4]', expected: false, why: '深层左右差 2' },
+      { call: '[]', expected: true, why: '空树平衡' },
+    ],
+    common_mistakes: ['只检查根节点左右高度', '每个节点重复求高度导致 O(n²)', '用 -1 标记后仍继续加高度'],
+    followups: ['如何同时返回不平衡的节点？', '红黑树如何保证近似平衡？'],
+    rubric: [
+      { point: '后序返回高度或 -1 标记', weight: 2 },
+      { point: '左右差大于 1 判定失败', weight: 1 },
+      { point: '空树返回 true', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q095', title: '104. 二叉树的最大深度', question_url: 'https://leetcode.cn/problems/maximum-depth-of-binary-tree/',
+    core_idea: '后序递归：空节点深度 0，否则 1+max(左深度,右深度)；也可用层序统计层数。',
+    invariant: 'depth(n) 等于从 n 到最远叶子经过的节点数。',
+    complexity: { time: 'O(n)', space: 'O(h)' },
+    code_lang: 'javascript',
+    code: `function solve(a) {
+  function build(arr) {
+    if (!arr.length || arr[0] === null) return null;
+    const root = { val: arr[0], left: null, right: null };
+    const q = [root];
+    let i = 1;
+    while (i < arr.length && q.length) {
+      const n = q.shift();
+      if (i < arr.length) { if (arr[i] !== null) { n.left = { val: arr[i], left: null, right: null }; q.push(n.left); } i++; }
+      if (i < arr.length) { if (arr[i] !== null) { n.right = { val: arr[i], left: null, right: null }; q.push(n.right); } i++; }
+    }
+    return root;
+  }
+  function depth(n) {
+    if (!n) return 0;
+    return 1 + Math.max(depth(n.left), depth(n.right));
+  }
+  return depth(build(a));
+}`,
+    edge_cases: [
+      { call: '[3,9,20,null,null,15,7]', expected: 3, why: '三层' },
+      { call: '[]', expected: 0, why: '空树深度 0' },
+      { call: '[0]', expected: 1, why: '单节点深度 1' },
+    ],
+    common_mistakes: ['空树返回 1', '把深度按边数计算', '只走一条分支'],
+    followups: ['最小深度（111）有什么陷阱？', '如何用层序迭代求深度？'],
+    rubric: [
+      { point: '空节点返回 0', weight: 2 },
+      { point: '取左右较大者加 1', weight: 1 },
+      { point: '单节点深度为 1', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q096', title: '151. 翻转字符串里的单词', question_url: 'https://leetcode.cn/problems/reverse-words-in-a-string/',
+    core_idea: '按空白切分并过滤空串，反转单词数组后用单个空格拼接；等价于原地先整体反转再逐词反转。',
+    invariant: '过滤后数组中每项都是非空单词，拼接结果不含多余空格。',
+    complexity: { time: 'O(n)', space: 'O(n)' },
+    code_lang: 'javascript',
+    code: `function solve(s) {
+  return s.split(/\\s+/).filter(Boolean).reverse().join(' ');
+}`,
+    edge_cases: [
+      { call: '"the sky is blue"', expected: 'blue is sky the', why: '标准示例' },
+      { call: '"  hello world  "', expected: 'world hello', why: '首尾空格被去除' },
+      { call: '"a good   example"', expected: 'example good a', why: '多个空格折叠为一个' },
+    ],
+    common_mistakes: ['只按单空格切分，残留空串产生双空格', '反转字符而不是单词', '忘记去除首尾空格'],
+    followups: ['如何用 O(1) 额外空间原地完成？', '若输入是字符数组且要求不申请新数组？'],
+    rubric: [
+      { point: '按任意空白切分并过滤空串', weight: 2 },
+      { point: '反转单词顺序', weight: 1 },
+      { point: '单空格拼接无多余空格', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q097', title: '329. 矩阵中的最长递增路径', question_url: 'https://leetcode.cn/problems/longest-increasing-path-in-a-matrix/',
+    core_idea: '记忆化 DFS：memo[i][j] 存从该格出发的最长递增路径，向四个方向中值更大的邻格递归，结果取 1+最大值。',
+    invariant: '严格递增保证递归无环，memo 命中即可直接复用。',

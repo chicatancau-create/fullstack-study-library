@@ -1,0 +1,123 @@
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：18 文件 -> 19 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/Lau-Jonathan/LLM-Agent-Interview-Guide",
+          "category": "题库/AI与Agent",
+          "branch": null,
+          "archive_sha256": "df86a83d9e2712d8b291cebdc6e9bec1a18d427c4be5291da61438b2ad5f3abe",
+          "tarball_mb": 0,
+          "fetched": "2026-11-04 20:03",
+          "files": 19,
+          "bytes": 82166,
+          "mb": 0,
+          "top_extensions": {
+            ".md": 17,
+            "(none)": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "Apache-2.0",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：18 文件 -> 19 文件",
+          "measured": {
+            "pushed": "2026-02-28",
+            "stars": 1070
+          }
+        }
+      }
+    },
+    {
+      "id": "github:cdavid817/agent-interview",
+      "name": "cdavid817/agent-interview",
+      "source": {
+        "url": "https://github.com/cdavid817/agent-interview",
+        "canonical_url": "https://github.com/cdavid817/agent-interview",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-08-31",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:03+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "aa1d1a69edcafd589677701da63a324f923348f6",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/AI与Agent/cdavid817/agent-interview",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/cdavid817/agent-interview"
+      },
+      "integrity": {
+        "archive_sha256": "9fdfa9137bbb2ea4b77031954e8b1d3d42616c33cba3ab7f91eab34be02ac354",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "题库/AI与Agent",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 168,
+        "bytes": 4527800,
+        "markdown_count": 155,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:26+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 3,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：167 文件 -> 168 文件"

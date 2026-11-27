@@ -1,0 +1,126 @@
+        "original_source_json": {
+          "repo": "https://github.com/neetcode-gh/leetcode",
+          "category": "题库/算法题解",
+          "branch": null,
+          "archive_sha256": "59bfd84ef0eafdccf7204ca7037eee29082cf2e994b9574dac643aa506bb4f06",
+          "tarball_mb": 4,
+          "fetched": "2026-11-04 20:03",
+          "files": 4673,
+          "bytes": 24853614,
+          "mb": 23,
+          "top_extensions": {
+            ".md": 929,
+            ".kt": 515,
+            ".java": 500,
+            ".py": 396,
+            ".js": 382,
+            ".cpp": 343,
+            ".go": 254,
+            ".ts": 239,
+            ".c": 236,
+            ".cs": 236
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：4672 文件 -> 4673 文件",
+          "measured": {
+            "pushed": "2026-11-03",
+            "stars": 6504
+          }
+        }
+      }
+    },
+    {
+      "id": "github:shoujche/algorithm-notes",
+      "name": "shoujche/algorithm-notes",
+      "source": {
+        "url": "https://github.com/shoujche/algorithm-notes",
+        "canonical_url": "https://github.com/shoujche/algorithm-notes",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-10-28",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:43+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "1722e1bef44664dc577bfae707f420958a36e45f",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/算法题解/shoujche/algorithm-notes",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/shoujche/algorithm-notes"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "7005684836fd43e693a7fe4324bd87a06f96d88b11b60514699df84ca25a2bdb",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:55+08:00"
+        },
+        "legacy_fingerprint_12": "7005684836fd"
+      },
+      "classification": {
+        "primary_category": "题库/算法题解",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F3"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 301,
+        "bytes": 2213263,
+        "markdown_count": 13,
+        "question_markers": 3,
+        "test_files": 17,
+        "observed_at": "2026-11-07T14:06:32+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/shoujche/algorithm-notes",
+          "category": "题库/算法题解",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 0,

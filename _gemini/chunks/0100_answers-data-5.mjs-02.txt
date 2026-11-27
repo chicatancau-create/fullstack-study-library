@@ -1,0 +1,93 @@
+      { call: '[1,3,2,5]', expected: 2, why: '只有左侧更深时宽度为 2' },
+      { call: '[1]', expected: 1, why: '单节点' },
+    ],
+    common_mistakes: ['用每层节点个数当宽度，忽略空洞', '下标从 1 开始但孩子算成 2i+1/2i+2', '把 null 孩子也压入队列导致无限展开'],
+    followups: ['下标在极端链状树下会溢出 32 位，如何处理？', '如何同时返回最宽层号？'],
+    rubric: [
+      { point: '孩子下标为 2i 与 2i+1', weight: 2 },
+      { point: '宽度用末下标减首下标而不是节点数', weight: 1 },
+      { point: '空孩子不下沉队列', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q052', title: '76. 最小覆盖子串', question_url: 'https://leetcode.cn/problems/minimum-window-substring/',
+    core_idea: '滑动窗口：右指针扩张直到覆盖 t 的全部字符计数，再收缩左指针并记录最短窗口，直到不再覆盖。',
+    invariant: 'formed 等于 need 中已满足计数的字符种类数；formed===required 时窗口合法。',
+    complexity: { time: 'O(m+n)', space: 'O(k)' },
+    code_lang: 'javascript',
+    code: `function solve(s, t) {
+  if (!t.length) return '';
+  const need = new Map();
+  for (const c of t) need.set(c, (need.get(c) || 0) + 1);
+  const required = need.size;
+  let formed = 0, l = 0;
+  const window = new Map();
+  let best = [Infinity, 0, 0];
+  for (let r = 0; r < s.length; r++) {
+    const c = s[r];
+    window.set(c, (window.get(c) || 0) + 1);
+    if (need.has(c) && window.get(c) === need.get(c)) formed++;
+    while (formed === required) {
+      if (r - l + 1 < best[0]) best = [r - l + 1, l, r];
+      const d = s[l];
+      window.set(d, window.get(d) - 1);
+      if (need.has(d) && window.get(d) < need.get(d)) formed--;
+      l++;
+    }
+  }
+  return best[0] === Infinity ? '' : s.slice(best[1], best[2] + 1);
+}`,
+    edge_cases: [
+      { call: '"ADOBECODEBANC", "ABC"', expected: 'BANC', why: '标准示例' },
+      { call: '"a", "a"', expected: 'a', why: '单字符覆盖' },
+      { call: '"a", "aa"', expected: '', why: '字符数量不足' },
+    ],
+    common_mistakes: ['用字符种类是否出现判断覆盖，忽略重复次数', '收缩时先移动左指针再更新计数', '相等时继续收缩导致丢失更短窗口'],
+    followups: ['若要求返回所有最短覆盖子串？', '字符集很大时 Map 与数组计数如何取舍？'],
+    rubric: [
+      { point: '按字符计数而非仅出现判断', weight: 2 },
+      { point: 'formed 在计数恰好满足时递增、低于需求时递减', weight: 1 },
+      { point: '无解返回空串', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q053', title: '232. 用栈实现队列', question_url: 'https://leetcode.cn/problems/implement-queue-using-stacks/',
+    core_idea: '两个栈：输入栈只接收 push，输出栈只在为空时把输入栈整体倒入；pop/peek 都走输出栈。',
+    invariant: '输出栈非空时，其栈顶就是队首；倒入只在输出栈为空时发生，保证顺序不倒错。',
+    complexity: { time: '摊还 O(1)', space: 'O(n)' },
+    code_lang: 'javascript',
+    code: `function solve(ops, args) {
+  const inS = [], outS = [];
+  const move = () => { if (!outS.length) while (inS.length) outS.push(inS.pop()); };
+  const out = [];
+  for (let i = 0; i < ops.length; i++) {
+    const a = args[i] || [];
+    if (ops[i] === 'MyQueue') out.push(null);
+    else if (ops[i] === 'push') { inS.push(a[0]); out.push(null); }
+    else if (ops[i] === 'pop') { move(); out.push(outS.pop()); }
+    else if (ops[i] === 'peek') { move(); out.push(outS[outS.length - 1]); }
+    else if (ops[i] === 'empty') out.push(inS.length === 0 && outS.length === 0);
+  }
+  return out;
+}`,
+    edge_cases: [
+      { call: '["MyQueue","push","push","peek","pop","empty"], [[],[1],[2],[],[],[]]', expected: [null,null,null,1,1,false], why: '先进先出' },
+      { call: '["MyQueue","push","pop","empty"], [[],[1],[],[]]', expected: [null,null,1,true], why: '单元素弹出后为空' },
+    ],
+    common_mistakes: ['每次 pop 都把输入栈倒一遍，导致顺序反转', 'peek 也直接弹栈', 'empty 只看一个栈'],
+    followups: ['为什么摊还复杂度是 O(1)？', '如何用两个队列模拟栈？'],
+    rubric: [
+      { point: '倾倒只在输出栈为空时进行', weight: 2 },
+      { point: 'pop 与 peek 都从输出栈顶取', weight: 1 },
+      { point: 'empty 同时检查两个栈', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q054', title: '19. 删除链表的倒数第N个节点', question_url: 'https://leetcode.cn/problems/remove-nth-node-from-end-of-list/',
+    core_idea: '哑节点 + 快慢指针：快指针先走 n 步，再与慢指针同步前进，快指针到尾时慢指针正好在待删节点前驱。',
+    invariant: '快慢指针间距恒为 n，因此慢指针最终停在倒数第 n+1 个节点。',
+    complexity: { time: 'O(L)', space: 'O(1)' },
+    code_lang: 'javascript',
+    code: `function solve(arr, n) {
+  const d = { val: 0, next: null };
+  let tail = d;

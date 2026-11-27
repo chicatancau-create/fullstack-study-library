@@ -1,0 +1,11 @@
+; &lt;li&gt;Competitive",
+      "responsibilities": ""
+    },
+    {
+      "company": "datadog",
+      "source": "Greenhouse official job board",
+      "title": "Senior Software Engineer - Distributed Systems",
+      "location": "Paris, France",
+      "experience": "",
+      "url": "https://careers.datadoghq.com/detail/4599111/?gh_jid=4599111",
+      "updated": "2026-11-05",

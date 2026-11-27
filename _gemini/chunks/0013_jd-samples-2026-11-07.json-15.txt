@@ -1,0 +1,11 @@
+for well-scoped work wh",
+      "responsibilities": ""
+    },
+    {
+      "company": "cloudflare",
+      "source": "Greenhouse official job board",
+      "title": "Principal Software Engineer: Distributed Systems (Config, Test, & Deployment)",
+      "location": "Hybrid",
+      "experience": "",
+      "url": "https://boards.greenhouse.io/cloudflare/jobs/8038898?gh_jid=8038898",
+      "updated": "2026-10-30",

@@ -1,0 +1,126 @@
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 30,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/LongxingTan/Machine-learning-interview",
+          "category": "知识库/算法与数据结构",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 30,
+          "fetched": "2026-11-05 11:12",
+          "files": 475,
+          "bytes": 33474329,
+          "mb": 31,
+          "top_extensions": {
+            ".md": 409,
+            ".png": 62,
+            "(none)": 1,
+            ".jpg": 1,
+            ".jpeg": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "round": 2,
+          "selection": "正文 409 篇｜自动判定：keep",
+          "functions": [
+            "F2解答",
+            "F4路线"
+          ],
+          "measured": {
+            "md_n": 409,
+            "md_share_pct": 3.1,
+            "question_markers": 4,
+            "tests": 0,
+            "images": 64,
+            "pdf": 0,
+            "stars": 350,
+            "pushed": "2026-05-30",
+            "functions": [
+              "F1离线题面",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "category_basis": "按正文关键词判定（原按仓库名判定会错位）：{'算法': 241, 'AI': 35, 'SQL与数据': 13, 'Node后端': 8}",
+          "content_fingerprint": "7dda34f5f888946bf0e0fb1d484176ff5b318da41dc18e7e81fc051063652c51",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:thealgorithms/python",
+      "name": "TheAlgorithms/Python",
+      "source": {
+        "url": "https://github.com/TheAlgorithms/Python",
+        "canonical_url": "https://github.com/TheAlgorithms/Python",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-11-02",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:11+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "574d100b7181956e9c8384552fd078165e4cc326",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/算法与数据结构/TheAlgorithms/Python",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/TheAlgorithms/Python"
+      },
+      "integrity": {
+        "archive_sha256": "6537237b9dffee9b499f691a605754f721974b16ff11291da62141d549017ba4",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/算法与数据结构",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 1738,
+        "bytes": 15684714,
+        "markdown_count": 37,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:23+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE.md"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,

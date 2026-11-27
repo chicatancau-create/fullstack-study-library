@@ -1,0 +1,130 @@
+          "default_branch": "main",
+          "head_commit_sha": "5f34cfdd76e9a30a749107b1e93465f5787a6bd5",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/八股与基础/kusal-tharindu/devops-interview-questions",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/kusal-tharindu/devops-interview-questions"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "47f75e23c465d19f9de4f99bcea79620c3217866c499ef50cde7cb4a1e6d27fb",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:52+08:00"
+        },
+        "legacy_fingerprint_12": "47f75e23c465"
+      },
+      "classification": {
+        "primary_category": "题库/八股与基础",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F2"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 133,
+        "bytes": 2127496,
+        "markdown_count": 50,
+        "question_markers": 23,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:28+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "unrecognized_file",
+        "license_files": [
+          "LICENSE",
+          "LICENSE-BRAND",
+          "LICENSE-CONTENT"
+        ],
+        "usage_restriction": "未识别许可证文件；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/kusal-tharindu/devops-interview-questions",
+          "category": "题库/八股与基础",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 0,
+          "fetched": "2026-11-05 11:12",
+          "files": 133,
+          "bytes": 2127496,
+          "mb": 2,
+          "top_extensions": {
+            ".md": 50,
+            ".js": 28,
+            ".css": 13,
+            ".json": 12,
+            ".yaml": 12,
+            "(none)": 7,
+            ".woff2": 3,
+            ".txt": 2,
+            ".yml": 1,
+            ".webmanifest": 1
+          },
+          "license_files": [
+            "LICENSE",
+            "LICENSE-BRAND",
+            "LICENSE-CONTENT"
+          ],
+          "license_detected": null,
+          "round": 2,
+          "selection": "正文 50 篇；命中计划缺口方向｜自动判定：keep",
+          "functions": [
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 50,
+            "md_share_pct": 25.0,
+            "question_markers": 23,
+            "tests": 0,
+            "images": 3,
+            "pdf": 0,
+            "stars": 1,
+            "pushed": "2026-10-20",
+            "functions": [
+              "运维题面"
+            ]
+          },
+          "content_fingerprint": "47f75e23c465d19f9de4f99bcea79620c3217866c499ef50cde7cb4a1e6d27fb",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:ombharatiya/faang-coding-interview-questions",
+      "name": "ombharatiya/FAANG-Coding-Interview-Questions",
+      "source": {

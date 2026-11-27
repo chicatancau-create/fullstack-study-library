@@ -1,0 +1,102 @@
+  var tiers = false
+  var filterNeeded = true
+  var filterTypes = []
+  var allSamples
+  var nodes = null
+  var focusedFrame = null
+  var hoverFrame = null
+  var currentAnimation = null
+
+  // Overridable functions. Use custom function if passed in, default if undefined, or, do nothing (or neutral fallback) if passed null
+  var colorHash = (opts.colorHash === undefined) ? defaultColorHash : (d, decimalAdjust, allSamples, tiers) => opts.colorHash ? opts.colorHash(stackTop, { d, decimalAdjust, allSamples, tiers }) : frameColors.fill
+
+  var renderLabel = (opts.renderLabel === undefined) ? defaultRenderLabel : (context, node, x, y, width) => opts.renderLabel && opts.renderLabel(c, { context, node, x, y, width })
+
+  var renderTooltip = (opts.renderTooltip === undefined) ? defaultRenderTooltip : node => opts.renderTooltip && opts.renderTooltip(node)
+
+  var stackBoxGlobals = { STATE_HOVER, STATE_UNHOVER, STATE_IDLE, frameColors, colorHash } // Shouldn't include `c` i.e. frame height because its value can change e.g. chart.cellHeight(newC)
+  var renderStackFrameBox = (opts.renderStackFrameBox === undefined) ? defaultRenderStackFrameBox : (context, node, x, y, width, state) => opts.renderStackFrameBox && opts.renderStackFrameBox(stackBoxGlobals, { context, node, state }, { x, y, width, height: c })
+
+  var clickHandler = (opts.clickHandler === undefined) ? defaultClickHandler : opts.clickHandler || function (target) { return target || nodes ? nodes[0] : null }
+
+  var isNodeExcluded = (opts.isNodeExcluded === undefined) ? defaultIsNodeExcluded : opts.isNodeExcluded || function () { return false }
+
+  onresize()
+
+  function onresize () {
+    panZoom.translateExtent([[0, 0], [w, h]])
+
+    scaleToWidth = d3.scaleLinear().range([0, w])
+    scaleToGraph = d3.scaleLinear().domain([0, w]).range([0, 1])
+  }
+
+  function time (name, fn) {
+    if (timing) {
+      console.time(name)
+      var result = fn()
+      console.timeEnd(name)
+      return result
+    } else return fn()
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    element.scrollTop = element.scrollHeight
+  })
+
+  var categorizer = opts.categorizer || categorize
+  var exclude = opts.exclude || []
+
+  function labelName (d) {
+    return d.data.name
+  }
+  function labelStack (d) {
+    if (!d.parent) return null
+    var onStack = d.data.name ? Math.round(100 * (d.data.value / allSamples) * 10) / 10 + '% on stack' : ''
+    var top = stackTop(d.data)
+    var topOfStack = d.data.name ? (top
+      ? Math.round(100 * (top / allSamples) * 100) / 100 + '% stack top'
+      : '') : ''
+
+    if (onStack && topOfStack) { onStack += ', ' }
+
+    return onStack + topOfStack
+  }
+
+  function tooltipLabel (d) {
+    if (!d.parent) return ''
+    var top = stackTop(d.data)
+    return d.data.name + '<br />' + (top
+      ? 'Top of Stack: ' + Math.round(100 * (top / allSamples) * 10) / 10 + '% ' +
+      '(' + top + ' of ' + allSamples + ' samples)<br />'
+      : '') + 'On Stack: ' + Math.round(100 * (d.data.value / allSamples) * 10) / 10 + '% ' +
+     '(' + d.data.value + ' of ' + allSamples + ' samples)'
+  }
+
+  function categorize (child) {
+    var name = child.name
+
+    // todo: C deps
+    if (!/.js/.test(name)) {
+      switch (true) {
+        case /^Builtin:|^Stub:|v8::|^(.+)IC:|^.*Handler:/
+          .test(name): return { type: 'v8' }
+        case /^RegExp:/
+          .test(name): return { type: 'regexp' }
+        case /apply$|call$|Arguments$/
+          .test(name): return { type: 'native' }
+        case /\.$/.test(name): return { type: 'core' }
+        default: return { type: 'cpp' }
+      }
+    }
+
+    if (/\[INIT\]/.test(name)) return { type: 'init' }
+
+    switch (true) {
+      case / native /.test(name): return { type: 'native' }
+      case (name.indexOf('/') === -1 || /internal\//.test(name) && !/ \//.test(name)): return { type: 'core' }
+      case !/node_modules/.test(name): return { type: 'app' }
+      default: return { type: 'deps' }
+    }
+  }
+
+  function frameDepth (node) {

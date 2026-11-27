@@ -1,0 +1,123 @@
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/getify/You-Dont-Know-JS"
+      },
+      "integrity": {
+        "archive_sha256": "387771c7151a7d3c8f945a0bd9073b46492bb32af5e013e21f368d0b8e7c3165",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/前端与Node",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 10,
+        "bytes": 28277,
+        "markdown_count": 8,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:21+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "unrecognized_file",
+        "license_files": [
+          "LICENSE.txt"
+        ],
+        "usage_restriction": "未识别许可证文件；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：9 文件 -> 10 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/getify/You-Dont-Know-JS",
+          "category": "知识库/前端与Node",
+          "branch": null,
+          "archive_sha256": "387771c7151a7d3c8f945a0bd9073b46492bb32af5e013e21f368d0b8e7c3165",
+          "tarball_mb": 0,
+          "fetched": "2026-11-04 20:03",
+          "files": 10,
+          "bytes": 28277,
+          "mb": 0,
+          "top_extensions": {
+            ".md": 8,
+            ".txt": 1
+          },
+          "license_files": [
+            "LICENSE.txt"
+          ],
+          "license_detected": null,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：9 文件 -> 10 文件",
+          "measured": {
+            "pushed": "2026-10-31",
+            "stars": 184845
+          }
+        }
+      }
+    },
+    {
+      "id": "github:mdn/content",
+      "name": "mdn/content",
+      "source": {
+        "url": "https://github.com/mdn/content",
+        "canonical_url": "https://github.com/mdn/content",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-11-04",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:25+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "288e644117c29285df2acf37a2ac97f57546a146",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/前端与Node/mdn/content",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/mdn/content"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "ab2006226c9eebd8ff28cadadb1599c211444759257b56135c6a2697e49ff470",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:04+08:00"
+        },
+        "legacy_fingerprint_12": "ab2006226c9e"
+      },

@@ -1,0 +1,11 @@
+n.&lt;/li&gt; &lt;li&gt",
+      "responsibilities": ""
+    },
+    {
+      "company": "cloudflare",
+      "source": "Greenhouse official job board",
+      "title": "Principal Software Engineer - Fintech",
+      "location": "Hybrid",
+      "experience": "",
+      "url": "https://boards.greenhouse.io/cloudflare/jobs/8105716?gh_jid=8105716",
+      "updated": "2026-10-30",

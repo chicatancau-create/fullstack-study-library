@@ -1,0 +1,113 @@
+      if (line && !conflictsWithLineNumber(line, it.num)) {
+        by = 'leetcode-number';
+        quote = line;
+      }
+    }
+    if (!by && it.num) {
+      const re = new RegExp(`(^|[^0-9])${it.num}\\s*[.、]\\s*${escapeRe(it.name)}(?![A-Za-z0-9\\u4e00-\\u9fa5])`);
+      if (re.test(text)) {
+        by = 'number-title';
+        quote = lineAroundRegex(text, re);
+      }
+    }
+    if (!by && it.uniqueName) {
+      const re = new RegExp(escapeRe(it.name));
+      // 题名命中必须有做题语境：同一行出现涉题字样，排除"平衡二叉树"这类数据结构解说
+      const line = lineAroundRegex(text, re);
+      if (line && hasExamContext(line) && !conflictsWithLineNumber(line, it.num)) {
+        by = 'unique-name';
+        quote = line;
+      }
+    }
+    if (!by) {
+      for (const alias of it.aliases || []) {
+        const re = new RegExp(escapeRe(alias));
+        const line = lineAroundRegex(text, re);
+        if (line && hasExamContext(line) && !conflictsWithLineNumber(line, it.num)) {
+          by = 'alias';
+          quote = line;
+          break;
+        }
+      }
+    }
+    if (by) hits.push({ id: it.id, title: it.title, by, quote: (quote || it.name).slice(0, 118) });
+  }
+  // 同一题只保留优先级最高的一条命中，避免一题多法重复计入
+  const rank = { slug: 0, 'leetcode-number': 1, 'number-title': 2, 'unique-name': 3, alias: 4 };
+  const best = new Map();
+  for (const h of hits) {
+    const cur = best.get(h.id);
+    if (!cur || rank[h.by] < rank[cur.by]) best.set(h.id, h);
+  }
+  return [...best.values()];
+}
+
+const escapeRe = s => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+const hasExamContext = line => /(手撕|算法|leetcode|力扣|代码题|编程题|撕|题目|实现|写一个)/i.test(line);
+
+// 该行提到 leetcode/力扣 题号但不是本题号 → 这一行属于别的题（如 212 单词搜索 vs 79 单词搜索）
+function conflictsWithLineNumber(line, num) {
+  if (!num) return false;
+  const nums = [...line.matchAll(/(?:leetcode|力扣|\/problems\/)\s*(\d+)/gi)].map(m => m[1]);
+  const bare = [...line.matchAll(/[（(]\s*(\d+)\s*[)）]/g)].map(m => m[1]);
+  const all = [...nums, ...bare];
+  return all.length > 0 && !all.includes(String(num));
+}
+
+function lineAround(text, needle) {
+  const lines = text.split('\n');
+  return (lines.find(l => l.includes(needle)) || '').trim() || null;
+}
+
+function lineAroundRegex(text, re) {
+  const lines = text.split('\n');
+  return (lines.find(l => re.test(l)) || '').trim() || null;
+}
+
+// 同一面经常被不同账号重复发帖：只取正文前 15 条问答行做指纹。
+// 页面侧栏推荐与热度数字每次都不同，不能参与比对。
+function coreOf(text) {
+  const lines = text.split('\n').map(s => s.trim()).filter(Boolean);
+  const qa = lines.filter(l => /^(\d+[.、]|[1-9]\uFE0F?\u20E3|手撕|一面|二面|三面)/.test(l) && l.length >= 4 && l.length <= 200);
+  return qa.slice(0, 15).join('|').replace(/\d+/g, '').replace(/\s+/g, '');
+}
+
+function detectRole(title, text) {
+  // 帖子内常按场次写「面试岗位：X」；多场面试时取最常见岗位，并如实标注为系列帖
+  const declared = [...text.matchAll(/面试岗位[：:]\s*([^\｜|\n，,]{2,20})/g)].map(m => m[1].trim());
+  if (declared.length) {
+    const tally = new Map();
+    for (const d of declared) tally.set(d, (tally.get(d) || 0) + 1);
+    const [top, n] = [...tally.entries()].sort((a, b) => b[1] - a[1])[0];
+    const basis = declared.length > 1
+      ? `正文 ${declared.length} 场面试的岗位标注，最常见为「${top}」（${n} 场）`
+      : `正文标注「面试岗位：${top}」`;
+    return { role: top, basis };
+  }
+  const rules = [
+    ['全栈', /(全栈|Full[ -]?Stack)/i],
+    ['前端', /(前端|React|Vue)[^\n]{0,6}(面|岗|开发|工程师)/i],
+    ['算法', /(算法岗|算法工程师|机器学习|大模型|推荐算法|数据科学家)/],
+    ['后端', /(后端|服务端|Java|Golang|Go语言|C\+\+后端)/i],
+    ['测试', /(测试开发|QA)/],
+    ['数据', /(数据分析|数据开发|大数据)/],
+  ];
+  for (const [role, re] of rules) {
+    if (re.test(title)) return { role, basis: '标题明确标注岗位' };
+  }
+  const head = text.slice(0, 400);
+  for (const [role, re] of rules) {
+    if (re.test(head)) return { role, basis: `正文首段含「${role}」相关字样` };
+  }
+  return { role: '未标注', basis: '标题与正文首段未明确岗位' };
+}
+
+function extractPublishedAt(text) {
+  let m = text.match(/(\d{4}-\d{2}-\d{2} \d{2}:\d{2})/);
+  if (m) return m[1];
+  m = text.match(/(\d{2}-\d{2} \d{2}:\d{2})/);
+  if (m) return `${m[1]}（页面仅显示月日）`;
+  return '未标注';
+}
+

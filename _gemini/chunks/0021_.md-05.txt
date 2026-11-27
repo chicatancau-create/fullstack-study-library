@@ -1,0 +1,98 @@
+- 退出码 **0**：迁移 5 表；真实 PostgreSQL 18.6 测试 7/7；备份恢复 `RESTORE PASS`。
+- 并发删除两个 Owner：状态码 `[204,409]`，最终 owner=1；跨租户 workspace/task 404；重复 slug/标题 409；logout 后 401。
+- 代码提交 `1a2839d`；manifest `1ba2ae9`，5 个证据文件 SHA-256 校验 OK。
+- 边界：未部署；无前端/实时/通知/审计/限流/MFA；单机 PG，无连接池调优/复制/RTO。
+
+### 7.28 批次 4 项目 03（本机自测）
+
+```text
+cd <练习仓库>/projects/project03-trade
+npm ci
+export PGPASSWORD=<local-test-password>
+bash scripts/run_project.sh          # 迁移 -> 真实 PG 测试 -> 压测 -> 备份恢复
+```
+
+- 退出码 **0**：`p03` 5 表迁移；真实 PostgreSQL 18.6 测试 **15/15**；压测与备份恢复均 PASS。
+- 真实数据库测试覆盖：服务端金额与快照、相同幂等键并发只建一单、同键异体 409、库存不足 409 不建单、
+  取消回补与重复取消幂等、已支付不可取消、回调 event_id 去重、取消后回调 202 不应用、跨用户 404、
+  改价后快照不变、取消/支付并发终态一致。
+- 压测：20 并发 × 240 请求、单 SKU 库存 150 → 成功 150、库存不足 90、其他错误 0；
+  P50 32.2ms / P95 96.3ms / P99 634.3ms；最终库存 0、持久化订单 150。
+- 备份恢复：`pg_dump --schema=p03` → 独立库 `p03_restore_check`，源/恢复 `orders=151 inventory=3` 一致后删除临时库。
+- 发现并修复真实 Bug：事务持有连接期间又向连接池借连接，20 并发下池饥饿全部超时；
+  修复为复用当前 client，原始超时输出与复盘入库（`docs/bugs/001-pool-starvation.md`）。
+- 代码提交 `f11be19`；manifest `527491e`，7 个证据文件 SHA-256 校验 OK。
+- 边界：单 SKU；无真实支付网关/超时自动取消/退款/对账/PITR；无前端；未部署；
+  压测为单机回环与合成数据，尾延迟来自单行锁排队，不代表生产容量。
+
+
+### 7.29 批次 4 项目 04（本机自测）
+
+```text
+cd <练习仓库>/projects/project04-saas
+npm ci
+export PGPASSWORD=<local-test-password>
+bash scripts/run_project.sh
+```
+
+- 退出码 **0**：`p04` 9 表迁移（含迁移记录）；真实 PostgreSQL 18.6 测试 **13/13**；备份恢复 PASS。
+- 并发邀请：免费组织仅剩 1 席，4 个并发邀请 → 1 个 201、3 个 409 `seats_full`，pending=1。
+- RBAC/隔离：member 邀请 403、审计 403；跨租户客户/审计 404；owner 不可移除；自己不可移除。
+- 需求变更：成员超限时降级 409，移除 2 人后允许降级；审计记录 plan_change 1 次、member.remove 2 次。
+- 失败注入：在 `audit_events` 上创建触发器使 `client.delete` 审计失败，删除返回 500 且客户未软删；
+  移除触发器后删除成功。
+- 发现并修复：已接受邀请在成员被移除后仍返回幂等成功；改为检查成员关系并返回 409（`membership_removed`）。
+- 代码提交 `7c2869b`；manifest `fe36f4d`，5 个证据文件 SHA-256 校验 OK。
+- 边界（时点记录，后续见 7.54/7.56）：无前端/邮件/限流/MFA/分页；当时无 Docker/CI/K8s/HTTPS/监控；深度模块容量与两类故障演练未做；
+  未部署。需求中的痛点标注为角色模拟，不是真实访谈。
+
+### 7.30 批次 5 Java/Spring/MySQL 迁移（本机自测）
+
+```text
+cd <练习仓库>/projects/project02-spring
+export DB_PASSWORD=<local-test-password>
+bash scripts/run_project.sh
+```
+
+- 本机新增便携 MySQL 8.4.13 LTS（`D:/MySQL`，127.0.0.1:3307，无服务/无自启，合成账号）。
+- 依赖：JDK 25.0.2、Maven 3.9.16、Spring Boot 3.5.16（Spring MVC + JdbcTemplate + HikariCP）。
+- JUnit 5 + MockMvc 真实 MySQL：**4/4**，覆盖注册/登录/登出、201 创建、跨租户 404、重复 409、
+  非 owner 403、未登录 401、非法 JSON 400。
+- HTTP 冒烟：health、注册（201）、登录（200）、建组织（201）、建任务（201）、任务列表、未登录 401。
+- JVM 诊断：`jcmd VM.version`、`GC.heap_info`、`Thread.print`（含 HikariPool 与 MySQL 清理线程）。
+- MySQL 诊断：8.4.13、`max_connections=151`、表行数。
+- 代码提交 `9fc15ca`；manifest `1e829dd`，8 个证据文件 SHA-256 校验 OK。
+- 边界（记录 7.30 时点，后续进展见 7.41）：未用 Testcontainers/Docker；当时未迁移邀请、最后 Owner 并发保护、审计与备份恢复；
+  Express/Nest 对照实现于 project02-frameworks（见 7.31）；本节迁移版未接 Express/Nest；无复制/PITR；未部署。
+- 工具链经验：Windows Git Bash 用 `curl -d` 传中文 JSON 会按本地代码页转码导致 400，
+  冒烟改用 ASCII；跨栈测试应以 UTF-8 文件 `--data-binary` 或应用内测试为准。
+
+### 7.31 批次 5 Express/Nest 对照（完成）
+
+```text
+cd <练习仓库>/projects/project02-frameworks
+npm ci
+bash scripts/run_project.sh
+```
+
+- Express 5.3.0 与 NestJS 12.4.0 跑同一套契约测试：2/2 通过（每个框架一组断言）。
+- 契约：health + nosniff、echo 200、缺字段/超长/多余字段/非法 JSON 400、同步与异步异常 500 不泄露堆栈、未知路径与错误方法 404。
+- 实测差异：Nest `@Post` 默认 201，需 `@HttpCode(200)` 对齐；Nest 用 DTO+ValidationPipe 自动拒绝多余字段，Express 需手写；
+  Express 5 自动捕获 async rejection，Nest 需全局过滤器。
+- 启动（回环、5 次、含构造+监听）：Express 中位 0.67ms（首次 14.13ms）；Nest 中位 2.23ms（首次 60.02ms）。
+  关闭中位：0.14ms vs 0.23ms。不是进程冷启动。
+- 代码提交 `00fa615`；manifest 4 个证据文件 SHA-256 校验 OK。
+- 边界：无数据库/认证/限流/生产中间件；无吞吐、并发、内存、Nest Fastify adapter 与守卫/拦截器全链路。
+
+### 7.32 批次 5 项目 03 真实 MQ（完成）
+
+```text
+cd <练习仓库>/projects/project03-trade
+PGPASSWORD=<local-test-password> bash scripts/run_project.sh
+```
+
+- 支付成功与 `p03.outbox` 写入同一事务；发布器投递到 durable exchange `p03.events` 并标记 sent。
+- 消费端以 `event_id` 主键写 `p03.notifications`；重复投递后通知仍为 1 条。
+- 失败消息 `nack(requeue=false)` 经 `p03.dlx` 进入 `p03.dlq`；本轮 DLQ=1。
+- 积压：取消消费者后投递 30 条，`checkQueue` 深度 30；恢复消费者后排空到 0，通知累计 31。
+- 对账：outbox sent=1、pending=0、sent 但无通知 missing=0。

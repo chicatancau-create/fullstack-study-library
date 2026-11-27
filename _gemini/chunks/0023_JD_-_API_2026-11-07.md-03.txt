@@ -1,0 +1,70 @@
+| S-48 | mongodb | 2027 - Summer Software Engineer Intern, Dublin | Dublin | — | [原文](https://www.mongodb.com/careers/job/?gh_jid=8267099) | 2026-11-05 |
+| S-49 | elastic | Director of Software Engineering - Distributed Systems, Serverless - Elasticsearch | United States | — | [原文](https://jobs.elastic.co/jobs?gh_jid=8237959&gh_jid=8237959) | 2026-10-01 |
+| S-50 | elastic | Full Stack Technical Developer | Costa Rica | — | [原文](https://jobs.elastic.co/jobs?gh_jid=8281841&gh_jid=8281841) | 2026-11-05 |
+| S-51 | elastic | Lead Salesforce Full Stack AI Engineer | Bangalore, India | — | [原文](https://jobs.elastic.co/jobs?gh_jid=8138062&gh_jid=8138062) | 2026-10-01 |
+| S-52 | mozilla | Contract Staff Software Engineer-Bug Burndown | Remote Germany | — | [原文](https://job-boards.greenhouse.io/mozilla/jobs/8303336) | 2026-10-20 |
+| S-53 | mozilla | Contract Staff Software Engineer-Bug Burndown | Remote UK | — | [原文](https://job-boards.greenhouse.io/mozilla/jobs/8303335) | 2026-10-20 |
+| S-54 | mozilla | Contract Staff Software Engineer - (Firefox) C++,Storage Encryption | Remote Germany | — | [原文](https://job-boards.greenhouse.io/mozilla/jobs/8247430) | 2026-10-26 |
+| S-55 | canonical | C, Golang Software Engineer working on dqlite, a Raft extension for SQLite | Home based - EMEA | — | [原文](https://job-boards.greenhouse.io/canonical/jobs/4124053) | 2026-08-05 |
+| S-56 | canonical | C++/Rust Graphics and Windowing System Software Engineer - Mir | Home Based - APAC; Home based - EMEA | — | [原文](https://job-boards.greenhouse.io/canonical/jobs/4439935) | 2026-08-05 |
+| S-57 | canonical | Distributed Systems Testing Software Engineer, Python / Go | Home Based - Americas; Home based - EMEA | — | [原文](https://job-boards.greenhouse.io/canonical/jobs/2969042) | 2026-09-07 |
+| S-58 | 美团 | AI全栈工程师 | 北京/上海/成都/深圳 | 应届 | [原文](https://zhaopin.meituan.com/web/position/detail?jobUnionId=4697320043&highlightType=campus) | 2026-08-17 |
+| S-59 | 美团 | 全栈工程师 | 北京/深圳 | 应届 | [原文](https://zhaopin.meituan.com/web/position/detail?jobUnionId=4697318475&highlightType=campus) | 2026-08-17 |
+| S-60 | Thoughtworks | Software Developer | 西安 | 2 年以上 | [原文](https://www.thoughtworks.com/zh-cn/careers/jobs/8330382) | 2026-11-05 |
+| S-61 | Thoughtworks | Senior Developer | 西安 | 资深 | [原文](https://www.thoughtworks.com/zh-cn/careers/jobs/8330381) | 2026-11-05 |
+| S-62 | 美团 | 全栈开发工程师（个人清单STL） | 上海 | 2 年 | [原文](https://zhaopin.meituan.com/web/position/detail?jobUnionId=4830252619) | 2026-10-10 |
+| S-63 | 字节跳动 | AI全栈开发工程师（抖音精选） | 深圳 | 正式/社招 | [原文](https://jobs.bytedance.com/experienced/position/6948774351315700005/detail) | — |
+
+## 二、公司分布
+
+| 公司 | 样本数 |
+| --- | --- |
+| 腾讯 | 33 |
+| gitlab | 3 |
+| cloudflare | 3 |
+| datadog | 3 |
+| stripe | 3 |
+| mongodb | 3 |
+| elastic | 3 |
+| mozilla | 3 |
+| canonical | 3 |
+| 美团 | 3 |
+| Thoughtworks | 2 |
+| 字节跳动 | 1 |
+
+## 三、技术关键词覆盖（分母 63，全文提及）
+
+| 关键词 | 命中 | 占比 |
+| --- | --- | --- |
+| Java | 16 | 25% |
+| Go | 28 | 44% |
+| Python | 22 | 35% |
+| Node | 21 | 33% |
+| TypeScript | 19 | 30% |
+| JavaScript | 16 | 25% |
+| React | 17 | 27% |
+| Vue | 13 | 21% |
+| SQL | 6 | 10% |
+| Redis | 5 | 8% |
+| MongoDB | 4 | 6% |
+| MQ | 5 | 8% |
+| Docker | 2 | 3% |
+| Kubernetes | 5 | 8% |
+| AI | 50 | 79% |
+
+## 四、能力域映射（自动口径，待人工复核）
+
+| 关键词组 | 能力域 | 说明 |
+| --- | --- | --- |
+| Java / Go / Python / Node / TypeScript | M02/M06 | 语言与后端框架；需结合项目证据验证 |
+| React / Vue / JavaScript | M03/M05 | 前端框架与工程化 |
+| SQL / Redis / MongoDB | M07 | 数据建模、查询、缓存；SQL 命中低与海外岗位描述习惯有关 |
+| MQ / Kubernetes / Docker | M08/M12 | 分布式与交付；本批样本提及率低，不能据此降低学习优先级 |
+| AI / LLM / RAG / Agent | M15 + AI 专项 | 腾讯样本大量 AI 全栈岗位；M16 仍未决策 |
+
+## 五、未完成
+
+- 未逐条人工核对 63 份原文与“必需/优先”分类；原 12 份的人工频次仍是差距分析的基准。
+- 未验证岗位是否仍开放、是否接受中国候选人、是否远程；未投递、未联系招聘方。
+- 未把 63 份全部映射到课程/实验/项目；只做了关键词级映射。
+- 国际公司样本占 24 份，不能代表中国岗位市场。

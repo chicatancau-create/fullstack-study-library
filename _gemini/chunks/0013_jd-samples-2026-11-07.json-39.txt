@@ -1,0 +1,11 @@
+3&gt;About MongoDB&lt;/",
+      "responsibilities": ""
+    },
+    {
+      "company": "elastic",
+      "source": "Greenhouse official job board",
+      "title": "Director of Software Engineering - Distributed Systems, Serverless - Elasticsearch",
+      "location": "United States",
+      "experience": "",
+      "url": "https://jobs.elastic.co/jobs?gh_jid=8237959&gh_jid=8237959",
+      "updated": "2026-10-01",

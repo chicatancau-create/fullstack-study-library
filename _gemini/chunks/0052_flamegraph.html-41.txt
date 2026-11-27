@@ -1,0 +1,129 @@
+  elasticOut.amplitude = function(a) { return custom(a, p * tau); };
+  elasticOut.period = function(p) { return custom(a, p); };
+
+  return elasticOut;
+})(amplitude, period);
+
+var elasticInOut = (function custom(a, p) {
+  var s = Math.asin(1 / (a = Math.max(1, a))) * (p /= tau);
+
+  function elasticInOut(t) {
+    return ((t = t * 2 - 1) < 0
+        ? a * tpmt(-t) * Math.sin((s - t) / p)
+        : 2 - a * tpmt(t) * Math.sin((s + t) / p)) / 2;
+  }
+
+  elasticInOut.amplitude = function(a) { return custom(a, p * tau); };
+  elasticInOut.period = function(p) { return custom(a, p); };
+
+  return elasticInOut;
+})(amplitude, period);
+
+exports.easeBack = backInOut;
+exports.easeBackIn = backIn;
+exports.easeBackInOut = backInOut;
+exports.easeBackOut = backOut;
+exports.easeBounce = bounceOut;
+exports.easeBounceIn = bounceIn;
+exports.easeBounceInOut = bounceInOut;
+exports.easeBounceOut = bounceOut;
+exports.easeCircle = circleInOut;
+exports.easeCircleIn = circleIn;
+exports.easeCircleInOut = circleInOut;
+exports.easeCircleOut = circleOut;
+exports.easeCubic = cubicInOut;
+exports.easeCubicIn = cubicIn;
+exports.easeCubicInOut = cubicInOut;
+exports.easeCubicOut = cubicOut;
+exports.easeElastic = elasticOut;
+exports.easeElasticIn = elasticIn;
+exports.easeElasticInOut = elasticInOut;
+exports.easeElasticOut = elasticOut;
+exports.easeExp = expInOut;
+exports.easeExpIn = expIn;
+exports.easeExpInOut = expInOut;
+exports.easeExpOut = expOut;
+exports.easeLinear = linear;
+exports.easePoly = polyInOut;
+exports.easePolyIn = polyIn;
+exports.easePolyInOut = polyInOut;
+exports.easePolyOut = polyOut;
+exports.easeQuad = quadInOut;
+exports.easeQuadIn = quadIn;
+exports.easeQuadInOut = quadInOut;
+exports.easeQuadOut = quadOut;
+exports.easeSin = sinInOut;
+exports.easeSinIn = sinIn;
+exports.easeSinInOut = sinInOut;
+exports.easeSinOut = sinOut;
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+}));
+
+},{}],17:[function(require,module,exports){
+var hsl = require('hsl-to-rgb-for-reals')
+var rxEsc = require('escape-string-regexp')
+
+// small pseudo d3
+var d3 = Object.assign(
+  {},
+  require('d3-array'),
+  require('d3-dispatch'),
+  require('d3-ease'),
+  require('d3-hierarchy'),
+  require('d3-scale'),
+  require('d3-selection'),
+  require('d3-zoom')
+)
+Object.defineProperty(d3, 'event', {
+  get: function () { return require('d3-selection').event }
+})
+
+var diffScale = d3.scaleLinear().range([0, 0.2])
+var colors = {
+  v8: { h: 67, s: 81, l: 65 },
+  inlinable: { h: 300, s: 100, l: 50 },
+  regexp: { h: 27, s: 100, l: 50 },
+  cpp: { h: 0, s: 50, l: 50 },
+  native: { h: 122, s: 50, l: 45 },
+  core: { h: 0, s: 0, l: 80 },
+  wasm: { h: 150, s: 80, l: 80 },
+  deps: { h: 244, s: 50, l: 65 },
+  app: { h: 200, s: 50, l: 45 },
+  init: { h: 21, s: 81, l: 73 }
+}
+colors.def = { h: 10, s: 66, l: 80 }
+colors.js = { h: 10, s: 66, l: 80 }
+colors.c = { h: 10, s: 66, l: 80 }
+
+var STATE_IDLE = 0
+var STATE_HOVER = 1
+var STATE_UNHOVER = 2
+
+var FONT_FAMILY = 'Verdana, sans-serif'
+
+function flameGraph (opts) {
+  var tree = opts.tree
+  var timing = opts.timing || false
+  var element = opts.element
+  var collapseHiddenNodeWidths = opts.collapseHiddenNodeWidths || false
+  var c = opts.cellHeight || 18 // cell height
+  var h = opts.height || (maxDepth(tree) + 2) * c // graph height
+  var minHeight = opts.minHeight || 950
+  h = h < minHeight ? minHeight : h
+  h += opts.topOffset || 0
+  var w = opts.width || document.body.clientWidth * 0.89 // graph width
+  var heatBars = opts.heatBars || false
+  var labelColors = opts.labelColors || { default: '#000' }
+  var frameColors = opts.frameColors || { fill: '#fff', stroke: 'rgba(0, 0, 0, 0.7)' }
+  var scaleToWidth = null
+  var scaleToGraph = null
+  var panZoom = d3.zoom().on('zoom', function () {
+    update({ animate: false })
+  })
+  var dispatch = d3.dispatch('zoom', 'hoverin', 'hoverout', 'animationEnd', 'click', 'dblClick', 'contextmenu')
+  var selection = null
+  var transitionDuration = 500
+  var transitionEase = d3.easeCubicInOut
+  var sort = true

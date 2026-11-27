@@ -1,0 +1,96 @@
+import http from 'node:http';
+import { launchBrowser } from '../../_shared/headless.mjs';
+import { buildLabApp } from './security_lab.mjs';
+import { labReset, labConnect } from './lab_db.mjs';
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+let failures = 0;
+const check = (ok, label) => {
+  console.log(`${ok ? 'PASS' : 'FAIL'} ${label}`);
+  if (!ok) failures += 1;
+};
+
+const target = http.createServer((req, res) => {
+  if (req.url === '/redirect') {
+    res.writeHead(302, { location: '/secret' });
+    res.end();
+    return;
+  }
+  res.writeHead(200, { 'content-type': 'text/plain' });
+  res.end(req.url === '/secret' ? 'internal-secret' : 'target-ok');
+});
+await new Promise((resolve) => target.listen(0, '127.0.0.1', resolve));
+const targetPort = target.address().port;
+
+await labReset();
+const app = buildLabApp({
+  allowlist: [`127.0.0.1:${targetPort}`],
+  allowedOrigins: ['http://127.0.0.1:8787'],
+});
+await app.listen({ port: 0, host: '127.0.0.1' });
+const port = app.server.address().port;
+const base = `http://127.0.0.1:${port}`;
+
+try {
+  const login = await fetch(`${base}/lab/login`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ tenant: 't1', user: 'alice', password: 'alice-pass' }),
+  });
+  const cookie = String(login.headers.get('set-cookie')).split(';')[0];
+  const { csrf } = await login.json();
+  const headers = { cookie };
+  check(login.status === 200 && /SameSite=Lax/.test(login.headers.get('set-cookie')), 'A07 login: HttpOnly SameSite=Lax cookie');
+
+  const get = (url, extra = {}) => fetch(`${base}${url}`, { headers: { ...headers, ...extra } });
+
+  // A01 对象级授权：跨租户 404
+  const crossTenant = await get('/lab/items/3');
+  check(crossTenant.status === 404, 'A01 broken access control: cross-tenant item -> 404');
+
+  // A03 SQL 注入：拼接 vs 参数化
+  const payload = `' OR 1=1 --`;
+  const vuln = await get(`/lab/items/search?mode=vuln&q=${encodeURIComponent(payload)}`);
+  const safe = await get(`/lab/items/search?mode=safe&q=${encodeURIComponent(payload)}`);
+  const vulnJson = await vuln.json();
+  const safeJson = await safe.json();
+  check(vulnJson.rows?.length === 3, `A03 injection: concatenated SQL returns ${vulnJson.rows?.length} rows`);
+  check(safeJson.rows?.length === 0, `A03 fix: parameterized query returns ${safeJson.rows?.length} rows`);
+
+  // A05/A07 反射与存储 XSS：输出编码 + CSP
+  const xss = `<img src=x onerror="document.body.dataset.pwned=1">`;
+  await fetch(`${base}/lab/comments`, {
+    method: 'POST',
+    headers: { ...headers, 'content-type': 'application/json' },
+    body: JSON.stringify({ body: xss }),
+  });
+  const raw = await get('/lab/comments/page?mode=raw');
+  const rawHtml = await raw.text();
+  const escaped = await get('/lab/comments/page?mode=safe');
+  const escapedHtml = await escaped.text();
+  check(rawHtml.includes(xss), 'A05 stored XSS: raw page contains executable markup');
+  check(
+    escapedHtml.includes('&lt;img') && !escapedHtml.includes('<img src=x'),
+    'A05 fix: safe page escapes markup',
+  );
+  check(
+    escaped.headers.get('content-security-policy')?.includes("script-src 'none'"),
+    'A05 fix: CSP script-src none on safe page',
+  );
+
+  const echoRaw = await (await get(`/lab/echo?mode=raw&q=${encodeURIComponent(xss)}`)).text();
+  const echoSafe = await (await get(`/lab/echo?mode=safe&q=${encodeURIComponent(xss)}`)).text();
+  check(echoRaw.includes(xss) && echoSafe.includes('&lt;img'), 'A03 reflected XSS: raw vs escaped');
+
+  // DOM XSS 用真实 Edge（CDP）执行
+  const domUrl = (mode) => `${base}/lab/dom?mode=${mode}&q=${encodeURIComponent(xss)}`;
+  let vulnPwned = '0';
+  let safePwned = '0';
+  let safeHtml = '';
+  let browserMs = 0;
+  const browserStarted = performance.now();
+  const browser = await launchBrowser({ port: 9544 });
+  try {
+    await browser.page.goto(domUrl('vuln'));
+    vulnPwned = await browser.page.eval('document.body.dataset.pwned');
+    await browser.page.goto(domUrl('safe'));

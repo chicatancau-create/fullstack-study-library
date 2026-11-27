@@ -1,0 +1,124 @@
+      "id": "github:shawlu95/beyond-leetcode-sql",
+      "name": "shawlu95/Beyond-LeetCode-SQL",
+      "source": {
+        "url": "https://github.com/shawlu95/Beyond-LeetCode-SQL",
+        "canonical_url": "https://github.com/shawlu95/Beyond-LeetCode-SQL",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2023-05-22",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:27+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "8ab7f0ad60b85ab9dff18da6fc760211335d0fb0",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/SQL与数据/shawlu95/Beyond-LeetCode-SQL",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/shawlu95/Beyond-LeetCode-SQL"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "973a6481e210802738853b1be0e03011b7c57ea57ba0473ab3c9c8a83384ff72",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:52+08:00"
+        },
+        "legacy_fingerprint_12": "973a6481e210"
+      },
+      "classification": {
+        "primary_category": "题库/SQL与数据",
+        "category_basis": "按正文关键词判定（原按仓库名判定会错位）：{'SQL与数据': 720, '算法': 44, 'AI': 27, '前端': 10}",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 181,
+        "bytes": 4707037,
+        "markdown_count": 33,
+        "question_markers": 5,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:28+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 1,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/shawlu95/Beyond-LeetCode-SQL",
+          "category": "题库/SQL与数据",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 1,
+          "fetched": "2026-11-05 11:12",
+          "files": 181,
+          "bytes": 4707037,
+          "mb": 4,
+          "top_extensions": {
+            ".sql": 137,
+            ".md": 33,
+            ".png": 3,
+            "(none)": 2,
+            ".txt": 2,
+            ".ipynb": 2,
+            ".csv": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "round": 2,
+          "selection": "正文 33 篇；命中计划缺口方向｜自动判定：keep",
+          "functions": [],
+          "measured": {
+            "md_n": 33,
+            "md_share_pct": 4.8,
+            "question_markers": 5,
+            "tests": 0,
+            "images": 3,
+            "pdf": 0,
+            "stars": 1334,
+            "pushed": "2023-05-22",
+            "functions": [
+              "SQL题面"
+            ]
+          },
+          "category_basis": "按正文关键词判定（原按仓库名判定会错位）：{'SQL与数据': 720, '算法': 44, 'AI': 27, '前端': 10}",

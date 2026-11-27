@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:fullstack-study-library:catalog:1.0.0",
+  "title": "全栈工程师学习资料库资源目录",
+  "description": "长期资源元数据事实源。Markdown 材料清单与资料索引由本目录生成。匿名 Object 仅用于保留旧字段，不替代结构化字段。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schema_version", "generated_at", "resources", "tombstones", "open_issues"],
+  "properties": {
+    "$schema": {"type": "string", "minLength": 1},
+    "schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "generated_at": {"type": "string", "minLength": 1},
+    "resources": {"type": "array", "items": {"$ref": "#/$defs/resource"}},
+    "tombstones": {"type": "array", "items": {"$ref": "#/$defs/tombstone"}},
+    "open_issues": {"type": "array", "items": {"$ref": "#/$defs/issue"}}
+  },
+  "$defs": {
+    "nullable_string": {"type": ["string", "null"]},
+    "nullable_integer": {"type": ["integer", "null"], "minimum": 0},
+    "resource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "name", "source", "payload", "integrity", "classification",
+        "metrics", "license", "freshness", "lifecycle", "review", "extensions"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^github:[a-z0-9_.-]+/[a-z0-9_.-]+$"},
+        "name": {"type": "string", "minLength": 3},
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["url", "canonical_url", "aliases", "branch", "commit_sha", "fetched_at", "upstream_pushed_at", "upstream_snapshot"],
+          "properties": {
+            "url": {"type": "string", "pattern": "^https://github\\.com/"},
+            "canonical_url": {"type": "string", "pattern": "^https://github\\.com/[^/]+/[^/]+$"},
+            "aliases": {"type": "array", "items": {"type": "string"}},
+            "branch": {"$ref": "#/$defs/nullable_string"},
+            "commit_sha": {"$ref": "#/$defs/nullable_string"},
+            "fetched_at": {"$ref": "#/$defs/nullable_string"},
+            "upstream_pushed_at": {"$ref": "#/$defs/nullable_string"},
+            "upstream_snapshot": {
+              "type": "object",
+              "additionalProperties": false,
+              "description": "当前上游快照：只证明检查时刻的默认分支与 HEAD，不是抓取时证据。抓取时的分支与 commit 仍看 source.branch / source.commit_sha，未知保持 null。",
+              "required": ["status", "checked_at", "default_branch", "head_commit_sha", "note"],
+              "properties": {
+                "status": {"enum": ["not_checked", "checked", "unreachable", "timeout", "no_head"]},
+                "checked_at": {"$ref": "#/$defs/nullable_string"},
+                "default_branch": {"$ref": "#/$defs/nullable_string"},
+                "head_commit_sha": {"type": ["string", "null"], "pattern": "^[0-9a-f]{40}$"},
+                "note": {"$ref": "#/$defs/nullable_string"}
+              }
+            }
+          }
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mode", "mirror_path", "entry_path", "included_in_git", "availability", "online_fallback_url"],
+          "properties": {
+            "mode": {"enum": ["reference", "mirror", "derived"]},
+            "mirror_path": {"$ref": "#/$defs/nullable_string"},
+            "entry_path": {"$ref": "#/$defs/nullable_string"},
+            "included_in_git": {"type": "boolean"},
+            "availability": {"enum": ["present_local", "missing_local", "not_packaged", "online_only"]},
+            "online_fallback_url": {"type": "string", "pattern": "^https://"}
+          }
+        },
+        "integrity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["archive_sha256", "content_fingerprint", "legacy_fingerprint_12"],
+          "properties": {
+            "archive_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+            "content_fingerprint": {
+              "anyOf": [

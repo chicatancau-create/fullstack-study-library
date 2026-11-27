@@ -1,0 +1,94 @@
+        types = allowed_types if isinstance(allowed_types, list) else [allowed_types]
+        type_map = {
+            "object": lambda x: isinstance(x, dict),
+            "array": lambda x: isinstance(x, list),
+            "string": lambda x: isinstance(x, str),
+            "integer": lambda x: isinstance(x, int) and not isinstance(x, bool),
+            "number": lambda x: isinstance(x, (int, float)) and not isinstance(x, bool),
+            "boolean": lambda x: isinstance(x, bool),
+            "null": lambda x: x is None,
+        }
+        if not any(type_map.get(t, lambda _x: False)(instance) for t in types):
+            errors.append(f"{path}: 类型应为 {types}，实际 {type(instance).__name__}")
+            return errors
+    if "enum" in schema and instance not in schema["enum"]:
+        errors.append(f"{path}: 值 {instance!r} 不在枚举 {schema['enum']}")
+    if isinstance(instance, str):
+        if "minLength" in schema and len(instance) < schema["minLength"]:
+            errors.append(f"{path}: 字符串长度小于 {schema['minLength']}")
+        if "pattern" in schema and not re.search(schema["pattern"], instance):
+            errors.append(f"{path}: 不匹配模式 {schema['pattern']}")
+    if isinstance(instance, int) and not isinstance(instance, bool):
+        if "minimum" in schema and instance < schema["minimum"]:
+            errors.append(f"{path}: 小于最小值 {schema['minimum']}")
+    if isinstance(instance, dict):
+        required = schema.get("required", [])
+        for key in required:
+            if key not in instance:
+                errors.append(f"{path}: 缺字段 {key}")
+        properties = schema.get("properties", {})
+        if schema.get("additionalProperties") is False:
+            for key in instance:
+                if key not in properties:
+                    errors.append(f"{path}: 不允许字段 {key}")
+        for key, value in instance.items():
+            if key in properties:
+                errors.extend(schema_validate(value, properties[key], root, f"{path}.{key}"))
+    if isinstance(instance, list):
+        if schema.get("uniqueItems"):
+            seen = []
+            for item in instance:
+                if item in seen:
+                    errors.append(f"{path}: 数组存在重复值")
+                    break
+                seen.append(item)
+        item_schema = schema.get("items")
+        if item_schema:
+            for idx, value in enumerate(instance):
+                errors.extend(schema_validate(value, item_schema, root, f"{path}[{idx}]"))
+    if "anyOf" in schema:
+        branch_errors = [schema_validate(instance, option, root, path) for option in schema["anyOf"]]
+        if all(branch for branch in branch_errors):
+            errors.append(f"{path}: 不满足 anyOf 任一分支")
+    if "oneOf" in schema:
+        matches = sum(1 for option in schema["oneOf"] if not schema_validate(instance, option, root, path))
+        if matches != 1:
+            errors.append(f"{path}: oneOf 匹配 {matches} 个分支")
+    if "allOf" in schema:
+        for option in schema["allOf"]:
+            errors.extend(schema_validate(instance, option, root, path))
+    return errors
+
+
+def tracked_markdown() -> list[Path]:
+    docs = []
+    for p in working_markdown_paths():
+        rel = norm_rel(p.relative_to(ROOT))
+        if rel.startswith("90-历史归档/") or rel.startswith(".workbuddy/"):
+            continue
+        docs.append(p)
+    return docs
+
+
+def split_table_row(line: str) -> list[str]:
+    cells = []
+    current = []
+    escaped = False
+    for ch in line.strip().strip("|"):
+        if ch == "|" and not escaped:
+            cells.append("".join(current).strip())
+            current = []
+        else:
+            current.append(ch)
+        escaped = ch == "\\" and not escaped
+        if ch != "\\":
+            escaped = False
+    cells.append("".join(current).strip())
+    return cells
+
+
+def markdown_checks(mode: str) -> tuple[list[str], Counter]:
+    errors: list[str] = []
+    stats: Counter = Counter()
+    docs = tracked_markdown()
+    stat_paths = {d.resolve() for d in docs}

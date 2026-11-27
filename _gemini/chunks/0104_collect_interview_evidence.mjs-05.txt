@@ -1,0 +1,22 @@
+      verifier: 'qoder-agent',
+      status: 'verified-public',
+    };
+    newRecords.push(record);
+    attempts.push({ url, title: page.title, result: 'success', evidence_id: id, mapped: record.supports_questions });
+    console.log(`OK ${id} ${record.supports_questions.join(',')} <- ${record.title.slice(0, 34)}`);
+  }
+} finally {
+  await b.close();
+}
+
+if (newRecords.length) {
+  evidence.records.push(...newRecords);
+  fs.writeFileSync(EVIDENCE_FILE, JSON.stringify(evidence, null, 2) + '\n');
+}
+log.accessed_at = new Date().toISOString().slice(0, 10);
+log.attempts = Array.isArray(log.attempts) ? log.attempts : [];
+log.attempts.push(...attempts);
+fs.writeFileSync(LOG_FILE, JSON.stringify(log, null, 2) + '\n');
+
+const linked = new Set(newRecords.flatMap(r => r.supports_questions));
+console.log(`\n新增证据 ${newRecords.length} 条，覆盖 ${linked.size} 题；记录 ${attempts.length} 次尝试`);

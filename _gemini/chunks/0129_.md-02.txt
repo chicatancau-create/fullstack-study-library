@@ -1,0 +1,54 @@
+| P1 | Java + Spring Boot | Spring MVC、Validation、Spring Security、Spring Data/JPA、MyBatis、Actuator、Profile、测试 |
+| P1/P2 | Java 企业扩展 | MyBatis-Plus、Spring Cloud/Spring Cloud Alibaba、Dubbo、Nacos、Sentinel、Resilience4j、Seata、Quartz/XXL-Job；按微服务、调度或存量需求选学 |
+| P1/P2 | Python + FastAPI 或 Django | FastAPI/Pydantic；Django ORM/Admin/Auth；Flask 作为轻量补充；ASGI/WSGI 与任务边界 |
+| P2 | Go + 标准库/Gin/Echo | HTTP、中间件、context、并发、数据库、测试、gRPC 和 pprof |
+| P2 | ASP.NET Core + EF Core | MVC/Minimal API、DI、Identity、LINQ、迁移、测试与部署 |
+| P2 | Laravel/Symfony | PHP 现代 Web、ORM、队列、模板、认证与存量系统集成 |
+| P3 | Ruby on Rails、Kotlin/Spring、Rust/Axum | 用于比较高生产力、JVM 或高性能路线，按岗位选学 |
+| API 风格 | REST、OpenAPI、JSON Schema | GraphQL、Apollo/Yoga、tRPC、gRPC/Protobuf、Dubbo/Thrift、SOAP/XML（存量） |
+| 实时通信 | SSE、WebSocket | Socket.IO、WebRTC、Webhook、长轮询；重连、背压、鉴权和水平扩展 |
+| 进程与服务运行 | 优雅退出、健康检查、容器/ systemd | PM2、Supervisor、Windows Service；崩溃重启不等于故障恢复 |
+| 认证生态 | Session、JWT、OAuth 2.0、OIDC | Keycloak、Auth0/云身份服务、Passkey/WebAuthn、MFA、SAML/LDAP、Apache Shiro（存量） |
+| 授权模型 | RBAC、资源所有权 | ABAC、ReBAC、ACL、OPA/Cedar；策略集中化与审计 |
+| 服务架构 | 模块化单体、分层/Clean/Hexagonal | DDD、CQRS、Event Sourcing、BFF、微服务、Serverless、事件驱动 |
+| 服务治理 | 配置、健康检查、限流、超时、重试、熔断、舱壁 | API Gateway、服务发现、配置中心、Service Mesh、灰度、流量镜像 |
+| 一致性 | 本地事务、唯一约束、幂等 | Outbox/Inbox、Saga、TCC、分布式锁、补偿与对账；避免把分布式事务当默认方案 |
+
+## 六、数据库、存储、搜索与消息
+
+| 方向 | 主线/中线 | 扩展生态 | 必学边界 |
+| --- | --- | --- | --- |
+| 关系数据库 | **PostgreSQL、MySQL**、SQLite | MariaDB、SQL Server、CockroachDB、TiDB、OceanBase | SQL 方言、事务、索引、锁、复制、分区和运维差异 |
+| ORM/查询 | Prisma、JPA/Hibernate、MyBatis | Drizzle、TypeORM、Sequelize、Kysely、SQLAlchemy、Django ORM、GORM、sqlc、jOOQ | 生成 SQL、迁移、N+1、事务、连接池和逃生口 |
+| 缓存/内存数据 | Redis | Valkey、Memcached | 数据结构、TTL、失效、持久化、集群、热点和一致性 |
+| 文档/宽表/键值 | 先用 PostgreSQL JSONB 验证需求 | MongoDB、DynamoDB、Cassandra、ScyllaDB、HBase | 查询模型、分区键、事务、一致性和容量成本 |
+| 搜索 | PostgreSQL 全文检索入门 | Elasticsearch、OpenSearch、Meilisearch、Typesense、Algolia | 索引同步、分词、相关性、聚合、重建和故障降级 |
+| 分析/时序 | SQL 聚合与窗口函数 | ClickHouse、TimescaleDB、DuckDB、InfluxDB、Apache Druid | OLTP/OLAP 区分、批量写入、压缩、保留和成本 |
+| 图数据库 | 关系模型优先 | Neo4j、NebulaGraph | 图遍历是否真的优于关系查询 |
+| 对象/文件存储 | 本地受控存储 → S3 兼容模型 | MinIO、云对象存储、CDN | 类型/大小、签名 URL、权限、生命周期、恶意文件和成本 |
+| 消息/流 | 持久化后台任务入门 | RabbitMQ、RocketMQ、Kafka、NATS、Pulsar、SQS/Pub/Sub 类云服务 | 至少一次、顺序、重复、积压、重试、死信、消费者幂等 |
+| 数据集成 | 定时批处理、Outbox | Debezium/CDC、ETL/ELT、Airflow、Flink、Spark | 数据质量、血缘、重放、Schema 演进和隐私 |
+| 向量检索 | pgvector | Qdrant、Milvus、Weaviate、Elasticsearch 向量能力 | Embedding 维度、召回、过滤、评估、更新与成本 |
+
+## 七、工程化、DevOps、云平台与 SRE
+
+| 方向 | 主线/中线 | 次要及扩展 | 验证重点 |
+| --- | --- | --- | --- |
+| 版本协作 | Git、GitHub、Code Review | GitLab、Gitee、Gerrit、Bitbucket；Trunk-Based、GitFlow（按团队） | 分支策略服务交付，不机械照搬 |
+| CI | GitHub Actions | GitLab CI、Jenkins、CircleCI、Buildkite、Drone | 可复现、缓存、秘密、制品、失败阻断 |
+| 容器 | Docker、Compose、BuildKit | Podman、Buildah、Kaniko、Testcontainers | 非 root、镜像大小、SBOM、签名、健康检查 |
+| 编排 | 单机/Compose 先行 | Kubernetes、Helm、Kustomize、Rancher、OpenShift、K3s | 调度、Requests/Limits、探针、配置、网络、存储、升级 |
+| 发布/CD | 可追溯流水线、迁移兼容、回滚 | Argo CD、Flux、Spinnaker、蓝绿/金丝雀、Feature Flags | 数据库兼容、审批、审计和恢复演练 |
+| IaC/配置 | 文档化手工环境 → 脚本化 | Terraform/OpenTofu、Pulumi、Ansible、Chef/Puppet（认知） | 状态、漂移、幂等、计划审查和秘密 |
+| 代理/边缘 | Caddy 或 Nginx | Traefik、Envoy、HAProxy、API Gateway、CDN/WAF | TLS、超时、限流、路由、Header 与故障策略 |
+| 可观测性 | 结构化日志、RED/USE、OpenTelemetry | Prometheus、Grafana、Loki、ELK/OpenSearch、Jaeger、Tempo、Zipkin、Sentry | Logs/Metrics/Traces/Profiles、SLO、告警和隐私 |
+| 云能力 | 计算、网络、存储、数据库、IAM、秘密、监控 | 腾讯云、阿里云、华为云、AWS、Azure、GCP；选择一家深入 | 不被品牌绑架，先掌握通用模型和成本 |
+| 托管/Serverless | 一个稳定部署平台 | Vercel、Netlify、Cloudflare、容器云、Functions/Lambda、边缘计算 | 冷启动、执行时长、状态、供应商锁定和可观测性 |
+| 韧性与安全 | 备份恢复、最小权限、依赖扫描 | Vault、SOPS、Trivy、Dependabot/Renovate、SAST/DAST、SBOM、Chaos Engineering | 恢复时间、供应链、审计与故障注入 |
+
+## 八、测试、性能与质量工具全景
+
+| 类型 | 主线/中线 | 扩展工具与方法 |
+| --- | --- | --- |
+| TS/JS | Vitest、Testing Library、Playwright、MSW | Jest、Cypress、Storybook、fast-check、Pact |
+| Java | JUnit 5、Spring Boot Test、AssertJ | Mockito、Testcontainers、RestAssured、ArchUnit、Pact |

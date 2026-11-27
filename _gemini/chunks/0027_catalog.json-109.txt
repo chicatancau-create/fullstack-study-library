@@ -1,0 +1,137 @@
+              7
+            ],
+            [
+              ".html",
+              6
+            ],
+            [
+              "(none)",
+              3
+            ],
+            [
+              ".vue",
+              3
+            ],
+            [
+              ".jpg",
+              2
+            ]
+          ],
+          "extract_skipped_bulk": 0,
+          "upstream_description": "",
+          "mb": 12
+        }
+      }
+    },
+    {
+      "id": "github:dcloudio/unidocs-unicloud-zh",
+      "name": "dcloudio/unidocs-unicloud-zh",
+      "source": {
+        "url": "https://github.com/dcloudio/unidocs-unicloud-zh",
+        "canonical_url": "https://github.com/dcloudio/unidocs-unicloud-zh",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 20:23",
+        "upstream_pushed_at": "2026-01-06",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:51+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "6590beea247c5390c504b3a7f5c8a3d2c71057bd",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/鸿蒙与跨端/dcloudio/unidocs-unicloud-zh",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/dcloudio/unidocs-unicloud-zh"
+      },
+      "integrity": {
+        "archive_sha256": "7023bd2d1ade5e80982e590deb4f2b804262b8a1f025b57e53fed32c0b79983b",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/鸿蒙与跨端",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F4",
+          "F5"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 195,
+        "bytes": 4009503,
+        "markdown_count": 172,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:26+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "unrecognized_file",
+        "license_files": [
+          "README.md"
+        ],
+        "usage_restriction": "未识别许可证文件；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "round": 4,
+          "extract_skipped_bulk": 0,
+          "upstream_description": ""
+        },
+        "original_source_json": {
+          "repo": "https://github.com/dcloudio/unidocs-unicloud-zh",
+          "category": "知识库/鸿蒙与跨端",
+          "branch": "master",
+          "archive_sha256": "7023bd2d1ade5e80982e590deb4f2b804262b8a1f025b57e53fed32c0b79983b",
+          "fetched": "2026-11-05 20:23",
+          "files": 194,
+          "bytes": 4008552,
+          "license_files": [
+            "README.md"
+          ],
+          "license_detected": null,
+          "round": 4,
+          "selection": "uniCloud 文档（云函数/数据库，数据与后端单元参考）",
+          "functions": [
+            "F4路线",
+            "F5图解"
+          ],
+          "measured": {
+            "md_n": 172,
+            "images": 1,
+            "code": 18,
+            "pushed": "2026-01-06",
+            "stars": 0,
+            "question_markers": null
+          },
+          "top_extensions": [
+            [

@@ -1,0 +1,84 @@
+      "company": "elastic",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://jobs.elastic.co/jobs?gh_jid=8237959&gh_jid=8237959",
+      "company": "elastic",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://jobs.elastic.co/jobs?gh_jid=8281841&gh_jid=8281841",
+      "company": "elastic",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://stripe.com/jobs/search?gh_jid=6176758",
+      "company": "stripe",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://stripe.com/jobs/search?gh_jid=7369543",
+      "company": "stripe",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://stripe.com/jobs/search?gh_jid=8301379",
+      "company": "stripe",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://www.mongodb.com/careers/job/?gh_jid=8209134",
+      "company": "mongodb",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://www.mongodb.com/careers/job/?gh_jid=8258279",
+      "company": "mongodb",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://www.mongodb.com/careers/job/?gh_jid=8267099",
+      "company": "mongodb",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://www.thoughtworks.com/zh-cn/careers/jobs/8330381",
+      "company": "Thoughtworks",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://www.thoughtworks.com/zh-cn/careers/jobs/8330382",
+      "company": "Thoughtworks",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4697318475&highlightType=campus",
+      "company": "美团",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4697320043&highlightType=campus",
+      "company": "美团",
+      "status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://zhaopin.meituan.com/web/position/detail?jobUnionId=4830252619",
+      "company": "美团",
+      "status": 200,
+      "error": ""
+    }
+  ]
+}

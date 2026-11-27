@@ -1,0 +1,130 @@
+          "files": 874,
+          "bytes": 93031107,
+          "mb": 88,
+          "top_extensions": {
+            ".png": 496,
+            ".md": 211,
+            ".jpg": 113,
+            ".js": 14,
+            ".svg": 11,
+            ".gif": 9,
+            "(none)": 5,
+            ".xmind": 3,
+            ".yml": 2,
+            ".html": 2
+          },
+          "license_files": [],
+          "license_detected": null,
+          "round": 2,
+          "selection": "正文 211 篇；题面/问答标记 49 处；高采用(11694 star)+有正文(211篇)；图解 632 张｜自动判定：keep",
+          "functions": [
+            "F1题面",
+            "F2解答",
+            "F4路线",
+            "F5图解"
+          ],
+          "measured": {
+            "md_n": 211,
+            "md_share_pct": 2.4,
+            "question_markers": 49,
+            "tests": 0,
+            "images": 632,
+            "pdf": 1,
+            "stars": 11694,
+            "pushed": "2022-12-02",
+            "functions": [
+              "F1离线题面",
+              "F4路线校准",
+              "中线-Java",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "content_fingerprint": "e2f09db264f7ff2057656b51f8079cf3234d3479ff19cf4c0fbe08ab060d2df9",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:franklesniak/efingplanner",
+      "name": "franklesniak/EFingPlanner",
+      "source": {
+        "url": "https://github.com/franklesniak/EFingPlanner",
+        "canonical_url": "https://github.com/franklesniak/EFingPlanner",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-10-31",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:52+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "63ab8664da20b06d5f4daf7ff2a98872e3b02cd7",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/课程与路线/franklesniak/EFingPlanner",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/franklesniak/EFingPlanner"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "a5b23f442ba001c6a83ec53c0011e96ba4d2a53c9d391631adcfb3fc416af8f1",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:56+08:00"
+        },
+        "legacy_fingerprint_12": "a5b23f442ba0"
+      },
+      "classification": {
+        "primary_category": "题库/课程与路线",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F1",
+          "F2",
+          "F3"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 452,
+        "bytes": 10655868,
+        "markdown_count": 238,
+        "question_markers": 33,
+        "test_files": 30,
+        "observed_at": "2026-11-07T14:06:32+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "CC-BY-NC-SA-4.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；传染性或非商业条款，不得并入对外发布产物。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },

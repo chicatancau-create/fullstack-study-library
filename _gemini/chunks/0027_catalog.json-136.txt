@@ -1,0 +1,131 @@
+      "classification": {
+        "primary_category": "题库/八股与基础",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F2",
+          "F5"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 521,
+        "bytes": 58010300,
+        "markdown_count": 124,
+        "question_markers": 3,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:28+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "CC-BY-NC-SA-4.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；传染性或非商业条款，不得并入对外发布产物。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 43,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/apachecn/Interview",
+          "category": "题库/八股与基础",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 43,
+          "fetched": "2026-11-05 11:12",
+          "files": 521,
+          "bytes": 58010300,
+          "mb": 55,
+          "top_extensions": {
+            ".png": 140,
+            ".md": 124,
+            ".jpg": 56,
+            ".py": 39,
+            ".gif": 28,
+            ".js": 22,
+            ".ttf": 20,
+            ".woff": 20,
+            ".woff2": 20,
+            ".css": 10
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "CC-BY-NC-SA-4.0",
+          "round": 2,
+          "selection": "正文 124 篇；高采用(8984 star)+有正文(124篇)；图解 237 张｜自动判定：keep",
+          "functions": [
+            "F2解答",
+            "F5图解"
+          ],
+          "measured": {
+            "md_n": 124,
+            "md_share_pct": 2.8,
+            "question_markers": 3,
+            "tests": 0,
+            "images": 237,
+            "pdf": 3,
+            "stars": 8984,
+            "pushed": "2023-10-20",
+            "functions": [
+              "F1离线题面",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "content_fingerprint": "c6e4a374184b289b8bad85d69fbb349dfad81f89e952fef9ed6cf94883068777",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:colinlet/php-interview-qa",
+      "name": "colinlet/PHP-Interview-QA",
+      "source": {
+        "url": "https://github.com/colinlet/PHP-Interview-QA",
+        "canonical_url": "https://github.com/colinlet/PHP-Interview-QA",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-10-27",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:46+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "741fb57183dca0712702aeb3d11575dcd7a099fb",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/八股与基础/colinlet/PHP-Interview-QA",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/colinlet/PHP-Interview-QA"
+      },
+      "integrity": {
+        "archive_sha256": null,

@@ -1,0 +1,11 @@
+ like Next.js&lt;/li&gt",
+      "responsibilities": ""
+    },
+    {
+      "company": "elastic",
+      "source": "Greenhouse official job board",
+      "title": "Lead Salesforce Full Stack AI Engineer",
+      "location": "Bangalore, India",
+      "experience": "",
+      "url": "https://jobs.elastic.co/jobs?gh_jid=8138062&gh_jid=8138062",
+      "updated": "2026-10-01",

@@ -1,0 +1,20 @@
+| 知识库/资源目录 | [ryanmcdermott/clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript) | master | 2026-11-05 16:52 | 2024-07-29 | 4 | 60,402 | 0.06 | 1 | 035aaba938ff | 未知 | 未识别文件 | unknown |
+| 知识库/运维与云原生 | [bregman-arie/devops-resources](https://github.com/bregman-arie/devops-resources) | master | 2026-11-05 11:12 | 2024-07-12 | 108 | 1,915,492 | 1.83 | 47 | 未知 | 744f7489f8f6 | 无 LICENSE | unknown |
+| 知识库/运维与云原生 | [litmuschaos/litmus](https://github.com/litmuschaos/litmus) | master | 2026-11-05 11:12 | 2026-11-04 | 2777 | 87,793,736 | 83.73 | 236 | 未知 | 49abc57a6f2d | Apache-2.0 | unknown |
+| 知识库/运维与云原生 | [NotHarshhaa/DevOps-Projects](https://github.com/NotHarshhaa/DevOps-Projects) | master | 2026-11-05 11:12 | 2026-09-04 | 3094 | 173,283,595 | 165.26 | 112 | 未知 | 6805d15249de | 无 LICENSE | unknown |
+| 知识库/运维与云原生 | [Tikam02/DevOps-Guide](https://github.com/Tikam02/DevOps-Guide) | master | 2026-11-05 11:12 | 2026-05-22 | 307 | 207,162,333 | 197.57 | 130 | 未知 | ef2469763d32 | MIT | unknown |
+| 知识库/运维与云原生 | [yeasy/docker_practice](https://github.com/yeasy/docker_practice) | master | 2026-11-05 11:12 | 2026-10-31 | 348 | 5,632,518 | 5.37 | 206 | 未知 | f0fff4a4acb0 | 无 LICENSE | unknown |
+| 知识库/运行时官方文档 | [Deno 官方文档](https://github.com/denoland/deno) | — | 2026-11-08 | — | 0 | 0 | 0.00 | 未知 | 未知 | 未知 | 无 LICENSE | unknown |
+| 知识库/运行时官方文档 | [Bun 官方文档](https://github.com/oven-sh/bun) | — | 2026-11-08 | — | 0 | 0 | 0.00 | 未知 | 未知 | 未知 | 无 LICENSE | unknown |
+| 知识库/面试综合 | [yangshun/tech-interview-handbook](https://github.com/yangshun/tech-interview-handbook) | — | 2026-11-04 20:03 | 2026-08-07 | 604 | 21,238,320 | 20.25 | 73 | 7f65008d5fa8 | 未知 | MIT | unknown |
+| 知识库/鸿蒙与跨端 | [CharonChui/HarmonyOSNextStudyNote](https://github.com/CharonChui/HarmonyOSNextStudyNote) | main | 2026-11-05 18:24 | 2025-02-11 | 18 | 224,364 | 0.21 | 16 | 未知 | 3a8c41186d58 | 未识别文件 | unknown |
+| 知识库/鸿蒙与跨端 | [dcloudio/hbuilderx-extension-docs](https://github.com/dcloudio/hbuilderx-extension-docs) | master | 2026-11-05 20:23 | 2026-10-29 | 1249 | 67,230,823 | 64.12 | 693 | 666919d5ba36 | 未知 | Apache-2.0 | unknown |
+| 知识库/鸿蒙与跨端 | [dcloudio/hbuilderx-for-uniapp-test](https://github.com/dcloudio/hbuilderx-for-uniapp-test) | main | 2026-11-05 20:23 | 2026-11-05 | 57 | 859,943 | 0.82 | 8 | 668287691d03 | 未知 | 未识别文件 | unknown |
+| 知识库/鸿蒙与跨端 | [dcloudio/hello-uni-app-x](https://github.com/dcloudio/hello-uni-app-x) | alpha | 2026-11-05 20:23 | 2026-08-11 | 1317 | 11,247,763 | 10.73 | 89 | 4c9108362a35 | 未知 | 未识别文件 | unknown |
+| 知识库/鸿蒙与跨端 | [dcloudio/hello-uniapp](https://github.com/dcloudio/hello-uniapp) | master | 2026-11-05 20:23 | 2026-05-29 | 775 | 3,715,996 | 3.54 | 105 | 04efcbf3db1a | 未知 | MIT | unknown |
+| 知识库/鸿蒙与跨端 | [dcloudio/unidocs-uni-app-x-zh](https://github.com/dcloudio/unidocs-uni-app-x-zh) | master | 2026-11-05 20:23 | 2026-07-28 | 594 | 12,778,059 | 12.19 | 534 | 150b43fc4e55 | 未知 | 未识别文件 | unknown |
+| 知识库/鸿蒙与跨端 | [dcloudio/unidocs-unicloud-zh](https://github.com/dcloudio/unidocs-unicloud-zh) | master | 2026-11-05 20:23 | 2026-01-06 | 195 | 4,009,503 | 3.82 | 172 | 7023bd2d1ade | 未知 | 未识别文件 | unknown |
+| 知识库/鸿蒙与跨端 | [dcloudio/unidocs-zh](https://github.com/dcloudio/unidocs-zh) | master | 2026-11-05 20:23 | 2026-11-05 | 559 | 8,749,924 | 8.34 | 518 | 0fc36d1a864b | 未知 | 未识别文件 | unknown |
+| 知识库/鸿蒙与跨端 | [DengShiyingA/harmonyos-ai-skill](https://github.com/DengShiyingA/harmonyos-ai-skill) | main | 2026-11-05 18:24 | 2026-10-24 | 35 | 314,651 | 0.30 | 19 | 未知 | 65b445f2d8a7 | 未识别文件 | unknown |
+| 知识库/鸿蒙与跨端 | [Explore-In-HMOS/hmos-index](https://github.com/Explore-In-HMOS/hmos-index) | main | 2026-11-05 18:24 | 2026-10-16 | 11 | 407,426 | 0.39 | 9 | 未知 | 481d6c998e49 | 未识别文件 | unknown |
+| 知识库/鸿蒙与跨端 | [liasica/harmonyos-skills](https://github.com/liasica/harmonyos-skills) | master | 2026-11-05 18:24 | 2026-11-05 | 18355 | 156,667,385 | 149.41 | 18,325 | 未知 | fe2470257667 | 未识别文件 | unknown |

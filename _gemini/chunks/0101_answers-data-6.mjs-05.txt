@@ -1,0 +1,92 @@
+      { call: '["MinStack","push","push","push","getMin","pop","top","getMin"], [[],[-2],[0],[-3],[],[],[],[]]', expected: [null,null,null,null,-3,null,0,-2], why: '标准示例' },
+      { call: '["MinStack","push","getMin","push","getMin"], [[],[5],[],[3],[]]', expected: [null,null,5,null,3], why: '更小值刷新最小值' },
+    ],
+    common_mistakes: ['getMin 每次遍历数据栈，变成 O(n)', '辅助栈只在更小值时入栈导致 pop 不同步', 'push 相等值时不更新辅助栈'],
+    followups: ['如何把辅助栈压缩为单栈存差值？', '若要求 O(1) 空间且支持 getMin 该怎么做？'],
+    rubric: [
+      { point: '辅助栈与数据栈同步入出', weight: 2 },
+      { point: 'push 时压入当前最小值', weight: 1 },
+      { point: 'top/getMin 直接取栈顶 O(1)', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q077', title: '79. 单词搜索', question_url: 'https://leetcode.cn/problems/word-search/',
+    core_idea: '网格 DFS 回溯：从每个格子出发匹配首字符，向四邻扩展并临时标记已访问，失败时恢复。',
+    invariant: '递归深度 k 表示已匹配 word 的前 k 个字符，且路径不重复经过同一格。',
+    complexity: { time: 'O(mn·4^L)', space: 'O(L)' },
+    code_lang: 'javascript',
+    code: `function solve(board, word) {
+  const m = board.length, n = board[0].length;
+  function dfs(i, j, k) {
+    if (i < 0 || j < 0 || i >= m || j >= n || board[i][j] !== word[k]) return false;
+    if (k === word.length - 1) return true;
+    const ch = board[i][j];
+    board[i][j] = '#';
+    const found = dfs(i + 1, j, k + 1) || dfs(i - 1, j, k + 1) || dfs(i, j + 1, k + 1) || dfs(i, j - 1, k + 1);
+    board[i][j] = ch;
+    return found;
+  }
+  for (let i = 0; i < m; i++) for (let j = 0; j < n; j++) if (dfs(i, j, 0)) return true;
+  return false;
+}`,
+    edge_cases: [
+      { call: '[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "ABCCED"', expected: true, why: '标准示例' },
+      { call: '[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "SEE"', expected: true, why: '右下角 S-E-E' },
+      { call: '[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "ABCB"', expected: false, why: '不能复用 B' },
+    ],
+    common_mistakes: ['不标记访问导致同一格被重复使用', '匹配失败时不恢复标记，影响其他路径', '只搜索第一个字符的所有位置之外的起点'],
+    followups: ['如何用 Trie 一次搜索多个单词（212）？', '字符集很大时如何优化空间？'],
+    rubric: [
+      { point: '递归前标记、失败后恢复', weight: 2 },
+      { point: '四邻扩展且越界检查', weight: 1 },
+      { point: '从每个格子尝试起点', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q078', title: '440. 字典序的第K小数字', question_url: 'https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order/',
+    core_idea: '把 1..n 视作十叉树：先计算以 cur 为前缀的子树节点数 count，若 count ≤ k 则跳到下一个兄弟，否则下沉到 cur*10。',
+    invariant: '每步都能整段跳过不超过 k 的子树，剩余 k 始终指向当前范围内的目标序号。',
+    complexity: { time: 'O((log n)²)', space: 'O(1)' },
+    code_lang: 'javascript',
+    code: `function solve(n, k) {
+  function countPrefix(prefix, n) {
+    let total = 0, first = prefix, last = prefix;
+    while (first <= n) {
+      total += Math.min(n, last) - first + 1;
+      first *= 10;
+      last = last * 10 + 9;
+    }
+    return total;
+  }
+  let cur = 1;
+  k--;
+  while (k > 0) {
+    const cnt = countPrefix(cur, n);
+    if (cnt <= k) { k -= cnt; cur++; }
+    else { k--; cur *= 10; }
+  }
+  return cur;
+}`,
+    edge_cases: [
+      { call: '13, 1', expected: 1, why: '字典序第一个是 1' },
+      { call: '13, 2', expected: 10, why: '1 的子树之后是 10' },
+      { call: '13, 13', expected: 9, why: '最后一个是 9' },
+    ],
+    common_mistakes: ['逐个数转字符串排序，O(n log n) 超时', 'count 用前缀区间长度但忘记截断到 n', 'k 未先减 1 导致偏移一位'],
+    followups: ['为什么 count 循环最多 log10(n) 层？', '若要求第 k 大如何调整？'],
+    rubric: [
+      { point: '按十叉树前缀计数整段跳过', weight: 2 },
+      { point: 'count 用 min(n,last)-first+1 并逐层 ×10', weight: 1 },
+      { point: 'cnt≤k 走兄弟，否则下沉', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q079', title: '152. 乘积最大子数组', question_url: 'https://leetcode.cn/problems/maximum-product-subarray/',
+    core_idea: '同时维护以 i 结尾的最大乘积与最小乘积：负数会让最小变最大，因此两个状态都要保留。',
+    invariant: 'maxHere/minHere 分别是以 i 结尾的子数组乘积的最大值与最小值。',
+    complexity: { time: 'O(n)', space: 'O(1)' },
+    code_lang: 'javascript',
+    code: `function solve(nums) {
+  let maxHere = nums[0], minHere = nums[0], best = nums[0];
+  for (let i = 1; i < nums.length; i++) {
+    const x = nums[i];

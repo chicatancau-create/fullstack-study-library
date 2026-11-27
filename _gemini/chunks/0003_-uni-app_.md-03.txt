@@ -1,0 +1,1 @@
+- [uni-app 插件市场](https://ext.dcloud.net.cn/)：组件、API 与原生扩展；安装前核对许可、版本和维护状态。

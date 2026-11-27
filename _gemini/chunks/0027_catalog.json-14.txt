@@ -1,0 +1,136 @@
+            ".json": 123,
+            ".py": 18,
+            ".jpg": 15,
+            ".html": 13,
+            ".csv": 12,
+            ".rmd": 9
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：17444 文件 -> 17445 文件",
+          "measured": {
+            "pushed": "2026-11-05",
+            "stars": 92009
+          }
+        }
+      }
+    },
+    {
+      "id": "github:mindcarver/91ai",
+      "name": "mindcarver/91ai",
+      "source": {
+        "url": "https://github.com/mindcarver/91ai",
+        "canonical_url": "https://github.com/mindcarver/91ai",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-11-01",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:57:58+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "686945ccd346df9292a686f336f6b8b8ade0a8d6",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/AI与RAG/mindcarver/91ai",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/mindcarver/91ai"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "7335b0468e2b4997e724b542dac86ab94e3a1ea03b1220b0d85c1e26e407eb37",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:00+08:00"
+        },
+        "legacy_fingerprint_12": "7335b0468e2b"
+      },
+      "classification": {
+        "primary_category": "知识库/AI与RAG",
+        "category_basis": "人工定类：AI 学习资源站正文",
+        "functions": [
+          "F1",
+          "F2",
+          "F5"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 2463,
+        "bytes": 97375729,
+        "markdown_count": 1511,
+        "question_markers": 350,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:20+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "GPL-3.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；传染性或非商业条款，不得并入对外发布产物。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 80,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/mindcarver/91ai",
+          "category": "知识库/AI与RAG",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 80,
+          "fetched": "2026-11-05 11:12",
+          "files": 2463,
+          "bytes": 97375729,
+          "mb": 92,
+          "top_extensions": {
+            ".md": 1511,
+            ".webp": 645,
+            ".svg": 199,
+            ".excalidraw": 59,
+            ".png": 18,
+            ".json": 5,
+            ".sh": 5,
+            ".mjs": 5,
+            ".html": 4,
+            ".yml": 4
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "GPL-3.0",
+          "round": 2,

@@ -1,0 +1,124 @@
+            ".ipynb": 57,
+            ".jpg": 24,
+            "(none)": 16,
+            ".txt": 11,
+            ".gif": 10,
+            ".json": 7,
+            ".sh": 5
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "Apache-2.0",
+          "round": 2,
+          "selection": "正文 308 篇；题面/问答标记 41 处；高采用(32703 star)+有正文(308篇)；图解 879 张｜自动判定：keep",
+          "functions": [
+            "F1题面",
+            "F2解答",
+            "F5图解"
+          ],
+          "measured": {
+            "md_n": 308,
+            "md_share_pct": 1.2,
+            "question_markers": 41,
+            "tests": 3,
+            "images": 879,
+            "pdf": 0,
+            "stars": 32703,
+            "pushed": "2026-10-29",
+            "functions": [
+              "AI应用",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "category_basis": "人工覆核退回：开源大模型教程是课程，不是题库（机械规则题面标记=41 属误判）",
+          "content_fingerprint": "2e2285f6b888c52be4fd37ebe483ebc1fbd9dc3d167d03153ad18d91477c2c81",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:explodinggradients/ragas",
+      "name": "explodinggradients/ragas",
+      "source": {
+        "url": "https://github.com/explodinggradients/ragas",
+        "canonical_url": "https://github.com/explodinggradients/ragas",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": null,
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:57:46+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "298b68274234c060deacab3cf5fb52aa3a20e885",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/AI与RAG/explodinggradients/ragas",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/explodinggradients/ragas"
+      },
+      "integrity": {
+        "archive_sha256": "731eb02e770df416ea55618c3ccb916aca750097b93f1d23c3e601d26da27564",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/AI与RAG",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F6"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 695,
+        "bytes": 48764728,
+        "markdown_count": 163,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:17+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "Apache-2.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied",
+          "README verified: LLM/RAG evaluation framework provides F6 evidence"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 41,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：694 文件 -> 695 文件"
+        },
+        "original_source_json": {

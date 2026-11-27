@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "note": "前端/全栈补充题：题目公开、无原始面经，按 MS10 规则标为模拟题；每题答案针对该题，不与其他题共用模板。",
+  "items": [
+    {
+      "id": "FE01",
+      "company": "通用",
+      "role": "前端",
+      "type": "React",
+      "title": "React 列表 key 的作用与错误 key 的后果",
+      "question": "渲染列表时为什么需要 key？用数组下标作 key 在什么场景会出错？",
+      "answer": [
+        "key 是 React 在协调（reconciliation）时识别同一层级节点身份的标识，而不是给开发者读的属性，也不会出现在 DOM 上。",
+        "同层级 diff 时 React 用 key 匹配旧节点与新节点：key 相同才复用组件实例与 DOM，key 不同则卸载重建。",
+        "用下标作 key 时，插入或删除头部元素会让后续元素的下标整体偏移，React 把“位置”当成身份，导致状态错位。",
+        "典型故障：受控输入框内容跟着位置走、动画重放、uncontrolled 输入丢失焦点、组件内部 state 串到相邻行。",
+        "稳定 key 应来自业务主键（如后端 id）；没有主键时可用稳定哈希，并在数据变化时保证唯一。",
+        "key 只需在兄弟节点间唯一，不需要全局唯一；key 变化等价于“删旧建新”，可用于强制重置组件。"
+      ],
+      "rubric": [
+        { "point": "说明 key 是协调阶段的身份标识而非 DOM 属性", "weight": 2 },
+        { "point": "能举出下标 key 导致状态错位的具体场景", "weight": 2 },
+        { "point": "给出以业务主键作 key 的替代方案", "weight": 1 }
+      ],
+      "followups": [
+        "key 相同但组件类型不同，React 会复用还是重建？",
+        "为什么 key 不需要全局唯一？"
+      ],
+      "source_url": "https://react.dev/learn/rendering-lists",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE02",
+      "company": "通用",
+      "role": "前端",
+      "type": "React",
+      "title": "useEffect 依赖数组与闭包陷阱",
+      "question": "useEffect 的依赖数组如何决定执行时机？遗漏依赖为什么会产生陈旧值？",
+      "answer": [
+        "依赖数组在每次渲染后按 Object.is 逐项比较：数组长度或任一项变化才重新执行 effect；空数组只在挂载后执行一次。",
+        "effect 回调捕获的是当次渲染的 props 与 state；遗漏依赖时闭包一直指向旧值，异步回调里读到的就是陈旧状态。",
+        "典型现象：定时器里读到的 count 永远停在初始值、订阅回调使用旧的 userId、请求回填覆盖了新输入。",
+        "正确做法是把 effect 内读取的响应式值全部列入依赖，或用函数式更新 setCount(c => c + 1) 避免读取旧值。",
+        "需要“只执行一次但读最新值”时用 ref 保存最新值，而不是删依赖；清理函数必须与订阅成对出现。",
+        "依赖是对象或函数时，每次渲染都是新引用；应把其定义移入 effect、用 useCallback/useMemo 稳定，或改依赖为原始值。"
+      ],
+      "rubric": [
+        { "point": "解释依赖数组的比较方式与执行时机", "weight": 1 },
+        { "point": "说明闭包捕获的是当次渲染的快照", "weight": 2 },
+        { "point": "给出函数式更新或 ref 的修复方式", "weight": 2 }
+      ],
+      "followups": [
+        "StrictMode 下 effect 为什么执行两次？",
+        "清理函数在依赖变化时的执行顺序是什么？"
+      ],
+      "source_url": "https://react.dev/reference/react/useEffect",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE03",
+      "company": "通用",
+      "role": "前端",
+      "type": "JavaScript",
+      "title": "事件循环：宏任务与微任务的输出顺序",
+      "question": "setTimeout、Promise.then、queueMicrotask、requestAnimationFrame 在同一轮里的执行顺序如何判断？",
+      "answer": [
+        "同步代码先执行完当前宏任务；每个宏任务结束后清空微任务队列，再进入渲染与下一个宏任务。",
+        "Promise.then、queueMicrotask、MutationObserver 属于微任务，按入队顺序 FIFO 执行。",
+        "setTimeout/setInterval、I/O 回调、MessageChannel 属于宏任务，每轮事件循环取一个执行。",
+        "requestAnimationFrame 在渲染前执行，属于渲染步骤而非宏/微任务队列，顺序取决于浏览器渲染时机。",
+        "微任务中继续产生微任务会在同一轮清空，可能饿死渲染；长微任务链会导致页面卡顿。",
+        "await 之后的代码等价于 Promise.then 的续体，进入微任务队列，而不是同步继续。"
+      ],
+      "rubric": [
+        { "point": "区分宏任务、微任务与渲染步骤", "weight": 2 },
+        { "point": "说明每个宏任务后清空微任务队列", "weight": 2 },
+        { "point": "指出微任务链饿死渲染的风险", "weight": 1 }
+      ],
+      "followups": [
+        "Node.js 的事件循环阶段与浏览器有哪些差异？",
+        "为什么 setTimeout(fn, 0) 不保证 0ms 执行？"
+      ],
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE04",
+      "company": "通用",
+      "role": "前端",
+      "type": "JavaScript",
+      "title": "闭包与 var/let 在循环中的差异",
+      "question": "for 循环里用 var 注册回调为什么会全部打印同一个值？let 如何解决？",
+      "answer": [
+        "闭包捕获的是变量的绑定而不是值；var 在函数作用域内只有一个绑定，循环结束后该绑定等于终值。",
+        "let 在 for 头部为每次迭代创建新的绑定，并把上一轮的值复制到下一轮，因此每个回调捕获各自的值。",
+        "var 场景的修复方式：IIFE 传参、在循环体内用 const 保存当前值、或改用 forEach 的回调参数。",
+        "闭包会延长变量生命周期，持有大对象时可能造成内存滞留；不再需要时应解除引用。",
+        "let 的“每轮新绑定”是规范行为，不是转译器魔法；ES5 转译会用闭包模拟。",
+        "该差异同样影响 setTimeout、事件监听与 Promise 回调中的循环变量。"
+      ],
+      "rubric": [

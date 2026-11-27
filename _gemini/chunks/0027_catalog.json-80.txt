@@ -1,0 +1,131 @@
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 13,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/ctrlaltwill/LearnKit",
+          "category": "知识库/课程与路线",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 13,
+          "fetched": "2026-11-05 11:12",
+          "files": 580,
+          "bytes": 19105583,
+          "mb": 18,
+          "top_extensions": {
+            ".ts": 379,
+            ".md": 59,
+            ".css": 29,
+            ".png": 25,
+            ".json": 17,
+            ".tsx": 13,
+            ".yml": 11,
+            ".mjs": 11,
+            ".svg": 10,
+            ".astro": 8
+          },
+          "license_files": [
+            "LICENSE.md"
+          ],
+          "license_detected": "MIT",
+          "round": 2,
+          "selection": "正文 60 篇；自带测试 118 个｜自动判定：keep",
+          "functions": [
+            "F2解答",
+            "F3可运行",
+            "F4路线"
+          ],
+          "measured": {
+            "md_n": 60,
+            "md_share_pct": 1.4,
+            "question_markers": 2,
+            "tests": 118,
+            "images": 36,
+            "pdf": 0,
+            "stars": 184,
+            "pushed": "2026-10-31",
+            "functions": [
+              "卡片复习",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "content_fingerprint": "b0ab6d4dee3612f96f0ad91399077174ddbe6bfbd82008ca7cd8598af4f788d9",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:dominostars/playtranslate",
+      "name": "dominostars/playtranslate",
+      "source": {
+        "url": "https://github.com/dominostars/playtranslate",
+        "canonical_url": "https://github.com/dominostars/playtranslate",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-11-04",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:01+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "2738002bcb5870e5620f9224a7c06fed8eb69d73",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/课程与路线/dominostars/playtranslate",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/dominostars/playtranslate"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "85dd63da4def0fb861e9673de79410bac97232ef01d1b09339610d8a7b85d581",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:06+08:00"
+        },
+        "legacy_fingerprint_12": "85dd63da4def"
+      },
+      "classification": {
+        "primary_category": "知识库/课程与路线",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F2"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 1550,
+        "bytes": 39388371,
+        "markdown_count": 45,
+        "question_markers": 21,
+        "test_files": 7,
+        "observed_at": "2026-11-07T14:06:24+08:00",

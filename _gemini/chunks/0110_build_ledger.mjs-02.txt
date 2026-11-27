@@ -1,0 +1,79 @@
+      const localId = (slug && indexBySlug.get(slug)) || (lcId && indexById.get(lcId)) || '';
+      const decision = !canonical ? 'excluded' : duplicateOf ? 'excluded' : 'included';
+      const reason = !canonical ? 'missing-title-and-id' : duplicateOf ? 'duplicate-of-earlier-record' : '';
+      ledger.push({
+        'raw-source': src.name,
+        snapshot: snapshot?.archive_sha256 || '',
+        file: path.relative(ROOT, abs).replace(/\\/g, '/'),
+        row: i + 2,
+        'raw-title': title,
+        'leetcode-id': lcId || (slug ? '' : ''),
+        slug,
+        'canonical-id': canonical,
+        'match-type': matchType,
+        'duplicate-of': duplicateOf,
+        'local-question-id': localId,
+        'current-codetop-id': localId,
+        decision,
+        'exclusion-reason': reason,
+      });
+    }
+  }
+}
+
+const unique = new Set(ledger.map((r) => r['canonical-id']).filter(Boolean));
+const localHits = new Set(ledger.filter((r) => r['local-question-id']).map((r) => r['canonical-id']));
+const matchedCurrent = new Set(ledger.map((r) => r['local-question-id']).filter(Boolean));
+const unmatchedCurrent = index.filter((q) => !matchedCurrent.has(q.id)).map((q) => q.id);
+
+// possible_alias：规范化标题相同但 canonical 不同的组
+const byNorm = new Map();
+for (const r of ledger) {
+  if (!r['raw-title']) continue;
+  const key = normalizeTitle(r['raw-title']);
+  if (!byNorm.has(key)) byNorm.set(key, new Set());
+  byNorm.get(key).add(r['canonical-id']);
+}
+const aliasGroups = [...byNorm.entries()].filter(([, set]) => set.size > 1);
+const conflictGroups = [];
+const byIdTitles = new Map();
+for (const r of ledger) {
+  if (!r['leetcode-id']) continue;
+  const key = r['leetcode-id'];
+  if (!byIdTitles.has(key)) byIdTitles.set(key, new Set());
+  if (r['raw-title']) byIdTitles.get(key).add(normalizeTitle(r['raw-title']));
+}
+for (const [id, titles] of byIdTitles) if (titles.size > 1) conflictGroups.push({ id, titles: [...titles] });
+
+const summary = {
+  generated_at: new Date().toISOString(),
+  scope: '字节跳动（bytedance）三个公开 CSV 集合，含各时间窗口文件；不含其他公司',
+  five_counts: {
+    raw_records: ledger.length,
+    valid_records: valid,
+    local_hit_rows: ledger.filter((r) => r['local-question-id']).length,
+    unique_canonical: unique.size,
+    evidence_backed_questions: 0,
+    evidence_note: '尚无逐题牛客原始面经证据，当前全部为第三方聚合统计',
+  },
+  relation_to_codetop100: {
+    already_present: [...localHits].length,
+    new_from_csv: [...unique].filter((c) => !localHits.has(c)).length,
+    possible_alias: aliasGroups.length,
+    conflict: conflictGroups.length,
+    unmatched_current: unmatchedCurrent.length,
+    unmatched_csv: [...unique].filter((c) => !localHits.has(c)).length,
+  },
+  detail: { unmatched_current_ids: unmatchedCurrent, alias_samples: aliasGroups.slice(0, 5), conflicts: conflictGroups.slice(0, 5) },
+  files: manifestFiles,
+};
+
+fs.mkdirSync(path.join(here, 'evidence'), { recursive: true });
+const csvHeader = ['raw-source', 'snapshot', 'file', 'row', 'raw-title', 'leetcode-id', 'slug', 'canonical-id', 'match-type', 'duplicate-of', 'local-question-id', 'current-codetop-id', 'decision', 'exclusion-reason'];
+const esc = (v) => `"${String(v ?? '').replace(/"/g, '""')}"`;
+fs.writeFileSync(path.join(here, 'dedupe-ledger.csv'), [csvHeader.join(','), ...ledger.map((r) => csvHeader.map((h) => esc(r[h])).join(','))].join('\n') + '\n');
+fs.writeFileSync(path.join(here, 'input-manifest.json'), JSON.stringify({ generated_at: summary.generated_at, files: manifestFiles }, null, 2) + '\n');
+fs.writeFileSync(path.join(here, 'summary.json'), JSON.stringify(summary, null, 2) + '\n');
+
+console.log(`RAW=${ledger.length} VALID=${valid} UNIQUE=${unique.size} LOCAL_HITS=${localHits.size} UNMATCHED_CURRENT=${unmatchedCurrent.length}`);
+console.log(`LEDGER_OK ${ledger.length === summary.five_counts.raw_records ? 'rows-match' : 'MISMATCH'}`);

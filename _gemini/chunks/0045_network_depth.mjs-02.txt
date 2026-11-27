@@ -1,0 +1,70 @@
+  fs.writeFileSync(`${OUT}/tls-handshake.txt`, tlsLines.join('\n') + '\n');
+  log(`TLS：protocol=${tlsInfo.protocol} cipher=${tlsInfo.cipher} ALPN=${tlsInfo.alpn} peerCN=${tlsInfo.peerCN}；详见 evidence/tls-handshake.txt`);
+  await close(tlsServer);
+
+  // 3. HTTP/1.1 单连接串行 vs HTTP/2 单连接多流
+  const h2Server = http2.createSecureServer({ key: fs.readFileSync(`${OUT}/tls-key.pem`), cert: fs.readFileSync(`${OUT}/tls-cert.pem`), allowHTTP1: true });
+  h2Server.on('stream', (stream) => {
+    setTimeout(() => { stream.respond({ ':status': 200 }); stream.end('h2'); }, 200);
+  });
+  h2Server.on('request', (req, res) => {
+    setTimeout(() => res.end('h1'), 200);
+  });
+  let secureConnections = 0;
+  h2Server.on('secureConnection', () => { secureConnections += 1; });
+  const h2Port = await listen(h2Server);
+
+  const h1Agent = new https.Agent({ keepAlive: true, maxSockets: 1 });
+  const h1Total = await new Promise((resolve, reject) => {
+    const started = performance.now();
+    const one = () => new Promise((res, rej) => {
+      https.get({ port: h2Port, path: '/', rejectUnauthorized: false, ALPNProtocols: ['http/1.1'], agent: h1Agent }, (response) => { response.resume(); response.on('end', res); }).on('error', rej);
+    });
+    (async () => { await one(); await one(); resolve(Number((performance.now() - started).toFixed(0))); })().catch(reject);
+  });
+  const h1Connections = secureConnections;
+  h1Agent.destroy();
+
+  secureConnections = 0;
+  const h2 = await new Promise((resolve, reject) => {
+    const client = http2.connect(`https://127.0.0.1:${h2Port}`, { rejectUnauthorized: false });
+    const started = performance.now();
+    let done = 0;
+    const streamIds = [];
+    const one = () => {
+      const req = client.request({ ':path': '/' });
+      req.on('response', () => streamIds.push(req.id));
+      req.resume();
+      req.on('end', () => { done += 1; if (done === 2) { const total = Number((performance.now() - started).toFixed(0)); client.close(); resolve({ total, streamIds }); } });
+      req.on('error', reject);
+      req.end();
+    };
+    one(); one();
+    client.on('error', reject);
+  });
+  log(`HTTP/1.1 单连接串行 2 请求=${h1Total}ms（TLS 连接数=${h1Connections}）；HTTP/2 单连接 2 并发流=${h2.total}ms（TLS 连接数=${secureConnections}，stream id=${h2.streamIds.join(',')}）`);
+  await close(h2Server);
+
+  // 4. DNS 失败与 ECONNREFUSED
+  const resolver = new dns.promises.Resolver();
+  resolver.setServers(['127.0.0.1:1']);
+  let dnsResult = '';
+  try { await resolver.resolve4('example.com'); dnsResult = 'unexpected-success'; } catch (error) { dnsResult = `${error.code || error.name}: ${error.message}`; }
+  const refused = await new Promise((resolve) => {
+    const socket = net.connect(1, '127.0.0.1');
+    socket.on('connect', () => { socket.destroy(); resolve('connected'); });
+    socket.on('error', (error) => resolve(error.code || error.message));
+    setTimeout(() => resolve('timeout'), 3000);
+  });
+  log(`DNS：resolver=127.0.0.1:1 解析 example.com -> ${dnsResult}`);
+  log(`ECONNREFUSED：连接 127.0.0.1:1 -> ${refused}`);
+
+  log('');
+  log('结论：TCP 短连接/keep-alive 复用、TLS 1.3 握手与 ALPN、H2 多流、DNS 失败与连接拒绝均在本机真实复现。');
+  log('未证实：无 .pcap 字节级解码；DNS 失败只覆盖“解析器不可达”，不覆盖 NXDOMAIN 与劫持。');
+  fs.writeFileSync(`${OUT}/network-depth.txt`, lines.join('\n') + '\n');
+} catch (error) {
+  log(`E04 采集失败：${error.message}`);
+  fs.writeFileSync(`${OUT}/network-depth.txt`, lines.join('\n') + '\n');
+  process.exitCode = 1;
+}

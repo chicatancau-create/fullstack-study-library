@@ -1,0 +1,171 @@
+    var parent = node.parent
+    var depth = node.depth
+    if (parent && parent.data.hide) depth -= 1
+    while (parent && (parent = parent.parent)) {
+      if (parent.data.hide) depth -= 1
+    }
+    return depth
+  }
+
+  function frameWidth (d) {
+    var dx = d.x1 - d.x0
+    return dx * w
+  }
+
+  function filter (data) {
+    if (!filterNeeded) return
+    if (data.children && (data.children.length > 0)) {
+      data.children.forEach(filter)
+      data.children.forEach(function (child) {
+        if (isNodeExcluded(child, filterTypes)) {
+          child.data.hide = true
+        } else {
+          child.data.hide = false
+        }
+      })
+    }
+  }
+
+  function categorizeTree (data) {
+    if (data.children && (data.children.length > 0)) {
+      data.children.forEach(categorizeTree)
+      data.children.forEach(function (child, ix, children) {
+        var lt = categorizer(child.data, ix, children)
+        child.data.type = lt.type
+      })
+    }
+  }
+
+  function hide (d) {
+    if (!d.data.original) {
+      d.data.original = d.data.value
+    }
+    d.data.value = 0
+    if (d.children) {
+      d.children.forEach(hide)
+    }
+  }
+
+  function show (d) {
+    d.data.fade = false
+    if (d.data.original) {
+      d.data.value = d.data.original
+    }
+    if (d.children) {
+      d.children.forEach(show)
+    }
+  }
+
+  function getSiblings (d) {
+    var siblings = []
+    if (d.parent) {
+      var me = d.parent.children.indexOf(d)
+      siblings = d.parent.children.slice(0)
+      siblings.splice(me, 1)
+    }
+    return siblings
+  }
+
+  function hideSiblings (d) {
+    var siblings = getSiblings(d)
+    siblings.forEach(function (s) {
+      hide(s)
+    })
+    if (d.parent) {
+      hideSiblings(d.parent)
+    }
+  }
+
+  function fadeAncestors (d) {
+    if (d.parent) {
+      d.parent.data.fade = true
+      fadeAncestors(d.parent)
+    }
+  }
+
+  function zoom (d) {
+    if (currentAnimation) {
+      currentAnimation.cancel()
+      // save points before clearing the animation,
+      // so that it uses the current mid-animation coords as starting points
+      saveAnimationStartingPoints()
+      currentAnimation = null
+    }
+
+    time('zoom', function () {
+      focusedFrame = d.data
+      time('hideSiblings', function () {
+        hideSiblings(d)
+      })
+      time('show', function () {
+        show(d)
+      })
+      time('fadeAncestors', function () {
+        fadeAncestors(d)
+      })
+      time('update', function () {
+        update({ animate: true })
+      })
+    })
+
+    dispatch.call('zoom', null, d.data)
+  }
+
+  function searchTree (d, term, color) {
+    var re = term instanceof RegExp ? term : new RegExp(rxEsc(term), 'i')
+    var label = d.data.name
+
+    if (d.children) {
+      d.children.forEach(function (child) {
+        searchTree(child, term, color)
+      })
+    }
+    if (d.data.hide) { return }
+
+    var searchArea
+    if (d.data.type === 'cpp') {
+      searchArea = label.split('[')[0]
+    } else if (d.data.type === 'v8') {
+      searchArea = label.split(' ')[0]
+    } else if (d.data.type === 'regexp') {
+      searchArea = label
+    } else if (d.data.type === 'wasm') {
+      searchArea = label.slice(0, label.lastIndexOf('[WASM'))
+    } else {
+      searchArea = label.split(':')[0]
+    }
+    if (re.test(searchArea)) {
+      d.data.highlight = color || true
+    } else {
+      d.data.highlight = false
+    }
+  }
+
+  function clear (d, color) {
+    if (!color || d.data.highlight === color) {
+      d.data.highlight = false
+    }
+    if (d.children) {
+      d.children.forEach(function (child) {
+        clear(child, color)
+      })
+    }
+  }
+
+  function doSort (a, b) {
+    if (typeof sort === 'function') {
+      return sort(a, b)
+    } else if (sort) {
+      return d3.ascending(a.data.name, b.data.name)
+    } else {
+      return 0
+    }
+  }
+
+  var partition = d3.partition()
+
+  function sumChildValues (node) {
+    var acc = 0
+    if (!node.children) return acc
+    for (var i = 0; i < node.children.length; i++) {
+      var d = node.children[i]

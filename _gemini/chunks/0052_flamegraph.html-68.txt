@@ -1,0 +1,177 @@
+    return arguments.length ? (domain = Array.from(_, number$1), scale) : domain.slice();
+  };
+
+  scale.unknown = function(_) {
+    return arguments.length ? (unknown = _, scale) : unknown;
+  };
+
+  scale.copy = function() {
+    return identity(domain).unknown(unknown);
+  };
+
+  domain = arguments.length ? Array.from(domain, number$1) : [0, 1];
+
+  return linearish(scale);
+}
+
+function nice(domain, interval) {
+  domain = domain.slice();
+
+  var i0 = 0,
+      i1 = domain.length - 1,
+      x0 = domain[i0],
+      x1 = domain[i1],
+      t;
+
+  if (x1 < x0) {
+    t = i0, i0 = i1, i1 = t;
+    t = x0, x0 = x1, x1 = t;
+  }
+
+  domain[i0] = interval.floor(x0);
+  domain[i1] = interval.ceil(x1);
+  return domain;
+}
+
+function transformLog(x) {
+  return Math.log(x);
+}
+
+function transformExp(x) {
+  return Math.exp(x);
+}
+
+function transformLogn(x) {
+  return -Math.log(-x);
+}
+
+function transformExpn(x) {
+  return -Math.exp(-x);
+}
+
+function pow10(x) {
+  return isFinite(x) ? +("1e" + x) : x < 0 ? 0 : x;
+}
+
+function powp(base) {
+  return base === 10 ? pow10
+      : base === Math.E ? Math.exp
+      : function(x) { return Math.pow(base, x); };
+}
+
+function logp(base) {
+  return base === Math.E ? Math.log
+      : base === 10 && Math.log10
+      || base === 2 && Math.log2
+      || (base = Math.log(base), function(x) { return Math.log(x) / base; });
+}
+
+function reflect(f) {
+  return function(x) {
+    return -f(-x);
+  };
+}
+
+function loggish(transform) {
+  var scale = transform(transformLog, transformExp),
+      domain = scale.domain,
+      base = 10,
+      logs,
+      pows;
+
+  function rescale() {
+    logs = logp(base), pows = powp(base);
+    if (domain()[0] < 0) {
+      logs = reflect(logs), pows = reflect(pows);
+      transform(transformLogn, transformExpn);
+    } else {
+      transform(transformLog, transformExp);
+    }
+    return scale;
+  }
+
+  scale.base = function(_) {
+    return arguments.length ? (base = +_, rescale()) : base;
+  };
+
+  scale.domain = function(_) {
+    return arguments.length ? (domain(_), rescale()) : domain();
+  };
+
+  scale.ticks = function(count) {
+    var d = domain(),
+        u = d[0],
+        v = d[d.length - 1],
+        r;
+
+    if (r = v < u) i = u, u = v, v = i;
+
+    var i = logs(u),
+        j = logs(v),
+        p,
+        k,
+        t,
+        n = count == null ? 10 : +count,
+        z = [];
+
+    if (!(base % 1) && j - i < n) {
+      i = Math.floor(i), j = Math.ceil(j);
+      if (u > 0) for (; i <= j; ++i) {
+        for (k = 1, p = pows(i); k < base; ++k) {
+          t = p * k;
+          if (t < u) continue;
+          if (t > v) break;
+          z.push(t);
+        }
+      } else for (; i <= j; ++i) {
+        for (k = base - 1, p = pows(i); k >= 1; --k) {
+          t = p * k;
+          if (t < u) continue;
+          if (t > v) break;
+          z.push(t);
+        }
+      }
+      if (z.length * 2 < n) z = d3Array.ticks(u, v, n);
+    } else {
+      z = d3Array.ticks(i, j, Math.min(j - i, n)).map(pows);
+    }
+
+    return r ? z.reverse() : z;
+  };
+
+  scale.tickFormat = function(count, specifier) {
+    if (specifier == null) specifier = base === 10 ? ".0e" : ",";
+    if (typeof specifier !== "function") specifier = d3Format.format(specifier);
+    if (count === Infinity) return specifier;
+    if (count == null) count = 10;
+    var k = Math.max(1, base * count / scale.ticks().length); // TODO fast estimate?
+    return function(d) {
+      var i = d / pows(Math.round(logs(d)));
+      if (i * base < base - 0.5) i *= base;
+      return i <= k ? specifier(d) : "";
+    };
+  };
+
+  scale.nice = function() {
+    return domain(nice(domain(), {
+      floor: function(x) { return pows(Math.floor(logs(x))); },
+      ceil: function(x) { return pows(Math.ceil(logs(x))); }
+    }));
+  };
+
+  return scale;
+}
+
+function log() {
+  var scale = loggish(transformer$2()).domain([1, 10]);
+
+  scale.copy = function() {
+    return copy$1(scale, log()).base(scale.base());
+  };
+
+  initRange.apply(scale, arguments);
+
+  return scale;
+}
+
+function transformSymlog(c) {

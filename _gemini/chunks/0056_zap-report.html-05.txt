@@ -1,0 +1,132 @@
+WdIfKB3T59aMOACyA/q1jbjCFaqy3+cSurZ9APqlDvoIo+tb4GyeWJBEKf5EtIIenUiTS5ZBa2lqYd7y4rZM7020g7ujsLV/rbE++umkeLrt56YqV/nA1MbqhXoZQnB/zR4k0E/RCa1xEexWucC1RprXMO9LcKiu/9HPQ6n5tYeTyfO+y5r9vtuS+6q9X3wFFe58PCLVty/B4yt9IP+ySsoLugZZPDnlvqcdt2Amd6T6vWqH/ujweXS821uNSTlcczH3Iarai4mLk1fNTO47ZtddhzfzfEtkfDkEjfSU+f3tZhz9W+BfBPh9dKNlqOecIl1oy70Nzn/ViJ6KF7SrJ/BHAWZS/SaF8imFRBr3Y4Hji+YcAFsGL879rjOVNr9ZWyuuGDQBXF7R5F3dufzRW2bRk3E3tHkgbnkNjvZiQl3WuPfc+EkRdz3FlD+fqHrcTZbHz57rryuLg4XzjR40CDVO8rLs75RSMXA1uj2Cq7tXB5UdHUBilf6vaoMYi85R9whcECl+LL+SesTkx23xHMY/bPYnCFJdYR37iXz2Wu0WNcrqlf12IQWYnBZMGfhq9/eprtr40FroLiqZ9ptDVKJQGz0EUcoqdreKGBJVc7v7IhMibU3e5yZU8BVvgcg+Kpbl1/b2E0D+Lop87R1QkvGJoB1jKpBgb+aHMRtASXTEVbJlt6XfpiVWAsOkfA8xsIuNUQMs3F9P5J+9NJaHMy7m/X4vnuZfDs44cNL3NSzzd15lV/+XzpvCd7vvPOO+X9+vXzldT5B4QU7q4nuVxTPujYMadbaVHcBdrQvUVLukIViRhfxscnvrJr1x1hY2AaFglmfkK3u7oi+Ji8JPh67Pjfrce8MYCDMtLuP8cjxvlAO4FyDb8ahn4neBzIqtJlv9miRc4xqtoYpkT6GGbKtmIFX1dX21aWlf19T4SvzfVVt0hNraguKPBf67v0tOlZiCn1NLqT6fLPcXs8ao8hcXO9YidkmMOuYM9ciz/OEyKl1mjkM+/wxM7A8+02PD3th9EIZypUawNjp0I953JOfT+j+bTeHkP+LSKewJice6+fh/0NpoR2Xm7bffHxngKt5TOXc8raiG561+Pj7Pbiz0V0caRBZGkQkA/MiSOj7RQRI9sQw4hc8Du4ZCqWAgm+onMSxpYO/q/x58TQvu2o4UwKvbcA9VUe+vdAO0tISNjy5JNP7p49e7bavHnz6UAhkePsYhSjA1NlG/RqmfMvEZgnGK2DI9+NoJKpoQDzsyKEAExb+hXtl10EAUvXEC+oPFqrJ3j5by9RWTYLs4ZvKK0Hzos1hRgd3uACs3J9xb5sEblNROKC6xMH1x721xQJ1EwNY0hbt3QgcbYOmx2tAoAz4x4/10rdwKqsjy325bXADPAGm8IuYBCwKdYUYnT4g8tHw+ediMh9InK5iBgmoAw/mMRSrE4iSi4LuGolubQ34Yz+Xmv9AD23L4syONwEuAgzTGYdUBJrBjE6ssDlB9ncHojcIWJkCpKCJUNUJMkV7s7Yj+QKpCD4t9bqMXruyDvQiIsYxejIAJePLl3QlHg9DGG0iPQXSA6TXAEBFiK1okgu9LdasxqbWmom1IlRjP6M4LLSuEVJlKgzEM9ADKOHQDeQLgRyUEQg/TuaHzR6MyIb8HjePpBI9hjF6L8TXJEoM89GfEEzquPTQKWCkYChijCMMspUKWuzymOvK0ZHEv0/MoxQeluHjNMAAAAASUVORK5CYII="
+			alt="" />
+		ZAP Scanning Report
+	</h1>
+	<p />
+	
+
+	<h2>
+		
+		Site: http://127.0.0.1:4789
+		
+	</h2>
+
+	<h3>
+		Generated on Mon, 9 Nov 2026 21:29:43
+	</h3>
+
+	<h3>
+		ZAP Version: 2.17.0
+	</h3>
+
+	<h4>
+		ZAP by <a href="https://checkmarx.com/">Checkmarx</a>
+	</h4>
+
+	
+		<h3 class="left-header">Summary of Alerts</h3>
+		<table class="summary">
+			<tr>
+				<th width="45%"
+					height="24">Risk Level</th>
+				<th width="55%"
+					align="center">Number of Alerts</th>
+			</tr>
+			<tr>
+				<td class="risk-3">
+					<div>High</div>
+				</td>
+				<td align="center">
+					<div>0</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="risk-2">
+					<div>Medium</div>
+				</td>
+				<td align="center">
+					<div>2</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="risk-1">
+					<div>Low</div>
+				</td>
+				<td align="center">
+					<div>0</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="risk-0">
+					<div>Informational</div>
+				</td>
+				<td align="center">
+					<div>1</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="risk--1">
+					<div>				False Positives:</div>
+				</td>
+				<td align="center">
+					<div>0</div>
+				</td>
+			</tr>
+		</table>
+		<div class="spacer-lg"></div>
+	
+	
+	
+
+	
+		
+		
+	</th:block>
+
+	
+		<h3>Alerts</h3>
+		<table class="alerts">
+			<tr>
+				<th width="60%" height="24">Name</th>
+				<th width="20%"
+					align="center">Risk Level</th>
+				<th width="20%"
+					align="center">Number of Instances</th>
+			</tr>
+			<tr>
+				<td><a href="#10038">Content Security Policy (CSP) Header Not Set</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				
+				
+				<td align="center">3</td>
+				
+			</tr>
+			<tr>
+				<td><a href="#10020">Missing Anti-clickjacking Header</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				
+				
+				<td align="center">3</td>
+				
+			</tr>
+			<tr>
+				<td><a href="#10109">Modern Web Application</a></td>
+				<td align="center" class="risk-0">Informational</td>
+				
+				
+				<td align="center">1</td>
+				
+			</tr>
+		</table>
+		<div class="spacer-lg"></div>
+	
+
+	
+		<h3>Alert Detail</h3>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="10038"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">Content Security Policy (CSP) Header Not Set</th>

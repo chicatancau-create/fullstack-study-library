@@ -1,0 +1,131 @@
+          "files": 67,
+          "bytes": 5701752,
+          "mb": 5,
+          "top_extensions": {
+            ".sh": 17,
+            ".js": 15,
+            ".md": 13,
+            ".txt": 4,
+            ".png": 4,
+            "(none)": 3,
+            ".php": 2,
+            ".css": 2,
+            ".py": 1,
+            ".html": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "round": 2,
+          "selection": "高采用(46616 star)+有正文(13篇)｜自动判定：keep",
+          "functions": [
+            "F4路线"
+          ],
+          "measured": {
+            "md_n": 13,
+            "md_share_pct": 2.0,
+            "question_markers": 24,
+            "tests": 0,
+            "images": 4,
+            "pdf": 0,
+            "stars": 46616,
+            "pushed": "2026-10-17",
+            "functions": [
+              "主线-语言",
+              "主线-后端",
+              "主线-数据",
+              "部署运维",
+              "英文速查",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "content_fingerprint": "96aa871d4e4e10a7da727a9ecb43cc650958456403f435124ccb40709de093b7",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:pkuflyingpig/cs-self-learning",
+      "name": "PKUFlyingPig/cs-self-learning",
+      "source": {
+        "url": "https://github.com/PKUFlyingPig/cs-self-learning",
+        "canonical_url": "https://github.com/PKUFlyingPig/cs-self-learning",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-10-01",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:53+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "2c591834a1e4101e2e7579dc7f49bdeb4a6153a2",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/课程与路线/PKUFlyingPig/cs-self-learning",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/PKUFlyingPig/cs-self-learning"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "2bfff6162817f6d17e37966a3a390c26416d0d7469d4d1d2fca615b9de34919d",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:07+08:00"
+        },
+        "legacy_fingerprint_12": "2bfff6162817"
+      },
+      "classification": {
+        "primary_category": "知识库/课程与路线",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F2",
+          "F4"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 287,
+        "bytes": 1865482,
+        "markdown_count": 273,
+        "question_markers": 0,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:24+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {

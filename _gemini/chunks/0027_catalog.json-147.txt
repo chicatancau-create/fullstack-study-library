@@ -1,0 +1,117 @@
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 1,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：2352 文件 -> 2353 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/liquidslr/leetcode-company-wise-problems",
+          "category": "题库/公司高频题",
+          "branch": null,
+          "archive_sha256": "365cdff7e90e64499b5d48e9f272936de34e28f46f85b626116ce2b8d53d7ebb",
+          "tarball_mb": 1,
+          "fetched": "2026-11-04 20:03",
+          "files": 2353,
+          "bytes": 5883431,
+          "mb": 5,
+          "top_extensions": {
+            ".csv": 2350,
+            "(none)": 1,
+            ".md": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：2352 文件 -> 2353 文件",
+          "measured": {
+            "pushed": "2026-10-21",
+            "stars": 34349
+          }
+        }
+      }
+    },
+    {
+      "id": "github:snehasishroy/leetcode-companywise-interview-questions",
+      "name": "snehasishroy/leetcode-companywise-interview-questions",
+      "source": {
+        "url": "https://github.com/snehasishroy/leetcode-companywise-interview-questions",
+        "canonical_url": "https://github.com/snehasishroy/leetcode-companywise-interview-questions",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-08-21",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:04+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "e095c259cfd036e3ddb6886e84d7075c2faac477",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/公司高频题/snehasishroy/leetcode-companywise-interview-questions",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/snehasishroy/leetcode-companywise-interview-questions"
+      },
+      "integrity": {
+        "archive_sha256": "e51804a8805b5ed39d2d4a228a80d3dbe1805453f97ed2b13a923fbb6e03f713",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "题库/公司高频题",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 1647,
+        "bytes": 4347764,
+        "markdown_count": 1,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:29+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",

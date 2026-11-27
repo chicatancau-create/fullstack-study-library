@@ -1,0 +1,33 @@
+      "requirements": "1.计算机相关专业本科及以上学历，拥有 3 年以上全栈开发经验，并主导过复杂系统全生命周期研发； 2.精通至少两种技术栈组合，如 TypeScript+Node.js+Python/Java+React+Go，具备跨平台开发经验者优先； 3.熟悉分布式系统设计，熟练掌握微服务、容器化、CI/CD 等工程实践，有高并发场景优化经验； 4.具备出色的技术方案规划能力，能够输出符合 Clean Architecture/Domain-Driven Design 原则的设计文档； 5.熟悉 AI 工程化流程，有 Prompt 工程、RAG 应用或大模型微调经验者优先； 6.强烈的 owner 意识，具备优秀的跨团队协同能力，主导过 5 人以上研发团队协作经验优先。",
+      "responsibilities": "1.负责Miora Agent研发工作，涵盖需求分析、架构设计、前后端开发及模型集成； 2.负责AI原生交互方案设计与研发，持续优化AI编辑和生成业务效果； 3.主导技术方案规划与评审，精心输出高质量设计文档，全力协调前后端及算法团队达成技术方案落地实施； 4.积极推动研发流程标准化，合理制定迭代计划并精准把控交付节奏，保证功能按时且高质量交付； 5.构建代码质量监控体系，主导性能优化与体验提升工作，有效提高产品内建质量与生成效果； 6.深度参与 AI 模型工程化落地，巧妙设计模型服务接口与数据交互方案，大力优化推理效率与资源消耗。"
+    },
+    {
+      "company": "腾讯",
+      "source": "careers.tencent.com (official API)",
+      "title": "腾讯AI网盘全栈开发高级工程师",
+      "location": "深圳",
+      "experience": "三年以上工作经验",
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2112898585224982528",
+      "updated": "2026年10月21",
+      "requirements": "1.本科及以上学历，计算机或软件工程相关专业，3–5 年互联网研发经验，有网盘、云存储、大型协作办公产品经验者优先； 2.具备扎实的 Web 端或客户端开发能力，满足其一即可：1️⃣Web 端：精通 HTML5 / CSS3 / JavaScript / TypeScript，熟练掌握 React 或 Vue 及其生态，具备良好的工程化与前端架构能力；2️⃣客户端：具备 Windows / Mac 桌面端开发经验，熟悉 Electron、CEF、Flutter 等跨平台框架，或 C/C++、Objective-C、Swift 等原生开发； 3.具备一定的后台开发能力，熟悉 Node.js、Go、Java 中至少一门服务端语言，了解 MySQL、Redis 等常用存储，能独立完成 BFF 或后台接口的开发； 4.熟练使用 AI 辅助编程工具（如 Cursor、CodeBuddy、GitHub Copilot 等），有借助 AI 独立完成全栈功能落地的实践经验，能有效拆解需求，并对生成的代码做质量把控； 5.熟悉浏览器或操作系统的渲染原理与网络协议，具备体系化的性能调优思路（如首屏加载、长列表渲染、UI 渲染掉帧、内存泄漏等）； 6.了解常见的认证与鉴权机制（如 OAuth、JWT、Session 等）及安全防护（如 XSS、CSRF 等）； 7.自驱力强，具备良好的逻辑思维与跨团队沟通协作能力，能独立承担具备挑战性的技术攻坚任务，有强烈的主人翁意识，适应快速演进的技术迭代。",
+      "responsibilities": "1.负责腾讯AI网盘核心产品 Web 端及桌面客户端（Windows / Mac）的研发与迭代，包括文件管理、分享协作、搜索预览等核心功能，保障多端功能一致性与极致用户体验； 2.借助 AI 辅助编程工具，独立完成从前端交互、客户端到 BFF / 后台接口的全栈功能落地，持续提升研发效率； 3.参与网盘权限管理与资产管理相关功能的研发，涵盖组织架构、成员与角色权限、文件/目录访问控制、分享权限、空间配额等场景； 4.负责 Web 端及客户端的性能优化，攻克海量文件列表渲染、大文件上传下载、多端数据与状态同步等难题； 5.参与产品智能化能力建设，配合推进 MCP、开放 API 等能力的接入，支持文件检索、内容总结等 AI 场景在多端的落地。"
+    },
+    {
+      "company": "腾讯",
+      "source": "careers.tencent.com (official API)",
+      "title": "智能体套件-全栈开发工程师-CodeBuddy/WorkBuddy",
+      "location": "深圳",
+      "experience": "三年以上工作经验",
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2074756587444158464",
+      "updated": "2026年10月08",
+      "requirements": "1.计算机相关专业本科及以上学历，3 年以上全栈开发经验，主导过复杂系统的全生命周期研发； 2.精通至少两种技术栈组合，例如 TypeScript+Node.js / Python / Java / Go + React，有桌面客户端（Electron 等）或跨平台开发经验者优先； 3.熟悉分布式系统设计，掌握微服务、容器化、CI/CD 等工程实践，有高并发、多租户或私有化交付场景的优化经验者优先； 4.具备出色的技术方案规划能力，能输出符合 Clean Architecture / Domain-Driven Design 原则的设计文档； 5.有 Agent 开发经验，熟悉 Agent 架构设计、Prompt 工程、RAG 应用、大模型推理服务化等 AI 工程化流程，具备智能体编排与工具链集成能力者优先； 6.有 To B 产品、企业级 SaaS / 私有化部署、VPC / 专有云交付相关经验者优先； 7.有沙箱隔离与 Agent Runtime 相关架构经验，有容器沙箱、安全隔离执行环境、Runtime 生命周期管理等实践经验者优先； 8.善用AI 提升生产力， 能高效驾驭AI Coding编程范式(把 AI 当作可委派的执行单元,而非补全工具), 在 spec / context / harness 层面有方法论； 9.强烈的 owner 意识，具备优秀的跨团队协同能力，主导过 5 人以上研发团队协作经验优先。",
+      "responsibilities": "1.负责 WorkBuddy Enterprise 体系的全链路研发工作，覆盖 WorkBuddy / CodeBuddy / Manged Agents、智能体套件、管理端、运营平台等； 2.参与企业版专享部署架构的设计与演进，负责产品标准化、多产品融合等方向的技术方案规划与评审，输出高质量设计文档，协调各团队推动落地； 3.推动企业版研发流程标准化，制定迭代计划并把控交付节奏，保证功能在多客户、多环境下按时高质量交付； 4.构建代码质量与线上质量监控体系，主导性能优化、稳定性治理与体验提升，持续提高企业级产品的内建质量与可运维性； 5.深度参与 AI 智能体的工程化落地，设计模型服务接口与数据交互方案，优化推理效率、资源消耗及企业环境下的合规与隔离能力。"
+    },
+    {
+      "company": "腾讯",
+      "source": "careers.tencent.com (official API)",
+      "title": "企业微信-AI Agent Harness 全栈工程师-（成都）",
+      "location": "广州",
+      "experience": "五年以上工作经验",
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2039169824982204416",
+      "updated": "2026年10月08",

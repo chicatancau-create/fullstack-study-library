@@ -1,0 +1,125 @@
+      "name": "Harsh-Belekar/LeetCode-SQL-50",
+      "source": {
+        "url": "https://github.com/Harsh-Belekar/LeetCode-SQL-50",
+        "canonical_url": "https://github.com/Harsh-Belekar/LeetCode-SQL-50",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-07-09",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:25+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "54c1b1d79888f541bfc2efd6b71a3e58a64486a2",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/SQL与数据/Harsh-Belekar/LeetCode-SQL-50",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/Harsh-Belekar/LeetCode-SQL-50"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "49755c74f0b24cc8421eb2b1b89b00b89a9485fc5d6a5ed14289c07e2708b55f",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:52+08:00"
+        },
+        "legacy_fingerprint_12": "49755c74f0b2"
+      },
+      "classification": {
+        "primary_category": "题库/SQL与数据",
+        "category_basis": "人工定类：正是要找的 SQL 50 题解",
+        "functions": [
+          "F2"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 152,
+        "bytes": 1692308,
+        "markdown_count": 51,
+        "question_markers": 0,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:28+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 1,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/Harsh-Belekar/LeetCode-SQL-50",
+          "category": "题库/SQL与数据",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 1,
+          "fetched": "2026-11-05 11:12",
+          "files": 152,
+          "bytes": 1692308,
+          "mb": 1,
+          "top_extensions": {
+            ".md": 51,
+            ".png": 50,
+            ".sql": 50
+          },
+          "license_files": [],
+          "license_detected": null,
+          "round": 2,
+          "selection": "正文 51 篇；命中计划缺口方向｜自动判定：keep",
+          "functions": [
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 51,
+            "md_share_pct": 6.0,
+            "question_markers": 0,
+            "tests": 0,
+            "images": 50,
+            "pdf": 0,
+            "stars": 2,
+            "pushed": "2026-07-09",
+            "functions": [
+              "SQL题面"
+            ]
+          },
+          "category_basis": "人工定类：正是要找的 SQL 50 题解",
+          "content_fingerprint": "49755c74f0b24cc8421eb2b1b89b00b89a9485fc5d6a5ed14289c07e2708b55f",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {

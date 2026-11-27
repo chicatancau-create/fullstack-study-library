@@ -1,0 +1,107 @@
+    }, p);
+  };
+
+  zoom.scaleTo = function(selection, k, p) {
+    zoom.transform(selection, function() {
+      var e = extent.apply(this, arguments),
+          t0 = this.__zoom,
+          p0 = p == null ? centroid(e) : typeof p === "function" ? p.apply(this, arguments) : p,
+          p1 = t0.invert(p0),
+          k1 = typeof k === "function" ? k.apply(this, arguments) : k;
+      return constrain(translate(scale(t0, k1), p0, p1), e, translateExtent);
+    }, p);
+  };
+
+  zoom.translateBy = function(selection, x, y) {
+    zoom.transform(selection, function() {
+      return constrain(this.__zoom.translate(
+        typeof x === "function" ? x.apply(this, arguments) : x,
+        typeof y === "function" ? y.apply(this, arguments) : y
+      ), extent.apply(this, arguments), translateExtent);
+    });
+  };
+
+  zoom.translateTo = function(selection, x, y, p) {
+    zoom.transform(selection, function() {
+      var e = extent.apply(this, arguments),
+          t = this.__zoom,
+          p0 = p == null ? centroid(e) : typeof p === "function" ? p.apply(this, arguments) : p;
+      return constrain(identity.translate(p0[0], p0[1]).scale(t.k).translate(
+        typeof x === "function" ? -x.apply(this, arguments) : -x,
+        typeof y === "function" ? -y.apply(this, arguments) : -y
+      ), e, translateExtent);
+    }, p);
+  };
+
+  function scale(transform, k) {
+    k = Math.max(scaleExtent[0], Math.min(scaleExtent[1], k));
+    return k === transform.k ? transform : new Transform(k, transform.x, transform.y);
+  }
+
+  function translate(transform, p0, p1) {
+    var x = p0[0] - p1[0] * transform.k, y = p0[1] - p1[1] * transform.k;
+    return x === transform.x && y === transform.y ? transform : new Transform(transform.k, x, y);
+  }
+
+  function centroid(extent) {
+    return [(+extent[0][0] + +extent[1][0]) / 2, (+extent[0][1] + +extent[1][1]) / 2];
+  }
+
+  function schedule(transition, transform, point) {
+    transition
+        .on("start.zoom", function() { gesture(this, arguments).start(); })
+        .on("interrupt.zoom end.zoom", function() { gesture(this, arguments).end(); })
+        .tween("zoom", function() {
+          var that = this,
+              args = arguments,
+              g = gesture(that, args),
+              e = extent.apply(that, args),
+              p = point == null ? centroid(e) : typeof point === "function" ? point.apply(that, args) : point,
+              w = Math.max(e[1][0] - e[0][0], e[1][1] - e[0][1]),
+              a = that.__zoom,
+              b = typeof transform === "function" ? transform.apply(that, args) : transform,
+              i = interpolate(a.invert(p).concat(w / a.k), b.invert(p).concat(w / b.k));
+          return function(t) {
+            if (t === 1) t = b; // Avoid rounding error on end.
+            else { var l = i(t), k = w / l[2]; t = new Transform(k, p[0] - l[0] * k, p[1] - l[1] * k); }
+            g.zoom(null, t);
+          };
+        });
+  }
+
+  function gesture(that, args, clean) {
+    return (!clean && that.__zooming) || new Gesture(that, args);
+  }
+
+  function Gesture(that, args) {
+    this.that = that;
+    this.args = args;
+    this.active = 0;
+    this.extent = extent.apply(that, args);
+    this.taps = 0;
+  }
+
+  Gesture.prototype = {
+    start: function() {
+      if (++this.active === 1) {
+        this.that.__zooming = this;
+        this.emit("start");
+      }
+      return this;
+    },
+    zoom: function(key, transform) {
+      if (this.mouse && key !== "mouse") this.mouse[1] = transform.invert(this.mouse[0]);
+      if (this.touch0 && key !== "touch") this.touch0[1] = transform.invert(this.touch0[0]);
+      if (this.touch1 && key !== "touch") this.touch1[1] = transform.invert(this.touch1[0]);
+      this.that.__zoom = transform;
+      this.emit("zoom");
+      return this;
+    },
+    end: function() {
+      if (--this.active === 0) {
+        delete this.that.__zooming;
+        this.emit("end");
+      }
+      return this;
+    },
+    emit: function(type) {

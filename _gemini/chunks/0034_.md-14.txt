@@ -1,0 +1,69 @@
+| 仓库 | 文件 | MiB | md | 许可 | 功能 | 时效 |
+| --- | ---: | ---: | ---: | --- | --- | --- |
+| [bregman-arie/devops-exercises](<题库/运维与DevOps/bregman-arie/devops-exercises/README.md>)（[在线回退](https://github.com/bregman-arie/devops-exercises)） | 430 | 6.68 | 295 | 未识别文件 | 未标注 | unknown |
+| [nomankhn9/devops-exercises](<题库/运维与DevOps/nomankhn9/devops-exercises/README.md>)（[在线回退](https://github.com/nomankhn9/devops-exercises)） | 426 | 8.09 | 290 | 未识别文件 | F2 | unknown |
+| [ramesh-852000/devops-practices-and-interview-prep](<题库/运维与DevOps/ramesh-852000/devops-practices-and-interview-prep/README.md>)（[在线回退](https://github.com/ramesh-852000/devops-practices-and-interview-prep)） | 402 | 3.16 | 276 | 未识别文件 | F2 | unknown |
+
+### 题库/鸿蒙与跨端（1 个仓库）
+
+| 仓库 | 文件 | MiB | md | 许可 | 功能 | 时效 |
+| --- | ---: | ---: | ---: | --- | --- | --- |
+| [HarmonyOS-Next/interview-handbook-project](<题库/鸿蒙与跨端/HarmonyOS-Next/interview-handbook-project/README.md>)（[在线回退](https://github.com/HarmonyOS-Next/interview-handbook-project)） | 192 | 13.07 | 12 | 未识别文件 | F2 | unknown |
+<!-- catalog-repos:end -->
+## 四、外链配图缺口
+
+> **账本状态：历史值，待重算，不是当前事实。**
+>
+> 本节出现的合计数字——**46 个仓库、68,371 处外链引用、Top 25 展示 51,572 处、未展开 21 个仓库 / 16,799 处**——产生于第四轮采集之前的人工汇总。2026-11-07 复核时**无法用本机任何账本复算出这些数**，因此一律标注为历史账本，不据此判断当前缺口大小，也不手工改写成另一个“看起来对”的数字。
+
+口径（历史定义，重算时沿用或显式修订）：**外链引用** = 正文指向作者 CDN 的次数；**已补到本地** = `_remote_assets/` 内已有同 URL 副本；**仍缺** = 尚未取到的唯一外链数（含上游 404 与防盗链失败）。
+
+来源复核（2026-11-07，只读）：
+
+| 本机账本 | 覆盖范围 | 可复算结果 | 能否推出本节数字 |
+| --- | --- | --- | --- |
+| `_采集暂存/assets.json` | 第一轮 81 个仓库 | `remote` 54,093、`local_ok` 34,475、`missing` 2,254 | 不能；且不含 `liasica/harmonyos-skills` |
+| `_采集暂存/remote_urls.json` | 同为 81 个仓库的原始 URL 清单 | 逐仓库 URL 列表，无合计字段 | 不能；同样不含 `liasica/harmonyos-skills` |
+
+原文曾写“完整明细保存在本机 `_采集暂存/assets.json`”，**该出处经复核不成立**，已删除，不再引用为证据。
+
+重算要求（已登记到 [[资料补缺清单]] 的 `IMAGE-GAP`）：输入为当前 178 个 active 资源的正文；必须先固定四项定义——①“引用次数”还是“唯一 URL”②是否计入视频、徽章、头像、star 曲线等装饰外链③私有桶与上游 404 是否算“仍缺”④`.md`/`.mdx`/`.markdown` 与 notebook 是否同一口径；输出逐仓库四列与合计；重算完成后同时更新本节、[[../04-资源与评估/项目审计与优化报告|审计报告]]和补缺清单，并删除“历史账本”标注。
+
+下表行值只保留为**当时的排序参考**，不代表当前缺口大小；重算前不得据此宣称某仓库“配图已齐”或“缺口最大”。
+
+| 仓库 | 外链引用 | 已补到本地 | 仍缺(唯一) |
+| --- | ---: | ---: | ---: |
+| liasica/harmonyos-skills | 16408 | 0 | 16405 |
+| itwanger/toBeBetterJavaer | 11209 | 0 | 9721 |
+| liyupi/codefather | 6935 | 0 | 6169 |
+| azl397985856/leetcode | 1211 | 10 | 1165 |
+| bin392328206/six-finger | 1454 | 499 | 900 |
+| itcharge/AlgoNote | 817 | 0 | 755 |
+| dcloudio/unidocs-zh | 850 | 0 | 704 |
+| febobo/web-interview | 684 | 14 | 655 |
+| forthespada/InterviewGuide | 914 | 16 | 555 |
+| dcloudio/unidocs-unicloud-zh | 581 | 0 | 506 |
+| doocs/leetcode | 3955 | 3339 | 376 |
+| freeCodeCamp/freeCodeCamp | 2139 | 0 | 362 |
+| labuladong/fucking-algorithm | 528 | 0 | 358 |
+| hello-java-maker/JavaInterview | 338 | 0 | 318 |
+| AobingJava/JavaFamily | 295 | 14 | 272 |
+| ctrlaltwill/LearnKit | 265 | 0 | 265 |
+| Snailclimb/JavaGuide-Interview | 308 | 0 | 252 |
+| zhisheng17/flink-learning | 294 | 0 | 240 |
+| DreamCats/java-notes | 237 | 0 | 226 |
+| puge-up/programming-play | 226 | 0 | 223 |
+| dcloudio/hbuilderx-extension-docs | 585 | 0 | 208 |
+| trekhleb/javascript-algorithms | 337 | 0 | 186 |
+| shfshanyue/Daily-Question | 264 | 0 | 171 |
+| dcloudio/unidocs-uni-app-x-zh | 186 | 0 | 165 |
+| crossoverJie/JCSprout | 552 | 414 | 133 |
+
+正文 markdown 一律未改写，所以离线渲染时图片链接仍指向外链；`_remote_assets/` 按 `<host>/<原始路径>` 存放，可据此替换链接。徽章、头像、star 曲线这类装饰外链不计入缺口。
+
+### 已实测确认「取不到」的，别再当作待办
+
+| 仓库 | 判据 | 结论 |
+| --- | --- | --- |
+| liasica/harmonyos-skills | 全部指向华为 `contentcenter-vali-drcn.dbankcdn.cn` 的 `pvt_2/…` 私有桶。标准库、curl、完整浏览器头 + CookieJar + developer.huawei.com Referer、7897 代理、生产桶 `contentcenter-drcn` 五路一律 403；真实浏览器直接打开同一 URL 仍返回 openresty 403（2026-11-05 20:11，Request_id 5ad817f2094ce49e1f13a9f4107303d7） | 匿名不可取，不是未尝试。文字完整、离线缺图；复算 `python _采集暂存/vault_harmony_assets.py --dry` |
+| dcloudio/hbuilderx-extension-docs 等官方文档仓库 | 图片随仓库一起入库（实测 `_sidebar`/教程正文的图多数已在目录内），但 VuePress 站点生成的部分插图与视频外链仍指官方 CDN | 正文与配图基本齐；缺的是装饰性外链与视频，按需在线看官方页 |

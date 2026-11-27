@@ -1,0 +1,124 @@
+import pg from 'pg';
+import fs from 'node:fs';
+
+const password = process.env.PGPASSWORD;
+if (!password) {
+  console.error('需要 PGPASSWORD（只从环境变量读取）');
+  process.exit(2);
+}
+
+const config = (database = process.env.PGDATABASE || 'study_lab') => ({
+  host: process.env.PGHOST || '127.0.0.1',
+  port: Number(process.env.PGPORT || 5432),
+  user: process.env.PGUSER || 'study',
+  password,
+  database,
+});
+
+const results = [];
+function check(name, ok, detail = '') {
+  results.push({ name, ok, detail });
+  console.log(`${ok ? 'PASS' : 'FAIL'} ${name}${detail ? ` (${detail})` : ''}`);
+}
+
+const DDL_V1 = `
+  DROP SCHEMA IF EXISTS sql50_real CASCADE;
+  CREATE SCHEMA sql50_real;
+  CREATE TABLE sql50_real.schema_version (version int PRIMARY KEY);
+  INSERT INTO sql50_real.schema_version VALUES (1);
+  CREATE TABLE sql50_real.orders (
+    id int PRIMARY KEY,
+    tenant int NOT NULL,
+    status text NOT NULL,
+    amount_cents int NOT NULL CHECK (amount_cents >= 0)
+  );
+  INSERT INTO sql50_real.orders (id, tenant, status, amount_cents)
+  SELECT g, 1 + (g % 3), CASE WHEN g % 2 = 0 THEN 'paid' ELSE 'open' END, g * 10
+  FROM generate_series(1, 200) AS g;
+  INSERT INTO sql50_real.orders (id, tenant, status, amount_cents) VALUES (999, 3, 'paid', 200000);
+`;
+
+const ADD_V2 = `
+  ALTER TABLE sql50_real.orders ADD COLUMN amount_usd numeric(12,2);
+  UPDATE sql50_real.schema_version SET version = 2;
+  CREATE FUNCTION sql50_real.sync_amount_usd() RETURNS trigger AS $$
+  BEGIN
+    NEW.amount_usd := ROUND(NEW.amount_cents / 100.0, 2);
+    RETURN NEW;
+  END $$ LANGUAGE plpgsql;
+  CREATE TRIGGER orders_sync_amount_usd
+    BEFORE INSERT OR UPDATE OF amount_cents ON sql50_real.orders
+    FOR EACH ROW EXECUTE FUNCTION sql50_real.sync_amount_usd();
+`;
+
+const DROP_V2 = `
+  DROP TRIGGER IF EXISTS orders_sync_amount_usd ON sql50_real.orders;
+  DROP FUNCTION IF EXISTS sql50_real.sync_amount_usd();
+  ALTER TABLE sql50_real.orders DROP CONSTRAINT IF EXISTS amount_usd_cap;
+  ALTER TABLE sql50_real.orders DROP COLUMN IF EXISTS amount_usd;
+  UPDATE sql50_real.schema_version SET version = 1;
+`;
+
+class OldApp {
+  constructor(client) {
+    this.c = client;
+  }
+  async create(id, tenant, cents) {
+    await this.c.query(
+      'INSERT INTO sql50_real.orders (id, tenant, status, amount_cents) VALUES ($1, $2, $3, $4)',
+      [id, tenant, 'open', cents],
+    );
+  }
+  async pay(id) {
+    await this.c.query("UPDATE sql50_real.orders SET status = 'paid' WHERE id = $1", [id]);
+  }
+  async total() {
+    return (await this.c.query('SELECT sum(amount_cents)::int AS n FROM sql50_real.orders')).rows[0].n;
+  }
+}
+
+class NewApp {
+  constructor(client) {
+    this.c = client;
+  }
+  async create(id, tenant, usd) {
+    await this.c.query(
+      `INSERT INTO sql50_real.orders (id, tenant, status, amount_cents, amount_usd)
+       VALUES ($1, $2, 'open', ROUND($3 * 100)::int, $3)`,
+      [id, tenant, usd],
+    );
+  }
+  async totalUsd() {
+    return Number((await this.c.query('SELECT sum(amount_usd) AS n FROM sql50_real.orders')).rows[0].n);
+  }
+  async readOne(id) {
+    const row = (await this.c.query(
+      `SELECT amount_cents, amount_usd FROM sql50_real.orders WHERE id = $1`,
+      [id],
+    )).rows[0];
+    return row;
+  }
+}
+
+const admin = new pg.Client(config());
+const writer = new pg.Client(config());
+await admin.connect();
+await writer.connect();
+
+const evidence = { captured_at: new Date().toISOString(), checks: [] };
+const record = (name, ok, detail = '') => {
+  evidence.checks.push({ name, ok, detail });
+  check(name, ok, detail);
+};
+
+try {
+  await admin.query(DDL_V1);
+  const oldApp = new OldApp(admin);
+  const baselineTotal = await oldApp.total();
+  record('v1 基线：旧应用读写 cents', baselineTotal === 401000, `total_cents=${baselineTotal}`);
+
+  await admin.query(ADD_V2);
+  record('v2 加新列 amount_usd + 双写触发器', (await admin.query('SELECT version FROM sql50_real.schema_version')).rows[0].version === 2);
+
+  // 旧应用在 v2 schema 上继续写，触发器保持双写一致
+  await oldApp.create(201, 1, 500);

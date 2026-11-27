@@ -1,0 +1,96 @@
+- golden set 5/5（本地 mock）；成本按 `usage` 计算；Prompt 版本 v1。
+- 提交 `fadf364`；manifest `fe2c76f` 5 文件校验 OK。
+- 边界（时点记录，后续见 7.44/7.48）：**未接真实模型**；当时无 RAG/本地模型；golden 与 mock 同源。
+
+### 7.41 批次 5 Java 迁移补齐（完成主路径）
+
+- 邀请：token 哈希、邮箱匹配、过期/撤销/重复接受、已移除旧邀请 409；审计 invitation.create/accept。
+- 最后 Owner：事务模板 + 工作区/owner 行锁；串行化后一个 204，另一个 404/409，最终 owner=1。
+- 审计：workspace.create、member.add/remove、invitation.create/accept；仅 owner 可读。
+- MySQL 备份：`mysqldump` → 独立库恢复，users/memberships/tasks/audit/invitations 行数一致（`RESTORE OK`）。
+- JUnit **7/7**，全量 `JAVA-MYSQL PASS`；提交 `30428b1`，manifest `eaebefe` 17 文件校验 OK。
+- 边界：角色仍由业务 SQL 判定（未用 `@PreAuthorize`）；Testcontainers、持续池耗尽、死锁注入未做；未部署。
+
+### 7.42 批次 6 项目 04 可观测性与本地部署（部分）
+
+- OTel 1.30 + HTTP/PG instrumentation：25 spans，HTTP 请求与 `pg.query:SELECT` 共享 traceId；`OTEL PASS`。
+- 本地 HTTPS：自签名证书、TLS1.2、HSTS，`curl --cacert` 200；明文 HTTP 被拒；非公网部署。
+- 回滚：从上一提交导出并启动，`/health` 返回 200；数据库回滚仍依赖备份恢复。
+- 证据：`evidence/trace.txt`、`deploy.txt`、`rollback.txt`；提交 `fe8cb86`，manifest `dde10e8` 10 文件校验 OK。
+- 边界：无 Docker/Compose、CI、K8s、告警与长期 trace 存储；不是公网/域名部署。
+
+### 7.43 项目 04 深度模块：可恢复后台任务（完成单机）
+
+- `p04.jobs` 唯一 `(tenant_id,dedupe_key)`；`FOR UPDATE SKIP LOCKED` 多 worker 领取；单任务事务。
+- 200 任务、4 worker：done=200、results=200、duplicates=0，约 1025 jobs/s（本地）。
+- 失败任务 attempts=3 后 failed；模拟崩溃的 running 任务被 `recoverStale` 重新执行并完成。
+- 集成进 `run_project.sh`：`jobs=PASS`；证据 `evidence/jobs.txt`；manifest 11 文件校验 OK。
+- 边界：单机、无多节点时钟/队列集群；退避以秒计；无告警与死信队列。
+
+### 7.44 批次 6 本地真实模型验证（部分）
+
+- 本机 CPU 运行 Qwen2.5-0.5B-Instruct Q4（469MB，模型不入库），node-llama-cpp 3.22.3。
+- 原始输出：0/4 严格 JSON（无引号键/代码围栏）；加 JSON Schema grammar 后 4/4 结构合法，app 4/4 返回 200，约 0.4–0.8s/条。
+- 真实缺陷：tool_call 未生成；无资料问题置信度 0.9；提示注入输出“已越权”（仅结构校验，无内容防护）。
+- 证据：`evidence/real-model.txt`、`real-app.txt`；提交 `cabc4ee`，manifest 7 文件校验 OK。
+- 边界（时点记录，后续见 7.48/7.54）：0.5B 非生产模型；当时无 RAG/容器证据。
+
+### 7.45 项目 03 本地 HTTPS 与回滚（完成单机）
+
+- 自签名证书、TLS1.2、HSTS 反向代理到 8796；`curl --cacert` 返回 200，明文 HTTP 被拒。
+- 回滚：从上一提交导出并启动，`/health` 200。
+- 证据：`evidence/deploy.txt`、`rollback.txt`；提交 `677087d`，manifest `6cb8de0` 12 文件校验 OK。
+- 边界：仅本机自签名，不是公网/域名部署；无 CI；数据库回滚依赖备份恢复。
+
+### 7.46 批次 7 JD 能力映射矩阵（部分）
+
+- 新增 15 类能力映射：JD 命中 → U 单元 → E 实验 → 项目 → 证据 → 差距。
+- 明确缺口：Vue（13/63）、Go（28/63）、Docker/K8s（2/5）、英语（24 份国际样本）、RAG/生产模型。
+- 口径：全文提及，不是必需频次；不证明个人掌握。
+- 链接已接入 JD 页与看板 B7-02；source-only 校验通过。
+
+### 7.47 最终复核（最新）
+
+- source-only：122 份 Markdown、426 Wiki、557 本地链接，0 错误。
+- 10 份 manifest（P01–P05、B5-01、B5-03、B6-02、E01、E02）全部校验 OK。
+- JD URL 63/63 返回 200。
+- 输出：[data/final-verification-2-2026-11-07.txt](data/final-verification-2-2026-11-07.txt)。
+- 结论不变：容器/K8s、RAG/生产模型、公网部署、B7 执行类材料仍未完成，不能标总体完成。
+
+### 7.48 批次 6 RAG 基线（部分）
+
+- 12 条合成语料、租户 A/B；BM25 检索：10 查询 recall@3=100%、precision@3=82%、跨租户泄漏 0。
+- 本地 0.5B 回答：模型不主动给 citations；守卫用检索首条回填，无检索直接拒答，引用/拒答正确 4/4。
+- 证据：`evidence/rag.txt`、`rag-answer.txt`；提交 `aea6e7b`，manifest 9 文件校验 OK。
+- 边界：BM25 不是 embedding、无重排/多跳/Agent；合成语料；模型非生产；未做提示注入/人工抽检。
+
+### 7.49 最新 8 项目干净目录复现（部分）
+
+- `git archive HEAD` 导出到临时目录，`npm ci`/Maven 后运行各自门禁：项目 01–05、Java、框架、AI 全部退出码 0。
+- 证据：[data/clean-room-2-2026-11-07.txt](data/clean-room-2-2026-11-07.txt)。
+- 边界：同机同服务，不是独立 OS/CI；AI 的 clean-room 只跑 mock 门禁，真实模型需外部 469MB 模型。
+
+### 7.50 项目 02 本地 HTTPS 与回滚（完成单机）
+
+- 新增 `/health`；自签名 TLS1.2/HSTS 反向代理到 8795，`curl --cacert` 200。
+- 回滚：上一版本可启动，旧版无 `/health`，以 `/workspaces` 401 证明认证链。
+- 门禁：7/7、备份 `RESTORE PASS`、deploy/rollback exit 0；提交 `e616905`，manifest 12 文件校验 OK。
+- 边界：仅本机自签名；旧版接口不同，回滚验证只到启动/认证；未公网部署。
+
+### 7.52 批次 5 单体/微服务取舍（对照完成）
+
+- 基于项目 02/03/04 现有证据，比较事务、部署、隔离、扩容、可观测性与团队边界。
+- 决策：保持模块化单体；项目 03 Outbox 为拆分保留契约；无 Docker/K8s 前不拆第二服务。
+- 边界：未实现多服务部署/服务发现/限流熔断/联合回滚。
+
+### 7.53 项目 01 本地 HTTPS 与回滚（完成单机）
+
+- Vite 构建 + preview + 自签名 TLS1.2/HSTS 反代；`curl --cacert` 首页 200，明文 HTTP 被拒。
+- 回滚：上一提交构建产物可访问（200）。
+- 提交 `5f6d062`，manifest 11 文件校验 OK。
+- 边界：仅本机自签名，不是公网/域名部署；未测跨浏览器/读屏。
+
+### 7.54 批次 6 Docker/Compose 与 K3s 隔离 VM（部分）
+
+- QEMU 11.1.0 + Ubuntu 24.04 cloud image，TCG 软件模拟，不改主机。
+- Docker 29.1.3：拉取 nginx、容器 Up、`curl :8080` 返回 HTML；Compose 2.40.3：up/down 成功，`:8081` 返回 HTML。

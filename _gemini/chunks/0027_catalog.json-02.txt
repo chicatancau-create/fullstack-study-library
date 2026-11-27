@@ -1,0 +1,125 @@
+            "question_markers": 5,
+            "tests": 135,
+            "images": 6,
+            "pdf": 0,
+            "stars": 18075,
+            "pushed": "2026-11-04",
+            "functions": [
+              "主线-数据",
+              "AI应用",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "category_basis": "人工定类：text-to-SQL 产品文档，不是 SQL 题库",
+          "content_fingerprint": "ae8169678a731d7085b08c754238ade97205f07c7d6d4fa1b4b5b0c415c43e2a",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:ethan-wang-dev/awesome-cs61a",
+      "name": "Ethan-Wang-dev/awesome-cs61a",
+      "source": {
+        "url": "https://github.com/Ethan-Wang-dev/awesome-cs61a",
+        "canonical_url": "https://github.com/Ethan-Wang-dev/awesome-cs61a",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-08-30",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:57:37+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "b6c46105186080382183f3ed3d811e712c8cc95b",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/AI与RAG/Ethan-Wang-dev/awesome-cs61a",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/Ethan-Wang-dev/awesome-cs61a"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "aa58752e05e7fbf60dac9d03dab41e1c9254277192714193d4ece5d63fedccc0",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:56+08:00"
+        },
+        "legacy_fingerprint_12": "aa58752e05e7"
+      },
+      "classification": {
+        "primary_category": "知识库/AI与RAG",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F3",
+          "F4"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 3046,
+        "bytes": 171228134,
+        "markdown_count": 25,
+        "question_markers": 1,
+        "test_files": 18,
+        "observed_at": "2026-11-07T14:06:17+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 51,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/Ethan-Wang-dev/awesome-cs61a",
+          "category": "知识库/AI与RAG",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 51,
+          "fetched": "2026-11-05 11:12",
+          "files": 3046,
+          "bytes": 171228134,
+          "mb": 163,
+          "top_extensions": {
+            ".js": 1762,
+            ".py": 835,
+            "(none)": 148,
+            ".css": 38,
+            ".txt": 35,
+            ".png": 34,
+            ".ok": 27,
+            ".md": 25,
+            ".gif": 24,
+            ".pyi": 20

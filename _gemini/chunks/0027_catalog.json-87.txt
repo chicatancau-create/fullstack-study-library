@@ -1,0 +1,127 @@
+          "checked_at": "2026-11-07T11:00:11+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "7a54d34d3657084b6a59e5618bd069b912d571aa",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/课程与路线/unknwon/the-way-to-go_ZH_CN",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/unknwon/the-way-to-go_ZH_CN"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "91be623b2bc8a1600a4e1ec39f7f0144f9663b9d635ae63f45a5f180a22c0888",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:07+08:00"
+        },
+        "legacy_fingerprint_12": "91be623b2bc8"
+      },
+      "classification": {
+        "primary_category": "知识库/课程与路线",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F2"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 768,
+        "bytes": 3450687,
+        "markdown_count": 214,
+        "question_markers": 18,
+        "test_files": 5,
+        "observed_at": "2026-11-07T14:06:25+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 2,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/unknwon/the-way-to-go_ZH_CN",
+          "category": "知识库/课程与路线",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 2,
+          "fetched": "2026-11-05 11:12",
+          "files": 768,
+          "bytes": 3450687,
+          "mb": 3,
+          "top_extensions": {
+            ".go": 392,
+            ".md": 214,
+            ".i": 62,
+            ".jpg": 24,
+            "(none)": 23,
+            ".png": 14,
+            ".txt": 13,
+            ".gob": 5,
+            ".json": 4,
+            ".html": 3
+          },
+          "license_files": [],
+          "license_detected": null,
+          "round": 2,
+          "selection": "正文 214 篇；高采用(34998 star)+有正文(214篇)｜自动判定：keep",
+          "functions": [
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 214,
+            "md_share_pct": 24.7,
+            "question_markers": 18,
+            "tests": 5,
+            "images": 38,
+            "pdf": 0,
+            "stars": 34998,
+            "pushed": "2024-08-14",
+            "functions": [
+              "主线-后端",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "content_fingerprint": "91be623b2bc8a1600a4e1ec39f7f0144f9663b9d635ae63f45a5f180a22c0888",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:awesome-harmonyos/harmonyos",
+      "name": "Awesome-HarmonyOS/HarmonyOS",
+      "source": {
+        "url": "https://github.com/Awesome-HarmonyOS/HarmonyOS",
+        "canonical_url": "https://github.com/Awesome-HarmonyOS/HarmonyOS",
+        "aliases": [],

@@ -1,0 +1,100 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { buildApp } from '../src/app.js';
+
+const PASSWORDS = {
+  alice: 'alice-pass',
+  bob: 'bob-pass',
+  carol: 'carol-pass',
+  dave: 'dave-pass',
+};
+
+async function withApp(fn) {
+  const app = buildApp();
+  try {
+    return await fn(app);
+  } finally {
+    await app.close();
+  }
+}
+
+async function login(app, tenant, name, ttlMs) {
+  const response = await app.inject({
+    method: 'POST',
+    url: '/login',
+    payload: { tenant, user: name, password: PASSWORDS[name], ...(ttlMs ? { ttlMs } : {}) },
+  });
+  assert.equal(response.statusCode, 200, response.body);
+  return response.json().token;
+}
+
+const auth = (token) => ({ authorization: `Bearer ${token}` });
+
+test('登录：错误密码 401，正确密码发 token', async () => {
+  await withApp(async (app) => {
+    const bad = await app.inject({ method: 'POST', url: '/login', payload: { tenant: 't1', user: 'alice', password: 'wrong' } });
+    assert.equal(bad.statusCode, 401);
+    const token = await login(app, 't1', 'alice');
+    assert.match(token, /^[0-9a-f]{48}$/);
+  });
+});
+
+test('列表：只返回本租户', async () => {
+  await withApp(async (app) => {
+    const a = await login(app, 't1', 'alice');
+    const b = await login(app, 't2', 'carol');
+    const listA = await app.inject({ method: 'GET', url: '/items', headers: auth(a) });
+    const listB = await app.inject({ method: 'GET', url: '/items', headers: auth(b) });
+    assert.equal(listA.json().items.length, 2);
+    assert.equal(listB.json().items.length, 1);
+    assert.ok(!listA.body.includes('B secret'));
+    assert.ok(listB.body.includes('B secret'));
+  });
+});
+
+test('详情：跨租户返回 404，不泄露存在性', async () => {
+  await withApp(async (app) => {
+    const a = await login(app, 't1', 'alice');
+    const own = await app.inject({ method: 'GET', url: '/items/1', headers: auth(a) });
+    const other = await app.inject({ method: 'GET', url: '/items/3', headers: auth(a) });
+    assert.equal(own.statusCode, 200);
+    assert.equal(other.statusCode, 404);
+  });
+});
+
+test('角色：member 不能删他人/改他人，owner 可以；member 可改自己的', async () => {
+  await withApp(async (app) => {
+    const bob = await login(app, 't1', 'bob');
+    const alice = await login(app, 't1', 'alice');
+    const delOther = await app.inject({ method: 'DELETE', url: '/items/1', headers: auth(bob) });
+    const patchOther = await app.inject({ method: 'PATCH', url: '/items/1', headers: auth(bob), payload: { title: 'hacked' } });
+    const patchOwn = await app.inject({ method: 'PATCH', url: '/items/2', headers: auth(bob), payload: { title: 'bob updated' } });
+    const delAsOwner = await app.inject({ method: 'DELETE', url: '/items/1', headers: auth(alice) });
+    assert.equal(delOther.statusCode, 403);
+    assert.equal(patchOther.statusCode, 403);
+    assert.equal(patchOwn.statusCode, 200);
+    assert.equal(delAsOwner.statusCode, 204);
+  });
+});
+
+test('搜索与缓存：tenant 进入缓存键，不串结果', async () => {
+  await withApp(async (app) => {
+    const a = await login(app, 't1', 'alice');
+    const b = await login(app, 't2', 'carol');
+    const aItem = await app.inject({ method: 'GET', url: '/search?q=item', headers: auth(a) });
+    const bItem = await app.inject({ method: 'GET', url: '/search?q=item', headers: auth(b) });
+    const aSecret = await app.inject({ method: 'GET', url: '/search?q=secret', headers: auth(a) });
+    const bSecret = await app.inject({ method: 'GET', url: '/search?q=secret', headers: auth(b) });
+    assert.equal(aItem.json().items.length, 1);
+    assert.equal(bItem.json().items.length, 0);
+    assert.equal(aSecret.json().items.length, 0);
+    assert.equal(bSecret.json().items.length, 1);
+  });
+});
+
+test('聚合：统计只算本租户', async () => {
+  await withApp(async (app) => {
+    const a = await login(app, 't1', 'alice');
+    const b = await login(app, 't2', 'carol');
+    const statsA = await app.inject({ method: 'GET', url: '/stats', headers: auth(a) });
+    const statsB = await app.inject({ method: 'GET', url: '/stats', headers: auth(b) });

@@ -1,0 +1,74 @@
+# 全栈技术栈全景地图
+
+> 本图覆盖企业应用、互联网服务、跨端开发、云原生、数据与 AI 应用的常见技术生态。目标是“全部纳入长期地图、按层级逐步掌握”，不是在同一时期安装或学习全部工具。
+
+## 一、统一优先级与掌握标准
+
+| 层级 | 定位 | 完成标准 |
+| --- | --- | --- |
+| **P0 主线** | 第一套独立交付栈与所有全栈底层能力 | 能独立实现、测试、部署、诊断，完成 36 周项目闭环 |
+| **P1 中线** | 第二套生产交付栈与常见企业工程能力 | 能跨栈实现同一业务，解释差异、迁移成本和适用场景 |
+| **P2 专项扩展** | 按岗位、项目或兴趣选择的方向 | 至少完成一个专项作品或真实问题验证，不要求全部精通 |
+| **P3 前沿/认知** | 需要知道边界、何时使用及如何验证 | 能写技术卡片、做最小实验或比较，不把“听过”标成“掌握” |
+
+学习采用 **1 条主线 + 1 条中线 + N 个专项**。具体时间安排见 [[../03-执行计划/长期学习路线|长期学习路线]]。
+
+## 二、跨技术栈的底层能力
+
+这些能力比框架选择更重要，全部属于长期必修：
+
+| 能力域 | 必学内容 | 验证方式 |
+| --- | --- | --- |
+| 编程基础 | 类型、值与引用、作用域、模块、错误、并发模型、泛型、内存与资源管理 | 两种语言实现同一模块并比较 |
+| 数据结构算法 | 数组、链表、栈、队列、哈希、树、堆、图、排序、搜索、复杂度 | 独立编码、边界测试、复杂度分析 |
+| 计算机系统 | 进程、线程、调度、虚拟内存、文件、I/O、系统调用、容器与虚拟机差异 | 用实验观察资源限制和故障 |
+| 网络 | TCP/UDP、TLS、DNS、HTTP/1.1/2/3、WebSocket、代理、负载均衡、CDN | 抓包、网络面板、故障复现 |
+| 数据原理 | 关系模型、SQL、事务、隔离、锁、索引、复制、分区、备份恢复 | SQL、执行计划、并发与恢复实验 |
+| 分布式基础 | 延迟、部分失败、时钟、CAP/PACELC、一致性、幂等、共识和最终一致性 | 故障注入与一致性设计说明 |
+| 安全 | 威胁建模、认证授权、密码学使用边界、注入、XSS、CSRF、SSRF、供应链 | 针对性测试与修复证据 |
+| 架构与设计 | 模块化、依赖边界、DDD、Clean/Hexagonal、C4、ER、时序图、ADR | 图、代码、决策和演进路径一致 |
+| 质量与运维 | 测试策略、性能分析、CI/CD、可观测性、SRE、故障响应和复盘 | 自动化检查、演练与量化报告 |
+| 产品与协作 | 需求、用户故事、范围、估算、评审、文档、沟通、隐私与合规意识 | 需求到交付的可追踪记录 |
+
+## 三、语言、运行时与包管理
+
+| 优先级 | 技术 | 定位与必须覆盖的内容 |
+| --- | --- | --- |
+| P0 | C、JavaScript、TypeScript、SQL、Shell | C 用于内存/系统底座；TS 用于全栈；SQL 用于数据；算法与限时编码贯穿全程 |
+| P0 | Node.js、npm | 事件循环、流、进程、包与锁文件；理解 pnpm/Yarn 的差异，不在单项目混用 |
+| P1 | Go、Go Modules | 云原生、网络服务、GMP/并发、GC、pprof、竞态检测和部署；可作为第一生产后端 |
+| P1 | Java、JVM、Maven 或 Gradle | 集合、泛型、异常、Stream、JMM/并发、JVM 内存/GC/JFR、构建与依赖 |
+| P1 | Python、pip/uv、虚拟环境 | 后端、脚本、自动化、数据与 AI；类型、GIL/asyncio、测试、性能和原生扩展边界 |
+| P2 | C++、CMake/构建工具 | RAII、移动语义、STL、模板、内存模型、并发、Sanitizer/Profiler；高性能与系统方向 |
+| P2 | C#/.NET、NuGet | CLR/GC、async/await、ASP.NET Core、EF Core、LINQ、诊断；企业、桌面与游戏方向 |
+| P2/P3 | Rust、Cargo | 高性能服务、CLI、WASM、Tauri；所有权、生命周期与异步边界 |
+| P1 按岗位/P3 | PHP、Kotlin、Swift、Dart | 分别用于存量 Web、JVM/Android、Apple 与 Flutter；按岗位升级，不默认同时深入 |
+| P3 | Bun、Deno 及其他语言 | 替代运行时或技术雷达；比较兼容性、生态和项目约束后使用 |
+
+统一深度等级与实验见 [[../01-阶段课程/专项-计算机系统与多语言深度|计算机系统与多语言深度]]，算法见 [[../01-阶段课程/专项-算法与数据结构深度训练|算法训练]]。
+
+## 四、前端与跨端生态
+
+| 方向 | 主线/中线 | 次要及扩展技术 | 学习重点 |
+| --- | --- | --- | --- |
+| Web 基础 | HTML、CSS、JavaScript、DOM、Web API | SVG、Canvas、Web Components | 语义、可访问性、浏览器渲染与原生能力 |
+| SPA 框架 | **P0 React**；**P1 Vue 3** | Angular、Svelte/SvelteKit、SolidJS | 组件、状态、路由、渲染、表单与生态取舍 |
+| 构建工具 | Vite、npm scripts | Webpack、Rollup、esbuild、Rspack、Turbopack、Bun | 模块、转译、Tree Shaking、source map、缓存和产物分析 |
+| 全栈/元框架 | Next.js、Nuxt | Remix/React Router 框架模式、Astro、SvelteKit、Angular SSR | CSR/SSR/SSG/ISR、流式渲染、缓存、数据边界和部署 |
+| 状态与数据 | React Context/Query、Vue Reactivity/Pinia | Redux Toolkit、Zustand、MobX、TanStack Query、Apollo Client、SWR | UI/服务端状态、缓存、失效、乐观更新与竞态 |
+| 路由与表单 | React Router、Vue Router、原生表单 | React Hook Form、Formik、VeeValidate、TanStack Form | URL 状态、校验、草稿、提交与错误恢复 |
+| 样式体系 | CSS Modules、响应式、设计变量 | Sass/SCSS、PostCSS、Tailwind CSS、UnoCSS、CSS-in-JS、CSS Layers/Container Queries | 可维护性、主题、设计令牌、浏览器兼容和包体 |
+| UI 与设计系统 | 原生组件、可访问性优先 | Ant Design、Element Plus、Material UI、Naive UI、Arco Design、Radix UI、Headless UI、shadcn/ui | 不替代可访问性；定制、主题、Tree Shaking 和升级成本 |
+| 测试与质量 | Vitest、Testing Library、Playwright | Jest、Cypress、Storybook、Chromatic、axe、Lighthouse、MSW | 单元/组件/E2E、视觉回归、可访问性与网络替身 |
+| 可视化 | SVG、Canvas | ECharts、D3.js、AntV、Three.js、WebGL、WebGPU | 数据映射、交互、渲染性能和大数据量策略 |
+| 高级 Web | PWA、Service Worker、Web Workers | WebAssembly、WebRTC、WebTransport、File System Access、IndexedDB | 离线、后台同步、音视频、并行计算和浏览器权限 |
+| 前端架构 | 功能模块、组件边界、错误与监控 | Monorepo、pnpm workspaces、Turborepo/Nx、Module Federation、微前端、BFF、Feature Flags | 依赖治理、独立部署、共享版本与组织成本 |
+| 移动跨端 | 浏览器响应式优先 | React Native/Expo、Flutter、Ionic/Capacitor、Kotlin/Swift 原生桥接 | 导航、原生权限、离线、推送、签名和商店发布 |
+| 桌面跨端 | Web 应用优先 | Electron、Tauri、.NET MAUI | 自动更新、文件/进程权限、打包、签名与安全 |
+| 国际化与质量 | i18n、l10n、时区、RTL、SEO | 性能监控、Web Analytics、A/B 测试、可访问性审计 | 不只翻译文本；指标须保护隐私 |
+
+## 五、后端、API 与服务架构
+
+| 优先级 | 技术/生态 | 必须覆盖的能力 |
+| --- | --- | --- |
+| P0 | Node.js + Fastify | 模块化单体、REST、OpenAPI、校验、认证授权、错误、测试和优雅退出 |

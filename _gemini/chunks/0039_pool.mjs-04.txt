@@ -1,0 +1,77 @@
+        this.#settleReject(task, payload);
+        if (this.#failFast && !this.#failFastTriggered) this.#onFirstError(payload, task);
+      }
+    } else if (task.timedOut) {
+      this.#stats.lateAfterTimeout++;
+    } else {
+      this.#stats.lateAfterCancel++;
+    }
+
+    this.#pump();
+  }
+
+  #onFirstError(error, failedTask) {
+    this.#firstError = error;
+    this.#failFastTriggered = true;
+    const dropped = this.#queue.splice(0, this.#queue.length);
+    const stillRunning = [...this.#running.values()].map((t) => ({
+      id: t.id,
+      label: t.label,
+      state: t.state,
+      settled: t.settled,
+    }));
+    for (const task of dropped) {
+      task.state = 'discarded-failfast';
+      this.#detachAbort(task);
+      this.#stats.discardedByFailFast++;
+      this.#settleReject(
+        task,
+        new PoolError(POOL_CODES.DISCARDED, `${task.label}: 因首个失败被丢弃，未开始执行`, {
+          id: task.id,
+          cause: error,
+        }),
+      );
+    }
+    this.#failFastSnapshot = {
+      failedTask: { id: failedTask.id, label: failedTask.label },
+      error: { name: error?.name ?? 'NonError', message: error?.message ?? String(error) },
+      runningAtFailure: stillRunning,
+      queuedAtFailure: dropped.map((t) => t.label),
+      queuedCountAtFailure: dropped.length,
+      discardedCount: dropped.length,
+    };
+    this.#notifySlot();
+    this.#maybeIdle();
+  }
+
+  #settleResolve(task, value) {
+    if (task.settled) return false;
+    task.settled = true;
+    task.settledAt = Date.now();
+    this.#stats.fulfilled++;
+    task.resolve(value);
+    return true;
+  }
+
+  #settleReject(task, error) {
+    if (task.settled) return false;
+    task.settled = true;
+    task.settledAt = Date.now();
+    this.#stats.rejected++;
+    task.reject(error);
+    return true;
+  }
+
+  #notifySlot() {
+    if (this.#slotWaiters.length === 0) return;
+    const waiters = this.#slotWaiters.splice(0, this.#slotWaiters.length);
+    for (const resolve of waiters) resolve();
+  }
+
+  #maybeIdle() {
+    if (!this.#isIdle()) return;
+    if (this.#idleWaiters.length === 0) return;
+    const waiters = this.#idleWaiters.splice(0, this.#idleWaiters.length);
+    for (const resolve of waiters) resolve();
+  }
+}

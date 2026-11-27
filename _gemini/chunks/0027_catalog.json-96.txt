@@ -1,0 +1,128 @@
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 164,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/Tikam02/DevOps-Guide",
+          "category": "知识库/运维与云原生",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 164,
+          "fetched": "2026-11-05 11:12",
+          "files": 307,
+          "bytes": 207162333,
+          "mb": 197,
+          "top_extensions": {
+            ".md": 130,
+            ".pdf": 60,
+            ".conf": 39,
+            ".png": 38,
+            ".svg": 8,
+            "(none)": 7,
+            ".jpeg": 7,
+            ".yml": 3,
+            ".gif": 3,
+            ".jpg": 3
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "round": 2,
+          "selection": "正文 130 篇；高采用(9377 star)+有正文(130篇)；命中计划缺口方向｜自动判定：keep",
+          "functions": [
+            "F2解答",
+            "F4路线"
+          ],
+          "measured": {
+            "md_n": 130,
+            "md_share_pct": 0.3,
+            "question_markers": 3,
+            "tests": 0,
+            "images": 59,
+            "pdf": 60,
+            "stars": 9377,
+            "pushed": "2026-05-22",
+            "functions": [
+              "F1离线题面",
+              "部署运维",
+              "英文速查",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "content_fingerprint": "ef2469763d320e7f049e389e4b8ce04df7def74eed8a288f8388ba1bc19b3889",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:bregman-arie/devops-resources",
+      "name": "bregman-arie/devops-resources",
+      "source": {
+        "url": "https://github.com/bregman-arie/devops-resources",
+        "canonical_url": "https://github.com/bregman-arie/devops-resources",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2024-07-12",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:30+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "1c2f37f440700943b9515fc3e3db0513724284db",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/运维与云原生/bregman-arie/devops-resources",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/bregman-arie/devops-resources"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "744f7489f8f664e2c9ceaa1de038dac72cf3a316aa52cec723f9ed7391b9e215",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:07+08:00"
+        },
+        "legacy_fingerprint_12": "744f7489f8f6"
+      },
+      "classification": {
+        "primary_category": "知识库/运维与云原生",
+        "category_basis": "按正文关键词判定（原按仓库名判定会错位）：{'运维云原生': 286, '系统基础': 17, 'AI': 9, '前端': 6}",
+        "functions": [
+          "F2"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 108,
+        "bytes": 1915492,
+        "markdown_count": 47,
+        "question_markers": 0,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:25+08:00",

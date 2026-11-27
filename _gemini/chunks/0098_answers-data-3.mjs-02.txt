@@ -1,0 +1,112 @@
+    core_idea: '维护 tails：tails[i] 是长度为 i+1 的上升子序列的最小结尾；对每个数二分替换第一个 >= 它的位置。',
+    invariant: 'tails 严格递增；其长度等于当前已见元素的最长上升子序列长度。',
+    complexity: { time: 'O(n log n)', space: 'O(n)' },
+    code_lang: 'javascript',
+    code: `function solve(nums) {
+  const tails = [];
+  for (const x of nums) {
+    let lo = 0;
+    let hi = tails.length;
+    while (lo < hi) {
+      const mid = (lo + hi) >> 1;
+      if (tails[mid] < x) lo = mid + 1;
+      else hi = mid;
+    }
+    tails[lo] = x;
+  }
+  return tails.length;
+}`,
+    edge_cases: [
+      { call: '[10,9,2,5,3,7,101,18]', expected: 4, why: '2,3,7,101' },
+      { call: '[7,7,7,7]', expected: 1, why: '严格递增，不能合并相等元素' },
+      { call: '[]', expected: 0, why: '空数组' },
+    ],
+    common_mistakes: ['二分用 <= 导致相等元素替换，严格递增变非递减', '把 tails 当成真实子序列返回', '用 O(n^2) DP 却声称 O(n log n)'],
+    followups: ['如何还原具体子序列？', '俄罗斯套娃信封（354）如何转化为本题？'],
+    rubric: [
+      { point: 'tails 定义与二分替换规则正确', weight: 2 },
+      { point: '严格递增用 lower_bound', weight: 1 },
+      { point: '能说明 tails 不是答案子序列本身', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q021', title: '31. 下一个排列', question_url: 'https://leetcode.cn/problems/next-permutation/',
+    core_idea: '从右找第一个下降点 i（nums[i] < nums[i+1]），再从右找第一个大于 nums[i] 的 j 交换，最后反转 i+1 之后的后缀。',
+    invariant: 'i 之后是降序；交换后后缀仍降序，反转后变升序，得到恰好比原排列大的最小排列。',
+    complexity: { time: 'O(n)', space: 'O(1)' },
+    code_lang: 'javascript',
+    code: `function solve(nums) {
+  const a = nums.slice();
+  let i = a.length - 2;
+  while (i >= 0 && a[i] >= a[i + 1]) i--;
+  if (i >= 0) {
+    let j = a.length - 1;
+    while (a[j] <= a[i]) j--;
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  let l = i + 1;
+  let r = a.length - 1;
+  while (l < r) { [a[l], a[r]] = [a[r], a[l]]; l++; r--; }
+  return a;
+}`,
+    edge_cases: [
+      { call: '[1,2,3]', expected: [1,3,2], why: '标准下一个排列' },
+      { call: '[3,2,1]', expected: [1,2,3], why: '最大排列回绕到最小' },
+      { call: '[1,1,5]', expected: [1,5,1], why: '含重复元素' },
+    ],
+    common_mistakes: ['找 i 时用 > 而不是 >=，重复元素判断错', '交换后忘记反转后缀', 'j 从左侧找导致换到更大的元素'],
+    followups: ['如何求上一个排列？', '如何直接求第 k 个排列？'],
+    rubric: [
+      { point: '先找最右下降点，再从右找刚好更大的元素', weight: 2 },
+      { point: '交换后反转后缀', weight: 1 },
+      { point: '降序数组正确回绕', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q022', title: '88. 合并两个有序数组', question_url: 'https://leetcode.cn/problems/merge-sorted-array/',
+    core_idea: '从后往前填：比较 nums1 有效尾部与 nums2 尾部，把较大者放到 nums1 的写指针处，避免覆盖未处理元素。',
+    invariant: '写指针右侧已合并有序；i、j 左侧仍是未处理元素。',
+    complexity: { time: 'O(m+n)', space: 'O(1)' },
+    code_lang: 'javascript',
+    code: `function solve(nums1, m, nums2, n) {
+  const a = nums1.slice();
+  let i = m - 1;
+  let j = n - 1;
+  let k = m + n - 1;
+  while (j >= 0) {
+    if (i >= 0 && a[i] > nums2[j]) a[k--] = a[i--];
+    else a[k--] = nums2[j--];
+  }
+  return a;
+}`,
+    edge_cases: [
+      { call: '[1,2,3,0,0,0],3,[2,5,6],3', expected: [1,2,2,3,5,6], why: '标准示例' },
+      { call: '[1],1,[],0', expected: [1], why: 'nums2 为空' },
+      { call: '[0],0,[1],1', expected: [1], why: 'nums1 无有效元素' },
+    ],
+    common_mistakes: ['从前往后写覆盖 nums1 未处理元素', '循环条件用 i>=0，nums2 剩余未拷贝', '相等时选错分支导致不稳定但结果仍错'],
+    followups: ['如果从前往后必须怎么做？', '合并 k 个有序数组如何推广？'],
+    rubric: [
+      { point: '从后往前写，避免覆盖', weight: 2 },
+      { point: '循环以 nums2 用尽为终止', weight: 1 },
+      { point: '空数组边界正确', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q023', title: '20. 有效的括号', question_url: 'https://leetcode.cn/problems/valid-parentheses/',
+    core_idea: '栈：左括号入栈；右括号必须与栈顶匹配并弹出；结束时栈必须为空。',
+    invariant: '栈中只保存尚未闭合的左括号，且自底向上是嵌套顺序。',
+    complexity: { time: 'O(n)', space: 'O(n)' },
+    code_lang: 'javascript',
+    code: `function solve(s) {
+  const pairs = { ')': '(', ']': '[', '}': '{' };
+  const stack = [];
+  for (const ch of s) {
+    if (!pairs[ch]) stack.push(ch);
+    else if (stack.pop() !== pairs[ch]) return false;
+  }
+  return stack.length === 0;
+}`,
+    edge_cases: [
+      { call: '"()[]{}"', expected: true, why: '三种括号' },
+      { call: '"(]"', expected: false, why: '类型不匹配' },

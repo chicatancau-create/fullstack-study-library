@@ -1,0 +1,48 @@
+- [OpenTelemetry 文档](https://opentelemetry.io/docs/)：API/SDK、OTLP、Collector、上下文传播、Resource/Semantic Conventions、采样与脱敏；完成一条 API → DB 可查询 Trace。
+- [Docker Build Attestations](https://docs.docker.com/build/metadata/attestations/)：SBOM 与 build provenance 的产物证明；按 CI 能力选做。
+- [Google SRE 免费书籍](https://sre.google/books/)：可靠性、监控、故障与复盘，阶段 07 后阅读选章。
+
+## 中线：Java、Spring、Vue 与 MySQL
+
+- [Java 官方学习入口](https://dev.java/learn/)：语言、集合、并发、JVM 与新版本能力。
+- [Spring Boot 文档](https://docs.spring.io/spring-boot/index.html)、[Spring Security 文档](https://docs.spring.io/spring-security/reference/)：后端、认证授权和生产化。
+- [Maven Guides](https://maven.apache.org/guides/index.html) 或 [Gradle 文档](https://docs.gradle.org/)：构建与依赖管理，主用一个。
+- [JUnit 5](https://docs.junit.org/)、[AssertJ](https://assertj.github.io/doc/)、[Mockito](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html)、[Testcontainers](https://java.testcontainers.org/)：Java 测试体系。
+- [MySQL 文档](https://dev.mysql.com/doc/)：SQL、InnoDB、索引、锁、复制和运维。
+- [Hibernate ORM](https://hibernate.org/orm/documentation/)、[MyBatis](https://mybatis.org/mybatis-3/)：两种 Java 数据访问路径。
+- [Flyway](https://documentation.red-gate.com/fd) 或 [Liquibase](https://docs.liquibase.com/)：数据库迁移，主用一个。
+- [Vue 官方文档](https://vuejs.org/guide/introduction.html)、[Vue Router](https://router.vuejs.org/)、[Pinia](https://pinia.vuejs.org/)：中线前端。
+
+## TypeScript 全栈与其他后端扩展
+
+- [NestJS](https://docs.nestjs.com/)：模块化、DI 和企业 Node.js 后端。
+- [Next.js](https://nextjs.org/docs)、[Nuxt](https://nuxt.com/docs)：React/Vue 全栈与渲染策略。
+- [GraphQL](https://graphql.org/learn/)、[gRPC](https://grpc.io/docs/)：API 契约与服务通信。
+- [Python 文档](https://docs.python.org/3/)、[FastAPI](https://fastapi.tiangolo.com/)、[Django](https://docs.djangoproject.com/)、[pytest](https://docs.pytest.org/)：Python 后端与测试。
+- [Go 官方文档](https://go.dev/doc/)：语言、并发、模块、测试和工具链。
+- [.NET 文档](https://learn.microsoft.com/dotnet/)、[ASP.NET Core](https://learn.microsoft.com/aspnet/core/)：C# 企业后端。
+- [Laravel](https://laravel.com/docs)：PHP 现代 Web 生态。
+- [Rust 官方学习资料](https://www.rust-lang.org/learn)：所有权、Cargo、异步与系统方向。
+
+## 数据、搜索与消息扩展
+
+- [MongoDB](https://www.mongodb.com/docs/)：文档模型、查询、事务、索引和复制。
+- [Elasticsearch](https://www.elastic.co/guide/) / [OpenSearch](https://docs.opensearch.org/)：搜索、聚合、索引与集群。
+- [ClickHouse](https://clickhouse.com/docs)、[TimescaleDB](https://docs.timescale.com/)：分析与时序数据。
+- [Apache Kafka](https://kafka.apache.org/documentation/)、[RabbitMQ](https://www.rabbitmq.com/docs)、[RocketMQ](https://rocketmq.apache.org/docs/)：消息语义、可靠性与运维。
+- [Debezium](https://debezium.io/documentation/)：CDC 与数据变更捕获。
+- [Apache Airflow](https://airflow.apache.org/docs/)：批处理工作流与调度。
+
+## 云原生、交付与可靠性扩展
+
+- [Kubernetes](https://kubernetes.io/docs/home/)：工作负载、网络、配置、存储与调度；[Gateway API](https://gateway-api.sigs.k8s.io/) 与 Ingress 做最小对照。[ingress-nginx 退役公告](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/)说明 best-effort 维护持续到 2026 年 3 月，之后停止发布、修复和安全更新——既有部署不会自动失效，Ingress API 也不等于该控制器；新项目选择仍受维护的实现（2026-11-07 核验）。
+- [Helm](https://helm.sh/docs/)、[Kustomize](https://kustomize.io/)：K8s 配置与发布。
+- [Terraform](https://developer.hashicorp.com/terraform/docs) / [OpenTofu](https://opentofu.org/docs/)：基础设施即代码。
+- [Argo CD](https://argo-cd.readthedocs.io/)：GitOps 持续交付。
+- [Prometheus](https://prometheus.io/docs/)、[Grafana](https://grafana.com/docs/)：指标、告警与可视化。
+- [Jaeger](https://www.jaegertracing.io/docs/)、[Sentry](https://docs.sentry.io/)：分布式追踪与错误监控。
+- [Trivy](https://trivy.dev/latest/docs/)：容器、依赖、IaC 和供应链扫描。
+
+## 跨端、实时与 AI 扩展
+
+- [HarmonyOS 文档中心](https://developer.huawei.com/consumer/cn/doc/)：版本、Stage、Kit、API 与发布；配套 [ArkTS](https://developer.huawei.com/consumer/cn/arkts/) 和 [ArkUI](https://developer.huawei.com/consumer/cn/arkui/) 官方入口。课程见 [[../01-阶段课程/专项-鸿蒙ArkTS与ArkUI应用开发|鸿蒙专项]]。

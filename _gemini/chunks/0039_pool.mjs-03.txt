@@ -1,0 +1,139 @@
+      pending: this.#running.size + this.#queue.length,
+      idleWaiters: this.#idleWaiters.length,
+      slotWaiters: this.#slotWaiters.length,
+      firstError: this.#failFastTriggered
+        ? {
+            name: this.#firstError?.name ?? 'NonError',
+            message: this.#firstError?.message ?? String(this.#firstError),
+          }
+        : null,
+      failFastSnapshot: this.#failFastSnapshot,
+      ...this.#stats,
+    };
+  }
+
+  /** 当前执行中与排队中的任务概要，用于证据。 */
+  snapshot() {
+    const view = (t) => ({ id: t.id, label: t.label, state: t.state, settled: t.settled });
+    return {
+      running: [...this.#running.values()].map(view),
+      queued: this.#queue.map(view),
+    };
+  }
+
+  // ---------------- 内部 ----------------
+
+  #isIdle() {
+    return this.#running.size === 0 && this.#queue.length === 0;
+  }
+
+  #pump() {
+    while (!this.#closed && !this.#failFastTriggered && this.#running.size < this.#concurrency && this.#queue.length > 0) {
+      const task = this.#queue.shift();
+      this.#notifySlot();
+      this.#start(task);
+    }
+    this.#maybeIdle();
+  }
+
+  #start(task) {
+    task.state = 'running';
+    task.startedAt = Date.now();
+    this.#stats.started++;
+    this.#running.set(task.id, task);
+    if (this.#running.size > this.#stats.peakRunning) this.#stats.peakRunning = this.#running.size;
+
+    if (task.timeoutMs != null && Number.isFinite(task.timeoutMs) && task.timeoutMs >= 0) {
+      task.timer = setTimeout(() => this.#onTimeout(task), task.timeoutMs);
+    }
+
+    let result;
+    try {
+      result = task.fn(task);
+    } catch (error) {
+      this.#finish(task, false, error);
+      return;
+    }
+    Promise.resolve(result).then(
+      (value) => this.#finish(task, true, value),
+      (error) => this.#finish(task, false, error),
+    );
+  }
+
+  #onTimeout(task) {
+    if (task.settled) return;
+    task.timedOut = true;
+    task.state = 'timed-out';
+    this.#stats.timeouts++;
+    this.#detachAbort(task);
+    this.#settleReject(
+      task,
+      new PoolError(
+        POOL_CODES.TIMEOUT,
+        `${task.label}: 超过 ${task.timeoutMs}ms，调用方停止等待；底层操作未被撤销`,
+        { id: task.id, timeoutMs: task.timeoutMs, underlyingStillRunning: true },
+      ),
+    );
+  }
+
+  #abortTask(task, reason) {
+    if (task.state === 'queued') {
+      const index = this.#queue.indexOf(task);
+      if (index >= 0) this.#queue.splice(index, 1);
+      task.state = 'cancelled-queued';
+      this.#stats.cancelledQueued++;
+      this.#detachAbort(task);
+      this.#settleReject(
+        task,
+        new PoolError(POOL_CODES.CANCELLED, `${task.label}: 排队中被取消，未开始执行`, {
+          id: task.id,
+          reason,
+          underlyingStillRunning: false,
+        }),
+      );
+      this.#notifySlot();
+      this.#maybeIdle();
+      return;
+    }
+    if (task.state === 'running' || task.state === 'timed-out') {
+      if (!this.#running.has(task.id)) return;
+      this.#detachAbort(task);
+      task.cancelReason = reason;
+      if (task.state === 'timed-out') {
+        return; /* 已超时结算；这里只清理监听器，不重复 settle */
+      }
+      task.state = 'cancelled-running';
+      this.#stats.cancelledRunning++;
+      this.#settleReject(
+        task,
+        new PoolError(POOL_CODES.CANCELLED, `${task.label}: 执行中被取消；调用方不再等待，底层函数仍在跑`, {
+          id: task.id,
+          reason,
+          underlyingStillRunning: true,
+        }),
+      );
+    }
+  }
+
+  #detachAbort(task) {
+    if (task.signal && task.onAbort) {
+      task.signal.removeEventListener('abort', task.onAbort);
+      task.onAbort = null;
+    }
+  }
+
+  #finish(task, ok, payload) {
+    task.underlyingFinishedAt = Date.now();
+    task.underlyingOutcome = ok ? 'fulfilled' : 'rejected';
+    if (task.timer) {
+      clearTimeout(task.timer);
+      task.timer = null;
+    }
+    if (task.signal && task.onAbort) this.#detachAbort(task);
+    this.#running.delete(task.id);
+    this.#notifySlot();
+
+    if (!task.settled) {
+      if (ok) {
+        this.#settleResolve(task, payload);
+      } else {

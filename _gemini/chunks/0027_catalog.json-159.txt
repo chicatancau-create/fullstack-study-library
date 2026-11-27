@@ -1,0 +1,130 @@
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 1,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/cp-algorithms/cp-algorithms",
+          "category": "题库/算法题解",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 1,
+          "fetched": "2026-11-05 11:12",
+          "files": 360,
+          "bytes": 3489852,
+          "mb": 3,
+          "top_extensions": {
+            ".md": 175,
+            ".png": 70,
+            ".cpp": 67,
+            ".yml": 8,
+            "(none)": 6,
+            ".py": 6,
+            ".js": 4,
+            ".txt": 3,
+            ".sh": 3,
+            ".svg": 3
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "CC-BY-SA-4.0",
+          "round": 2,
+          "selection": "正文 175 篇；高采用(8000 star)+有正文(175篇)；自带测试 69 个；文档型仓库(md占比48%)；人工点名重点源；命中计划缺口方向｜自动判定：keep",
+          "functions": [
+            "F2解答",
+            "F3可运行"
+          ],
+          "measured": {
+            "md_n": 175,
+            "md_share_pct": 47.9,
+            "question_markers": 2,
+            "tests": 69,
+            "images": 75,
+            "pdf": 0,
+            "stars": 8000,
+            "pushed": "2026-09-01",
+            "functions": [
+              "注入-算法百科"
+            ]
+          },
+          "content_fingerprint": "85b7915741ad0f67d27fcd0b87fd3d91512d603623f94e06624aaf966e48aa4e",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:doocs/leetcode",
+      "name": "doocs/leetcode",
+      "source": {
+        "url": "https://github.com/doocs/leetcode",
+        "canonical_url": "https://github.com/doocs/leetcode",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-11-04",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:26+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "d6ed40a7600367fad05344bbbcdbd8e0aa924146",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/算法题解/doocs/leetcode",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/doocs/leetcode"
+      },
+      "integrity": {
+        "archive_sha256": "a4e81648a17a5c5b035ae237dbe564feb04e7e892bfb44f260410126b29e1268",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "题库/算法题解",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F1"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 39073,
+        "bytes": 287063713,
+        "markdown_count": 8734,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:31+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "CC-BY-SA-4.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,

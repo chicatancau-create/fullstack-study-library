@@ -1,0 +1,123 @@
+      },
+      "integrity": {
+        "archive_sha256": "2c7a9ee476a9307d4ee4c3e0b81a29996a2b8d023d325c83de7e22dc16b485c7",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "题库/八股与基础",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 3,
+        "bytes": 106414,
+        "markdown_count": 1,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:28+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：2 文件 -> 3 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/xiaobaiTech/golangFamily",
+          "category": "题库/八股与基础",
+          "branch": null,
+          "archive_sha256": "2c7a9ee476a9307d4ee4c3e0b81a29996a2b8d023d325c83de7e22dc16b485c7",
+          "tarball_mb": 0,
+          "fetched": "2026-11-04 20:03",
+          "files": 3,
+          "bytes": 106414,
+          "mb": 0,
+          "top_extensions": {
+            ".go": 1,
+            ".md": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：2 文件 -> 3 文件",
+          "measured": {
+            "pushed": "2024-10-13",
+            "stars": 6987
+          }
+        }
+      }
+    },
+    {
+      "id": "github:zijing2333/csview",
+      "name": "zijing2333/CSView",
+      "source": {
+        "url": "https://github.com/zijing2333/CSView",
+        "canonical_url": "https://github.com/zijing2333/CSView",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2024-03-06",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:00+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "225352361569e64b5983e18490bddeb0aefd4dd0",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/八股与基础/zijing2333/CSView",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/zijing2333/CSView"
+      },
+      "integrity": {
+        "archive_sha256": "c7206cfe486eca86ae8b3c9ba76f5ba1d05aab8a2ce42f8f5a37aaa85fbc305f",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "题库/八股与基础",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 226,
+        "bytes": 7833697,
+        "markdown_count": 111,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:28+08:00",

@@ -1,0 +1,114 @@
+      var nameWidth = context.measureText(label + ' ').width
+      context.font = `${stackFontSize}px ${FONT_FAMILY}`
+      context.fillText(stack, x + labelOffset + nameWidth, y + c - btmOffset)
+    }
+
+    context.restore()
+  }
+
+  function renderHeatBar (context, node, x, y, width) {
+    var heatColor = colorHash(node.data, undefined, allSamples, tiers)
+    var heatStrokeColor = colorHash(node.data, 1.1, allSamples, tiers)
+    var heatHeight = Math.floor(c / 3)
+
+    context.fillStyle = heatColor
+    context.strokeStyle = heatStrokeColor
+    context.beginPath()
+    context.rect(x, y - heatHeight, width, heatHeight)
+    context.fill()
+    context.stroke()
+  }
+
+  function getNodeRect (node) {
+    if (!node) return null
+
+    var wrapper = d3.select(element)
+    var canvas = wrapper.select('canvas.d3-flame-graph').node()
+    var transform = d3.zoomTransform(canvas)
+    const x0 = transform.applyX(scaleToWidth(node.x0))
+    const x1 = transform.applyX(scaleToWidth(node.x1))
+
+    return {
+      x: x0,
+      y: transform.applyY(h - frameDepth(node) * c),
+      width: x1 - x0,
+      height: c
+    }
+  }
+
+  function defaultRenderTooltip (node) {
+    var wrapper = d3.select(element)
+    var canvas = wrapper.select('canvas.d3-flame-graph').node()
+    var transform = d3.zoomTransform(canvas)
+    var x = transform.applyX(scaleToWidth(node.x0)) + canvas.getBoundingClientRect().left
+    // y = the bottom of the node - the scroll from the top
+    // (because the tooltip uses absolute positioning)
+    var y = transform.applyY(h - frameDepth(node) * c) - wrapper.node().scrollTop
+    var label = tooltipLabel(node)
+
+    var tooltip = d3.select(element).select('.d3-flame-graph-tooltip')
+      .style('top', y + 'px')
+      .style('display', 'block')
+      // scale up the font size with the graph zoom level,
+      // but don't scale it down below 10pt because it'd be unreadable,
+      // and don't go above 25pt which should be huge enough for even the
+      // largest screens
+      .style('font-size', Math.max(10, Math.min(25, transform.k * 10)) + 'pt')
+      .html(label)
+
+    // 300px is an arbitrary cut off point. if it's "too near"
+    // to the right edge, instead align with the rightmost end of
+    // the node
+    // The 300px is scaled along with the rest of the graph to make sure that
+    // tooltips don't get super squished at higher zoom levels
+    if (x + (transform.k * 300) > window.innerWidth) {
+      var right = canvas.getBoundingClientRect().left + w
+      x = window.innerWidth - right + scaleToWidth(1 - node.x1)
+      tooltip.style('left', 'auto').style('right', x + 'px')
+    } else {
+      tooltip.style('right', 'auto').style('left', x + 'px')
+    }
+  }
+
+  // Wait for 500 ms before showing the tooltip.
+  var tooltipFocusNode = null
+  var tooltipFocusTimeout = null
+  var hoveringIn = false
+  function showTooltip (node) {
+    // let's dispatch the hover event with no delay
+    const pointerCoords = { x: d3.event.offsetX, y: d3.event.offsetY }
+    dispatch.call('hoverin', null, node.data, getNodeRect(node), pointerCoords)
+    hoveringIn = true
+
+    if (tooltipFocusNode === node) {
+      return renderTooltip(node)
+    }
+    clearTimeout(tooltipFocusTimeout)
+    tooltipFocusTimeout = setTimeout(function () {
+      tooltipFocusNode = node
+      renderTooltip(node)
+    }, 500)
+  }
+
+  function hideTooltip () {
+    if (hoveringIn) {
+      dispatch.call('hoverout', null, null)
+      hoveringIn = false
+    }
+
+    clearTimeout(tooltipFocusTimeout)
+    tooltipFocusNode = null
+    tooltipFocusTimeout = setTimeout(function () {
+      d3.select(element).select('.d3-flame-graph-tooltip')
+        .style('display', 'none')
+        .empty()
+    }, 250)
+  }
+
+  // cancel hiding the tooltip, used when the cursor moves
+  // from the hovered node to the tooltip or vice versa to
+  // cancel the mouseout event from the previously focused one.
+  function preventHideTooltip () {
+    clearTimeout(tooltipFocusTimeout)
+  }
+

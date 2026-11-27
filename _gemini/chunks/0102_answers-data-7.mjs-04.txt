@@ -1,0 +1,111 @@
+    code_lang: 'javascript',
+    code: `function solve(arr) {
+  const d = { val: 0, next: null };
+  let tail = d;
+  for (const v of arr) { tail.next = { val: v, next: null }; tail = tail.next; }
+  const dummy = { next: d.next };
+  let prev = dummy;
+  while (prev.next && prev.next.next) {
+    const a = prev.next, b = a.next;
+    a.next = b.next;
+    b.next = a;
+    prev.next = b;
+    prev = a;
+  }
+  const out = [];
+  for (let p = dummy.next; p; p = p.next) out.push(p.val);
+  return out;
+}`,
+    edge_cases: [
+      { call: '[1,2,3,4]', expected: [2,1,4,3], why: '两两交换' },
+      { call: '[1]', expected: [1], why: '奇数个尾部不动' },
+      { call: '[]', expected: [], why: '空链表' },
+    ],
+    common_mistakes: ['交换后 prev 没移到已交换的第二个节点', '丢头节点（无哑节点）', '奇数长度时越界'],
+    followups: ['如何用递归实现？', 'K 个一组反转（25）如何推广？'],
+    rubric: [
+      { point: '哑节点统一处理头两个节点', weight: 1 },
+      { point: '三指针重连顺序正确', weight: 2 },
+      { point: '奇数长度与空链表正确', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q092', title: '560. 和为K的子数组', question_url: 'https://leetcode.cn/problems/subarray-sum-equals-k/',
+    core_idea: '前缀和 + 哈希：遍历时把此前出现过的前缀和计数，若 sum-k 出现过则以其计数累加答案。',
+    invariant: 'map 记录的是当前下标之前所有前缀和的出现次数，因此每个合法区间只被统计一次。',
+    complexity: { time: 'O(n)', space: 'O(n)' },
+    code_lang: 'javascript',
+    code: `function solve(nums, k) {
+  const map = new Map([[0, 1]]);
+  let sum = 0, count = 0;
+  for (const x of nums) {
+    sum += x;
+    count += map.get(sum - k) || 0;
+    map.set(sum, (map.get(sum) || 0) + 1);
+  }
+  return count;
+}`,
+    edge_cases: [
+      { call: '[1,1,1], 2', expected: 2, why: '两个长度为 2 的区间' },
+      { call: '[1,2,3], 3', expected: 2, why: '[3] 与 [1,2]' },
+      { call: '[1], 0', expected: 0, why: '无满足区间' },
+    ],
+    common_mistakes: ['先存 map 再查，把自己算进区间', '忘记初始化 map(0)=1', '用滑动窗口处理含负数数组'],
+    followups: ['为什么不能用双指针？', '若要求和为 K 且长度最短呢？'],
+    rubric: [
+      { point: 'map 初始含前缀和 0 计数 1', weight: 2 },
+      { point: '先查 sum-k 再写入当前 sum', weight: 1 },
+      { point: '计数累加而非仅判断存在', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q093', title: '958. 二叉树的完全性检验', question_url: 'https://leetcode.cn/problems/check-completeness-of-a-binary-tree/',
+    core_idea: '层序遍历包含空孩子：一旦遇到 null，其后不能再出现非空节点；全部遍历完即完全。',
+    invariant: '遇到 null 之后队列中剩余节点必须全为 null，否则存在“空洞”。',
+    complexity: { time: 'O(n)', space: 'O(n)' },
+    code_lang: 'javascript',
+    code: `function solve(a) {
+  function build(arr) {
+    if (!arr.length || arr[0] === null) return null;
+    const root = { val: arr[0], left: null, right: null };
+    const q = [root];
+    let i = 1;
+    while (i < arr.length && q.length) {
+      const n = q.shift();
+      if (i < arr.length) { if (arr[i] !== null) { n.left = { val: arr[i], left: null, right: null }; q.push(n.left); } i++; }
+      if (i < arr.length) { if (arr[i] !== null) { n.right = { val: arr[i], left: null, right: null }; q.push(n.right); } i++; }
+    }
+    return root;
+  }
+  const root = build(a);
+  if (!root) return true;
+  const q = [root];
+  let seenNull = false;
+  while (q.length) {
+    const n = q.shift();
+    if (!n) { seenNull = true; continue; }
+    if (seenNull) return false;
+    q.push(n.left);
+    q.push(n.right);
+  }
+  return true;
+}`,
+    edge_cases: [
+      { call: '[1,2,3,4,5,6]', expected: true, why: '最后一层从左连续填充' },
+      { call: '[1,2,3,4,5,null,7]', expected: false, why: '6 的位置空缺但 7 存在' },
+      { call: '[1]', expected: true, why: '单节点' },
+    ],
+    common_mistakes: ['层序只压非空孩子，无法发现空洞', '遇到 null 后仍允许非空节点', '忽略右孩子缺失但左孩子存在的情况'],
+    followups: ['如何用编号法（堆式下标）判断？', '满二叉树与完全二叉树的区别？'],
+    rubric: [
+      { point: '层序把 null 孩子也入队', weight: 2 },
+      { point: '遇到 null 后出现非空即返回 false', weight: 1 },
+      { point: '空树视为完全', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q094', title: '110. 平衡二叉树', question_url: 'https://leetcode.cn/problems/balanced-binary-tree/',
+    core_idea: '后序求高度：左右子树高度差超过 1 或子树已不平衡时返回 -1 作为失败标记，向上短路。',
+    invariant: 'height(n) 返回 n 的真实高度，或 -1 表示该子树不平衡。',
+    complexity: { time: 'O(n)', space: 'O(h)' },
+    code_lang: 'javascript',

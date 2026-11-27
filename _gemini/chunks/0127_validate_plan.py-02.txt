@@ -1,0 +1,55 @@
+    if sum(duration) != 720 or len(duration) != 6:
+        errors.append(f'assessment minutes mismatch: {duration}')
+    lab = docs['01-阶段课程/专项-核心原理与深度实验.md']
+    ids = re.findall(r'^### (E\d{2})：', lab, re.M)
+    if ids != [f'E{i:02d}' for i in range(1,14)]:
+        errors.append('E01-E13 coverage mismatch')
+    matrix = docs['04-资源与评估/岗位能力矩阵与验收标准.md']
+    ids = re.findall(r'^\| (M\d{2}) ', matrix, re.M)
+    if ids != [f'M{i:02d}' for i in range(1,16)]:
+        errors.append('M01-M15 coverage mismatch')
+    board = docs['03-执行计划/进度看板.md']
+    rows = re.findall(r'^\| (G\d) \| D[^|]+ \| ([^|]+) \|', board, re.M)
+    if rows != [(f'G{i}', '未评估') for i in range(10)]:
+        errors.append(f'G0-G9 initial state mismatch: {rows}')
+    if sum((4, 9, 5, 4, 3)) != 25 or 96 * 25 != 2400 or 2400 * .15 != 360:
+        errors.append('budget arithmetic mismatch')
+    return errors
+
+
+def preservation():
+    baseline = json.loads((BACKUP/'before-manifest.json').read_text(encoding='utf-8-sig'))
+    manifest = json.loads((BACKUP/'change-manifest.json').read_text(encoding='utf-8'))
+    expected = set(manifest['modified'])
+    errors = []
+    changed, unchanged = [], []
+    for item in baseline:
+        name = item['path'].replace('\\', '/')
+        current = ROOT / item['path']
+        original = BACKUP / 'original' / item['path']
+        if not current.is_file():
+            errors.append(f'original file missing: {name}')
+            continue
+        if hashlib.sha256(original.read_bytes()).hexdigest().lower() != item['sha256'].lower():
+            errors.append(f'backup hash mismatch: {name}')
+        same = hashlib.sha256(current.read_bytes()).hexdigest().lower() == item['sha256'].lower()
+        (unchanged if same else changed).append(name)
+        if not same and name not in expected:
+            errors.append(f'out-of-scope modification: {name}')
+    old_board = (BACKUP/'original/03-执行计划/进度看板.md').read_text(encoding='utf-8-sig')
+    new_board = (ROOT/'03-执行计划/进度看板.md').read_text(encoding='utf-8-sig')
+    # Preserve the ordered pre-existing checkbox state and progress status cells.
+    for pattern in (r'^- \[[ xX]\].*$', r'^\|.*[⬜🟡✅⏸].*$'):
+        old = re.findall(pattern, old_board, re.M)
+        new = re.findall(pattern, new_board, re.M)
+        if [re.findall(r'\[[ xX]\]|[⬜🟡✅⏸]', x) for x in old] != [re.findall(r'\[[ xX]\]|[⬜🟡✅⏸]', x) for x in new]:
+            errors.append('pre-existing progress states changed')
+    return {'changed': changed, 'unchanged': unchanged, 'errors': errors}
+
+
+if __name__ == '__main__':
+    result = {'baseline': structure(BACKUP/'original'), 'current': structure(ROOT),
+              'curriculum_errors': check_curriculum(), 'preservation': preservation()}
+    (BACKUP/'validation-results.json').write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    sys.exit(1 if result['current']['errors'] or result['curriculum_errors'] or result['preservation']['errors'] else 0)

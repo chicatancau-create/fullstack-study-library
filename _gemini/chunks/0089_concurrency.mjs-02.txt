@@ -1,0 +1,92 @@
+        ['done', id, row.version],
+      );
+      if (res.rowCount === 1) return { ok: true, attempts: attempt };
+    }
+    return { ok: false, attempts: 3 };
+  }
+  const exhausted = await alwaysConflict(1);
+  check('C02 冲突重试：第二次成功；持续冲突 3 次后失败', retried.ok && retried.attempts === 2 && exhausted.ok === false, `retried=${JSON.stringify(retried)} exhausted=${JSON.stringify(exhausted)}`);
+
+  // C03 同 Owner 仅一个进行中：部分唯一索引拦截
+  const first = await owner.query("UPDATE backend30_real.tasks SET status = 'in_progress' WHERE id = 2 RETURNING id");
+  let uniqueError = null;
+  try {
+    await owner.query("UPDATE backend30_real.tasks SET status = 'in_progress' WHERE id = 1");
+  } catch (error) {
+    uniqueError = error;
+  }
+  await owner.query("UPDATE backend30_real.tasks SET status = 'done' WHERE id = 2");
+  const second = await owner.query("UPDATE backend30_real.tasks SET status = 'in_progress' WHERE id = 1 RETURNING id");
+  check('C03 进行中任务唯一：冲突 23505，完成后可再占用', first.rowCount === 1 && uniqueError?.code === '23505' && second.rowCount === 1, `first=${first.rowCount} error=${uniqueError?.code ?? 'none'} second=${second.rowCount}`);
+
+  // C04 互斥锁：advisory xact lock 阻塞，超时 55P03，释放后成功
+  await owner.query('BEGIN');
+  await owner.query('SELECT pg_advisory_xact_lock(3030)');
+  await rival.query("SET lock_timeout = '200ms'");
+  let lockError = null;
+  try {
+    await rival.query('BEGIN');
+    await rival.query('SELECT pg_advisory_xact_lock(3030)');
+  } catch (error) {
+    lockError = error;
+    await rival.query('ROLLBACK').catch(() => {});
+  }
+  await owner.query('COMMIT');
+  let lockAfter = null;
+  try {
+    await rival.query('BEGIN');
+    await rival.query('SELECT pg_advisory_xact_lock(3030)');
+    await rival.query('COMMIT');
+    lockAfter = 'ok';
+  } catch (error) {
+    lockAfter = error.code;
+    await rival.query('ROLLBACK').catch(() => {});
+  }
+  check('C04 互斥锁：持锁期间 55P03，释放后可获取', lockError?.code === '55P03' && lockAfter === 'ok', `blocked=${lockError?.code ?? 'none'} after=${lockAfter}`);
+
+  // C05 过期判断：过期记录不可认领，续期后可认领
+  await owner.query("UPDATE backend30_real.tasks SET status = 'open', lease_owner = NULL WHERE id = 1");
+  const expiredClaim = await owner.query(
+    "UPDATE backend30_real.tasks SET status = 'in_progress', lease_owner = 'alice' WHERE id = 1 AND expires_at > now() AND status = 'open'",
+  );
+  await owner.query("UPDATE backend30_real.tasks SET expires_at = now() + interval '10 minutes', status = 'open' WHERE id = 1");
+  const liveClaim = await owner.query(
+    "UPDATE backend30_real.tasks SET status = 'in_progress', lease_owner = 'alice' WHERE id = 1 AND expires_at > now() AND status = 'open'",
+  );
+  check('C05 过期判断：过期 0 行、续期后认领成功', expiredClaim.rowCount === 0 && liveClaim.rowCount === 1, `expired=${expiredClaim.rowCount} live=${liveClaim.rowCount}`);
+
+  // C06 按 Key 串行：同 key 阻塞、异 key 并行、释放后成功
+  const keyLock = "SELECT pg_advisory_xact_lock(hashtext($1))";
+  await owner.query('BEGIN');
+  await owner.query(keyLock, ['task:1']);
+  await rival.query("SET lock_timeout = '200ms'");
+  let sameKeyError = null;
+  try {
+    await rival.query('BEGIN');
+    await rival.query(keyLock, ['task:1']);
+  } catch (error) {
+    sameKeyError = error;
+    await rival.query('ROLLBACK').catch(() => {});
+  }
+  let otherKey = null;
+  try {
+    await rival.query('BEGIN');
+    await rival.query(keyLock, ['task:2']);
+    await rival.query('COMMIT');
+    otherKey = 'ok';
+  } catch (error) {
+    otherKey = error.code;
+    await rival.query('ROLLBACK').catch(() => {});
+  }
+  await owner.query('COMMIT');
+  let sameKeyAfter = null;
+  try {
+    await rival.query('BEGIN');
+    await rival.query(keyLock, ['task:1']);
+    await rival.query('COMMIT');
+    sameKeyAfter = 'ok';
+  } catch (error) {
+    sameKeyAfter = error.code;
+    await rival.query('ROLLBACK').catch(() => {});
+  }
+  await sleep(20);

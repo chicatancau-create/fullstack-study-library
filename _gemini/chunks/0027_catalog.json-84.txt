@@ -1,0 +1,131 @@
+        "primary_category": "知识库/课程与路线",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 1569,
+        "bytes": 3088221,
+        "markdown_count": 174,
+        "question_markers": 3,
+        "test_files": 22,
+        "observed_at": "2026-11-07T14:06:25+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "CC-BY-NC-SA-4.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；传染性或非商业条款，不得并入对外发布产物。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 1,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/inancgumus/learngo",
+          "category": "知识库/课程与路线",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 1,
+          "fetched": "2026-11-05 11:12",
+          "files": 1569,
+          "bytes": 3088221,
+          "mb": 2,
+          "top_extensions": {
+            ".go": 1236,
+            ".md": 174,
+            ".txt": 95,
+            ".png": 27,
+            "(none)": 17,
+            ".pdf": 7,
+            ".json": 4,
+            ".jsonl": 4,
+            ".mod": 1,
+            ".sum": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "CC-BY-NC-SA-4.0",
+          "round": 2,
+          "selection": "正文 174 篇；高采用(20178 star)+有正文(174篇)；自带测试 22 个｜自动判定：keep",
+          "functions": [
+            "F2解答",
+            "F3可运行",
+            "F4路线"
+          ],
+          "measured": {
+            "md_n": 174,
+            "md_share_pct": 9.4,
+            "question_markers": 3,
+            "tests": 22,
+            "images": 27,
+            "pdf": 7,
+            "stars": 20178,
+            "pushed": "2025-06-24",
+            "functions": [
+              "主线-后端",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "content_fingerprint": "9000520f3914965fb3401ff7aa5d4cb9fc261ff4c90b90015fe5091df78d2545",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:judasn/intellij-idea-tutorial",
+      "name": "judasn/IntelliJ-IDEA-Tutorial",
+      "source": {
+        "url": "https://github.com/judasn/IntelliJ-IDEA-Tutorial",
+        "canonical_url": "https://github.com/judasn/IntelliJ-IDEA-Tutorial",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2025-09-12",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:08+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "52832d194e0de3c933c82bcb99570f3bbd7216dd",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/课程与路线/judasn/IntelliJ-IDEA-Tutorial",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/judasn/IntelliJ-IDEA-Tutorial"
+      },
+      "integrity": {

@@ -1,0 +1,117 @@
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/CoderLeixiaoshuai/java-eight-part"
+      },
+      "integrity": {
+        "archive_sha256": "b55465edbd981cfb75ef2b2e834af88d6809184c86a4b515eb8f6cef2a178766",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "题库/八股与基础",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 148,
+        "bytes": 10026739,
+        "markdown_count": 35,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:28+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "stale",
+        "note": "2023-11 停更，JDK 8 口径为主；新特性按 JDK 17/21 LTS 复核",
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：147 文件 -> 148 文件",
+          "pushed_upstream": "2023-11-28"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/CoderLeixiaoshuai/java-eight-part",
+          "category": "题库/八股与基础",
+          "branch": null,
+          "archive_sha256": "b55465edbd981cfb75ef2b2e834af88d6809184c86a4b515eb8f6cef2a178766",
+          "tarball_mb": 0,
+          "fetched": "2026-11-04 20:03",
+          "files": 148,
+          "bytes": 10026739,
+          "mb": 9,
+          "top_extensions": {
+            ".png": 104,
+            ".md": 35,
+            "(none)": 3,
+            ".jpeg": 3,
+            ".html": 1,
+            ".jpg": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：147 文件 -> 148 文件",
+          "freshness_flag": "2023-11 停更，JDK 8 口径为主；新特性按 JDK 17/21 LTS 复核",
+          "measured": {
+            "pushed": "2023-11-28",
+            "stars": 7248
+          },
+          "pushed_upstream": "2023-11-28"
+        }
+      }
+    },
+    {
+      "id": "github:cyc2018/cs-notes",
+      "name": "CyC2018/CS-Notes",
+      "source": {
+        "url": "https://github.com/CyC2018/CS-Notes",
+        "canonical_url": "https://github.com/CyC2018/CS-Notes",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-11-04",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:33+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "96dfe1e1afe554d449ce9ff8a253f5284746f8fc",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/八股与基础/CyC2018/CS-Notes",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/CyC2018/CS-Notes"
+      },
+      "integrity": {
+        "archive_sha256": "d06a817b95a6cb8a1c3c8edc6c50a64f2a72b9adcbe41d0e528d1720e9b3cc9c",

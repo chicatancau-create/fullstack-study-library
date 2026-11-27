@@ -1,0 +1,104 @@
+                "category_basis",
+                "functions",
+                "freshness_flag",
+            }
+        },
+        "original_source_json": meta,
+    }
+    review_evidence = [
+        ".source.json",
+        "migrated from baseline c807c8b; no new human approval implied",
+    ]
+    if rid in {"github:explodinggradients/ragas", "github:openai/evals"}:
+        review_evidence.append("README verified: LLM/RAG evaluation framework provides F6 evidence")
+    if rid == "github:doocs/leetcode":
+        review_evidence.append("README verified: LeetCode/剑指 Offer/面试金典 problem sets provide F1 evidence")
+    return {
+        "id": rid,
+        "name": name,
+        "source": {
+            "url": source_url,
+            "canonical_url": canonical_url(source_url),
+            "aliases": [],
+            "branch": branch,
+            "commit_sha": meta.get("commit_sha") or None,
+            "fetched_at": fetched,
+            "upstream_pushed_at": measured.get("pushed") or None,
+            # 当前上游快照与抓取时证据分开：这里一律 not_checked，
+            # 由 `snapshot` 子命令在联网检查后写入，绝不写入 source.branch/commit_sha。
+            "upstream_snapshot": {
+                "status": "not_checked",
+                "checked_at": None,
+                "default_branch": None,
+                "head_commit_sha": None,
+                "note": None,
+            },
+        },
+        "payload": {
+            "mode": "mirror",
+            "mirror_path": rel,
+            "entry_path": "README.md" if (path / "README.md").is_file() else ".source.json",
+            "included_in_git": False,
+            # 镜像正文不随 Git 入库，catalog 描述的是仓库快照：默认按未随包处理。
+            "availability": "not_packaged" if path.is_dir() else "missing_local",
+            "online_fallback_url": canonical_url(source_url),
+        },
+        "integrity": {
+            "archive_sha256": meta.get("archive_sha256") or None,
+            "content_fingerprint": fingerprint,
+            "legacy_fingerprint_12": str(fp_value)[:12] if fp_value else None,
+        },
+        "classification": {
+            "primary_category": str(meta["category"]),
+            "category_basis": str(meta.get("category_basis") or "legacy_imported: category from .source.json"),
+            "functions": normalized_functions(meta, rid),
+            "topics": [],
+        },
+        "metrics": {
+            "files": metrics["files"],
+            "bytes": metrics["bytes"],
+            "markdown_count": metrics["markdown_count"],
+            "question_markers": measured.get("question_markers"),
+            "test_files": measured.get("tests"),
+            "observed_at": now_local(),
+            "count_scope": COUNT_SCOPE,
+        },
+        "license": license_fields(meta),
+        "freshness": {
+            "status": "stale" if freshness_flag else "unknown",
+            "note": str(freshness_flag) if freshness_flag else None,
+            "last_checked_at": None,
+            "next_review_at": None,
+        },
+        "lifecycle": {
+            "status": "active",
+            "reason": None,
+            "archived_at": None,
+            "replacement_id": None,
+        },
+        "review": {
+            "status": "legacy_imported",
+            "reviewed_at": None,
+            "evidence": review_evidence,
+        },
+        "extensions": extras,
+    }
+
+
+def build_catalog() -> dict[str, Any]:
+    resources = [migration_record(path, meta) for path, meta in source_entries()]
+    all_ids = {item["id"] for item in resources}
+    tombstones = []
+    for name, reason in TOMBSTONES:
+        tombstones.append(
+            {
+                "id": f"github:{name.lower()}",
+                "name": name,
+                "canonical_url": f"https://github.com/{name}",
+                "lifecycle": "archived",
+                "reason": reason,
+                "evidence": ["05-外部资料库/README.md#四轮采集与时效处置"],
+                "archived_at": None,
+                "replacement_id": None,
+            }
+        )

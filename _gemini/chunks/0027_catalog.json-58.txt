@@ -1,0 +1,121 @@
+          "fetched": "2026-11-04 20:03",
+          "files": 3,
+          "bytes": 212046,
+          "mb": 0,
+          "top_extensions": {
+            ".md": 1,
+            ".png": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：2 文件 -> 3 文件",
+          "freshness_flag": "2023-04 停更，纯链接索引；系统设计正文以 system-design-primer 与 NEXT 时代资料为主",
+          "pushed_upstream": "2023-04-03",
+          "measured": {
+            "pushed": "2023-04-03",
+            "stars": 23878
+          }
+        }
+      }
+    },
+    {
+      "id": "github:donnemartin/system-design-primer",
+      "name": "donnemartin/system-design-primer",
+      "source": {
+        "url": "https://github.com/donnemartin/system-design-primer",
+        "canonical_url": "https://github.com/donnemartin/system-design-primer",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-09-15",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:21+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "ae9bbd7b02d90b9866215de185217d33f39ab733",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/系统设计/donnemartin/system-design-primer",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/donnemartin/system-design-primer"
+      },
+      "integrity": {
+        "archive_sha256": "cd381c4bf60cecb8c5375e725937b248f777aa2ca6cc21cb698c4fc7dda55995",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/系统设计",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 140,
+        "bytes": 13585660,
+        "markdown_count": 23,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:24+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "CC-BY-4.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE.txt"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 11,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：139 文件 -> 140 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/donnemartin/system-design-primer",
+          "category": "知识库/系统设计",
+          "branch": null,
+          "archive_sha256": "cd381c4bf60cecb8c5375e725937b248f777aa2ca6cc21cb698c4fc7dda55995",
+          "tarball_mb": 11,
+          "fetched": "2026-11-04 20:03",
+          "files": 140,
+          "bytes": 13585660,
+          "mb": 12,
+          "top_extensions": {
+            ".png": 54,
+            ".py": 26,
+            ".md": 23,
+            ".graffle": 17,
+            ".ipynb": 6,
+            ".jpg": 5,
+            ".apkg": 3,
+            "(none)": 2,

@@ -1,0 +1,121 @@
+# 专项：鸿蒙 HarmonyOS ArkTS 与 ArkUI 应用开发
+
+**定位：客户端/跨端岗位专项（P2）｜建议：8–10 周、80–120 小时｜前置：TypeScript、React 状态与组件、HTTP、Git、基础测试。**
+
+> 可嵌入 D69–D84 的唯一岗位专项，或在 G9 后作为季度专项。主修鸿蒙时不同时主学 React Native/Flutter；复用 TS 与声明式 UI 思维，但生命周期、权限、构建、签名和真机行为必须重新学习。
+
+## 本专项已收集资料
+
+- [HarmonyOS Next 学习笔记](<../05-外部资料库/知识库/鸿蒙与跨端/CharonChui/HarmonyOSNextStudyNote/README.md>)：覆盖 ArkTS、ArkUI、UIAbility、网络与数据管理；README 明确其基于 HarmonyOS 4.0，旧 API 只作概念参考。
+- [harmonyos-skills 离线文档库](<../05-外部资料库/知识库/鸿蒙与跨端/liasica/harmonyos-skills/README.md>)：用于只读检索本地华为官方文档镜像，不执行其采集、安装或 MCP 脚本；快照内容与当前官方文档分开核对。
+- [jidecards（记得闪卡）](<../05-外部资料库/知识库/鸿蒙与跨端/wuweiyouzuoju/jidecards-anki-harmonyos/README.md>)：完整 ArkTS/ArkUI 应用，可只读研究工程结构、状态、数据与发布边界；**AGPL-3.0，只读不并，不复制或合并其代码**。
+- [Explore in HarmonyOS Wearable](<../05-外部资料库/知识库/鸿蒙与跨端/Explore-In-HMOS/hmos-index/README.md>)：用于按类别查找 ArkTS 穿戴样例及真机入门说明；Smart Wearable、Lite Wearable 与手机/平板能力不能混用。
+
+> 返回 [[../05-外部资料库/资料索引|资料索引]]。所有示例须记录 DevEco Studio、SDK/API 与仓库快照版本，并在目标 HarmonyOS/OpenHarmony 真机上验证；复用前逐仓库检查许可证，jidecards 始终坚持 AGPL-3.0 只读不并。
+
+## 一、先分清技术边界
+
+- **ArkTS** 是 HarmonyOS 应用主力语言，保留 TypeScript 风格并强化静态检查；不能把任意 TS/JS 代码和 npm 包直接视为可运行。
+- **ArkUI** 是声明式 UI 框架；组件、状态管理、布局和渲染机制与 React 相似但不等价。
+- 当前原生应用以 **Stage 模型、UIAbility/ExtensionAbility** 为主；旧 FA 模型和旧全局路由示例只用于维护判断，不作为新项目默认方案。
+- HarmonyOS 商业设备文档与 OpenHarmony 文档、不同 SDK/API 级别、不同设备能力不能混用。每个实验记录 DevEco Studio、SDK、目标设备/模拟器和文档日期。
+- 不默认旧 Android 应用可直接运行，也不默认所有 Kit 在手机、平板、手表、车机上行为一致。
+
+学习时使用官方受支持的稳定版本。不要把某个 API 号或 DevEco 版本写死为长期标准；升级前先读版本说明和 API 变更。
+
+## 二、完成目标
+
+完成后应能：
+
+1. 从空工程实现一个可安装、可测试的 ArkTS/ArkUI 应用。
+2. 解释组件状态、UIAbility 生命周期、Want、页面导航和后台切换的关系。
+3. 完成本地持久化、网络请求、权限拒绝与恢复、进程重建后的状态恢复。
+4. 处理手机常见尺寸、深色模式、字体缩放、键盘与基础无障碍。
+5. 使用单元/UI/真机测试验证主流程和至少两类失败场景。
+6. 用 Hvigor 完成可复现构建，理解证书、Profile、包签名和 AppGallery Connect 发布边界。
+7. 说明哪些功能只在模拟器验证，哪些已由真实设备证明，不把预览器截图当作真机验收。
+
+## 三、8 个教学单元
+
+| 单元 | 核心内容 | 必须产出 |
+| --- | --- | --- |
+| 1. 环境与首个应用 | DevEco、SDK、Stage 工程、构建与日志 | 空工程在模拟器或设备启动，版本清单和首条构建记录 |
+| 2. ArkTS 语言 | 静态类型、模块、空值、错误、集合并发边界 | 一个带运行时输入校验和单元测试的模型模块 |
+| 3. ArkUI 与状态 | 声明式组件、状态归属、列表、表单、条件和异步更新 | 列表 → 详情 → 编辑主路径，处理空/错/加载 |
+| 4. Stage 与导航 | UIAbility、生命周期、Want、Navigation、返回与恢复 | 后台切换、返回栈、进程重建和深链测试 |
+| 5. 数据、网络与权限 | ArkData、文件、HTTP、取消、权限申请/拒绝/设置恢复 | 离线保存、失败重试、权限拒绝降级与数据迁移 |
+| 6. 多设备与后台任务 | 响应式、资源、无障碍、受约束后台能力 | 常见尺寸/深色/字体验证，后台行为符合系统约束 |
+| 7. 测试、性能与发布 | Hypium/UI 测试、启动/帧/内存、Hvigor、签名、AGC | 测试报告、性能基线、可复现签名包与发布说明 |
+| 8. 综合作品 | 需求、架构、实现、失败、真机与交接 | 鸿蒙任务/内容应用及完整证据包 |
+
+## 四、单元 1：环境与 Stage 工程
+
+### 学习清单
+
+- [ ] 安装当前稳定 DevEco Studio 与目标 SDK，记录安装路径、版本和环境变量。
+- [ ] 创建 ArkTS + Stage 模型工程，理解 entry、module.json5、resources、pages 与 Ability 文件职责。
+- [ ] 区分预览器、模拟器和真实设备；至少使用一种运行环境完成首次安装和日志查看。
+- [ ] 首次构建保留命令、输出目录和错误原文，不以来源不明的脚本代替工程构建配置。
+
+典型结构示意：
+
+```text
+entry/src/main/
+├─ ets/
+│  ├─ entryability/     # UIAbility 与生命周期
+│  ├─ pages/            # 页面组件
+│  ├─ components/       # 可复用组件
+│  ├─ model/            # 数据模型与业务逻辑
+│  └─ services/         # 网络、存储与系统能力边界
+├─ resources/           # 字符串、颜色、图片与多设备资源
+└─ module.json5         # 模块、Ability、权限等配置
+```
+
+### 最小 ArkUI 示例
+
+```ts
+@Entry
+@Component
+struct Index {
+  @State count: number = 0
+
+  build() {
+    Column({ space: 16 }) {
+      Text(`已完成 ${this.count} 项`)
+        .fontSize(22)
+
+      Button('新增一项')
+        .onClick(() => {
+          this.count += 1
+        })
+    }
+    .padding(24)
+  }
+}
+```
+
+该例只用于理解声明式 UI 和状态驱动更新。状态装饰器、组件注册和构建规则以项目 SDK 的当前官方文档为准；不要为运行旧示例关闭类型检查。
+
+## 五、单元 2–3：ArkTS、ArkUI 与状态管理
+
+### ArkTS 重点
+
+- [ ] 静态类型、可空值、接口/类型模型、泛型、模块和依赖边界。
+- [ ] 外部 JSON/接口数据先运行时校验，不用 `any` 或断言掩盖协议变化。
+- [ ] 错误分类、异步任务、取消和资源释放；UI 不直接承担全部业务逻辑。
+- [ ] TaskPool、Worker、Sendable 的使用边界；并发不是简单复制 JS Promise 经验。
+
+### ArkUI 重点
+
+- [ ] 组件拆分、状态归属、单向数据流和列表更新。
+- [ ] 表单校验、草稿、重复提交、加载/空/错误/无权限状态。
+- [ ] 条件渲染、动画、手势和减少动态效果。
+- [ ] 避免把父组件全部状态向下复制；重建时明确哪些状态可丢失、哪些必须恢复。
+
+**练习：** 实现任务列表、筛选、详情和编辑，覆盖空列表、长文本、重复名称、保存失败、连续点击和返回未保存提醒。
+
+## 六、单元 4：Stage 生命周期与导航
+
+- [ ] AbilityStage、UIAbility、WindowStage 与页面/组件生命周期的职责区别。
+- [ ] `onCreate/onForeground/onBackground/onDestroy` 等当前回调用于什么，不把页面重新显示误当成 Ability 重新创建。
+- [ ] Want 的目标与参数、显式/隐式调用边界和输入校验。

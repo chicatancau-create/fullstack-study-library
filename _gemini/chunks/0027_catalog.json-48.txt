@@ -1,0 +1,126 @@
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/zhisheng17/flink-learning",
+          "category": "知识库/后端进阶",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 0,
+          "fetched": "2026-11-05 11:12",
+          "files": 754,
+          "bytes": 2506914,
+          "mb": 2,
+          "top_extensions": {
+            ".java": 436,
+            ".xml": 124,
+            ".md": 123,
+            ".properties": 35,
+            ".sql": 9,
+            "(none)": 8,
+            ".json": 5,
+            ".sh": 3,
+            ".metricreporterfactory": 2,
+            ".conf": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "Apache-2.0",
+          "round": 2,
+          "selection": "正文 123 篇；高采用(15101 star)+有正文(123篇)｜自动判定：keep",
+          "functions": [
+            "F2解答",
+            "F4路线"
+          ],
+          "measured": {
+            "md_n": 123,
+            "md_share_pct": 28.5,
+            "question_markers": 3,
+            "tests": 8,
+            "images": 1,
+            "pdf": 0,
+            "stars": 15101,
+            "pushed": "2026-05-06",
+            "functions": [
+              "主线-数据",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "category_basis": "人工定类：Flink 大数据教程",
+          "content_fingerprint": "79cbe577f18c1179c3be3f1d42bd18f00f9ef26be34124de4d990b0991ddf6eb",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:derekbabb/cybersecurity",
+      "name": "DerekBabb/CyberSecurity",
+      "source": {
+        "url": "https://github.com/DerekBabb/CyberSecurity",
+        "canonical_url": "https://github.com/DerekBabb/CyberSecurity",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2023-12-17",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:04+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "adc61503f18005d888d0bdc45bbab21f77ebda44",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/安全/DerekBabb/CyberSecurity",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/DerekBabb/CyberSecurity"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "712a5803f02c6f196dd1b746a1a1a61fcef7bd92e3cad7c6b05fc202364809f3",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:05+08:00"
+        },
+        "legacy_fingerprint_12": "712a5803f02c"
+      },
+      "classification": {
+        "primary_category": "知识库/安全",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F2"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 124,
+        "bytes": 6408292,
+        "markdown_count": 41,
+        "question_markers": 0,
+        "test_files": 1,
+        "observed_at": "2026-11-07T14:06:23+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "GPL-3.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；传染性或非商业条款，不得并入对外发布产物。"
+      },
+      "freshness": {

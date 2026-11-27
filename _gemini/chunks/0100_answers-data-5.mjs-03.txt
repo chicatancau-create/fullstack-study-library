@@ -1,0 +1,101 @@
+  for (const v of arr) { tail.next = { val: v, next: null }; tail = tail.next; }
+  let fast = d, slow = d;
+  for (let i = 0; i < n; i++) fast = fast.next;
+  while (fast.next) { fast = fast.next; slow = slow.next; }
+  slow.next = slow.next.next;
+  const out = [];
+  for (let p = d.next; p; p = p.next) out.push(p.val);
+  return out;
+}`,
+    edge_cases: [
+      { call: '[1,2,3,4,5], 2', expected: [1,2,3,5], why: '删除中间节点' },
+      { call: '[1], 1', expected: [], why: '删除唯一节点需要哑节点' },
+      { call: '[1,2], 1', expected: [1], why: '删除尾节点' },
+    ],
+    common_mistakes: ['没有哑节点导致删头节点时丢链', '快指针先走 n-1 步导致慢指针停在待删节点', '删除后忘记接回后继'],
+    followups: ['如何用一次遍历完成？', '若 n 可能大于链表长度如何防护？'],
+    rubric: [
+      { point: '快指针先走 n 步再同步移动', weight: 2 },
+      { point: '哑节点统一处理删头', weight: 1 },
+      { point: '前驱指向后继完成删除', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q055', title: '209. 长度最小的子数组', question_url: 'https://leetcode.cn/problems/minimum-size-subarray-sum/',
+    core_idea: '正整数数组上的滑动窗口：右指针累加，窗口和 ≥target 时不断收缩左指针并更新最小长度。',
+    invariant: '窗口 [l,r] 内元素和由 sum 精确维护；收缩过程中只会移除正数，因此 sum 单调不增。',
+    complexity: { time: 'O(n)', space: 'O(1)' },
+    code_lang: 'javascript',
+    code: `function solve(nums, target) {
+  let l = 0, sum = 0, best = Infinity;
+  for (let r = 0; r < nums.length; r++) {
+    sum += nums[r];
+    while (sum >= target) {
+      best = Math.min(best, r - l + 1);
+      sum -= nums[l];
+      l++;
+    }
+  }
+  return best === Infinity ? 0 : best;
+}`,
+    edge_cases: [
+      { call: '[2,3,1,2,4,3], 7', expected: 2, why: '最短为 4+3' },
+      { call: '[1,4,4], 4', expected: 1, why: '单个元素达标' },
+      { call: '[1,1,1,1], 11', expected: 0, why: '总和不足' },
+    ],
+    common_mistakes: ['对含负数数组使用滑动窗口', '先移左指针再判断窗口和', '无解返回 -1 而不是 0'],
+    followups: ['元素含负数时该怎么做？', '为什么窗口右移总复杂度仍是 O(n)？'],
+    rubric: [
+      { point: '窗口和随右指针增加、随左指针减少', weight: 1 },
+      { point: '满足条件时循环收缩并记录最短', weight: 2 },
+      { point: '无解返回 0', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q056', title: '剑指 Offer 26. 树的子结构', question_url: 'https://leetcode.cn/problems/shu-de-zi-jie-gou-lcof/',
+    core_idea: '双重递归：外层遍历 A 的每个节点作为候选根，内层检查 A 的该子树是否与 B 完全匹配（B 可为 A 的一部分）。',
+    invariant: 'match(a,b) 为真要求 a 存在、值相等且左右子树继续匹配；B 为空即匹配成功。',
+    complexity: { time: 'O(mn)', space: 'O(h)' },
+    code_lang: 'javascript',
+    code: `function solve(A, B) {
+  function build(arr) {
+    if (!arr.length || arr[0] === null) return null;
+    const root = { val: arr[0], left: null, right: null };
+    const q = [root];
+    let i = 1;
+    while (i < arr.length && q.length) {
+      const n = q.shift();
+      if (i < arr.length) { if (arr[i] !== null) { n.left = { val: arr[i], left: null, right: null }; q.push(n.left); } i++; }
+      if (i < arr.length) { if (arr[i] !== null) { n.right = { val: arr[i], left: null, right: null }; q.push(n.right); } i++; }
+    }
+    return root;
+  }
+  function match(a, b) {
+    if (!b) return true;
+    if (!a) return false;
+    if (a.val !== b.val) return false;
+    return match(a.left, b.left) && match(a.right, b.right);
+  }
+  function dfs(a, b) {
+    if (!a) return false;
+    return match(a, b) || dfs(a.left, b) || dfs(a.right, b);
+  }
+  return dfs(build(A), build(B));
+}`,
+    edge_cases: [
+      { call: '[3,4,5,1,2], [4,1]', expected: true, why: 'B 是 A 左子树的头部' },
+      { call: '[3,4,5,1,2], [4,2]', expected: false, why: 'B 的 2 应挂在左孩子位置' },
+      { call: '[1], [1]', expected: true, why: '单节点相同' },
+    ],
+    common_mistakes: ['用“子树完全相同”判断，导致 B 是局部结构时误判', 'B 为空时返回 false', '外层遍历与内层匹配混用同一个 null 判断'],
+    followups: ['与“判断 B 是否为 A 的子树”区别在哪？', '如何在 O(m+n) 内借助序列化做匹配？'],
+    rubric: [
+      { point: 'match 中 B 先判空返回 true', weight: 2 },
+      { point: '外层对 A 每个节点尝试匹配', weight: 1 },
+      { point: '结构不匹配立即返回 false', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q057', title: '82. 删除排序链表中的重复元素 II', question_url: 'https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/',
+    core_idea: '哑节点 + 按连续相同值分段：一段长度大于 1 整段丢弃，否则接到结果尾部；只保留出现一次的值。',
+    invariant: 'tail 之后是新链表；扫描下标始终指向尚未处理段的起点。',

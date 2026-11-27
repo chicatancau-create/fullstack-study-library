@@ -1,0 +1,175 @@
+        sj += j._.r, j = j.next;
+      } else {
+        if (intersects(k._, c._)) {
+          a = k, a.next = b, b.previous = a, --i;
+          continue pack;
+        }
+        sk += k._.r, k = k.previous;
+      }
+    } while (j !== k.next);
+
+    // Success! Insert the new circle c between a and b.
+    c.previous = a, c.next = b, a.next = b.previous = b = c;
+
+    // Compute the new closest circle pair to the centroid.
+    aa = score(a);
+    while ((c = c.next) !== b) {
+      if ((ca = score(c)) < aa) {
+        a = c, aa = ca;
+      }
+    }
+    b = a.next;
+  }
+
+  // Compute the enclosing circle of the front chain.
+  a = [b._], c = b; while ((c = c.next) !== b) a.push(c._); c = enclose(a);
+
+  // Translate the circles to put the enclosing circle around the origin.
+  for (i = 0; i < n; ++i) a = circles[i], a.x -= c.x, a.y -= c.y;
+
+  return c.r;
+}
+
+function siblings(circles) {
+  packEnclose(circles);
+  return circles;
+}
+
+function optional(f) {
+  return f == null ? null : required(f);
+}
+
+function required(f) {
+  if (typeof f !== "function") throw new Error;
+  return f;
+}
+
+function constantZero() {
+  return 0;
+}
+
+function constant(x) {
+  return function() {
+    return x;
+  };
+}
+
+function defaultRadius(d) {
+  return Math.sqrt(d.value);
+}
+
+function index() {
+  var radius = null,
+      dx = 1,
+      dy = 1,
+      padding = constantZero;
+
+  function pack(root) {
+    root.x = dx / 2, root.y = dy / 2;
+    if (radius) {
+      root.eachBefore(radiusLeaf(radius))
+          .eachAfter(packChildren(padding, 0.5))
+          .eachBefore(translateChild(1));
+    } else {
+      root.eachBefore(radiusLeaf(defaultRadius))
+          .eachAfter(packChildren(constantZero, 1))
+          .eachAfter(packChildren(padding, root.r / Math.min(dx, dy)))
+          .eachBefore(translateChild(Math.min(dx, dy) / (2 * root.r)));
+    }
+    return root;
+  }
+
+  pack.radius = function(x) {
+    return arguments.length ? (radius = optional(x), pack) : radius;
+  };
+
+  pack.size = function(x) {
+    return arguments.length ? (dx = +x[0], dy = +x[1], pack) : [dx, dy];
+  };
+
+  pack.padding = function(x) {
+    return arguments.length ? (padding = typeof x === "function" ? x : constant(+x), pack) : padding;
+  };
+
+  return pack;
+}
+
+function radiusLeaf(radius) {
+  return function(node) {
+    if (!node.children) {
+      node.r = Math.max(0, +radius(node) || 0);
+    }
+  };
+}
+
+function packChildren(padding, k) {
+  return function(node) {
+    if (children = node.children) {
+      var children,
+          i,
+          n = children.length,
+          r = padding(node) * k || 0,
+          e;
+
+      if (r) for (i = 0; i < n; ++i) children[i].r += r;
+      e = packEnclose(children);
+      if (r) for (i = 0; i < n; ++i) children[i].r -= r;
+      node.r = e + r;
+    }
+  };
+}
+
+function translateChild(k) {
+  return function(node) {
+    var parent = node.parent;
+    node.r *= k;
+    if (parent) {
+      node.x = parent.x + k * node.x;
+      node.y = parent.y + k * node.y;
+    }
+  };
+}
+
+function roundNode(node) {
+  node.x0 = Math.round(node.x0);
+  node.y0 = Math.round(node.y0);
+  node.x1 = Math.round(node.x1);
+  node.y1 = Math.round(node.y1);
+}
+
+function treemapDice(parent, x0, y0, x1, y1) {
+  var nodes = parent.children,
+      node,
+      i = -1,
+      n = nodes.length,
+      k = parent.value && (x1 - x0) / parent.value;
+
+  while (++i < n) {
+    node = nodes[i], node.y0 = y0, node.y1 = y1;
+    node.x0 = x0, node.x1 = x0 += node.value * k;
+  }
+}
+
+function partition() {
+  var dx = 1,
+      dy = 1,
+      padding = 0,
+      round = false;
+
+  function partition(root) {
+    var n = root.height + 1;
+    root.x0 =
+    root.y0 = padding;
+    root.x1 = dx;
+    root.y1 = dy / n;
+    root.eachBefore(positionNode(dy, n));
+    if (round) root.eachBefore(roundNode);
+    return root;
+  }
+
+  function positionNode(dy, n) {
+    return function(node) {
+      if (node.children) {
+        treemapDice(node, node.x0, dy * (node.depth + 1) / n, node.x1, dy * (node.depth + 2) / n);
+      }
+      var x0 = node.x0,

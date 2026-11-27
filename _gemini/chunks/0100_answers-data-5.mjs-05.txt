@@ -1,0 +1,112 @@
+    code_lang: 'javascript',
+    code: `function solve(nums) {
+  let lo = 0, hi = nums.length - 1;
+  while (lo < hi) {
+    const mid = lo + Math.floor((hi - lo) / 2);
+    if (nums[mid] < nums[mid + 1]) lo = mid + 1;
+    else hi = mid;
+  }
+  return lo;
+}`,
+    edge_cases: [
+      { call: '[1,2,3,1]', expected: 2, why: '峰值下标 2' },
+      { call: '[1,2,1,3,5,6,4]', expected: 5, why: '任一峰值均可，本实现返回 5' },
+      { call: '[1]', expected: 0, why: '单元素' },
+    ],
+    common_mistakes: ['线性扫描虽然正确但不符合 O(log n)', 'hi=mid-1 时丢掉可能的峰值', '返回峰值而不是下标'],
+    followups: ['为什么题目保证一定有解？', '二维矩阵版本（1901）如何二分？'],
+    rubric: [
+      { point: '比较 mid 与 mid+1 决定半区', weight: 2 },
+      { point: '下降时 hi=mid 保留候选', weight: 1 },
+      { point: '返回下标且单元素正确', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q061', title: '78. 子集', question_url: 'https://leetcode.cn/problems/subsets/',
+    core_idea: '回溯：每个位置决定选或不选，路径在进入下一层前先收集，从而得到包含空集在内的全部子集。',
+    invariant: 'path 是 [0,start) 的一个子集，out 收集的是所有已确定前缀的完整解，不重不漏。',
+    complexity: { time: 'O(n·2^n)', space: 'O(n)' },
+    code_lang: 'javascript',
+    code: `function solve(nums) {
+  const out = [];
+  function dfs(start, path) {
+    out.push(path.slice());
+    for (let i = start; i < nums.length; i++) {
+      path.push(nums[i]);
+      dfs(i + 1, path);
+      path.pop();
+    }
+  }
+  dfs(0, []);
+  return out;
+}`,
+    edge_cases: [
+      { call: '[1,2,3]', expected: [[],[1],[1,2],[1,2,3],[1,3],[2],[2,3],[3]], why: '字典序回溯顺序' },
+      { call: '[0]', expected: [[],[0]], why: '单元素含空集' },
+    ],
+    common_mistakes: ['忘记先收集当前路径，漏掉空集', '下一层传 i 导致重复组合', '最后才收集导致丢前缀'],
+    followups: ['含重复元素（90 题）如何剪枝？', '如何用位掩码迭代生成？'],
+    rubric: [
+      { point: '进入递归即收集当前 path', weight: 2 },
+      { point: '下一层从 i+1 开始，避免重复', weight: 1 },
+      { point: '回到上层时回溯弹出', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q062', title: '2. 两数相加', question_url: 'https://leetcode.cn/problems/add-two-numbers/',
+    core_idea: '逐位相加：两链表已按低位在前存储，同步遍历并维护进位，任一方或进位未尽就继续，头插/尾插生成结果。',
+    invariant: '每一轮处理的都是同一位权；carry 只可能是 0 或 1。',
+    complexity: { time: 'O(max(m,n))', space: 'O(max(m,n))' },
+    code_lang: 'javascript',
+    code: `function solve(a, b) {
+  const out = [];
+  let i = 0, j = 0, carry = 0;
+  while (i < a.length || j < b.length || carry) {
+    const x = i < a.length ? a[i++] : 0;
+    const y = j < b.length ? b[j++] : 0;
+    const sum = x + y + carry;
+    out.push(sum % 10);
+    carry = Math.floor(sum / 10);
+  }
+  return out;
+}`,
+    edge_cases: [
+      { call: '[2,4,3], [5,6,4]', expected: [7,0,8], why: '342+465=807' },
+      { call: '[0], [0]', expected: [0], why: '零加零' },
+      { call: '[9,9,9,9,9,9,9], [9,9,9,9]', expected: [8,9,9,9,0,0,0,1], why: '最长进位链' },
+    ],
+    common_mistakes: ['长度不等时提前结束，漏掉剩余位', '最高位进位未追加', '把结果当成高位在前存储'],
+    followups: ['若链表是高位在前（445 题）如何先逆序？', '如何在不新建链表时原地复用节点？'],
+    rubric: [
+      { point: '循环条件包含任一方剩余或进位', weight: 2 },
+      { point: '短链表缺位补 0', weight: 1 },
+      { point: '最高位进位输出为新节点', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q063', title: '122. 买卖股票的最佳时机 II', question_url: 'https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/',
+    core_idea: '贪心：只要次日价格高于当日就当日买次日卖，累加所有正收益，等价于抓住每一段上升区间。',
+    invariant: '任意多段上涨的总收益等于逐日正收益之和，交易次数不限因此贪心最优。',
+    complexity: { time: 'O(n)', space: 'O(1)' },
+    code_lang: 'javascript',
+    code: `function solve(prices) {
+  let profit = 0;
+  for (let i = 1; i < prices.length; i++) {
+    if (prices[i] > prices[i - 1]) profit += prices[i] - prices[i - 1];
+  }
+  return profit;
+}`,
+    edge_cases: [
+      { call: '[7,1,5,3,6,4]', expected: 7, why: '1→5 与 3→6 两段' },
+      { call: '[1,2,3,4,5]', expected: 4, why: '连续上涨等价于一次持有' },
+      { call: '[7,6,4,3,1]', expected: 0, why: '单边下跌不交易' },
+    ],
+    common_mistakes: ['沿用 121 题的“只能交易一次”模型', '在下跌日卖出造成亏损', '用 DP 但状态转移写错'],
+    followups: ['含手续费（714）如何改 DP？', '限制最多 k 次交易（188）怎么建模？'],
+    rubric: [
+      { point: '累加所有相邻正差价', weight: 2 },
+      { point: '单边下跌返回 0', weight: 1 },
+      { point: '理解贪心与不限次数交易的等价性', weight: 1 },
+    ],
+  },
+  {

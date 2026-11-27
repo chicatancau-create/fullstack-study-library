@@ -1,0 +1,104 @@
+import Fastify from 'fastify';
+import crypto from 'node:crypto';
+import dns from 'node:dns/promises';
+import { labConnect } from './lab_db.mjs';
+
+const USERS = [
+  { id: 'u1', tenant: 't1', name: 'alice', role: 'owner', password: 'alice-pass' },
+  { id: 'u2', tenant: 't1', name: 'bob', role: 'member', password: 'bob-pass' },
+  { id: 'u3', tenant: 't2', name: 'carol', role: 'owner', password: 'carol-pass' },
+];
+
+const HASHES = new Map(
+  USERS.map((user) => {
+    const salt = `lab-salt-${user.id}`;
+    return [user.id, { salt, hash: crypto.scryptSync(user.password, salt, 32) }];
+  }),
+);
+
+function passwordOk(user, password) {
+  const stored = HASHES.get(user.id);
+  if (!stored || typeof password !== 'string') return false;
+  return crypto.timingSafeEqual(crypto.scryptSync(password, stored.salt, 32), stored.hash);
+}
+
+export function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (ch) => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  }[ch]));
+}
+
+function isPrivateAddress(address) {
+  return address === '::1'
+    || address.startsWith('fc')
+    || address.startsWith('fd')
+    || /^127\./.test(address)
+    || /^10\./.test(address)
+    || /^192\.168\./.test(address)
+    || /^169\.254\./.test(address)
+    || /^172\.(1[6-9]|2\d|3[01])\./.test(address);
+}
+
+export function buildLabApp({ allowlist = [], allowedOrigins = [], logger = false } = {}) {
+  const app = Fastify({ logger, bodyLimit: 16384 });
+  const sessions = new Map();
+  const failures = new Map();
+  const allowedHosts = new Set(allowlist);
+  const origins = new Set(allowedOrigins);
+
+  app.addHook('onSend', async (request, reply, payload) => {
+    reply.header('X-Content-Type-Options', 'nosniff');
+    reply.header('Referrer-Policy', 'no-referrer');
+    return payload;
+  });
+
+  async function requireSession(request, reply) {
+    const cookie = request.headers.cookie || '';
+    const sid = cookie.split(';').map((part) => part.trim()).find((part) => part.startsWith('sid='))?.slice(4);
+    const session = sid ? sessions.get(sid) : null;
+    if (!session || session.expiresAt < Date.now()) {
+      if (sid) sessions.delete(sid);
+      return reply.code(401).send({ error: 'unauthenticated' });
+    }
+    request.session = session;
+  }
+
+  async function audit(event, detail) {
+    const client = await labConnect();
+    try {
+      await client.query('INSERT INTO e11.audit (event, detail) VALUES ($1, $2)', [event, detail]);
+    } finally {
+      await client.end();
+    }
+  }
+
+  app.post('/lab/login', async (request, reply) => {
+    const { tenant, user: name, password } = request.body || {};
+    const key = `${tenant}:${name}`;
+    if ((failures.get(key) || 0) >= 5) return reply.code(429).send({ error: 'locked_out' });
+    const found = USERS.find((entry) => entry.tenant === tenant && entry.name === name);
+    if (!found || !passwordOk(found, password)) {
+      failures.set(key, (failures.get(key) || 0) + 1);
+      await audit('login_failed', key);
+      return reply.code(401).send({ error: 'bad_credentials' });
+    }
+    failures.delete(key);
+    const sid = crypto.randomBytes(24).toString('hex');
+    const csrf = crypto.randomBytes(24).toString('hex');
+    sessions.set(sid, { userId: found.id, tenant: found.tenant, csrf, expiresAt: Date.now() + 300_000 });
+    await audit('login_ok', key);
+    reply.header('set-cookie', `sid=${sid}; HttpOnly; SameSite=Lax; Path=/; Max-Age=300`);
+    return { csrf };
+  });
+
+  app.get('/lab/me', { preHandler: requireSession }, async (request) => ({
+    userId: request.session.userId,
+    tenant: request.session.tenant,
+  }));
+
+  app.get('/lab/items/:id', { preHandler: requireSession }, async (request, reply) => {
+    const client = await labConnect();
+    try {
+      const result = await client.query('SELECT id, tenant, title FROM e11.items WHERE id = $1 AND tenant = $2', [
+        Number(request.params.id), request.session.tenant,
+      ]);

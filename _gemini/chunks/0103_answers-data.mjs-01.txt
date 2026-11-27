@@ -1,0 +1,117 @@
+export const ANSWERS = [
+  {
+    id: 'Q001',
+    title: '3. 无重复字符的最长子串',
+    question_url: 'https://leetcode.cn/problems/longest-substring-without-repeating-characters/',
+    core_idea: '滑动窗口：右指针逐个扩张，遇到窗口内已出现的字符时，把左指针跳到该字符上次出现位置的下一位，保证窗口内始终无重复。',
+    invariant: '任意时刻窗口 [left, right] 内没有重复字符；left 只增不减，因此每个字符最多被左右指针各访问一次。',
+    complexity: { time: 'O(n)', space: 'O(min(n, 字符集大小))' },
+    code_lang: 'javascript',
+    code: `function solve(s) {
+  const last = new Map();
+  let left = 0;
+  let best = 0;
+  for (let right = 0; right < s.length; right++) {
+    const ch = s[right];
+    if (last.has(ch) && last.get(ch) >= left) {
+      left = last.get(ch) + 1;
+    }
+    last.set(ch, right);
+    best = Math.max(best, right - left + 1);
+  }
+  return best;
+}`,
+    edge_cases: [
+      { call: '"abcabcbb"', expected: 3, why: '窗口在第二个 a 处收缩为 bca' },
+      { call: '"bbbbb"', expected: 1, why: '每次都把 left 推到当前字符之后' },
+      { call: '""', expected: 0, why: '空串不能返回 1' },
+    ],
+    common_mistakes: [
+      '只判断 last.has(ch) 而不判断 last.get(ch) >= left，会把窗口外旧位置误当重复',
+      '把 left 设为 last.get(ch) 而不是 +1，窗口仍包含重复字符',
+    ],
+    followups: [
+      '如果字符集是 Unicode 码点而不是 UTF-16 单元，如何按码点滑动？',
+      '若要求返回具体子串而不是长度，left 更新时如何同步记录起点？',
+    ],
+    rubric: [
+      { point: '能说出 left 必须跳到上次位置 +1，并解释旧位置在窗口外时不能跳', weight: 2 },
+      { point: '代码里同时维护 last 与 best，边界为空串返回 0', weight: 1 },
+      { point: '能分析每个字符最多进出窗口一次，复杂度 O(n)', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q002',
+    title: '146. LRU缓存机制',
+    question_url: 'https://leetcode.cn/problems/lru-cache/',
+    core_idea: '哈希表 + 双向链表：哈希表 O(1) 定位节点，双向链表维持访问顺序；get/put 命中后把节点移到表头，容量超限时删除表尾。',
+    invariant: '链表头部是最近使用，尾部是最久未使用；哈希表中的每个 key 恰好对应链表中一个节点，节点删除时两者同步移除。',
+    complexity: { time: 'get/put 均摊 O(1)', space: 'O(capacity)' },
+    code_lang: 'javascript',
+    code: `function solve(ops, args) {
+  const cap = args[0][0];
+  const map = new Map();
+  const order = [];
+  const out = [];
+  const touch = (k) => {
+    const i = order.indexOf(k);
+    if (i >= 0) order.splice(i, 1);
+    order.push(k);
+  };
+  for (let i = 1; i < ops.length; i++) {
+    const op = ops[i];
+    const a = args[i];
+    if (op === 'put') {
+      const [k, v] = a;
+      map.set(k, v);
+      touch(k);
+      if (map.size > cap) {
+        const oldest = order.shift();
+        map.delete(oldest);
+      }
+      out.push(null);
+    } else {
+      const k = a[0];
+      if (!map.has(k)) out.push(-1);
+      else { touch(k); out.push(map.get(k)); }
+    }
+  }
+  return out;
+}`,
+    edge_cases: [
+      { call: '["LRUCache","put","put","get","put","get","put","get","get","get"],[[2],[1,1],[2,2],[1],[3,3],[2],[4,4],[1],[3],[4]]', expected: [null,null,1,null,-1,null,-1,3,4], why: '标准示例：容量 2 时淘汰最久未使用' },
+      { call: '["LRUCache","put","get"],[[1],[1,1],[1]]', expected: [null,1], why: '容量 1 时 get 命中不淘汰' },
+    ],
+    common_mistakes: [
+      'get 命中后忘记更新访问顺序，导致淘汰了刚访问的 key',
+      '先删除再移动节点导致链表断链，或哈希表与链表不同步',
+      '容量为 0 时未特殊处理（本题通常 capacity ≥ 1，但实现应有防御）',
+    ],
+    followups: [
+      '为什么不能用数组 unshift 实现 O(1)？在 JS 中如何用 Map 的插入顺序模拟？',
+      '如果要求支持过期时间（TTL），数据结构需要增加什么？',
+    ],
+    rubric: [
+      { point: '能说明哈希表与双向链表各自职责，以及为什么是 O(1)', weight: 2 },
+      { point: 'get 命中会改变淘汰顺序，代码体现 touch/移动到表头', weight: 1 },
+      { point: '容量超限删除最久未使用而不是任意元素', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q003',
+    title: '25. K 个一组翻转链表',
+    question_url: 'https://leetcode.cn/problems/reverse-nodes-in-k-group/',
+    core_idea: '先数出剩余节点是否够 k 个；够则用头插法翻转这一段，接回前驱与后继；不足 k 个保持原序。',
+    invariant: '已处理部分与未处理部分通过 prevGroupTail.next 连接；每组内部翻转后，原组头变成组尾，原组尾变成组头。',
+    complexity: { time: 'O(n)', space: 'O(1)' },
+    code_lang: 'javascript',
+    code: `function solve(values, k) {
+  const dummy = { val: 0, next: null };
+  let tail = dummy;
+  for (const v of values) { tail.next = { val: v, next: null }; tail = tail.next; }
+  let prevTail = dummy;
+  let cur = dummy.next;
+  while (cur) {
+    let probe = cur;
+    for (let i = 0; i < k; i++) {
+      if (!probe) return toArray(dummy.next);

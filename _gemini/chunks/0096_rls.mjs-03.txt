@@ -1,0 +1,15 @@
+  check('B08 拒绝访问写入审计记录', audit?.allowed === false, `allowed=${audit?.allowed}`);
+
+  evidence.final = {
+    tenants_seen: b01.length,
+    visible_tasks: (await c.query('SELECT count(*)::int AS n FROM backend30_b.tasks')).rows[0].n,
+  };
+} finally {
+  fs.mkdirSync('evidence', { recursive: true });
+  fs.writeFileSync('evidence/rls.json', JSON.stringify(evidence, null, 2) + '\n');
+  await c.end().catch(() => {});
+}
+
+const failures = results.filter((r) => !r.ok).length;
+console.log(failures === 0 ? `BACKEND30-B PASS ${results.length}/${results.length}` : `BACKEND30-B FAIL ${failures}/${results.length}`);
+if (failures > 0) process.exitCode = 1;

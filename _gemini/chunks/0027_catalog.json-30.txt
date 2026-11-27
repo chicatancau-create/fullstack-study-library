@@ -1,0 +1,122 @@
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/microsoft/TypeScript-Website"
+      },
+      "integrity": {
+        "archive_sha256": "535891fe66cc44cee6dba42faf8b0b45eabf10805149cf7f1aceb215863b83b1",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/前端与Node",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 1065,
+        "bytes": 19771928,
+        "markdown_count": 365,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:23+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "unrecognized_file",
+        "license_files": [
+          "LICENSE",
+          "LICENSE-CODE",
+          "README.md"
+        ],
+        "usage_restriction": "未识别许可证文件；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "round": 2,
+          "tar_mb": 13,
+          "ledger_refreshed": "补图/改名后重算：1064 文件 -> 1065 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/microsoft/TypeScript-Website",
+          "category": "知识库/前端与Node",
+          "branch": "v2",
+          "archive_sha256": "535891fe66cc44cee6dba42faf8b0b45eabf10805149cf7f1aceb215863b83b1",
+          "fetched": "2026-11-05 16:52",
+          "files": 1065,
+          "bytes": 19771928,
+          "mb": 18,
+          "license_files": [
+            "LICENSE",
+            "LICENSE-CODE",
+            "README.md"
+          ],
+          "round": 2,
+          "tar_mb": 13,
+          "selection": "抢救收录：清单/索引型资料，正文集中在少数 README，自动判据会因 md 篇数少而误杀",
+          "measured": {
+            "md_n": 365,
+            "question_markers": null,
+            "tests": null,
+            "pushed": "2026-11-05",
+            "stars": 2554
+          },
+          "ledger_refreshed": "补图/改名后重算：1064 文件 -> 1065 文件"
+        }
+      }
+    },
+    {
+      "id": "github:reactjs/react.dev",
+      "name": "reactjs/react.dev",
+      "source": {
+        "url": "https://github.com/reactjs/react.dev",
+        "canonical_url": "https://github.com/reactjs/react.dev",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-11-01",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:29+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "2e6dca162985d438d7a834b339d89177cf0a92b9",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/前端与Node/reactjs/react.dev",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/reactjs/react.dev"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "ef58d54ee08b0f7cdc65dac78abb93cddd0d0c7381bf1439b9c09faf24fb07cd",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:05+08:00"
+        },

@@ -1,0 +1,118 @@
+              curToNodeChild = curToNodeChild.actualize(fromEl.ownerDocument || doc);
+            }
+            addChild(fromEl, curToNodeChild);
+            handleNodeAdded(curToNodeChild);
+          }
+        }
+
+        curToNodeChild = toNextSibling;
+        curFromNodeChild = fromNextSibling;
+      }
+
+      cleanupFromEl(fromEl, curFromNodeChild, curFromNodeKey);
+
+      var specialElHandler = specialElHandlers[fromEl.nodeName];
+      if (specialElHandler) {
+        specialElHandler(fromEl, toEl);
+      }
+    } // END: morphChildren(...)
+
+    var morphedNode = fromNode;
+    var morphedNodeType = morphedNode.nodeType;
+    var toNodeType = toNode.nodeType;
+
+    if (!childrenOnly) {
+      // Handle the case where we are given two DOM nodes that are not
+      // compatible (e.g. <div> --> <span> or <div> --> TEXT)
+      if (morphedNodeType === ELEMENT_NODE) {
+        if (toNodeType === ELEMENT_NODE) {
+          if (!compareNodeNames(fromNode, toNode)) {
+            onNodeDiscarded(fromNode);
+            morphedNode = moveChildren(fromNode, createElementNS(toNode.nodeName, toNode.namespaceURI));
+          }
+        } else {
+          // Going from an element node to a text node
+          morphedNode = toNode;
+        }
+      } else if (morphedNodeType === TEXT_NODE || morphedNodeType === COMMENT_NODE) { // Text or comment node
+        if (toNodeType === morphedNodeType) {
+          if (morphedNode.nodeValue !== toNode.nodeValue) {
+            morphedNode.nodeValue = toNode.nodeValue;
+          }
+
+          return morphedNode;
+        } else {
+          // Text node to something else
+          morphedNode = toNode;
+        }
+      }
+    }
+
+    if (morphedNode === toNode) {
+      // The "to node" was not compatible with the "from node" so we had to
+      // toss out the "from node" and use the "to node"
+      onNodeDiscarded(fromNode);
+    } else {
+      if (toNode.isSameNode && toNode.isSameNode(morphedNode)) {
+        return;
+      }
+
+      morphEl(morphedNode, toNode, childrenOnly);
+
+      // We now need to loop over any keyed nodes that might need to be
+      // removed. We only do the removal if we know that the keyed node
+      // never found a match. When a keyed node is matched up we remove
+      // it out of fromNodesLookup and we use fromNodesLookup to determine
+      // if a keyed node has been matched up or not
+      if (keyedRemovalList) {
+        for (var i=0, len=keyedRemovalList.length; i<len; i++) {
+          var elToRemove = fromNodesLookup[keyedRemovalList[i]];
+          if (elToRemove) {
+            removeNode(elToRemove, elToRemove.parentNode, false);
+          }
+        }
+      }
+    }
+
+    if (!childrenOnly && morphedNode !== fromNode && fromNode.parentNode) {
+      if (morphedNode.actualize) {
+        morphedNode = morphedNode.actualize(fromNode.ownerDocument || doc);
+      }
+      // If we had to swap out the from node with a new node because the old
+      // node was not compatible with the target node then we need to
+      // replace the old DOM node in the original DOM tree. This is only
+      // possible if the original DOM node was part of a DOM tree which
+      // we know is the case if it has a parent node.
+      fromNode.parentNode.replaceChild(morphedNode, fromNode);
+    }
+
+    return morphedNode;
+  };
+}
+
+var morphdom = morphdomFactory(morphAttrs);
+
+module.exports = morphdom;
+
+},{}],35:[function(require,module,exports){
+'use strict'
+
+var trailingNewlineRegex = /\n[\s]+$/
+var leadingNewlineRegex = /^\n[\s]+/
+var trailingSpaceRegex = /[\s]+$/
+var leadingSpaceRegex = /^[\s]+/
+var multiSpaceRegex = /[\n\s]+/g
+
+var TEXT_TAGS = [
+  'a', 'abbr', 'b', 'bdi', 'bdo', 'br', 'cite', 'data', 'dfn', 'em', 'i',
+  'kbd', 'mark', 'q', 'rp', 'rt', 'rtc', 'ruby', 's', 'amp', 'small', 'span',
+  'strong', 'sub', 'sup', 'time', 'u', 'var', 'wbr'
+]
+
+var VERBATIM_TAGS = [
+  'code', 'pre', 'textarea'
+]
+
+module.exports = function appendChild (el, childs) {
+  if (!Array.isArray(childs)) return
+

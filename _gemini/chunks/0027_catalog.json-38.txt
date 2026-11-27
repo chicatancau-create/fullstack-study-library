@@ -1,0 +1,127 @@
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 7,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：296 文件 -> 297 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/doocs/advanced-java",
+          "category": "知识库/后端进阶",
+          "branch": null,
+          "archive_sha256": "ed53e3768781166d08ad5336cf0c0a164855cf4bae5d357322f0d8deff62649d",
+          "tarball_mb": 7,
+          "fetched": "2026-11-04 20:03",
+          "files": 297,
+          "bytes": 10109802,
+          "mb": 9,
+          "top_extensions": {
+            ".png": 178,
+            ".md": 93,
+            ".jpg": 10,
+            "(none)": 3,
+            ".yml": 3,
+            ".json": 2,
+            ".ts": 2,
+            ".java": 1,
+            ".yaml": 1,
+            ".mts": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "CC-BY-SA-4.0",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：296 文件 -> 297 文件",
+          "measured": {
+            "pushed": "2026-10-19",
+            "stars": 79171
+          }
+        }
+      }
+    },
+    {
+      "id": "github:goldbergyoni/nodebestpractices",
+      "name": "goldbergyoni/nodebestpractices",
+      "source": {
+        "url": "https://github.com/goldbergyoni/nodebestpractices",
+        "canonical_url": "https://github.com/goldbergyoni/nodebestpractices",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-06-15",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:45+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "dc3d60c29d5483d9ea99cf261bbd6203516a2ba7",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/后端进阶/goldbergyoni/nodebestpractices",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/goldbergyoni/nodebestpractices"
+      },
+      "integrity": {
+        "archive_sha256": "76cfb94e6b6572a353498e89f699e2818aa2d31695361536570c66b270064552",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/后端进阶",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 758,
+        "bytes": 12890892,
+        "markdown_count": 653,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:23+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "CC-BY-SA-4.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {

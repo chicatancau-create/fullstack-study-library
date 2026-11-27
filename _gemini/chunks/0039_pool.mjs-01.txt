@@ -1,0 +1,147 @@
+/**
+ * E02 任务池：并发上限 + 排队上限 + 超时 + 取消。
+ *
+ * 三条不妥协的语义（README 第 6–9 节各有对应证据，请不要凭直觉改写）：
+ *
+ * 1. 取消与超时只让「调用方停止等待」，不会撤销底层正在执行的函数。
+ *    JS 没有抢占式取消：没有 await 的同步代码、已经发出的网络请求、已经提交的写操作，
+ *    都不会因为 Promise 被 reject 而回滚。底层函数真正结算前，它占用的并发槽位不释放，
+ *    否则实际并发数会超过 concurrency —— 那是另一种失控。
+ *
+ * 2. 队列有硬上限。满了立刻拒绝（E_QUEUE_FULL），不静默膨胀。
+ *    需要「等位」而不是「拒绝」时，生产方先 await waitForSlot()，把压力传回生产端。
+ *
+ * 3. failFast 只影响「尚未开始」的任务。已在执行的不会被抢占，它要么跑完，
+ *    要么由它自己的 signal 去协商中止。
+ */
+
+export const POOL_CODES = Object.freeze({
+  QUEUE_FULL: 'E_QUEUE_FULL',
+  CLOSED: 'E_POOL_CLOSED',
+  DISCARDED: 'E_POOL_DISCARDED',
+  CANCELLED: 'E_POOL_CANCELLED',
+  TIMEOUT: 'E_POOL_TIMEOUT',
+});
+
+export class PoolError extends Error {
+  constructor(code, message, extra = {}) {
+    super(message);
+    this.name = 'PoolError';
+    this.code = code;
+    Object.assign(this, extra);
+  }
+}
+
+let nextTaskId = 0;
+
+export class TaskPool {
+  #concurrency;
+  #maxQueue;
+  #failFast;
+  #name;
+
+  #queue = [];
+  #running = new Map();
+  #closed = false;
+  #firstError = null;
+  #failFastTriggered = false;
+  #failFastSnapshot = null;
+  #idleWaiters = [];
+  #slotWaiters = [];
+  #stats;
+
+  constructor({ concurrency = 1, maxQueue = Infinity, failFast = false, name = 'pool' } = {}) {
+    if (!Number.isInteger(concurrency) || concurrency < 1) {
+      throw new RangeError(`concurrency 必须是 >=1 的整数，收到 ${concurrency}`);
+    }
+    if (!(maxQueue === Infinity || (Number.isInteger(maxQueue) && maxQueue >= 0))) {
+      throw new RangeError(`maxQueue 必须是 >=0 的整数或 Infinity，收到 ${maxQueue}`);
+    }
+    this.#concurrency = concurrency;
+    this.#maxQueue = maxQueue;
+    this.#failFast = failFast;
+    this.#name = name;
+    this.#stats = {
+      submitted: 0,
+      started: 0,
+      fulfilled: 0,
+      rejected: 0,
+      timeouts: 0,
+      cancelledQueued: 0,
+      cancelledRunning: 0,
+      rejectedQueueFull: 0,
+      discardedByFailFast: 0,
+      rejectedAfterClose: 0,
+      lateAfterTimeout: 0,
+      lateAfterCancel: 0,
+      peakRunning: 0,
+      peakQueue: 0,
+    };
+  }
+
+  get concurrency() {
+    return this.#concurrency;
+  }
+
+  get name() {
+    return this.#name;
+  }
+
+  /**
+   * 提交一个任务。
+   * @param {(task: object) => any} fn 任务函数；返回值会被 Promise 化
+   * @param {{signal?: AbortSignal, timeoutMs?: number, label?: string}} [options]
+   * @returns {Promise<any>} 调用方视角的结算承诺（可能先于底层函数结算）
+   */
+  submit(fn, { signal = null, timeoutMs = null, label = '' } = {}) {
+    if (typeof fn !== 'function') throw new TypeError('submit 需要函数');
+    if (timeoutMs !== null && (!Number.isFinite(timeoutMs) || timeoutMs < 0)) {
+      throw new RangeError(`timeoutMs 必须是 >=0 的有限数或 null，收到 ${timeoutMs}`);
+    }
+    if (
+      signal !== null &&
+      (typeof signal.aborted !== 'boolean' ||
+        typeof signal.addEventListener !== 'function' ||
+        typeof signal.removeEventListener !== 'function')
+    ) {
+      throw new TypeError('signal 必须是 AbortSignal（或等价实现）或 null');
+    }
+    const id = ++nextTaskId;
+    const task = {
+      id,
+      label: label || `task#${id}`,
+      fn,
+      signal,
+      timeoutMs,
+      state: 'new',
+      submittedAt: Date.now(),
+      startedAt: null,
+      settledAt: null,
+      underlyingFinishedAt: null,
+      underlyingOutcome: null,
+      timedOut: false,
+      cancelReason: null,
+      settled: false,
+      timer: null,
+      onAbort: null,
+      resolve: null,
+      reject: null,
+    };
+    this.#stats.submitted++;
+
+    const promise = new Promise((resolve, reject) => {
+      task.resolve = resolve;
+      task.reject = reject;
+    });
+
+    if (this.#closed) {
+      task.state = 'rejected-closed';
+      this.#stats.rejectedAfterClose++;
+      this.#settleReject(task, new PoolError(POOL_CODES.CLOSED, `${task.label}: 池已关闭，不再接收新任务`, { id }));
+      return promise;
+    }
+    if (this.#failFastTriggered) {
+      task.state = 'rejected-failfast';
+      this.#stats.discardedByFailFast++;
+      this.#settleReject(
+        task,

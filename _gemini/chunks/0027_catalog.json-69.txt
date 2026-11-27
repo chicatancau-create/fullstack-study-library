@@ -1,0 +1,117 @@
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 24,
+        "bytes": 1067672,
+        "markdown_count": 20,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:24+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：23 文件 -> 24 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/jlevy/the-art-of-command-line",
+          "category": "知识库/计算机基础",
+          "branch": null,
+          "archive_sha256": "c1909cf70537f98a82917cfbc57389b7ed4d62d003372d434485412bcfb2a7b6",
+          "tarball_mb": 0,
+          "fetched": "2026-11-04 20:03",
+          "files": 24,
+          "bytes": 1067672,
+          "mb": 1,
+          "top_extensions": {
+            ".md": 20,
+            ".png": 1,
+            "(none)": 1,
+            ".yml": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：23 文件 -> 24 文件",
+          "measured": {
+            "pushed": "2024-06-25",
+            "stars": 162678
+          }
+        }
+      }
+    },
+    {
+      "id": "github:jwasham/coding-interview-university",
+      "name": "jwasham/coding-interview-university",
+      "source": {
+        "url": "https://github.com/jwasham/coding-interview-university",
+        "canonical_url": "https://github.com/jwasham/coding-interview-university",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2025-08-28",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:41+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "d1cad3509707ade07072f990ddf9989a9c4257ad",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/计算机基础/jwasham/coding-interview-university",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/jwasham/coding-interview-university"
+      },
+      "integrity": {
+        "archive_sha256": "c9563275032a2416d7bada26712a24d70efee2044d520219c7e1f58471335e2f",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/计算机基础",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 47,
+        "bytes": 6714334,
+        "markdown_count": 33,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:24+08:00",

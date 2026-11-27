@@ -1,0 +1,127 @@
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 28,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/NotHarshhaa/DevOps-Projects",
+          "category": "知识库/运维与云原生",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 28,
+          "fetched": "2026-11-05 11:12",
+          "files": 3094,
+          "bytes": 173283595,
+          "mb": 165,
+          "top_extensions": {
+            ".json": 152,
+            ".java": 139,
+            ".tf": 138,
+            ".tsx": 129,
+            ".png": 128,
+            ".class": 121,
+            ".md": 112,
+            "(none)": 105,
+            ".js": 87,
+            ".xml": 83
+          },
+          "license_files": [],
+          "license_detected": null,
+          "round": 2,
+          "selection": "正文 112 篇；自带测试 27 个；图解 299 张；命中计划缺口方向｜自动判定：keep",
+          "functions": [
+            "F2解答",
+            "F3可运行",
+            "F5图解"
+          ],
+          "measured": {
+            "md_n": 112,
+            "md_share_pct": 2.5,
+            "question_markers": 5,
+            "tests": 27,
+            "images": 299,
+            "pdf": 0,
+            "stars": 5533,
+            "pushed": "2026-09-04",
+            "functions": [
+              "部署运维",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "content_fingerprint": "6805d15249de34c984a1e13e4629aa1ad8c3172648473ac26f21328b5fc87faa",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:tikam02/devops-guide",
+      "name": "Tikam02/DevOps-Guide",
+      "source": {
+        "url": "https://github.com/Tikam02/DevOps-Guide",
+        "canonical_url": "https://github.com/Tikam02/DevOps-Guide",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-05-22",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:29+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "a1702fd8ecac9b464ff3209de03860285b431a3b",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/运维与云原生/Tikam02/DevOps-Guide",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/Tikam02/DevOps-Guide"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "ef2469763d320e7f049e389e4b8ce04df7def74eed8a288f8388ba1bc19b3889",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:07+08:00"
+        },
+        "legacy_fingerprint_12": "ef2469763d32"
+      },
+      "classification": {
+        "primary_category": "知识库/运维与云原生",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F2",
+          "F4"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 307,
+        "bytes": 207162333,
+        "markdown_count": 130,
+        "question_markers": 3,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:25+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",

@@ -1,0 +1,64 @@
+      "source": "liquidslr",
+      "upstream": "https://github.com/liquidslr/leetcode-company-wise-problems",
+      "file": "05-外部资料库/题库/公司高频题/liquidslr/leetcode-company-wise-problems/ByteDance/2. Three Months.csv",
+      "snapshot": "365cdff7e90e64499b5d48e9f272936de34e28f46f85b626116ce2b8d53d7ebb",
+      "fetched": "2026-11-04 20:03",
+      "rows": 1,
+      "sha256": "4370c3a1634da88a9eb424acfe8259a4b7b5f129ef3d05589468abc8322e2a74"
+    },
+    {
+      "source": "liquidslr",
+      "upstream": "https://github.com/liquidslr/leetcode-company-wise-problems",
+      "file": "05-外部资料库/题库/公司高频题/liquidslr/leetcode-company-wise-problems/ByteDance/3. Six Months.csv",
+      "snapshot": "365cdff7e90e64499b5d48e9f272936de34e28f46f85b626116ce2b8d53d7ebb",
+      "fetched": "2026-11-04 20:03",
+      "rows": 3,
+      "sha256": "9d491f226efa2414ab5189d92bfb2f111d592f573df9d6904f2438e88e64c99b"
+    },
+    {
+      "source": "liquidslr",
+      "upstream": "https://github.com/liquidslr/leetcode-company-wise-problems",
+      "file": "05-外部资料库/题库/公司高频题/liquidslr/leetcode-company-wise-problems/ByteDance/4. More Than Six Months.csv",
+      "snapshot": "365cdff7e90e64499b5d48e9f272936de34e28f46f85b626116ce2b8d53d7ebb",
+      "fetched": "2026-11-04 20:03",
+      "rows": 49,
+      "sha256": "fc55798d7f80b97b9670193d976d4f89079de93253404400d60f09e62368036f"
+    },
+    {
+      "source": "liquidslr",
+      "upstream": "https://github.com/liquidslr/leetcode-company-wise-problems",
+      "file": "05-外部资料库/题库/公司高频题/liquidslr/leetcode-company-wise-problems/ByteDance/5. All.csv",
+      "snapshot": "365cdff7e90e64499b5d48e9f272936de34e28f46f85b626116ce2b8d53d7ebb",
+      "fetched": "2026-11-04 20:03",
+      "rows": 59,
+      "sha256": "96c9d18cbe2325ae01f767ee223e50e8949597869ca97581c8b2ab5e0c4b644a"
+    },
+    {
+      "source": "snehasishroy",
+      "upstream": "https://github.com/snehasishroy/leetcode-companywise-interview-questions",
+      "file": "05-外部资料库/题库/公司高频题/snehasishroy/leetcode-companywise-interview-questions/bytedance/all.csv",
+      "snapshot": "e51804a8805b5ed39d2d4a228a80d3dbe1805453f97ed2b13a923fbb6e03f713",
+      "fetched": "2026-11-04 20:03",
+      "rows": 63,
+      "sha256": "9f449692adfe5615c5a9cdb4e80e8f6fe3e3730930f477ead730a2fcf139e5f3"
+    },
+    {
+      "source": "snehasishroy",
+      "upstream": "https://github.com/snehasishroy/leetcode-companywise-interview-questions",
+      "file": "05-外部资料库/题库/公司高频题/snehasishroy/leetcode-companywise-interview-questions/bytedance/more-than-six-months.csv",
+      "snapshot": "e51804a8805b5ed39d2d4a228a80d3dbe1805453f97ed2b13a923fbb6e03f713",
+      "fetched": "2026-11-04 20:03",
+      "rows": 58,
+      "sha256": "440fadd6056a2561e276c573451030b8d7fbddfa291982c3ec962ad925bbc572"
+    },
+    {
+      "source": "snehasishroy",
+      "upstream": "https://github.com/snehasishroy/leetcode-companywise-interview-questions",
+      "file": "05-外部资料库/题库/公司高频题/snehasishroy/leetcode-companywise-interview-questions/bytedance/six-months.csv",
+      "snapshot": "e51804a8805b5ed39d2d4a228a80d3dbe1805453f97ed2b13a923fbb6e03f713",
+      "fetched": "2026-11-04 20:03",
+      "rows": 4,
+      "sha256": "3677bdf66275b8d36d05e03591d2f4f6f4ca6105b6419ddb46cc0f847183ee46"
+    }
+  ]
+}

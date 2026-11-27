@@ -1,0 +1,123 @@
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-10-17",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:20+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "c48eb397a75af7267c3d79c5f21112e6cf12ba85",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/资源目录/doocs/technical-books",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/doocs/technical-books"
+      },
+      "integrity": {
+        "archive_sha256": "6dc40db753f369dc1576075a4d3311116c124cbaf2d7dfa48cfa23f071a1a44f",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/资源目录",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 29,
+        "bytes": 5118237,
+        "markdown_count": 3,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:25+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "CC-BY-SA-4.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 3,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：28 文件 -> 29 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/doocs/technical-books",
+          "category": "知识库/资源目录",
+          "branch": null,
+          "archive_sha256": "6dc40db753f369dc1576075a4d3311116c124cbaf2d7dfa48cfa23f071a1a44f",
+          "tarball_mb": 3,
+          "fetched": "2026-11-04 20:03",
+          "files": 29,
+          "bytes": 5118237,
+          "mb": 4,
+          "top_extensions": {
+            ".png": 5,
+            "(none)": 4,
+            ".json": 3,
+            ".md": 3,
+            ".ts": 3,
+            ".yml": 3,
+            ".jpg": 2,
+            ".yaml": 1,
+            ".toml": 1,
+            ".mts": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "CC-BY-SA-4.0",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：28 文件 -> 29 文件",
+          "measured": {
+            "pushed": "2026-10-17",
+            "stars": 7026
+          }
+        }
+      }
+    },
+    {
+      "id": "github:forthespada/cs-books",
+      "name": "forthespada/CS-Books",
+      "source": {
+        "url": "https://github.com/forthespada/CS-Books",
+        "canonical_url": "https://github.com/forthespada/CS-Books",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2025-11-06",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:22+08:00",
+          "default_branch": "master",

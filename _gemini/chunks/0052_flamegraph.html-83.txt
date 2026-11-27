@@ -1,0 +1,132 @@
+exports.local = local;
+exports.matcher = matcher;
+exports.mouse = mouse;
+exports.namespace = namespace;
+exports.namespaces = namespaces;
+exports.select = select;
+exports.selectAll = selectAll;
+exports.selection = selection;
+exports.selector = selector;
+exports.selectorAll = selectorAll;
+exports.style = styleValue;
+exports.touch = touch;
+exports.touches = touches;
+exports.window = defaultView;
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+}));
+
+},{}],25:[function(require,module,exports){
+// https://d3js.org/d3-time-format/ v2.3.0 Copyright 2020 Mike Bostock
+(function (global, factory) {
+typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('d3-time')) :
+typeof define === 'function' && define.amd ? define(['exports', 'd3-time'], factory) :
+(global = global || self, factory(global.d3 = global.d3 || {}, global.d3));
+}(this, function (exports, d3Time) { 'use strict';
+
+function localDate(d) {
+  if (0 <= d.y && d.y < 100) {
+    var date = new Date(-1, d.m, d.d, d.H, d.M, d.S, d.L);
+    date.setFullYear(d.y);
+    return date;
+  }
+  return new Date(d.y, d.m, d.d, d.H, d.M, d.S, d.L);
+}
+
+function utcDate(d) {
+  if (0 <= d.y && d.y < 100) {
+    var date = new Date(Date.UTC(-1, d.m, d.d, d.H, d.M, d.S, d.L));
+    date.setUTCFullYear(d.y);
+    return date;
+  }
+  return new Date(Date.UTC(d.y, d.m, d.d, d.H, d.M, d.S, d.L));
+}
+
+function newDate(y, m, d) {
+  return {y: y, m: m, d: d, H: 0, M: 0, S: 0, L: 0};
+}
+
+function formatLocale(locale) {
+  var locale_dateTime = locale.dateTime,
+      locale_date = locale.date,
+      locale_time = locale.time,
+      locale_periods = locale.periods,
+      locale_weekdays = locale.days,
+      locale_shortWeekdays = locale.shortDays,
+      locale_months = locale.months,
+      locale_shortMonths = locale.shortMonths;
+
+  var periodRe = formatRe(locale_periods),
+      periodLookup = formatLookup(locale_periods),
+      weekdayRe = formatRe(locale_weekdays),
+      weekdayLookup = formatLookup(locale_weekdays),
+      shortWeekdayRe = formatRe(locale_shortWeekdays),
+      shortWeekdayLookup = formatLookup(locale_shortWeekdays),
+      monthRe = formatRe(locale_months),
+      monthLookup = formatLookup(locale_months),
+      shortMonthRe = formatRe(locale_shortMonths),
+      shortMonthLookup = formatLookup(locale_shortMonths);
+
+  var formats = {
+    "a": formatShortWeekday,
+    "A": formatWeekday,
+    "b": formatShortMonth,
+    "B": formatMonth,
+    "c": null,
+    "d": formatDayOfMonth,
+    "e": formatDayOfMonth,
+    "f": formatMicroseconds,
+    "g": formatYearISO,
+    "G": formatFullYearISO,
+    "H": formatHour24,
+    "I": formatHour12,
+    "j": formatDayOfYear,
+    "L": formatMilliseconds,
+    "m": formatMonthNumber,
+    "M": formatMinutes,
+    "p": formatPeriod,
+    "q": formatQuarter,
+    "Q": formatUnixTimestamp,
+    "s": formatUnixTimestampSeconds,
+    "S": formatSeconds,
+    "u": formatWeekdayNumberMonday,
+    "U": formatWeekNumberSunday,
+    "V": formatWeekNumberISO,
+    "w": formatWeekdayNumberSunday,
+    "W": formatWeekNumberMonday,
+    "x": null,
+    "X": null,
+    "y": formatYear,
+    "Y": formatFullYear,
+    "Z": formatZone,
+    "%": formatLiteralPercent
+  };
+
+  var utcFormats = {
+    "a": formatUTCShortWeekday,
+    "A": formatUTCWeekday,
+    "b": formatUTCShortMonth,
+    "B": formatUTCMonth,
+    "c": null,
+    "d": formatUTCDayOfMonth,
+    "e": formatUTCDayOfMonth,
+    "f": formatUTCMicroseconds,
+    "g": formatUTCYearISO,
+    "G": formatUTCFullYearISO,
+    "H": formatUTCHour24,
+    "I": formatUTCHour12,
+    "j": formatUTCDayOfYear,
+    "L": formatUTCMilliseconds,
+    "m": formatUTCMonthNumber,
+    "M": formatUTCMinutes,
+    "p": formatUTCPeriod,
+    "q": formatUTCQuarter,
+    "Q": formatUnixTimestamp,
+    "s": formatUnixTimestampSeconds,
+    "S": formatUTCSeconds,
+    "u": formatUTCWeekdayNumberMonday,
+    "U": formatUTCWeekNumberSunday,
+    "V": formatUTCWeekNumberISO,
+    "w": formatUTCWeekdayNumberSunday,
+    "W": formatUTCWeekNumberMonday,

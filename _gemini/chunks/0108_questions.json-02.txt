@@ -1,0 +1,105 @@
+        { "point": "说明闭包捕获绑定而非值", "weight": 2 },
+        { "point": "解释 let 每轮创建新绑定", "weight": 2 },
+        { "point": "给出 IIFE 或循环体内 const 的替代写法", "weight": 1 }
+      ],
+      "followups": [
+        "闭包与内存泄漏的关系是什么？",
+        "for...of 与 for...in 在这个问题上有什么不同？"
+      ],
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE05",
+      "company": "通用",
+      "role": "前端",
+      "type": "CSS",
+      "title": "BFC 与外边距塌陷、浮动包含",
+      "question": "什么是 BFC？它能解决哪些布局问题，如何触发？",
+      "answer": [
+        "BFC 是块级格式化上下文，内部块级盒在独立容器内布局，内外互不影响。",
+        "触发方式包括 display: flow-root、float 非 none、position: absolute/fixed、overflow 非 visible、contain: layout。",
+        "解决父子外边距塌陷：父元素形成 BFC 后，子元素 margin 不再与父元素合并。",
+        "包含浮动子元素：BFC 会计算浮动高度，可用于替代 clearfix 撑开父容器。",
+        "阻止相邻元素 margin 合并与浮动环绕：BFC 盒子不会与外部浮动重叠。",
+        "flow-root 是最无副作用的触发方式；overflow: hidden 会裁剪溢出内容，需权衡。"
+      ],
+      "rubric": [
+        { "point": "定义 BFC 为独立布局上下文", "weight": 1 },
+        { "point": "列出至少三种触发方式并说明副作用", "weight": 2 },
+        { "point": "对应到外边距塌陷或浮动包含的具体问题", "weight": 2 }
+      ],
+      "followups": [
+        "Flex/Grid 容器是否形成 BFC？",
+        "margin 合并发生在哪些相邻关系上？"
+      ],
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_display/Block_formatting_context",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE06",
+      "company": "通用",
+      "role": "前端",
+      "type": "浏览器",
+      "title": "强缓存与协商缓存的组合策略",
+      "question": "Cache-Control、ETag、Last-Modified 分别如何工作？发布新版本时如何避免用户拿到旧资源？",
+      "answer": [
+        "强缓存命中时浏览器不发请求，直接使用本地副本，由 Cache-Control 的 max-age/s-maxage 与 Expires 决定。",
+        "协商缓存由 ETag/If-None-Match 与 Last-Modified/If-Modified-Since 触发，命中返回 304 且无响应体。",
+        "ETag 基于内容指纹更精确，Last-Modified 只有秒级精度且无法区分内容是否真变。",
+        "HTML 入口应使用 no-cache（允许缓存但必须协商），避免用户长期拿到旧入口。",
+        "带 hash 的静态资源可设 immutable + 一年 max-age，内容变化即换 URL，天然避开旧缓存。",
+        "发布后旧资源需保留一段时间，防止尚未刷新 HTML 的用户请求 404。"
+      ],
+      "rubric": [
+        { "point": "区分强缓存不发请求与协商缓存返回 304", "weight": 2 },
+        { "point": "说明 ETag 与 Last-Modified 的精度差异", "weight": 1 },
+        { "point": "给出 HTML no-cache + hash 资源 immutable 的发布策略", "weight": 2 }
+      ],
+      "followups": [
+        "CDN 回源缓存与浏览器缓存如何叠加？",
+        "为什么 304 响应仍可能消耗带宽？"
+      ],
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE07",
+      "company": "通用",
+      "role": "前端",
+      "type": "可访问性",
+      "title": "自定义对话框的焦点管理与 ARIA",
+      "question": "用 div 实现模态框时，键盘与读屏用户会遇到什么问题？应如何补齐？",
+      "answer": [
+        "原生 dialog 元素自带焦点陷阱、Esc 关闭与顶层渲染；用 div 模拟时这些行为都要自己实现。",
+        "打开时把焦点移到对话框内首个可聚焦元素或标题，关闭后焦点回到触发按钮。",
+        "Tab/Shift+Tab 需在对话框内循环，背景内容应设为 inert 或 aria-hidden 并从 tab 序列移除。",
+        "对话框需 role=dialog、aria-modal=true、aria-labelledby 指向标题，读屏才会播报正确语义。",
+        "Esc 关闭、点击遮罩关闭要与业务确认（表单未保存时不应静默丢弃）。",
+        "焦点可见性不能仅靠 outline: none 移除，需提供替代的可见焦点样式。"
+      ],
+      "rubric": [
+        { "point": "说明打开/关闭时的焦点转移规则", "weight": 2 },
+        { "point": "实现焦点陷阱并隔离背景内容", "weight": 2 },
+        { "point": "补齐 role/aria-modal/aria-labelledby 语义", "weight": 1 }
+      ],
+      "followups": [
+        "inert 与 aria-hidden 的差别是什么？",
+        "读屏用户如何感知对话框已关闭？"
+      ],
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE08",
+      "company": "通用",
+      "role": "前端",
+      "type": "SSR",
+      "title": "SSR 水合不匹配的成因与排查",
+      "question": "React 服务端渲染后水合报错一般由什么引起？如何定位与修复？",
+      "answer": [
+        "水合要求首次客户端渲染与服务端 HTML 完全一致；任何依赖浏览器环境的分支都会造成差异。",

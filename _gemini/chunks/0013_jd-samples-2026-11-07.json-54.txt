@@ -1,0 +1,6 @@
+      "requirements": "【必需】本科及以上，计算机、通信和电子信息科学、数学等相关专业优先；扎实前端/全栈工程能力，熟悉 JavaScript/TypeScript/HTML/CSS，熟悉 React/Vue 等至少一种主流前端框架；具备实际全栈开发经验，理解 HTTP、RESTful API、数据库、缓存、消息队列、服务治理等基础概念，熟悉 Node.js/Python/Go/Java 任一后端技术栈；有 AI Agent 或 LLM 应用实践经验，熟悉 RAG、Tool Calling、Prompt Engineering 等核心方向；具备业务抽象、系统设计、工程质量与主人翁意识。 【加分】有完整全栈项目经验，能独立完成从页面、接口、数据到部署验证的端到端交付；有 LangChain/Eino 等 AI 框架深度使用经验，或有 AI 评测体系建设经验；有 C 端 AI 业务落地场景、参与或主导过优秀开源项目、有技术博客产出。 > JD-12 的“前端工程化、性能监控、高可用”写在**职位描述**里、“页面→接口→数据→部署验证”写在**加分项**里，按本文件计数规则均不计入必需频次。",
+      "responsibilities": ""
+    }
+  ],
+  "repaired_at": "2026-11-07T14:56:35.395Z"
+}

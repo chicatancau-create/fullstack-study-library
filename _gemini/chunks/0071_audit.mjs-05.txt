@@ -1,0 +1,51 @@
+  const layoutLines = [
+    '--- 布局 / 重排 ---',
+    'page        vp    inner  scroll  overflow  gridColumns',
+    ...results.layout.map(r => `${r.page.padEnd(10)} ${r.viewport.padEnd(5)} ${String(r.innerWidth).padEnd(6)} ${String(r.docScrollWidth).padEnd(7)} ${String(r.overflowPx).padEnd(9)} ${r.gridColumns}`),
+    '',
+    '--- 200% 文本 ---',
+    ...results.textZoom.map(r => `${r.viewport}: before scrollWidth=${r.before.sw} after=${r.after.sw} inner=${r.after.iw} overflow=${r.after.sw - r.after.iw} clipped=${r.after.clipped.join(',') || 'none'}`),
+    '',
+    '--- 减少动态效果 ---',
+    ...results.reducedMotion.map(r => `default=${r.default} reduced=${r.reduced}`),
+    '',
+    '--- 跳转链接 ---',
+    ...results.skipLink.map(r => `${r.viewport}: firstTab="${r.firstFocus}" enterFocus=${r.activeAfterEnter} pass=${r.firstIsSkipLink && r.skipMovesFocusToMain}`),
+  ];
+  fs.writeFileSync(path.join(EVIDENCE, 'layout.txt'), layoutLines.join('\n') + '\n');
+
+  const kbLines = [];
+  for (const [label, run] of Object.entries(results.keyboard)) {
+    kbLines.push(`=== keyboard ${label} (${run.viewport}) ===`);
+    for (const t of run.trace) {
+      kbLines.push(`${String(t.step).padEnd(15)} ${t.tag.padEnd(8)} id=${(t.id || '-').padEnd(10)} text=${t.text} outline=${t.outlineWidth} ${t.outlineStyle} ${t.outlineColor}`);
+    }
+    kbLines.push(`checks: ${JSON.stringify(run.checks)}`);
+    kbLines.push(`final: active=${run.finalState.activeId} success="${run.finalState.successText}" url=${run.finalState.url}`);
+    kbLines.push(`priority=${run.priorityValue} done=${run.doneChecked}`, '');
+  }
+  for (const run of results.keyboardInvalid) {
+    kbLines.push(`=== invalid submit ${run.viewport} ===`);
+    kbLines.push(`checks: ${JSON.stringify(run.checks)}`);
+    kbLines.push(`error="${run.state.errorText}" active=${run.state.activeId} describedBy=${run.state.describedBy} successHidden=${run.state.successHidden}`, '');
+  }
+  fs.writeFileSync(path.join(EVIDENCE, 'keyboard.txt'), kbLines.join('\n') + '\n');
+
+  const axeLines = ['--- axe (WCAG 2.0/2.1/2.2 A+AA) ---'];
+  for (const a of results.axe) {
+    const counts = a.violations.reduce((m, v) => { m[v.impact] = (m[v.impact] || 0) + 1; return m; }, {});
+    axeLines.push(`${a.page}@${a.viewport}: passes=${a.passes} violations=${a.violations.length} ${JSON.stringify(counts)} incomplete=${a.incomplete.length}`);
+    for (const v of a.violations) axeLines.push(`  - ${v.impact} ${v.id}: ${v.help} (${v.nodes.length} nodes)`);
+  }
+  fs.writeFileSync(path.join(EVIDENCE, 'axe.txt'), axeLines.join('\n') + '\n');
+
+  console.log(`布局用例: ${results.layout.length}；跳转链接: ${results.skipLink.length}；键盘: ${Object.keys(results.keyboard).length} 组；空提交: ${results.keyboardInvalid.length} 组；axe: ${results.axe.length} 次`);
+  if (failures.length) {
+    console.error('失败项:\n' + failures.map(f => ' - ' + f).join('\n'));
+    process.exitCode = 1;
+  } else {
+    console.log('全部断言通过');
+  }
+} finally {
+  await browser.close();
+}

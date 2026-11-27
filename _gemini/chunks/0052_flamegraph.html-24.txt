@@ -1,0 +1,141 @@
+  const regexp = hoc({ bg: bgs.regexp, exclude, name: 'regexp', lbl: 'rx' }, action)
+  const cpp = hoc({ bg: bgs.cpp, exclude, name: 'cpp' }, action)
+
+  return render`
+    <div style='margin-left:-.25rem'>
+      ${app}${deps}${core}${wasm}${inlinable}${native}${regexp}${v8}${cpp}${init}
+    </div>
+  `
+}
+
+},{}],8:[function(require,module,exports){
+'use strict'
+
+const typeFiltersCmp = require('./type-filters')
+const keyCmp = require('./key')
+const controlsCmp = require('./controls')
+const zoomCmp = require('./zoom')
+const searchCmp = require('./search')
+const titleCmp = require('./title')
+module.exports = (render) => ({ state, actions }) => {
+  const typeFilters = typeFiltersCmp(render)
+  const key = keyCmp(render)
+  const controls = controlsCmp(render)
+  const zoom = zoomCmp(render)
+  const search = searchCmp(render)
+  const title = titleCmp(render)
+
+  return render`
+    <div>
+      <div class='fixed left-0 top-0 w-100 bg-white h2 pt1 pb2' style='box-sizing: content-box'>
+        ${search(actions.search())}
+        ${title(state.title)}
+        ${zoom(actions.zoom())}
+        ${key(state.key)}
+      </div>
+      <div class='absolute left-0 w-100 h8 tc pb2 nowrap' style='padding-top: 2px'>
+        ${controls(state.control, actions.control())}
+        ${typeFilters(state.typeFilters, actions.typeFilters())}
+      </div>
+    </div>
+  `
+}
+
+},{"./controls":2,"./key":4,"./search":5,"./title":6,"./type-filters":7,"./zoom":9}],9:[function(require,module,exports){
+'use strict'
+
+module.exports = (render) => (action) => render`
+  <div class='fr dn db-l h-100 mr1'>
+    <button class='h-100' onclick=${() => action({ type: 'out' })}>−</button>
+    <button class='h-100' onclick=${() => action({ type: 'in' })}>+</button>
+  </div>
+`
+
+},{}],10:[function(require,module,exports){
+'use strict'
+
+const hsl = require('hsl-to-rgb-for-reals')
+const { colorHash } = require('d3-fg')
+
+module.exports = ({ colors, trees, exclude, merged = false, kernelTracing, title, visualizeCpuProfile }) => ({
+  trees,
+  focusedNodeId: null,
+  key: {
+    colors: [
+      colorHash({ top: 0, name: 'cold' }, 1, 100),
+      colorHash({ top: 1, name: 'luke-warm' }, 1, 100),
+      colorHash({ top: 3, name: 'warm' }, 1, 100),
+      colorHash({ top: 10, name: 'hot' }, 1, 100)
+    ],
+    enableOptUnopt: !merged
+  },
+  title: { title },
+  control: {
+    tiers: false,
+    optimized: false,
+    unoptimized: false,
+    renderMergedBtn: !kernelTracing,
+    merged: merged,
+    visualizeCpuProfile
+  },
+  typeFilters: {
+    visualizeCpuProfile,
+    enableInlinable: !merged,
+    renderInlinable: !kernelTracing,
+    unhighlighted: {
+      inlinable: '#fff',
+      app: '#fff',
+      deps: '#fff',
+      core: '#fff',
+      wasm: '#fff',
+      native: '#fff',
+      cpp: '#fff',
+      regexp: '#fff',
+      v8: '#fff',
+      init: '#fff'
+    },
+    highlighted: {
+      inlinable: `rgb(${hsl(
+        colors.inlinable.h,
+        colors.inlinable.s / 100 * 1.2,
+        colors.inlinable.l / 100 * 1.2
+      )})`,
+      app: `rgb(${hsl(
+        colors.app.h,
+        colors.app.s / 100 * 1.2,
+        colors.app.l / 100 * 1.2
+      )})`,
+      deps: `rgb(${hsl(
+        colors.deps.h,
+        colors.deps.s / 100 * 1.2,
+        colors.deps.l / 100 * 1.2
+      )})`,
+      core: `rgb(${hsl(
+        colors.core.h,
+        colors.core.s / 100 * 1.2,
+        colors.core.l / 100 * 1.2
+      )})`,
+      wasm: `rgb(${hsl(
+        colors.wasm.h,
+        colors.wasm.s / 100,
+        colors.wasm.l / 100
+      )})`,
+      native: `rgb(${hsl(
+        colors.native.h,
+        colors.native.s / 100 * 1.2,
+        colors.native.l / 100 * 1.2
+      )})`,
+      cpp: `rgb(${hsl(
+        colors.cpp.h,
+        colors.cpp.s / 100 * 1.2,
+        colors.cpp.l / 100 * 1.2
+      )})`,
+      regexp: `rgb(${hsl(
+        colors.regexp.h,
+        colors.regexp.s / 100 * 1.2,
+        colors.regexp.l / 100 * 1.2
+      )})`,
+      v8: `rgb(${hsl(
+        colors.v8.h,
+        colors.v8.s / 100 * 1.2,
+        colors.v8.l / 100 * 1.2

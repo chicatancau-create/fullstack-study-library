@@ -1,0 +1,139 @@
+        "usage_restriction": "仅在线参考，未镜像正文；使用前以官方文档与许可证为准。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": "仅在线参考，未做本地镜像",
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "pending",
+        "reviewed_at": null,
+        "evidence": [
+          "2026-11-08 MS0-L4：按官方文档补 reference 记录，未镜像"
+        ]
+      },
+      "extensions": {}
+    },
+    {
+      "id": "github:denoland/deno",
+      "name": "Deno 官方文档",
+      "source": {
+        "url": "https://github.com/denoland/deno",
+        "canonical_url": "https://github.com/denoland/deno",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-08",
+        "upstream_pushed_at": null,
+        "upstream_snapshot": {
+          "status": "not_checked",
+          "checked_at": null,
+          "default_branch": null,
+          "head_commit_sha": null,
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "reference",
+        "mirror_path": null,
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "online_only",
+        "online_fallback_url": "https://github.com/denoland/deno"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/运行时官方文档",
+        "category_basis": "reference：官方仓库文档，仅在线参考，未镜像正文",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 0,
+        "bytes": 0,
+        "markdown_count": null,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-08",
+        "count_scope": "reference；无本地镜像"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "unknown",
+        "license_files": [],
+        "usage_restriction": "仅在线参考，未镜像正文；使用前以官方文档与许可证为准。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": "仅在线参考，未做本地镜像",
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "pending",
+        "reviewed_at": null,
+        "evidence": [
+          "2026-11-08 MS0-L4：按官方文档补 reference 记录，未镜像"
+        ]
+      },
+      "extensions": {}
+    }
+  ],
+  "tombstones": [
+    {
+      "id": "github:asabeneh/30-days-of-react",
+      "name": "Asabeneh/30-Days-Of-React",
+      "canonical_url": "https://github.com/Asabeneh/30-Days-Of-React",
+      "lifecycle": "archived",
+      "reason": "教废弃 ReactDOM.render，按时效证据删除",
+      "evidence": [
+        "05-外部资料库/README.md#四轮采集与时效处置"
+      ],
+      "archived_at": null,
+      "replacement_id": null
+    },
+    {
+      "id": "github:phodal/growth-ebook",
+      "name": "phodal/growth-ebook",
+      "canonical_url": "https://github.com/phodal/growth-ebook",
+      "lifecycle": "archived",
+      "reason": "2022-08 停更，内容以 AngularJS 1.x 为主",
+      "evidence": [
+        "05-外部资料库/README.md#四轮采集与时效处置"
+      ],
+      "archived_at": null,
+      "replacement_id": null
+    },
+    {
+      "id": "github:lgwebdream/fe-interview",
+      "name": "lgwebdream/FE-Interview",
+      "canonical_url": "https://github.com/lgwebdream/FE-Interview",
+      "lifecycle": "archived",
+      "reason": "2023-01 停更，含 componentWillReceiveProps 等旧 API",
+      "evidence": [
+        "05-外部资料库/README.md#四轮采集与时效处置"
+      ],
+      "archived_at": null,
+      "replacement_id": null
+    },
+    {
+      "id": "github:advanced-frontend/daily-interview-question",
+      "name": "Advanced-Frontend/Daily-Interview-Question",
+      "canonical_url": "https://github.com/Advanced-Frontend/Daily-Interview-Question",

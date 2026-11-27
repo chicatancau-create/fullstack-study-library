@@ -1,0 +1,127 @@
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "round": 2,
+          "tar_mb": 0,
+          "ledger_refreshed": "补图/改名后重算：3 文件 -> 4 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/ryanmcdermott/clean-code-javascript",
+          "category": "知识库/资源目录",
+          "branch": "master",
+          "archive_sha256": "035aaba938ffdeb9e05fad342c38c2aba486b22e37258c2ebc3ba37233901566",
+          "fetched": "2026-11-05 16:52",
+          "files": 4,
+          "bytes": 60402,
+          "mb": 0,
+          "license_files": [
+            "LICENSE",
+            "README.md"
+          ],
+          "round": 2,
+          "tar_mb": 0,
+          "selection": "抢救收录：清单/索引型资料，正文集中在少数 README，自动判据会因 md 篇数少而误杀",
+          "measured": {
+            "md_n": 1,
+            "question_markers": null,
+            "tests": null,
+            "pushed": "2024-07-29",
+            "stars": 94694
+          },
+          "ledger_refreshed": "补图/改名后重算：3 文件 -> 4 文件"
+        }
+      }
+    },
+    {
+      "id": "github:notharshhaa/devops-projects",
+      "name": "NotHarshhaa/DevOps-Projects",
+      "source": {
+        "url": "https://github.com/NotHarshhaa/DevOps-Projects",
+        "canonical_url": "https://github.com/NotHarshhaa/DevOps-Projects",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-09-04",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:28+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "7482982bb88f59e1a1bd1d5e57600d69a1c48d2d",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/运维与云原生/NotHarshhaa/DevOps-Projects",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/NotHarshhaa/DevOps-Projects"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "6805d15249de34c984a1e13e4629aa1ad8c3172648473ac26f21328b5fc87faa",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:07+08:00"
+        },
+        "legacy_fingerprint_12": "6805d15249de"
+      },
+      "classification": {
+        "primary_category": "知识库/运维与云原生",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F2",
+          "F3",
+          "F5"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 3094,
+        "bytes": 173283595,
+        "markdown_count": 112,
+        "question_markers": 5,
+        "test_files": 27,
+        "observed_at": "2026-11-07T14:06:25+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {

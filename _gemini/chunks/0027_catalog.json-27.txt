@@ -1,0 +1,122 @@
+        "legacy_fingerprint_12": "348230ce2cd9"
+      },
+      "classification": {
+        "primary_category": "知识库/前端与Node",
+        "category_basis": "按正文关键词判定（原按仓库名判定会错位）：{'前端': 861, 'Node后端': 35, '系统基础': 20, 'AI': 8}",
+        "functions": [
+          "F2"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 288,
+        "bytes": 4669188,
+        "markdown_count": 236,
+        "question_markers": 2,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:21+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "stale",
+        "note": "含 Vue 2 源码向题目（new Vue()、$scopedSlots）与 React 旧 API 示例；作原理对照用，写代码按 Vue 3 / React 当前官方文档",
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/febobo/web-interview",
+          "category": "知识库/前端与Node",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 0,
+          "fetched": "2026-11-05 11:12",
+          "files": 288,
+          "bytes": 4669188,
+          "mb": 4,
+          "top_extensions": {
+            ".md": 236,
+            ".vue": 18,
+            ".styl": 8,
+            ".js": 4,
+            "(none)": 2,
+            ".json": 2,
+            ".bakn": 1,
+            ".yaml": 1,
+            ".yml": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "round": 2,
+          "selection": "正文 236 篇；高采用(11887 star)+有正文(236篇)；文档型仓库(md占比56%)｜自动判定：keep",
+          "functions": [
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 236,
+            "md_share_pct": 56.4,
+            "question_markers": 2,
+            "tests": 0,
+            "images": 0,
+            "pdf": 0,
+            "stars": 11887,
+            "pushed": "2025-05-14",
+            "functions": [
+              "主线-前端",
+              "中线-Vue",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "category_basis": "按正文关键词判定（原按仓库名判定会错位）：{'前端': 861, 'Node后端': 35, '系统基础': 20, 'AI': 8}",
+          "content_fingerprint": "348230ce2cd9a69a9a008013e353d04baa52e273618bdea3d3387fb56a5e9796",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准",
+          "freshness_flag": "含 Vue 2 源码向题目（new Vue()、$scopedSlots）与 React 旧 API 示例；作原理对照用，写代码按 Vue 3 / React 当前官方文档"
+        }
+      }
+    },
+    {
+      "id": "github:getify/you-dont-know-js",
+      "name": "getify/You-Dont-Know-JS",
+      "source": {
+        "url": "https://github.com/getify/You-Dont-Know-JS",
+        "canonical_url": "https://github.com/getify/You-Dont-Know-JS",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-10-31",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:23+08:00",
+          "default_branch": "2nd-ed",
+          "head_commit_sha": "7a83c851af26c422893219d41c53f607a2f1bfe0",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/前端与Node/getify/You-Dont-Know-JS",

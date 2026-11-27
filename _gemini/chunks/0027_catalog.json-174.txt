@@ -1,0 +1,128 @@
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 2,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/franklesniak/EFingPlanner",
+          "category": "题库/课程与路线",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 2,
+          "fetched": "2026-11-05 11:12",
+          "files": 452,
+          "bytes": 10655868,
+          "mb": 10,
+          "top_extensions": {
+            ".md": 238,
+            ".yml": 68,
+            ".json": 66,
+            ".py": 53,
+            "(none)": 5,
+            ".js": 5,
+            ".jsonc": 3,
+            ".mjs": 3,
+            ".yaml": 2,
+            ".toml": 2
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "CC-BY-NC-SA-4.0",
+          "round": 2,
+          "selection": "正文 238 篇；题面/问答标记 33 处；自带测试 30 个｜自动判定：keep",
+          "functions": [
+            "F1题面",
+            "F2解答",
+            "F3可运行"
+          ],
+          "measured": {
+            "md_n": 238,
+            "md_share_pct": 25.9,
+            "question_markers": 33,
+            "tests": 30,
+            "images": 0,
+            "pdf": 0,
+            "stars": 2,
+            "pushed": "2026-10-31",
+            "functions": [
+              "项目实战",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "content_fingerprint": "a5b23f442ba001c6a83ec53c0011e96ba4d2a53c9d391631adcfb3fc416af8f1",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:bregman-arie/devops-exercises",
+      "name": "bregman-arie/devops-exercises",
+      "source": {
+        "url": "https://github.com/bregman-arie/devops-exercises",
+        "canonical_url": "https://github.com/bregman-arie/devops-exercises",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2025-12-27",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:54+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "9e49ef97f16377d901db01f3562187394828ca6a",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/运维与DevOps/bregman-arie/devops-exercises",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/bregman-arie/devops-exercises"
+      },
+      "integrity": {
+        "archive_sha256": "36631cfc5b3b7ea4a44960f799d5dcbe014554be9c238509c84b764fa92723d4",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "题库/运维与DevOps",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 430,
+        "bytes": 6999660,
+        "markdown_count": 295,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:32+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "unrecognized_file",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "未识别许可证文件；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [

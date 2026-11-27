@@ -1,0 +1,41 @@
+    return json(res, 404, { error: 'no_route', method, path: p });
+  } catch (err) {
+    return json(res, 500, { error: 'server_error', message: err.message });
+  }
+});
+
+const web = http.createServer((req, res) => {
+  const p = new URL(req.url, `http://127.0.0.1:${WEB_PORT}`).pathname;
+  if (p === '/favicon.ico') {
+    res.writeHead(204, baseHeaders);
+    res.end();
+    return;
+  }
+  const file = p === '/' || p === '/cors-client.html'
+    ? path.join(here, 'cors-client.html')
+    : null;
+  if (!file || !fs.existsSync(file)) {
+    res.writeHead(404, { ...baseHeaders, 'Content-Type': 'text/plain; charset=utf-8' });
+    res.end('not found');
+    return;
+  }
+  const body = fs.readFileSync(file);
+  res.writeHead(200, {
+    ...baseHeaders,
+    'Content-Type': 'text/html; charset=utf-8',
+    'Content-Length': body.length,
+    'Cache-Control': 'no-store',
+  });
+  res.end(body);
+});
+
+api.listen(API_PORT, '127.0.0.1', () => console.log(`[ready] api http://127.0.0.1:${API_PORT}`));
+web.listen(WEB_PORT, '127.0.0.1', () => console.log(`[ready] web http://127.0.0.1:${WEB_PORT}`));
+
+for (const sig of ['SIGINT', 'SIGTERM']) {
+  process.on(sig, () => {
+    api.close();
+    web.close();
+    process.exit(0);
+  });
+}

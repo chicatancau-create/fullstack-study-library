@@ -1,0 +1,28 @@
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10109/">10109</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+	
+
+	
+		
+	
+
+</body>
+</html>
+

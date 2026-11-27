@@ -1,0 +1,130 @@
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "74300670c0fc29f12c8d94a7a374d8259c819e763a518927d325844fd39e34f6",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:05+08:00"
+        },
+        "legacy_fingerprint_12": "74300670c0fc"
+      },
+      "classification": {
+        "primary_category": "知识库/前端与Node",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F2"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 516,
+        "bytes": 5827769,
+        "markdown_count": 122,
+        "question_markers": 4,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:23+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "CC-BY-4.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 3,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/vuejs/docs",
+          "category": "知识库/前端与Node",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 3,
+          "fetched": "2026-11-05 11:12",
+          "files": 516,
+          "bytes": 5827769,
+          "mb": 5,
+          "top_extensions": {
+            ".md": 122,
+            ".js": 113,
+            ".vue": 60,
+            ".html": 56,
+            ".svg": 33,
+            ".png": 32,
+            ".css": 27,
+            ".txt": 21,
+            ".ts": 16,
+            ".json": 12
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "CC-BY-4.0",
+          "round": 2,
+          "selection": "正文 122 篇；人工点名重点源；命中计划缺口方向｜自动判定：keep",
+          "functions": [
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 122,
+            "md_share_pct": 18.0,
+            "question_markers": 4,
+            "tests": 0,
+            "images": 76,
+            "pdf": 0,
+            "stars": 3245,
+            "pushed": "2026-10-28",
+            "functions": [
+              "注入-官方文档"
+            ]
+          },
+          "content_fingerprint": "74300670c0fc29f12c8d94a7a374d8259c819e763a518927d325844fd39e34f6",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:0voice/from_coder_to_expert",
+      "name": "0voice/from_coder_to_expert",
+      "source": {
+        "url": "https://github.com/0voice/from_coder_to_expert",
+        "canonical_url": "https://github.com/0voice/from_coder_to_expert",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2024-05-20",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:35+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "d5d6b0b5e2e8daaf9c6d59e77a9d09c9a80e2e44",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",

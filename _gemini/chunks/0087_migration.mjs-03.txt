@@ -1,0 +1,7 @@
+  await admin.end().catch(() => {});
+  await writer.end().catch(() => {});
+}
+
+const failures = results.filter((r) => !r.ok).length;
+console.log(failures === 0 ? 'MIGRATION PASS 11/11' : `MIGRATION FAIL ${failures}/${results.length}`);
+if (failures > 0) process.exitCode = 1;

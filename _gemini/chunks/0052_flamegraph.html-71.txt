@@ -1,0 +1,137 @@
+  scale.nice = function(interval) {
+    var d = domain();
+    if (!interval || typeof interval.range !== "function") interval = tickInterval(d[0], d[d.length - 1], interval == null ? 10 : interval);
+    return interval ? domain(nice(d, interval)) : scale;
+  };
+
+  scale.copy = function() {
+    return copy$1(scale, calendar(ticks, tickInterval, year, month, week, day, hour, minute, second, format));
+  };
+
+  return scale;
+}
+
+function time() {
+  return initRange.apply(calendar(d3Time.timeTicks, d3Time.timeTickInterval, d3Time.timeYear, d3Time.timeMonth, d3Time.timeWeek, d3Time.timeDay, d3Time.timeHour, d3Time.timeMinute, d3Time.timeSecond, d3TimeFormat.timeFormat).domain([new Date(2000, 0, 1), new Date(2000, 0, 2)]), arguments);
+}
+
+function utcTime() {
+  return initRange.apply(calendar(d3Time.utcTicks, d3Time.utcTickInterval, d3Time.utcYear, d3Time.utcMonth, d3Time.utcWeek, d3Time.utcDay, d3Time.utcHour, d3Time.utcMinute, d3Time.utcSecond, d3TimeFormat.utcFormat).domain([Date.UTC(2000, 0, 1), Date.UTC(2000, 0, 2)]), arguments);
+}
+
+function transformer$1() {
+  var x0 = 0,
+      x1 = 1,
+      t0,
+      t1,
+      k10,
+      transform,
+      interpolator = identity$1,
+      clamp = false,
+      unknown;
+
+  function scale(x) {
+    return x == null || isNaN(x = +x) ? unknown : interpolator(k10 === 0 ? 0.5 : (x = (transform(x) - t0) * k10, clamp ? Math.max(0, Math.min(1, x)) : x));
+  }
+
+  scale.domain = function(_) {
+    return arguments.length ? ([x0, x1] = _, t0 = transform(x0 = +x0), t1 = transform(x1 = +x1), k10 = t0 === t1 ? 0 : 1 / (t1 - t0), scale) : [x0, x1];
+  };
+
+  scale.clamp = function(_) {
+    return arguments.length ? (clamp = !!_, scale) : clamp;
+  };
+
+  scale.interpolator = function(_) {
+    return arguments.length ? (interpolator = _, scale) : interpolator;
+  };
+
+  function range(interpolate) {
+    return function(_) {
+      var r0, r1;
+      return arguments.length ? ([r0, r1] = _, interpolator = interpolate(r0, r1), scale) : [interpolator(0), interpolator(1)];
+    };
+  }
+
+  scale.range = range(d3Interpolate.interpolate);
+
+  scale.rangeRound = range(d3Interpolate.interpolateRound);
+
+  scale.unknown = function(_) {
+    return arguments.length ? (unknown = _, scale) : unknown;
+  };
+
+  return function(t) {
+    transform = t, t0 = t(x0), t1 = t(x1), k10 = t0 === t1 ? 0 : 1 / (t1 - t0);
+    return scale;
+  };
+}
+
+function copy(source, target) {
+  return target
+      .domain(source.domain())
+      .interpolator(source.interpolator())
+      .clamp(source.clamp())
+      .unknown(source.unknown());
+}
+
+function sequential() {
+  var scale = linearish(transformer$1()(identity$1));
+
+  scale.copy = function() {
+    return copy(scale, sequential());
+  };
+
+  return initInterpolator.apply(scale, arguments);
+}
+
+function sequentialLog() {
+  var scale = loggish(transformer$1()).domain([1, 10]);
+
+  scale.copy = function() {
+    return copy(scale, sequentialLog()).base(scale.base());
+  };
+
+  return initInterpolator.apply(scale, arguments);
+}
+
+function sequentialSymlog() {
+  var scale = symlogish(transformer$1());
+
+  scale.copy = function() {
+    return copy(scale, sequentialSymlog()).constant(scale.constant());
+  };
+
+  return initInterpolator.apply(scale, arguments);
+}
+
+function sequentialPow() {
+  var scale = powish(transformer$1());
+
+  scale.copy = function() {
+    return copy(scale, sequentialPow()).exponent(scale.exponent());
+  };
+
+  return initInterpolator.apply(scale, arguments);
+}
+
+function sequentialSqrt() {
+  return sequentialPow.apply(null, arguments).exponent(0.5);
+}
+
+function sequentialQuantile() {
+  var domain = [],
+      interpolator = identity$1;
+
+  function scale(x) {
+    if (x != null && !isNaN(x = +x)) return interpolator((d3Array.bisect(domain, x, 1) - 1) / (domain.length - 1));
+  }
+
+  scale.domain = function(_) {
+    if (!arguments.length) return domain.slice();
+    domain = [];
+    for (let d of _) if (d != null && !isNaN(d = +d)) domain.push(d);
+    domain.sort(d3Array.ascending);
+    return scale;
+  };
+

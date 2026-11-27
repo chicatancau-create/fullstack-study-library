@@ -1,0 +1,128 @@
+          "tarball_mb": 1,
+          "fetched": "2026-11-04 20:03",
+          "files": 214,
+          "bytes": 1577670,
+          "mb": 1,
+          "top_extensions": {
+            ".json": 101,
+            ".mdx": 100,
+            "(none)": 3,
+            ".ts": 3,
+            ".md": 2,
+            ".yaml": 2,
+            ".gif": 1,
+            ".yml": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：213 文件 -> 214 文件",
+          "measured": {
+            "pushed": "2026-11-01",
+            "stars": 6089
+          }
+        }
+      }
+    },
+    {
+      "id": "github:haizlin/fe-interview",
+      "name": "haizlin/fe-interview",
+      "source": {
+        "url": "https://github.com/haizlin/fe-interview",
+        "canonical_url": "https://github.com/haizlin/fe-interview",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2025-10-26",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:11+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "79bab2c2a203705e1201051ae8c80b752a3d439e",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/前端/haizlin/fe-interview",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/haizlin/fe-interview"
+      },
+      "integrity": {
+        "archive_sha256": "57c4297c1b4fc1311c1ea72d1b9bf0fd857250da7eb22089d59cb9cc70fc208d",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "题库/前端",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 80,
+        "bytes": 4209302,
+        "markdown_count": 36,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:29+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "stale",
+        "note": "每日一题含 Vue 2 条目；按 Vue 3 复核后再背",
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 2,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：79 文件 -> 80 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/haizlin/fe-interview",
+          "category": "题库/前端",
+          "branch": null,
+          "archive_sha256": "57c4297c1b4fc1311c1ea72d1b9bf0fd857250da7eb22089d59cb9cc70fc208d",
+          "tarball_mb": 2,
+          "fetched": "2026-11-04 20:03",
+          "files": 80,
+          "bytes": 4209302,
+          "mb": 4,
+          "top_extensions": {
+            ".md": 36,
+            ".png": 29,
+            ".jpg": 9,
+            "(none)": 3,
+            ".yml": 1,
+            ".css": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],

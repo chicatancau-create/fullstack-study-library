@@ -1,0 +1,95 @@
+        key=lambda r: (r["classification"]["primary_category"], r["id"]),
+    )
+    totals = summarize(catalog)
+    mirror_count = sum(1 for r in resources if r.get("payload", {}).get("mode") != "reference")
+    ref_count = len(resources) - mirror_count
+    lines = [
+        "# 材料清单（可复现凭证）",
+        "",
+        GENERATED_NOTICE,
+        "",
+        f"> catalog 生成时间：{catalog['generated_at']}｜活跃资源 {totals['active']} 条"
+        f"（镜像 {mirror_count} + reference {ref_count}）｜"
+        f"{totals['files']:,} 个文件｜逻辑 {totals['bytes']:,} bytes ≈ {totals['bytes'] / 2**30:.2f} GiB。",
+        ">",
+        "> 本文件是 `catalog.json` 的生成视图。镜像正文不进 Git；`bytes` 是原始字节汇总，MiB 只用于显示。",
+        "> 缺失值规则：`未知` 表示未获得证据，`—` 表示不适用；真实 0 原样保留为 `0`。",
+        "",
+        "## 还原方式",
+        "",
+        "```text",
+        "https://codeload.github.com/<owner>/<repo>/tar.gz/refs/heads/<branch>",
+        "# 分支未知时不得猜测，先从 catalog.json 的 open_issues 补证。",
+        "```",
+        "",
+        "## 逐仓库凭证",
+        "",
+        "| 分类 | 仓库 | 分支 | 抓取时间 | 上游更新 | 文件 | bytes | MiB | md | archive SHA-256(前12) | 指纹(前12) | 许可 | 时效 |",
+        "| --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- |",
+    ]
+    for r in resources:
+        src = r["source"]
+        integrity = r["integrity"]
+        lic = r["license"]
+        lines.append(
+            "| {cat} | [{name}]({url}) | {branch} | {fetched} | {pushed} | {files} | {bytes:,} | {mib} | {md} | {sha} | {fp} | {lic} | {fresh} |".format(
+                cat=r["classification"]["primary_category"],
+                name=r["name"],
+                url=src["canonical_url"],
+                branch=fmt_unknown(src["branch"]),
+                fetched=fmt_unknown(src["fetched_at"]),
+                pushed=fmt_unknown(src["upstream_pushed_at"]),
+                files=r["metrics"]["files"],
+                bytes=r["metrics"]["bytes"],
+                mib=mib(r["metrics"]["bytes"]),
+                md=fmt_int(r["metrics"]["markdown_count"]),
+                sha=(integrity["archive_sha256"] or "未知")[:12],
+                fp=(integrity["legacy_fingerprint_12"] or "未知"),
+                lic=lic["spdx"] or ("未识别文件" if lic["license_files"] else "无 LICENSE"),
+                fresh=r["freshness"]["status"],
+            )
+        )
+    lines += [
+        "| **合计** | **{} 条活跃资源（镜像 {} + reference {}）** |  |  |  | **{:,}** | **{:,}** | **{:.2f}** | **{:,}** |  |  |  |  |".format(
+            totals["active"], mirror_count, ref_count, totals["files"], totals["bytes"], totals["bytes"] / 2**20, totals["markdown"]
+        ),
+        "",
+        "## 说明",
+        "",
+        f"- 计数范围：{COUNT_SCOPE}。",
+        "- 前 12 位指纹只用于人工比对，不是完整 archive SHA-256；不得由它反推完整哈希。",
+        "- 已归档或拒绝的 7 个历史候选位于 `catalog.json.tombstones`，不计入本表活跃仓库。",
+        "- 生成器、Schema 和校验入口见 [[资料入库与扩充规范]]；未闭合数据缺口见 [[资料补缺清单]]。",
+        "",
+    ]
+    return "\n".join(lines)
+
+
+def category_table(catalog: dict[str, Any]) -> str:
+    cats: dict[str, dict[str, int]] = defaultdict(lambda: {"repos": 0, "files": 0, "bytes": 0})
+    for r in catalog["resources"]:
+        cat = r["classification"]["primary_category"]
+        cats[cat]["repos"] += 1
+        cats[cat]["files"] += r["metrics"]["files"]
+        cats[cat]["bytes"] += r["metrics"]["bytes"]
+    lines = [
+        GENERATED_NOTICE,
+        "",
+        "| 分类 | 仓库数 | 文件 | bytes | MiB |",
+        "| --- | ---: | ---: | ---: | ---: |",
+    ]
+    for cat in sorted(cats):
+        item = cats[cat]
+        lines.append(f"| {cat} | {item['repos']} | {item['files']:,} | {item['bytes']:,} | {mib(item['bytes'])} |")
+    total = summarize(catalog)
+    lines.append(
+        f"| **合计** | **{total['active']}** | **{total['files']:,}** | **{total['bytes']:,}** | **{total['bytes'] / 2**20:.2f}** |"
+    )
+    stale = sorted(
+        (r for r in catalog["resources"] if r["freshness"]["note"]),
+        key=lambda r: r["name"].lower(),
+    )
+    lines += [
+        "",
+        f"### 时效标注（{len(stale)} 个仓库，原文来自 .source.json）",
+        "",

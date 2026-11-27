@@ -1,0 +1,150 @@
+      .on("end.style." + name, styleRemove(name))
+    : typeof value === "function" ? this
+      .styleTween(name, styleFunction(name, i, tweenValue(this, "style." + name, value)))
+      .each(styleMaybeRemove(this._id, name))
+    : this
+      .styleTween(name, styleConstant(name, i, value), priority)
+      .on("end.style." + name, null);
+}
+
+function styleInterpolate(name, i, priority) {
+  return function(t) {
+    this.style.setProperty(name, i.call(this, t), priority);
+  };
+}
+
+function styleTween(name, value, priority) {
+  var t, i0;
+  function tween() {
+    var i = value.apply(this, arguments);
+    if (i !== i0) t = (i0 = i) && styleInterpolate(name, i, priority);
+    return t;
+  }
+  tween._value = value;
+  return tween;
+}
+
+function transition_styleTween(name, value, priority) {
+  var key = "style." + (name += "");
+  if (arguments.length < 2) return (key = this.tween(key)) && key._value;
+  if (value == null) return this.tween(key, null);
+  if (typeof value !== "function") throw new Error;
+  return this.tween(key, styleTween(name, value, priority == null ? "" : priority));
+}
+
+function textConstant(value) {
+  return function() {
+    this.textContent = value;
+  };
+}
+
+function textFunction(value) {
+  return function() {
+    var value1 = value(this);
+    this.textContent = value1 == null ? "" : value1;
+  };
+}
+
+function transition_text(value) {
+  return this.tween("text", typeof value === "function"
+      ? textFunction(tweenValue(this, "text", value))
+      : textConstant(value == null ? "" : value + ""));
+}
+
+function textInterpolate(i) {
+  return function(t) {
+    this.textContent = i.call(this, t);
+  };
+}
+
+function textTween(value) {
+  var t0, i0;
+  function tween() {
+    var i = value.apply(this, arguments);
+    if (i !== i0) t0 = (i0 = i) && textInterpolate(i);
+    return t0;
+  }
+  tween._value = value;
+  return tween;
+}
+
+function transition_textTween(value) {
+  var key = "text";
+  if (arguments.length < 1) return (key = this.tween(key)) && key._value;
+  if (value == null) return this.tween(key, null);
+  if (typeof value !== "function") throw new Error;
+  return this.tween(key, textTween(value));
+}
+
+function transition_transition() {
+  var name = this._name,
+      id0 = this._id,
+      id1 = newId();
+
+  for (var groups = this._groups, m = groups.length, j = 0; j < m; ++j) {
+    for (var group = groups[j], n = group.length, node, i = 0; i < n; ++i) {
+      if (node = group[i]) {
+        var inherit = get(node, id0);
+        schedule(node, name, id1, i, group, {
+          time: inherit.time + inherit.delay + inherit.duration,
+          delay: 0,
+          duration: inherit.duration,
+          ease: inherit.ease
+        });
+      }
+    }
+  }
+
+  return new Transition(groups, this._parents, name, id1);
+}
+
+function transition_end() {
+  var on0, on1, that = this, id = that._id, size = that.size();
+  return new Promise(function(resolve, reject) {
+    var cancel = {value: reject},
+        end = {value: function() { if (--size === 0) resolve(); }};
+
+    that.each(function() {
+      var schedule = set(this, id),
+          on = schedule.on;
+
+      // If this node shared a dispatch with the previous node,
+      // just assign the updated shared dispatch and we’re done!
+      // Otherwise, copy-on-write.
+      if (on !== on0) {
+        on1 = (on0 = on).copy();
+        on1._.cancel.push(cancel);
+        on1._.interrupt.push(cancel);
+        on1._.end.push(end);
+      }
+
+      schedule.on = on1;
+    });
+  });
+}
+
+var id = 0;
+
+function Transition(groups, parents, name, id) {
+  this._groups = groups;
+  this._parents = parents;
+  this._name = name;
+  this._id = id;
+}
+
+function transition(name) {
+  return d3Selection.selection().transition(name);
+}
+
+function newId() {
+  return ++id;
+}
+
+var selection_prototype = d3Selection.selection.prototype;
+
+Transition.prototype = transition.prototype = {
+  constructor: Transition,
+  select: transition_select,
+  selectAll: transition_selectAll,
+  filter: transition_filter,
+  merge: transition_merge,

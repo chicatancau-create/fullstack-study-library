@@ -1,0 +1,31 @@
+| [microsoft/Web-Dev-For-Beginners](<知识库/全栈路线/microsoft/Web-Dev-For-Beginners/README.md>)（[在线回退](https://github.com/microsoft/Web-Dev-For-Beginners)） | 13,865 | 545.41 | 5,596 | MIT | 未标注 | unknown |
+| [mtdvio/every-programmer-should-know](<知识库/全栈路线/mtdvio/every-programmer-should-know/README.md>)（[在线回退](https://github.com/mtdvio/every-programmer-should-know)） | 5 | 0.04 | 2 | CC-BY-4.0 | 未标注 | unknown |
+| [nilbuild/developer-roadmap](<知识库/全栈路线/nilbuild/developer-roadmap/README.md>)（[在线回退](https://github.com/nilbuild/developer-roadmap)） | 11,330 | 7.66 | 11,297 | 未识别文件 | 未标注 | unknown |
+| [practical-tutorials/project-based-learning](<知识库/全栈路线/practical-tutorials/project-based-learning/README.md>)（[在线回退](https://github.com/practical-tutorials/project-based-learning)） | 15 | 0.22 | 4 | MIT | 未标注 | unknown |
+
+### 知识库/前端与Node（10 个仓库）
+
+| 仓库 | 文件 | MiB | md | 许可 | 功能 | 时效 |
+| --- | ---: | ---: | ---: | --- | --- | --- |
+| [airbnb/javascript](<知识库/前端与Node/airbnb/javascript/README.md>)（[在线回退](https://github.com/airbnb/javascript)） | 60 | 0.35 | 11 | MIT | 未标注 | unknown |
+| [chodocs/chodocs](<知识库/前端与Node/chodocs/chodocs/README.md>)（[在线回退](https://github.com/chodocs/chodocs)） | 364 | 23.34 | 187 | MIT | 未标注 | unknown |
+| [febobo/web-interview](<知识库/前端与Node/febobo/web-interview/.source.json>)（[在线回退](https://github.com/febobo/web-interview)） | 288 | 4.45 | 236 | 无 LICENSE | F2 | stale |
+| [FrontendMasters/front-end-handbook-2018](<知识库/前端与Node/FrontendMasters/front-end-handbook-2018/README.md>)（[在线回退](https://github.com/FrontendMasters/front-end-handbook-2018)） | 166 | 12.12 | 108 | 无 LICENSE | F2 | unknown |
+| [getify/You-Dont-Know-JS](<知识库/前端与Node/getify/You-Dont-Know-JS/README.md>)（[在线回退](https://github.com/getify/You-Dont-Know-JS)） | 10 | 0.03 | 8 | 未识别文件 | 未标注 | unknown |
+| [mdn/content](<知识库/前端与Node/mdn/content/README.md>)（[在线回退](https://github.com/mdn/content)） | 16,406 | 110.38 | 14,753 | CC-BY-SA-4.0 | F1,F2,F5 | unknown |
+| [microsoft/TypeScript-Website](<知识库/前端与Node/microsoft/TypeScript-Website/README.md>)（[在线回退](https://github.com/microsoft/TypeScript-Website)） | 1,065 | 18.86 | 365 | 未识别文件 | 未标注 | unknown |
+| [reactjs/react.dev](<知识库/前端与Node/reactjs/react.dev/README.md>)（[在线回退](https://github.com/reactjs/react.dev)） | 792 | 29.38 | 252 | CC-BY-4.0 | F2,F5 | unknown |
+| [verekia/js-stack-from-scratch](<知识库/前端与Node/verekia/js-stack-from-scratch/README.md>)（[在线回退](https://github.com/verekia/js-stack-from-scratch)） | 55 | 0.34 | 13 | MIT | 未标注 | unknown |
+| [vuejs/docs](<知识库/前端与Node/vuejs/docs/README.md>)（[在线回退](https://github.com/vuejs/docs)） | 516 | 5.56 | 122 | CC-BY-4.0 | F2 | unknown |
+
+### 知识库/后端进阶（15 个仓库）
+
+| 仓库 | 文件 | MiB | md | 许可 | 功能 | 时效 |
+| --- | ---: | ---: | ---: | --- | --- | --- |
+| [0voice/from_coder_to_expert](<知识库/后端进阶/0voice/from_coder_to_expert/README.md>)（[在线回退](https://github.com/0voice/from_coder_to_expert)） | 179 | 697.12 | 1 | 无 LICENSE | 未标注 | stale |
+| [bin392328206/six-finger](<知识库/后端进阶/bin392328206/six-finger/README.md>)（[在线回退](https://github.com/bin392328206/six-finger)） | 876 | 95.39 | 224 | 无 LICENSE | 未标注 | unknown |
+| [crossoverJie/JCSprout](<知识库/后端进阶/crossoverJie/JCSprout/README.md>)（[在线回退](https://github.com/crossoverJie/JCSprout)） | 605 | 94.34 | 101 | MIT | 未标注 | stale |
+| [doocs/advanced-java](<知识库/后端进阶/doocs/advanced-java/README.md>)（[在线回退](https://github.com/doocs/advanced-java)） | 297 | 9.64 | 93 | CC-BY-SA-4.0 | 未标注 | unknown |
+| [DreamCats/java-notes](<知识库/后端进阶/DreamCats/java-notes/README.md>)（[在线回退](https://github.com/DreamCats/java-notes)） | 346 | 1.82 | 331 | 无 LICENSE | 未标注 | unknown |
+| [goldbergyoni/nodebestpractices](<知识库/后端进阶/goldbergyoni/nodebestpractices/README.md>)（[在线回退](https://github.com/goldbergyoni/nodebestpractices)） | 758 | 12.29 | 653 | CC-BY-SA-4.0 | 未标注 | unknown |
+| [hoanhan101/ultimate-go](<知识库/后端进阶/hoanhan101/ultimate-go/README.md>)（[在线回退](https://github.com/hoanhan101/ultimate-go)） | 85 | 2.04 | 3 | Apache-2.0 | 未标注 | unknown |

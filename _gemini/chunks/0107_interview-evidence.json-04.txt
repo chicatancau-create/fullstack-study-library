@@ -1,0 +1,115 @@
+      "raw_html_bytes": 6419,
+      "raw_html_sha256": "533f143e6ccbd30ae21bedc6801a267e917a744f2745a1d32316ac67215b300a",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "2232790aca3e3a32d4bf2f7126ce8bc80a2b812e3afb60ff4b5642582152bf11",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:22.472Z",
+        "http_status": 200,
+        "title_seen": "字节后端实习一面_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-BD-011",
+      "url": "https://www.nowcoder.com/feed/main/detail/9cd459d87a754e07a490ba7f1c03b495",
+      "title": "字节 AI Agent 开发一面",
+      "published_at": "10-17 03:22（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "字节跳动",
+      "role": "未标注",
+      "role_basis": "标题与正文首段未明确岗位",
+      "quote": "13. 算法题：二叉树的层序遍历，请讲解思路并手写代码。",
+      "supports_questions": [
+        "Q026"
+      ],
+      "matches": [
+        {
+          "question": "Q026",
+          "by": "unique-name",
+          "quote": "13. 算法题：二叉树的层序遍历，请讲解思路并手写代码。"
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 289792,
+      "raw_html_sha256": "09e0c22f2926a3632300bb9dc1b6d5af257dfc7ba39c462a4033cde28516c901",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "e4767948103a4cd28bc2a9b860edf500e8527041a389ba524b28c6dd6bebd1ea",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:23.109Z",
+        "http_status": 200,
+        "title_seen": "字节 AI Agent 开发一面_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-BD-012",
+      "url": "https://www.nowcoder.com/feed/main/detail/d8822fc2b4ae4b2fbdb03c95fa2a427d",
+      "title": "字节全栈一二三四面面经",
+      "published_at": "10-17 18:23（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "字节跳动",
+      "role": "全栈",
+      "role_basis": "标题明确标注岗位",
+      "quote": "14.最长连续序列Leetcode 128",
+      "supports_questions": [
+        "Q073"
+      ],
+      "matches": [
+        {
+          "question": "Q073",
+          "by": "leetcode-number",
+          "quote": "14.最长连续序列Leetcode 128"
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 6151,
+      "raw_html_sha256": "ff821b2228b929cb0ebbcd9ac3046d92901a4cc3f7597745f5be2bddb6adc857",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "e9aab33371c1b06e2459889ceff31e9385cf42da1fe49bb61b3330175ce319ed",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:23.197Z",
+        "http_status": 200,
+        "title_seen": "字节全栈一二三四面面经_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-BD-013",
+      "url": "https://www.nowcoder.com/feed/main/detail/b4fb3bee56134c3d9bcde6a3166a1711",
+      "title": "字节Agent全三轮面经",
+      "published_at": "10-18 02:05（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "字节跳动",
+      "role": "未标注",
+      "role_basis": "标题与正文首段未明确岗位",
+      "quote": "算法：将一组正整数重新排列，拼接成最大的整数。（力扣179题）#秋招# #面经#",
+      "supports_questions": [
+        "Q090"
+      ],
+      "matches": [
+        {
+          "question": "Q090",
+          "by": "leetcode-number",
+          "quote": "算法：将一组正整数重新排列，拼接成最大的整数。（力扣179题）#秋招# #面经#"
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 6365,
+      "raw_html_sha256": "a641a03bdb1ecfe4efd6bd15b4b81cdd65deeb180c948dcd368cff2a9b7be24f",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "83e022e636f37e679f95a9e80ad484b3cac897ec39de108233c91f506c2d16ae",

@@ -1,0 +1,30 @@
+| B1-05 | M04 | 阶段 02 | E02 | — | `maxQueue=0` 空池 `waitForSlot()` 永久 pending | `test_regressions` 前 4 条；空池立即返回、忙碌等槽 | 本机自测通过 | 无 | 批次 1 | 2026-11-07 |
+| B1-06 | M04 | 阶段 02 | E02 | — | `close({dropQueued:false})` 遗留不可执行队列 | 删除该选项；关闭统一拒绝排队任务 | 本机自测通过 | 无 | 批次 1 | 2026-11-07 |
+| B1-07 | M04 | 阶段 02 | E02 | — | `failFast` 对 `throw null/undefined/0/false/''` 失效 | `#failFastTriggered` 布尔标记；5 组假值 × 3 条断言 | 本机自测通过 | 无 | 批次 1 | 2026-11-07 |
+| B1-08 | M04/M09 | 阶段 02 | E02 | — | abort 监听器与 drain waiter 清理 | 伪 signal listenerCount=0；`idleWaiters=0` | 本机自测通过 | 无 | 批次 1 | 2026-11-07 |
+| B1-09 | M04 | 阶段 02 | E02 | — | 非法 `timeoutMs`、多生产者等位、关闭/失败时等位、取消×超时交错 | 5 组参数矩阵；取消×超时 `lateAfterTimeout=1` | 本机自测通过 | 多生产者等位仅间接覆盖 | 批次 1 | 2026-11-07 |
+| B1-10 | M09 | 阶段 02 | E02 | — | `run_all.sh` 按失败数非零；缺测试/PASS/跳过/证据失败均红 | 六测试 172 条；`selftest_gate.sh` 破坏后 gate exit 1 | 本机自测通过 | 无 | 批次 1 | 2026-11-07 |
+| B1-11 | M09/M12 | 阶段 01–02 | E01/E02 | — | 统一 README 模板、证据 manifest、锁文件、test/lint/typecheck/build/evidence、CI 最小模板 | [实验模板](../06-实验代码/_template/README.md)；E01/E02 manifest 已生成并 verify；E02 Ubuntu CI 通过 | 本机自测 + E02 CI 通过（E01 Linux 不适用） | E01 Windows 页级夹具；Linux CI ASan/UBSan/Valgrind 全部通过；worker_threads CI 通过 | 批次 1 | 2026-11-08 |
+
+### 批次 2：核心课程自包含教学包
+
+| ID | 能力域 | 课程 | 实验 | 项目 | 考核 | 证据 | 状态 | 阻断项 | 提交 | 最近验证 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| B2-01 | M01/M09/M14 | [U01 Git/Shell](../01-阶段课程/教学单元/U01-Git与Shell/README.md) | — | — | 自测 + 未见任务 | `evidence/run.txt`（DEMO PASS）、`evidence/manifest.json` | 本机自测通过 | 盲测未执行 | 批次 2 | 2026-11-07 |
+| B2-02 | M03 | [U02 HTML/CSS](../01-阶段课程/教学单元/U02-HTML与CSS/README.md) | — | — | 键盘/缩放/axe | `evidence/run.txt`、`report.json`、两张截图、manifest | 本机自测通过 | 读屏/真实设备未测 | 批次 2 | 2026-11-07 |
+| B2-03 | M04 | [U03 JS/TS](../01-阶段课程/教学单元/U03-JavaScript与TypeScript/README.md) | E02 可复用 | — | 严格 TS/运行时校验 | tsc 0 error；12/12 测试；事件循环 demo；manifest | 本机自测通过 | 浏览器 DOM/真实网络未测 | 批次 2 | 2026-11-07 |
+| B2-04 | M03/M05 | [U04 React](../01-阶段课程/教学单元/U04-React/README.md) | E03 待建 | 项目 01 | 组件/竞态/构建 | 4/4 组件测试；tsc 0 error；Vite build；竞态 deferred 测试 | 本机自测通过 | 无 E2E/SSR；E03 未完成 | 批次 2 | 2026-11-07 |
+| B2-05 | M02/M06 | [U05 Node/Fastify](../01-阶段课程/教学单元/U05-Node与Fastify/README.md) | E04 部分 | 项目 02 | API/错误/优雅关闭 | 8/8 API 测试；真实 listen demo；AJV 额外字段拒绝；manifest | 本机自测通过 | 无 DB/认证/部署 | 批次 2 | 2026-11-07 |
+| B2-06 | M07 | [U06 SQL](../01-阶段课程/教学单元/U06-SQL/README.md) | E07/E08 待建 | 项目 02 | 约束/事务/执行计划 | 10/10 SQLite 测试；复合索引计划命中；事务回滚；manifest | 本机自测通过 | 非 PostgreSQL；无并发/隔离/真实恢复 | 批次 2 | 2026-11-07 |
+| B2-07 | M02/M12 | [U07 Linux](../01-阶段课程/教学单元/U07-Linux/README.md)、[U08 网络](../01-阶段课程/教学单元/U08-网络/README.md) | E04 可复用 | — | 诊断/缓存/原始 TCP | U07 10/10（Git Bash）；U08 13/13；manifest | 部分（网络通过，Linux 仅 Git Bash） | 无 WSL/Linux 主机；systemd/cgroup/权限未验证 | 批次 2 | 2026-11-07 |
+| B2-08 | M01 | [U09 数据结构与算法](../01-阶段课程/教学单元/U09-数据结构与算法/README.md) | E01 可复用 | — | 限时/复测 | 8/8 测试；1024 元素二分 11 步；LRU/环形缓冲；manifest | 本机自测通过 | 无限时套题/面试评分 | 批次 2 | 2026-11-07 |
+| B2-09 | M15 | 全库 | — | — | 术语梯度/示例分离 | 审校记录 | 未开始 | 需逐单元审校 | — | — |
+
+### 批次 3：E03–E13 实验资产
+
+| ID | 能力域 | 课程 | 实验 | 项目 | 考核 | 证据 | 状态 | 阻断项 | 提交 | 最近验证 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| B3-01 | M03/M05 | 阶段 03 | E04/G1 复用 | — | 只复用已验证部分 | 本批已复验 | 本机自测通过 | 不代表 E04 全量 | `a016784` | 2026-11-07 |
+| B3-02 | M03/M05 | 阶段 03 | [E03](../06-实验代码/E03-react-race/README.md) | 项目 01 | 竞态/回滚/卸载 | 5/5 测试；反例 A-late 覆盖复现 + 修复对照；tsc/build；manifest | 本机自测通过 | 无 E2E/Profiler/路由/SSR | 批次 3 | 2026-11-07 |
+| B3-03 | M05 | 阶段 03 | [E05](../06-实验代码/E05-build-render/README.md) | 项目 01 | 构建/渲染模式/缓存 | CSR/SSR 首屏对照；hashed asset；secret 不泄漏；no-cache/immutable/304；manifest | 本机自测通过 | 无 hydration/路由/CDN/性能 | 批次 3 | 2026-11-07 |
+| B3-04 | M02/M11 | 阶段 01/09 | [E06](../06-实验代码/E06-runtime-diag/README.md) | — | CPU/内存/句柄/事件循环诊断 | cpuprofile 13KB；HEAP/FD/LOOP PASS；run 汇总；manifest | 本机自测通过 | 无 OS 级 fd/连接池/容器 | 批次 3 | 2026-11-07 |

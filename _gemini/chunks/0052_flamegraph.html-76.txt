@@ -1,0 +1,122 @@
+exports.timeMinutes = minutes;
+exports.timeMonday = monday;
+exports.timeMondays = mondays;
+exports.timeMonth = month;
+exports.timeMonths = months;
+exports.timeSaturday = saturday;
+exports.timeSaturdays = saturdays;
+exports.timeSecond = second;
+exports.timeSeconds = seconds;
+exports.timeSunday = sunday;
+exports.timeSundays = sundays;
+exports.timeThursday = thursday;
+exports.timeThursdays = thursdays;
+exports.timeTickInterval = timeTickInterval;
+exports.timeTicks = timeTicks;
+exports.timeTuesday = tuesday;
+exports.timeTuesdays = tuesdays;
+exports.timeWednesday = wednesday;
+exports.timeWednesdays = wednesdays;
+exports.timeWeek = sunday;
+exports.timeWeeks = sundays;
+exports.timeYear = year;
+exports.timeYears = years;
+exports.utcDay = utcDay;
+exports.utcDays = utcDays;
+exports.utcFriday = utcFriday;
+exports.utcFridays = utcFridays;
+exports.utcHour = utcHour;
+exports.utcHours = utcHours;
+exports.utcMillisecond = millisecond;
+exports.utcMilliseconds = milliseconds;
+exports.utcMinute = utcMinute;
+exports.utcMinutes = utcMinutes;
+exports.utcMonday = utcMonday;
+exports.utcMondays = utcMondays;
+exports.utcMonth = utcMonth;
+exports.utcMonths = utcMonths;
+exports.utcSaturday = utcSaturday;
+exports.utcSaturdays = utcSaturdays;
+exports.utcSecond = second;
+exports.utcSeconds = seconds;
+exports.utcSunday = utcSunday;
+exports.utcSundays = utcSundays;
+exports.utcThursday = utcThursday;
+exports.utcThursdays = utcThursdays;
+exports.utcTickInterval = utcTickInterval;
+exports.utcTicks = utcTicks;
+exports.utcTuesday = utcTuesday;
+exports.utcTuesdays = utcTuesdays;
+exports.utcWednesday = utcWednesday;
+exports.utcWednesdays = utcWednesdays;
+exports.utcWeek = utcSunday;
+exports.utcWeeks = utcSundays;
+exports.utcYear = utcYear;
+exports.utcYears = utcYears;
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
+
+},{"d3-array":12}],24:[function(require,module,exports){
+// https://d3js.org/d3-selection/ v1.4.2 Copyright 2020 Mike Bostock
+(function (global, factory) {
+typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+typeof define === 'function' && define.amd ? define(['exports'], factory) :
+(global = global || self, factory(global.d3 = global.d3 || {}));
+}(this, function (exports) { 'use strict';
+
+var xhtml = "http://www.w3.org/1999/xhtml";
+
+var namespaces = {
+  svg: "http://www.w3.org/2000/svg",
+  xhtml: xhtml,
+  xlink: "http://www.w3.org/1999/xlink",
+  xml: "http://www.w3.org/XML/1998/namespace",
+  xmlns: "http://www.w3.org/2000/xmlns/"
+};
+
+function namespace(name) {
+  var prefix = name += "", i = prefix.indexOf(":");
+  if (i >= 0 && (prefix = name.slice(0, i)) !== "xmlns") name = name.slice(i + 1);
+  return namespaces.hasOwnProperty(prefix) ? {space: namespaces[prefix], local: name} : name;
+}
+
+function creatorInherit(name) {
+  return function() {
+    var document = this.ownerDocument,
+        uri = this.namespaceURI;
+    return uri === xhtml && document.documentElement.namespaceURI === xhtml
+        ? document.createElement(name)
+        : document.createElementNS(uri, name);
+  };
+}
+
+function creatorFixed(fullname) {
+  return function() {
+    return this.ownerDocument.createElementNS(fullname.space, fullname.local);
+  };
+}
+
+function creator(name) {
+  var fullname = namespace(name);
+  return (fullname.local
+      ? creatorFixed
+      : creatorInherit)(fullname);
+}
+
+function none() {}
+
+function selector(selector) {
+  return selector == null ? none : function() {
+    return this.querySelector(selector);
+  };
+}
+
+function selection_select(select) {
+  if (typeof select !== "function") select = selector(select);
+
+  for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
+    for (var group = groups[j], n = group.length, subgroup = subgroups[j] = new Array(n), node, subnode, i = 0; i < n; ++i) {
+      if ((node = group[i]) && (subnode = select.call(node, node.__data__, i, group))) {
+        if ("__data__" in node) subnode.__data__ = node.__data__;

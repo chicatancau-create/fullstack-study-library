@@ -1,0 +1,129 @@
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F2"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 102,
+        "bytes": 467559,
+        "markdown_count": 96,
+        "question_markers": 21,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:25+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/florinpop17/app-ideas",
+          "category": "知识库/课程与路线",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 0,
+          "fetched": "2026-11-05 11:12",
+          "files": 102,
+          "bytes": 467559,
+          "mb": 0,
+          "top_extensions": {
+            ".md": 96,
+            "(none)": 3,
+            ".png": 1,
+            ".jpg": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "round": 2,
+          "selection": "正文 96 篇；高采用(98475 star)+有正文(96篇)；文档型仓库(md占比48%)；人工点名重点源｜自动判定：keep",
+          "functions": [
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 96,
+            "md_share_pct": 47.8,
+            "question_markers": 21,
+            "tests": 0,
+            "images": 2,
+            "pdf": 0,
+            "stars": 98475,
+            "pushed": "2025-10-11",
+            "functions": [
+              "注入-项目题面"
+            ]
+          },
+          "content_fingerprint": "f3ee1bd12a11ae90e885a52324db84cb7fe8c3bda02808b058cca1b052ec5887",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:inancgumus/learngo",
+      "name": "inancgumus/learngo",
+      "source": {
+        "url": "https://github.com/inancgumus/learngo",
+        "canonical_url": "https://github.com/inancgumus/learngo",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2025-06-24",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:07+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "3c475a78e54336c6255e925ff66b8ef4da6a2ae7",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/课程与路线/inancgumus/learngo",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/inancgumus/learngo"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "9000520f3914965fb3401ff7aa5d4cb9fc261ff4c90b90015fe5091df78d2545",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:07+08:00"
+        },
+        "legacy_fingerprint_12": "9000520f3914"
+      },
+      "classification": {

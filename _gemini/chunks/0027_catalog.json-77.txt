@@ -1,0 +1,129 @@
+        "legacy_source_fields": {
+          "tarball_mb": 1,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/PKUFlyingPig/cs-self-learning",
+          "category": "知识库/课程与路线",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 1,
+          "fetched": "2026-11-05 11:12",
+          "files": 287,
+          "bytes": 1865482,
+          "mb": 1,
+          "top_extensions": {
+            ".md": 273,
+            "(none)": 4,
+            ".png": 4,
+            ".yml": 2,
+            ".txt": 1,
+            ".ico": 1,
+            ".html": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "round": 2,
+          "selection": "正文 273 篇；高采用(68000 star)+有正文(273篇)；人工点名重点源｜自动判定：keep",
+          "functions": [
+            "F2解答",
+            "F4路线"
+          ],
+          "measured": {
+            "md_n": 273,
+            "md_share_pct": 39.1,
+            "question_markers": 0,
+            "tests": 0,
+            "images": 5,
+            "pdf": 0,
+            "stars": 68000,
+            "pushed": "2026-10-01",
+            "functions": [
+              "注入-自学路线"
+            ]
+          },
+          "content_fingerprint": "2bfff6162817f6d17e37966a3a390c26416d0d7469d4d1d2fca615b9de34919d",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:theodinproject/curriculum",
+      "name": "TheOdinProject/curriculum",
+      "source": {
+        "url": "https://github.com/TheOdinProject/curriculum",
+        "canonical_url": "https://github.com/TheOdinProject/curriculum",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-11-04",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:55+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "375073d006ea1066d89e4d2d87063e92f4306169",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/课程与路线/TheOdinProject/curriculum",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/TheOdinProject/curriculum"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "bdfb8b0a1c22930d47a3b3b71a34b7002a33154bfe24f04aa75f82d2d34b4e62",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:07+08:00"
+        },
+        "legacy_fingerprint_12": "bdfb8b0a1c22"
+      },
+      "classification": {
+        "primary_category": "知识库/课程与路线",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F2",
+          "F3",
+          "F4",
+          "F5"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 741,
+        "bytes": 36403494,
+        "markdown_count": 582,
+        "question_markers": 10,
+        "test_files": 15,
+        "observed_at": "2026-11-07T14:06:24+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "CC-BY-NC-SA-4.0",
+        "detection_status": "detected",
+        "license_files": [
+          "license.md"
+        ],
+        "usage_restriction": "仅限本机个人学习；传染性或非商业条款，不得并入对外发布产物。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {

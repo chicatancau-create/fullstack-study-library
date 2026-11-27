@@ -1,0 +1,54 @@
+      else if (text.includes('beta') || text.includes('bravo')) bad('R3 竞态保护', `旧响应覆盖了新结果: ${text}`);
+      else ok('R3 竞态保护', `titles=${titles.length}`);
+    }
+
+    // R4 memo 依赖
+    {
+      checks += 1;
+      const first = page.locator('ul li button').first();
+      const before = await first.getAttribute('aria-pressed');
+      await first.click();
+      const mid = await first.getAttribute('aria-pressed');
+      await first.click();
+      const after = await first.getAttribute('aria-pressed');
+      const counter = (await page.getByTestId('toggle-count').textContent()) ?? '';
+      if (before === mid) bad('R4 memo 依赖', `点击后 aria-pressed 没变: ${before} -> ${mid}`);
+      else if (before !== after) bad('R4 memo 依赖', `两次点击后没回到初始: ${before} -> ${after}`);
+      else if (!/2$/.test(counter.trim())) bad('R4 memo 依赖', `切换次数=${counter.trim()}`);
+      else ok('R4 memo 依赖', `aria-pressed ${before}->${mid}->${after}, ${counter.trim()}`);
+    }
+
+    // R5 可访问性
+    {
+      checks += 1;
+      const name = await page.evaluate(() => {
+        const input = document.querySelector('input');
+        if (!input) return '';
+        if (input.getAttribute('aria-label')) return input.getAttribute('aria-label');
+        const byFor = input.id ? document.querySelector(`label[for="${CSS.escape(input.id)}"]`) : null;
+        if (byFor) return byFor.textContent ?? '';
+        return input.closest('label')?.textContent ?? '';
+      });
+      await page.addScriptTag({ path: axePath });
+      const axe = await page.evaluate(async () => window.axe.run(document, {
+        runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'] },
+      }));
+      if (!name.trim()) bad('R5 可访问性', '输入框没有可访问名');
+      else if (axe.violations.length) bad('R5 可访问性', axe.violations.map((v) => `${v.id}(${v.impact})`).join(', '));
+      else ok('R5 可访问性', `label=${name.trim().slice(0, 12)} axe=0`);
+    }
+
+    // R7 无未捕获错误
+    {
+      checks += 1;
+      if (pageErrors.length) bad('R7 无未捕获错误', pageErrors.slice(0, 2).join(' | '));
+      else ok('R7 无未捕获错误');
+    }
+  } finally {
+    await browser.close();
+    await new Promise((resolve) => server.close(resolve));
+  }
+}
+
+console.log(`checks=${checks} fails=${fails}`);
+process.exit(fails === 0 ? 0 : 1);

@@ -1,0 +1,126 @@
+          "archive_sha256": "9b751c0554fbe6fabb86a66e721b4d84ddf38fa4e14197f8dee61f908bede58f",
+          "tarball_mb": 0,
+          "fetched": "2026-11-04 20:03",
+          "files": 1697,
+          "bytes": 192570006,
+          "mb": 183,
+          "top_extensions": {
+            ".png": 1151,
+            ".jpg": 374,
+            ".md": 123,
+            ".jpeg": 21,
+            ".gif": 21,
+            ".webp": 3,
+            "(none)": 1,
+            ".yml": 1,
+            ".svg": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：1696 文件 -> 1697 文件",
+          "measured": {
+            "pushed": "2024-11-27",
+            "stars": 18595
+          }
+        }
+      }
+    },
+    {
+      "id": "github:charonchui/fullstack-notes",
+      "name": "CharonChui/FullStack-Notes",
+      "source": {
+        "url": "https://github.com/CharonChui/FullStack-Notes",
+        "canonical_url": "https://github.com/CharonChui/FullStack-Notes",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 18:24",
+        "upstream_pushed_at": "2026-11-03",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:48+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "1519bb3955d77da737b89d9eb950d7fef72c1c78",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/课程与路线/CharonChui/FullStack-Notes",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/CharonChui/FullStack-Notes"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "454a40c7df2086dafeb26de7cbb34370a8596bdbe833eef1185c1cafd828de20",
+          "scope": "legacy_local_metadata_scope_unrecorded",
+          "observed_at": "2026-11-05T19:39:06+08:00"
+        },
+        "legacy_fingerprint_12": "454a40c7df20"
+      },
+      "classification": {
+        "primary_category": "知识库/课程与路线",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F1",
+          "F2"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 667,
+        "bytes": 18020057,
+        "markdown_count": 644,
+        "question_markers": 178,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:24+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "unrecognized_file",
+        "license_files": [
+          "README.md"
+        ],
+        "usage_restriction": "未识别许可证文件；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "round": 3,
+          "tar_mb": 10,
+          "ledger_refreshed": "补图/改名后重算：666 文件 -> 667 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/CharonChui/FullStack-Notes",
+          "category": "知识库/课程与路线",
+          "branch": "master",
+          "fetched": "2026-11-05 18:24",
+          "files": 667,
+          "bytes": 18019982,
+          "mb": 17,
+          "top_extensions": {

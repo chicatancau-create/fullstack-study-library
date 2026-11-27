@@ -1,0 +1,109 @@
+        "常见成因：直接读 window/localStorage、使用 Date.now()/Math.random()、按浏览器语言格式化、无效 HTML 嵌套被浏览器纠正。",
+        "列表 key 不稳定或数据顺序在两端不同，也会让 React 复用到错误节点。",
+        "排查方式：看 hydration mismatch 的 diff 提示，临时禁用相关组件做二分，或用 suppressHydrationWarning 仅掩盖文本差异。",
+        "修复思路：把浏览器相关逻辑移到 useEffect，用两阶段渲染（占位 → 客户端数据），或统一时区与随机种子。",
+        "水合失败会退化为整树客户端重渲染，性能与交互可用性都会下降，因此不能长期靠 suppress 掩盖。"
+      ],
+      "rubric": [
+        { "point": "说明首屏 HTML 必须两端一致", "weight": 1 },
+        { "point": "列出环境依赖、时间随机、无效嵌套等成因", "weight": 2 },
+        { "point": "用 effect 延后或两阶段渲染修复而不是长期 suppress", "weight": 2 }
+      ],
+      "followups": [
+        "流式 SSR 下水合边界如何划分？",
+        "suppressHydrationWarning 适用哪些场景？"
+      ],
+      "source_url": "https://react.dev/reference/react-dom/client/hydrateRoot",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE09",
+      "company": "通用",
+      "role": "前端",
+      "type": "构建",
+      "title": "代码分割与 tree-shaking 的生效条件",
+      "question": "为什么配置了 tree-shaking 体积仍不下降？动态 import 的拆分粒度如何决定？",
+      "answer": [
+        "tree-shaking 依赖 ESM 静态结构；CommonJS、副作用未标注、桶文件 re-export 都会阻止摇除。",
+        "package.json 的 sideEffects 声明与打包器 mode=production 是前提，否则模块被保守保留。",
+        "动态 import() 会生成独立 chunk，但被多处同步引用或进入同一入口共享依赖时会被合并。",
+        "拆分应以路由或重型依赖（图表、编辑器）为边界；过细会产生大量小请求与瀑布。",
+        "用打包分析器查看 chunk 组成，确认是业务代码、第三方还是重复依赖（多版本共存）。",
+        "preload/prefetch 与 HTTP 缓存影响拆分收益：首屏关键 chunk 不宜过度拆分。"
+      ],
+      "rubric": [
+        { "point": "说明 ESM 与 sideEffects 是摇树前提", "weight": 2 },
+        { "point": "解释动态 import 的 chunk 生成与合并条件", "weight": 2 },
+        { "point": "用分析器确认体积来源而非猜", "weight": 1 }
+      ],
+      "followups": [
+        "为什么桶文件会拖累 tree-shaking？",
+        "拆分过细会带来什么副作用？"
+      ],
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE10",
+      "company": "通用",
+      "role": "前端",
+      "type": "性能",
+      "title": "LCP/INP/CLS 的定位与优化顺序",
+      "question": "线上核心网页指标变差时，你如何定位是 LCP、INP 还是 CLS，并分别采取什么措施？",
+      "answer": [
+        "先按真实用户监控拆分指标与设备/地区/页面维度，确认是全局退化还是局部页面。",
+        "LCP 差：检查最大元素是图片、视频封面还是文本块；优化图片尺寸与格式、预加载关键资源、减少阻塞渲染的请求。",
+        "INP 差：定位长任务与事件处理耗时，拆分同步计算、用 Web Worker、避免布局抖动与过度重渲染。",
+        "CLS 差：为图片/广告/嵌入预留尺寸，避免插入内容顶飞布局，字体加载使用 font-display 与尺寸匹配。",
+        "实验室数据与真实用户数据要分开看：Lighthouse 只代表单次受控环境，不能替代 field 数据。",
+        "优化顺序按影响面与成本排序，先处理首屏关键路径，再处理交互长任务。"
+      ],
+      "rubric": [
+        { "point": "区分 LCP、INP、CLS 对应的用户问题", "weight": 2 },
+        { "point": "给出每个指标至少一条针对性措施", "weight": 2 },
+        { "point": "说明实验室数据与真实用户数据的差异", "weight": 1 }
+      ],
+      "followups": [
+        "LCP 元素如何确定？",
+        "INP 与总阻塞时间 TBT 的关系是什么？"
+      ],
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/Performance",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE11",
+      "company": "通用",
+      "role": "全栈",
+      "type": "Node",
+      "title": "Node API 的幂等与重复提交",
+      "question": "用户重复点击或网络重试导致重复下单，如何在 Node 服务端保证幂等？",
+      "answer": [
+        "客户端生成幂等键（如 UUID）随请求提交，服务端以“用户+幂等键”建立唯一约束。",
+        "同一幂等键的并发请求只有一个能插入成功，其余读取已有结果并返回相同响应。",
+        "数据库唯一索引是最终防线；仅靠先查后写会有竞态窗口。",
+        "幂等记录要保存结果摘要与状态，失败请求应允许重试而不是永久占用键。",
+        "超时重试要区分“未执行”和“已执行但响应丢失”，后者必须返回首次结果。",
+        "幂等键应有 TTL 或归档策略，避免无限增长。"
+      ],
+      "rubric": [
+        { "point": "用客户端幂等键 + 唯一约束防重", "weight": 2 },
+        { "point": "说明并发下先查后写的竞态", "weight": 2 },
+        { "point": "重试返回首次结果并处理失败态", "weight": 1 }
+      ],
+      "followups": [
+        "幂等键放在请求头还是请求体更合适？",
+        "分布式锁能否替代唯一索引？"
+      ],
+      "source_url": "https://nodejs.org/api/http.html",
+      "source_type": "official-docs",
+      "evidence_status": "模拟题（公开文档题，无原始面经）"
+    },
+    {
+      "id": "FE12",
+      "company": "通用",
+      "role": "全栈",
+      "type": "缓存",
+      "title": "Cache-Aside 的失效与一致性",

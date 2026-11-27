@@ -1,0 +1,89 @@
+                {"type": "null"},
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["algorithm", "value", "scope", "observed_at"],
+                  "properties": {
+                    "algorithm": {"type": "string", "minLength": 1},
+                    "value": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+                    "scope": {"type": "string", "minLength": 1},
+                    "observed_at": {"$ref": "#/$defs/nullable_string"}
+                  }
+                }
+              ]
+            },
+            "legacy_fingerprint_12": {"type": ["string", "null"], "pattern": "^[0-9a-f]{12}$"}
+          }
+        },
+        "classification": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["primary_category", "category_basis", "functions", "topics"],
+          "properties": {
+            "primary_category": {"type": "string", "pattern": "^(题库|知识库)/"},
+            "category_basis": {"type": "string", "minLength": 1},
+            "functions": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {"enum": ["F1", "F2", "F3", "F4", "F5", "F6"]}
+            },
+            "topics": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "metrics": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["files", "bytes", "markdown_count", "question_markers", "test_files", "observed_at", "count_scope"],
+          "properties": {
+            "files": {"type": "integer", "minimum": 0},
+            "bytes": {"type": "integer", "minimum": 0},
+            "markdown_count": {"$ref": "#/$defs/nullable_integer"},
+            "question_markers": {"$ref": "#/$defs/nullable_integer"},
+            "test_files": {"$ref": "#/$defs/nullable_integer"},
+            "observed_at": {"type": "string", "minLength": 1},
+            "count_scope": {"type": "string", "minLength": 1}
+          }
+        },
+        "license": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["spdx", "detection_status", "license_files", "usage_restriction"],
+          "properties": {
+            "spdx": {"$ref": "#/$defs/nullable_string"},
+            "detection_status": {"enum": ["detected", "unrecognized_file", "no_license_file", "unknown"]},
+            "license_files": {"type": "array", "items": {"type": "string"}},
+            "usage_restriction": {"type": "string", "minLength": 1}
+          }
+        },
+        "freshness": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "note", "last_checked_at", "next_review_at"],
+          "properties": {
+            "status": {"enum": ["unknown", "current", "stale", "end_of_life"]},
+            "note": {"$ref": "#/$defs/nullable_string"},
+            "last_checked_at": {"$ref": "#/$defs/nullable_string"},
+            "next_review_at": {"$ref": "#/$defs/nullable_string"}
+          }
+        },
+        "lifecycle": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "reason", "archived_at", "replacement_id"],
+          "properties": {
+            "status": {"enum": ["candidate", "active", "rejected", "archived"]},
+            "reason": {"$ref": "#/$defs/nullable_string"},
+            "archived_at": {"$ref": "#/$defs/nullable_string"},
+            "replacement_id": {"$ref": "#/$defs/nullable_string"}
+          }
+        },
+        "review": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "reviewed_at", "evidence"],
+          "properties": {
+            "status": {"enum": ["legacy_imported", "pending", "approved"]},
+            "reviewed_at": {"$ref": "#/$defs/nullable_string"},
+            "evidence": {"type": "array", "items": {"type": "string"}}
+          }
+        },

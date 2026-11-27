@@ -1,0 +1,96 @@
+# 施工验证报告
+
+> 批次：0（总账与治理）｜日期：2026-11-07｜分支：`chore/fullstack-upgrade`｜基线：`main` @ `c9644d3`｜合并 G1 资产后 HEAD：`a016784`
+>
+> 本报告只记录**实际执行的命令、退出码和原始输出路径**。未执行或有外部阻断的项单列，不用“应该通过”代替结果。
+>
+> **最新状态（2026-11-08）**：本报告 7.30/7.38 等节中的 Java 4/4/5/5、项目 05 4/4 是当时快照。
+> 现状为 project02-spring JUnit **9/9**（含死锁 1213、单连接池耗尽恢复）、项目 05 回归 **12/12**（含 D88–D90）、CI **9 个 job 全绿（run 42453215623）**，
+> 项目 04 另有 K3s/Docker、Prometheus/Alertmanager 本地演练，详见 [[最终验收对照-2026-11-08]] 与 [[最终收口审计-2026-11-07]]。
+
+## 一、环境
+
+| 项 | 值 | 来源 |
+| --- | --- | --- |
+| OS | Windows 10.0.28000 x64 | `uname -a` / 本机 |
+| Git | 见 `git --version` | 命令行 |
+| Node.js | v24.15.0 | `node -v` |
+| Python | 3.14.2（`python`；`python3` 为不可用存根） | `python --version` |
+| 浏览器 | Edge 157.0.4341.42（headless CDP） | G1/E04 evidence 的 `env` 文件 |
+| 外部镜像 | 未递归扫描；只运行 `catalog_tool.py validate --mode source-only` | 维护规则第六节 |
+
+## 二、Git 同步与分支保护
+
+| 步骤 | 命令 | 结果 |
+| --- | --- | --- |
+| 工作区 | `git status --short` | 同步前干净 |
+| 拉取 | `git fetch origin` / `git fetch domestic` | 两端 `main` 均为 `c9644d3`，无新提交 |
+| 建分支 | `git checkout -b chore/fullstack-upgrade main` | 成功 |
+| 带回资产 | `git merge --no-ff chore/g1-evidence` | 合并提交 `a016784`（E04/G1/共享 CDP 三个提交） |
+| 保护 | 未改 `main`、未推送、未合并到 `main`、未变基/改写历史 | 符合本批边界 |
+
+未合并分支盘点：`chore/g1-evidence` 含 E04 HTTP 网络实验、G1 响应式站点与 `06-实验代码/_shared/headless.mjs`。本轮先复验再带入，没有另造一套。复验结果见第三节。
+
+## 三、资产复验（临时干净目录，不污染仓库证据）
+
+| 资产 | 临时目录 | 命令 | 退出码 | 关键结果 |
+| --- | --- | --- | ---: | --- |
+| E01 | `/tmp/b0-e01` | `rm -rf build && bash scripts/run_tests.sh` | 0 | `checks=72 fails=0`、`checks=3061 fails=0`；SIGSEGV 定位 `tests/fault_guard.c:78`；修复版 `exit=0` |
+| E02 | `/tmp/b0-e02` | `bash scripts/run_all.sh` | 0 | 五组 28+11+27+37+32 = **135** 条断言 0 失败；反例峰值 200/20、2000/40；`非零退出环节: 0` |
+| E04 | `/tmp/b0-code-e04` | `bash scripts/run_evidence.sh` | 0 | 10 类状态码 + 304；CORS 浏览器 **8/8**；39 条服务端请求 |
+| G1 站点 | `/tmp/b0-code-g1` | `bash scripts/run_audit.sh` | 0 | 12 组布局 0 溢出；跳转链接 2/2；键盘 2 组全通过；空提交 2 组；axe 6 次 0 violations |
+
+复验边界：
+
+- 都是**同一台开发机**的临时目录，不是独立干净机器；“本机自测通过”不等于“干净环境通过”。
+- E02 历史 README 记录的是 Node v22.22.2，本轮在 **v24.15.0** 复跑仍为 135/135；README 的运行时文字需要在批次 1 更新，不能继续写旧版本。
+- E04 只有复制 `06-实验代码/_shared/` 到同级目录才能找到 CDP 客户端；README 的“干净复现”步骤应写明这一结构依赖（批次 1 模板统一处理）。
+- G1 站点临时目录需要先有 `evidence/`；仓库内已有该目录，干净克隆不受影响。
+
+## 四、校验命令与结果
+
+### 4.1 catalog source-only
+
+```text
+python 05-外部资料库/tools/catalog_tool.py validate --mode source-only
+```
+
+第一次执行（三份总账文档尚未创建）：**退出码 1**，4 项失效 Wiki 链接，全部指向待建的施工看板/覆盖矩阵/验证报告。这是预期的“先红”，不是通过。
+
+创建三份文档后复跑：**退出码 0**，178 active / 7 tombstone / 323,321 文件 / 13,943,121,367 bytes；83 份 Markdown、390 Wiki、455 普通链接；catalog、Schema、统计、视图、Markdown 与链接检查无错误。
+
+### 4.2 内部链接、空白与占位
+
+自建只读检查器（Node，遍历现行 `000`、`01`–`04`、`06`，跳过 `05` 正文、`90` 归档、`node_modules`、`build`）：
+
+```text
+node <TEMP>/b0-validate.mjs
+```
+
+结果见 4.5。规则：
+
+- 普通 Markdown 链接按相对路径解析；
+- Wiki 链接含 `/` 时按相对路径解析，不含 `/` 时按 Obsidian 最短路径匹配**已跟踪 Markdown 文件名**（只读文件名，不扫描 `05` 正文）；
+- 不把归档区的旧链接纳入现行文档要求。
+
+### 4.3 空白
+
+```text
+git diff --check
+```
+
+结果：**退出码 0**，本批新增/修改无空白错误。
+
+全库扫描发现的 5 处行尾空格位于既有模板与进度看板的“待填写”行（`03-执行计划/模板-学习日志.md`、`03-执行计划/进度看板.md`），属于 Markdown 强制换行或既有格式；本批不擅自改动，登记为既有项。
+
+### 4.4 占位与秘密
+
+- 占位扫描（`TODO|FIXME|TBD|XXX`）：**0 处**（2026-11-08 当时口径）。**2026-11-09 复核更正**：`08-判定题库/G0–G9/起始代码/index.mjs` 共 **10 个 intentional student starter TODO**（每个能力包一个，是让学习者动手填的起始代码，不是未完成占位），`node_modules/` 内 3 处属第三方依赖不计。模板中的“待填写/待学习者填写”是合法人工填写位，不是未完成占位，单独保留。
+- 秘密扫描：只读扫描 260 个已跟踪文本文件（排除 `05` 正文），未发现 API key、私钥、密码、带凭据 URL。命中 24 处元数据：22 处个人绝对路径、1 处本地代理地址、1 处合成示例邮箱（`demo@example.invalid`，不是真实联系人）；没有把具体值写进本报告。
+- `.workbuddy/memory/*.md` 曾被 Git 跟踪（5 个文件，含本机路径）。2026-11-07 经用户确认后执行 `git rm --cached`（提交 `ad41928`）：**已不再跟踪、本地文件保留、历史未改写**；`.gitignore` 继续阻断新增。
+
+### 4.5 最终校验记录
+
+| 检查 | 命令 | 退出码 | 结果 |
+| --- | --- | ---: | --- |
+| catalog source-only | `python 05-外部资料库/tools/catalog_tool.py validate --mode source-only` | 0 | 178 active / 7 tombstone / 323,321 文件 / 13,943,121,367 bytes；83 份 Markdown、390 Wiki、455 普通链接；无错误 |

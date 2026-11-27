@@ -1,0 +1,35 @@
+| zijing2333/CSView | stale | 2024-03 停更，多语言面试汇编；框架 API 需回官方文档核对 |
+<!-- catalog-categories:end -->
+## 三、逐仓库清单
+
+<!-- catalog-repos:begin -->
+<!-- 由 05-外部资料库/tools/catalog_tool.py generate 生成，请勿手工编辑。 -->
+
+### 知识库/AI与RAG（16 个仓库）
+
+| 仓库 | 文件 | MiB | md | 许可 | 功能 | 时效 |
+| --- | ---: | ---: | ---: | --- | --- | --- |
+| [adongwanai/AgentGuide](<知识库/AI与RAG/adongwanai/AgentGuide/README.md>)（[在线回退](https://github.com/adongwanai/AgentGuide)） | 358 | 210.51 | 175 | 无 LICENSE | F1,F2,F3,F4 | unknown |
+| [angel200109/blog](<知识库/AI与RAG/angel200109/blog/README.md>)（[在线回退](https://github.com/angel200109/blog)） | 147 | 4.07 | 119 | 无 LICENSE | F2 | unknown |
+| [Canner/WrenAI](<知识库/AI与RAG/Canner/WrenAI/README.md>)（[在线回退](https://github.com/Canner/WrenAI)） | 708 | 18.81 | 147 | Apache-2.0 | F2,F3 | unknown |
+| [datawhalechina/hello-agents](<知识库/AI与RAG/datawhalechina/hello-agents/README.md>)（[在线回退](https://github.com/datawhalechina/hello-agents)） | 2,587 | 185.96 | 259 | CC-BY-NC-SA-4.0 | 未标注 | unknown |
+| [datawhalechina/llm-universe](<知识库/AI与RAG/datawhalechina/llm-universe/README.md>)（[在线回退](https://github.com/datawhalechina/llm-universe)） | 344 | 151.54 | 27 | 无 LICENSE | 未标注 | unknown |
+| [datawhalechina/self-llm](<知识库/AI与RAG/datawhalechina/self-llm/README.md>)（[在线回退](https://github.com/datawhalechina/self-llm)） | 1,372 | 270.87 | 308 | Apache-2.0 | F1,F2,F5 | unknown |
+| [Ethan-Wang-dev/awesome-cs61a](<知识库/AI与RAG/Ethan-Wang-dev/awesome-cs61a/README.md>)（[在线回退](https://github.com/Ethan-Wang-dev/awesome-cs61a)） | 3,046 | 163.30 | 25 | 无 LICENSE | F3,F4 | unknown |
+| [explodinggradients/ragas](<知识库/AI与RAG/explodinggradients/ragas/README.md>)（[在线回退](https://github.com/explodinggradients/ragas)） | 695 | 46.51 | 163 | Apache-2.0 | F6 | unknown |
+| [fancyboi999/ai-engineering-from-scratch-zh](<知识库/AI与RAG/fancyboi999/ai-engineering-from-scratch-zh/README.md>)（[在线回退](https://github.com/fancyboi999/ai-engineering-from-scratch-zh)） | 9,830 | 138.11 | 2,798 | MIT | F1,F2,F3,F5 | unknown |
+| [limouren2000/llms-dev-study](<知识库/AI与RAG/limouren2000/llms-dev-study/README.md>)（[在线回退](https://github.com/limouren2000/llms-dev-study)） | 132 | 101.51 | 13 | 无 LICENSE | 未标注 | unknown |
+| [microsoft/AI-For-Beginners](<知识库/AI与RAG/microsoft/AI-For-Beginners/README.md>)（[在线回退](https://github.com/microsoft/AI-For-Beginners)） | 13,697 | 1882.11 | 3,752 | MIT | 未标注 | unknown |
+| [microsoft/Data-Science-For-Beginners](<知识库/AI与RAG/microsoft/Data-Science-For-Beginners/README.md>)（[在线回退](https://github.com/microsoft/Data-Science-For-Beginners)） | 15,714 | 1429.68 | 3,925 | MIT | 未标注 | unknown |
+| [microsoft/ML-For-Beginners](<知识库/AI与RAG/microsoft/ML-For-Beginners/README.md>)（[在线回退](https://github.com/microsoft/ML-For-Beginners)） | 17,445 | 1165.22 | 5,581 | MIT | 未标注 | unknown |
+| [mindcarver/91ai](<知识库/AI与RAG/mindcarver/91ai/README.md>)（[在线回退](https://github.com/mindcarver/91ai)） | 2,463 | 92.86 | 1,511 | GPL-3.0 | F1,F2,F5 | unknown |
+| [openai/evals](<知识库/AI与RAG/openai/evals/README.md>)（[在线回退](https://github.com/openai/evals)） | 1,729 | 5.52 | 42 | MIT | F6 | unknown |
+| [wdndev/llm_interview_note](<知识库/AI与RAG/wdndev/llm_interview_note/README.md>)（[在线回退](https://github.com/wdndev/llm_interview_note)） | 836 | 143.81 | 96 | 无 LICENSE | F2,F5 | unknown |
+
+### 知识库/全栈路线（7 个仓库）
+
+| 仓库 | 文件 | MiB | md | 许可 | 功能 | 时效 |
+| --- | ---: | ---: | ---: | --- | --- | --- |
+| [codecrafters-io/build-your-own-x](<知识库/全栈路线/codecrafters-io/build-your-own-x/README.md>)（[在线回退](https://github.com/codecrafters-io/build-your-own-x)） | 5 | 0.07 | 2 | 无 LICENSE | 未标注 | unknown |
+| [freeCodeCamp/freeCodeCamp](<知识库/全栈路线/freeCodeCamp/freeCodeCamp/README.md>)（[在线回退](https://github.com/freeCodeCamp/freeCodeCamp)） | 19,802 | 80.54 | 17,037 | BSD | 未标注 | unknown |
+| [liyupi/codefather](<知识库/全栈路线/liyupi/codefather/README.md>)（[在线回退](https://github.com/liyupi/codefather)） | 1,056 | 9.82 | 998 | 无 LICENSE | 未标注 | unknown |

@@ -1,0 +1,128 @@
+      "classification": {
+        "primary_category": "知识库/前端与Node",
+        "category_basis": "人工覆核退回：MDN 是参考文档不是题库；QBANK 词表把「示例/约束」误判为题面标记（机械规则题面标记=591 属误判）",
+        "functions": [
+          "F1",
+          "F2",
+          "F5"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 16406,
+        "bytes": 115739037,
+        "markdown_count": 14753,
+        "question_markers": 591,
+        "test_files": 2,
+        "observed_at": "2026-11-07T14:06:23+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "CC-BY-SA-4.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE.md"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 57,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/mdn/content",
+          "category": "知识库/前端与Node",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 57,
+          "fetched": "2026-11-05 11:12",
+          "files": 16406,
+          "bytes": 115739037,
+          "mb": 110,
+          "top_extensions": {
+            ".md": 14753,
+            ".png": 1138,
+            ".svg": 207,
+            ".jpg": 126,
+            ".gif": 59,
+            ".yml": 31,
+            ".yaml": 27,
+            ".json": 20,
+            ".js": 18,
+            "(none)": 8
+          },
+          "license_files": [
+            "LICENSE.md"
+          ],
+          "license_detected": "CC-BY-SA-4.0",
+          "round": 2,
+          "selection": "正文 14753 篇；题面/问答标记 591 处；高采用(11124 star)+有正文(14753篇)；图解 1536 张；文档型仓库(md占比53%)；人工点名重点源｜自动判定：keep",
+          "functions": [
+            "F1题面",
+            "F2解答",
+            "F5图解"
+          ],
+          "measured": {
+            "md_n": 14753,
+            "md_share_pct": 53.0,
+            "question_markers": 591,
+            "tests": 2,
+            "images": 1536,
+            "pdf": 0,
+            "stars": 11124,
+            "pushed": "2026-11-04",
+            "functions": [
+              "注入-官方文档"
+            ]
+          },
+          "category_basis": "人工覆核退回：MDN 是参考文档不是题库；QBANK 词表把「示例/约束」误判为题面标记（机械规则题面标记=591 属误判）",
+          "content_fingerprint": "ab2006226c9eebd8ff28cadadb1599c211444759257b56135c6a2697e49ff470",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:microsoft/typescript-website",
+      "name": "microsoft/TypeScript-Website",
+      "source": {
+        "url": "https://github.com/microsoft/TypeScript-Website",
+        "canonical_url": "https://github.com/microsoft/TypeScript-Website",
+        "aliases": [],
+        "branch": "v2",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 16:52",
+        "upstream_pushed_at": "2026-11-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:27+08:00",
+          "default_branch": "v2",
+          "head_commit_sha": "a3ed0be5249fd75fae9c2f527de23f0fc16c5d0d",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/前端与Node/microsoft/TypeScript-Website",
+        "entry_path": "README.md",
+        "included_in_git": false,

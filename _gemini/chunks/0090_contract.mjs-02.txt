@@ -1,0 +1,27 @@
+  const responsesOk = Object.values(doc.paths).every((ops) => Object.values(ops).every((op) => op.responses));
+  check('A04 OpenAPI 文档基础校验（3.1、路径、responses）', doc.openapi === '3.1.0' && pathsOk && responsesOk, `paths=${Object.keys(doc.paths).length}`);
+
+  const legacyPost = await req('/v2/orders', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ items: [{ sku: 's1', qty: 2, price: 19.99 }] }) });
+  const legacyBody = await legacyPost.json();
+  check('A05 V1 载荷迁移为 V2 规范字段', legacyPost.status === 201 && legacyBody.items[0].unit_price_cents === 1999 && legacyBody.migrated === true, `status=${legacyPost.status} cents=${legacyBody.items?.[0]?.unit_price_cents}`);
+
+  const badAccept = await req('/v2/orders/o-1', { headers: { accept: 'application/vnd.api.v1+json' } });
+  const goodAccept = await req('/v2/orders/o-1', { headers: { accept: 'application/vnd.api.v2+json' } });
+  check('A06 按 Accept 选择版本，未知版本 406', badAccept.status === 406 && goodAccept.status === 200, `bad=${badAccept.status} good=${goodAccept.status}`);
+
+  const v1Legacy = await req('/v1/orders/legacy');
+  const v2Legacy = await req('/v2/orders/legacy');
+  const v1Audit = await req('/v1/orders/o-1/audit', { headers: { accept: 'application/vnd.api.v2+json' } });
+  const v2Audit = await req('/v2/orders/o-1/audit');
+  check('A07 端点增删可对比（legacy 删除、audit 新增）', v1Legacy.status === 200 && v2Legacy.status === 404 && v1Audit.status === 404 && v2Audit.status === 200, `legacy=${v1Legacy.status}/${v2Legacy.status} audit=${v1Audit.status}/${v2Audit.status}`);
+
+  const v1Res = await req('/v1/orders/o-1');
+  check('A08 废弃操作在文档与响应中可识别', doc.paths['/v1/orders/{id}'].get.deprecated === true && v1Res.headers.get('deprecation') === 'true', `header=${v1Res.headers.get('deprecation')}`);
+} finally {
+  await app.close();
+  fs.mkdirSync('evidence', { recursive: true });
+  fs.writeFileSync('evidence/contract.json', JSON.stringify(evidence, null, 2) + '\n');
+}
+const failures = results.filter((r) => !r.ok).length;
+console.log(failures === 0 ? `BACKEND30-A PASS ${results.length}/${results.length}` : `BACKEND30-A FAIL ${failures}/${results.length}`);
+if (failures > 0) process.exitCode = 1;

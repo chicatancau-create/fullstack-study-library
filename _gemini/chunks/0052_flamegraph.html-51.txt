@@ -1,0 +1,98 @@
+      : coefficient + new Array(exponent - coefficient.length + 2).join("0");
+}
+
+var formatTypes = {
+  "%": function(x, p) { return (x * 100).toFixed(p); },
+  "b": function(x) { return Math.round(x).toString(2); },
+  "c": function(x) { return x + ""; },
+  "d": formatDecimal,
+  "e": function(x, p) { return x.toExponential(p); },
+  "f": function(x, p) { return x.toFixed(p); },
+  "g": function(x, p) { return x.toPrecision(p); },
+  "o": function(x) { return Math.round(x).toString(8); },
+  "p": function(x, p) { return formatRounded(x * 100, p); },
+  "r": formatRounded,
+  "s": formatPrefixAuto,
+  "X": function(x) { return Math.round(x).toString(16).toUpperCase(); },
+  "x": function(x) { return Math.round(x).toString(16); }
+};
+
+function identity(x) {
+  return x;
+}
+
+var map = Array.prototype.map,
+    prefixes = ["y","z","a","f","p","n","µ","m","","k","M","G","T","P","E","Z","Y"];
+
+function formatLocale(locale) {
+  var group = locale.grouping === undefined || locale.thousands === undefined ? identity : formatGroup(map.call(locale.grouping, Number), locale.thousands + ""),
+      currencyPrefix = locale.currency === undefined ? "" : locale.currency[0] + "",
+      currencySuffix = locale.currency === undefined ? "" : locale.currency[1] + "",
+      decimal = locale.decimal === undefined ? "." : locale.decimal + "",
+      numerals = locale.numerals === undefined ? identity : formatNumerals(map.call(locale.numerals, String)),
+      percent = locale.percent === undefined ? "%" : locale.percent + "",
+      minus = locale.minus === undefined ? "-" : locale.minus + "",
+      nan = locale.nan === undefined ? "NaN" : locale.nan + "";
+
+  function newFormat(specifier) {
+    specifier = formatSpecifier(specifier);
+
+    var fill = specifier.fill,
+        align = specifier.align,
+        sign = specifier.sign,
+        symbol = specifier.symbol,
+        zero = specifier.zero,
+        width = specifier.width,
+        comma = specifier.comma,
+        precision = specifier.precision,
+        trim = specifier.trim,
+        type = specifier.type;
+
+    // The "n" type is an alias for ",g".
+    if (type === "n") comma = true, type = "g";
+
+    // The "" type, and any invalid type, is an alias for ".12~g".
+    else if (!formatTypes[type]) precision === undefined && (precision = 12), trim = true, type = "g";
+
+    // If zero fill is specified, padding goes after sign and before digits.
+    if (zero || (fill === "0" && align === "=")) zero = true, fill = "0", align = "=";
+
+    // Compute the prefix and suffix.
+    // For SI-prefix, the suffix is lazily computed.
+    var prefix = symbol === "$" ? currencyPrefix : symbol === "#" && /[boxX]/.test(type) ? "0" + type.toLowerCase() : "",
+        suffix = symbol === "$" ? currencySuffix : /[%p]/.test(type) ? percent : "";
+
+    // What format function should we use?
+    // Is this an integer type?
+    // Can this type generate exponential notation?
+    var formatType = formatTypes[type],
+        maybeSuffix = /[defgprs%]/.test(type);
+
+    // Set the default precision if not specified,
+    // or clamp the specified precision to the supported range.
+    // For significant precision, it must be in [1, 21].
+    // For fixed precision, it must be in [0, 20].
+    precision = precision === undefined ? 6
+        : /[gprs]/.test(type) ? Math.max(1, Math.min(21, precision))
+        : Math.max(0, Math.min(20, precision));
+
+    function format(value) {
+      var valuePrefix = prefix,
+          valueSuffix = suffix,
+          i, n, c;
+
+      if (type === "c") {
+        valueSuffix = formatType(value) + valueSuffix;
+        value = "";
+      } else {
+        value = +value;
+
+        // Determine the sign. -0 is not less than 0, but 1 / -0 is!
+        var valueNegative = value < 0 || 1 / value < 0;
+
+        // Perform the initial formatting.
+        value = isNaN(value) ? nan : formatType(Math.abs(value), precision);
+
+        // Trim insignificant zeros.
+        if (trim) value = formatTrim(value);
+

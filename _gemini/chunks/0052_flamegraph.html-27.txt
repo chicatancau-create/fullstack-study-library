@@ -1,0 +1,168 @@
+    for (let j = 0; j < this._n && j < 32; j++) {
+      const y = p[j],
+        hi = x + y,
+        lo = Math.abs(x) < Math.abs(y) ? x - (hi - y) : y - (hi - x);
+      if (lo) p[i++] = lo;
+      x = hi;
+    }
+    p[i] = x;
+    this._n = i + 1;
+    return this;
+  }
+  valueOf() {
+    const p = this._partials;
+    let n = this._n, x, y, lo, hi = 0;
+    if (n > 0) {
+      hi = p[--n];
+      while (n > 0) {
+        x = hi;
+        y = p[--n];
+        hi = x + y;
+        lo = y - (hi - x);
+        if (lo) break;
+      }
+      if (n > 0 && ((lo < 0 && p[n - 1] < 0) || (lo > 0 && p[n - 1] > 0))) {
+        y = lo * 2;
+        x = hi + y;
+        if (y == x - hi) hi = x;
+      }
+    }
+    return hi;
+  }
+}
+
+function fsum(values, valueof) {
+  const adder = new Adder();
+  if (valueof === undefined) {
+    for (let value of values) {
+      if (value = +value) {
+        adder.add(value);
+      }
+    }
+  } else {
+    let index = -1;
+    for (let value of values) {
+      if (value = +valueof(value, ++index, values)) {
+        adder.add(value);
+      }
+    }
+  }
+  return +adder;
+}
+
+function fcumsum(values, valueof) {
+  const adder = new Adder();
+  let index = -1;
+  return Float64Array.from(values, valueof === undefined
+      ? v => adder.add(+v || 0)
+      : v => adder.add(+valueof(v, ++index, values) || 0)
+  );
+}
+
+class InternMap extends Map {
+  constructor(entries, key = keyof) {
+    super();
+    Object.defineProperties(this, {_intern: {value: new Map()}, _key: {value: key}});
+    if (entries != null) for (const [key, value] of entries) this.set(key, value);
+  }
+  get(key) {
+    return super.get(intern_get(this, key));
+  }
+  has(key) {
+    return super.has(intern_get(this, key));
+  }
+  set(key, value) {
+    return super.set(intern_set(this, key), value);
+  }
+  delete(key) {
+    return super.delete(intern_delete(this, key));
+  }
+}
+
+class InternSet extends Set {
+  constructor(values, key = keyof) {
+    super();
+    Object.defineProperties(this, {_intern: {value: new Map()}, _key: {value: key}});
+    if (values != null) for (const value of values) this.add(value);
+  }
+  has(value) {
+    return super.has(intern_get(this, value));
+  }
+  add(value) {
+    return super.add(intern_set(this, value));
+  }
+  delete(value) {
+    return super.delete(intern_delete(this, value));
+  }
+}
+
+function intern_get({_intern, _key}, value) {
+  const key = _key(value);
+  return _intern.has(key) ? _intern.get(key) : value;
+}
+
+function intern_set({_intern, _key}, value) {
+  const key = _key(value);
+  if (_intern.has(key)) return _intern.get(key);
+  _intern.set(key, value);
+  return value;
+}
+
+function intern_delete({_intern, _key}, value) {
+  const key = _key(value);
+  if (_intern.has(key)) {
+    value = _intern.get(value);
+    _intern.delete(key);
+  }
+  return value;
+}
+
+function keyof(value) {
+  return value !== null && typeof value === "object" ? value.valueOf() : value;
+}
+
+function identity(x) {
+  return x;
+}
+
+function group(values, ...keys) {
+  return nest(values, identity, identity, keys);
+}
+
+function groups(values, ...keys) {
+  return nest(values, Array.from, identity, keys);
+}
+
+function rollup(values, reduce, ...keys) {
+  return nest(values, identity, reduce, keys);
+}
+
+function rollups(values, reduce, ...keys) {
+  return nest(values, Array.from, reduce, keys);
+}
+
+function index(values, ...keys) {
+  return nest(values, identity, unique, keys);
+}
+
+function indexes(values, ...keys) {
+  return nest(values, Array.from, unique, keys);
+}
+
+function unique(values) {
+  if (values.length !== 1) throw new Error("duplicate key");
+  return values[0];
+}
+
+function nest(values, map, reduce, keys) {
+  return (function regroup(values, i) {
+    if (i >= keys.length) return reduce(values);
+    const groups = new InternMap();
+    const keyof = keys[i++];
+    let index = -1;
+    for (const value of values) {
+      const key = keyof(value, ++index, values);
+      const group = groups.get(key);
+      if (group) group.push(value);
+      else groups.set(key, [value]);
+    }

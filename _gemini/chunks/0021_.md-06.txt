@@ -1,0 +1,99 @@
+- 全量门禁：测试 15/15、压测 PASS、MQ PASS、备份恢复 PASS；代码提交 `1b61109`，manifest `c896f51`。
+- 边界：单节点单消费者；未验证发布器崩溃窗口、消费中崩溃重投、DLQ 重放、积压告警与多实例竞争。
+
+### 7.33 批次 4 项目 05 受控接手（部分）
+
+```text
+cd <练习仓库>/projects/project05-takeover
+PGPASSWORD=<local-test-password> bash scripts/run_project.sh
+```
+
+- 仓库为本人项目 02 快照注入 3 个缺陷，明确标注“受控演练”，不是真实陌生仓库。
+- 失败先行：4 个测试 **1 pass / 3 fail**；基线“成员可读本区任务”通过，证明不是整体不可用。
+- 修复后：**4/4 pass**。修复会话过期校验、任务列表成员校验、最后 owner 保护。
+- 交付交接文档、风险与未修复项、失败前后原始输出；manifest 6 个证据文件校验 OK。
+- 代码提交 `5c79fe9`。
+- 未完成：有界新功能、兼容迁移、性能定位、真实接收人复现、真实团队评审；不能标 G8 通过。
+
+### 7.34 批次 7 官方 JD 扩充（数量达标，映射部分）
+
+- 采集：腾讯官方 API 33 份；GitLab/Cloudflare/Datadog/Stripe/MongoDB/Elastic/Mozilla/Canonical 官方 Greenhouse 24 份；
+  原人工样本 6 份（美团/Thoughtworks/字节跳动）。
+- 去重后 **63 份、12 家公司**；63 个 URL 唯一，要求文本非空；**63/63 HEAD 200**（[URL 复核](data/jd-url-check-2026-11-07.json)）。
+- 原始文本（HTML 已剥离）179 KB：`04-资源与评估/data/jd-samples-2026-11-07.json`；
+  清单与关键词统计：`真实JD样本与差距记录-官方API扩充2026-11-07.md`。
+- 关键词全文命中：Go 28/63、AI 50/63、Python 22/63、Node 21/63、TypeScript 19/63、React 17/63、Java 16/63、
+  Vue 13/63、SQL 6/63、K8s 5/63、Redis/MQ 5/63、Docker 2/63。
+- 口径限制：关键词是“全文提及”而非“必需”；24 份国际岗位经验跨度更大，不能代表中国应届市场；
+  未逐条分类 63 份“必需/优先”，B7-02 仍为部分；原 12 份人工频次仍是基准。
+- 对抗复核发现字节跳动手工样本混入整段分析文本，已修复解析边界并重算；SQL/Docker/K8s 频次相应下调。
+- HEAD 200 只证明 URL 可达，不证明岗位仍开放或可投递；未投递、未联系招聘方。
+
+### 7.35 批次 5 Java 连接池/行锁诊断（部分）
+
+```text
+cd <练习仓库>/projects/project02-spring
+bash scripts/diagnose.sh
+```
+
+- 40 并发读 `/workspaces`：40/40 返回 200；Hikari 指标 `max=10`、`idle=10`，采样时 `active=0`（请求已完成）。
+- 行锁：会话 1 对 `p02j.workspaces` 一行 `FOR UPDATE`，会话 2 设 `innodb_lock_wait_timeout=2`
+  后更新，2s 后报 `ERROR 1205 Lock wait timeout exceeded`；`performance_schema.data_locks` 显示 `X,REC_NOT_GAP`。
+- 证据：`evidence/diagnose.txt`、`locks.txt`、`pool-*.json`；manifest 15 文件校验 OK；提交 `69bca28`。
+- 边界：未用 Testcontainers/Docker；未做持续连接池耗尽、死锁注入、`EXPLAIN` 对比；active=0 不能证明池争用。
+  （11-08 更新：死锁注入、单连接池耗尽恢复与单查询 EXPLAIN 对照已补，JUnit 9/9；Testcontainers 仍未做。）
+
+### 7.62 project02-spring EXPLAIN 索引对照
+
+- 事务内插入 5,000 条任务后执行同一查询，再回滚，不污染库。
+- 默认计划使用 `uq_task_title`，`rows=2502`；`IGNORE INDEX (uq_task_title)` 后走 `PRIMARY` 全索引扫描，`rows=5004`。
+- 证据 `evidence/explain.txt`；只证明该查询在 5k 行下的访问路径差异，不是生产容量结论。
+
+### 7.36 批次 5 Spring Security 接入（完成）
+
+- `projects/project02-spring` 接入 Spring Security 6.5.11：无状态会话、CSRF 关闭、公开健康检查/注册/登录、
+  其余请求必须认证；自定义 Bearer 过滤器加入安全链（不再作为独立 Servlet Filter）。
+- JUnit **5/5**：新增 actuator 鉴权测试（health 公开、metrics 未登录 401、带令牌 200）。
+- 依赖证据 `evidence/security.txt`；全量门禁 `JAVA-MYSQL PASS`；提交 `30a27b9`，manifest `a7f023f` 16 文件校验 OK。
+- 边界：角色仍由业务 SQL 判定，未使用 `@PreAuthorize` 方法级授权；邀请/最后 Owner/审计/备份仍未迁移。
+
+### 7.37 批次 7 题库与求职模板（部分）
+
+- 公开题库 56 题：算法 15、SQL 15、现场编码 10、系统设计 8、行为 8；每题含参考要点与难度，不冒充个人成绩。
+- 私有盲测 12 题（90 分钟、70% 通过线、按要点评分）与空评分表模板；公开练习与盲测分离。
+- 求职材料：一页简历、30 秒/3 分钟项目讲解、面试评分 rubric、投递记录 CSV 模板；明确禁止虚构经历/数字。
+- 未执行：闭卷盲测、错题复测、模拟面试评分、个人简历填写与投递记录；因此 B7-03/B7-04 仍为部分。
+
+### 7.38 批次 8 项目干净目录复现（部分）
+
+```bash
+# 对 7 个项目：git archive HEAD -> mktemp 目录 -> npm ci / Maven -> run_project.sh
+```
+
+- 项目 01：typecheck/test/build/E2E 通过，`gate_failures: 0`。
+- 项目 02：7/7 真实 DB；备份 `RESTORE PASS`。
+- 项目 03：测试/压测/MQ/备份全部 PASS。
+- 项目 04：测试/备份 PASS。
+- 项目 05（7.38 时点）：1 pass/3 fail → 4/4，`TAKEOVER PASS`；当前 12/12。
+- Java 迁移：5/5、JVM/MySQL 诊断、`JAVA-MYSQL PASS`。
+- 框架对照：2/2，`FRAMEWORKS PASS`。
+- 结果：[data/clean-room-2026-11-07.txt](data/clean-room-2026-11-07.txt)。
+- 边界（记录 7.38 时点，后续见 7.44/7.48）：同一台机器、同一批本地服务，不是独立 OS/CI；当时 AI 应用尚未建立。
+
+### 7.39 批次 8 实验干净目录复现（部分）
+
+- 方法：`git archive HEAD 06-实验代码` 导出到临时目录，重新 `npm ci`，逐个运行实验脚本。
+- E03 构建/门禁 0；E04 CORS 浏览器取证 8/8；E05 构建/缓存 PASS；E06 事件循环诊断 PASS；
+  E07 3/3；E08 `RESTORE PASS`；E09 5/5；E10 `E10 PASS`；E11 13/13；
+  E12 三轮 300 请求 0 失败，P95 16.86–31.84ms；E13 9/9。
+- 证据：[data/clean-room-experiments-2026-11-07.txt](data/clean-room-experiments-2026-11-07.txt)。
+- 边界：同机同服务，不是独立 OS/CI；E10 单节点；E12 本地闭环；E13 合成故障。
+
+### 7.40 批次 6 AI 最小应用（部分，mock）
+
+```bash
+cd <练习仓库>/projects/project06-ai-min
+npm ci && npm test && node scripts/eval.mjs
+```
+
+- 8/8 测试：结构化输出、工具调用、429/超时重试、拒答、非法输出 502、缺密钥 503、参数 400。

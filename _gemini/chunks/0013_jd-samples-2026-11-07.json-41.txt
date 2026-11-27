@@ -1,0 +1,11 @@
+agers to do the same.&l",
+      "responsibilities": ""
+    },
+    {
+      "company": "elastic",
+      "source": "Greenhouse official job board",
+      "title": "Full Stack Technical Developer",
+      "location": "Costa Rica",
+      "experience": "",
+      "url": "https://jobs.elastic.co/jobs?gh_jid=8281841&gh_jid=8281841",
+      "updated": "2026-11-05",

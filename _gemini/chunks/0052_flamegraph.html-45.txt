@@ -1,0 +1,128 @@
+        x0: pts.x0,
+        x1: pts.x1
+      }
+    })
+  }
+
+  function renderNode (context, node, ease, state) {
+    // Hidden by filters
+    if (node.data.hide) return
+
+    var depth = frameDepth(node)
+    var width = frameWidth(node)
+
+    // Coordinate of top left corner of this frame's rectangle.
+    var x = scaleToWidth(node.x0)
+    var y = h - (depth * c) - c
+
+    // Scale width while animating
+    if (ease !== 1 && node.data.prev) {
+      var prev = node.data.prev
+      width = interpolate(frameWidth(prev), width, ease)
+      x = interpolate(scaleToWidth(prev.x0), x, ease)
+    }
+
+    if (state === STATE_HOVER || state === STATE_UNHOVER) {
+      context.clearRect(x, y, width, c)
+    }
+
+    // Draw heat.
+    if (width >= 3 && heatBars && node.parent != null &&
+        // These states mean we're redrawing on top of an existing rendered graph,
+        // so we shouldn't exceed the current rectangle's boundaries; the heat will
+        // still be visible from before
+        (state !== STATE_HOVER && state !== STATE_UNHOVER)) {
+      renderHeatBar(context, node, x, y, width)
+    }
+
+    // Draw boxes.
+    renderStackFrameBox(context, node, x, y, width, state)
+
+    // Draw labels.
+    if (width >= 35) {
+      renderLabel(context, node, x, y, width)
+    }
+  }
+
+  function defaultRenderStackFrameBox (context, node, x, y, width, state) {
+    // don't bother drawing anything fancy for tiny frames, just do a box.
+    if (width < 3) {
+      // Hidden by zoom
+      if (node.data.value === 0) return
+
+      context.fillStyle = heatBars || !node.parent
+        ? frameColors.fill
+        : colorHash(node.data, undefined, allSamples, tiers)
+      context.fillRect(x, y, Math.max(width, 1), c)
+      return
+    }
+
+    var fillColor = heatBars || !node.parent
+      ? frameColors.fill
+      : colorHash(node.data, undefined, allSamples, tiers)
+    var strokeColor = heatBars || !node.parent
+      ? frameColors.stroke
+      : colorHash(node.data, 1.1, allSamples, tiers)
+    context.fillStyle = node.data.highlight
+      ? (typeof node.data.highlight === 'string' ? node.data.highlight : '#e600e6')
+      : fillColor
+    context.strokeStyle = strokeColor
+
+    context.beginPath()
+    context.rect(x, y, width, c)
+    if (state === STATE_HOVER) {
+      context.save()
+      context.globalAlpha = 0.8
+      context.fill()
+      context.restore()
+    } else {
+      context.fill()
+    }
+
+    if (heatBars) {
+      context.beginPath()
+      context.moveTo(x, y)
+      context.lineTo(x, y + c)
+      context.moveTo(x + width, y)
+      context.lineTo(x + width, y + c)
+      context.stroke()
+    } else {
+      context.stroke()
+    }
+  }
+
+  function defaultClickHandler (target) {
+    return zoom(target || nodes[0])
+  }
+
+  function defaultRenderLabel (context, node, x, y, width) {
+    // baseline size of 12px—for every ~3px that cellHeight grows above its baseline of 18px,
+    // grow the font size 1px
+    // This way the font size gets relatively smaller, giving it some breathing room at larger cell heights
+    // while also being readable at small cell heights
+    // NOTE this currently does NOT deal with cell heights below 18px, but then nothing in d3-fg really does
+    var labelFontSize = Math.floor(12 + (c - 18) * 0.3)
+    var stackFontSize = Math.floor(labelFontSize * 10 / 12)
+
+    context.save()
+    context.beginPath()
+    context.rect(x, y, width, c)
+    context.clip()
+    context.font = `${labelFontSize}px ${FONT_FAMILY}`
+    context.fillStyle = labelColors[node.data.type] || labelColors.default
+
+    var labelOffset = 4 // padding
+    // Center the "all stacks" text
+    if (!node.parent) {
+      context.textAlign = 'center'
+      labelOffset = width / 2
+    }
+
+    // Magic value to sorta kinda align the label in the middle of the frame height
+    // It's not very accurate
+    var btmOffset = Math.floor((c - 16) / 2)
+    var label = labelName(node)
+    context.fillText(label, x + labelOffset, y + c - btmOffset)
+
+    var stack = labelStack(node)
+    if (stack) {

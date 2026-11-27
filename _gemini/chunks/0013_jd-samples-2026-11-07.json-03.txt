@@ -1,0 +1,47 @@
+      "experience": "两年以上工作经验",
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2061451043539169280",
+      "updated": "2026年10月13",
+      "requirements": "1.深入理解机器学习与大模型原理，具备将复杂算法模型封装为高内聚、低耦合标准化产品的技术能力； 2.具备从0到1的产品化思维，能以产品经理视角平衡技术实现与用户体验、商业价值的综合考量； 3.熟练运用数据分析与A/B测试方法，通过核心指标（如转化率、耗时节省）量化AI产品价值并驱动迭代优化； 4.精通LangChain、Coze、Dify等主流AI开发平台，具备高阶Prompt工程能力，能快速搭建原型验证业务可行性； 5.拥有强烈的Owner意识与自驱力，在模糊业务场景中能主动定义目标，具备优秀的跨团队协作与问题解决能力。",
+      "responsibilities": "1.负责外部平台发行能力的产品化重构，基于LLM/Agent技术从零构建智能化的内容生态与发行工具，推动AI原生发行体系的创新落地； 2.主动深入IEG各游戏团队，通过业务调研挖掘营销、拉新、回流等场景的隐性痛点，独立完成数据分析及AI技术产品方案的设计与落地； 3.基于AI技术重构活动与发行工具链，实现从人工配置到\"智能感知-自动决策-精准执行\"的全链路自动化，并通过数据迭代持续优化产品效能； 4.持续追踪SOTA模型与AI工程化最佳实践，引入多模态、RAG等前沿技术为游戏发行业务创造增量价值，推动技术驱动的业务增长。"
+    },
+    {
+      "company": "腾讯",
+      "source": "careers.tencent.com (official API)",
+      "title": "智能体- Agent Harness 全栈工程师- WorkBuddy/CodeBuddy",
+      "location": "深圳",
+      "experience": "五年以上工作经验",
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2098252336337170432",
+      "updated": "2026年09月19",
+      "requirements": "1.计算机相关专业本科及以上学历； 2.对 AI 行业有极大的热情，我们相信兴趣是最好的老师； 3.具备扎实的全栈工程能力，熟悉 TypeScript/JavaScript、Python 或 Go 等至少一种语言，掌握 React/Vue 等前端框架与 Node.js/Python 后端框架，了解 PostgreSQL/Redis 等常见数据存储； 4.了解 LLM 与 Agent 的底层机制与技术原理，涵盖 Transformer 基础、model inference、function calling、context window/compaction、MCP、agent memory、multi-agent 等； 5.深度使用过一种或多种 Agent 工具，理解 AI 开发者工具的交互模式与产品逻辑； 6.可借助 AI 工具快速学习陌生领域知识，敢于承接未知技术挑战； 7.有良好的工程品味，重视代码质量、自动化测试、文档建设与开发者体验；具备英文文献阅读能力。",
+      "responsibilities": "1.负责 Agent Harness AI 基础设施的全栈开发与架构设计，支撑上层多产品的核心能力落地； 2.独立完成从前端交互、后端服务、数据存储到部署运维的端到端实现，打通从想法验证到生产可用的完整链路； 3.构建 Harness 基础设施的开发者工具与可视化界面，包括但不限于执行轨迹回放、上下文编排器、工具注册中心、评测数据管理后台等； 4.与算法/产品团队紧密协作，将 Context Engineering、Long-term Memory、Multi-Agent Coordination 等研究成果工程化落地到基础设施层，保障系统稳定性、可扩展性与 token efficiency； 5.持续优化 Harness 运行时与工程架构，探索 prefix cache、流式输出、任务队列、沙箱执行、可观测性等关键工程机制； 6.以真实用户任务表现为反馈，不断迭代 Harness 基础设施的易用性与开发者体验。"
+    },
+    {
+      "company": "腾讯",
+      "source": "careers.tencent.com (official API)",
+      "title": "大数据平台部-全栈开发工程师",
+      "location": "北京",
+      "experience": "三年以上工作经验",
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2102279767322701824",
+      "updated": "2026年10月13",
+      "requirements": "1.计算机或相关专业本科及以上学历，具备基本计算机理论基础； 2.熟悉一种或多种后端编程语言，如Java、Go、Python等，具备扎实的工程编码能力； 3.熟练掌握一种及以上大数据处理或分析框架，如Spark、Flink、Hive等，具备海量数据处理经验与一定数据分析能力； 4.具备良好的沟通协作与问题解决能力，能高效推动跨团队项目落地。",
+      "responsibilities": "1.参与画像中台体系建设，构建全链路画像生产链路以及AI化，推动中台能力持续升级； 2.负责画像数据的采集、处理、传输、存储、计算，支撑海量数据规模下的画像生产与更新； 3.探索并落地AI在画像方向的应用实践，包括但不限于大模型辅助画像理解、智能标签生成、Agent驱动的自动化画像运营与挖掘； 4.参与画像相关平台及工具建设，提升数据研发、服务运维、业务接入的效率与体验。"
+    },
+    {
+      "company": "腾讯",
+      "source": "careers.tencent.com (official API)",
+      "title": "智能体-全栈测试工程师（WorkBuddy方向）",
+      "location": "深圳",
+      "experience": "三年以上工作经验",
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2095061149577035776",
+      "updated": "2026年09月10",
+      "requirements": "1.本科及以上学历，计算机科学、软件工程、人工智能或相关专业； 2.熟悉 Python 或 Go，具备扎实的计算机基础，有大型复杂系统测试开发经验，熟悉性能调优、全链路追踪或自动化基建者优先； 3.理解大模型基本原理，有 Agent 架构或策略质量保障经验，能独立设计效果度量标准； 4.能解决传统的逻辑缺陷、性能瓶颈等确定性问题，也能通过数据驱动、概率统计等手段应对模型输出的不确定性挑战； 5.具备良好的业务体感与数据敏感度，能够快速跟进 AI 领域前沿技术并转化为实际的质量保障手段。具备自驱力，对提升测试效率有持续思考和推动能力。",
+      "responsibilities": "1.负责腾讯WorkBuddy/CodeBuddy/Miora等智能体产品质量保障及 AI测试Agent建设工作，推动Agent产品质量体系建设； 2.负责 Agent 多维度测试体系的设计与持续演进，覆盖Agent白盒测试、端到端功能测试、自动化测试、专项测试等； 3.针对 Prompt、RAG、Tool Use 等核心环节，研发自动化测试工具、自动化评估工具（如 LLM-as-a-Judge），将模糊的生成式体验转化为可量化的技术指标； 4.分析从代码变更、架构调整到模型策略优化全过程中的工程与算法风险，建立覆盖全链路的异常检测与预警机制； 5.参与技术攻关，解决复杂测试问题，并积极推动测试技术创新。持续优化测试流程、方法和工具，提升团队测试效能。"
+    },
+    {
+      "company": "腾讯",
+      "source": "careers.tencent.com (official API)",
+      "title": "Miora-全栈研发工程师-创意工具方向",
+      "location": "深圳",
+      "experience": "五年以上工作经验",
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2101490751358808064",
+      "updated": "2026年10月26",

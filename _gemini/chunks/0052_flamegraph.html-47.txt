@@ -1,0 +1,97 @@
+  function getNodeAt (canvas, offsetX, offsetY) {
+    var transform = d3.zoomTransform(canvas)
+    var x = scaleToGraph(transform.invertX(offsetX))
+    var y = h - transform.invertY(offsetY)
+    return nodes.find(function (node) {
+      if (node.data.hide) return false
+      if (node.x0 <= x && x <= node.x1) {
+        var nodeY = frameDepth(node) * c
+        return nodeY <= y && y <= nodeY + c
+      }
+      return false
+    })
+  }
+
+  function adjustForHighDpiScreen (canvas) {
+    // Adjust canvas for high DPI screens
+    // - Size the image up N× using attributes
+    // - Squash it down N× using CSS
+    // - Scale the context so 1px in all subsequent draw operations means Npx
+
+    const devicePixelRatio = window.devicePixelRatio
+    // let's resize the canvas
+    canvas
+      .style('width', w + 'px')
+      .style('height', h + 'px')
+      .attr('width', w * devicePixelRatio)
+      .attr('height', h * devicePixelRatio)
+
+    canvas.node().getContext('2d').scale(devicePixelRatio, devicePixelRatio)
+  }
+
+  function chart (firstRender) {
+    selection = d3.select(element)
+
+    selection.each(function (data) {
+      allSamples = data.data.value
+
+      if (!firstRender) {
+        var node = d3.select(this).append('div')
+          .style('position', 'relative')
+        node.append('canvas')
+          .attr('width', w)
+          .attr('height', h)
+          .attr('class', 'partition d3-flame-graph')
+          .attr('transition', 'transform 200ms ease-in-out')
+          .call(panZoom)
+          .on('wheel.zoom', null)
+          .on('contextmenu', function () {
+            const pointerCoords = { x: d3.event.offsetX, y: d3.event.offsetY }
+            const target = getNodeAt(this, pointerCoords.x, pointerCoords.y)
+
+            d3.event.preventDefault()
+
+            if (target) {
+              // Passes original datum and rect / event co-ordinates, same as hoverin / hoverout dispatches
+              dispatch.call('contextmenu', null, target.data, getNodeRect(target), pointerCoords)
+            } else {
+              // Click on the flamegraph background. Listeners can ignore it or treat it as deselection
+              dispatch.call('contextmenu', null, null, null, null)
+            }
+          })
+          .on('dblclick.zoom', null)
+          .on('dblclick', function () {
+            const pointerCoords = { x: d3.event.offsetX, y: d3.event.offsetY }
+            const target = getNodeAt(this, pointerCoords.x, pointerCoords.y)
+
+            if (target) {
+              // Passes original datum and rect / event co-ordinates, same as hoverin / hoverout dispatches
+              dispatch.call('dblClick', null, target.data, getNodeRect(target), pointerCoords)
+            } else {
+              // Click on the flamegraph background. Listeners can ignore it or treat it as deselection
+              dispatch.call('dblClick', null, null, null, null)
+            }
+          })
+          .on('click', function () {
+            const pointerCoords = { x: d3.event.offsetX, y: d3.event.offsetY }
+            const target = getNodeAt(this, pointerCoords.x, pointerCoords.y)
+
+            if (target) {
+              // Passes original datum and rect / event co-ordinates, same as hoverin / hoverout dispatches
+              dispatch.call('click', null, target.data, getNodeRect(target), pointerCoords)
+            } else {
+              // Click on the flamegraph background. Listeners can ignore it or treat it as deselection
+              dispatch.call('click', null, null, null, null)
+            }
+
+            // Passes d3-fg target node object, in context of DOM element
+            return clickHandler.call(this, target)
+          })
+          .on('mousemove', function () {
+            var target = getNodeAt(this, d3.event.offsetX, d3.event.offsetY)
+            var context = this.getContext('2d')
+
+            if (target === hoverFrame) return
+
+            if (hoverFrame) {
+              withZoomTransform(context, function () {

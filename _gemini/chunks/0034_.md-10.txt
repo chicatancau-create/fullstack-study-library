@@ -1,0 +1,39 @@
+| [yeasy/docker_practice](<知识库/运维与云原生/yeasy/docker_practice/README.md>)（[在线回退](https://github.com/yeasy/docker_practice)） | 348 | 5.37 | 206 | 无 LICENSE | F2 | unknown |
+
+### 知识库/运行时官方文档（2 个仓库）
+
+| 仓库 | 文件 | MiB | md | 许可 | 功能 | 时效 |
+| --- | ---: | ---: | ---: | --- | --- | --- |
+| [Bun 官方文档](<None/README.md>)（[在线回退](https://github.com/oven-sh/bun)） | 0 | 0.00 | 未知 | 无 LICENSE | 未标注 | unknown |
+| [Deno 官方文档](<None/README.md>)（[在线回退](https://github.com/denoland/deno)） | 0 | 0.00 | 未知 | 无 LICENSE | 未标注 | unknown |
+
+### 知识库/面试综合（1 个仓库）
+
+| 仓库 | 文件 | MiB | md | 许可 | 功能 | 时效 |
+| --- | ---: | ---: | ---: | --- | --- | --- |
+| [yangshun/tech-interview-handbook](<知识库/面试综合/yangshun/tech-interview-handbook/README.md>)（[在线回退](https://github.com/yangshun/tech-interview-handbook)） | 604 | 20.25 | 73 | MIT | 未标注 | unknown |
+
+### 知识库/鸿蒙与跨端（12 个仓库）
+
+| 仓库 | 文件 | MiB | md | 许可 | 功能 | 时效 |
+| --- | ---: | ---: | ---: | --- | --- | --- |
+| [CharonChui/HarmonyOSNextStudyNote](<知识库/鸿蒙与跨端/CharonChui/HarmonyOSNextStudyNote/README.md>)（[在线回退](https://github.com/CharonChui/HarmonyOSNextStudyNote)） | 18 | 0.21 | 16 | 未识别文件 | F2 | unknown |
+| [dcloudio/hbuilderx-extension-docs](<知识库/鸿蒙与跨端/dcloudio/hbuilderx-extension-docs/README.md>)（[在线回退](https://github.com/dcloudio/hbuilderx-extension-docs)） | 1,249 | 64.12 | 693 | Apache-2.0 | F1,F5 | unknown |
+| [dcloudio/hbuilderx-for-uniapp-test](<知识库/鸿蒙与跨端/dcloudio/hbuilderx-for-uniapp-test/README.md>)（[在线回退](https://github.com/dcloudio/hbuilderx-for-uniapp-test)） | 57 | 0.82 | 8 | 未识别文件 | F4,F5 | unknown |
+| [dcloudio/hello-uni-app-x](<知识库/鸿蒙与跨端/dcloudio/hello-uni-app-x/README.md>)（[在线回退](https://github.com/dcloudio/hello-uni-app-x)） | 1,317 | 10.73 | 89 | 未识别文件 | F3,F4 | unknown |
+| [dcloudio/hello-uniapp](<知识库/鸿蒙与跨端/dcloudio/hello-uniapp/README.md>)（[在线回退](https://github.com/dcloudio/hello-uniapp)） | 775 | 3.54 | 105 | MIT | F3,F4 | unknown |
+| [dcloudio/unidocs-uni-app-x-zh](<知识库/鸿蒙与跨端/dcloudio/unidocs-uni-app-x-zh/README.md>)（[在线回退](https://github.com/dcloudio/unidocs-uni-app-x-zh)） | 594 | 12.19 | 534 | 未识别文件 | F1,F5 | unknown |
+| [dcloudio/unidocs-unicloud-zh](<知识库/鸿蒙与跨端/dcloudio/unidocs-unicloud-zh/README.md>)（[在线回退](https://github.com/dcloudio/unidocs-unicloud-zh)） | 195 | 3.82 | 172 | 未识别文件 | F4,F5 | unknown |
+| [dcloudio/unidocs-zh](<知识库/鸿蒙与跨端/dcloudio/unidocs-zh/README.md>)（[在线回退](https://github.com/dcloudio/unidocs-zh)） | 559 | 8.34 | 518 | 未识别文件 | F1,F5 | unknown |
+| [DengShiyingA/harmonyos-ai-skill](<知识库/鸿蒙与跨端/DengShiyingA/harmonyos-ai-skill/README.md>)（[在线回退](https://github.com/DengShiyingA/harmonyos-ai-skill)） | 35 | 0.30 | 19 | 未识别文件 | F2 | unknown |
+| [Explore-In-HMOS/hmos-index](<知识库/鸿蒙与跨端/Explore-In-HMOS/hmos-index/README.md>)（[在线回退](https://github.com/Explore-In-HMOS/hmos-index)） | 11 | 0.39 | 9 | 未识别文件 | F2 | unknown |
+| [liasica/harmonyos-skills](<知识库/鸿蒙与跨端/liasica/harmonyos-skills/README.md>)（[在线回退](https://github.com/liasica/harmonyos-skills)） | 18,355 | 149.41 | 18,325 | 未识别文件 | F1,F2 | unknown |
+| [wuweiyouzuoju/jidecards-anki-harmonyos](<知识库/鸿蒙与跨端/wuweiyouzuoju/jidecards-anki-harmonyos/README.md>)（[在线回退](https://github.com/wuweiyouzuoju/jidecards-anki-harmonyos)） | 2,086 | 56.12 | 205 | AGPL-3.0 | F2,F3 | unknown |
+
+### 题库/AI与Agent（7 个仓库）
+
+| 仓库 | 文件 | MiB | md | 许可 | 功能 | 时效 |
+| --- | ---: | ---: | ---: | --- | --- | --- |
+| [cdavid817/agent-interview](<题库/AI与Agent/cdavid817/agent-interview/README.md>)（[在线回退](https://github.com/cdavid817/agent-interview)） | 168 | 4.32 | 155 | MIT | 未标注 | unknown |
+| [JoshithReddyAleti/AI_Engineer_Interview_Prep](<题库/AI与Agent/JoshithReddyAleti/AI_Engineer_Interview_Prep/README.md>)（[在线回退](https://github.com/JoshithReddyAleti/AI_Engineer_Interview_Prep)） | 91 | 2.21 | 89 | 无 LICENSE | F1,F2 | unknown |
+| [Lau-Jonathan/LLM-Agent-Interview-Guide](<题库/AI与Agent/Lau-Jonathan/LLM-Agent-Interview-Guide/README.md>)（[在线回退](https://github.com/Lau-Jonathan/LLM-Agent-Interview-Guide)） | 19 | 0.08 | 17 | Apache-2.0 | 未标注 | unknown |

@@ -1,0 +1,116 @@
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：537 文件 -> 538 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/krishnadey30/LeetCode-Questions-CompanyWise",
+          "category": "题库/公司高频题",
+          "branch": null,
+          "archive_sha256": "880a59e8b129f60d8a0e04fa238f13c5499e23f9ef1d02370a9adc0888dd0859",
+          "tarball_mb": 0,
+          "fetched": "2026-11-04 20:03",
+          "files": 538,
+          "bytes": 2373189,
+          "mb": 2,
+          "top_extensions": {
+            ".csv": 537
+          },
+          "license_files": [],
+          "license_detected": null,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：537 文件 -> 538 文件",
+          "measured": {
+            "pushed": "2024-06-23",
+            "stars": 20297
+          }
+        }
+      }
+    },
+    {
+      "id": "github:liquidslr/leetcode-company-wise-problems",
+      "name": "liquidslr/leetcode-company-wise-problems",
+      "source": {
+        "url": "https://github.com/liquidslr/leetcode-company-wise-problems",
+        "canonical_url": "https://github.com/liquidslr/leetcode-company-wise-problems",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-10-21",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:03+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "2b71796266751b4736a7ef180efb6847879166ee",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/公司高频题/liquidslr/leetcode-company-wise-problems",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/liquidslr/leetcode-company-wise-problems"
+      },
+      "integrity": {
+        "archive_sha256": "365cdff7e90e64499b5d48e9f272936de34e28f46f85b626116ce2b8d53d7ebb",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "题库/公司高频题",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 2353,
+        "bytes": 5883431,
+        "markdown_count": 1,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:28+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null

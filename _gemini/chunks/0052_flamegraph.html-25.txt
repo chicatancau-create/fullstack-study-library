@@ -1,0 +1,144 @@
+      )})`,
+      init: `rgb(${hsl(
+        colors.init.h,
+        colors.init.s / 100 * 1.2,
+        colors.init.l / 100 * 1.2
+      )})`
+    },
+    exclude
+  }
+})
+
+},{"d3-fg":17,"hsl-to-rgb-for-reals":31}],11:[function(require,module,exports){
+'use strict'
+const fg = require('d3-fg')
+const render = require('nanohtml')
+const morphdom = require('morphdom')
+const debounce = require('debounce')
+const createActions = require('./actions')
+const createState = require('./state')
+const graph = require('./cmp/graph')(render)
+const ui = require('./cmp/ui')(render)
+
+module.exports = function (trees, opts) {
+  opts = opts || {}
+  const { kernelTracing, visualizeCpuProfile } = opts
+  const exclude = new Set(['cpp', 'regexp', 'v8', 'native', 'init'])
+
+  const chart = graph()
+  const tree = trees.unmerged // default view
+  const categorizer = !kernelTracing && graph.v8cats
+  const flamegraph = fg({
+    categorizer,
+    tree,
+    exclude: Array.from(exclude),
+    element: chart,
+    topOffset: 55
+  })
+  const { colors } = flamegraph
+
+  let userZoom = true // false if the last zoom call was initiated by 0x
+  flamegraph.on('zoom', (d) => {
+    if (!userZoom) {
+      userZoom = true
+      return
+    }
+
+    focusNode(d)
+  })
+  window.addEventListener('popstate', (event) => {
+    userZoom = false
+    jumpToState(event.state || {
+      // No hash anymore, jump to root node (0) but don't change settings
+      merged: state.control.merged,
+      excludeTypes: Array.from(state.typeFilters.exclude),
+      nodeId: 0
+    })
+  })
+
+  window.addEventListener('resize', debounce(() => {
+    const width = document.body.clientWidth * 0.89
+    flamegraph.width(width).update()
+  }, 150))
+
+  const state = createState({ colors, trees, exclude, kernelTracing, title: opts.title, visualizeCpuProfile })
+
+  const actions = createActions({ flamegraph, state }, (state) => {
+    morphdom(iface, ui({ state, actions }))
+  })
+  const iface = ui({ state, actions })
+  const focusNode = actions.focusNode()
+  const jumpToState = actions.jumpToState()
+
+  document.body.appendChild(chart)
+  document.body.appendChild(iface)
+
+  if (window.location.hash) {
+    const st = parseHistoryState(window.location.hash.slice(1))
+    if (st) {
+      userZoom = false
+      jumpToState(st)
+    }
+  }
+}
+
+function parseHistoryState (str) {
+  try {
+    return JSON.parse(decodeURIComponent(str))
+  } catch (err) {
+    // Just ignore if someone used an incorrect hash
+    return null
+  }
+}
+
+},{"./actions":1,"./cmp/graph":3,"./cmp/ui":8,"./state":10,"d3-fg":17,"debounce":30,"morphdom":34,"nanohtml":37}],12:[function(require,module,exports){
+// https://d3js.org/d3-array/ v2.12.1 Copyright 2021 Mike Bostock
+(function (global, factory) {
+typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+typeof define === 'function' && define.amd ? define(['exports'], factory) :
+(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.d3 = global.d3 || {}));
+}(this, (function (exports) { 'use strict';
+
+function ascending(a, b) {
+  return a < b ? -1 : a > b ? 1 : a >= b ? 0 : NaN;
+}
+
+function bisector(f) {
+  let delta = f;
+  let compare = f;
+
+  if (f.length === 1) {
+    delta = (d, x) => f(d) - x;
+    compare = ascendingComparator(f);
+  }
+
+  function left(a, x, lo, hi) {
+    if (lo == null) lo = 0;
+    if (hi == null) hi = a.length;
+    while (lo < hi) {
+      const mid = (lo + hi) >>> 1;
+      if (compare(a[mid], x) < 0) lo = mid + 1;
+      else hi = mid;
+    }
+    return lo;
+  }
+
+  function right(a, x, lo, hi) {
+    if (lo == null) lo = 0;
+    if (hi == null) hi = a.length;
+    while (lo < hi) {
+      const mid = (lo + hi) >>> 1;
+      if (compare(a[mid], x) > 0) hi = mid;
+      else lo = mid + 1;
+    }
+    return lo;
+  }
+
+  function center(a, x, lo, hi) {
+    if (lo == null) lo = 0;
+    if (hi == null) hi = a.length;
+    const i = left(a, x, lo, hi - 1);
+    return i > lo && delta(a[i - 1], x) > -delta(a[i], x) ? i - 1 : i;
+  }
+
+  return {left, center, right};

@@ -1,0 +1,126 @@
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 3,
+          "fetched": "2026-11-05 11:12",
+          "files": 147,
+          "bytes": 4271506,
+          "mb": 4,
+          "top_extensions": {
+            ".md": 119,
+            ".json": 5,
+            ".ts": 4,
+            ".png": 4,
+            ".vue": 3,
+            "(none)": 2,
+            ".yaml": 2,
+            ".svg": 2,
+            ".sh": 1,
+            ".css": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "round": 2,
+          "selection": "正文 119 篇｜自动判定：keep",
+          "functions": [
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 119,
+            "md_share_pct": 9.2,
+            "question_markers": 0,
+            "tests": 0,
+            "images": 7,
+            "pdf": 0,
+            "stars": 2,
+            "pushed": "2026-09-04",
+            "functions": [
+              "中文个人笔记",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "content_fingerprint": "f96a24605edea40216a806eecc6d4998fbecc8ed7b468688556e2f9074313314",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:datawhalechina/hello-agents",
+      "name": "datawhalechina/hello-agents",
+      "source": {
+        "url": "https://github.com/datawhalechina/hello-agents",
+        "canonical_url": "https://github.com/datawhalechina/hello-agents",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-10-13",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:57:42+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "36f583c233ea5cee4537ef93455702b55053af18",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/AI与RAG/datawhalechina/hello-agents",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/datawhalechina/hello-agents"
+      },
+      "integrity": {
+        "archive_sha256": "c5936cef9afe012e0220e13a72b90c2fdff6655f3c88d48652dbfce3c7d27123",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/AI与RAG",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 2587,
+        "bytes": 194988927,
+        "markdown_count": 259,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:17+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "CC-BY-NC-SA-4.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE.txt"
+        ],
+        "usage_restriction": "仅限本机个人学习；传染性或非商业条款，不得并入对外发布产物。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 162,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：2586 文件 -> 2587 文件"
+        },

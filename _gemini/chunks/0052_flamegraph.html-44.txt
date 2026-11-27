@@ -1,0 +1,119 @@
+      // If a child is hidden or is (an ancestor of) the focusedFrame frame, don't count it
+      if (d.fade || d === focusedFrame) {
+        acc += sumChildValues(d)
+        continue
+      }
+      // When collapsing hidden nodes, they only count for their children's values.
+      // This way there is no space between children of this hidden node and adjacent nodes.
+      if (d.hide && collapseHiddenNodeWidths) {
+        acc += sumChildValues(d)
+        continue
+      }
+      acc += d.value
+    }
+    return acc
+  }
+
+  function update (opts) {
+    if (timing) console.group('update')
+
+    var mayAnimate = opts && opts.animate
+
+    adjustForHighDpiScreen(selection.select('canvas.d3-flame-graph'))
+
+    selection
+      .each(function (data) {
+        time('filter', function () {
+          filter(data)
+        })
+
+        time('sum/sort', function () {
+          data
+            .sum(function (d) {
+              // If this is the ancestor of a focusedFrame frame, use the same value (width) as the focusedFrame frame.
+              if (d.fade) return 0
+              // When collapsing hidden nodes, they don't have a width; d3 will sum up their children's widths
+              if (d.hide && collapseHiddenNodeWidths) return 0
+
+              // d3 sums value + all child values to get the value for a node,
+              // we can set `value = specifiedValue - all child values` to counteract that.
+              // the `.value`s in our data already include the sum of all child values.
+              return d.value - sumChildValues(d)
+            })
+            .sort(doSort)
+
+          // Make "all stacks" as wide as every visible stack.
+          data.value = data.children
+            ? data.children.reduce((acc, node) => acc + node.value, 0)
+            : 0
+        })
+
+        time('partition', function () {
+          return partition(data)
+        })
+
+        nodes = data.descendants()
+
+        var canvas = d3.select(this).select('canvas.d3-flame-graph').node()
+
+        // Animate if data was known for this set of nodes in the past.
+        if (nodes[0].data.prev && mayAnimate) {
+          animate()
+        } else {
+          time('render', function () {
+            render(canvas, nodes)
+            saveAnimationStartingPoints()
+          })
+        }
+
+        function animate () {
+          currentAnimation = createAnimation({
+            duration: transitionDuration,
+            ease: transitionEase
+          }, (ease) => {
+            render(canvas, nodes, ease)
+          }, () => {
+            currentAnimation = null
+            saveAnimationStartingPoints()
+            dispatch.call('animationEnd')
+          })
+        }
+
+        function render (canvas, nodes, ease) {
+          if (ease == null) ease = 1
+          var context = canvas.getContext('2d')
+          context.textBaseline = 'bottom'
+
+          // Ensure clearing is not affected by current zoom, panning, scaling etc
+          context.save()
+          context.setTransform(1, 0, 0, 1, 0, 0)
+          context.clearRect(0, 0, canvas.width, canvas.height)
+          context.restore()
+
+          withZoomTransform(context, function () {
+            nodes.forEach(function (node) {
+              renderNode(context, node, ease, STATE_IDLE)
+            })
+          })
+        }
+      })
+    if (timing) console.groupEnd('update')
+  }
+
+  function withZoomTransform (context, fn) {
+    var transform = d3.zoomTransform(context.canvas)
+    context.save()
+    context.translate(transform.x, transform.y)
+    context.scale(transform.k, transform.k)
+    fn()
+    context.restore()
+  }
+
+  function saveAnimationStartingPoints () {
+    nodes.forEach(function (node) {
+      // If an animation is ongoing, use the current positions as the starting position for the new animation
+      // This makes it look nice when jumping through history quickly (eg. triple click back button)
+      var pts = currentAnimation
+        ? currentAnimation.currentX(node)
+        : node
+      node.data.prev = {

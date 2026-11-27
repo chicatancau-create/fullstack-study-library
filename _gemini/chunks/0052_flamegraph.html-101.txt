@@ -1,0 +1,116 @@
+      d3Selection.customEvent(new ZoomEvent(zoom, type, this.that.__zoom), listeners.apply, listeners, [type, this.that, this.args]);
+    }
+  };
+
+  function wheeled() {
+    if (!filter.apply(this, arguments)) return;
+    var g = gesture(this, arguments),
+        t = this.__zoom,
+        k = Math.max(scaleExtent[0], Math.min(scaleExtent[1], t.k * Math.pow(2, wheelDelta.apply(this, arguments)))),
+        p = d3Selection.mouse(this);
+
+    // If the mouse is in the same location as before, reuse it.
+    // If there were recent wheel events, reset the wheel idle timeout.
+    if (g.wheel) {
+      if (g.mouse[0][0] !== p[0] || g.mouse[0][1] !== p[1]) {
+        g.mouse[1] = t.invert(g.mouse[0] = p);
+      }
+      clearTimeout(g.wheel);
+    }
+
+    // If this wheel event won’t trigger a transform change, ignore it.
+    else if (t.k === k) return;
+
+    // Otherwise, capture the mouse point and location at the start.
+    else {
+      g.mouse = [p, t.invert(p)];
+      d3Transition.interrupt(this);
+      g.start();
+    }
+
+    noevent();
+    g.wheel = setTimeout(wheelidled, wheelDelay);
+    g.zoom("mouse", constrain(translate(scale(t, k), g.mouse[0], g.mouse[1]), g.extent, translateExtent));
+
+    function wheelidled() {
+      g.wheel = null;
+      g.end();
+    }
+  }
+
+  function mousedowned() {
+    if (touchending || !filter.apply(this, arguments)) return;
+    var g = gesture(this, arguments, true),
+        v = d3Selection.select(d3Selection.event.view).on("mousemove.zoom", mousemoved, true).on("mouseup.zoom", mouseupped, true),
+        p = d3Selection.mouse(this),
+        x0 = d3Selection.event.clientX,
+        y0 = d3Selection.event.clientY;
+
+    d3Drag.dragDisable(d3Selection.event.view);
+    nopropagation();
+    g.mouse = [p, this.__zoom.invert(p)];
+    d3Transition.interrupt(this);
+    g.start();
+
+    function mousemoved() {
+      noevent();
+      if (!g.moved) {
+        var dx = d3Selection.event.clientX - x0, dy = d3Selection.event.clientY - y0;
+        g.moved = dx * dx + dy * dy > clickDistance2;
+      }
+      g.zoom("mouse", constrain(translate(g.that.__zoom, g.mouse[0] = d3Selection.mouse(g.that), g.mouse[1]), g.extent, translateExtent));
+    }
+
+    function mouseupped() {
+      v.on("mousemove.zoom mouseup.zoom", null);
+      d3Drag.dragEnable(d3Selection.event.view, g.moved);
+      noevent();
+      g.end();
+    }
+  }
+
+  function dblclicked() {
+    if (!filter.apply(this, arguments)) return;
+    var t0 = this.__zoom,
+        p0 = d3Selection.mouse(this),
+        p1 = t0.invert(p0),
+        k1 = t0.k * (d3Selection.event.shiftKey ? 0.5 : 2),
+        t1 = constrain(translate(scale(t0, k1), p0, p1), extent.apply(this, arguments), translateExtent);
+
+    noevent();
+    if (duration > 0) d3Selection.select(this).transition().duration(duration).call(schedule, t1, p0);
+    else d3Selection.select(this).call(zoom.transform, t1);
+  }
+
+  function touchstarted() {
+    if (!filter.apply(this, arguments)) return;
+    var touches = d3Selection.event.touches,
+        n = touches.length,
+        g = gesture(this, arguments, d3Selection.event.changedTouches.length === n),
+        started, i, t, p;
+
+    nopropagation();
+    for (i = 0; i < n; ++i) {
+      t = touches[i], p = d3Selection.touch(this, touches, t.identifier);
+      p = [p, this.__zoom.invert(p), t.identifier];
+      if (!g.touch0) g.touch0 = p, started = true, g.taps = 1 + !!touchstarting;
+      else if (!g.touch1 && g.touch0[2] !== p[2]) g.touch1 = p, g.taps = 0;
+    }
+
+    if (touchstarting) touchstarting = clearTimeout(touchstarting);
+
+    if (started) {
+      if (g.taps < 2) touchstarting = setTimeout(function() { touchstarting = null; }, touchDelay);
+      d3Transition.interrupt(this);
+      g.start();
+    }
+  }
+
+  function touchmoved() {
+    if (!this.__zooming) return;
+    var g = gesture(this, arguments),
+        touches = d3Selection.event.changedTouches,
+        n = touches.length, i, t, p, l;
+
+    noevent();
+    if (touchstarting) touchstarting = clearTimeout(touchstarting);

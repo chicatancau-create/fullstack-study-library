@@ -1,0 +1,78 @@
+  await waitUntil(() => pool.stats().running === 1, { label: '任务已启动' });
+  const queued = settle(pool.submit(() => 'q', { signal: queuedSignal, label: 'queued' }));
+  await waitUntil(() => pool.stats().queued === 1, { label: '任务已入队' });
+
+  pool.cancelAll('regression');
+  eq('cancelAll 后排队任务监听器为 0', queuedSignal.listenerCount, 0);
+  eq('cancelAll 后执行中任务监听器为 0', runSignal.listenerCount, 0);
+
+  g.open();
+  await within(500, () => running, '底层任务跑完');
+  await within(500, () => queued, '排队任务已结算');
+  await within(500, () => pool.drain(), 'drain');
+}
+
+// ---------- 6. drain 超时后注销 waiter ----------
+{
+  const pool = new TaskPool({ concurrency: 1, name: 'drain-timeout' });
+  const g = gate('g');
+  const running = settle(pool.submit(() => g.promise, { label: 'running' }));
+  await waitUntil(() => pool.stats().running === 1, { label: '任务已启动' });
+
+  const timedOut = await within(200, () => pool.drain({ timeoutMs: 20 })).catch((error) => error);
+  check(
+    'drain 超时返回 PoolError TIMEOUT',
+    timedOut instanceof PoolError && timedOut.code === POOL_CODES.TIMEOUT,
+  );
+  eq('drain 超时后 idle waiter 注销', pool.stats().idleWaiters, 0);
+
+  g.open();
+  await within(500, () => running, '运行任务结算');
+  await within(500, () => pool.drain(), '清理后 drain 成功');
+  eq('drain 成功后仍无残留 waiter', pool.stats().idleWaiters, 0);
+}
+
+// ---------- 7. timeoutMs 参数矩阵 ----------
+{
+  const pool = new TaskPool({ concurrency: 1, name: 'timeout-matrix' });
+  for (const [value, label] of [
+    [NaN, 'NaN'],
+    [-1, '-1'],
+    [Infinity, 'Infinity'],
+    ['100', 'string'],
+    [{}, 'object'],
+  ]) {
+    let error = null;
+    try {
+      pool.submit(() => 'x', { timeoutMs: value });
+    } catch (caught) {
+      error = caught;
+    }
+    check(`非法 timeoutMs ${label} 抛 RangeError`, error instanceof RangeError);
+  }
+  const ok = await within(200, () => pool.submit(() => 'ok', { timeoutMs: 0 })).catch((error) => error);
+  eq('timeoutMs=0 合法且可结算', ok, 'ok');
+  const zero = await within(200, () => pool.submit(() => 'ok', { timeoutMs: null })).catch((error) => error);
+  eq('timeoutMs=null 合法且可结算', zero, 'ok');
+  await pool.drain();
+}
+
+// ---------- 8. 取消与超时交错：不重复结算、监听器清理 ----------
+{
+  const pool = new TaskPool({ concurrency: 1, name: 'cancel-timeout' });
+  const signal = fakeSignal();
+  const task = settle(pool.submit(() => sleep(60), { timeoutMs: 10, signal, label: 'slow' }));
+  const timeoutError = await within(300, () => task, '超时结算').catch((error) => error);
+  check(
+    '超时返回 PoolError TIMEOUT',
+    timeoutError instanceof PoolError && timeoutError.code === POOL_CODES.TIMEOUT,
+  );
+
+  pool.cancelAll('after-timeout');
+  eq('超时后 cancelAll 清理监听器', signal.listenerCount, 0);
+  await within(500, () => pool.drain(), '底层完成后 drain');
+  eq('超时后底层完成计入 lateAfterTimeout', pool.stats().lateAfterTimeout, 1);
+}
+
+await sleep(20);
+summary('test_regressions');

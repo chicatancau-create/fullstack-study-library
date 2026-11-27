@@ -1,0 +1,100 @@
+    common_mistakes: ['栈为空时仍计算长度导致越界或错值', '把栈底哨兵也弹出', '只统计括号数量不看位置'],
+    followups: ['DP 解法如何定义状态？', '如何同时返回最长有效子串内容？'],
+    rubric: [
+      { point: '栈底哨兵表示最后一个未匹配右括号', weight: 2 },
+      { point: '弹栈后按栈是否为空分支处理', weight: 1 },
+      { point: '空串返回 0', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q039', title: '69. x 的平方根', question_url: 'https://leetcode.cn/problems/sqrtx/',
+    core_idea: '在 [0,x] 上二分找最大的 mid 使 mid*mid ≤ x；用除法 mid ≤ x/mid 避免乘法溢出。',
+    invariant: '答案始终在 [lo,hi] 内；循环结束时 lo 越过 hi，hi 即下取整平方根。',
+    complexity: { time: 'O(log x)', space: 'O(1)' },
+    code_lang: 'javascript',
+    code: `function solve(x) {
+  let lo = 0, hi = x, ans = 0;
+  while (lo <= hi) {
+    const mid = lo + Math.floor((hi - lo) / 2);
+    if (mid === 0 || mid <= Math.floor(x / mid)) { ans = mid; lo = mid + 1; }
+    else hi = mid - 1;
+  }
+  return ans;
+}`,
+    edge_cases: [
+      { call: '4', expected: 2, why: '完全平方数' },
+      { call: '8', expected: 2, why: '下取整而不是四舍五入' },
+      { call: '0', expected: 0, why: '零边界与除零保护' },
+    ],
+    common_mistakes: ['用 Math.sqrt 直接返回浮点结果', 'mid*mid 在 32 位溢出', '返回 lo 而不是记录的最后可行值'],
+    followups: ['如何返回保留 k 位小数的平方根？', '牛顿迭代怎么写？'],
+    rubric: [
+      { point: '二分查找最大的 mid 使 mid² ≤ x', weight: 2 },
+      { point: '用除法或 BigInt 避免乘法溢出', weight: 1 },
+      { point: 'x=0 时返回 0 且不除零', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q040', title: '4. 寻找两个正序数组的中位数', question_url: 'https://leetcode.cn/problems/median-of-two-sorted-arrays/',
+    core_idea: '在较短数组上二分划分点 i，另一数组划分点 j=(m+n+1)/2-i；满足 a[i-1]≤b[j] 且 b[j-1]≤a[i] 时，由四邻值算中位数。',
+    invariant: '划分把两数组合并后的前 half 个元素放到左侧，且左半最大值 ≤ 右半最小值。',
+    complexity: { time: 'O(log min(m,n))', space: 'O(1)' },
+    code_lang: 'javascript',
+    code: `function solve(a, b) {
+  if (a.length > b.length) return solve(b, a);
+  const m = a.length, n = b.length, total = m + n, half = Math.floor((total + 1) / 2);
+  let lo = 0, hi = m;
+  while (lo <= hi) {
+    const i = Math.floor((lo + hi) / 2), j = half - i;
+    const aL = i > 0 ? a[i - 1] : -Infinity, aR = i < m ? a[i] : Infinity;
+    const bL = j > 0 ? b[j - 1] : -Infinity, bR = j < n ? b[j] : Infinity;
+    if (aL <= bR && bL <= aR) {
+      if (total % 2 === 1) return Math.max(aL, bL);
+      return (Math.max(aL, bL) + Math.min(aR, bR)) / 2;
+    } else if (aL > bR) hi = i - 1;
+    else lo = i + 1;
+  }
+  return 0;
+}`,
+    edge_cases: [
+      { call: '[1,3], [2]', expected: 2, why: '奇数个元素取中间值' },
+      { call: '[1,2], [3,4]', expected: 2.5, why: '偶数个取两个中间值平均' },
+      { call: '[], [1]', expected: 1, why: '一个数组为空' },
+    ],
+    common_mistakes: ['在长数组上二分导致边界处理复杂与越界', 'half 用 (m+n)/2 忘记 +1 导致奇数长度偏左', '越界侧不用 ±Infinity 而直接取 0'],
+    followups: ['为什么必须把二分限制在较短数组上？', '若要求 O(log(m+n)) 且不比较数值大小，如何做？'],
+    rubric: [
+      { point: '在较短数组上二分划分点', weight: 2 },
+      { point: '四邻值与 ±Infinity 边界处理正确', weight: 1 },
+      { point: '奇偶长度分别返回单值与平均值', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q041', title: '22. 括号生成', question_url: 'https://leetcode.cn/problems/generate-parentheses/',
+    core_idea: '回溯：已用左括号数小于 n 时可放 "("，右括号数小于左括号数时可放 ")"；长度到 2n 收集结果。',
+    invariant: '递归过程中任意前缀的右括号数不超过左括号数，因此生成的都是合法序列且不重复。',
+    complexity: { time: 'O(C(2n,n))', space: 'O(n)' },
+    code_lang: 'javascript',
+    code: `function solve(n) {
+  const out = [];
+  function dfs(open, close, cur) {
+    if (cur.length === 2 * n) { out.push(cur); return; }
+    if (open < n) dfs(open + 1, close, cur + '(');
+    if (close < open) dfs(open, close + 1, cur + ')');
+  }
+  dfs(0, 0, '');
+  return out;
+}`,
+    edge_cases: [
+      { call: '1', expected: ['()'], why: '只有一对' },
+      { call: '2', expected: ['(())','()()'], why: '先放左括号的枚举顺序' },
+    ],
+    common_mistakes: ['先枚举右括号导致顺序与期望不同', '用 set 去重掩盖了非法序列', '只在 open<n 时递归而漏掉右括号分支'],
+    followups: ['如何按字典序输出？', '结果数量为什么是第 n 个卡特兰数？'],
+    rubric: [
+      { point: '左括号数与右括号数双约束', weight: 2 },
+      { point: '前缀合法性由 close<open 保证', weight: 1 },
+      { point: '长度到 2n 才收集且顺序稳定', weight: 1 },
+    ],
+  },
+  {

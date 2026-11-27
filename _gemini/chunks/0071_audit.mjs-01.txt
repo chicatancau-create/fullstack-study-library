@@ -1,0 +1,86 @@
+// G1 响应式站点取证：布局/重排、仅键盘主路径、axe 自动扫描、焦点与减少动态效果。
+// 依赖：本地 8789 静态服务 + node_modules/axe-core。
+import fs from 'node:fs';
+import path from 'node:path';
+import { launchBrowser, sleep } from '../../_shared/headless.mjs';
+
+const BASE = 'http://127.0.0.1:8789';
+const ROOT = path.resolve(import.meta.dirname, '..');
+const EVIDENCE = path.join(ROOT, 'evidence');
+const SHOTS = path.join(EVIDENCE, 'screenshots');
+fs.mkdirSync(SHOTS, { recursive: true });
+
+const axeSource = fs.readFileSync(path.join(ROOT, 'node_modules', 'axe-core', 'axe.min.js'), 'utf8');
+const axePkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'node_modules', 'axe-core', 'package.json'), 'utf8'));
+
+const PAGES = [
+  { name: 'index', url: `${BASE}/index.html` },
+  { name: 'tasks', url: `${BASE}/tasks.html` },
+  { name: 'task', url: `${BASE}/task.html?id=2` },
+];
+const WIDTHS = [
+  { label: '320', width: 320, height: 720 },
+  { label: '375', width: 375, height: 812 },
+  { label: '768', width: 768, height: 900 },
+  { label: '1280', width: 1280, height: 900 },
+];
+
+const results = { layout: [], textZoom: [], reducedMotion: [], skipLink: [], keyboard: {}, keyboardInvalid: [], axe: [] };
+const failures = [];
+const ok = (cond, message) => { if (!cond) failures.push(message); return cond; };
+
+const browser = await launchBrowser({ port: 9445 });
+try {
+  const { page, version } = browser;
+
+  await page.cdp.send('Page.addScriptToEvaluateOnNewDocument', { source: axeSource });
+
+  // ---------- A. 布局 / 重排 ----------
+  for (const p of PAGES) {
+    for (const vp of WIDTHS) {
+      await page.viewport(vp.width, vp.height);
+      await page.goto(p.url);
+      const data = await page.eval(`(() => {
+        const de = document.documentElement;
+        const targetSelector = '.grid, .task-list';
+        const grid = document.querySelector(targetSelector);
+        const gridStyle = grid ? getComputedStyle(grid) : null;
+        const all = [...document.querySelectorAll('a, button, input, select')];
+        const visible = all.filter(el => {
+          const r = el.getBoundingClientRect();
+          return r.width > 0 && r.height > 0;
+        });
+        const targets = visible.map(el => {
+          const r = el.getBoundingClientRect();
+          return { tag: el.tagName, id: el.id || null, text: (el.innerText || el.value || '').trim().slice(0, 30), w: Math.round(r.width), h: Math.round(r.height) };
+        });
+        const minTarget = targets.reduce((m, t) => (t.w * t.h < m.w * m.h ? t : m), targets[0] || { w: 0, h: 0 });
+        const keys = ['header', 'main', 'footer', 'h1', '.site-nav', 'form', 'button'];
+        const rects = {};
+        for (const sel of keys) {
+          const el = document.querySelector(sel);
+          if (!el) continue;
+          const r = el.getBoundingClientRect();
+          rects[sel] = { left: Math.round(r.left), right: Math.round(r.right), width: Math.round(r.width) };
+        }
+        return {
+          innerWidth,
+          docScrollWidth: de.scrollWidth,
+          docClientWidth: de.clientWidth,
+          bodyScrollWidth: document.body.scrollWidth,
+          overflowPx: Math.max(de.scrollWidth, document.body.scrollWidth) - innerWidth,
+          gridColumns: gridStyle ? gridStyle.gridTemplateColumns : null,
+          rects,
+          minTarget,
+          navFlexWrap: getComputedStyle(document.querySelector('.site-nav ul')).flexWrap,
+        };
+      })()`);
+      results.layout.push({ page: p.name, viewport: vp.label, ...data });
+      ok(data.overflowPx <= 0, `${p.name}@${vp.label}: 横向溢出 ${data.overflowPx}px`);
+      for (const [sel, r] of Object.entries(data.rects)) {
+        ok(r.left >= -1 && r.right <= vp.width + 1, `${p.name}@${vp.label}: ${sel} 超出视口 (${r.left}..${r.right})`);
+      }
+      ok(data.minTarget.w >= 24 && data.minTarget.h >= 24,
+        `${p.name}@${vp.label}: 最小可点击目标 ${data.minTarget.w}x${data.minTarget.h} < 24x24`);
+      if (p.name === 'index') {
+        const desktop = vp.width >= 768;

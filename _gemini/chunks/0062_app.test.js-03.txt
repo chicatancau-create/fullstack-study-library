@@ -1,0 +1,14 @@
+    assert.match(list.headers['content-type'], /application\/json/);
+    assert.equal(list.headers['x-content-type-options'], 'nosniff');
+    assert.ok(list.body.includes('<script>alert(1)</script>'));
+  });
+});
+
+test('未认证访问一律 401', async () => {
+  await withApp(async (app) => {
+    for (const url of ['/items', '/items/1', '/search?q=a', '/stats', '/export', '/files/report.txt', '/jobs/1', '/messages', '/logs']) {
+      const response = await app.inject({ method: 'GET', url });
+      assert.equal(response.statusCode, 401, url);
+    }
+  });
+});

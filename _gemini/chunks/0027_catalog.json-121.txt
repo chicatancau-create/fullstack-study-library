@@ -1,0 +1,123 @@
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "CC-BY-SA-4.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 2,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/GarethManning/education-agent-skills",
+          "category": "题库/AI与RAG",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 2,
+          "fetched": "2026-11-05 11:12",
+          "files": 332,
+          "bytes": 9533266,
+          "mb": 9,
+          "top_extensions": {
+            ".md": 249,
+            ".ts": 28,
+            ".json": 21,
+            ".yaml": 12,
+            ".py": 6,
+            "(none)": 4,
+            ".txt": 3,
+            ".csv": 3,
+            ".svg": 2,
+            ".html": 2
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "CC-BY-SA-4.0",
+          "round": 2,
+          "selection": "正文 249 篇；题面/问答标记 101 处；文档型仓库(md占比49%)｜自动判定：keep",
+          "functions": [
+            "F1题面",
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 249,
+            "md_share_pct": 49.2,
+            "question_markers": 101,
+            "tests": 8,
+            "images": 2,
+            "pdf": 0,
+            "stars": 950,
+            "pushed": "2026-11-03",
+            "functions": [
+              "项目实战",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "content_fingerprint": "8dc18ee55d95f3973407aeb56528f687d128d5b90c178caccbd9e02ebe7a306b",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:ai-infra-curriculum/ai-infra-engineer-learning",
+      "name": "ai-infra-curriculum/ai-infra-engineer-learning",
+      "source": {
+        "url": "https://github.com/ai-infra-curriculum/ai-infra-engineer-learning",
+        "canonical_url": "https://github.com/ai-infra-curriculum/ai-infra-engineer-learning",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-11-03",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:20+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "0d1b6558dc68c042a3dad54095b707cd92fc0529",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/AI与RAG/ai-infra-curriculum/ai-infra-engineer-learning",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/ai-infra-curriculum/ai-infra-engineer-learning"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "821bcbbd1552dc92097278436895bb08fb3dd5a183579d45302ea377bc82b5ed",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:52+08:00"
+        },
+        "legacy_fingerprint_12": "821bcbbd1552"
+      },

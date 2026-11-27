@@ -1,0 +1,150 @@
+          y0 = node.y0,
+          x1 = node.x1 - padding,
+          y1 = node.y1 - padding;
+      if (x1 < x0) x0 = x1 = (x0 + x1) / 2;
+      if (y1 < y0) y0 = y1 = (y0 + y1) / 2;
+      node.x0 = x0;
+      node.y0 = y0;
+      node.x1 = x1;
+      node.y1 = y1;
+    };
+  }
+
+  partition.round = function(x) {
+    return arguments.length ? (round = !!x, partition) : round;
+  };
+
+  partition.size = function(x) {
+    return arguments.length ? (dx = +x[0], dy = +x[1], partition) : [dx, dy];
+  };
+
+  partition.padding = function(x) {
+    return arguments.length ? (padding = +x, partition) : padding;
+  };
+
+  return partition;
+}
+
+var keyPrefix = "$", // Protect against keys like “__proto__”.
+    preroot = {depth: -1},
+    ambiguous = {};
+
+function defaultId(d) {
+  return d.id;
+}
+
+function defaultParentId(d) {
+  return d.parentId;
+}
+
+function stratify() {
+  var id = defaultId,
+      parentId = defaultParentId;
+
+  function stratify(data) {
+    var d,
+        i,
+        n = data.length,
+        root,
+        parent,
+        node,
+        nodes = new Array(n),
+        nodeId,
+        nodeKey,
+        nodeByKey = {};
+
+    for (i = 0; i < n; ++i) {
+      d = data[i], node = nodes[i] = new Node(d);
+      if ((nodeId = id(d, i, data)) != null && (nodeId += "")) {
+        nodeKey = keyPrefix + (node.id = nodeId);
+        nodeByKey[nodeKey] = nodeKey in nodeByKey ? ambiguous : node;
+      }
+    }
+
+    for (i = 0; i < n; ++i) {
+      node = nodes[i], nodeId = parentId(data[i], i, data);
+      if (nodeId == null || !(nodeId += "")) {
+        if (root) throw new Error("multiple roots");
+        root = node;
+      } else {
+        parent = nodeByKey[keyPrefix + nodeId];
+        if (!parent) throw new Error("missing: " + nodeId);
+        if (parent === ambiguous) throw new Error("ambiguous: " + nodeId);
+        if (parent.children) parent.children.push(node);
+        else parent.children = [node];
+        node.parent = parent;
+      }
+    }
+
+    if (!root) throw new Error("no root");
+    root.parent = preroot;
+    root.eachBefore(function(node) { node.depth = node.parent.depth + 1; --n; }).eachBefore(computeHeight);
+    root.parent = null;
+    if (n > 0) throw new Error("cycle");
+
+    return root;
+  }
+
+  stratify.id = function(x) {
+    return arguments.length ? (id = required(x), stratify) : id;
+  };
+
+  stratify.parentId = function(x) {
+    return arguments.length ? (parentId = required(x), stratify) : parentId;
+  };
+
+  return stratify;
+}
+
+function defaultSeparation$1(a, b) {
+  return a.parent === b.parent ? 1 : 2;
+}
+
+// function radialSeparation(a, b) {
+//   return (a.parent === b.parent ? 1 : 2) / a.depth;
+// }
+
+// This function is used to traverse the left contour of a subtree (or
+// subforest). It returns the successor of v on this contour. This successor is
+// either given by the leftmost child of v or by the thread of v. The function
+// returns null if and only if v is on the highest level of its subtree.
+function nextLeft(v) {
+  var children = v.children;
+  return children ? children[0] : v.t;
+}
+
+// This function works analogously to nextLeft.
+function nextRight(v) {
+  var children = v.children;
+  return children ? children[children.length - 1] : v.t;
+}
+
+// Shifts the current subtree rooted at w+. This is done by increasing
+// prelim(w+) and mod(w+) by shift.
+function moveSubtree(wm, wp, shift) {
+  var change = shift / (wp.i - wm.i);
+  wp.c -= change;
+  wp.s += shift;
+  wm.c += change;
+  wp.z += shift;
+  wp.m += shift;
+}
+
+// All other shifts, applied to the smaller subtrees between w- and w+, are
+// performed by this function. To prepare the shifts, we have to adjust
+// change(w+), shift(w+), and change(w-).
+function executeShifts(v) {
+  var shift = 0,
+      change = 0,
+      children = v.children,
+      i = children.length,
+      w;
+  while (--i >= 0) {
+    w = children[i];
+    w.z += shift;
+    w.m += shift;
+    shift += w.s + (change += w.c);
+  }
+}
+
+// If vi-’s ancestor is a sibling of v, returns vi-’s ancestor. Otherwise,

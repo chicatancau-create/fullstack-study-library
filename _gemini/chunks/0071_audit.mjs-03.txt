@@ -1,0 +1,96 @@
+  async function tabUntil(predicate, max = 30) {
+    const trace = [];
+    for (let i = 0; i < max; i++) {
+      await page.key('Tab');
+      const info = await page.eval(focusInfoExpr);
+      trace.push({ step: i + 1, ...info });
+      if (predicate(info)) return { trace, info, found: true };
+    }
+    return { trace, info: trace[trace.length - 1], found: false };
+  }
+
+  async function waitForUrlPart(part, timeout = 8000) {
+    const end = Date.now() + timeout;
+    while (Date.now() < end) {
+      try {
+        if (await page.eval(`location.href.includes(${JSON.stringify(part)})`)) return true;
+      } catch { /* 导航中上下文会短暂不可用 */ }
+      await sleep(120);
+    }
+    return false;
+  }
+
+  async function keyboardRun(label, width, height) {
+    await page.viewport(width, height);
+    await page.goto(`${BASE}/index.html`);
+    const trace = [];
+    const checks = {};
+
+    const step1 = await tabUntil(i => i && i.tag === 'A' && i.href && i.href.endsWith('/tasks.html'));
+    trace.push(...step1.trace);
+    checks.reachedTasksLink = step1.found;
+    await page.key('Enter');
+    checks.navigatedToTasks = await waitForUrlPart('/tasks.html');
+
+    const step2 = await tabUntil(i => i && i.tag === 'A' && i.href && i.href.includes('/task.html?id='));
+    trace.push(...step2.trace);
+    checks.reachedTaskLink = step2.found;
+    await page.key('Enter');
+    checks.navigatedToTask = await waitForUrlPart('/task.html?id=');
+
+    const step3 = await tabUntil(i => i && i.id === 'title');
+    trace.push(...step3.trace);
+    checks.reachedTitleInput = step3.found;
+
+    await page.type('只用键盘完成主路径');
+    await page.key('Tab');
+    const priorityFocus = await page.eval(focusInfoExpr);
+    trace.push({ step: 'priority', ...priorityFocus });
+    await page.key('ArrowDown');
+    const priorityValue = await page.eval("document.getElementById('priority').value");
+
+    await page.key('Tab');
+    const checkFocus = await page.eval(focusInfoExpr);
+    trace.push({ step: 'done-checkbox', ...checkFocus });
+    await page.key('Space');
+    const doneChecked = await page.eval("document.getElementById('done').checked");
+
+    await page.key('Tab');
+    const submitFocus = await page.eval(focusInfoExpr);
+    trace.push({ step: 'submit', ...submitFocus });
+    checks.submitReached = submitFocus && submitFocus.tag === 'BUTTON';
+    await page.key('Enter');
+    await page.waitFor("document.getElementById('success') && !document.getElementById('success').hidden", { timeout: 5000 });
+    const finalState = await page.eval(`(() => {
+      const s = document.getElementById('success');
+      return {
+        successVisible: !s.hidden,
+        successText: document.getElementById('success-text').textContent,
+        activeId: document.activeElement.id,
+        activeText: document.activeElement.innerText,
+        url: location.href,
+        titleValue: document.getElementById('title').value,
+        priorityValue: document.getElementById('priority').value,
+        doneChecked: document.getElementById('done').checked,
+        consoleErrors: [],
+      };
+    })()`);
+
+    checks.successVisible = finalState.successVisible;
+    checks.focusMovedToSuccess = finalState.activeId === 'success';
+    checks.priorityChanged = priorityValue === 'low';
+    checks.checkboxToggled = doneChecked === true;
+
+    const focusable = trace.filter(t => t.id !== 'main' && t.id !== 'success' && t.tag !== 'BODY');
+    const noOutline = focusable.filter(t => t.outlineStyle === 'none' || parseFloat(t.outlineWidth) < 2);
+    checks.allFocusedHaveVisibleOutline = noOutline.length === 0;
+    checks.focusWithoutOutline = noOutline.map(t => `${t.tag}#${t.id || ''}`);
+
+    for (const [k, v] of Object.entries(checks)) {
+      if (v === false) failures.push(`keyboard ${label}: ${k}`);
+    }
+
+    await page.shot(path.join(SHOTS, `task-success-${label}.png`));
+    results.keyboard[label] = { viewport: `${width}x${height}`, checks, trace, finalState, priorityValue, doneChecked };
+  }
+

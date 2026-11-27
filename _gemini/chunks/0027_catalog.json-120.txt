@@ -1,0 +1,124 @@
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 3,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/zkywsg/Daily-LLM",
+          "category": "题库/AI与Agent",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 3,
+          "fetched": "2026-11-05 11:12",
+          "files": 1802,
+          "bytes": 11027851,
+          "mb": 10,
+          "top_extensions": {
+            ".tsx": 852,
+            ".md": 395,
+            ".css": 182,
+            ".ts": 181,
+            ".svg": 158,
+            ".py": 21,
+            ".json": 6,
+            "(none)": 2,
+            ".txt": 1,
+            ".png": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "round": 2,
+          "selection": "正文 395 篇；题面/问答标记 109 处；文档型仓库(md占比47%)｜自动判定：keep",
+          "functions": [
+            "F1题面",
+            "F2解答",
+            "F5图解"
+          ],
+          "measured": {
+            "md_n": 395,
+            "md_share_pct": 46.6,
+            "question_markers": 109,
+            "tests": 13,
+            "images": 159,
+            "pdf": 0,
+            "stars": 869,
+            "pushed": "2026-09-25",
+            "functions": [
+              "F1离线题面",
+              "F2可对照解答",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "category_basis": "人工定类：每日 LLM 面试题",
+          "content_fingerprint": "f0e75795b23e97d4ad3a3ae5c47f19524b6d448903ef7db6b0b9504d48e179d8",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:garethmanning/education-agent-skills",
+      "name": "GarethManning/education-agent-skills",
+      "source": {
+        "url": "https://github.com/GarethManning/education-agent-skills",
+        "canonical_url": "https://github.com/GarethManning/education-agent-skills",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-11-03",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:18+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "135d6275e7db0657d70b147f46d3191c5430677d",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/AI与RAG/GarethManning/education-agent-skills",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/GarethManning/education-agent-skills"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "8dc18ee55d95f3973407aeb56528f687d128d5b90c178caccbd9e02ebe7a306b",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:52+08:00"
+        },
+        "legacy_fingerprint_12": "8dc18ee55d95"
+      },
+      "classification": {
+        "primary_category": "题库/AI与RAG",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F1",
+          "F2"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 332,
+        "bytes": 9533266,
+        "markdown_count": 249,
+        "question_markers": 101,
+        "test_files": 8,
+        "observed_at": "2026-11-07T14:06:28+08:00",

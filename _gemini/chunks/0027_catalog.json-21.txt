@@ -1,0 +1,121 @@
+        "upstream_pushed_at": "2025-12-29",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:10+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "e47b7c483b27475f48a01c3a176b724dbfb6d2de",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/全栈路线/mtdvio/every-programmer-should-know",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/mtdvio/every-programmer-should-know"
+      },
+      "integrity": {
+        "archive_sha256": "99548cd5f42d26c08455c3ec0501f3f9506cbd870050db4ba5d34d340ddffebb",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/全栈路线",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 5,
+        "bytes": 45161,
+        "markdown_count": 2,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:21+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "CC-BY-4.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：4 文件 -> 5 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/mtdvio/every-programmer-should-know",
+          "category": "知识库/全栈路线",
+          "branch": null,
+          "archive_sha256": "99548cd5f42d26c08455c3ec0501f3f9506cbd870050db4ba5d34d340ddffebb",
+          "tarball_mb": 0,
+          "fetched": "2026-11-04 20:03",
+          "files": 5,
+          "bytes": 45161,
+          "mb": 0,
+          "top_extensions": {
+            ".md": 2,
+            "(none)": 1,
+            ".yml": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "CC-BY-4.0",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：4 文件 -> 5 文件",
+          "measured": {
+            "pushed": "2025-12-29",
+            "stars": 100616
+          }
+        }
+      }
+    },
+    {
+      "id": "github:nilbuild/developer-roadmap",
+      "name": "nilbuild/developer-roadmap",
+      "source": {
+        "url": "https://github.com/nilbuild/developer-roadmap",
+        "canonical_url": "https://github.com/nilbuild/developer-roadmap",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-11-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:12+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "d922417cd1ef690e66c008a3c3612f683e8e433a",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/全栈路线/nilbuild/developer-roadmap",

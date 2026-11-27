@@ -1,0 +1,88 @@
+      if (result.rowCount === 0) return reply.code(404).send({ error: 'not_found' });
+      return result.rows[0];
+    } finally {
+      await client.end();
+    }
+  });
+
+  app.get('/lab/items/search', { preHandler: requireSession }, async (request, reply) => {
+    const q = String(request.query.q ?? '');
+    const client = await labConnect();
+    try {
+      if (request.query.mode === 'safe') {
+        const result = await client.query(
+          'SELECT id, tenant, title FROM e11.items WHERE tenant = $1 AND title ILIKE $2 ORDER BY id',
+          [request.session.tenant, `%${q}%`],
+        );
+        return { mode: 'safe', rows: result.rows };
+      }
+      const sql = `SELECT id, tenant, title FROM e11.items WHERE tenant = '${request.session.tenant}' AND title ILIKE '%${q}%' ORDER BY id`;
+      const result = await client.query(sql);
+      return { mode: 'vuln', rows: result.rows, sql };
+    } catch (error) {
+      return reply.code(500).send({ error: 'sql_error', code: error.code });
+    } finally {
+      await client.end();
+    }
+  });
+
+  app.post('/lab/comments', { preHandler: requireSession }, async (request, reply) => {
+    const body = typeof request.body?.body === 'string' ? request.body.body : '';
+    if (body.length < 1 || body.length > 200) return reply.code(400).send({ error: 'validation_failed' });
+    const client = await labConnect();
+    try {
+      await client.query('INSERT INTO e11.comments (tenant, body) VALUES ($1, $2)', [request.session.tenant, body]);
+      return reply.code(201).send({ ok: true });
+    } finally {
+      await client.end();
+    }
+  });
+
+  app.get('/lab/comments/page', { preHandler: requireSession }, async (request, reply) => {
+    const mode = request.query.mode === 'safe' ? 'safe' : 'raw';
+    const client = await labConnect();
+    try {
+      const rows = (await client.query('SELECT body FROM e11.comments WHERE tenant = $1 ORDER BY id', [
+        request.session.tenant,
+      ])).rows;
+      const html = `<!doctype html><meta charset="utf-8"><h1>Comments</h1>${rows
+        .map((row) => `<p>${mode === 'safe' ? escapeHtml(row.body) : row.body}</p>`)
+        .join('')}`;
+      if (mode === 'safe') reply.header('content-security-policy', "default-src 'none'; script-src 'none'");
+      return reply.type('text/html; charset=utf-8').send(html);
+    } finally {
+      await client.end();
+    }
+  });
+
+  app.get('/lab/echo', { preHandler: requireSession }, async (request, reply) => {
+    const q = String(request.query.q ?? '');
+    const mode = request.query.mode === 'safe' ? 'safe' : 'raw';
+    if (mode === 'safe') reply.header('content-security-policy', "default-src 'none'; script-src 'none'");
+    return reply.type('text/html; charset=utf-8')
+      .send(`<!doctype html><meta charset="utf-8"><p id="out">${mode === 'safe' ? escapeHtml(q) : q}</p>`);
+  });
+
+  app.get('/lab/dom', async (request, reply) => {
+    const mode = request.query.mode === 'safe' ? 'safe' : 'vuln';
+    if (mode === 'safe') {
+      reply.header('content-security-policy', "default-src 'none'; script-src 'self'");
+      return reply.type('text/html; charset=utf-8').send(
+        '<!doctype html><meta charset="utf-8"><body data-pwned="0"><div id="out"></div>'
+        + '<script src="/lab/dom-safe.js"></script></body>',
+      );
+    }
+    return reply.type('text/html; charset=utf-8').send(
+      '<!doctype html><meta charset="utf-8"><body data-pwned="0"><div id="out"></div>'
+      + '<script>const q=new URLSearchParams(location.search).get("q")||"";'
+      + 'document.getElementById("out").innerHTML=q;</script></body>',
+    );
+  });
+
+  // 公开扫描面：ZAP quick scan 的入口（故意保留反射 XSS 与缺失安全头）
+  app.get('/scan', async (request, reply) => reply.type('text/html; charset=utf-8').send(
+    '<!doctype html><meta charset="utf-8"><h1>scan target</h1>'
+    + '<a href="/scan/echo?q=hello">echo</a> '
+    + '<a href="/lab/dom?mode=vuln&q=hello">dom</a>'
+    + '<form action="/scan/echo"><input name="q"><button>go</button></form>',
+  ));

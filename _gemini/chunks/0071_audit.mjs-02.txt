@@ -1,0 +1,86 @@
+        const cols = (data.gridColumns || '').split(' ').filter(Boolean).length;
+        ok(desktop ? cols === 3 : cols === 1, `index@${vp.label}: grid 列数 ${cols}，期望 ${desktop ? 3 : 1}`);
+        ok(data.navFlexWrap === 'wrap', `index@${vp.label}: 导航未允许换行`);
+      }
+    }
+    await page.viewport(1280, 900);
+    await page.goto(p.url);
+    await page.shot(path.join(SHOTS, `${p.name}-1280.png`));
+    await page.viewport(375, 812);
+    await page.goto(p.url);
+    await page.shot(path.join(SHOTS, `${p.name}-375.png`));
+  }
+
+  // ---------- B. 200% 文本缩放 ----------
+  for (const vp of [WIDTHS[1], WIDTHS[3]]) {
+    await page.viewport(vp.width, vp.height);
+    await page.goto(`${BASE}/task.html?id=2`);
+    const before = await page.eval('(() => ({ sw: document.documentElement.scrollWidth, iw: innerWidth }))()');
+    const after = await page.eval(`(() => {
+      document.documentElement.style.fontSize = '200%';
+      const de = document.documentElement;
+      const controls = [...document.querySelectorAll('a, button, input, select')].filter(el => {
+        const r = el.getBoundingClientRect();
+        return r.width > 0 && r.height > 0 && r.right > innerWidth + 1;
+      }).map(el => el.id || el.tagName);
+      return { sw: de.scrollWidth, bodySw: document.body.scrollWidth, iw: innerWidth, clipped: controls };
+    })()`);
+    results.textZoom.push({ viewport: vp.label, before, after });
+    ok(after.sw - after.iw <= 0 && after.bodySw - after.iw <= 0, `200% 文本 @${vp.label}: 横向溢出 ${after.sw - after.iw}px`);
+    ok(after.clipped.length === 0, `200% 文本 @${vp.label}: 控件超出视口 ${after.clipped.join(',')}`);
+  }
+
+  // ---------- C. 减少动态效果 ----------
+  await page.viewport(1280, 900);
+  await page.goto(`${BASE}/index.html`);
+  const motionDefault = await page.eval("getComputedStyle(document.querySelector('.card')).animationName");
+  await page.media([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
+  await sleep(150);
+  const motionReduced = await page.eval("getComputedStyle(document.querySelector('.card')).animationName");
+  await page.media([]);
+  results.reducedMotion.push({ default: motionDefault, reduced: motionReduced });
+  ok(motionDefault === 'fade-in', `默认动画名 ${motionDefault}，期望 fade-in`);
+  ok(motionReduced === 'none', `减少动态效果下动画名 ${motionReduced}，期望 none`);
+
+  const focusInfoExpr = `(() => {
+    const el = document.activeElement;
+    if (!el) return null;
+    const cs = getComputedStyle(el);
+    const r = el.getBoundingClientRect();
+    return {
+      tag: el.tagName,
+      id: el.id || null,
+      type: el.getAttribute('type'),
+      text: (el.innerText || el.value || el.getAttribute('aria-label') || '').replace(/\\s+/g, ' ').trim().slice(0, 80),
+      href: el.href || null,
+      ariaCurrent: el.getAttribute('aria-current'),
+      ariaInvalid: el.getAttribute('aria-invalid'),
+      outlineStyle: cs.outlineStyle,
+      outlineWidth: cs.outlineWidth,
+      outlineColor: cs.outlineColor,
+      rect: { x: Math.round(r.x), y: Math.round(r.y), w: Math.round(r.width), h: Math.round(r.height) },
+    };
+  })()`;
+
+  // ---------- D0. 跳转链接 ----------
+  for (const vp of [{ label: 'mobile', width: 375, height: 812 }, { label: 'desktop', width: 1280, height: 800 }]) {
+    await page.viewport(vp.width, vp.height);
+    await page.goto(`${BASE}/index.html`);
+    await page.key('Tab');
+    const first = await page.eval(focusInfoExpr);
+    await page.key('Enter');
+    await sleep(200);
+    const after = await page.eval("document.activeElement.id");
+    const entry = {
+      viewport: vp.label,
+      firstFocus: first?.text,
+      activeAfterEnter: after,
+      firstIsSkipLink: first?.text === '跳到主要内容',
+      skipMovesFocusToMain: after === 'main',
+    };
+    results.skipLink.push(entry);
+    ok(entry.firstIsSkipLink, `skip-link @${vp.label}: 第一次 Tab 不是跳转链接`);
+    ok(entry.skipMovesFocusToMain, `skip-link @${vp.label}: Enter 后焦点在 ${after || '(body)'}，不是 main`);
+  }
+
+  // ---------- D. 仅键盘主路径 ----------

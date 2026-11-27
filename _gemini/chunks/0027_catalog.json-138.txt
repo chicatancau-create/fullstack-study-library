@@ -1,0 +1,125 @@
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/geektutu/interview-questions"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "8e83dca4ec8bf9ab01d041e12363e798988cd36b5cd7193b9e475b095096ec07",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:52+08:00"
+        },
+        "legacy_fingerprint_12": "8e83dca4ec8b"
+      },
+      "classification": {
+        "primary_category": "题库/八股与基础",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F1"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 54,
+        "bytes": 1709250,
+        "markdown_count": 25,
+        "question_markers": 47,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:28+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 1,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/geektutu/interview-questions",
+          "category": "题库/八股与基础",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 1,
+          "fetched": "2026-11-05 11:12",
+          "files": 54,
+          "bytes": 1709250,
+          "mb": 1,
+          "top_extensions": {
+            ".md": 25,
+            ".jpg": 12,
+            ".png": 11,
+            ".py": 2,
+            "(none)": 1,
+            ".ipynb": 1,
+            ".gif": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "round": 2,
+          "selection": "题面/问答标记 47 处｜自动判定：keep",
+          "functions": [
+            "F1题面"
+          ],
+          "measured": {
+            "md_n": 25,
+            "md_share_pct": 5.5,
+            "question_markers": 47,
+            "tests": 0,
+            "images": 24,
+            "pdf": 0,
+            "stars": 1152,
+            "pushed": "2026-09-05",
+            "functions": [
+              "F2可对照解答",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "content_fingerprint": "8e83dca4ec8bf9ab01d041e12363e798988cd36b5cd7193b9e475b095096ec07",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:khangich/machine-learning-interview",
+      "name": "khangich/machine-learning-interview",
+      "source": {
+        "url": "https://github.com/khangich/machine-learning-interview",
+        "canonical_url": "https://github.com/khangich/machine-learning-interview",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2025-01-01",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:50+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "968a286650c964f8583b73b3e0864475b86f22b6",
+          "note": null

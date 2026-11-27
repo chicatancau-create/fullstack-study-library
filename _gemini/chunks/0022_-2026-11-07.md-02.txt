@@ -1,0 +1,93 @@
+2. **批次 8 的干净环境与全量门禁**：项目 01–05、Java 迁移、框架对照已在同机全新目录复现；
+   项目已在 GitHub Actions 独立 Ubuntu runner 运行，但没有外部人类复核；E03–E13 仍在同机干净目录复现。
+3. **批次 5**：角色未使用方法级注解；EXPLAIN 对比已补；Testcontainers 已在 CI 通过；
+   （11-08 更新：死锁注入与单连接池耗尽恢复已用 JUnit 9/9 验证。）
+   B5-05 仅完成取舍对照，未实现第二服务。
+4. **批次 4**：项目 01–04 仅本地 HTTPS；均未公网部署；项目 05 已修 3 个植入缺陷并达 12/12（含最后 Owner、并发删除、D88–D90），但无真实人类接收人复现。
+   （11-08 更正：CI 已覆盖项目 01–05、Java/MySQL、Express/Nest、AI mock 共 9 个 job；上句“CI 仅项目04”已失效。）
+5. **批次 7**：B7-02 未逐条分类 63 份“必需/优先”；B7-03 题库/私有盲测/评分模板已建但未执行；
+   B7-04 模板已建但个人简历与模拟面试未做；中国主流公司覆盖不足，8/12 为国际岗位。
+6. **批次 2**：逐单元独立盲测、Linux 内核/WSL、限时算法未做。
+
+## 五、最后一轮复核（2026-11-07）
+
+> 逐条验收对照见 [[最终验收对照-2026-11-08]]。
+
+- 公网发布尝试：Qoder Sites 的 `get_context` 返回 `sites_document_scan_limit`，`open_design_workbench`
+  返回 `design_forbidden`；未绕过权限，**未发布公网站点**，仅保留本地自签名 HTTPS 证据。
+
+- 最新复核：[data/final-verification-6-2026-11-07.txt](data/final-verification-6-2026-11-07.txt)：
+  source-only 0 错误；8 个项目 manifest 全部 OK；E01/E02 见前次复核。
+- 最新干净目录复现：[data/clean-room-2-2026-11-07.txt](data/clean-room-2-2026-11-07.txt) 与
+  [data/clean-room-3-2026-11-07.txt](data/clean-room-3-2026-11-07.txt)：8 个项目及最新变更（项目02部署、项目03/04、AI）门禁 0。
+
+- 全量复核结果：[data/final-verification-2026-11-07.txt](data/final-verification-2026-11-07.txt)。
+- source-only：0 错误；10 份 manifest（P01–P05、B5-01、B5-03、B6-02、E01、E02）全部校验 OK；
+  JD URL 63/63 返回 200。
+- 7 个项目与 E03–E13 的干净目录复现已在上文登记；AI 最小应用 8/8、mock golden 5/5。
+- 这只证明“当前资产可复现”，**不证明任务清单已全部完成**。
+
+## 五之二、Docker/K8s 尝试与阻断
+
+> **2026-11-08 状态更新**：本节“无实物证据”的结论已被 QEMU 虚拟机结果取代。
+> 已在 QEMU 11.1.0 + Ubuntu 24.04 cloud image 中安装 Docker 29.1.3/Compose 2.40.3 与 K3s 1.37.2，
+> 实跑容器/Compose、Pod Running、删 Pod 自愈、`rollout restart`/`undo`、requests/limits 与本地镜像导入；
+> 证据见项目 04 `deploy/evidence/docker-k8s.txt` 与 `evidence/deploy.txt`、`evidence/rollback.txt`。
+> 仍未做：多节点、公网、常驻监控。
+
+- （11-07 当时）本机 WSL 未安装，当前 shell 非提权；`wsl --install --no-distribution` 未能完成（需要 UAC/重启），
+  未强行改动系统或重启用户机器。
+- 该轮因此没有 Docker/K8s 实物证据，只用本地 HTTPS、OTel InMemory、代码回滚提供部分替代。
+
+## 六、本轮新增（相对于上一版审计）
+
+- 批次 4：项目 01/02/03/04 本地 HTTPS + 回滚；项目 04 后台任务深度模块（200 任务、0 重复、崩溃恢复）；
+  项目 05 独立测试库 `study_lab_p05`、3 个植入缺陷由 1→3 失败到修复后 7/7，补 ADR/Bug/评审与独立 AI 接手记录。
+- 批次 5：Java 迁移补齐邀请/审计/最后 Owner 并发/MySQL 备份；单体 vs 微服务取舍对照。
+- 批次 6：CI 9 个 job 全绿（run 42453215623：项目 01–05、Java/MySQL、Express/Nest、AI mock）；
+  Docker/Compose + K3s（Pod Running/自愈、rollout undo、资源限制）；OTel；Prometheus 3.5.0 + Alertmanager 0.28.1
+  本地 webhook（JobBacklog）；本地 Qwen0.5B；BM25 RAG。
+  未完成：多机/HA、持久公网、常驻监控；外部渠道已用 ntfy.sh 验证；CI 已覆盖 project01 E2E，未覆盖 K8s/部署。
+- 批次 7：JD 能力映射矩阵（15 类能力→课程/实验/项目/证据/差距）。
+- 批次 8：8 项目 + E03–E13 干净目录复现；manifest/链接/URL 全量复核；Qoder Sites 发布阻断已记录。
+
+## 七、结论与下一步
+
+**结论：目标未完成。** 已完成的是批次 0–5 的主要资产、批次 6 的 CI/Docker/K8s 单节点/本地告警/AI 工程骨架（mock/本地小模型/BM25 RAG）、批次 7 的 JD 数量口径/映射/题库模板；
+未完成的是公网与多节点部署、生产级 AI/RAG、项目 05 真实人类接手、B7 执行类材料，以及批次 8 的外部验收。
+
+下一次开工的最小顺序：
+
+1. 在已有 QEMU/K3s 基础上补多节点与公网部署（需域名/证书/云资源授权）。
+2. 接真实 LLM 端点（需用户提供密钥策略），把 mock 评估替换为版本化 golden set，补引用/拒答/越权/成本。
+3. 把项目 04 的本地 Prometheus/Alertmanager 升级为常驻实例并接一个外部通知渠道。
+4. B7-03 执行一次 90 分钟盲测并记录；B7-04 由本人填写简历并做一次模拟面试评分。
+5. 用独立干净 OS/CI 重跑全部门禁，再由人类复核；在此之前保持“未收口”。
+
+## 八、声明边界
+
+- 本页不把“测试通过”“文档齐全”当作个人能力；G0–G9、M01–M15 与项目个人状态不变。
+- 项目 05 是受控缺陷演练，不是真实陌生仓库或团队交接。
+- 63 份 JD 中关键词是全文提及，不是“必需”；国际样本不具中国岗位代表性。
+- 本页的“完成/部分/阻断”只描述资料库资产与证据，不构成就业或职级承诺。
+
+## 九、本轮已关闭与剩余阻断（2026-11-08）
+
+### 已关闭
+
+| 项 | 证据 |
+| --- | --- |
+| 项目 05 D88–D90 | 批量状态 12/12；事件表迁移+回填；10k 行性能对照 |
+| Java 死锁/池耗尽/EXPLAIN/Testcontainers | 本地 9/9、CI 10/10；死锁 1213；池耗尽恢复；EXPLAIN 对照 |
+| E01 ASan/UBSan/Valgrind | Linux CI 全部 PASS（UAF/泄漏/溢出） |
+| E02 worker_threads/跨进程取消 | 4 workers 1.85–2.76x；父子 IPC 取消 4/4 |
+| E10 积压/重放/集群/分区 | 1000 条积压重放；3 容器集群；断网/恢复 3→2→3 |
+| CI/E2E/独立 runner | 9 job 全绿（run 42453215623）；project01 E2E 进 CI；项目/E01/E02 在 Ubuntu runner |
+| K8s Ingress/两节点 | Traefik `web.local -> nginx`；server+agent 两节点 Ready，Pod 调度 |
+| 公网 HTTPS | 项目01 GitHub Pages 200（持久）+ Quick Tunnel（临时） |
+| 外部告警 | Alertmanager -> ntfy.sh，JobBacklog 已投递 |
+
+### 剩余阻断与所需输入
+
+| 项 | 当前状态 | 需要什么 |
+| --- | --- | --- |

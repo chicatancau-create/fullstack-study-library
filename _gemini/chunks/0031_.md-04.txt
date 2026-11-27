@@ -1,0 +1,19 @@
+| 知识库/系统设计 | [ashishps1/awesome-system-design-resources](https://github.com/ashishps1/awesome-system-design-resources) | — | 2026-11-04 20:03 | 2026-11-01 | 27 | 1,725,755 | 1.65 | 1 | 18a77c17deb6 | 未知 | GPL-3.0 | unknown |
+| 知识库/系统设计 | [ByteByteGoHq/system-design-101](https://github.com/ByteByteGoHq/system-design-101) | main | 2026-11-05 11:12 | 2025-04-04 | 826 | 444,794,520 | 424.19 | 418 | 未知 | 499f1e3d0c1b | 未识别文件 | unknown |
+| 知识库/系统设计 | [checkcheckzz/system-design-interview](https://github.com/checkcheckzz/system-design-interview) | — | 2026-11-04 20:03 | 2023-04-03 | 3 | 212,046 | 0.20 | 1 | 933e4166c01e | 未知 | 无 LICENSE | stale |
+| 知识库/系统设计 | [donnemartin/system-design-primer](https://github.com/donnemartin/system-design-primer) | — | 2026-11-04 20:03 | 2026-09-15 | 140 | 13,585,660 | 12.96 | 23 | cd381c4bf60c | 未知 | CC-BY-4.0 | unknown |
+| 知识库/系统设计 | [greatfrontend/awesome-front-end-system-design](https://github.com/greatfrontend/awesome-front-end-system-design) | — | 2026-11-04 20:03 | 2026-03-03 | 4 | 228,604 | 0.22 | 1 | 81a4bb5165f9 | 未知 | MIT | unknown |
+| 知识库/系统设计 | [karanpratapsingh/system-design](https://github.com/karanpratapsingh/system-design) | — | 2026-11-04 20:03 | 2026-10-18 | 55 | 12,585,496 | 12.00 | 6 | dd0d7fe9924b | 未知 | 未识别文件 | unknown |
+| 知识库/系统设计 | [pingcap/talent-plan](https://github.com/pingcap/talent-plan) | master | 2026-11-05 11:12 | 2026-11-02 | 208 | 3,005,408 | 2.87 | 51 | 未知 | 93e2131f29d6 | 无 LICENSE | unknown |
+| 知识库/计算机基础 | [chenxi101w/408-first-round](https://github.com/chenxi101w/408-first-round) | main | 2026-11-05 11:12 | 2026-10-17 | 41 | 2,553,273 | 2.43 | 32 | 未知 | 1a23fe9bb46e | 无 LICENSE | unknown |
+| 知识库/计算机基础 | [cunyu1943/JavaPark](https://github.com/cunyu1943/JavaPark) | — | 2026-11-04 20:03 | 2026-09-18 | 1143 | 94,940,222 | 90.54 | 137 | 1b4baa8112dc | 未知 | CC-BY-4.0 | unknown |
+| 知识库/计算机基础 | [Exely/CSAPP-Labs](https://github.com/Exely/CSAPP-Labs) | master | 2026-11-05 16:52 | 2023-02-15 | 341 | 40,189,827 | 38.33 | 8 | 30cf32e4d52e | 未知 | 未识别文件 | stale |
+| 知识库/计算机基础 | [forthespada/InterviewGuide](https://github.com/forthespada/InterviewGuide) | — | 2026-11-04 20:03 | 2025-08-02 | 1810 | 438,914,979 | 418.58 | 698 | ea4689493e09 | 未知 | Apache-2.0 | unknown |
+| 知识库/计算机基础 | [jlevy/the-art-of-command-line](https://github.com/jlevy/the-art-of-command-line) | — | 2026-11-04 20:03 | 2024-06-25 | 24 | 1,067,672 | 1.02 | 20 | c1909cf70537 | 未知 | 无 LICENSE | unknown |
+| 知识库/计算机基础 | [jwasham/coding-interview-university](https://github.com/jwasham/coding-interview-university) | — | 2026-11-04 20:03 | 2025-08-28 | 47 | 6,714,334 | 6.40 | 33 | c9563275032a | 未知 | CC-BY-SA-4.0 | unknown |
+| 知识库/计算机基础 | [LamberttLiu/CS-Basic-SelfLearning](https://github.com/LamberttLiu/CS-Basic-SelfLearning) | — | 2026-11-04 20:03 | 2025-07-13 | 628 | 190,065,774 | 181.26 | 62 | 8fa35048bea3 | 未知 | MIT | unknown |
+| 知识库/计算机基础 | [ossu/computer-science](https://github.com/ossu/computer-science) | — | 2026-11-04 20:03 | 2026-07-14 | 39 | 531,916 | 0.51 | 22 | 66d2693343d6 | 未知 | MIT | unknown |
+| 知识库/计算机基础 | [puge-up/programming-play](https://github.com/puge-up/programming-play) | — | 2026-11-04 20:03 | 2025-02-18 | 165 | 2,519,465 | 2.40 | 160 | 0e58333795cf | 未知 | MIT | unknown |
+| 知识库/计算机基础 | [Snailclimb/JavaGuide](https://github.com/Snailclimb/JavaGuide) | — | 2026-11-04 20:03 | 2026-10-25 | 2573 | 184,536,971 | 175.99 | 457 | 4fe0baac6b2a | 未知 | Apache-2.0 | unknown |
+| 知识库/计算机基础 | [xiaolincoder/CS-Base](https://github.com/xiaolincoder/CS-Base) | — | 2026-11-04 20:03 | 2024-11-27 | 1697 | 192,570,006 | 183.65 | 123 | 9b751c0554fb | 未知 | 无 LICENSE | unknown |
+| 知识库/计算机基础 | [ZhongYi-LinuxDriverDev/EmbeddedSoftwareEngineerInterview](https://github.com/ZhongYi-LinuxDriverDev/EmbeddedSoftwareEngineerInterview) | main | 2026-11-05 11:12 | 2022-08-14 | 25 | 252,762 | 0.24 | 22 | 未知 | aeeaf06fcc24 | 无 LICENSE | unknown |

@@ -1,0 +1,121 @@
+            ".py": 14,
+            "(none)": 4,
+            ".json": 3,
+            ".sh": 2,
+            ".toml": 2,
+            ".yml": 2,
+            ".lock": 1
+          },
+          "license_files": [
+            "LICENSE",
+            "README.md"
+          ],
+          "round": 3,
+          "tar_mb": 29,
+          "selection": "华为 HarmonyOS NEXT 官方文档离线镜像（实测 18,325 篇 md），覆盖 ArkTS 语法与约束、ArkUI 声明式与组件、Stage/UIAbility 生命周期、Navigation、ArkData、网络与权限、并发、后台任务、性能、Hvigor 与签名发布",
+          "functions": [
+            "F2解答",
+            "F1题面"
+          ],
+          "measured": {
+            "md_n": 18325,
+            "md_share_pct": 99.9,
+            "question_markers": 10694,
+            "tests": 4,
+            "images": 0,
+            "stars": 36,
+            "pushed": "2026-11-05"
+          },
+          "fingerprint_note": "本机内容指纹；上游压缩包未保留，可复现性以来源URL+分支+采集日期为准",
+          "content_fingerprint": "fe2470257667e86a9d886cef7e86dda7fe6a2dc77a9e74448ed14053ee04c891",
+          "ledger_refreshed": "补图/改名后重算：18354 文件 -> 18355 文件"
+        }
+      }
+    },
+    {
+      "id": "github:wuweiyouzuoju/jidecards-anki-harmonyos",
+      "name": "wuweiyouzuoju/jidecards-anki-harmonyos",
+      "source": {
+        "url": "https://github.com/wuweiyouzuoju/jidecards-anki-harmonyos",
+        "canonical_url": "https://github.com/wuweiyouzuoju/jidecards-anki-harmonyos",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 23:02",
+        "upstream_pushed_at": "2026-11-01",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:57+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "0f4fcb0d2420c106b1bc74b7d474b1dde2029d45",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/鸿蒙与跨端/wuweiyouzuoju/jidecards-anki-harmonyos",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/wuweiyouzuoju/jidecards-anki-harmonyos"
+      },
+      "integrity": {
+        "archive_sha256": "82776173b073952e440a27256bcf98bd4a678d28f7106278c49d1d67aaf34cb9",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/鸿蒙与跨端",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F2",
+          "F3"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 2086,
+        "bytes": 58842989,
+        "markdown_count": 205,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:26+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "AGPL-3.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE",
+          "README.md"
+        ],
+        "usage_restriction": "仅限本机个人学习；传染性或非商业条款，不得并入对外发布产物。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "round": 4,
+          "extract_skipped_bulk": 0,
+          "upstream_description": "基于 HarmonyOS 的 Anki 卡片学习客户端，复用 Anki Rust 后端"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/wuweiyouzuoju/jidecards-anki-harmonyos",

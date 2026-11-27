@@ -1,0 +1,143 @@
+          "default_branch": "main",
+          "head_commit_sha": "4bdc6c84b1a18b4f45834d3e5f2f03e761ffaed9",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/鸿蒙与跨端/dcloudio/hbuilderx-for-uniapp-test",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/dcloudio/hbuilderx-for-uniapp-test"
+      },
+      "integrity": {
+        "archive_sha256": "668287691d035cda8e202e61317465233e1fd9ee516cbdf93d705e6532ea07be",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/鸿蒙与跨端",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F4",
+          "F5"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 57,
+        "bytes": 859943,
+        "markdown_count": 8,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:26+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "unrecognized_file",
+        "license_files": [
+          "README.md"
+        ],
+        "usage_restriction": "未识别许可证文件；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "round": 4,
+          "extract_skipped_bulk": 21,
+          "upstream_description": "HBuilderX uni-app自动化测试插件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/dcloudio/hbuilderx-for-uniapp-test",
+          "category": "知识库/鸿蒙与跨端",
+          "branch": "main",
+          "archive_sha256": "668287691d035cda8e202e61317465233e1fd9ee516cbdf93d705e6532ea07be",
+          "fetched": "2026-11-05 20:23",
+          "files": 56,
+          "bytes": 858949,
+          "license_files": [
+            "README.md"
+          ],
+          "license_detected": null,
+          "round": 4,
+          "selection": "HBuilderX uni-app 自动化测试插件与用例",
+          "functions": [
+            "F4路线",
+            "F5图解"
+          ],
+          "measured": {
+            "md_n": 8,
+            "images": 5,
+            "code": 40,
+            "pushed": "2026-11-05",
+            "stars": 5,
+            "question_markers": null
+          },
+          "top_extensions": [
+            [
+              ".js",
+              30
+            ],
+            [
+              ".md",
+              8
+            ],
+            [
+              ".json",
+              7
+            ],
+            [
+              ".jpg",
+              3
+            ],
+            [
+              "(none)",
+              2
+            ],
+            [
+              ".css",
+              2
+            ],
+            [
+              ".yml",
+              1
+            ],
+            [
+              ".vue",
+              1
+            ]
+          ],
+          "extract_skipped_bulk": 21,
+          "upstream_description": "HBuilderX uni-app自动化测试插件",
+          "mb": 0
+        }
+      }
+    },
+    {
+      "id": "github:dcloudio/hello-uni-app-x",
+      "name": "dcloudio/hello-uni-app-x",
+      "source": {
+        "url": "https://github.com/dcloudio/hello-uni-app-x",
+        "canonical_url": "https://github.com/dcloudio/hello-uni-app-x",
+        "aliases": [],

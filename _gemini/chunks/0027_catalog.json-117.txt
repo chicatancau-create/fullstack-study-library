@@ -1,0 +1,132 @@
+            ".js": 136,
+            ".tsx": 81,
+            ".json": 68,
+            ".ts": 48,
+            ".less": 45,
+            "(none)": 12,
+            ".md": 4,
+            ".png": 3,
+            ".conf": 1,
+            ".ico": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：403 文件 -> 404 文件",
+          "measured": {
+            "pushed": "2026-02-04",
+            "stars": 6028
+          }
+        }
+      }
+    },
+    {
+      "id": "github:rasbt/llms-from-scratch",
+      "name": "rasbt/LLMs-from-scratch",
+      "source": {
+        "url": "https://github.com/rasbt/LLMs-from-scratch",
+        "canonical_url": "https://github.com/rasbt/LLMs-from-scratch",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-10-30",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:06+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "62f941fe71ed7ddae4005d24fca3d3df38631db7",
+          "note": "首次 TLS 失败后重试成功"
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/AI与Agent/rasbt/LLMs-from-scratch",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/rasbt/LLMs-from-scratch"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "43ea58b0c4bc73f44b5b39fb693f854e509a7f7853c81736697c5f7f1490ff2a",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:50+08:00"
+        },
+        "legacy_fingerprint_12": "43ea58b0c4bc"
+      },
+      "classification": {
+        "primary_category": "题库/AI与Agent",
+        "category_basis": "按正文关键词判定（原按仓库名判定会错位）：{'AI': 209, '运维云原生': 9, '前端': 7, 'SQL与数据': 1}",
+        "functions": [
+          "F2",
+          "F3"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 362,
+        "bytes": 7434110,
+        "markdown_count": 76,
+        "question_markers": 0,
+        "test_files": 29,
+        "observed_at": "2026-11-07T14:06:26+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "Apache-2.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE.txt"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 2,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/rasbt/LLMs-from-scratch",
+          "category": "题库/AI与Agent",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 2,
+          "fetched": "2026-11-05 11:12",
+          "files": 362,
+          "bytes": 7434110,
+          "mb": 7,
+          "top_extensions": {
+            ".py": 152,
+            ".md": 76,
+            ".ipynb": 68,
+            ".txt": 18,
+            ".json": 18,
+            ".yml": 14,
+            ".webp": 5,
+            "(none)": 3,
+            ".toml": 2,

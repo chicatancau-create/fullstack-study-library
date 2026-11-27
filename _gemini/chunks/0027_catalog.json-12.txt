@@ -1,0 +1,119 @@
+          "branch": null,
+          "archive_sha256": "2d9cc985f5570dd027bf008094f44f485d2cf4e8c9fdc0ba10f5ee40097eeeb9",
+          "tarball_mb": 1446,
+          "fetched": "2026-11-04 20:03",
+          "files": 13697,
+          "bytes": 1973530622,
+          "mb": 1882,
+          "top_extensions": {
+            ".webp": 6480,
+            ".md": 3752,
+            ".ipynb": 3025,
+            ".png": 202,
+            ".json": 139,
+            ".jpg": 34,
+            ".py": 12,
+            ".yml": 8,
+            ".txt": 7,
+            ".js": 6
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：13696 文件 -> 13697 文件",
+          "measured": {
+            "pushed": "2026-11-04",
+            "stars": 70584
+          }
+        }
+      }
+    },
+    {
+      "id": "github:microsoft/data-science-for-beginners",
+      "name": "microsoft/Data-Science-For-Beginners",
+      "source": {
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners",
+        "canonical_url": "https://github.com/microsoft/Data-Science-For-Beginners",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-10-21",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:57:53+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/AI与RAG/microsoft/Data-Science-For-Beginners",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/microsoft/Data-Science-For-Beginners"
+      },
+      "integrity": {
+        "archive_sha256": "62338034ef8456b3f49ae165cd9a930972a7790cadde02e8afeafb3e0f5f653b",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/AI与RAG",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 15714,
+        "bytes": 1499129886,
+        "markdown_count": 3925,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:19+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 1070,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：15713 文件 -> 15714 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/microsoft/Data-Science-For-Beginners",
+          "category": "知识库/AI与RAG",
+          "branch": null,
+          "archive_sha256": "62338034ef8456b3f49ae165cd9a930972a7790cadde02e8afeafb3e0f5f653b",
+          "tarball_mb": 1070,

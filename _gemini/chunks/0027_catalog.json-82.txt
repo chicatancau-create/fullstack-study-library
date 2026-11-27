@@ -1,0 +1,127 @@
+        "question_markers": 6,
+        "test_files": 66,
+        "observed_at": "2026-11-07T14:06:25+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "unrecognized_file",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "未识别许可证文件；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/doocs/md",
+          "category": "知识库/课程与路线",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 0,
+          "fetched": "2026-11-05 11:12",
+          "files": 803,
+          "bytes": 4016743,
+          "mb": 3,
+          "top_extensions": {
+            ".ts": 430,
+            ".vue": 194,
+            ".md": 36,
+            ".json": 36,
+            "(none)": 19,
+            ".yml": 13,
+            ".mjs": 10,
+            ".png": 9,
+            ".sql": 8,
+            ".sh": 6
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": null,
+          "round": 2,
+          "selection": "正文 36 篇；高采用(13516 star)+有正文(36篇)；自带测试 66 个｜自动判定：keep",
+          "functions": [
+            "F3可运行"
+          ],
+          "measured": {
+            "md_n": 36,
+            "md_share_pct": 4.6,
+            "question_markers": 6,
+            "tests": 66,
+            "images": 11,
+            "pdf": 0,
+            "stars": 13516,
+            "pushed": "2026-11-03",
+            "functions": [
+              "中线-Vue",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "content_fingerprint": "b141c8f10859fad9de78482e545c78bfcf54f55d81b322e6aac7ed8dd473810c",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:florinpop17/app-ideas",
+      "name": "florinpop17/app-ideas",
+      "source": {
+        "url": "https://github.com/florinpop17/app-ideas",
+        "canonical_url": "https://github.com/florinpop17/app-ideas",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2025-10-11",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:04+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "9e8dd00f10b881babc273d66949b7ffa0e310097",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/课程与路线/florinpop17/app-ideas",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/florinpop17/app-ideas"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "f3ee1bd12a11ae90e885a52324db84cb7fe8c3bda02808b058cca1b052ec5887",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:06+08:00"
+        },
+        "legacy_fingerprint_12": "f3ee1bd12a11"
+      },
+      "classification": {
+        "primary_category": "知识库/课程与路线",

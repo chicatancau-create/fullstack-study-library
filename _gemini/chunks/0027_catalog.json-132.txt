@@ -1,0 +1,124 @@
+      "classification": {
+        "primary_category": "题库/八股与基础",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 70,
+        "bytes": 88984353,
+        "markdown_count": 18,
+        "question_markers": 2,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:28+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 74,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/NotHarshhaa/DevOps-Interview-Questions",
+          "category": "题库/八股与基础",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 74,
+          "fetched": "2026-11-05 11:12",
+          "files": 70,
+          "bytes": 88984353,
+          "mb": 84,
+          "top_extensions": {
+            ".pdf": 50,
+            ".md": 18,
+            ".yml": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "round": 2,
+          "selection": "命中计划缺口方向｜自动判定：keep",
+          "functions": [],
+          "measured": {
+            "md_n": 18,
+            "md_share_pct": 0.7,
+            "question_markers": 2,
+            "tests": 0,
+            "images": 0,
+            "pdf": 50,
+            "stars": 1305,
+            "pushed": "2026-08-28",
+            "functions": [
+              "SD题面"
+            ]
+          },
+          "content_fingerprint": "ee2b9a1f5de7cf63981e0ec31443c4609f6e8cbdadaf093fd74a705d2ef1822e",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:snailclimb/javaguide-interview",
+      "name": "Snailclimb/JavaGuide-Interview",
+      "source": {
+        "url": "https://github.com/Snailclimb/JavaGuide-Interview",
+        "canonical_url": "https://github.com/Snailclimb/JavaGuide-Interview",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-03-16",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:40+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "1bc42aa2cf91d5bf27ef34609767f0b1ac7739cf",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/八股与基础/Snailclimb/JavaGuide-Interview",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/Snailclimb/JavaGuide-Interview"
+      },
+      "integrity": {
+        "archive_sha256": "c353fed86aee379671967dfa65e3c9d35b0dff8e959b72ae6cea4ab1231470c0",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "题库/八股与基础",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 81,

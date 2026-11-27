@@ -1,0 +1,118 @@
+        parentNode.removeChild(node);
+      }
+
+      onNodeDiscarded(node);
+      walkDiscardedChildNodes(node, skipKeyedNodes);
+    }
+
+    // // TreeWalker implementation is no faster, but keeping this around in case this changes in the future
+    // function indexTree(root) {
+    //     var treeWalker = document.createTreeWalker(
+    //         root,
+    //         NodeFilter.SHOW_ELEMENT);
+    //
+    //     var el;
+    //     while((el = treeWalker.nextNode())) {
+    //         var key = getNodeKey(el);
+    //         if (key) {
+    //             fromNodesLookup[key] = el;
+    //         }
+    //     }
+    // }
+
+    // // NodeIterator implementation is no faster, but keeping this around in case this changes in the future
+    //
+    // function indexTree(node) {
+    //     var nodeIterator = document.createNodeIterator(node, NodeFilter.SHOW_ELEMENT);
+    //     var el;
+    //     while((el = nodeIterator.nextNode())) {
+    //         var key = getNodeKey(el);
+    //         if (key) {
+    //             fromNodesLookup[key] = el;
+    //         }
+    //     }
+    // }
+
+    function indexTree(node) {
+      if (node.nodeType === ELEMENT_NODE || node.nodeType === DOCUMENT_FRAGMENT_NODE$1) {
+        var curChild = node.firstChild;
+        while (curChild) {
+          var key = getNodeKey(curChild);
+          if (key) {
+            fromNodesLookup[key] = curChild;
+          }
+
+          // Walk recursively
+          indexTree(curChild);
+
+          curChild = curChild.nextSibling;
+        }
+      }
+    }
+
+    indexTree(fromNode);
+
+    function handleNodeAdded(el) {
+      onNodeAdded(el);
+
+      var curChild = el.firstChild;
+      while (curChild) {
+        var nextSibling = curChild.nextSibling;
+
+        var key = getNodeKey(curChild);
+        if (key) {
+          var unmatchedFromEl = fromNodesLookup[key];
+          // if we find a duplicate #id node in cache, replace `el` with cache value
+          // and morph it to the child node.
+          if (unmatchedFromEl && compareNodeNames(curChild, unmatchedFromEl)) {
+            curChild.parentNode.replaceChild(unmatchedFromEl, curChild);
+            morphEl(unmatchedFromEl, curChild);
+          } else {
+            handleNodeAdded(curChild);
+          }
+        } else {
+          // recursively call for curChild and it's children to see if we find something in
+          // fromNodesLookup
+          handleNodeAdded(curChild);
+        }
+
+        curChild = nextSibling;
+      }
+    }
+
+    function cleanupFromEl(fromEl, curFromNodeChild, curFromNodeKey) {
+      // We have processed all of the "to nodes". If curFromNodeChild is
+      // non-null then we still have some from nodes left over that need
+      // to be removed
+      while (curFromNodeChild) {
+        var fromNextSibling = curFromNodeChild.nextSibling;
+        if ((curFromNodeKey = getNodeKey(curFromNodeChild))) {
+          // Since the node is keyed it might be matched up later so we defer
+          // the actual removal to later
+          addKeyedRemoval(curFromNodeKey);
+        } else {
+          // NOTE: we skip nested keyed nodes from being removed since there is
+          //       still a chance they will be matched up later
+          removeNode(curFromNodeChild, fromEl, true /* skip keyed nodes */);
+        }
+        curFromNodeChild = fromNextSibling;
+      }
+    }
+
+    function morphEl(fromEl, toEl, childrenOnly) {
+      var toElKey = getNodeKey(toEl);
+
+      if (toElKey) {
+        // If an element with an ID is being morphed then it will be in the final
+        // DOM so clear it out of the saved elements collection
+        delete fromNodesLookup[toElKey];
+      }
+
+      if (!childrenOnly) {
+        // optional
+        var beforeUpdateResult = onBeforeElUpdated(fromEl, toEl);
+        if (beforeUpdateResult === false) {
+          return;
+        } else if (beforeUpdateResult instanceof HTMLElement) {
+          fromEl = beforeUpdateResult;
+          // reindex the new fromEl in case it's not in the same

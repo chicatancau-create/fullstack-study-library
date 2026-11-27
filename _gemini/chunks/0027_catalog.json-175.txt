@@ -1,0 +1,124 @@
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 5,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：429 文件 -> 430 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/bregman-arie/devops-exercises",
+          "category": "题库/运维与DevOps",
+          "branch": null,
+          "archive_sha256": "36631cfc5b3b7ea4a44960f799d5dcbe014554be9c238509c84b764fa92723d4",
+          "tarball_mb": 5,
+          "fetched": "2026-11-04 20:03",
+          "files": 430,
+          "bytes": 6999660,
+          "mb": 6,
+          "top_extensions": {
+            ".md": 295,
+            ".png": 76,
+            ".py": 22,
+            ".tf": 12,
+            ".yml": 6,
+            "(none)": 5,
+            ".sh": 3,
+            ".txt": 3,
+            ".groovy": 2,
+            ".css": 2
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": null,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：429 文件 -> 430 文件",
+          "measured": {
+            "pushed": "2025-12-27",
+            "stars": 86512
+          }
+        }
+      }
+    },
+    {
+      "id": "github:nomankhn9/devops-exercises",
+      "name": "nomankhn9/devops-exercises",
+      "source": {
+        "url": "https://github.com/nomankhn9/devops-exercises",
+        "canonical_url": "https://github.com/nomankhn9/devops-exercises",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-10-12",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:55+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "40d4d7c5189356147371b82df07103e1773129e1",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/运维与DevOps/nomankhn9/devops-exercises",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/nomankhn9/devops-exercises"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "f2dc5ce472622d5c68afac0effd5761a24239a1d7a2c042b5404c43c53baf22a",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:56+08:00"
+        },
+        "legacy_fingerprint_12": "f2dc5ce47262"
+      },
+      "classification": {
+        "primary_category": "题库/运维与DevOps",
+        "category_basis": "按正文关键词判定（原按仓库名判定会错位）：{'运维云原生': 95, 'AI': 15, '系统设计': 13, '前端': 9}",
+        "functions": [
+          "F2"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 426,
+        "bytes": 8481606,
+        "markdown_count": 290,
+        "question_markers": 8,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:32+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "unrecognized_file",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "未识别许可证文件；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",

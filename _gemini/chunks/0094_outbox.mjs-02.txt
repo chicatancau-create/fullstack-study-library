@@ -1,0 +1,78 @@
+        await db.query('INSERT INTO backend30_real.consumer_effects VALUES ($1, $2)', [msg.properties.messageId, body.value]);
+      } catch (error) {
+        if (error.code !== '23505') throw error;
+      }
+      ch.ack(msg);
+      const effects = (await db.query("SELECT count(*)::int AS n FROM backend30_real.consumer_effects WHERE message_id = 'm-dedupe'")).rows[0].n;
+      if (consumedDedupe >= 2 && effects === 1) resolve();
+    });
+  });
+  await Promise.race([dedupeDone, sleep(5000)]);
+  if (dedupeTag) await ch.cancel(dedupeTag);
+  const effects = (await db.query("SELECT count(*)::int AS n FROM backend30_real.consumer_effects WHERE message_id = 'm-dedupe'")).rows[0].n;
+  check('D02 去重：生产者 23505、重复消费只产生一次副作用', producerDuplicate?.code === '23505' && consumedDedupe === 2 && effects === 1, `producer=${producerDuplicate?.code} consumed=${consumedDedupe} effects=${effects}`);
+
+  // D03：重试退避与死信（手动重投 + 第 3 次进 DLQ）
+  await ch.purgeQueue(DLQ);
+  const retrySeen = [];
+  let retryTag = null;
+  const retryDone = new Promise((resolve) => {
+    ch.consume(WORK, async (msg) => {
+      if (!msg) return;
+      const body = JSON.parse(msg.content.toString());
+      if (msg.properties.messageId !== 'm-retry') return ch.nack(msg, false, true);
+      const attempt = Number(msg.properties.headers?.attempts || 1);
+      retrySeen.push(attempt);
+      if (body.fail && attempt < 3) {
+        await sleep(50 * attempt);
+        publish('work', 'm-retry', body, { attempts: attempt + 1, fail: true });
+        ch.ack(msg);
+      } else if (body.fail) {
+        publish('dead', 'm-retry', body, { attempts: attempt, dead: true });
+        ch.ack(msg);
+      } else {
+        ch.ack(msg);
+      }
+      if (attempt >= 3) resolve();
+    });
+  });
+  publish('work', 'm-retry', { op: 'effect', value: 'retry', fail: true }, { attempts: 1, fail: true });
+  await Promise.race([retryDone, sleep(5000)]);
+  if (retryTag) await ch.cancel(retryTag);
+  let dlqCount = 0;
+  let dlqAttempts = null;
+  for (let i = 0; i < 50 && dlqCount === 0; i++) {
+    const m = await ch.get(DLQ, { noAck: true });
+    if (m) {
+      dlqCount++;
+      dlqAttempts = Number(m.properties.headers?.attempts || 0);
+    } else {
+      await sleep(50);
+    }
+  }
+  check('D03 重试 3 次后进入死信队列且保留 attempts', retrySeen.join(',') === '1,2,3' && dlqCount === 1 && dlqAttempts === 3, `seen=${retrySeen.join(',')} dlq=${dlqCount} attempts=${dlqAttempts}`);
+
+  // D04：发布后对账标记已发布
+  const pending = (await db.query("SELECT message_id, payload FROM backend30_real.outbox WHERE status = 'pending'")).rows;
+  for (const row of pending) publish('work', row.message_id, row.payload);
+  await db.query(`
+    UPDATE backend30_real.outbox
+    SET status = 'published', attempts = attempts + 1, published_at = now()
+    WHERE status = 'pending'
+  `);
+  const pendingLeft = (await db.query("SELECT count(*)::int AS n FROM backend30_real.outbox WHERE status = 'pending'")).rows[0].n;
+  const published = (await db.query("SELECT count(*)::int AS n FROM backend30_real.outbox WHERE status = 'published' AND published_at IS NOT NULL")).rows[0].n;
+  check('D04 对账：无遗留 pending，已发布记录带发布时间', pendingLeft === 0 && published === pending.length, `pending=${pendingLeft} published=${published}`);
+
+  evidence.queues = { work: workQueue.messageCount, dlq: dlq.messageCount };
+} finally {
+  fs.mkdirSync('evidence', { recursive: true });
+  fs.writeFileSync('evidence/outbox.json', JSON.stringify(evidence, null, 2) + '\n');
+  await ch.close().catch(() => {});
+  await conn.close().catch(() => {});
+  await db.end().catch(() => {});
+}
+
+const failures = results.filter((r) => !r.ok).length;
+console.log(failures === 0 ? `BACKEND30-D PASS ${results.length}/${results.length}` : `BACKEND30-D FAIL ${failures}/${results.length}`);
+if (failures > 0) process.exitCode = 1;

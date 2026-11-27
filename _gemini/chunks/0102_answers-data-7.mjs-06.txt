@@ -1,0 +1,104 @@
+    complexity: { time: 'O(mn)', space: 'O(mn)' },
+    code_lang: 'javascript',
+    code: `function solve(matrix) {
+  const m = matrix.length, n = matrix[0].length;
+  const memo = Array.from({ length: m }, () => new Array(n).fill(0));
+  const dirs = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+  function dfs(i, j) {
+    if (memo[i][j]) return memo[i][j];
+    let best = 1;
+    for (const [di, dj] of dirs) {
+      const x = i + di, y = j + dj;
+      if (x >= 0 && y >= 0 && x < m && y < n && matrix[x][y] > matrix[i][j]) {
+        best = Math.max(best, 1 + dfs(x, y));
+      }
+    }
+    memo[i][j] = best;
+    return best;
+  }
+  let ans = 0;
+  for (let i = 0; i < m; i++) for (let j = 0; j < n; j++) ans = Math.max(ans, dfs(i, j));
+  return ans;
+}`,
+    edge_cases: [
+      { call: '[[9,9,4],[6,6,8],[2,1,1]]', expected: 4, why: '1→2→6→9' },
+      { call: '[[3,4,5],[3,2,6],[2,2,1]]', expected: 4, why: '3→4→5→6' },
+      { call: '[[1]]', expected: 1, why: '单格' },
+    ],
+    common_mistakes: ['只判断更大但未记忆化导致指数级', '把等于也当作递增', 'memo 在递归返回后才写入，重复计算'],
+    followups: ['拓扑排序解法如何写？', '若允许上下左右走且不要求递增，如何求最长路径？'],
+    rubric: [
+      { point: '严格大于才递归', weight: 2 },
+      { point: 'memo 命中直接返回', weight: 1 },
+      { point: '四方向越界检查', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q098', title: '8. 字符串转换整数 (atoi)', question_url: 'https://leetcode.cn/problems/string-to-integer-atoi/',
+    core_idea: '按规则逐段解析：跳前导空格、读可选符号、读连续数字并在累加时做 32 位边界裁剪，遇到非数字立即停止。',
+    invariant: '每一步累加后的值都被夹在 [MIN, MAX] 内，因此不会溢出。',
+    complexity: { time: 'O(n)', space: 'O(1)' },
+    code_lang: 'javascript',
+    code: `function solve(s) {
+  const MAX = 2147483647, MIN = -2147483648;
+  let i = 0, sign = 1, num = 0;
+  while (i < s.length && s[i] === ' ') i++;
+  if (s[i] === '+' || s[i] === '-') { sign = s[i] === '-' ? -1 : 1; i++; }
+  while (i < s.length && s[i] >= '0' && s[i] <= '9') {
+    num = num * 10 + (s.charCodeAt(i) - 48);
+    if (sign === 1 && num > MAX) return MAX;
+    if (sign === -1 && -num < MIN) return MIN;
+    i++;
+  }
+  return sign * num;
+}`,
+    edge_cases: [
+      { call: '"42"', expected: 42, why: '纯数字' },
+      { call: '"   -42"', expected: -42, why: '前导空格与负号' },
+      { call: '"-91283472332"', expected: -2147483648, why: '下溢裁剪到 INT_MIN' },
+    ],
+    common_mistakes: ['用 parseInt，后者的边界与规则不同', '符号后无数字时返回符号而非 0', '溢出判断放在最后导致精度丢失'],
+    followups: ['"words and 987" 应返回什么？', '如何支持 64 位整数？'],
+    rubric: [
+      { point: '跳过前导空格并只读一个符号', weight: 1 },
+      { point: '逐位读数字遇到非数字停止', weight: 1 },
+      { point: '累加过程中按 32 位边界裁剪', weight: 2 },
+    ],
+  },
+  {
+    id: 'Q099', title: '55. 跳跃游戏', question_url: 'https://leetcode.cn/problems/jump-game/',
+    core_idea: '贪心维护最远可达下标 reach：遍历到 i 时若 i>reach 则不可达，否则用 i+nums[i] 更新 reach。',
+    invariant: 'reach 始终是从起点出发能到达的最远下标。',
+    complexity: { time: 'O(n)', space: 'O(1)' },
+    code_lang: 'javascript',
+    code: `function solve(nums) {
+  let reach = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (i > reach) return false;
+    reach = Math.max(reach, i + nums[i]);
+  }
+  return true;
+}`,
+    edge_cases: [
+      { call: '[2,3,1,1,4]', expected: true, why: '可跳到终点' },
+      { call: '[3,2,1,0,4]', expected: false, why: '卡在下标 3' },
+      { call: '[0]', expected: true, why: '已在终点' },
+    ],
+    common_mistakes: ['在 i>reach 时仍更新 reach 造成假可达', '只检查前一步能否跳', '把 nums[0]=0 判为 true 但数组长度大于 1'],
+    followups: ['最少跳跃次数（45）如何改？', '为什么贪心不需要回溯？'],
+    rubric: [
+      { point: '以最远可达下标作为状态', weight: 2 },
+      { point: 'i>reach 立即失败', weight: 1 },
+      { point: '单元素与 0 起点边界正确', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q100', title: '135. 分发糖果', question_url: 'https://leetcode.cn/problems/candy/',
+    core_idea: '两次贪心：从左到右保证比左邻高者多得，再从右到左保证比右邻高者多得，每个孩子取两次约束的较大值。',
+    invariant: '两轮结束后每个位置同时满足左右两侧的相邻约束，因此总和最小。',
+    complexity: { time: 'O(n)', space: 'O(n)' },
+    code_lang: 'javascript',
+    code: `function solve(ratings) {
+  const n = ratings.length;
+  const candies = new Array(n).fill(1);
+  for (let i = 1; i < n; i++) {

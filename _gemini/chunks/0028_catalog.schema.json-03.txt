@@ -1,0 +1,35 @@
+        "extensions": {"type": "object"}
+      }
+    },
+    "tombstone": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "canonical_url", "lifecycle", "reason", "evidence"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^github:[a-z0-9_.-]+/[a-z0-9_.-]+$"},
+        "name": {"type": "string", "minLength": 3},
+        "canonical_url": {"type": "string", "pattern": "^https://github\\.com/[^/]+/[^/]+$"},
+        "lifecycle": {"enum": ["rejected", "archived"]},
+        "reason": {"type": "string", "minLength": 1},
+        "evidence": {"type": "array", "items": {"type": "string"}},
+        "archived_at": {"$ref": "#/$defs/nullable_string"},
+        "replacement_id": {"$ref": "#/$defs/nullable_string"}
+      }
+    },
+    "issue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "priority", "summary", "status", "affected_ids", "target", "next_action"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9_-]+$"},
+        "priority": {"enum": ["P0", "P1", "P2"]},
+        "summary": {"type": "string", "minLength": 1},
+        "status": {"enum": ["open", "partial", "closed"]},
+        "affected_ids": {"type": "array", "items": {"type": "string"}},
+        "target": {"type": "string", "minLength": 1},
+        "next_action": {"type": "string", "minLength": 1},
+        "evidence": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

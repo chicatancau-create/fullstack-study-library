@@ -1,0 +1,128 @@
+          "value": "65b445f2d8a775c928ab47e6ced9bb0a05b70ae8c5eae76d255d40a28f7ab9a8",
+          "scope": "legacy_local_metadata_scope_unrecorded",
+          "observed_at": "2026-11-05T19:39:07+08:00"
+        },
+        "legacy_fingerprint_12": "65b445f2d8a7"
+      },
+      "classification": {
+        "primary_category": "知识库/鸿蒙与跨端",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F2"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 35,
+        "bytes": 314651,
+        "markdown_count": 19,
+        "question_markers": 0,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:26+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "unrecognized_file",
+        "license_files": [
+          "LICENSE",
+          "README.md",
+          "README_EN.md"
+        ],
+        "usage_restriction": "未识别许可证文件；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "round": 3,
+          "tar_mb": 0,
+          "ledger_refreshed": "补图/改名后重算：34 文件 -> 35 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/DengShiyingA/harmonyos-ai-skill",
+          "category": "知识库/鸿蒙与跨端",
+          "branch": "main",
+          "fetched": "2026-11-05 18:24",
+          "files": 35,
+          "bytes": 314578,
+          "mb": 0,
+          "top_extensions": {
+            ".md": 19,
+            ".svg": 6,
+            "(none)": 2,
+            ".ets": 2,
+            ".sh": 2,
+            ".yml": 1,
+            ".yaml": 1,
+            ".py": 1
+          },
+          "license_files": [
+            "LICENSE",
+            "README.md",
+            "README_EN.md"
+          ],
+          "round": 3,
+          "tar_mb": 0,
+          "selection": "鸿蒙 NEXT 开发知识包（按主题切分的官方指南提炼，含 ArkTS/ArkUI 与工程实践）",
+          "functions": [
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 19,
+            "md_share_pct": 84.8,
+            "question_markers": 0,
+            "tests": 0,
+            "images": 6,
+            "stars": 288,
+            "pushed": "2026-10-24"
+          },
+          "fingerprint_note": "本机内容指纹；上游压缩包未保留，可复现性以来源URL+分支+采集日期为准",
+          "content_fingerprint": "65b445f2d8a775c928ab47e6ced9bb0a05b70ae8c5eae76d255d40a28f7ab9a8",
+          "ledger_refreshed": "补图/改名后重算：34 文件 -> 35 文件"
+        }
+      }
+    },
+    {
+      "id": "github:explore-in-hmos/hmos-index",
+      "name": "Explore-In-HMOS/hmos-index",
+      "source": {
+        "url": "https://github.com/Explore-In-HMOS/hmos-index",
+        "canonical_url": "https://github.com/Explore-In-HMOS/hmos-index",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 18:24",
+        "upstream_pushed_at": "2026-10-16",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:42+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "c84cc01c06a5a93a26ec03dac9d8bb19728be205",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/鸿蒙与跨端/Explore-In-HMOS/hmos-index",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",

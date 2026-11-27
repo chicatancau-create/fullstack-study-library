@@ -1,0 +1,35 @@
+      "before": {
+        "sw": 1280,
+        "iw": 1280
+      },
+      "after": {
+        "sw": 1280,
+        "bodySw": 1280,
+        "iw": 1280,
+        "clipped": []
+      }
+    }
+  ],
+  "reducedMotion": [
+    {
+      "default": "fade-in",
+      "reduced": "none"
+    }
+  ],
+  "skipLink": [
+    {
+      "viewport": "mobile",
+      "firstFocus": "跳到主要内容",
+      "activeAfterEnter": "main",
+      "firstIsSkipLink": true,
+      "skipMovesFocusToMain": true
+    },
+    {
+      "viewport": "desktop",
+      "firstFocus": "跳到主要内容",
+      "activeAfterEnter": "main",
+      "firstIsSkipLink": true,
+      "skipMovesFocusToMain": true
+    }
+  ]
+}

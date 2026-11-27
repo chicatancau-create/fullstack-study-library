@@ -1,0 +1,20 @@
+| 知识库/课程与路线 | [cd-home/Root](https://github.com/cd-home/Root) | master | 2026-11-05 11:12 | 2023-05-14 | 455 | 21,351,730 | 20.36 | 232 | 未知 | fb77db888bb6 | 无 LICENSE | unknown |
+| 知识库/课程与路线 | [CharonChui/FullStack-Notes](https://github.com/CharonChui/FullStack-Notes) | master | 2026-11-05 18:24 | 2026-11-03 | 667 | 18,020,057 | 17.19 | 644 | 未知 | 454a40c7df20 | 未识别文件 | unknown |
+| 知识库/课程与路线 | [ctrlaltwill/LearnKit](https://github.com/ctrlaltwill/LearnKit) | main | 2026-11-05 11:12 | 2026-10-31 | 580 | 19,105,583 | 18.22 | 60 | 未知 | b0ab6d4dee36 | MIT | unknown |
+| 知识库/课程与路线 | [dominostars/playtranslate](https://github.com/dominostars/playtranslate) | main | 2026-11-05 11:12 | 2026-11-04 | 1550 | 39,388,371 | 37.56 | 45 | 未知 | 85dd63da4def | GPL-3.0 | unknown |
+| 知识库/课程与路线 | [doocs/md](https://github.com/doocs/md) | main | 2026-11-05 11:12 | 2026-11-03 | 803 | 4,016,743 | 3.83 | 36 | 未知 | b141c8f10859 | 未识别文件 | unknown |
+| 知识库/课程与路线 | [florinpop17/app-ideas](https://github.com/florinpop17/app-ideas) | master | 2026-11-05 11:12 | 2025-10-11 | 102 | 467,559 | 0.45 | 96 | 未知 | f3ee1bd12a11 | MIT | unknown |
+| 知识库/课程与路线 | [GitHubDaily/GitHubDaily](https://github.com/GitHubDaily/GitHubDaily) | master | 2026-11-05 11:12 | 2025-12-31 | 20 | 4,126,074 | 3.93 | 13 | 未知 | a4d9a595307b | 无 LICENSE | unknown |
+| 知识库/课程与路线 | [inancgumus/learngo](https://github.com/inancgumus/learngo) | master | 2026-11-05 11:12 | 2025-06-24 | 1569 | 3,088,221 | 2.95 | 174 | 未知 | 9000520f3914 | CC-BY-NC-SA-4.0 | unknown |
+| 知识库/课程与路线 | [judasn/IntelliJ-IDEA-Tutorial](https://github.com/judasn/IntelliJ-IDEA-Tutorial) | master | 2026-11-05 11:12 | 2025-09-12 | 323 | 112,612,005 | 107.40 | 46 | 未知 | ae93ec69ecfa | GPL-3.0 | unknown |
+| 知识库/课程与路线 | [LeCoupa/awesome-cheatsheets](https://github.com/LeCoupa/awesome-cheatsheets) | master | 2026-11-05 11:12 | 2026-10-17 | 67 | 5,701,752 | 5.44 | 13 | 未知 | 96aa871d4e4e | MIT | unknown |
+| 知识库/课程与路线 | [mengxi-ream/read-frog](https://github.com/mengxi-ream/read-frog) | main | 2026-11-05 11:12 | 2026-11-05 | 1943 | 43,441,976 | 41.43 | 163 | 未知 | 5a82d9d81780 | GPL-3.0 | unknown |
+| 知识库/课程与路线 | [PKUFlyingPig/cs-self-learning](https://github.com/PKUFlyingPig/cs-self-learning) | master | 2026-11-05 11:12 | 2026-10-01 | 287 | 1,865,482 | 1.78 | 273 | 未知 | 2bfff6162817 | MIT | unknown |
+| 知识库/课程与路线 | [TheOdinProject/curriculum](https://github.com/TheOdinProject/curriculum) | main | 2026-11-05 11:12 | 2026-11-04 | 741 | 36,403,494 | 34.72 | 582 | 未知 | bdfb8b0a1c22 | CC-BY-NC-SA-4.0 | unknown |
+| 知识库/课程与路线 | [unknwon/the-way-to-go_ZH_CN](https://github.com/unknwon/the-way-to-go_ZH_CN) | master | 2026-11-05 11:12 | 2024-08-14 | 768 | 3,450,687 | 3.29 | 214 | 未知 | 91be623b2bc8 | 无 LICENSE | unknown |
+| 知识库/资源目录 | [Awesome-HarmonyOS/HarmonyOS](https://github.com/Awesome-HarmonyOS/HarmonyOS) | master | 2026-11-05 18:24 | 2024-07-19 | 2584 | 64,565,808 | 61.57 | 38 | 未知 | 01922d3daf73 | 未识别文件 | stale |
+| 知识库/资源目录 | [doocs/technical-books](https://github.com/doocs/technical-books) | — | 2026-11-04 20:03 | 2026-10-17 | 29 | 5,118,237 | 4.88 | 3 | 6dc40db753f3 | 未知 | CC-BY-SA-4.0 | unknown |
+| 知识库/资源目录 | [EbookFoundation/free-programming-books](https://github.com/EbookFoundation/free-programming-books) | — | 2026-11-04 20:03 | 2026-11-01 | 236 | 2,355,081 | 2.25 | 218 | 3f7ff402494c | 未知 | CC-BY-4.0 | unknown |
+| 知识库/资源目录 | [forthespada/CS-Books](https://github.com/forthespada/CS-Books) | — | 2026-11-04 20:03 | 2025-11-06 | 8 | 430,348 | 0.41 | 5 | d0a289a198d7 | 未知 | 无 LICENSE | unknown |
+| 知识库/资源目录 | [justjavac/free-programming-books-zh_CN](https://github.com/justjavac/free-programming-books-zh_CN) | main | 2026-11-05 16:54 | 2026-07-29 | 9 | 96,202 | 0.09 | 4 | 059d81354181 | 未知 | 未识别文件 | unknown |
+| 知识库/资源目录 | [mlabonne/llm-course](https://github.com/mlabonne/llm-course) | main | 2026-11-05 16:52 | 2026-02-05 | 8 | 868,517 | 0.83 | 1 | 39ba16a8497d | 未知 | 未识别文件 | unknown |

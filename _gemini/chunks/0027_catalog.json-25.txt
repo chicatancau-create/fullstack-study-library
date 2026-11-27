@@ -1,0 +1,126 @@
+          "value": "8b29549be0abf023688b9d845f604923eea7ccffde57f99621bed4368a0ad0ce",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:02+08:00"
+        },
+        "legacy_fingerprint_12": "8b29549be0ab"
+      },
+      "classification": {
+        "primary_category": "知识库/前端与Node",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 60,
+        "bytes": 363611,
+        "markdown_count": 11,
+        "question_markers": 0,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:21+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE.md"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/airbnb/javascript",
+          "category": "知识库/前端与Node",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 0,
+          "fetched": "2026-11-05 11:12",
+          "files": 60,
+          "bytes": 363611,
+          "mb": 0,
+          "top_extensions": {
+            ".js": 28,
+            ".md": 11,
+            "(none)": 11,
+            ".json": 4,
+            ".yml": 4,
+            ".sublime-settings": 1
+          },
+          "license_files": [
+            "LICENSE.md"
+          ],
+          "license_detected": "MIT",
+          "round": 2,
+          "selection": "高采用(148020 star)+有正文(11篇)；文档型仓库(md占比60%)｜自动判定：keep",
+          "functions": [],
+          "measured": {
+            "md_n": 11,
+            "md_share_pct": 60.3,
+            "question_markers": 0,
+            "tests": 0,
+            "images": 0,
+            "pdf": 0,
+            "stars": 148020,
+            "pushed": "2026-04-16",
+            "functions": [
+              "主线-语言",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "content_fingerprint": "8b29549be0abf023688b9d845f604923eea7ccffde57f99621bed4368a0ad0ce",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:chodocs/chodocs",
+      "name": "chodocs/chodocs",
+      "source": {
+        "url": "https://github.com/chodocs/chodocs",
+        "canonical_url": "https://github.com/chodocs/chodocs",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-02-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:19+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "ddbb5cdc5772c402bd62b48e51fae8cba89ba43f",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/前端与Node/chodocs/chodocs",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/chodocs/chodocs"
+      },
+      "integrity": {

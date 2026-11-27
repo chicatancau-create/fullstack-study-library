@@ -1,0 +1,129 @@
+      "classification": {
+        "primary_category": "题库/AI与RAG",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F1",
+          "F2",
+          "F4"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 483,
+        "bytes": 6140325,
+        "markdown_count": 380,
+        "question_markers": 169,
+        "test_files": 9,
+        "observed_at": "2026-11-07T14:06:28+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 1,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/ai-infra-curriculum/ai-infra-engineer-learning",
+          "category": "题库/AI与RAG",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 1,
+          "fetched": "2026-11-05 11:12",
+          "files": 483,
+          "bytes": 6140325,
+          "mb": 5,
+          "top_extensions": {
+            ".md": 380,
+            ".py": 44,
+            "(none)": 14,
+            ".yaml": 14,
+            ".yml": 12,
+            ".txt": 3,
+            ".json": 3,
+            ".example": 3,
+            ".sh": 3,
+            ".jsonc": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "round": 2,
+          "selection": "正文 380 篇；题面/问答标记 169 处；文档型仓库(md占比87%)；命中计划缺口方向｜自动判定：keep",
+          "functions": [
+            "F1题面",
+            "F2解答",
+            "F4路线"
+          ],
+          "measured": {
+            "md_n": 380,
+            "md_share_pct": 87.2,
+            "question_markers": 169,
+            "tests": 9,
+            "images": 0,
+            "pdf": 0,
+            "stars": 1841,
+            "pushed": "2026-11-03",
+            "functions": [
+              "F3可运行验证",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "content_fingerprint": "821bcbbd1552dc92097278436895bb08fb3dd5a183579d45302ea377bc82b5ed",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:ather-techie/rag-interview-system",
+      "name": "ather-techie/rag-interview-system",
+      "source": {
+        "url": "https://github.com/ather-techie/rag-interview-system",
+        "canonical_url": "https://github.com/ather-techie/rag-interview-system",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-11-02",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:22+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "512ccf4f21f05a861c84ebf7427b4924905ed381",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/AI与RAG/ather-techie/rag-interview-system",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",

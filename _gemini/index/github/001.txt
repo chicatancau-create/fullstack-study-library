@@ -1,0 +1,12 @@
+.github/workflows/experiments-nightly.yml
+.github/workflows/experiments.yml
+.github/workflows/ms1-p02.yml
+.github/workflows/ms1-p03.yml
+.github/workflows/ms1-p04.yml
+.github/workflows/ms4-backend.yml
+.github/workflows/ms4-rag.yml
+.github/workflows/ms4-sql.yml
+.github/workflows/ms5-links.yml
+.github/workflows/ms5-sources.yml
+.github/workflows/student-packages.yml
+.github/workflows/verify-all.yml

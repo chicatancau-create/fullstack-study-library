@@ -1,0 +1,11 @@
+in-house networking&amp",
+      "responsibilities": ""
+    },
+    {
+      "company": "datadog",
+      "source": "Greenhouse official job board",
+      "title": "Senior Software Engineer - Autonomous Ops & Maintenance (ATOM)",
+      "location": "Paris, France",
+      "experience": "",
+      "url": "https://careers.datadoghq.com/detail/8248968/?gh_jid=8248968",
+      "updated": "2026-11-05",

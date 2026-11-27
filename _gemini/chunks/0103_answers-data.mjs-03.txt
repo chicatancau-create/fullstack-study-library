@@ -1,0 +1,130 @@
+    core_idea: '遍历网格，遇到未访问的陆地就计数 +1，并用 DFS/BFS 把同一连通块的陆地全部标记为已访问。',
+    invariant: '每次进入 DFS 的格子一定是未访问陆地；标记后不会被重复计数。',
+    complexity: { time: 'O(mn)', space: 'O(mn)（递归栈/队列）' },
+    code_lang: 'javascript',
+    code: `function solve(grid) {
+  const g = grid.map((row) => row.slice());
+  const m = g.length;
+  if (!m) return 0;
+  const n = g[0].length;
+  let count = 0;
+  const flood = (r, c) => {
+    if (r < 0 || r >= m || c < 0 || c >= n || g[r][c] !== '1') return;
+    g[r][c] = '0';
+    flood(r + 1, c);
+    flood(r - 1, c);
+    flood(r, c + 1);
+    flood(r, c - 1);
+  };
+  for (let r = 0; r < m; r++) {
+    for (let c = 0; c < n; c++) {
+      if (g[r][c] === '1') {
+        count++;
+        flood(r, c);
+      }
+    }
+  }
+  return count;
+}`,
+    edge_cases: [
+      { call: '[["1","1","0"],["1","0","0"],["0","0","1"]]', expected: 2, why: '两个不连通岛屿' },
+      { call: '[["0"]]', expected: 0, why: '全水返回 0' },
+      { call: '[["1","1","1"],["1","1","1"]]', expected: 1, why: '整块连通只算一个' },
+    ],
+    common_mistakes: [
+      '只标记访问而忘记在四个方向递归，导致连通块被拆成多块',
+      '把字符 "1" 与数字 1 混用，判断永远不成立',
+      'DFS 深度过大时栈溢出（大网格应改 BFS/并查集）',
+    ],
+    followups: [
+      '如何用并查集实现？合并条件与计数方式是什么？',
+      '若允许把一格 0 改成 1，如何判断能否连通两岛？',
+    ],
+    rubric: [
+      { point: '遇到未访问陆地才计数，DFS 淹没整块', weight: 2 },
+      { point: '边界与字符类型判断正确', weight: 1 },
+      { point: '能指出递归栈风险并给出 BFS/并查集替代', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q007',
+    title: '103. 二叉树的锯齿形层次遍历',
+    question_url: 'https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/',
+    core_idea: 'BFS 逐层遍历，用层号奇偶决定本层结果是否反转；每层结束后换下一层队列。',
+    invariant: '队列中始终只有当前层节点；层号从 0 开始，偶数层从左到右、奇数层从右到左。',
+    complexity: { time: 'O(n)', space: 'O(w)，w 为最大层宽' },
+    code_lang: 'javascript',
+    code: `function solve(values) {
+  if (!values.length || values[0] === null) return [];
+  const nodes = values.map((v) => (v === null ? null : { val: v, left: null, right: null }));
+  for (let i = 0; i < nodes.length; i++) {
+    if (!nodes[i]) continue;
+    const li = 2 * i + 1;
+    const ri = 2 * i + 2;
+    if (li < nodes.length) nodes[i].left = nodes[li];
+    if (ri < nodes.length) nodes[i].right = nodes[ri];
+  }
+  const out = [];
+  let queue = [nodes[0]];
+  let level = 0;
+  while (queue.length) {
+    const vals = queue.map((x) => x.val);
+    out.push(level % 2 === 0 ? vals : vals.reverse());
+    const next = [];
+    for (const node of queue) {
+      if (node.left) next.push(node.left);
+      if (node.right) next.push(node.right);
+    }
+    queue = next;
+    level++;
+  }
+  return out;
+}`,
+    edge_cases: [
+      { call: '[3,9,20,null,null,15,7]', expected: [[3],[20,9],[15,7]], why: '第二层反向' },
+      { call: '[1]', expected: [[1]], why: '单节点' },
+      { call: '[]', expected: [], why: '空树' },
+    ],
+    common_mistakes: [
+      '用全局栈做反转导致跨层顺序错乱',
+      '反转队列本身而不是本层结果，影响下一层扩展顺序',
+      '层号从 1 开始导致奇偶颠倒',
+    ],
+    followups: [
+      '如果要求不使用 reverse，如何用双端队列实现？',
+      '锯齿遍历与普通层序遍历的复杂度是否相同？',
+    ],
+    rubric: [
+      { point: '按层处理，反转只作用于本层输出', weight: 2 },
+      { point: '层号奇偶与起点方向正确', weight: 1 },
+      { point: '空树/单节点边界正确', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q008',
+    title: '15. 三数之和',
+    question_url: 'https://leetcode.cn/problems/3sum/',
+    core_idea: '排序后固定第一个数，剩下两数用左右指针相向移动；遇到满足条件的三元组后同时跳过重复值。',
+    invariant: '固定 i 后，[l, r] 覆盖所有可能的两数组合；排序保证指针移动方向可判定和的大小。',
+    complexity: { time: 'O(n^2)', space: 'O(1)（不计排序与输出）' },
+    code_lang: 'javascript',
+    code: `function solve(nums) {
+  const a = nums.slice().sort((x, y) => x - y);
+  const out = [];
+  for (let i = 0; i < a.length - 2; i++) {
+    if (i > 0 && a[i] === a[i - 1]) continue;
+    if (a[i] > 0) break;
+    let l = i + 1;
+    let r = a.length - 1;
+    while (l < r) {
+      const sum = a[i] + a[l] + a[r];
+      if (sum === 0) {
+        out.push([a[i], a[l], a[r]]);
+        while (l < r && a[l] === a[l + 1]) l++;
+        while (l < r && a[r] === a[r - 1]) r--;
+        l++;
+        r--;
+      } else if (sum < 0) l++;
+      else r--;
+    }
+  }

@@ -1,0 +1,36 @@
+# 材料清单（可复现凭证）
+
+<!-- 由 05-外部资料库/tools/catalog_tool.py generate 生成，请勿手工编辑。 -->
+
+> catalog 生成时间：2026-11-08｜活跃资源 180 条（镜像 178 + reference 2）｜323,321 个文件｜逻辑 13,943,121,367 bytes ≈ 12.99 GiB。
+>
+> 本文件是 `catalog.json` 的生成视图。镜像正文不进 Git；`bytes` 是原始字节汇总，MiB 只用于显示。
+> 缺失值规则：`未知` 表示未获得证据，`—` 表示不适用；真实 0 原样保留为 `0`。
+
+## 还原方式
+
+```text
+https://codeload.github.com/<owner>/<repo>/tar.gz/refs/heads/<branch>
+# 分支未知时不得猜测，先从 catalog.json 的 open_issues 补证。
+```
+
+## 逐仓库凭证
+
+| 分类 | 仓库 | 分支 | 抓取时间 | 上游更新 | 文件 | bytes | MiB | md | archive SHA-256(前12) | 指纹(前12) | 许可 | 时效 |
+| --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- |
+| 知识库/AI与RAG | [adongwanai/AgentGuide](https://github.com/adongwanai/AgentGuide) | main | 2026-11-05 11:12 | 2026-10-31 | 358 | 220,737,638 | 210.51 | 175 | 未知 | 7e381481593b | 无 LICENSE | unknown |
+| 知识库/AI与RAG | [angel200109/blog](https://github.com/angel200109/blog) | main | 2026-11-05 11:12 | 2026-09-04 | 147 | 4,271,506 | 4.07 | 119 | 未知 | f96a24605ede | 无 LICENSE | unknown |
+| 知识库/AI与RAG | [Canner/WrenAI](https://github.com/Canner/WrenAI) | main | 2026-11-05 11:12 | 2026-11-04 | 708 | 19,723,622 | 18.81 | 147 | 未知 | ae8169678a73 | Apache-2.0 | unknown |
+| 知识库/AI与RAG | [datawhalechina/hello-agents](https://github.com/datawhalechina/hello-agents) | — | 2026-11-04 20:03 | 2026-10-13 | 2587 | 194,988,927 | 185.96 | 259 | c5936cef9afe | 未知 | CC-BY-NC-SA-4.0 | unknown |
+| 知识库/AI与RAG | [datawhalechina/llm-universe](https://github.com/datawhalechina/llm-universe) | — | 2026-11-04 20:03 | 2026-08-27 | 344 | 158,902,087 | 151.54 | 27 | 90b797ba61df | 未知 | 无 LICENSE | unknown |
+| 知识库/AI与RAG | [datawhalechina/self-llm](https://github.com/datawhalechina/self-llm) | master | 2026-11-05 11:12 | 2026-10-29 | 1372 | 284,023,021 | 270.87 | 308 | 未知 | 2e2285f6b888 | Apache-2.0 | unknown |
+| 知识库/AI与RAG | [Ethan-Wang-dev/awesome-cs61a](https://github.com/Ethan-Wang-dev/awesome-cs61a) | main | 2026-11-05 11:12 | 2026-08-30 | 3046 | 171,228,134 | 163.30 | 25 | 未知 | aa58752e05e7 | 无 LICENSE | unknown |
+| 知识库/AI与RAG | [explodinggradients/ragas](https://github.com/explodinggradients/ragas) | — | 2026-11-04 20:03 | — | 695 | 48,764,728 | 46.51 | 163 | 731eb02e770d | 未知 | Apache-2.0 | unknown |
+| 知识库/AI与RAG | [fancyboi999/ai-engineering-from-scratch-zh](https://github.com/fancyboi999/ai-engineering-from-scratch-zh) | main | 2026-11-05 11:12 | 2026-11-03 | 9830 | 144,822,180 | 138.11 | 2,798 | 未知 | 727f4162b7d8 | MIT | unknown |
+| 知识库/AI与RAG | [limouren2000/llms-dev-study](https://github.com/limouren2000/llms-dev-study) | — | 2026-11-04 20:03 | 2026-10-12 | 132 | 106,444,573 | 101.51 | 13 | e7afa239f0dc | 未知 | 无 LICENSE | unknown |
+| 知识库/AI与RAG | [microsoft/AI-For-Beginners](https://github.com/microsoft/AI-For-Beginners) | — | 2026-11-04 20:03 | 2026-11-04 | 13697 | 1,973,530,622 | 1882.11 | 3,752 | 2d9cc985f557 | 未知 | MIT | unknown |
+| 知识库/AI与RAG | [microsoft/Data-Science-For-Beginners](https://github.com/microsoft/Data-Science-For-Beginners) | — | 2026-11-04 20:03 | 2026-10-21 | 15714 | 1,499,129,886 | 1429.68 | 3,925 | 62338034ef84 | 未知 | MIT | unknown |
+| 知识库/AI与RAG | [microsoft/ML-For-Beginners](https://github.com/microsoft/ML-For-Beginners) | — | 2026-11-04 20:03 | 2026-11-05 | 17445 | 1,221,822,352 | 1165.22 | 5,581 | 8247bc9147ea | 未知 | MIT | unknown |
+| 知识库/AI与RAG | [mindcarver/91ai](https://github.com/mindcarver/91ai) | main | 2026-11-05 11:12 | 2026-11-01 | 2463 | 97,375,729 | 92.86 | 1,511 | 未知 | 7335b0468e2b | GPL-3.0 | unknown |
+| 知识库/AI与RAG | [openai/evals](https://github.com/openai/evals) | — | 2026-11-04 20:03 | 2026-04-14 | 1729 | 5,788,513 | 5.52 | 42 | f46cebc09b2e | 未知 | MIT | unknown |
+| 知识库/AI与RAG | [wdndev/llm_interview_note](https://github.com/wdndev/llm_interview_note) | main | 2026-11-05 11:12 | 2026-06-14 | 836 | 150,792,434 | 143.81 | 96 | 未知 | ca1512919ec7 | 无 LICENSE | unknown |

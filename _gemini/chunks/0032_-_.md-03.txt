@@ -1,0 +1,19 @@
+- **许可证（当前 catalog，178 个活跃仓库）**：无 LICENSE 文件 60、有 LICENSE 文件但签名未识别 29、MIT 44、Apache-2.0 12、CC-BY-SA-4.0 10、GPL-3.0 8、CC-BY-NC-SA-4.0 7、CC-BY-4.0 6、BSD 1、AGPL-3.0 1。即 89 个没有可确认许可证，另有 16 个带传染性或非商业条款。仅限本机个人学习；**不得并入可对外发布的产物或站点**，引用需注明出处。逐仓库状态见 [[catalog.json|catalog.json]] 的 `license` 字段。
+- **与计划验收标准的冲突**：本库大量内容是「答案」，而计划的验收是「关闭题解后能重写、讲清不变量」。使用时必须先自答后查，否则题量指标会被污染。建议把「本轮自测未看答案」写进 [[../03-执行计划/模板-学习日志|学习日志]] 的每题记录里。
+- **时效**：框架 API、K8s、Spring、React 版本相关内容一律以官方当前文档为准，本库只作原理与题型叙述。计划里已有同一条规则，此处再钉一次。
+- **索引负担**：32.3 万文件会让 Obsidian 全库检索变慢，也容易污染日常笔记搜索结果；按 README 第 5 条排除该路径，仍可由代理按绝对路径直接调用。
+
+## 六、数字怎么复算
+
+当前唯一资源事实源是 `catalog.json`。本机生成与校验入口：
+
+```text
+python 05-外部资料库/tools/catalog_tool.py generate --write
+python 05-外部资料库/tools/catalog_tool.py validate --mode strict-mirror
+python 05-外部资料库/tools/catalog_tool.py validate --mode source-only
+```
+
+- `材料清单.md` 与 `资料索引.md` 的统计区由 catalog 生成，不再手工改数。
+- bytes 由原机磁盘扫描得到，MiB/GiB 只做显示；不把四舍五入 MB 反推成精确 bytes。
+- 历史时点的 204,641 文件 / 9.67 GB 与 170 仓库账本仅作追溯，不再是当前值。
+- 质量与许可边界：下载和镜像不执行第三方脚本；无许可、未识别、GPL/AGPL、CC-NC 资料仅本机学习。

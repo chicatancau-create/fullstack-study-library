@@ -1,0 +1,121 @@
+        "canonical_url": "https://github.com/microsoft/Web-Dev-For-Beginners",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-11-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:09+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "78085398be0dea7abaaf5eda914817f46f6ddbbc",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/全栈路线/microsoft/Web-Dev-For-Beginners",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/microsoft/Web-Dev-For-Beginners"
+      },
+      "integrity": {
+        "archive_sha256": "1022ea54d7523e5e784744752ce28a6763a2e95cae6bda79bf849007dbebb79b",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/全栈路线",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 13865,
+        "bytes": 571903801,
+        "markdown_count": 5596,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:21+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 468,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：13864 文件 -> 13865 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/microsoft/Web-Dev-For-Beginners",
+          "category": "知识库/全栈路线",
+          "branch": null,
+          "archive_sha256": "1022ea54d7523e5e784744752ce28a6763a2e95cae6bda79bf849007dbebb79b",
+          "tarball_mb": 468,
+          "fetched": "2026-11-04 20:03",
+          "files": 13865,
+          "bytes": 571903801,
+          "mb": 545,
+          "top_extensions": {
+            ".webp": 7865,
+            ".md": 5596,
+            ".json": 153,
+            ".png": 140,
+            ".js": 25,
+            ".html": 17,
+            ".vue": 11,
+            "(none)": 9,
+            ".css": 8,
+            ".svg": 8
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：13864 文件 -> 13865 文件",
+          "measured": {
+            "pushed": "2026-11-05",
+            "stars": 97108
+          }
+        }
+      }
+    },
+    {
+      "id": "github:mtdvio/every-programmer-should-know",
+      "name": "mtdvio/every-programmer-should-know",
+      "source": {
+        "url": "https://github.com/mtdvio/every-programmer-should-know",
+        "canonical_url": "https://github.com/mtdvio/every-programmer-should-know",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",

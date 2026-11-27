@@ -1,0 +1,191 @@
+  while (start !== ancestor) {
+    start = start.parent;
+    nodes.push(start);
+  }
+  var k = nodes.length;
+  while (end !== ancestor) {
+    nodes.splice(k, 0, end);
+    end = end.parent;
+  }
+  return nodes;
+}
+
+function leastCommonAncestor(a, b) {
+  if (a === b) return a;
+  var aNodes = a.ancestors(),
+      bNodes = b.ancestors(),
+      c = null;
+  a = aNodes.pop();
+  b = bNodes.pop();
+  while (a === b) {
+    c = a;
+    a = aNodes.pop();
+    b = bNodes.pop();
+  }
+  return c;
+}
+
+function node_ancestors() {
+  var node = this, nodes = [node];
+  while (node = node.parent) {
+    nodes.push(node);
+  }
+  return nodes;
+}
+
+function node_descendants() {
+  var nodes = [];
+  this.each(function(node) {
+    nodes.push(node);
+  });
+  return nodes;
+}
+
+function node_leaves() {
+  var leaves = [];
+  this.eachBefore(function(node) {
+    if (!node.children) {
+      leaves.push(node);
+    }
+  });
+  return leaves;
+}
+
+function node_links() {
+  var root = this, links = [];
+  root.each(function(node) {
+    if (node !== root) { // Don’t include the root’s parent, if any.
+      links.push({source: node.parent, target: node});
+    }
+  });
+  return links;
+}
+
+function hierarchy(data, children) {
+  var root = new Node(data),
+      valued = +data.value && (root.value = data.value),
+      node,
+      nodes = [root],
+      child,
+      childs,
+      i,
+      n;
+
+  if (children == null) children = defaultChildren;
+
+  while (node = nodes.pop()) {
+    if (valued) node.value = +node.data.value;
+    if ((childs = children(node.data)) && (n = childs.length)) {
+      node.children = new Array(n);
+      for (i = n - 1; i >= 0; --i) {
+        nodes.push(child = node.children[i] = new Node(childs[i]));
+        child.parent = node;
+        child.depth = node.depth + 1;
+      }
+    }
+  }
+
+  return root.eachBefore(computeHeight);
+}
+
+function node_copy() {
+  return hierarchy(this).eachBefore(copyData);
+}
+
+function defaultChildren(d) {
+  return d.children;
+}
+
+function copyData(node) {
+  node.data = node.data.data;
+}
+
+function computeHeight(node) {
+  var height = 0;
+  do node.height = height;
+  while ((node = node.parent) && (node.height < ++height));
+}
+
+function Node(data) {
+  this.data = data;
+  this.depth =
+  this.height = 0;
+  this.parent = null;
+}
+
+Node.prototype = hierarchy.prototype = {
+  constructor: Node,
+  count: node_count,
+  each: node_each,
+  eachAfter: node_eachAfter,
+  eachBefore: node_eachBefore,
+  sum: node_sum,
+  sort: node_sort,
+  path: node_path,
+  ancestors: node_ancestors,
+  descendants: node_descendants,
+  leaves: node_leaves,
+  links: node_links,
+  copy: node_copy
+};
+
+var slice = Array.prototype.slice;
+
+function shuffle(array) {
+  var m = array.length,
+      t,
+      i;
+
+  while (m) {
+    i = Math.random() * m-- | 0;
+    t = array[m];
+    array[m] = array[i];
+    array[i] = t;
+  }
+
+  return array;
+}
+
+function enclose(circles) {
+  var i = 0, n = (circles = shuffle(slice.call(circles))).length, B = [], p, e;
+
+  while (i < n) {
+    p = circles[i];
+    if (e && enclosesWeak(e, p)) ++i;
+    else e = encloseBasis(B = extendBasis(B, p)), i = 0;
+  }
+
+  return e;
+}
+
+function extendBasis(B, p) {
+  var i, j;
+
+  if (enclosesWeakAll(p, B)) return [p];
+
+  // If we get here then B must have at least one element.
+  for (i = 0; i < B.length; ++i) {
+    if (enclosesNot(p, B[i])
+        && enclosesWeakAll(encloseBasis2(B[i], p), B)) {
+      return [B[i], p];
+    }
+  }
+
+  // If we get here then B must have at least two elements.
+  for (i = 0; i < B.length - 1; ++i) {
+    for (j = i + 1; j < B.length; ++j) {
+      if (enclosesNot(encloseBasis2(B[i], B[j]), p)
+          && enclosesNot(encloseBasis2(B[i], p), B[j])
+          && enclosesNot(encloseBasis2(B[j], p), B[i])
+          && enclosesWeakAll(encloseBasis3(B[i], B[j], p), B)) {
+        return [B[i], B[j], p];
+      }
+    }
+  }
+
+  // If we get here then something is very wrong.
+  throw new Error;
+}
+
+function enclosesNot(a, b) {
+  var dr = a.r - b.r, dx = b.x - a.x, dy = b.y - a.y;

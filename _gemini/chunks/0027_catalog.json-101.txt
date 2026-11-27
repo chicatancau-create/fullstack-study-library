@@ -1,0 +1,125 @@
+          "scope": "legacy_local_metadata_scope_unrecorded",
+          "observed_at": "2026-11-05T19:39:07+08:00"
+        },
+        "legacy_fingerprint_12": "3a8c41186d58"
+      },
+      "classification": {
+        "primary_category": "知识库/鸿蒙与跨端",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F2"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 18,
+        "bytes": 224364,
+        "markdown_count": 16,
+        "question_markers": 2,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:26+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "unrecognized_file",
+        "license_files": [
+          "LICENSE",
+          "README.md"
+        ],
+        "usage_restriction": "未识别许可证文件；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "round": 3,
+          "tar_mb": 0,
+          "ledger_refreshed": "补图/改名后重算：17 文件 -> 18 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/CharonChui/HarmonyOSNextStudyNote",
+          "category": "知识库/鸿蒙与跨端",
+          "branch": "main",
+          "fetched": "2026-11-05 18:24",
+          "files": 18,
+          "bytes": 224291,
+          "mb": 0,
+          "top_extensions": {
+            ".md": 16,
+            "(none)": 1
+          },
+          "license_files": [
+            "LICENSE",
+            "README.md"
+          ],
+          "round": 3,
+          "tar_mb": 0,
+          "selection": "个人鸿蒙 NEXT 学习笔记（真机与 DevEco 实践记录，属你要求的那类个人资料）",
+          "functions": [
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 16,
+            "md_share_pct": 84.3,
+            "question_markers": 2,
+            "tests": 0,
+            "images": 0,
+            "stars": 63,
+            "pushed": "2025-02-11"
+          },
+          "fingerprint_note": "本机内容指纹；上游压缩包未保留，可复现性以来源URL+分支+采集日期为准",
+          "content_fingerprint": "3a8c41186d582c62713f572449d4e9dfbe97ba3d00abaf15f9c39daf1e625841",
+          "ledger_refreshed": "补图/改名后重算：17 文件 -> 18 文件"
+        }
+      }
+    },
+    {
+      "id": "github:dengshiyinga/harmonyos-ai-skill",
+      "name": "DengShiyingA/harmonyos-ai-skill",
+      "source": {
+        "url": "https://github.com/DengShiyingA/harmonyos-ai-skill",
+        "canonical_url": "https://github.com/DengShiyingA/harmonyos-ai-skill",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 18:24",
+        "upstream_pushed_at": "2026-10-24",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:40+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "77c78fc98a3d4a0b1caf666bd92bdc0183e6d31a",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/鸿蒙与跨端/DengShiyingA/harmonyos-ai-skill",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/DengShiyingA/harmonyos-ai-skill"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",

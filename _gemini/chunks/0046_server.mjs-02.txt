@@ -1,0 +1,101 @@
+    const itemMatch = p.match(/^\/api\/items\/(\d+)$/);
+    if (itemMatch) {
+      const id = Number(itemMatch[1]);
+      const item = items.find(i => i.id === id);
+      if (!item) return json(res, 404, { error: 'not_found', id });
+      if (method === 'GET') return json(res, 200, item);
+      if (method === 'DELETE') {
+        items.splice(items.indexOf(item), 1);
+        res.writeHead(204, baseHeaders);
+        res.end();
+        return;
+      }
+    }
+
+    const errMatch = p.match(/^\/api\/error\/(\d{3})$/);
+    if (method === 'GET' && errMatch) {
+      const code = Number(errMatch[1]);
+      const extra = code === 401 ? { 'WWW-Authenticate': 'Bearer realm="demo"' } : {};
+      if (code === 204) { res.writeHead(204, baseHeaders); res.end(); return; }
+      return json(res, code, { error: 'demo_error', status: code }, extra);
+    }
+
+    if (method === 'POST' && p === '/api/session') {
+      const raw = await readBody(req);
+      let body = {};
+      try { body = JSON.parse(raw || '{}'); } catch { /* 交给下方 401 */ }
+      if (body.user !== 'demo' || body.pass !== 'demo') {
+        return json(res, 401, { error: 'bad_credentials' }, { 'WWW-Authenticate': 'Bearer realm="demo"' });
+      }
+      sessions.set(SESSION_SID, 'demo');
+      const cookies = [
+        `sid=${SESSION_SID}; HttpOnly; SameSite=Lax; Path=/; Max-Age=600`,
+        `theme=light; SameSite=Lax; Path=/; Max-Age=600`,
+      ];
+      return json(res, 200, { user: 'demo' }, {
+        'Set-Cookie': cookies,
+        ...corsHeaders(req, { credentials: true }),
+      });
+    }
+
+    if (method === 'GET' && p === '/api/session') {
+      const sid = parseCookies(req).sid;
+      if (!sid || sessions.get(sid) !== 'demo') {
+        return json(res, 401, { error: 'unauthenticated' }, {
+          'WWW-Authenticate': 'Bearer realm="demo"',
+          ...corsHeaders(req, { credentials: true }),
+        });
+      }
+      return json(res, 200, { user: 'demo' }, corsHeaders(req, { credentials: true }));
+    }
+
+    if (method === 'OPTIONS' && p === '/api/session') {
+      return preflight(req, res, { credentials: true, methods: 'GET, POST, OPTIONS', headers: 'content-type' });
+    }
+
+    if (p.startsWith('/api/cors/allow')) {
+      const cors = corsHeaders(req);
+      if (method === 'OPTIONS') {
+        return preflight(req, res, { methods: 'GET, POST, OPTIONS', headers: 'content-type, x-demo' });
+      }
+      return json(res, 200, { ok: true, method, origin: req.headers.origin || null }, cors);
+    }
+
+    if (method === 'GET' && p === '/api/slow') {
+      const ms = Math.min(Number(url.searchParams.get('ms') || 1500), 5000);
+      await new Promise(resolve => setTimeout(resolve, ms));
+      return json(res, 200, { ok: true, delayed_ms: ms });
+    }
+
+    if (method === 'POST' && p === '/api/slow-write') {
+      // 先在服务端提交，再回响应：客户端超时时，结果已经"未知"而不是"未执行"。
+      await new Promise(resolve => setTimeout(resolve, 1200));
+      const item = { id: nextId++, title: '慢请求已写入', done: false };
+      items.push(item);
+      console.log(`[commit] slow-write id=${item.id} at ${new Date().toISOString()}`);
+      return json(res, 201, item, { Location: `/api/items/${item.id}` });
+    }
+
+    if (method === 'GET' && p === '/api/reset') {
+      // 请求已被服务端处理，但连接直接断开：客户端看到的是"响应丢失"。
+      req.socket.destroy();
+      return;
+    }
+
+    if (method === 'GET' && p === '/api/cors/deny') {
+      // 故意不回 Access-Control-Allow-Origin：curl 看不到差异，浏览器才会拦截。
+      return json(res, 200, { ok: true, note: 'no ACAO header on purpose' });
+    }
+
+    if (method === 'GET' && p === '/api/cors/credentials') {
+      return json(res, 200, { ok: true, credentials: true }, corsHeaders(req, { credentials: true }));
+    }
+
+    if (method === 'GET' && p === '/api/cors/wildcard') {
+      // 错误示范：* 与 credentials 同时出现，浏览器会拒绝把响应交给 JS。
+      return json(res, 200, { ok: true, wildcard: true }, {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': 'true',
+      });
+    }
+

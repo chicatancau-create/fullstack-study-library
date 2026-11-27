@@ -1,0 +1,118 @@
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 7,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/nomankhn9/devops-exercises",
+          "category": "题库/运维与DevOps",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 7,
+          "fetched": "2026-11-05 11:12",
+          "files": 426,
+          "bytes": 8481606,
+          "mb": 8,
+          "top_extensions": {
+            ".md": 290,
+            ".png": 76,
+            ".py": 22,
+            ".tf": 12,
+            "(none)": 5,
+            ".yml": 5,
+            ".sh": 3,
+            ".txt": 3,
+            ".zip": 2,
+            ".groovy": 2
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": null,
+          "round": 2,
+          "selection": "正文 290 篇；命中计划缺口方向｜自动判定：keep",
+          "functions": [
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 290,
+            "md_share_pct": 13.5,
+            "question_markers": 8,
+            "tests": 0,
+            "images": 77,
+            "pdf": 0,
+            "stars": 6,
+            "pushed": "2026-10-12",
+            "functions": [
+              "运维题面"
+            ]
+          },
+          "category_basis": "按正文关键词判定（原按仓库名判定会错位）：{'运维云原生': 95, 'AI': 15, '系统设计': 13, '前端': 9}",
+          "content_fingerprint": "f2dc5ce472622d5c68afac0effd5761a24239a1d7a2c042b5404c43c53baf22a",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:ramesh-852000/devops-practices-and-interview-prep",
+      "name": "ramesh-852000/devops-practices-and-interview-prep",
+      "source": {
+        "url": "https://github.com/ramesh-852000/devops-practices-and-interview-prep",
+        "canonical_url": "https://github.com/ramesh-852000/devops-practices-and-interview-prep",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2025-08-29",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:57+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "a1ac5f6f830a56291634c282c65aee63c2e1d19c",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/运维与DevOps/ramesh-852000/devops-practices-and-interview-prep",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/ramesh-852000/devops-practices-and-interview-prep"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "205b23e57355f030270975716dac10372fd3bf74b89f74c582a84c38d9063482",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:56+08:00"
+        },
+        "legacy_fingerprint_12": "205b23e57355"
+      },
+      "classification": {
+        "primary_category": "题库/运维与DevOps",
+        "category_basis": "按正文关键词判定（原按仓库名判定会错位）：{'运维云原生': 83, '前端': 16, '系统设计': 12, 'SQL与数据': 8}",
+        "functions": [
+          "F2"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 402,
+        "bytes": 3313557,
+        "markdown_count": 276,
+        "question_markers": 6,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:32+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "unrecognized_file",
+        "license_files": [
+          "LICENSE"
+        ],

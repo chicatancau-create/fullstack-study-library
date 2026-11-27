@@ -1,0 +1,26 @@
+- `[通过]` MS11 文档一致性（第一批）：修复 `02-项目实战/README.md` 表格列数（wikilink 内竖线导致 source-only 失败）；补齐 `08-判定题库/专题题库/README.md`；根 README 的 MS3–MS5 状态改为严格口径；`09-整合任务/README.md` 的“深度短板”标注为历史记录。
+- `[通过]` MS11 CI 覆盖（第二批）：新增 `ms4-backend.yml`（后端 30 `judge.mjs` 本机 30/30 PASS）、`ms4-rag.yml`（65 条 golden 离线评测 `RESULT PASS`，refusal/泄漏/注入/P95/token 全项通过）；根 workflow 共 10 个。
+- `[通过]` MS11 学生包门禁：`check_student_packages.mjs` 7/7 通过，并已并入 `verify_all`；`--profile=ci --offline` 实测 21/21。
+- `[未验证]` 新增 workflow 尚未在 GitHub Actions 实跑（计费阻断）；`pages` 探测在 offline/quick 下按设计跳过。
+- `[通过]` MS11 SQL 门禁：新增 `.github/workflows/ms4-sql.yml`（PG 18 结果集 + 自伤测试；PG 18 + MySQL 8.4 真实环境层）。本机以 `study/study_lab` 实测 `SQL50 PASS 50/50`、`selftest_rejected=YES`，真实环境 `6/4/11/8` 全过，`gate_failures=0`；修正 SQL50 README 中“MySQL/迁移未实现”的过期边界描述。
+- `[通过]` MS11 实验 CI 矩阵：`experiments.yml` 从“只校验 manifest”升级为实跑 E01–E11（Node 四项目矩阵、PG 双实验、Redis 三实例、RabbitMQ Outbox、E11 授权单测）；新增 `experiments-nightly.yml` 跑 E12 容量与 E13 故障/SLO；根 workflow 共 12 个。
+- `[通过]` MS11 外部项目门禁工具：`verify_all.mjs` 按 `projects/` 新布局解析 P01–P06，并新增 `--run-projects`（full profile 自动启用）对 P02/P03/P04 执行 lint/test/build；本机实测 P02 lint 通过、build 0 failed、38/38 测试通过；P03 build 0 failed、migrate 建 14 表、31/31 测试通过；P04 lint 通过、build 0 failed、migrate 建 15 表、27/27 测试通过。
+- `[通过]` MS6 覆盖率本机复测：P02 `npm run coverage` 38/38 通过，行 96.61%、分支 85.07%、函数 97.29%；P03 31/31 通过，行 84.09%、分支 78.61%、函数 82.93%；P04 27/27 通过，行 93.34%、分支 80.26%、函数 97.73%。
+- `[通过]` MS6 E2E 本机复测：P02 Playwright 2/2（注册→建工作区→建任务→改状态→评论刷新仍在；空表单校验）；P03 1/1（商品→下单→支付）；P04 2/2（注册→建组织→建客户→跟进提醒→后台任务；viewer 只读禁用写操作）。
+- `[通过]` MS6 容量与故障本机复测：P03 `scripts/load.mjs` 240 请求/并发 20，成功 150、超卖 0、库存归零，p95 113.4ms、p99 669.2ms（`LOAD PASS`）；P03 锁竞争 `negative_stock_rows=0`；P02 在隔离库 `p02_ms6_iso` 上故障演练 6/6 PASS（DB 不可用 503/500、恢复后写入 201、进程重启健康、无半写、迁移失败检出、`backup_restore` 前后 users 1=1）。
+- `[通过]` MS6 授权与审计本机复测：P04 `rbac:evidence` 覆盖 5 角色 × 10 端点 = 50 组合，期望不符 0；跨租户访问 clients/jobs/audit 均 404；`audit:evidence` 产出 8 行审计记录，跨租户读取仍 404。
+- `[通过]` MS6 P02 性能（隔离库 `p02_ms6_perf2`，服务 `PORT=3102`）：并发 50、wall 1882ms、QPS 1594.12、错误率 0、p50 30.36ms、p95 38.69ms、p99 43.8ms、max 55.08ms、DB 连接 1，脚本 exit 0。
+- `[通过]` MS6 外部 manifest 重生成：P02/P03/P04 的 `evidence/manifest.json` 用各自 `scripts/manifest.mjs make` 重新生成（12/16/14 artifacts）并 verify 通过；`verify_all --profile=quick --offline --practice-root=<练习仓库>` 实测 33/33。
+- `[通过]` P03 已接入 ESLint（flat config，与 P02/P04 同口径 `eslint src scripts tests --max-warnings 0`），本机 `npm run lint` 退出码 0、0 警告；外部仓库 `ci.yml` 的 project03 job 已补 lint 步骤；P03 manifest 重生成 17 artifacts 校验通过。
+- `[通过]` P04 SIGTERM/SSE 已自动化：新增 `src/worker_runtime.mjs`（可注入 pool 的 worker 运行时，`shutdown()` 幂等）与 `tests/worker-runtime.test.js` 3 项——就绪探针 shutdown 后端口关闭、SIGTERM 处理链子进程退出码 0、SSE 订阅后收到 `: connected` + `id:`/`data:` 事件；P04 全套 30/30 通过，覆盖率行 96.59%/分支 80.00%/函数 100.00%，lint 0 警告；`evidence/workers-load.txt` 同步更新并重生成 manifest 14 artifacts 校验通过。
+- `[通过]` P04 容量三档与扩容路径实测：`npm run workers:load` 输出 normal/peak/over 三档（0.0116/13.8889/115.7407rps 正常档，capacity 200/50/50rps），并扫出 over 档（峰值 347.2rps）的最小可行扩容组合——并发 4 时 2 个 worker 即转 peak（capacity 400rps、util 0.8681），再翻倍到 4 个 worker 转入 normal（util 0.434）；同一断言已进 `tests/full.test.js`；`docs/runbook.md` 补了判定命令与 PG `max_connections` 约束说明。
+- `[未验证]` MS10 逐题原始面经尚未完整：250 题中仅 2 题有原始证据，其余 248 题仍为 `third_party_aggregate`；严格“已核验真题”计数为 2/250，不把聚合来源冒充已核验真题。
+- `[历史基线]` 早前“MS10 其余 68 题答案未实施、岗位矩阵仅一行”的记录已被后续提交推翻：字节 Top 100 答案已全部补齐并通过 5/5 门禁，岗位矩阵已生成 20 行 266 题；当前仍缺的是逐题牛客原始面经，而非答案或补题。
+- `[未执行]` 90-历史归档/ 未改动。
+
+## 十八、2026-11-09 MS8 自测题库真实环境层（G0–G9 扩展）
+
+> 口径：只记录本轮实测到的数字与命令；未跑的一律写“未实测”，不写成“已通过”。
+
+- `[通过]` G2 补 TS CLI 与类型门禁：`grade-ts.mjs` 16 条（并发上限/FIFO/拒绝后继续/队列满/`limit` 非法/多轮 `await` 交错/`stats` 快照）、`grade-cli.mjs` 14 条（帮助/退出码 2·3·4/未知参数/schema/队列满/取消/并发生效）；`tsc -p tsconfig.json` 零错误，`type-coverage` **100.00%（440/440）**；起始代码三条 grader 全部被拒。
+- `[通过]` G2 类型层断言：`类型测试/pool.test-d.ts` 用 `Equal<>` + `@ts-expect-error` 在编译期断言泛型透传与 `stats` 字段类型，纳入 `tsconfig` include。

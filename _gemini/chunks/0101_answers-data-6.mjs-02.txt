@@ -1,0 +1,101 @@
+    core_idea: '按值奇偶拆成两条链表：奇数段本身升序、偶数段本身降序；把偶数段反转后与奇数段归并。',
+    invariant: '拆分保持原相对顺序，反转后偶数段升序，归并两条升序链表得到整体升序。',
+    complexity: { time: 'O(n)', space: 'O(1)' },
+    code_lang: 'javascript',
+    code: `function solve(arr) {
+  const dOdd = { next: null }, dEven = { next: null };
+  let o = dOdd, e = dEven;
+  for (const v of arr) {
+    const node = { val: v, next: null };
+    if (v % 2 === 1) { o.next = node; o = node; }
+    else { e.next = node; e = node; }
+  }
+  let prev = null, cur = dEven.next;
+  while (cur) { const nxt = cur.next; cur.next = prev; prev = cur; cur = nxt; }
+  const d = { next: null };
+  let t = d, a = dOdd.next, b = prev;
+  while (a && b) {
+    if (a.val <= b.val) { t.next = a; a = a.next; }
+    else { t.next = b; b = b.next; }
+    t = t.next;
+  }
+  t.next = a || b;
+  const out = [];
+  for (let p = d.next; p; p = p.next) out.push(p.val);
+  return out;
+}`,
+    edge_cases: [
+      { call: '[1,8,3,6,5,4,7,2]', expected: [1,2,3,4,5,6,7,8], why: '奇升偶降交错' },
+      { call: '[2,1]', expected: [1,2], why: '偶段单个值在前' },
+      { call: '[1,2,3]', expected: [1,2,3], why: '已交错但仍需归并' },
+    ],
+    common_mistakes: ['对整条链表排序，忽略奇偶两段已各自有序的前提', '反转偶数段时丢失后继', '归并后忘记接上剩余段'],
+    followups: ['如果题目不保证奇升偶降，还能 O(n) 吗？', '如何原地完成反转与归并？'],
+    rubric: [
+      { point: '按奇偶拆分为两条链表', weight: 1 },
+      { point: '反转降序的偶数段', weight: 2 },
+      { point: '归并两段并接上剩余部分', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q069', title: '98. 验证二叉搜索树', question_url: 'https://leetcode.cn/problems/validate-binary-search-tree/',
+    core_idea: '递归携带上下界：左子树上界为当前值，右子树下界为当前值，且必须严格大于/小于；或中序遍历严格递增。',
+    invariant: '每个节点值都落在其祖先约束的开区间 (low, high) 内。',
+    complexity: { time: 'O(n)', space: 'O(h)' },
+    code_lang: 'javascript',
+    code: `function solve(a) {
+  function build(arr) {
+    if (!arr.length || arr[0] === null) return null;
+    const root = { val: arr[0], left: null, right: null };
+    const q = [root];
+    let i = 1;
+    while (i < arr.length && q.length) {
+      const n = q.shift();
+      if (i < arr.length) { if (arr[i] !== null) { n.left = { val: arr[i], left: null, right: null }; q.push(n.left); } i++; }
+      if (i < arr.length) { if (arr[i] !== null) { n.right = { val: arr[i], left: null, right: null }; q.push(n.right); } i++; }
+    }
+    return root;
+  }
+  function check(n, low, high) {
+    if (!n) return true;
+    if (n.val <= low || n.val >= high) return false;
+    return check(n.left, low, n.val) && check(n.right, n.val, high);
+  }
+  return check(build(a), -Infinity, Infinity);
+}`,
+    edge_cases: [
+      { call: '[2,1,3]', expected: true, why: '标准 BST' },
+      { call: '[5,1,4,null,null,3,6]', expected: false, why: '3 在 5 的右子树却小于 5' },
+      { call: '[1,1]', expected: false, why: 'BST 不允许重复值' },
+    ],
+    common_mistakes: ['只比较父子节点，漏掉祖先约束', '用 <=/>= 允许重复值', '依赖 Infinity 边界时未考虑节点值范围'],
+    followups: ['中序遍历写法如何保证严格递增？', '若允许重复值，校验条件怎么改？'],
+    rubric: [
+      { point: '递归携带开区间上下界', weight: 2 },
+      { point: '比较使用严格不等', weight: 1 },
+      { point: '空节点视为合法', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q070', title: '94. 二叉树的中序遍历', question_url: 'https://leetcode.cn/problems/binary-tree-inorder-traversal/',
+    core_idea: '显式栈迭代：一路向左压栈，弹出即访问，再转向右子树；避免递归深度限制。',
+    invariant: '栈中保存的是尚未访问的祖先链，弹出顺序保证左-根-右。',
+    complexity: { time: 'O(n)', space: 'O(h)' },
+    code_lang: 'javascript',
+    code: `function solve(a) {
+  function build(arr) {
+    if (!arr.length || arr[0] === null) return null;
+    const root = { val: arr[0], left: null, right: null };
+    const q = [root];
+    let i = 1;
+    while (i < arr.length && q.length) {
+      const n = q.shift();
+      if (i < arr.length) { if (arr[i] !== null) { n.left = { val: arr[i], left: null, right: null }; q.push(n.left); } i++; }
+      if (i < arr.length) { if (arr[i] !== null) { n.right = { val: arr[i], left: null, right: null }; q.push(n.right); } i++; }
+    }
+    return root;
+  }
+  const out = [], st = [];
+  let cur = build(a);
+  while (cur || st.length) {
+    while (cur) { st.push(cur); cur = cur.left; }

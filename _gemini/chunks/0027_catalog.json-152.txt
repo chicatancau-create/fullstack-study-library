@@ -1,0 +1,134 @@
+          "measured": {
+            "pushed": "2026-03-14",
+            "stars": 778
+          }
+        }
+      }
+    },
+    {
+      "id": "github:faqguru/faqguru",
+      "name": "FAQGURU/FAQGURU",
+      "source": {
+        "url": "https://github.com/FAQGURU/FAQGURU",
+        "canonical_url": "https://github.com/FAQGURU/FAQGURU",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2024-09-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:15+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "52f6a1092c388309676d149db379e4c3b7f63771",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/前端与Node/FAQGURU/FAQGURU",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/FAQGURU/FAQGURU"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "db5d19fb53dd8583b9a5f0925c4aeb168c3526d74d65a6628a0bf04bad0788cf",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:53+08:00"
+        },
+        "legacy_fingerprint_12": "db5d19fb53dd"
+      },
+      "classification": {
+        "primary_category": "题库/前端与Node",
+        "category_basis": "按正文关键词判定（原按仓库名判定会错位）：{'前端': 650, 'AI': 74, 'Node后端': 41, 'SQL与数据': 31}",
+        "functions": [
+          "F2"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 51,
+        "bytes": 1976449,
+        "markdown_count": 47,
+        "question_markers": 9,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:29+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "stale",
+        "note": "索引型，含 AngularJS/jQuery 等历史主题条目；只取仍属当前栈的部分",
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/FAQGURU/FAQGURU",
+          "category": "题库/前端与Node",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 0,
+          "fetched": "2026-11-05 11:12",
+          "files": 51,
+          "bytes": 1976449,
+          "mb": 1,
+          "top_extensions": {
+            ".md": 47,
+            "(none)": 2,
+            ".svg": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "round": 2,
+          "selection": "正文 47 篇；文档型仓库(md占比90%)｜自动判定：keep",
+          "functions": [
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 47,
+            "md_share_pct": 90.1,
+            "question_markers": 9,
+            "tests": 0,
+            "images": 1,
+            "pdf": 0,
+            "stars": 5060,
+            "pushed": "2024-09-05",
+            "functions": [
+              "F2可对照解答",
+              "主线-前端",
+              "中线-Java",
+              "第一轮候选(描述含学习词)"
+            ]
+          },

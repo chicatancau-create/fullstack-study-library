@@ -1,0 +1,100 @@
+  if (/\[CODE:[^\]]*]$/.test(name) || /v8::internal::.*\[CPP]$/.test(name)) return { type: 'v8' }
+  if (/\[CPP]$/.test(name) || /\[SHARED_LIB]$/.test(name)) return { type: 'cpp' }
+
+  // Match like `~someFunction /some/path to/file.js:1:2`
+  // not like `C:\\Program Files\node.js\node.exe`
+  if (!/\.m?js:\d+(:\d+?)?$/.test(name)) {
+    return (/\.$/.test(name)) ? { type: 'core' } : { type: 'v8' }
+  }
+
+  // Match like `~someFunction native /some/path to/file.js:1:2`
+  // not like `someFunction /some native path/to/file.js:1:2`, windows or posix
+  if (/^[^/\\]* native /.test(name)) return { type: 'native' }
+
+  if (!includesPathSeperator(name) || isInternalPath(name)) return { type: 'core' }
+  if (/\/node_modules\//.test(name) || /\\node_modules\\/.test(name)) return { type: 'deps' }
+
+  return { type: 'app' }
+}
+
+},{}],4:[function(require,module,exports){
+'use strict'
+
+module.exports = (render) => ({ colors, enableOptUnopt }) => render`
+  <div id=key class='fr dn db-l mr1'>
+    <div class='fl' style="margin-right: 5px;">cold</div>
+    <div class='fl' style="background: ${colors[0]}; height: 20px; width: 20px; margin-right: 5px;"></div>
+    <div class='fl' style="background: ${colors[1]}; height: 20px; width: 20px; margin-right: 5px;"></div>
+    <div class='fl' style="background: ${colors[2]}; height: 20px; width: 20px; margin-right: 5px;"></div>
+    <div class='fl' style="background: ${colors[3]}; height: 20px; width: 20px; margin-right: 5px;"></div>
+    <div class='fl' style="display: block; float: left; margin-right: 5px;">hot</div>
+    ${enableOptUnopt
+    ? render`<div class='cf f6 silver mt3 pt1' style='margin-left:-.35em'>
+        <span>* optimized</span> <span class="indent">~ unoptimized</span>
+        </div>
+      `
+    : ''
+}
+  </div>
+
+`
+
+},{}],5:[function(require,module,exports){
+'use strict'
+
+const debounce = require('debounce')
+
+module.exports = (render) => (action) => {
+  const search = render`
+    <input type="search" placeholder="search functions" class='fr f5 mr1'>
+  `
+  search.addEventListener('keydown', debounce(({ target }) => action({ type: 'key', value: target.value }), 150))
+
+  return search
+}
+
+},{"debounce":30}],6:[function(require,module,exports){
+'use strict'
+
+module.exports = (render) => ({ title }) => render`
+   <h1 id=title class='sans-serif black-70 bg-white b lh-title measure-narrow measure-l f4 ml2 mt0 dib'>
+    <style>@media (max-width: 584px) {#title {display: none}}</style>
+    ${title}
+  </h1>
+`
+
+},{}],7:[function(require,module,exports){
+'use strict'
+
+const createHoc = (render) => ({ bg, exclude, name, lbl, disabled = false }, action) => {
+  const pressed = !disabled && !exclude.has(name)
+  return render`
+    <button 
+      class="f7 pointer br2 ba mb0 dib black-70 lh-title border-box ml1 ${pressed ? 'b--black' : ''} ${disabled ? 'o-50 gray' : ''}" 
+      ${disabled ? 'disabled' : ''}
+      style="
+        ${pressed ? 'box-shadow: 0 0 0 1px black;' : ''}
+        background: ${bg};
+      "
+      onclick=${() => action({ name })}
+    >${lbl || name}</button>
+  `
+}
+
+module.exports = (render) => ({ bgs, exclude, enableInlinable, renderInlinable, visualizeCpuProfile }, action) => {
+  const hoc = createHoc(render)
+  const app = hoc({ bg: bgs.app, exclude, name: 'app' }, action)
+  const deps = hoc({ bg: bgs.deps, exclude, name: 'deps' }, action)
+  const core = hoc({ bg: bgs.core, exclude, name: 'core' }, action)
+  const wasm = hoc({ bg: bgs.wasm, exclude, name: 'wasm' }, action)
+  const v8 = hoc({ bg: bgs.v8, exclude, name: 'v8' }, action)
+  const init = hoc({ bg: bgs.init, exclude, name: 'init' }, action)
+  if (visualizeCpuProfile) {
+    return render`
+    <div style='margin-left:-.25rem'>
+      ${app}${deps}${core}${v8}${init}
+    </div>
+  `
+  }
+  const inlinable = renderInlinable ? hoc({ bg: bgs.inlinable, exclude, name: 'inlinable', disabled: !enableInlinable }, action) : ''
+  const native = hoc({ bg: bgs.native, exclude, name: 'native' }, action)

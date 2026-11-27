@@ -1,0 +1,105 @@
+  async init() {
+    await this.cdp.send('Page.enable');
+    await this.cdp.send('Runtime.enable');
+    await this.cdp.send('Log.enable');
+    await this.cdp.send('Network.enable');
+    this.cdp.on('Page.loadEventFired', () => {
+      const rs = this.loadResolvers.splice(0);
+      for (const r of rs) r();
+    });
+    this.cdp.on('Runtime.consoleAPICalled', p => {
+      this.console.push({
+        type: p.type,
+        text: p.args.map(a => a.value ?? a.description ?? a.type).join(' '),
+      });
+    });
+    this.cdp.on('Log.entryAdded', p => {
+      this.events.push({ source: p.entry.source, level: p.entry.level, text: p.entry.text, url: p.entry.url });
+    });
+  }
+
+  async viewport(width, height, { mobile = false, scale = 1 } = {}) {
+    await this.cdp.send('Emulation.setDeviceMetricsOverride', {
+      width, height, deviceScaleFactor: scale, mobile,
+      screenWidth: width, screenHeight: height,
+    });
+  }
+
+  async media(features) {
+    await this.cdp.send('Emulation.setEmulatedMedia', { features });
+  }
+
+  async goto(url) {
+    const loaded = new Promise((resolve, reject) => {
+      this.loadResolvers.push(resolve);
+      setTimeout(() => reject(new Error(`页面加载超时: ${url}`)), 20000);
+    });
+    await this.cdp.send('Page.navigate', { url });
+    await loaded;
+    await sleep(250);
+  }
+
+  async reload() {
+    const loaded = new Promise((resolve, reject) => {
+      this.loadResolvers.push(resolve);
+      setTimeout(() => reject(new Error('reload 超时')), 20000);
+    });
+    await this.cdp.send('Page.reload', { ignoreCache: true });
+    await loaded;
+    await sleep(200);
+  }
+
+  async eval(expression) {
+    const r = await this.cdp.send('Runtime.evaluate', {
+      expression, awaitPromise: true, returnByValue: true, userGesture: true,
+    });
+    if (r.exceptionDetails) {
+      throw new Error('页面脚本异常: ' + (r.exceptionDetails.exception?.description || r.exceptionDetails.text));
+    }
+    return r.result.value;
+  }
+
+  async waitFor(expression, { timeout = 10000, interval = 100 } = {}) {
+    const end = Date.now() + timeout;
+    while (Date.now() < end) {
+      if (await this.eval(expression)) return true;
+      await sleep(interval);
+    }
+    throw new Error('等待条件超时: ' + expression);
+  }
+
+  async key(name) {
+    const map = {
+      Tab: { code: 'Tab', vk: 9, key: 'Tab' },
+      Enter: { code: 'Enter', vk: 13, key: 'Enter', text: '\r' },
+      Space: { code: 'Space', vk: 32, key: ' ', text: ' ' },
+      ArrowDown: { code: 'ArrowDown', vk: 40, key: 'ArrowDown' },
+      ArrowUp: { code: 'ArrowUp', vk: 38, key: 'ArrowUp' },
+      Escape: { code: 'Escape', vk: 27, key: 'Escape' },
+    };
+    const k = map[name];
+    if (!k) throw new Error('未支持的按键: ' + name);
+    await this.cdp.send('Input.dispatchKeyEvent', {
+      type: 'keyDown', key: k.key, code: k.code, text: k.text,
+      windowsVirtualKeyCode: k.vk, nativeVirtualKeyCode: k.vk,
+    });
+    await this.cdp.send('Input.dispatchKeyEvent', {
+      type: 'keyUp', key: k.key, code: k.code,
+      windowsVirtualKeyCode: k.vk, nativeVirtualKeyCode: k.vk,
+    });
+    await sleep(120);
+  }
+
+  async type(text) {
+    await this.cdp.send('Input.insertText', { text });
+    await sleep(120);
+  }
+
+  async shot(file) {
+    const r = await this.cdp.send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false });
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, Buffer.from(r.data, 'base64'));
+  }
+}
+
+export const sleep = ms => new Promise(r => setTimeout(r, ms));

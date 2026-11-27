@@ -1,0 +1,127 @@
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 1,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/itcharge/AlgoNote",
+          "category": "题库/算法题解",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 1,
+          "fetched": "2026-11-05 11:12",
+          "files": 1777,
+          "bytes": 7281185,
+          "mb": 6,
+          "top_extensions": {
+            ".md": 1705,
+            ".py": 68,
+            "(none)": 2,
+            ".yml": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": null,
+          "round": 2,
+          "selection": "正文 1705 篇；题面/问答标记 1678 处；文档型仓库(md占比98%)｜自动判定：keep",
+          "functions": [
+            "F1题面",
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 1705,
+            "md_share_pct": 97.5,
+            "question_markers": 1678,
+            "tests": 0,
+            "images": 0,
+            "pdf": 0,
+            "stars": 7845,
+            "pushed": "2026-06-23",
+            "functions": [
+              "F1离线题面",
+              "F2可对照解答",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "category_basis": "人工定类：题面标记 1678，按规则应属题库",
+          "content_fingerprint": "3a94b9c79ed323f6be90d8a3646ff9c4f0e6526e981c6d0f1aa55005ce5362bb",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:kamyu104/leetcode-solutions",
+      "name": "kamyu104/LeetCode-Solutions",
+      "source": {
+        "url": "https://github.com/kamyu104/LeetCode-Solutions",
+        "canonical_url": "https://github.com/kamyu104/LeetCode-Solutions",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-11-02",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:36+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "a5bad320840b8f8f54c2b8619ca929c504381aaf",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/算法题解/kamyu104/LeetCode-Solutions",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/kamyu104/LeetCode-Solutions"
+      },
+      "integrity": {
+        "archive_sha256": "faf8d3b9fd7f6d13f9c21a81f9405c15d1c59881c53e954d413fe3af10c06d1e",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "题库/算法题解",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 7833,
+        "bytes": 10818137,
+        "markdown_count": 7,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:32+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE.md"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,

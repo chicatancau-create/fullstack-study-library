@@ -1,0 +1,121 @@
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：12256 文件 -> 12257 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/krahets/hello-algo",
+          "category": "知识库/算法与数据结构",
+          "branch": null,
+          "archive_sha256": "782aecd16d1ceb81d85f6747b92ad4fdd3c7c98e63dffa3afcf4678ce3e753a1",
+          "tarball_mb": 102,
+          "fetched": "2026-11-04 20:03",
+          "files": 12257,
+          "bytes": 274919154,
+          "mb": 262,
+          "top_extensions": {
+            ".svg": 2861,
+            ".md": 1125,
+            ".go": 834,
+            ".swift": 544,
+            ".rs": 539,
+            ".py": 534,
+            ".cs": 528,
+            ".js": 525,
+            ".dart": 522,
+            ".java": 522
+          },
+          "license_files": [
+            "LICENSE",
+            "licenses"
+          ],
+          "license_detected": "CC-BY-NC-SA-4.0",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：12256 文件 -> 12257 文件",
+          "measured": {
+            "pushed": "2026-11-05",
+            "stars": 131951
+          }
+        }
+      }
+    },
+    {
+      "id": "github:trekhleb/javascript-algorithms",
+      "name": "trekhleb/javascript-algorithms",
+      "source": {
+        "url": "https://github.com/trekhleb/javascript-algorithms",
+        "canonical_url": "https://github.com/trekhleb/javascript-algorithms",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-07-26",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:15+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "85293e3e2b88f4d2ce330d956b139cf628aa1e82",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/算法与数据结构/trekhleb/javascript-algorithms",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/trekhleb/javascript-algorithms"
+      },
+      "integrity": {
+        "archive_sha256": "220e6b95cdfcd71f9648dca2e9efb93465a1f4451cd114e78bc724c7cfeb2839",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/算法与数据结构",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 680,
+        "bytes": 10163461,
+        "markdown_count": 259,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:24+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 7,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：679 文件 -> 680 文件"
+        },
+        "original_source_json": {

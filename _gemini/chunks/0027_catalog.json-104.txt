@@ -1,0 +1,141 @@
+        "online_fallback_url": "https://github.com/dcloudio/hbuilderx-extension-docs"
+      },
+      "integrity": {
+        "archive_sha256": "666919d5ba3625b00ae362c4bb58642f84feef8d85b572fb6dcf9b6fcd7136c0",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/鸿蒙与跨端",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F1",
+          "F5"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 1249,
+        "bytes": 67230823,
+        "markdown_count": 693,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:26+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "Apache-2.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE",
+          "README.md"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "round": 4,
+          "extract_skipped_bulk": 0,
+          "upstream_description": "HBuilderX使用文档、以及插件开发文档"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/dcloudio/hbuilderx-extension-docs",
+          "category": "知识库/鸿蒙与跨端",
+          "branch": "master",
+          "archive_sha256": "666919d5ba3625b00ae362c4bb58642f84feef8d85b572fb6dcf9b6fcd7136c0",
+          "fetched": "2026-11-05 20:23",
+          "files": 1248,
+          "bytes": 67229760,
+          "license_files": [
+            "LICENSE",
+            "README.md"
+          ],
+          "license_detected": "Apache-2.0",
+          "round": 4,
+          "selection": "HBuilderX 使用与插件开发文档（构建、打包、证书）",
+          "functions": [
+            "F1题面",
+            "F5图解"
+          ],
+          "measured": {
+            "md_n": 693,
+            "images": 517,
+            "code": 28,
+            "pushed": "2026-10-29",
+            "stars": 42,
+            "question_markers": null
+          },
+          "top_extensions": [
+            [
+              ".md",
+              693
+            ],
+            [
+              ".png",
+              316
+            ],
+            [
+              ".jpg",
+              100
+            ],
+            [
+              ".gif",
+              78
+            ],
+            [
+              ".jpeg",
+              23
+            ],
+            [
+              ".js",
+              21
+            ],
+            [
+              ".css",
+              4
+            ],
+            [
+              "(none)",
+              3
+            ]
+          ],
+          "extract_skipped_bulk": 0,
+          "upstream_description": "HBuilderX使用文档、以及插件开发文档",
+          "mb": 64
+        }
+      }
+    },
+    {
+      "id": "github:dcloudio/hbuilderx-for-uniapp-test",
+      "name": "dcloudio/hbuilderx-for-uniapp-test",
+      "source": {
+        "url": "https://github.com/dcloudio/hbuilderx-for-uniapp-test",
+        "canonical_url": "https://github.com/dcloudio/hbuilderx-for-uniapp-test",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 20:23",
+        "upstream_pushed_at": "2026-11-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:44+08:00",

@@ -1,0 +1,116 @@
+          "license_detected": "MIT",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：79 文件 -> 80 文件",
+          "freshness_flag": "每日一题含 Vue 2 条目；按 Vue 3 复核后再背",
+          "measured": {
+            "pushed": "2025-10-26",
+            "stars": 26257
+          }
+        }
+      }
+    },
+    {
+      "id": "github:sanchit0496/reactjs-machine-coding-challenges",
+      "name": "sanchit0496/reactjs-machine-coding-challenges",
+      "source": {
+        "url": "https://github.com/sanchit0496/reactjs-machine-coding-challenges",
+        "canonical_url": "https://github.com/sanchit0496/reactjs-machine-coding-challenges",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-03-14",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:13+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "43db2256b297a404c3925cee08fe7eb0fc2b859e",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/前端/sanchit0496/reactjs-machine-coding-challenges",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/sanchit0496/reactjs-machine-coding-challenges"
+      },
+      "integrity": {
+        "archive_sha256": "f42329c96b92d6209770232664b1925cb37d849b258fc5fc4ce8cf259a633b55",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "题库/前端",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 729,
+        "bytes": 21130113,
+        "markdown_count": 41,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:29+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 5,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：728 文件 -> 729 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/sanchit0496/reactjs-machine-coding-challenges",
+          "category": "题库/前端",
+          "branch": null,
+          "archive_sha256": "f42329c96b92d6209770232664b1925cb37d849b258fc5fc4ce8cf259a633b55",
+          "tarball_mb": 5,
+          "fetched": "2026-11-04 20:03",
+          "files": 729,
+          "bytes": 21130113,
+          "mb": 20,
+          "top_extensions": {
+            ".js": 198,
+            ".json": 108,
+            ".css": 94,
+            ".svg": 58,
+            ".png": 56,
+            ".html": 43,
+            ".md": 41,
+            "(none)": 40,
+            ".jsx": 34,
+            ".ico": 28
+          },
+          "license_files": [],
+          "license_detected": null,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：728 文件 -> 729 文件",

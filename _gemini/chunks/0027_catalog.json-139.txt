@@ -1,0 +1,125 @@
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/八股与基础/khangich/machine-learning-interview",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/khangich/machine-learning-interview"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "6cccdf60386df995ac3fb8dbcd77fba9b425aae3e28605a88f09562ccd864789",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:52+08:00"
+        },
+        "legacy_fingerprint_12": "6cccdf60386d"
+      },
+      "classification": {
+        "primary_category": "题库/八股与基础",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F4"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 33,
+        "bytes": 6261500,
+        "markdown_count": 12,
+        "question_markers": 0,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:28+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 4,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/khangich/machine-learning-interview",
+          "category": "题库/八股与基础",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 4,
+          "fetched": "2026-11-05 11:12",
+          "files": 33,
+          "bytes": 6261500,
+          "mb": 5,
+          "top_extensions": {
+            ".png": 15,
+            ".md": 12,
+            ".ipynb": 2,
+            ".pdf": 1,
+            ".yml": 1,
+            ".py": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "round": 2,
+          "selection": "高采用(30000 star)+有正文(12篇)；人工点名重点源｜自动判定：keep",
+          "functions": [
+            "F4路线"
+          ],
+          "measured": {
+            "md_n": 12,
+            "md_share_pct": 1.6,
+            "question_markers": 0,
+            "tests": 0,
+            "images": 15,
+            "pdf": 1,
+            "stars": 30000,
+            "pushed": "2025-01-01",
+            "functions": [
+              "注入-ML题面"
+            ]
+          },
+          "content_fingerprint": "6cccdf60386df995ac3fb8dbcd77fba9b425aae3e28605a88f09562ccd864789",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:kusal-tharindu/devops-interview-questions",
+      "name": "kusal-tharindu/devops-interview-questions",
+      "source": {
+        "url": "https://github.com/kusal-tharindu/devops-interview-questions",
+        "canonical_url": "https://github.com/kusal-tharindu/devops-interview-questions",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-10-20",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:51+08:00",

@@ -1,0 +1,182 @@
+  start = +start, stop = +stop, step = (n = arguments.length) < 2 ? (stop = start, start = 0, 1) : n < 3 ? 1 : +step;
+
+  var i = -1,
+      n = Math.max(0, Math.ceil((stop - start) / step)) | 0,
+      range = new Array(n);
+
+  while (++i < n) {
+    range[i] = start + i * step;
+  }
+
+  return range;
+}
+
+function least(values, compare = ascending) {
+  let min;
+  let defined = false;
+  if (compare.length === 1) {
+    let minValue;
+    for (const element of values) {
+      const value = compare(element);
+      if (defined
+          ? ascending(value, minValue) < 0
+          : ascending(value, value) === 0) {
+        min = element;
+        minValue = value;
+        defined = true;
+      }
+    }
+  } else {
+    for (const value of values) {
+      if (defined
+          ? compare(value, min) < 0
+          : compare(value, value) === 0) {
+        min = value;
+        defined = true;
+      }
+    }
+  }
+  return min;
+}
+
+function leastIndex(values, compare = ascending) {
+  if (compare.length === 1) return minIndex(values, compare);
+  let minValue;
+  let min = -1;
+  let index = -1;
+  for (const value of values) {
+    ++index;
+    if (min < 0
+        ? compare(value, value) === 0
+        : compare(value, minValue) < 0) {
+      minValue = value;
+      min = index;
+    }
+  }
+  return min;
+}
+
+function greatest(values, compare = ascending) {
+  let max;
+  let defined = false;
+  if (compare.length === 1) {
+    let maxValue;
+    for (const element of values) {
+      const value = compare(element);
+      if (defined
+          ? ascending(value, maxValue) > 0
+          : ascending(value, value) === 0) {
+        max = element;
+        maxValue = value;
+        defined = true;
+      }
+    }
+  } else {
+    for (const value of values) {
+      if (defined
+          ? compare(value, max) > 0
+          : compare(value, value) === 0) {
+        max = value;
+        defined = true;
+      }
+    }
+  }
+  return max;
+}
+
+function greatestIndex(values, compare = ascending) {
+  if (compare.length === 1) return maxIndex(values, compare);
+  let maxValue;
+  let max = -1;
+  let index = -1;
+  for (const value of values) {
+    ++index;
+    if (max < 0
+        ? compare(value, value) === 0
+        : compare(value, maxValue) > 0) {
+      maxValue = value;
+      max = index;
+    }
+  }
+  return max;
+}
+
+function scan(values, compare) {
+  const index = leastIndex(values, compare);
+  return index < 0 ? undefined : index;
+}
+
+var shuffle = shuffler(Math.random);
+
+function shuffler(random) {
+  return function shuffle(array, i0 = 0, i1 = array.length) {
+    let m = i1 - (i0 = +i0);
+    while (m) {
+      const i = random() * m-- | 0, t = array[m + i0];
+      array[m + i0] = array[i + i0];
+      array[i + i0] = t;
+    }
+    return array;
+  };
+}
+
+function sum(values, valueof) {
+  let sum = 0;
+  if (valueof === undefined) {
+    for (let value of values) {
+      if (value = +value) {
+        sum += value;
+      }
+    }
+  } else {
+    let index = -1;
+    for (let value of values) {
+      if (value = +valueof(value, ++index, values)) {
+        sum += value;
+      }
+    }
+  }
+  return sum;
+}
+
+function transpose(matrix) {
+  if (!(n = matrix.length)) return [];
+  for (var i = -1, m = min(matrix, length), transpose = new Array(m); ++i < m;) {
+    for (var j = -1, n, row = transpose[i] = new Array(n); ++j < n;) {
+      row[j] = matrix[j][i];
+    }
+  }
+  return transpose;
+}
+
+function length(d) {
+  return d.length;
+}
+
+function zip() {
+  return transpose(arguments);
+}
+
+function every(values, test) {
+  if (typeof test !== "function") throw new TypeError("test is not a function");
+  let index = -1;
+  for (const value of values) {
+    if (!test(value, ++index, values)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function some(values, test) {
+  if (typeof test !== "function") throw new TypeError("test is not a function");
+  let index = -1;
+  for (const value of values) {
+    if (test(value, ++index, values)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function filter(values, test) {

@@ -1,0 +1,127 @@
+  invertX: function(x) {
+    return (x - this.x) / this.k;
+  },
+  invertY: function(y) {
+    return (y - this.y) / this.k;
+  },
+  rescaleX: function(x) {
+    return x.copy().domain(x.range().map(this.invertX, this).map(x.invert, x));
+  },
+  rescaleY: function(y) {
+    return y.copy().domain(y.range().map(this.invertY, this).map(y.invert, y));
+  },
+  toString: function() {
+    return "translate(" + this.x + "," + this.y + ") scale(" + this.k + ")";
+  }
+};
+
+var identity = new Transform(1, 0, 0);
+
+transform.prototype = Transform.prototype;
+
+function transform(node) {
+  while (!node.__zoom) if (!(node = node.parentNode)) return identity;
+  return node.__zoom;
+}
+
+function nopropagation() {
+  d3Selection.event.stopImmediatePropagation();
+}
+
+function noevent() {
+  d3Selection.event.preventDefault();
+  d3Selection.event.stopImmediatePropagation();
+}
+
+// Ignore right-click, since that should open the context menu.
+function defaultFilter() {
+  return !d3Selection.event.ctrlKey && !d3Selection.event.button;
+}
+
+function defaultExtent() {
+  var e = this;
+  if (e instanceof SVGElement) {
+    e = e.ownerSVGElement || e;
+    if (e.hasAttribute("viewBox")) {
+      e = e.viewBox.baseVal;
+      return [[e.x, e.y], [e.x + e.width, e.y + e.height]];
+    }
+    return [[0, 0], [e.width.baseVal.value, e.height.baseVal.value]];
+  }
+  return [[0, 0], [e.clientWidth, e.clientHeight]];
+}
+
+function defaultTransform() {
+  return this.__zoom || identity;
+}
+
+function defaultWheelDelta() {
+  return -d3Selection.event.deltaY * (d3Selection.event.deltaMode === 1 ? 0.05 : d3Selection.event.deltaMode ? 1 : 0.002);
+}
+
+function defaultTouchable() {
+  return navigator.maxTouchPoints || ("ontouchstart" in this);
+}
+
+function defaultConstrain(transform, extent, translateExtent) {
+  var dx0 = transform.invertX(extent[0][0]) - translateExtent[0][0],
+      dx1 = transform.invertX(extent[1][0]) - translateExtent[1][0],
+      dy0 = transform.invertY(extent[0][1]) - translateExtent[0][1],
+      dy1 = transform.invertY(extent[1][1]) - translateExtent[1][1];
+  return transform.translate(
+    dx1 > dx0 ? (dx0 + dx1) / 2 : Math.min(0, dx0) || Math.max(0, dx1),
+    dy1 > dy0 ? (dy0 + dy1) / 2 : Math.min(0, dy0) || Math.max(0, dy1)
+  );
+}
+
+function zoom() {
+  var filter = defaultFilter,
+      extent = defaultExtent,
+      constrain = defaultConstrain,
+      wheelDelta = defaultWheelDelta,
+      touchable = defaultTouchable,
+      scaleExtent = [0, Infinity],
+      translateExtent = [[-Infinity, -Infinity], [Infinity, Infinity]],
+      duration = 250,
+      interpolate = d3Interpolate.interpolateZoom,
+      listeners = d3Dispatch.dispatch("start", "zoom", "end"),
+      touchstarting,
+      touchending,
+      touchDelay = 500,
+      wheelDelay = 150,
+      clickDistance2 = 0;
+
+  function zoom(selection) {
+    selection
+        .property("__zoom", defaultTransform)
+        .on("wheel.zoom", wheeled)
+        .on("mousedown.zoom", mousedowned)
+        .on("dblclick.zoom", dblclicked)
+      .filter(touchable)
+        .on("touchstart.zoom", touchstarted)
+        .on("touchmove.zoom", touchmoved)
+        .on("touchend.zoom touchcancel.zoom", touchended)
+        .style("touch-action", "none")
+        .style("-webkit-tap-highlight-color", "rgba(0,0,0,0)");
+  }
+
+  zoom.transform = function(collection, transform, point) {
+    var selection = collection.selection ? collection.selection() : collection;
+    selection.property("__zoom", defaultTransform);
+    if (collection !== selection) {
+      schedule(collection, transform, point);
+    } else {
+      selection.interrupt().each(function() {
+        gesture(this, arguments)
+            .start()
+            .zoom(null, typeof transform === "function" ? transform.apply(this, arguments) : transform)
+            .end();
+      });
+    }
+  };
+
+  zoom.scaleBy = function(selection, k, p) {
+    zoom.scaleTo(selection, function() {
+      var k0 = this.__zoom.k,
+          k1 = typeof k === "function" ? k.apply(this, arguments) : k;
+      return k0 * k1;

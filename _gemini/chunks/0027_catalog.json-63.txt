@@ -1,0 +1,124 @@
+          "checked_at": "2026-11-07T10:59:29+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "5b84097d8b6efca584567d7976b92feb34d87528",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/计算机基础/LamberttLiu/CS-Basic-SelfLearning",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/LamberttLiu/CS-Basic-SelfLearning"
+      },
+      "integrity": {
+        "archive_sha256": "8fa35048bea3a171c06169831ead1ea1a34ae157a9d22f73b352cd8652860f9c",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/计算机基础",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 628,
+        "bytes": 190065774,
+        "markdown_count": 62,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:24+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 117,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：613 文件 -> 628 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/LamberttLiu/CS-Basic-SelfLearning",
+          "category": "知识库/计算机基础",
+          "branch": null,
+          "archive_sha256": "8fa35048bea3a171c06169831ead1ea1a34ae157a9d22f73b352cd8652860f9c",
+          "tarball_mb": 117,
+          "fetched": "2026-11-04 20:03",
+          "files": 628,
+          "bytes": 190065774,
+          "mb": 181,
+          "top_extensions": {
+            ".jpg": 499,
+            ".md": 62,
+            ".png": 17,
+            ".c": 17,
+            ".gif": 7,
+            ".h": 5,
+            "(none)": 3,
+            ".txt": 2,
+            ".cpp": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：613 文件 -> 628 文件",
+          "measured": {
+            "pushed": "2025-07-13",
+            "stars": 538
+          }
+        }
+      }
+    },
+    {
+      "id": "github:snailclimb/javaguide",
+      "name": "Snailclimb/JavaGuide",
+      "source": {
+        "url": "https://github.com/Snailclimb/JavaGuide",
+        "canonical_url": "https://github.com/Snailclimb/JavaGuide",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-10-25",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:31+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "992dae31eade2a34ba8dbbbcf5ed9de5511325ec",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/计算机基础/Snailclimb/JavaGuide",

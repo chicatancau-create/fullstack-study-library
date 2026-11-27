@@ -1,0 +1,123 @@
+          "default_branch": "master",
+          "head_commit_sha": "cf692b53e1b3d1b740a97dab0e4e71db801daf33",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/八股与基础/wolverinn/Waking-Up",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/wolverinn/Waking-Up"
+      },
+      "integrity": {
+        "archive_sha256": "dec69588f158c78fa11ecc7e3f0295e4c926b4ad2db690db18740af9680e7e7c",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "题库/八股与基础",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 70,
+        "bytes": 9880904,
+        "markdown_count": 7,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:28+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "GPL-3.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；传染性或非商业条款，不得并入对外发布产物。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 8,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：69 文件 -> 70 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/wolverinn/Waking-Up",
+          "category": "题库/八股与基础",
+          "branch": null,
+          "archive_sha256": "dec69588f158c78fa11ecc7e3f0295e4c926b4ad2db690db18740af9680e7e7c",
+          "tarball_mb": 8,
+          "fetched": "2026-11-04 20:03",
+          "files": 70,
+          "bytes": 9880904,
+          "mb": 9,
+          "top_extensions": {
+            ".png": 57,
+            ".md": 7,
+            "(none)": 2,
+            ".gif": 2,
+            ".jpg": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "GPL-3.0",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：69 文件 -> 70 文件",
+          "measured": {
+            "pushed": "2024-10-29",
+            "stars": 10308
+          }
+        }
+      }
+    },
+    {
+      "id": "github:xiaobaitech/golangfamily",
+      "name": "xiaobaiTech/golangFamily",
+      "source": {
+        "url": "https://github.com/xiaobaiTech/golangFamily",
+        "canonical_url": "https://github.com/xiaobaiTech/golangFamily",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2024-10-13",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:58+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "b02f60e29327e8653de86c119a39513de05cb7d7",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/八股与基础/xiaobaiTech/golangFamily",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/xiaobaiTech/golangFamily"

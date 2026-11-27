@@ -1,0 +1,124 @@
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：2 文件 -> 3 文件",
+          "pushed_upstream": "2024-04-11"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/xingshaocheng/architect-awesome",
+          "category": "知识库/后端进阶",
+          "branch": null,
+          "archive_sha256": "c4d55a7d3c2d3ff68d60231fb81c00ed9c76db77e89bbb21663535ab21c73329",
+          "tarball_mb": 0,
+          "fetched": "2026-11-04 20:03",
+          "files": 3,
+          "bytes": 831241,
+          "mb": 0,
+          "top_extensions": {
+            ".md": 1,
+            ".jpeg": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：2 文件 -> 3 文件",
+          "freshness_flag": "2024-04 停更，架构清单索引（6万 star 但正文薄）；只当检查表用",
+          "pushed_upstream": "2024-04-11",
+          "measured": {
+            "pushed": "2024-04-11",
+            "stars": 60847
+          }
+        }
+      }
+    },
+    {
+      "id": "github:zhisheng17/flink-learning",
+      "name": "zhisheng17/flink-learning",
+      "source": {
+        "url": "https://github.com/zhisheng17/flink-learning",
+        "canonical_url": "https://github.com/zhisheng17/flink-learning",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-05-06",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:02+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "d731cee7618021be56d132cc925102ffff8d75e6",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/后端进阶/zhisheng17/flink-learning",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/zhisheng17/flink-learning"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "79cbe577f18c1179c3be3f1d42bd18f00f9ef26be34124de4d990b0991ddf6eb",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:05+08:00"
+        },
+        "legacy_fingerprint_12": "79cbe577f18c"
+      },
+      "classification": {
+        "primary_category": "知识库/后端进阶",
+        "category_basis": "人工定类：Flink 大数据教程",
+        "functions": [
+          "F2",
+          "F4"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 754,
+        "bytes": 2506914,
+        "markdown_count": 123,
+        "question_markers": 3,
+        "test_files": 8,
+        "observed_at": "2026-11-07T14:06:23+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "Apache-2.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",

@@ -1,0 +1,124 @@
+          "tarball_mb": 18,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：554 文件 -> 555 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/kdn251/interviews",
+          "category": "题库/算法题解",
+          "branch": null,
+          "archive_sha256": "99e3b553e6da5797bffcdff8aed3171224e073882e545e9aa5795354ab6d701c",
+          "tarball_mb": 18,
+          "fetched": "2026-11-04 20:03",
+          "files": 555,
+          "bytes": 20413000,
+          "mb": 19,
+          "top_extensions": {
+            ".java": 515,
+            ".png": 16,
+            "(none)": 7,
+            ".gif": 7,
+            ".iml": 4,
+            ".md": 2,
+            ".jpg": 2,
+            ".javaa": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：554 文件 -> 555 文件",
+          "measured": {
+            "pushed": "2025-05-12",
+            "stars": 65546
+          }
+        }
+      }
+    },
+    {
+      "id": "github:labuladong/fucking-algorithm",
+      "name": "labuladong/fucking-algorithm",
+      "source": {
+        "url": "https://github.com/labuladong/fucking-algorithm",
+        "canonical_url": "https://github.com/labuladong/fucking-algorithm",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-10-18",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:39+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "5e4d13259282bc150a13dc7b1545a149aa904c9d",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/算法题解/labuladong/fucking-algorithm",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/labuladong/fucking-algorithm"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "f2a9dec14e688d8881216c56c403357a405b34df2bd62d31f25c5cb112087113",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:55+08:00"
+        },
+        "legacy_fingerprint_12": "f2a9dec14e68"
+      },
+      "classification": {
+        "primary_category": "题库/算法题解",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F2",
+          "F5"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 501,
+        "bytes": 60398783,
+        "markdown_count": 86,
+        "question_markers": 4,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:32+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 53,
+          "round": 2
+        },
+        "original_source_json": {

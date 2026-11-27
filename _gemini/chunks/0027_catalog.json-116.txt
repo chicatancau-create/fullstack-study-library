@@ -1,0 +1,125 @@
+        },
+        "original_source_json": {
+          "repo": "https://github.com/cdavid817/agent-interview",
+          "category": "题库/AI与Agent",
+          "branch": null,
+          "archive_sha256": "9fdfa9137bbb2ea4b77031954e8b1d3d42616c33cba3ab7f91eab34be02ac354",
+          "tarball_mb": 3,
+          "fetched": "2026-11-04 20:03",
+          "files": 168,
+          "bytes": 4527800,
+          "mb": 4,
+          "top_extensions": {
+            ".md": 155,
+            ".py": 5,
+            "(none)": 3,
+            ".yml": 1,
+            ".ps1": 1,
+            ".txt": 1,
+            ".json": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：167 文件 -> 168 文件",
+          "measured": {
+            "pushed": "2026-08-31",
+            "stars": 29
+          }
+        }
+      }
+    },
+    {
+      "id": "github:liyupi/mianshiya",
+      "name": "liyupi/mianshiya",
+      "source": {
+        "url": "https://github.com/liyupi/mianshiya",
+        "canonical_url": "https://github.com/liyupi/mianshiya",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-02-04",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:04+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "7354f4859b7425338dfcff6410e9903bca0ec0dd",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/AI与Agent/liyupi/mianshiya",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/liyupi/mianshiya"
+      },
+      "integrity": {
+        "archive_sha256": "eb72e3a5799168dfe60929f129593c4693ae3e81a2fbe16c52c065735df6408f",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "题库/AI与Agent",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 404,
+        "bytes": 758161,
+        "markdown_count": 4,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:26+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：403 文件 -> 404 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/liyupi/mianshiya",
+          "category": "题库/AI与Agent",
+          "branch": null,
+          "archive_sha256": "eb72e3a5799168dfe60929f129593c4693ae3e81a2fbe16c52c065735df6408f",
+          "tarball_mb": 0,
+          "fetched": "2026-11-04 20:03",
+          "files": 404,
+          "bytes": 758161,
+          "mb": 0,
+          "top_extensions": {

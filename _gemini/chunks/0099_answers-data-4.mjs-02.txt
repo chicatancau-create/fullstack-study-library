@@ -1,0 +1,118 @@
+      { point: '逐段按数值比较而非字典序', weight: 2 },
+      { point: '缺失段补 0，长度不同也能正确判等', weight: 1 },
+      { point: '前导零不影响结果', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q036', title: '221. 最大正方形', question_url: 'https://leetcode.cn/problems/maximal-square/',
+    core_idea: 'DP：dp[i][j] 表示以 (i,j) 为右下角的最大全 1 正方形边长，等于 左、上、左上 三者最小值 +1。',
+    invariant: 'dp[i][j] 只依赖上一行与当前行左侧，可用一维滚动；答案取最大边长的平方。',
+    complexity: { time: 'O(mn)', space: 'O(n)' },
+    code_lang: 'javascript',
+    code: `function solve(matrix) {
+  const rows = matrix.length;
+  if (!rows) return 0;
+  const cols = matrix[0].length;
+  const dp = new Array(cols + 1).fill(0);
+  let best = 0;
+  for (let i = 1; i <= rows; i++) {
+    let prev = 0;
+    for (let j = 1; j <= cols; j++) {
+      const cur = dp[j];
+      if (matrix[i - 1][j - 1] === '1') {
+        dp[j] = Math.min(dp[j], dp[j - 1], prev) + 1;
+        best = Math.max(best, dp[j]);
+      } else {
+        dp[j] = 0;
+      }
+      prev = cur;
+    }
+  }
+  return best * best;
+}`,
+    edge_cases: [
+      { call: '[["1","1"],["1","1"]]', expected: 4, why: '2×2 全 1' },
+      { call: '[["1","0","1"],["1","1","1"]]', expected: 1, why: '无法构成 2×2' },
+      { call: '[["0"]]', expected: 0, why: '无 1' },
+    ],
+    common_mistakes: ['返回边长而不是面积', '一维滚动时 prev 保存的是已更新的 dp[j-1]', '只检查左和上，漏掉左上'],
+    followups: ['如何输出最大正方形的左上角坐标？', '若允许任意矩形，最大全 1 矩形怎么求？'],
+    rubric: [
+      { point: 'dp 定义以当前格为右下角', weight: 2 },
+      { point: '转移取左/上/左上最小值 +1', weight: 1 },
+      { point: '返回面积而不是边长', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q037', title: '148. 排序链表', question_url: 'https://leetcode.cn/problems/sort-list/',
+    core_idea: '自顶向下归并：快慢指针找中点并断开，递归排序两半，再合并两个有序链表。',
+    invariant: '每次递归处理的链表区间相互不重叠，合并后整体有序。',
+    complexity: { time: 'O(n log n)', space: 'O(log n)' },
+    code_lang: 'javascript',
+    code: `function solve(arr) {
+  function build(a) {
+    let head = null;
+    for (let i = a.length - 1; i >= 0; i--) head = { val: a[i], next: head };
+    return head;
+  }
+  function sortList(h) {
+    if (!h || !h.next) return h;
+    let slow = h, fast = h.next;
+    while (fast && fast.next) { slow = slow.next; fast = fast.next.next; }
+    const mid = slow.next;
+    slow.next = null;
+    const merge = (x, y) => {
+      const d = { next: null };
+      let t = d;
+      while (x && y) {
+        if (x.val <= y.val) { t.next = x; x = x.next; }
+        else { t.next = y; y = y.next; }
+        t = t.next;
+      }
+      t.next = x || y;
+      return d.next;
+    };
+    return merge(sortList(h), sortList(mid));
+  }
+  let p = sortList(build(arr));
+  const out = [];
+  while (p) { out.push(p.val); p = p.next; }
+  return out;
+}`,
+    edge_cases: [
+      { call: '[4,2,1,3]', expected: [1,2,3,4], why: '常规乱序' },
+      { call: '[]', expected: [], why: '空链表' },
+      { call: '[5,5,-1,0]', expected: [-1,0,5,5], why: '含负数与重复值，稳定性不影响值序列' },
+    ],
+    common_mistakes: ['找中点后忘记 slow.next=null 导致无限递归', '快指针从 head 起步导致中点偏左', '合并时没有接上剩余链表'],
+    followups: ['自底向上归并如何做到 O(1) 空间？', '为什么链表排序通常选归并而不是快排？'],
+    rubric: [
+      { point: '快慢指针找中点并断开', weight: 2 },
+      { point: '合并两个有序链表并接上剩余部分', weight: 1 },
+      { point: '边界（空/单节点）直接返回', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q038', title: '32. 最长有效括号', question_url: 'https://leetcode.cn/problems/longest-valid-parentheses/',
+    core_idea: '栈存下标，栈底始终是“最后一个未匹配的右括号位置”；遇到右括号弹栈后栈非空则用当前下标减栈顶更新答案。',
+    invariant: '栈内自底向上下标递增；栈底元素的右侧到当前下标的区间是潜在有效区间。',
+    complexity: { time: 'O(n)', space: 'O(n)' },
+    code_lang: 'javascript',
+    code: `function solve(s) {
+  const st = [-1];
+  let best = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === '(') st.push(i);
+    else {
+      st.pop();
+      if (!st.length) st.push(i);
+      else best = Math.max(best, i - st[st.length - 1]);
+    }
+  }
+  return best;
+}`,
+    edge_cases: [
+      { call: '"(()"', expected: 2, why: '末尾右括号无处匹配' },
+      { call: '")()())"', expected: 4, why: '中间 4 个字符有效' },
+      { call: '""', expected: 0, why: '空串' },
+    ],

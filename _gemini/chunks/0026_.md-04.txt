@@ -1,0 +1,35 @@
+- `[通过]` 一致性修正（2026-11-07 四轮，纠正三轮错误；其中前端框架、性能与稳定性、Node 三项已于同日五轮修正，见下条）：三轮把 JD-07 判为“无详情页”、并用另一条四城已关闭岗位顶替 JD-08，属**可证实的错误**。本轮恢复 JD-07（美团 AI全栈·四城·应届·显示“立即申请”）与 JD-08（美团 全栈·北京/深圳·应届·显示“立即申请”），四城关闭岗位降为补充记录 D-01，不替代样本；分母 11→12，按第三节原文**整表重算**：语言 12/12、学历 9/12、前端框架 6/12、AI 必需 7/12、工程化 5/12、系统设计 5/12、Node 服务端 4/12、性能与稳定性 3/12、端到端 3/12、数据库 3/12、大数据 2/12、英语 1/12；加分项全量枚举为 AI 9 处（补入 JD-02、03、12）、云原生 3 处（补入 JD-02 的 Kubernetes/Docker）、端到端 1 处、开源/博客 4 处、大数据加分 2 处。固定计数规则：**必需只统计“任职要求/岗位基本要求”，职责与优先项不计入**（据此撤回 JD-12 职责侧的工程化/性能监控、加分侧的端到端）。`catalog.open_issues.jd-evidence-missing` 由 `partial` 改为 `closed`，季度复测保留在 `JD-SAMPLES`。
+
+- `[通过]` 一致性修正（2026-11-07 五轮，JD 末端修正，此后冻结）：补入两条已验证官方直链——JD-07 `jobUnionId=4697320043`、JD-08 `jobUnionId=4697318475`（后者工作城市为北京市、深圳市，与 D-01 的四城岗位是两份不同岗位），并删除全部“链接不可得”的描述。按**多选一不等于指定技术必需**重算：前端框架 6/12→**5/12**（JD-07 原文是“前端框架或后端框架之一”，移出该行）、性能与稳定性 3/12→**4/12**（JD-05“掌握优化手段”应计入）、Node 行拆为**强制 1/12（仅 JD-06）** 与 **Node/Express 可选 4/12（JD-03、05、07、12）**；加分项标题改为“与课程差距映射相关的主要加分项（非全部优先项）”，端到端交付加分 1→**2 处**（JD-07、JD-12）、开源/技术博客/社区分享 4→**5 处**（JD-01、05、10、11、12）。样本数与分母不变（12 份 / 12），D-01 仍不计入。
+- `[通过]` ingress-nginx 与 uni-app 维护窗口于 2026-11-07 从官方页面核验，未把“停止维护”写成“立即下线”。
+- `[已执行]` 提交与推送：按用户 2026-11-07 的明确授权单独执行，属于交付动作，不是审计结论；提交记录以 `git log` 为准。
+- `[未执行]` 合并、变基、改写历史、强制推送。
+- `[未执行]` Obsidian GUI 交互、全部外链在线检查、第三方项目构建、移动端真机、正式发布。（真实 JD 已采 12 份有效，见 [[真实JD样本与差距记录|真实 JD 样本与差距记录]]。）
+- `[未验证]` 77 分支、178 commit、87 archive SHA、91 内容指纹的真实补证；这些仍是 null，不因本次结构迁移而变成已核实。
+
+
+## 十二、2026-11-08 增量复核
+
+- `[通过]` MS2：E01–E13 均有代码包与统一 `npm run evidence`，13/13 通过。
+- `[通过]` MS3：G0–G9 判定包 10/10 通过，学生包与教师包物理隔离。
+- `[通过]` MS4：SQL50 50/50；RAG 65 条全部通过阈值且反向自检可检出跨租户泄漏；后端实操 30/30，起始代码全部被拒；英文面试 10 套落地。
+- `[通过]` MS5：六家公司共 250 题（字节 100、其余各 30），全部来自 CodeTop 公开 API 的面经统计，标 `真题（面经统计，非官方）`；每题有来源 URL、可信度与最后出现季度。
+- `[通过]` MS1：P02/P03/P04 的测试、构建与 evidence 通过，CI 配置了 Postgres/Redis/RabbitMQ service containers；隔离 Ubuntu VM 上三套 `docker compose up` 均启动成功（`evidence/deploy.txt` 为实跑生成的 compose ps、健康检查与日志）。
+- `[通过]` `scripts/verify_all.mjs` 28/28；`verify_archive.sh` 通过（证据按原字节入库，archive 哈希与 manifest 一致）。
+
+## 十三、2026-11-09 MS6 项目完整版增量
+
+- `[通过]` P02：38/38 测试、前端 10/10、E2E 2/2、覆盖率 96.61/85.07/97.29；证据与 manifest 在 `<练习仓库>/projects\project02-collab\evidence\`。
+- `[通过]` P03：31/31 测试、覆盖率 84.09/80.33/82.93、E2E 1/1、100 并发双锁、运行时 MQ、app/worker 拆分、DB/MQ 故障演练、OWASP 原始字节验签；证据在 `projects/project03-trade/evidence/`。
+- `[通过]` P04：27/27 测试、覆盖率 93.34/80.26/97.73、E2E 2/2、ESLint 0 告警、RBAC 50 组合、审计 before/after、RLS、公平调度/容量三档/死信；证据在 `projects/project04-saas/evidence/`。
+- `[未验证]` 三套 compose 旧拓扑曾在隔离 Ubuntu VM 实跑；本轮 P03 新增 worker 服务、P04 新增 lint 门禁后，本机 Windows 无 Docker，未复跑 compose。
+- `[未验证]` GitHub Actions 受计费阻断，本轮未取得 CI 运行结果；门禁配置已写入，未宣称全绿。
+- `[未执行]` 90-历史归档/ 未改动。
+
+## 十四、2026-11-09 MS7 实验完整版增量
+
+- `[通过]` 结构：E03–E13 共 11 个实验均有 `src/`、`tests/`、`scenarios/`、`scripts/`、`evidence/`；`scenarios/` 文件数依次为 E03 3、E04 4、E05 3、E06 10、E07 3、E08 4、E09 3、E10 3、E11 11、E12 3、E13 3。
+- `[通过]` manifest：11/11 用 `_template/manifest.mjs verify` 校验通过，证据文件按 SHA-256 与原字节一致。
+- `[通过]` E11：ZAP 2.17.0 daemon API 完成 spider + 被动扫描（baseline），spider 100%，`High 0 / Low 0 / Medium 4 / Informational 0`；报告 `evidence/zap-report.html`、`evidence/zap-report.xml`；手工 PoC 21/21 通过；A01–A10 反例补齐（`scenarios/a01`–`a10`）。
+- `[通过]` 主题覆盖抽查：E04 有三段握手/TLS/HTTP2/ECONNREFUSED；E05 有 reconciliation/bailout/Profiler/bundle；E06 有泄漏/heap/CPU profile；E07 有 Serializable/死锁/连接池；E08 有 EXPLAIN/索引/迁移/回滚；E09 有 Redlock/fencing/quorum；E10 有 Outbox/Inbox/DLQ；E12 有开放负载/CO 校正/dropped/三档/CPU；E13 有蓝绿/金丝雀/回滚/燃烧率。
+- `[未验证]` 本轮未逐实验重跑全部脚本，结论以各实验 `evidence/` 内既有产物与 manifest 校验为准；GitHub Actions 仍受计费阻断，未取得 CI 全绿结果。

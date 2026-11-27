@@ -1,0 +1,33 @@
+| [liyupi/mianshiya](<题库/AI与Agent/liyupi/mianshiya/README.md>)（[在线回退](https://github.com/liyupi/mianshiya)） | 404 | 0.72 | 4 | MIT | 未标注 | unknown |
+| [rasbt/LLMs-from-scratch](<题库/AI与Agent/rasbt/LLMs-from-scratch/README.md>)（[在线回退](https://github.com/rasbt/LLMs-from-scratch)） | 362 | 7.09 | 76 | Apache-2.0 | F2,F3 | unknown |
+| [rohitg00/ai-engineering-from-scratch](<题库/AI与Agent/rohitg00/ai-engineering-from-scratch/README.md>)（[在线回退](https://github.com/rohitg00/ai-engineering-from-scratch)） | 10,788 | 125.70 | 3,418 | MIT | F1,F2,F3,F5 | unknown |
+| [zkywsg/Daily-LLM](<题库/AI与Agent/zkywsg/Daily-LLM/README.md>)（[在线回退](https://github.com/zkywsg/Daily-LLM)） | 1,802 | 10.52 | 395 | MIT | F1,F2,F5 | unknown |
+
+### 题库/AI与RAG（4 个仓库）
+
+| 仓库 | 文件 | MiB | md | 许可 | 功能 | 时效 |
+| --- | ---: | ---: | ---: | --- | --- | --- |
+| [ai-infra-curriculum/ai-infra-engineer-learning](<题库/AI与RAG/ai-infra-curriculum/ai-infra-engineer-learning/README.md>)（[在线回退](https://github.com/ai-infra-curriculum/ai-infra-engineer-learning)） | 483 | 5.86 | 380 | MIT | F1,F2,F4 | unknown |
+| [ather-techie/rag-interview-system](<题库/AI与RAG/ather-techie/rag-interview-system/README.md>)（[在线回退](https://github.com/ather-techie/rag-interview-system)） | 154 | 4.19 | 110 | MIT | F1,F2 | unknown |
+| [dair-ai/Prompt-Engineering-Guide](<题库/AI与RAG/dair-ai/Prompt-Engineering-Guide/README.md>)（[在线回退](https://github.com/dair-ai/Prompt-Engineering-Guide)） | 1,560 | 76.19 | 1,111 | MIT | F1,F2,F4,F5 | unknown |
+| [GarethManning/education-agent-skills](<题库/AI与RAG/GarethManning/education-agent-skills/README.md>)（[在线回退](https://github.com/GarethManning/education-agent-skills)） | 332 | 9.09 | 249 | CC-BY-SA-4.0 | F1,F2 | unknown |
+
+### 题库/SQL与数据（2 个仓库）
+
+| 仓库 | 文件 | MiB | md | 许可 | 功能 | 时效 |
+| --- | ---: | ---: | ---: | --- | --- | --- |
+| [Harsh-Belekar/LeetCode-SQL-50](<题库/SQL与数据/Harsh-Belekar/LeetCode-SQL-50/README.md>)（[在线回退](https://github.com/Harsh-Belekar/LeetCode-SQL-50)） | 152 | 1.61 | 51 | 无 LICENSE | F2 | unknown |
+| [shawlu95/Beyond-LeetCode-SQL](<题库/SQL与数据/shawlu95/Beyond-LeetCode-SQL/README.md>)（[在线回退](https://github.com/shawlu95/Beyond-LeetCode-SQL)） | 181 | 4.49 | 33 | MIT | 未标注 | unknown |
+
+### 题库/八股与基础（19 个仓库）
+
+| 仓库 | 文件 | MiB | md | 许可 | 功能 | 时效 |
+| --- | ---: | ---: | ---: | --- | --- | --- |
+| [0voice/Campus_recruitment_interview_questions](<题库/八股与基础/0voice/Campus_recruitment_interview_questions/README.md>)（[在线回退](https://github.com/0voice/Campus_recruitment_interview_questions)） | 128 | 1.15 | 69 | CC-BY-NC-SA-4.0 | 未标注 | unknown |
+| [0voice/interview_internal_reference](<题库/八股与基础/0voice/interview_internal_reference/README.md>)（[在线回退](https://github.com/0voice/interview_internal_reference)） | 164 | 1.33 | 135 | 无 LICENSE | 未标注 | unknown |
+| [aasthas2022/SDE-Interview-and-Prep-Roadmap](<题库/八股与基础/aasthas2022/SDE-Interview-and-Prep-Roadmap/README.md>)（[在线回退](https://github.com/aasthas2022/SDE-Interview-and-Prep-Roadmap)） | 84 | 34.39 | 47 | 无 LICENSE | F1,F2,F4 | unknown |
+| [ad-si/Coding-Flashcards](<题库/八股与基础/ad-si/Coding-Flashcards/README.md>)（[在线回退](https://github.com/ad-si/Coding-Flashcards)） | 46 | 1.19 | 11 | 无 LICENSE | 未标注 | unknown |
+| [AobingJava/JavaFamily](<题库/八股与基础/AobingJava/JavaFamily/README.md>)（[在线回退](https://github.com/AobingJava/JavaFamily)） | 120 | 3.52 | 102 | 无 LICENSE | 未标注 | stale |
+| [apachecn/Interview](<题库/八股与基础/apachecn/Interview/README.md>)（[在线回退](https://github.com/apachecn/Interview)） | 521 | 55.32 | 124 | CC-BY-NC-SA-4.0 | F2,F5 | unknown |
+| [CoderLeixiaoshuai/java-eight-part](<题库/八股与基础/CoderLeixiaoshuai/java-eight-part/README.md>)（[在线回退](https://github.com/CoderLeixiaoshuai/java-eight-part)） | 148 | 9.56 | 35 | 无 LICENSE | 未标注 | stale |
+| [colinlet/PHP-Interview-QA](<题库/八股与基础/colinlet/PHP-Interview-QA/README.md>)（[在线回退](https://github.com/colinlet/PHP-Interview-QA)） | 173 | 1.39 | 163 | Apache-2.0 | F1,F2 | unknown |

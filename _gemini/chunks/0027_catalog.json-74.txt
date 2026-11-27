@@ -1,0 +1,126 @@
+            ".md": 644,
+            "(none)": 8,
+            ".json": 5,
+            ".docx": 2,
+            ".png": 2,
+            ".pdf": 1,
+            ".yml": 1,
+            ".py": 1
+          },
+          "license_files": [
+            "README.md"
+          ],
+          "round": 3,
+          "tar_mb": 10,
+          "selection": "全栈开发知识库：Android/Kotlin、C/C++、Go、HarmonyOS 等多栈笔记与面试追问（顺带补第一轮薄弱的语言）",
+          "functions": [
+            "F2解答",
+            "F1题面"
+          ],
+          "measured": {
+            "md_n": 644,
+            "md_share_pct": 50.4,
+            "question_markers": 178,
+            "tests": 0,
+            "images": 2,
+            "stars": 3946,
+            "pushed": "2026-11-03"
+          },
+          "fingerprint_note": "本机内容指纹；上游压缩包未保留，可复现性以来源URL+分支+采集日期为准",
+          "content_fingerprint": "454a40c7df2086dafeb26de7cbb34370a8596bdbe833eef1185c1cafd828de20",
+          "ledger_refreshed": "补图/改名后重算：666 文件 -> 667 文件"
+        }
+      }
+    },
+    {
+      "id": "github:githubdaily/githubdaily",
+      "name": "GitHubDaily/GitHubDaily",
+      "source": {
+        "url": "https://github.com/GitHubDaily/GitHubDaily",
+        "canonical_url": "https://github.com/GitHubDaily/GitHubDaily",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2025-12-31",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:50+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "5108d021a173c2e53684b39b5972e6c2b2750c71",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/课程与路线/GitHubDaily/GitHubDaily",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/GitHubDaily/GitHubDaily"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "a4d9a595307b09512030f0428dad3281af119cc3b77cb11650d828d93aa08e89",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:06+08:00"
+        },
+        "legacy_fingerprint_12": "a4d9a595307b"
+      },
+      "classification": {
+        "primary_category": "知识库/课程与路线",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 20,
+        "bytes": 4126074,
+        "markdown_count": 13,
+        "question_markers": 1,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:24+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 2,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/GitHubDaily/GitHubDaily",
+          "category": "知识库/课程与路线",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 2,
+          "fetched": "2026-11-05 11:12",
+          "files": 20,
+          "bytes": 4126074,

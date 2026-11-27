@@ -1,0 +1,119 @@
+      "id": "github:ebookfoundation/free-programming-books",
+      "name": "EbookFoundation/free-programming-books",
+      "source": {
+        "url": "https://github.com/EbookFoundation/free-programming-books",
+        "canonical_url": "https://github.com/EbookFoundation/free-programming-books",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-11-01",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:15+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "b4c4cc4040b614d2aca81ad5f2bcd92ed3d422ec",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/资源目录/EbookFoundation/free-programming-books",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/EbookFoundation/free-programming-books"
+      },
+      "integrity": {
+        "archive_sha256": "3f7ff402494c25915b1c45e38808ce36c1fea1710c5afc25a6ff065f32a33224",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/资源目录",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 236,
+        "bytes": 2355081,
+        "markdown_count": 218,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:25+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "CC-BY-4.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：235 文件 -> 236 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/EbookFoundation/free-programming-books",
+          "category": "知识库/资源目录",
+          "branch": null,
+          "archive_sha256": "3f7ff402494c25915b1c45e38808ce36c1fea1710c5afc25a6ff065f32a33224",
+          "tarball_mb": 0,
+          "fetched": "2026-11-04 20:03",
+          "files": 236,
+          "bytes": 2355081,
+          "mb": 2,
+          "top_extensions": {
+            ".md": 218,
+            ".yml": 11,
+            "(none)": 3,
+            ".ico": 1,
+            ".py": 1,
+            ".html": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "CC-BY-4.0",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：235 文件 -> 236 文件",
+          "measured": {
+            "pushed": "2026-11-01",
+            "stars": 400901
+          }
+        }
+      }
+    },
+    {
+      "id": "github:doocs/technical-books",
+      "name": "doocs/technical-books",
+      "source": {
+        "url": "https://github.com/doocs/technical-books",
+        "canonical_url": "https://github.com/doocs/technical-books",
+        "aliases": [],
+        "branch": null,

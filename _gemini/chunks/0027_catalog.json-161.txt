@@ -1,0 +1,127 @@
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/envico801/Neetcode-150-and-Blind-75",
+          "category": "题库/算法题解",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 0,
+          "fetched": "2026-11-05 11:12",
+          "files": 265,
+          "bytes": 1368335,
+          "mb": 1,
+          "top_extensions": {
+            ".md": 259,
+            ".apkg": 2,
+            ".ts": 2,
+            "(none)": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "round": 2,
+          "selection": "正文 259 篇；题面/问答标记 230 处；文档型仓库(md占比89%)｜自动判定：keep",
+          "functions": [
+            "F1题面",
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 259,
+            "md_share_pct": 89.1,
+            "question_markers": 230,
+            "tests": 0,
+            "images": 0,
+            "pdf": 0,
+            "stars": 233,
+            "pushed": "2025-05-20",
+            "functions": [
+              "卡片复习",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "category_basis": "人工定类：NeetCode 150 卡片题单",
+          "content_fingerprint": "ae3fa7233534f31255c04c21dd19cfde9e09c4c2cf2ff85a85548ad41fc274a6",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:halfrost/leetcode-go",
+      "name": "halfrost/LeetCode-Go",
+      "source": {
+        "url": "https://github.com/halfrost/LeetCode-Go",
+        "canonical_url": "https://github.com/halfrost/LeetCode-Go",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-10-12",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:31+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "1dde49c8ab37a08f21a4fb249d7bd90af4a9c58e",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/算法题解/halfrost/LeetCode-Go",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/halfrost/LeetCode-Go"
+      },
+      "integrity": {
+        "archive_sha256": "0cac5f39dbdacef3de51b12bdec1432e81bb899bdd53fd89baa6cf314e74435c",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "题库/算法题解",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 6685,
+        "bytes": 544507190,
+        "markdown_count": 2555,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:31+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",

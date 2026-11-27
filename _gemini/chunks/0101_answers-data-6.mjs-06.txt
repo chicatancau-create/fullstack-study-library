@@ -1,0 +1,50 @@
+    const a = maxHere * x, b = minHere * x;
+    maxHere = Math.max(x, a, b);
+    minHere = Math.min(x, a, b);
+    best = Math.max(best, maxHere);
+  }
+  return best;
+}`,
+    edge_cases: [
+      { call: '[2,3,-2,4]', expected: 6, why: '2×3' },
+      { call: '[-2,0,-1]', expected: 0, why: '0 截断，最大为 0' },
+      { call: '[-2,3,-4]', expected: 24, why: '两负数相乘转正' },
+    ],
+    common_mistakes: ['只维护最大值，遇到负数乘积变正时错过', '更新 maxHere 后用它算 minHere', '全负数组返回 0'],
+    followups: ['若要求乘积最大的子数组长度？', '为什么这与 Kadane 求和不同？'],
+    rubric: [
+      { point: '同时维护最大与最小乘积', weight: 2 },
+      { point: '用旧值同时计算 a、b 再更新', weight: 1 },
+      { point: '单元素与含 0 情形正确', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q080', title: '70. 爬楼梯', question_url: 'https://leetcode.cn/problems/climbing-stairs/',
+    core_idea: 'dp[n]=dp[n-1]+dp[n-2]：最后一步要么跨 1 阶要么跨 2 阶；用两个变量滚动。',
+    invariant: 'peek 始终是 dp[n-1]、cur 是 dp[n]，只保留最近两项。',
+    complexity: { time: 'O(n)', space: 'O(1)' },
+    code_lang: 'javascript',
+    code: `function solve(n) {
+  if (n <= 1) return 1;
+  let a = 1, b = 1;
+  for (let i = 2; i <= n; i++) {
+    const c = a + b;
+    a = b;
+    b = c;
+  }
+  return b;
+}`,
+    edge_cases: [
+      { call: '1', expected: 1, why: '一阶只有一种走法' },
+      { call: '2', expected: 2, why: '1+1 或 2' },
+      { call: '5', expected: 8, why: '斐波那契第 6 项' },
+    ],
+    common_mistakes: ['dp[0] 设为 0 导致递推全错', 'n=1 时返回 0', '用递归不记忆化导致指数复杂度'],
+    followups: ['若一次可跨 1..k 阶如何推广？', '矩阵快速幂如何做到 O(log n)？'],
+    rubric: [
+      { point: '初始 a=b=1 对应 dp[0]=dp[1]=1', weight: 2 },
+      { point: '逐级滚动两项', weight: 1 },
+      { point: 'n=1 与 n=2 边界正确', weight: 1 },
+    ],
+  },
+];

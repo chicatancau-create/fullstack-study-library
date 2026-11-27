@@ -1,0 +1,103 @@
+export const ANSWERS7 = [
+  {
+    id: 'Q081', title: '剑指 Offer 22. 链表中倒数第k个节点', question_url: 'https://leetcode.cn/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/',
+    core_idea: '快慢指针：快指针先走 k 步，再与慢指针同步前进，快指针到尾时慢指针即倒数第 k 个节点。',
+    invariant: '快慢指针间距恒为 k，因此 slow 最终停在正数第 n-k+1 个节点。',
+    complexity: { time: 'O(n)', space: 'O(1)' },
+    code_lang: 'javascript',
+    code: `function solve(arr, k) {
+  let fast = 0, slow = 0;
+  while (fast < arr.length && k > 0) { fast++; k--; }
+  while (fast < arr.length) { fast++; slow++; }
+  return arr[slow];
+}`,
+    edge_cases: [
+      { call: '[1,2,3,4,5], 2', expected: 4, why: '倒数第二个是 4' },
+      { call: '[1], 1', expected: 1, why: '单节点' },
+      { call: '[1,2], 2', expected: 1, why: '倒数第二个是头节点' },
+    ],
+    common_mistakes: ['先求长度再遍历两遍（可行但不是最优）', '快指针先走 k-1 步导致偏移', 'k 大于长度时越界'],
+    followups: ['k 大于链表长度时如何返回 null？', '与 19 题删除倒数第 k 个的区别？'],
+    rubric: [
+      { point: '快指针先走 k 步', weight: 2 },
+      { point: '同步前进直到快指针到尾', weight: 1 },
+      { point: '返回慢指针所指节点值', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q082', title: '198. 打家劫舍', question_url: 'https://leetcode.cn/problems/house-robber/',
+    core_idea: 'DP：dp[i]=max(dp[i-1], dp[i-2]+nums[i])，即不抢当前或抢当前加前前；用两个变量滚动。',
+    invariant: 'prev 是 dp[i-2]、cur 是 dp[i-1]，每轮更新后仍保持该含义。',
+    complexity: { time: 'O(n)', space: 'O(1)' },
+    code_lang: 'javascript',
+    code: `function solve(nums) {
+  let prev = 0, cur = 0;
+  for (const x of nums) {
+    const next = Math.max(cur, prev + x);
+    prev = cur;
+    cur = next;
+  }
+  return cur;
+}`,
+    edge_cases: [
+      { call: '[1,2,3,1]', expected: 4, why: '抢 1 和 3' },
+      { call: '[2,7,9,3,1]', expected: 12, why: '抢 2+9+1' },
+      { call: '[0]', expected: 0, why: '单间为 0' },
+    ],
+    common_mistakes: ['把 dp[i-2]+nums[i] 写成 dp[i-1]+nums[i]', '用贪心选局部最大导致相邻冲突', '空数组未返回 0'],
+    followups: ['环形房屋（213）如何拆成两段？', '如何输出抢了哪些房子？'],
+    rubric: [
+      { point: '转移为 max(不抢, 抢+前前)', weight: 2 },
+      { point: '两个变量滚动不覆盖 dp[i-2]', weight: 1 },
+      { point: '单元素与零值正确', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q083', title: '48. 旋转图像', question_url: 'https://leetcode.cn/problems/rotate-image/',
+    core_idea: '先沿主对角线转置，再左右翻转每一行，等价于顺时针旋转 90°；全程原地交换。',
+    invariant: '转置后 matrix[i][j] 变为原 matrix[j][i]；左右翻转后列序反转，组合即顺时针旋转。',
+    complexity: { time: 'O(n²)', space: 'O(1)' },
+    code_lang: 'javascript',
+    code: `function solve(matrix) {
+  const n = matrix.length;
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      const t = matrix[i][j];
+      matrix[i][j] = matrix[j][i];
+      matrix[j][i] = t;
+    }
+  }
+  for (const row of matrix) row.reverse();
+  return matrix;
+}`,
+    edge_cases: [
+      { call: '[[1,2,3],[4,5,6],[7,8,9]]', expected: [[7,4,1],[8,5,2],[9,6,3]], why: '标准 3×3' },
+      { call: '[[1,2],[3,4]]', expected: [[3,1],[4,2]], why: '2×2' },
+      { call: '[[1]]', expected: [[1]], why: '单元素' },
+    ],
+    common_mistakes: ['双层循环 j 从 0 开始，转置交换两次回到原状', '用额外矩阵冒充原地', '顺时针与逆时针方向弄反'],
+    followups: ['逆时针旋转如何改？', '如何旋转非方阵？'],
+    rubric: [
+      { point: '转置只遍历上三角 j>i', weight: 2 },
+      { point: '再逐行反转完成顺时针', weight: 1 },
+      { point: '空间 O(1) 原地交换', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q084', title: '补充题23. 检测循环依赖', question_url: 'https://leetcode.cn/problems/course-schedule/',
+    core_idea: '把依赖对 (a,b) 视作 b→a 的有向边，用 Kahn 拓扑排序统计入度；能处理的节点数不足则存在环。',
+    invariant: '队列中始终是入度为 0 的节点；处理一个节点就删除其出边。',
+    complexity: { time: 'O(V+E)', space: 'O(V+E)' },
+    code_lang: 'javascript',
+    code: `function solve(edges) {
+  const nodes = new Set();
+  for (const [a, b] of edges) { nodes.add(a); nodes.add(b); }
+  const adj = new Map(), indeg = new Map();
+  for (const v of nodes) { adj.set(v, []); indeg.set(v, 0); }
+  for (const [a, b] of edges) { adj.get(b).push(a); indeg.set(a, indeg.get(a) + 1); }
+  const q = [...nodes].filter((v) => indeg.get(v) === 0);
+  let seen = 0;
+  while (q.length) {
+    const v = q.shift();
+    seen++;
+    for (const w of adj.get(v)) {

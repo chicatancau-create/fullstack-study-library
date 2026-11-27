@@ -1,0 +1,126 @@
+          "mb": 3,
+          "top_extensions": {
+            ".md": 13,
+            ".png": 4,
+            "(none)": 1,
+            ".pdf": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "round": 2,
+          "selection": "高采用(48370 star)+有正文(13篇)｜自动判定：keep",
+          "functions": [],
+          "measured": {
+            "md_n": 13,
+            "md_share_pct": 34.2,
+            "question_markers": 1,
+            "tests": 0,
+            "images": 4,
+            "pdf": 1,
+            "stars": 48370,
+            "pushed": "2025-12-31",
+            "functions": [
+              "主线-语言",
+              "部署运维",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "content_fingerprint": "a4d9a595307b09512030f0428dad3281af119cc3b77cb11650d828d93aa08e89",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:lecoupa/awesome-cheatsheets",
+      "name": "LeCoupa/awesome-cheatsheets",
+      "source": {
+        "url": "https://github.com/LeCoupa/awesome-cheatsheets",
+        "canonical_url": "https://github.com/LeCoupa/awesome-cheatsheets",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-10-17",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:51+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "774445f64658289826909165d4ef446f4cf59f13",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/课程与路线/LeCoupa/awesome-cheatsheets",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/LeCoupa/awesome-cheatsheets"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "96aa871d4e4e10a7da727a9ecb43cc650958456403f435124ccb40709de093b7",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:07+08:00"
+        },
+        "legacy_fingerprint_12": "96aa871d4e4e"
+      },
+      "classification": {
+        "primary_category": "知识库/课程与路线",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F4"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 67,
+        "bytes": 5701752,
+        "markdown_count": 13,
+        "question_markers": 24,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:24+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 4,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/LeCoupa/awesome-cheatsheets",
+          "category": "知识库/课程与路线",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 4,
+          "fetched": "2026-11-05 11:12",

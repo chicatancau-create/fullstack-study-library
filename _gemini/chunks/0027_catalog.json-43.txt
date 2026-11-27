@@ -1,0 +1,125 @@
+          "fetched": "2026-11-05 11:12",
+          "files": 2235,
+          "bytes": 31285274,
+          "mb": 29,
+          "top_extensions": {
+            ".md": 1155,
+            ".tsx": 281,
+            ".bash": 170,
+            ".mdx": 154,
+            ".mjs": 105,
+            ".ts": 93,
+            ".css": 79,
+            ".json": 60,
+            ".png": 36,
+            ".yml": 31
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "round": 2,
+          "selection": "正文 1309 篇；高采用(20000 star)+有正文(1309篇)；自带测试 20 个；文档型仓库(md占比64%)；人工点名重点源；命中计划缺口方向｜自动判定：keep",
+          "functions": [
+            "F2解答",
+            "F3可运行"
+          ],
+          "measured": {
+            "md_n": 1309,
+            "md_share_pct": 63.6,
+            "question_markers": 23,
+            "tests": 20,
+            "images": 58,
+            "pdf": 3,
+            "stars": 20000,
+            "pushed": "2026-11-04",
+            "functions": [
+              "注入-官方文档"
+            ]
+          },
+          "category_basis": "按正文关键词判定（原按仓库名判定会错位）：{'Node后端': 348, '前端': 52, 'AI': 25, '安全': 9}",
+          "content_fingerprint": "1d11808d22111d983cead45ee15fad793998e3aebfae56a1fbae1eb31ee596a0",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:standard/standard",
+      "name": "standard/standard",
+      "source": {
+        "url": "https://github.com/standard/standard",
+        "canonical_url": "https://github.com/standard/standard",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2025-07-11",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:53+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "753309b21bfd7c98e208e3fb45910ffd1bb95409",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/后端进阶/standard/standard",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/standard/standard"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "247aeb5da0e7367f20dd5eb44c8529326b0a6f000261f678efe478b18b1bc399",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:05+08:00"
+        },
+        "legacy_fingerprint_12": "247aeb5da0e7"
+      },
+      "classification": {
+        "primary_category": "知识库/后端进阶",
+        "category_basis": "按正文关键词判定（原按仓库名判定会错位）：{'Node后端': 189, '前端': 15, 'AI': 11, 'SQL与数据': 2}",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 110,
+        "bytes": 1634217,
+        "markdown_count": 23,
+        "question_markers": 3,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:23+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },

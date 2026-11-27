@@ -1,0 +1,98 @@
+[ -n "$guard_line" ] || fail "找不到 fault_guard.c 的越界写行"
+raw=evidence/.fault_guard.raw
+./build/fault_guard.exe > "$raw" 2>&1
+guard_rc=$?
+{
+    echo "== 注入版：4 个元素后越界写 arr[4]（守护页紧贴末尾） =="
+    cat "$raw"
+    echo "exit=$guard_rc   # 139 = SIGSEGV"
+    echo
+    echo "== gdb 定位 =="
+    gdb -q -batch \
+        -ex "run" \
+        -ex "echo \n--- backtrace ---\n" \
+        -ex "bt" \
+        -ex "echo \n--- faulting line ---\n" \
+        -ex "frame 0" \
+        -ex "info line *\$pc" \
+        -ex "echo \n--- locals ---\n" \
+        -ex "info locals" \
+        -ex "echo \n--- source context ---\n" \
+        -ex "list" \
+        ./build/fault_guard.exe 2>&1 | grep -v '^warning: \[TSBX\]' | grep -v '^\[New Thread'
+} > evidence/fault_inject.txt 2>&1
+rm -f "$raw"
+[ "$guard_rc" -eq 139 ] || fail "越界注入退出码 $guard_rc，期望 139 (SIGSEGV)"
+grep -q 'SIGSEGV' evidence/fault_inject.txt || fail "越界注入未记录 SIGSEGV"
+grep -q "tests/fault_guard.c:$guard_line" evidence/fault_inject.txt \
+    || fail "越界定位行不是 tests/fault_guard.c:$guard_line"
+
+# ---------- 5. 修复后回归（同一份测试源码，只开边界检查） ----------
+{
+    echo "== 修复版：同一份 fault_guard.c，-DFIXED_BOUNDS 先判 idx >= len =="
+    ./build/fault_guard_fixed.exe
+    echo "exit=$?   # 0 = 拒绝越界且未触碰守护页"
+} > evidence/fault_fixed.txt 2>&1
+grep -q 'rejected:' evidence/fault_fixed.txt || fail "修复版未输出 rejected"
+grep -q '^exit=0' evidence/fault_fixed.txt || fail "修复版未以 0 退出"
+
+# ---------- 6. UAF 平台替代：PAGE_NOACCESS 模拟释放 ----------
+uaf_line=$(grep -n 'printf("unexpected read' tests/fault_uaf.c | head -1 | cut -d: -f1)
+[ -n "$uaf_line" ] || fail "找不到 fault_uaf.c 的读取行"
+raw=evidence/.fault_uaf.raw
+./build/fault_uaf.exe > "$raw" 2>&1
+uaf_rc=$?
+{
+    echo "== UAF 注入：模拟 free 后读取 =="
+    cat "$raw"
+    echo "exit=$uaf_rc   # 139 = SIGSEGV"
+    echo
+    echo "== gdb 定位 =="
+    gdb -q -batch \
+        -ex "run" \
+        -ex "echo \n--- backtrace ---\n" \
+        -ex "bt" \
+        -ex "frame 0" \
+        -ex "info line *\$pc" \
+        ./build/fault_uaf.exe 2>&1 | grep -v '^warning: \[TSBX\]' | grep -v '^\[New Thread'
+} > evidence/fault_uaf.txt 2>&1
+rm -f "$raw"
+[ "$uaf_rc" -eq 139 ] || fail "UAF 注入退出码 $uaf_rc，期望 139 (SIGSEGV)"
+grep -q 'SIGSEGV' evidence/fault_uaf.txt || fail "UAF 注入未记录 SIGSEGV"
+grep -q "tests/fault_uaf.c:$uaf_line" evidence/fault_uaf.txt \
+    || fail "UAF 定位行不是 tests/fault_uaf.c:$uaf_line"
+
+{
+    echo "== UAF 修复版：不读取已标记不可访问的页 =="
+    ./build/fault_uaf_fixed.exe
+    echo "exit=$?   # 0 = 未触发访问"
+} > evidence/fault_uaf_fixed.txt 2>&1
+grep -q 'skipped read' evidence/fault_uaf_fixed.txt || fail "UAF 修复版未跳过读取"
+grep -q '^exit=0' evidence/fault_uaf_fixed.txt || fail "UAF 修复版未以 0 退出"
+
+# ---------- 7. 证据完整性 ----------
+for f in env build test_run fault_plain fault_inject fault_fixed fault_uaf fault_uaf_fixed; do
+    [ -s "evidence/$f.txt" ] || fail "evidence/$f.txt 缺失或为空"
+done
+
+# 换行归一化，避免证据文件带 CRLF 尾随空白。
+for f in evidence/*.txt; do
+    sed -i 's/\r$//' "$f"
+done
+
+echo
+echo "===== 摘要 ====="
+grep -h 'PASS\|FAIL' evidence/test_run.txt || true
+echo "越界注入: $(grep -c 'SIGSEGV' evidence/fault_inject.txt) 次 SIGSEGV 记录，" \
+     "定位行: $(grep -o 'tests/fault_guard.c:[0-9]*' evidence/fault_inject.txt | head -1)"
+echo "UAF 注入: $(grep -c 'SIGSEGV' evidence/fault_uaf.txt) 次 SIGSEGV 记录，" \
+     "定位行: $(grep -o 'tests/fault_uaf.c:[0-9]*' evidence/fault_uaf.txt | head -1)"
+tail -2 evidence/fault_fixed.txt
+echo "对照组: $(grep -c 'no crash observed' evidence/fault_plain.txt) 次静默越界（未崩溃）"
+echo "构建退出码: $build_rc"
+echo "门禁失败数: $GATE_FAILS"
+
+if [ "$GATE_FAILS" -ne 0 ]; then
+    exit 1
+fi
+exit 0

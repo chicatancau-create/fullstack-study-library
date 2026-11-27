@@ -1,0 +1,124 @@
+          "repo": "https://github.com/youngyangyang04/leetcode-master",
+          "category": "题库/算法题解",
+          "branch": null,
+          "archive_sha256": "b94f8fbf01214dbdfdb9f47c6e2d8319ef456ba7d0233e9d92d153d8e498b895",
+          "tarball_mb": 3,
+          "fetched": "2026-11-04 20:03",
+          "files": 1222,
+          "bytes": 202015665,
+          "mb": 192,
+          "top_extensions": {
+            ".png": 793,
+            ".md": 314,
+            ".jpg": 72,
+            ".gif": 37,
+            "(none)": 3,
+            ".sh": 1,
+            ".jpeg": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：1221 文件 -> 1222 文件",
+          "measured": {
+            "pushed": "2026-10-24",
+            "stars": 62795
+          }
+        }
+      }
+    },
+    {
+      "id": "github:frank-lam/fullstack-tutorial",
+      "name": "frank-lam/fullstack-tutorial",
+      "source": {
+        "url": "https://github.com/frank-lam/fullstack-tutorial",
+        "canonical_url": "https://github.com/frank-lam/fullstack-tutorial",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2022-12-02",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:50+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "566d7368741e805bc7e5f4f4e3abfb5f9eecc598",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/课程与路线/frank-lam/fullstack-tutorial",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/frank-lam/fullstack-tutorial"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "e2f09db264f7ff2057656b51f8079cf3234d3479ff19cf4c0fbe08ab060d2df9",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:56+08:00"
+        },
+        "legacy_fingerprint_12": "e2f09db264f7"
+      },
+      "classification": {
+        "primary_category": "题库/课程与路线",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F1",
+          "F2",
+          "F4",
+          "F5"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 874,
+        "bytes": 93031107,
+        "markdown_count": 211,
+        "question_markers": 49,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:32+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 51,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/frank-lam/fullstack-tutorial",
+          "category": "题库/课程与路线",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 51,
+          "fetched": "2026-11-05 11:12",

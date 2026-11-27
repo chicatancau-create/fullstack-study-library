@@ -1,0 +1,48 @@
+  // D6 乐观锁：版本正确时更新成功且 version 递增
+  {
+    const r = await mod.updateTaskTitle({ tenantId: 't1', taskId: 'k-t1-1', title: 'T1 任务 1（改）', expectedVersion: 1 });
+    const after = await sql("SELECT title || ':' || version FROM g4_lab.task WHERE id='k-t1-1'");
+    eq('D6 版本匹配更新成功且 version+1', [Boolean(r), after], [true, 'T1 任务 1（改）:2']);
+  }
+
+  // D7 并发：20 个并发用同一版本抢更新，只能有 1 个成功
+  {
+    await sql("UPDATE g4_lab.task SET title='并发起点', version=1 WHERE id='k-t1-1'");
+    const attempts = Array.from({ length: 20 }, (_, i) => mod.updateTaskTitle({
+      tenantId: 't1', taskId: 'k-t1-1', title: `并发-${i}`, expectedVersion: 1,
+    }));
+    const results = await Promise.all(attempts);
+    const winners = results.filter(Boolean).length;
+    const version = Number(await sql("SELECT version FROM g4_lab.task WHERE id='k-t1-1'"));
+    eq('D7 20 并发同版本只有 1 个成功（version=2）', [winners, version], [1, 2]);
+  }
+
+  // D8 分页稳定：keyset 翻页不重不漏
+  {
+    await sql("DELETE FROM g4_lab.task WHERE id LIKE 'k-page-%'");
+    await sql("INSERT INTO g4_lab.task (id, tenant_id, project_id, title, status) SELECT 'k-page-' || lpad(g::text, 3, '0'), 't1', 'p-t1', '分页 ' || g, 'todo' FROM generate_series(1, 25) AS g");
+    const first = await mod.listTasks({ tenantId: 't1', projectId: 'p-t1', limit: 10 });
+    const second = await mod.listTasks({ tenantId: 't1', projectId: 'p-t1', limit: 10, cursor: first.at(-1)?.id ?? null });
+    const third = await mod.listTasks({ tenantId: 't1', projectId: 'p-t1', limit: 10, cursor: second.at(-1)?.id ?? null });
+    const all = [...first, ...second, ...third].map((r) => r.id);
+    eq('D8 keyset 分页不重不漏（26 行）', [all.length, new Set(all).size], [26, 26]);
+    await sql("DELETE FROM g4_lab.task WHERE id LIKE 'k-page-%'");
+  }
+
+  // D9 事务回滚：第二个写失败，第一个也必须回滚
+  if (typeof mod.renameProjectAtomically === 'function') {
+    const r = await mod.renameProjectAtomically({ tenantId: 't1', projectId: 'p-t1', name: '不该落地', taskId: 'k-t1-1' });
+    const name = await sql("SELECT name FROM g4_lab.project WHERE id='p-t1'");
+    eq('D9 事务回滚（项目名未变，错误码 23503）', [r.ok, name, r.error], [false, 'T1 项目', '23503']);
+  } else {
+    checks += 1;
+    bad('D9 事务回滚', '未导出 renameProjectAtomically');
+  }
+} finally {
+  await reset();
+  await db.end();
+  if (typeof mod.close === 'function') await mod.close();
+}
+
+console.log(`checks=${checks} fails=${fails}`);
+process.exit(fails === 0 ? 0 : 1);

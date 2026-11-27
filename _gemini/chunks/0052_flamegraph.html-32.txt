@@ -1,0 +1,156 @@
+  if (typeof test !== "function") throw new TypeError("test is not a function");
+  const array = [];
+  let index = -1;
+  for (const value of values) {
+    if (test(value, ++index, values)) {
+      array.push(value);
+    }
+  }
+  return array;
+}
+
+function map(values, mapper) {
+  if (typeof values[Symbol.iterator] !== "function") throw new TypeError("values is not iterable");
+  if (typeof mapper !== "function") throw new TypeError("mapper is not a function");
+  return Array.from(values, (value, index) => mapper(value, index, values));
+}
+
+function reduce(values, reducer, value) {
+  if (typeof reducer !== "function") throw new TypeError("reducer is not a function");
+  const iterator = values[Symbol.iterator]();
+  let done, next, index = -1;
+  if (arguments.length < 3) {
+    ({done, value} = iterator.next());
+    if (done) return;
+    ++index;
+  }
+  while (({done, value: next} = iterator.next()), !done) {
+    value = reducer(value, next, ++index, values);
+  }
+  return value;
+}
+
+function reverse(values) {
+  if (typeof values[Symbol.iterator] !== "function") throw new TypeError("values is not iterable");
+  return Array.from(values).reverse();
+}
+
+function difference(values, ...others) {
+  values = new Set(values);
+  for (const other of others) {
+    for (const value of other) {
+      values.delete(value);
+    }
+  }
+  return values;
+}
+
+function disjoint(values, other) {
+  const iterator = other[Symbol.iterator](), set = new Set();
+  for (const v of values) {
+    if (set.has(v)) return false;
+    let value, done;
+    while (({value, done} = iterator.next())) {
+      if (done) break;
+      if (Object.is(v, value)) return false;
+      set.add(value);
+    }
+  }
+  return true;
+}
+
+function set(values) {
+  return values instanceof Set ? values : new Set(values);
+}
+
+function intersection(values, ...others) {
+  values = new Set(values);
+  others = others.map(set);
+  out: for (const value of values) {
+    for (const other of others) {
+      if (!other.has(value)) {
+        values.delete(value);
+        continue out;
+      }
+    }
+  }
+  return values;
+}
+
+function superset(values, other) {
+  const iterator = values[Symbol.iterator](), set = new Set();
+  for (const o of other) {
+    if (set.has(o)) continue;
+    let value, done;
+    while (({value, done} = iterator.next())) {
+      if (done) return false;
+      set.add(value);
+      if (Object.is(o, value)) break;
+    }
+  }
+  return true;
+}
+
+function subset(values, other) {
+  return superset(other, values);
+}
+
+function union(...others) {
+  const set = new Set();
+  for (const other of others) {
+    for (const o of other) {
+      set.add(o);
+    }
+  }
+  return set;
+}
+
+exports.Adder = Adder;
+exports.InternMap = InternMap;
+exports.InternSet = InternSet;
+exports.ascending = ascending;
+exports.bin = bin;
+exports.bisect = bisectRight;
+exports.bisectCenter = bisectCenter;
+exports.bisectLeft = bisectLeft;
+exports.bisectRight = bisectRight;
+exports.bisector = bisector;
+exports.count = count;
+exports.cross = cross;
+exports.cumsum = cumsum;
+exports.descending = descending;
+exports.deviation = deviation;
+exports.difference = difference;
+exports.disjoint = disjoint;
+exports.every = every;
+exports.extent = extent;
+exports.fcumsum = fcumsum;
+exports.filter = filter;
+exports.fsum = fsum;
+exports.greatest = greatest;
+exports.greatestIndex = greatestIndex;
+exports.group = group;
+exports.groupSort = groupSort;
+exports.groups = groups;
+exports.histogram = bin;
+exports.index = index;
+exports.indexes = indexes;
+exports.intersection = intersection;
+exports.least = least;
+exports.leastIndex = leastIndex;
+exports.map = map;
+exports.max = max;
+exports.maxIndex = maxIndex;
+exports.mean = mean;
+exports.median = median;
+exports.merge = merge;
+exports.min = min;
+exports.minIndex = minIndex;
+exports.nice = nice;
+exports.pairs = pairs;
+exports.permute = permute;
+exports.quantile = quantile;
+exports.quantileSorted = quantileSorted;
+exports.quickselect = quickselect;
+exports.range = range;
+exports.reduce = reduce;

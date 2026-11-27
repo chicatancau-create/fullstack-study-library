@@ -1,0 +1,65 @@
+  const pool = new TaskPool({ concurrency: 1, maxQueue: 0, name: 'slot-wake' });
+  const g = gate('g');
+  const first = settleNoThrow(pool.submit(() => g.promise, { label: 'first' }));
+  let woke = false;
+  const waiter = pool.waitForSlot().then(() => { woke = true; });
+  await sleep(20);
+  eq('maxQueue=0：无空槽时 waitForSlot 保持等待', woke, false);
+  g.open();
+  await within(500, () => first, '第一个完成');
+  await within(1000, () => waiter, '任务结束后 waitForSlot 被唤醒');
+  eq('maxQueue=0：任务完成后 waitForSlot 已唤醒', woke, true);
+}
+
+// ---------- 5. 关闭语义 ----------
+{
+  const pool = new TaskPool({ concurrency: 1, name: 'closing' });
+  const g = gate('g');
+  const running = settleNoThrow(pool.submit(() => g.promise, { label: 'running' }));
+  const queued = settleNoThrow(pool.submit(() => 'queued', { label: 'queued' }));
+  await waitUntil(() => pool.stats().running === 1 && pool.stats().queued === 1, { label: '一跑一排' });
+
+  pool.close();
+  const queuedErr = await within(500, () => queued, '排队任务随关闭结算');
+  eq('关闭：排队任务被拒绝', queuedErr.code, POOL_CODES.CLOSED);
+  const rejectedAfterClose = await within(500, () => settleNoThrow(pool.submit(() => 'x', { label: 'late' })), '关闭后提交');
+  eq('关闭：新任务被拒绝且不执行', rejectedAfterClose.code, POOL_CODES.CLOSED);
+  eq('关闭：已在执行的未被抢占', pool.stats().running, 1);
+
+  g.open();
+  await within(500, () => running, '执行中的任务跑完');
+  await within(500, () => pool.drain(), '关闭后仍可 drain');
+  eq('关闭：drain 后 running=0', pool.stats().running, 0);
+}
+
+// ---------- 6. 同步抛错的函数也走 rejected 路径 ----------
+{
+  const pool = new TaskPool({ concurrency: 2, name: 'sync-throw' });
+  const syncErr = await within(500, () => settleNoThrow(pool.submit(() => { throw new Error('sync-boom'); }, { label: 'sync' })), '同步抛错');
+  eq('同步抛错：被转成 rejected 而非崩溃', syncErr.message, 'sync-boom');
+  const asyncErr = await within(500, () => settleNoThrow(pool.submit(async () => { throw new Error('async-boom'); }, { label: 'async' })), '异步抛错');
+  eq('异步抛错：被转成 rejected', asyncErr.message, 'async-boom');
+  eq('异常：两个任务都从 running 移除', pool.stats().running, 0);
+  eq('异常：统计 rejected = 2', pool.stats().rejected, 2);
+}
+
+// ---------- 7. 参数校验 ----------
+{
+  let concurrencyErr = null;
+  let maxQueueErr = null;
+  try {
+    new TaskPool({ concurrency: 0 });
+  } catch (error) {
+    concurrencyErr = error;
+  }
+  try {
+    new TaskPool({ maxQueue: -1 });
+  } catch (error) {
+    maxQueueErr = error;
+  }
+  check('参数：concurrency=0 抛 RangeError', concurrencyErr instanceof RangeError);
+  check('参数：maxQueue=-1 抛 RangeError', maxQueueErr instanceof RangeError);
+}
+
+await sleep(20);
+summary('test_pool');

@@ -1,0 +1,37 @@
+# 官方 JD 扩充样本（2026-11-07）
+
+**样本：63 份｜公司：12 家｜采集方式：官方招聘 API / 官方 ATS 接口｜采集日期：2026-11-07**
+
+> 本文件是 [[真实JD样本与差距记录|人工逐条样本]] 的扩充，不替代原有 12 份逐条摘录与“必需/优先”频次统计。
+>
+> 数据来源：腾讯官方 `careers.tencent.com` 查询与详情 API（33 份）；GitLab、Cloudflare、Datadog、Stripe、MongoDB、Elastic、Mozilla、Canonical 的官方 Greenhouse 招聘板（24 份）；原有 6 份美团/Thoughtworks/字节跳动人工样本。原始文本（HTML 已剥离）见 [data/jd-samples-2026-11-07.json](data/jd-samples-2026-11-07.json)。
+>
+> **口径边界**：本表只证明“采集时官方页面/接口存在这些岗位与要求文本”，不证明仍在招聘、不证明投递可达；国际岗位的经验要求可能高于 3 年，不能代表中国应届市场。关键词统计是**全文提及**，不是“必需项”频次；Greenhouse 描述可能含公司介绍/福利等非要求文本，百分比只作技术栈覆盖参考。
+
+## 一、样本清单
+
+| # | 公司 | 岗位 | 地点 | 经验 | 官方 URL | 更新 |
+| --- | --- | --- | --- | --- | --- | --- |
+| S-01 | 腾讯 | 证券-AI全栈开发专家 | 深圳 | 五年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2104513138056675328) | 2026年10月08 |
+| S-02 | 腾讯 | 微信支付-全栈开发工程师 | 深圳 | 一年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2098669037675528192) | 2026年11月06 |
+| S-03 | 腾讯 | 微信支付-全栈开发工程师 | 深圳 | 三年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2099328213837856768) | 2026年10月29 |
+| S-04 | 腾讯 | 微信支付-全栈开发工程师 | 深圳 | 三年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2102665620272361472) | 2026年10月13 |
+| S-05 | 腾讯 | 数据中台-#全栈开发工程师# | 深圳 | 一年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2086660563961823232) | 2026年10月09 |
+| S-06 | 腾讯 | 游可爱-AI全栈开发工程师 | 深圳 | 不限 | [原文](https://careers.tencent.com/jobdesc.html?postId=2090336234487595008) | 2026年09月18 |
+| S-07 | 腾讯 | 证券-AI全栈开发高级工程师 | 深圳 | 五年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2102953118521274368) | 2026年10月21 |
+| S-08 | 腾讯 | 腾讯游戏来联-AI全栈工程师 | 深圳 | 两年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2061451043539169280) | 2026年10月13 |
+| S-09 | 腾讯 | 智能体- Agent Harness 全栈工程师- WorkBuddy/CodeBuddy | 深圳 | 五年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2098252336337170432) | 2026年09月19 |
+| S-10 | 腾讯 | 大数据平台部-全栈开发工程师 | 北京 | 三年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2102279767322701824) | 2026年10月13 |
+| S-11 | 腾讯 | 智能体-全栈测试工程师（WorkBuddy方向） | 深圳 | 三年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2095061149577035776) | 2026年09月10 |
+| S-12 | 腾讯 | Miora-全栈研发工程师-创意工具方向 | 深圳 | 五年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2101490751358808064) | 2026年10月26 |
+| S-13 | 腾讯 | 腾讯AI网盘全栈开发高级工程师 | 深圳 | 三年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2112898585224982528) | 2026年10月21 |
+| S-14 | 腾讯 | 智能体套件-全栈开发工程师-CodeBuddy/WorkBuddy | 深圳 | 三年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2074756587444158464) | 2026年10月08 |
+| S-15 | 腾讯 | 企业微信-AI Agent Harness 全栈工程师-（成都） | 广州 | 五年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2039169824982204416) | 2026年10月08 |
+| S-16 | 腾讯 | WorkBuddy-高级全栈开发工程师-小程序方向 | 深圳 | 五年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2098253255363702784) | 2026年10月20 |
+| S-17 | 腾讯 | WorkBuddy-高级全栈开发工程师-小程序方向 | 北京 | 五年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2098253252868096000) | 2026年10月20 |
+| S-18 | 腾讯 | 企业微信-AI全栈研发工程师-协作办公 | 广州 | 三年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2071430928898637824) | 2026年10月28 |
+| S-19 | 腾讯 | 智能体-客户端开发工程师（全栈方向）-WorkBuddy | 深圳 | 三年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2114572205189935104) | 2026年10月26 |
+| S-20 | 腾讯 | 微信小店-全栈开发工程师-交易基建方向 | 广州 | 一年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2077293041282105344) | 2026年10月14 |
+| S-21 | 腾讯 | 腾讯AI协作工具-全栈开发工程师（编辑器） | 深圳 | 两年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2109982523646980096) | 2026年10月13 |
+| S-22 | 腾讯 | 混元大模型平台全栈开发工程师（深圳/北京） | 深圳 | 三年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2094261498229731328) | 2026年11月04 |
+| S-23 | 腾讯 | 微信支付-全栈开发工程师-基础设施平台方向 | 深圳 | 三年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2077586357202632704) | 2026年11月06 |

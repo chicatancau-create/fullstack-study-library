@@ -1,0 +1,159 @@
+  return ((x = Math.exp(x)) + 1 / x) / 2;
+}
+
+function sinh(x) {
+  return ((x = Math.exp(x)) - 1 / x) / 2;
+}
+
+function tanh(x) {
+  return ((x = Math.exp(2 * x)) - 1) / (x + 1);
+}
+
+// p0 = [ux0, uy0, w0]
+// p1 = [ux1, uy1, w1]
+function zoom(p0, p1) {
+  var ux0 = p0[0], uy0 = p0[1], w0 = p0[2],
+      ux1 = p1[0], uy1 = p1[1], w1 = p1[2],
+      dx = ux1 - ux0,
+      dy = uy1 - uy0,
+      d2 = dx * dx + dy * dy,
+      i,
+      S;
+
+  // Special case for u0 ≅ u1.
+  if (d2 < epsilon2) {
+    S = Math.log(w1 / w0) / rho;
+    i = function(t) {
+      return [
+        ux0 + t * dx,
+        uy0 + t * dy,
+        w0 * Math.exp(rho * t * S)
+      ];
+    };
+  }
+
+  // General case.
+  else {
+    var d1 = Math.sqrt(d2),
+        b0 = (w1 * w1 - w0 * w0 + rho4 * d2) / (2 * w0 * rho2 * d1),
+        b1 = (w1 * w1 - w0 * w0 - rho4 * d2) / (2 * w1 * rho2 * d1),
+        r0 = Math.log(Math.sqrt(b0 * b0 + 1) - b0),
+        r1 = Math.log(Math.sqrt(b1 * b1 + 1) - b1);
+    S = (r1 - r0) / rho;
+    i = function(t) {
+      var s = t * S,
+          coshr0 = cosh(r0),
+          u = w0 / (rho2 * d1) * (coshr0 * tanh(rho * s + r0) - sinh(r0));
+      return [
+        ux0 + u * dx,
+        uy0 + u * dy,
+        w0 * coshr0 / cosh(rho * s + r0)
+      ];
+    };
+  }
+
+  i.duration = S * 1000;
+
+  return i;
+}
+
+function hsl(hue) {
+  return function(start, end) {
+    var h = hue((start = d3Color.hsl(start)).h, (end = d3Color.hsl(end)).h),
+        s = nogamma(start.s, end.s),
+        l = nogamma(start.l, end.l),
+        opacity = nogamma(start.opacity, end.opacity);
+    return function(t) {
+      start.h = h(t);
+      start.s = s(t);
+      start.l = l(t);
+      start.opacity = opacity(t);
+      return start + "";
+    };
+  }
+}
+
+var hsl$1 = hsl(hue);
+var hslLong = hsl(nogamma);
+
+function lab(start, end) {
+  var l = nogamma((start = d3Color.lab(start)).l, (end = d3Color.lab(end)).l),
+      a = nogamma(start.a, end.a),
+      b = nogamma(start.b, end.b),
+      opacity = nogamma(start.opacity, end.opacity);
+  return function(t) {
+    start.l = l(t);
+    start.a = a(t);
+    start.b = b(t);
+    start.opacity = opacity(t);
+    return start + "";
+  };
+}
+
+function hcl(hue) {
+  return function(start, end) {
+    var h = hue((start = d3Color.hcl(start)).h, (end = d3Color.hcl(end)).h),
+        c = nogamma(start.c, end.c),
+        l = nogamma(start.l, end.l),
+        opacity = nogamma(start.opacity, end.opacity);
+    return function(t) {
+      start.h = h(t);
+      start.c = c(t);
+      start.l = l(t);
+      start.opacity = opacity(t);
+      return start + "";
+    };
+  }
+}
+
+var hcl$1 = hcl(hue);
+var hclLong = hcl(nogamma);
+
+function cubehelix(hue) {
+  return (function cubehelixGamma(y) {
+    y = +y;
+
+    function cubehelix(start, end) {
+      var h = hue((start = d3Color.cubehelix(start)).h, (end = d3Color.cubehelix(end)).h),
+          s = nogamma(start.s, end.s),
+          l = nogamma(start.l, end.l),
+          opacity = nogamma(start.opacity, end.opacity);
+      return function(t) {
+        start.h = h(t);
+        start.s = s(t);
+        start.l = l(Math.pow(t, y));
+        start.opacity = opacity(t);
+        return start + "";
+      };
+    }
+
+    cubehelix.gamma = cubehelixGamma;
+
+    return cubehelix;
+  })(1);
+}
+
+var cubehelix$1 = cubehelix(hue);
+var cubehelixLong = cubehelix(nogamma);
+
+function piecewise(interpolate, values) {
+  var i = 0, n = values.length - 1, v = values[0], I = new Array(n < 0 ? 0 : n);
+  while (i < n) I[i] = interpolate(v, v = values[++i]);
+  return function(t) {
+    var i = Math.max(0, Math.min(n - 1, Math.floor(t *= n)));
+    return I[i](t - i);
+  };
+}
+
+function quantize(interpolator, n) {
+  var samples = new Array(n);
+  for (var i = 0; i < n; ++i) samples[i] = interpolator(i / (n - 1));
+  return samples;
+}
+
+exports.interpolate = value;
+exports.interpolateArray = array;
+exports.interpolateBasis = basis$1;
+exports.interpolateBasisClosed = basisClosed;
+exports.interpolateCubehelix = cubehelix$1;
+exports.interpolateCubehelixLong = cubehelixLong;

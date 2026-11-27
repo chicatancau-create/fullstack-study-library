@@ -1,0 +1,121 @@
+        "archive_sha256": "a50175a25c30a223a93d68e8376ea22f3dd0e0725e610a1be5ce7c03d16dec77",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/后端进阶",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 346,
+        "bytes": 1911194,
+        "markdown_count": 331,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:23+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：345 文件 -> 346 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/DreamCats/java-notes",
+          "category": "知识库/后端进阶",
+          "branch": null,
+          "archive_sha256": "a50175a25c30a223a93d68e8376ea22f3dd0e0725e610a1be5ce7c03d16dec77",
+          "tarball_mb": 0,
+          "fetched": "2026-11-04 20:03",
+          "files": 346,
+          "bytes": 1911194,
+          "mb": 1,
+          "top_extensions": {
+            ".md": 331,
+            ".java": 12,
+            "(none)": 1,
+            ".xml": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：345 文件 -> 346 文件",
+          "measured": {
+            "pushed": "2024-12-02",
+            "stars": 2382
+          }
+        }
+      }
+    },
+    {
+      "id": "github:bin392328206/six-finger",
+      "name": "bin392328206/six-finger",
+      "source": {
+        "url": "https://github.com/bin392328206/six-finger",
+        "canonical_url": "https://github.com/bin392328206/six-finger",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-05-27",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:39+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "770d6e8b8d2722ff082ea745455df097c47288b6",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/后端进阶/bin392328206/six-finger",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/bin392328206/six-finger"
+      },
+      "integrity": {
+        "archive_sha256": "647d1babf8a64cdbf5dcaf0e983c796056bdb3ac6173c28e6267c872f8c5fff7",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/后端进阶",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 876,
+        "bytes": 100024448,
+        "markdown_count": 224,
+        "question_markers": null,

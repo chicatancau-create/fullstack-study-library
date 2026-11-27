@@ -1,0 +1,125 @@
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 18:24",
+        "upstream_pushed_at": "2024-07-19",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:13+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "5d2008e97ea2547dfb3d0b4c9409953e1bf633fc",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/资源目录/Awesome-HarmonyOS/HarmonyOS",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/Awesome-HarmonyOS/HarmonyOS"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "01922d3daf739be1f92f40653b35a8bc9c178d89a706bc8ad806c47421104203",
+          "scope": "legacy_local_metadata_scope_unrecorded",
+          "observed_at": "2026-11-05T19:39:07+08:00"
+        },
+        "legacy_fingerprint_12": "01922d3daf73"
+      },
+      "classification": {
+        "primary_category": "知识库/资源目录",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F2"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 2584,
+        "bytes": 64565808,
+        "markdown_count": 38,
+        "question_markers": 2,
+        "test_files": 123,
+        "observed_at": "2026-11-07T14:06:25+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "unrecognized_file",
+        "license_files": [
+          "README.md"
+        ],
+        "usage_restriction": "未识别许可证文件；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "stale",
+        "note": "最后更新 2024-07，早于 HarmonyOS NEXT 当前 API；只当索引用，实现以本地官方文档镜像为准",
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "round": 3,
+          "tar_mb": 23,
+          "ledger_refreshed": "补图/改名后重算：2583 文件 -> 2584 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/Awesome-HarmonyOS/HarmonyOS",
+          "category": "知识库/资源目录",
+          "branch": "master",
+          "fetched": "2026-11-05 18:24",
+          "files": 2584,
+          "bytes": 64565731,
+          "mb": 61,
+          "top_extensions": {
+            ".c": 674,
+            ".h": 673,
+            ".png": 205,
+            ".crt": 159,
+            "(none)": 98,
+            ".pem": 78,
+            ".jpg": 62,
+            ".data": 60
+          },
+          "license_files": [
+            "README.md"
+          ],
+          "round": 3,
+          "tar_mb": 23,
+          "selection": "鸿蒙资源清单（20K star，但最后更新 2024-07，只当索引用，内容需按 NEXT 新文档复核）",
+          "functions": [
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 38,
+            "md_share_pct": 1.2,
+            "question_markers": 2,
+            "tests": 123,
+            "images": 278,
+            "stars": 20012,
+            "pushed": "2024-07-19"
+          },
+          "fingerprint_note": "本机内容指纹；上游压缩包未保留，可复现性以来源URL+分支+采集日期为准",
+          "content_fingerprint": "01922d3daf739be1f92f40653b35a8bc9c178d89a706bc8ad806c47421104203",
+          "freshness_flag": "最后更新 2024-07，早于 HarmonyOS NEXT 当前 API；只当索引用，实现以本地官方文档镜像为准",
+          "ledger_refreshed": "补图/改名后重算：2583 文件 -> 2584 文件"
+        }
+      }
+    },
+    {

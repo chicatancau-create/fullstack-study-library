@@ -1,0 +1,119 @@
+        "online_fallback_url": "https://github.com/ZhongYi-LinuxDriverDev/EmbeddedSoftwareEngineerInterview"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "aeeaf06fcc247306e0364c32256f1fbafcd96afe9fb1d59dda8258f0b60e81e4",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:06+08:00"
+        },
+        "legacy_fingerprint_12": "aeeaf06fcc24"
+      },
+      "classification": {
+        "primary_category": "知识库/计算机基础",
+        "category_basis": "按正文关键词判定（原按仓库名判定会错位）：{'系统基础': 122, '算法': 14, 'AI': 10, 'Java': 7}",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 25,
+        "bytes": 252762,
+        "markdown_count": 22,
+        "question_markers": 0,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:24+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/ZhongYi-LinuxDriverDev/EmbeddedSoftwareEngineerInterview",
+          "category": "知识库/计算机基础",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 0,
+          "fetched": "2026-11-05 11:12",
+          "files": 25,
+          "bytes": 252762,
+          "mb": 0,
+          "top_extensions": {
+            ".md": 22,
+            ".png": 2
+          },
+          "license_files": [],
+          "license_detected": null,
+          "round": 2,
+          "selection": "文档型仓库(md占比74%)｜自动判定：keep",
+          "functions": [],
+          "measured": {
+            "md_n": 22,
+            "md_share_pct": 74.1,
+            "question_markers": 0,
+            "tests": 0,
+            "images": 2,
+            "pdf": 0,
+            "stars": 2062,
+            "pushed": "2022-08-14",
+            "functions": [
+              "F1离线题面",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "category_basis": "按正文关键词判定（原按仓库名判定会错位）：{'系统基础': 122, '算法': 14, 'AI': 10, 'Java': 7}",
+          "content_fingerprint": "aeeaf06fcc247306e0364c32256f1fbafcd96afe9fb1d59dda8258f0b60e81e4",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:chenxi101w/408-first-round",
+      "name": "chenxi101w/408-first-round",
+      "source": {
+        "url": "https://github.com/chenxi101w/408-first-round",
+        "canonical_url": "https://github.com/chenxi101w/408-first-round",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-10-17",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:34+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "59e34b165e4537459cd5a38a161d306e5e7c9f53",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/计算机基础/chenxi101w/408-first-round",

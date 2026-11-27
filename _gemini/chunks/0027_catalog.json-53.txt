@@ -1,0 +1,125 @@
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 8,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：1737 文件 -> 1738 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/TheAlgorithms/Python",
+          "category": "知识库/算法与数据结构",
+          "branch": null,
+          "archive_sha256": "6537237b9dffee9b499f691a605754f721974b16ff11291da62141d549017ba4",
+          "tarball_mb": 8,
+          "fetched": "2026-11-04 20:03",
+          "files": 1738,
+          "bytes": 15684714,
+          "mb": 14,
+          "top_extensions": {
+            ".py": 1608,
+            ".txt": 38,
+            ".md": 37,
+            ".yml": 16,
+            "(none)": 9,
+            ".jpg": 9,
+            ".sh": 7,
+            ".png": 4,
+            ".json": 3,
+            ".yaml": 1
+          },
+          "license_files": [
+            "LICENSE.md"
+          ],
+          "license_detected": "MIT",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：1737 文件 -> 1738 文件",
+          "measured": {
+            "pushed": "2026-11-02",
+            "stars": 225890
+          }
+        }
+      }
+    },
+    {
+      "id": "github:krahets/hello-algo",
+      "name": "krahets/hello-algo",
+      "source": {
+        "url": "https://github.com/krahets/hello-algo",
+        "canonical_url": "https://github.com/krahets/hello-algo",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-11-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:13+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "a2b1e4e5c4b9b7bb876aed91a5ca1e5a8aefe776",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/算法与数据结构/krahets/hello-algo",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/krahets/hello-algo"
+      },
+      "integrity": {
+        "archive_sha256": "782aecd16d1ceb81d85f6747b92ad4fdd3c7c98e63dffa3afcf4678ce3e753a1",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/算法与数据结构",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 12257,
+        "bytes": 274919154,
+        "markdown_count": 1125,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:24+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "CC-BY-NC-SA-4.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE",
+          "licenses"
+        ],
+        "usage_restriction": "仅限本机个人学习；传染性或非商业条款，不得并入对外发布产物。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 102,

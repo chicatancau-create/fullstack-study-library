@@ -1,0 +1,135 @@
+        "markdown_count": 12,
+        "question_markers": 0,
+        "test_files": 1,
+        "observed_at": "2026-11-07T14:06:32+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "unrecognized_file",
+        "license_files": [
+          "LICENSE",
+          "README.md"
+        ],
+        "usage_restriction": "未识别许可证文件；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "round": 3,
+          "tar_mb": 11,
+          "ledger_refreshed": "补图/改名后重算：191 文件 -> 192 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/HarmonyOS-Next/interview-handbook-project",
+          "category": "题库/鸿蒙与跨端",
+          "branch": "main",
+          "fetched": "2026-11-05 18:24",
+          "files": 192,
+          "bytes": 13701872,
+          "mb": 13,
+          "top_extensions": {
+            ".png": 92,
+            ".ets": 31,
+            ".json": 16,
+            "(none)": 11,
+            ".mdx": 11,
+            ".json5": 9,
+            ".ts": 7,
+            ".svg": 3
+          },
+          "license_files": [
+            "LICENSE",
+            "README.md"
+          ],
+          "round": 3,
+          "tar_mb": 11,
+          "selection": "《面试通》鸿蒙原生应用源码+教程，含面试题内容与 ArkTS 实现参考",
+          "functions": [
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 12,
+            "md_share_pct": 1.5,
+            "question_markers": 0,
+            "tests": 1,
+            "images": 97,
+            "stars": 541,
+            "pushed": "2025-07-01"
+          },
+          "fingerprint_note": "本机内容指纹；上游压缩包未保留，可复现性以来源URL+分支+采集日期为准",
+          "content_fingerprint": "5710e86a9990ce56b7878b2448eb98a76da154dec4009deaa150479bdace1f6b",
+          "ledger_refreshed": "补图/改名后重算：191 文件 -> 192 文件"
+        }
+      }
+    },
+    {
+      "id": "github:oven-sh/bun",
+      "name": "Bun 官方文档",
+      "source": {
+        "url": "https://github.com/oven-sh/bun",
+        "canonical_url": "https://github.com/oven-sh/bun",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-08",
+        "upstream_pushed_at": null,
+        "upstream_snapshot": {
+          "status": "not_checked",
+          "checked_at": null,
+          "default_branch": null,
+          "head_commit_sha": null,
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "reference",
+        "mirror_path": null,
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "online_only",
+        "online_fallback_url": "https://github.com/oven-sh/bun"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/运行时官方文档",
+        "category_basis": "reference：官方仓库文档，仅在线参考，未镜像正文",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 0,
+        "bytes": 0,
+        "markdown_count": null,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-08",
+        "count_scope": "reference；无本地镜像"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "unknown",
+        "license_files": [],

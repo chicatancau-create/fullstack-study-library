@@ -1,0 +1,107 @@
+      { call: '[]', expected: [], why: '空树' },
+    ],
+    common_mistakes: ['不按层切分，输出一维数组', '边遍历边 push 导致层边界丢失', 'null 子节点被加入队列'],
+    followups: ['锯齿遍历（103）如何改？', '如何自底向上层序（107）？'],
+    rubric: [
+      { point: '按当前队列长度切分层', weight: 2 },
+      { point: '子节点只入下一层', weight: 1 },
+      { point: '空树处理', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q027', title: '72. 编辑距离', question_url: 'https://leetcode.cn/problems/edit-distance/',
+    core_idea: '二维 DP：dp[i][j] 为 word1 前 i 个字符变到 word2 前 j 个字符的最少操作数；相等取左上，否则取增删改三者最小 +1。',
+    invariant: 'dp[i][j] 只依赖左、上、左上三个已计算状态。',
+    complexity: { time: 'O(mn)', space: 'O(mn)（可滚动到 O(n)）' },
+    code_lang: 'javascript',
+    code: `function solve(a, b) {
+  const m = a.length;
+  const n = b.length;
+  const dp = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      if (a[i - 1] === b[j - 1]) dp[i][j] = dp[i - 1][j - 1];
+      else dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
+    }
+  }
+  return dp[m][n];
+}`,
+    edge_cases: [
+      { call: '"horse","ros"', expected: 3, why: '标准示例' },
+      { call: '"","abc"', expected: 3, why: '全插入' },
+      { call: '"abc","abc"', expected: 0, why: '完全相同' },
+    ],
+    common_mistakes: ['字符相等时仍加 1', '初始化第一行/列遗漏', '下标与字符位置差一'],
+    followups: ['如何只保留两行？', '若操作代价不同（增删改不同价）如何改转移？'],
+    rubric: [
+      { point: '状态定义与三种操作对应正确', weight: 2 },
+      { point: '边界初始化 i/j', weight: 1 },
+      { point: '相等时直接继承左上', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q028', title: '415. 字符串相加', question_url: 'https://leetcode.cn/problems/add-strings/',
+    core_idea: '双指针从末尾逐位相加，处理进位，最后反转结果；不允许转整数。',
+    invariant: 'carry 只可能是 0 或 1；每位结果由两数字与 carry 相加取模。',
+    complexity: { time: 'O(max(m,n))', space: 'O(max(m,n))' },
+    code_lang: 'javascript',
+    code: `function solve(num1, num2) {
+  let i = num1.length - 1;
+  let j = num2.length - 1;
+  let carry = 0;
+  const out = [];
+  while (i >= 0 || j >= 0 || carry) {
+    const a = i >= 0 ? num1.charCodeAt(i--) - 48 : 0;
+    const b = j >= 0 ? num2.charCodeAt(j--) - 48 : 0;
+    const sum = a + b + carry;
+    out.push(String(sum % 10));
+    carry = Math.floor(sum / 10);
+  }
+  return out.reverse().join('');
+}`,
+    edge_cases: [
+      { call: '"11","123"', expected: '134', why: '标准示例' },
+      { call: '"0","0"', expected: '0', why: '零' },
+      { call: '"999","1"', expected: '1000', why: '连续进位' },
+    ],
+    common_mistakes: ['转 Number 失去精度', '忘记最后 carry', '结果未反转'],
+    followups: ['如何做字符串相减/相乘（43）？', '含负号如何处理？'],
+    rubric: [
+      { point: '逐位相加并处理进位', weight: 2 },
+      { point: '不转整数，支持超长数字', weight: 1 },
+      { point: '最终 carry 与反转正确', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q029', title: '21. 合并两个有序链表', question_url: 'https://leetcode.cn/problems/merge-two-sorted-lists/',
+    core_idea: '哑节点 + 尾指针：每次接上较小头节点并推进对应链表，最后接剩余部分。',
+    invariant: '尾指针之前已合并有序；两个当前头是各自剩余部分的最小值。',
+    complexity: { time: 'O(m+n)', space: 'O(1)' },
+    code_lang: 'javascript',
+    code: `function solve(a, b) {
+  const build = (vals) => { let h = null; for (let i = vals.length - 1; i >= 0; i--) h = { val: vals[i], next: h }; return h; };
+  let p = build(a);
+  let q = build(b);
+  const dummy = { val: 0, next: null };
+  let tail = dummy;
+  while (p && q) {
+    if (p.val <= q.val) { tail.next = p; p = p.next; }
+    else { tail.next = q; q = q.next; }
+    tail = tail.next;
+  }
+  tail.next = p || q;
+  const out = [];
+  for (let n = dummy.next; n; n = n.next) out.push(n.val);
+  return out;
+}`,
+    edge_cases: [
+      { call: '[1,2,4],[1,3,4]', expected: [1,1,2,3,4,4], why: '标准示例' },
+      { call: '[],[0]', expected: [0], why: '一侧为空' },
+      { call: '[],[ ]', expected: [], why: '两侧为空' },
+    ],
+    common_mistakes: ['相等时没有稳定选择导致丢节点', '忘记接剩余部分', 'tail 没有随结果前移'],
+    followups: ['递归版如何写？栈深度？', '合并 k 个链表如何复用？'],
+    rubric: [
+      { point: '哑节点与尾指针维护结果链', weight: 2 },

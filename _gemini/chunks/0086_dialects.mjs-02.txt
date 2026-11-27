@@ -1,0 +1,50 @@
+  check('转换严格度不同', pgCastError?.startsWith('22P02') && myCast === '12', `pg=${pgCastError} mysql=${myCast}`);
+
+  // 4. JSON 取值
+  const pgJson = await pgScalar(`SELECT ('{"k":"v"}'::jsonb)->>'k' AS v`);
+  const myJson = mysqlRun(`SELECT JSON_UNQUOTE(JSON_EXTRACT('{"k":"v"}', '$.k'))`);
+  record('JSON 取值', pgJson, myJson, 'PG: ->>；MySQL: JSON_UNQUOTE(JSON_EXTRACT(..)) 或 ->>');
+  check('JSON 取值一致', pgJson === 'v' && myJson === 'v', `pg=${pgJson} mysql=${myJson}`);
+
+  // 5. 日期截断到月
+  const pgDate = await pgScalar("SELECT to_char(date_trunc('month', timestamp '2026-03-15 10:20:30'), 'YYYY-MM-DD') AS v");
+  const myDate = mysqlRun("SELECT DATE_FORMAT(CAST('2026-03-15 10:20:30' AS DATETIME), '%Y-%m-01')");
+  record('日期截断', pgDate, myDate, 'PG: date_trunc；MySQL: DATE_FORMAT 拼月初');
+  check('日期截断结果一致', pgDate === '2026-03-01' && myDate === '2026-03-01', `pg=${pgDate} mysql=${myDate}`);
+
+  // 6. UPSERT
+  await pgClient.query('DROP TABLE IF EXISTS sql50_real.dialect_upsert');
+  await pgClient.query('CREATE TABLE sql50_real.dialect_upsert (id int PRIMARY KEY, n int NOT NULL)');
+  await pgClient.query('INSERT INTO sql50_real.dialect_upsert VALUES (1, 1)');
+  await pgClient.query('INSERT INTO sql50_real.dialect_upsert VALUES (1, 9) ON CONFLICT (id) DO UPDATE SET n = excluded.n');
+  const pgUpsert = (await pgClient.query('SELECT n FROM sql50_real.dialect_upsert WHERE id = 1')).rows[0].n;
+  mysqlRun('DROP TABLE IF EXISTS dialect_upsert');
+  mysqlRun('CREATE TABLE dialect_upsert (id int PRIMARY KEY, n int NOT NULL)');
+  mysqlRun('INSERT INTO dialect_upsert VALUES (1, 1)');
+  mysqlRun('INSERT INTO dialect_upsert VALUES (1, 9) AS new ON DUPLICATE KEY UPDATE n = new.n');
+  const myUpsert = mysqlRun('SELECT n FROM dialect_upsert WHERE id = 1');
+  record('UPSERT', pgUpsert, Number(myUpsert), 'PG: ON CONFLICT；MySQL 8.4: AS new + ON DUPLICATE KEY UPDATE');
+  check('UPSERT 结果一致', pgUpsert === 9 && myUpsert === '9', `pg=${pgUpsert} mysql=${myUpsert}`);
+
+  // 7. OFFSET 必须配 LIMIT
+  let pgOffset = null;
+  try {
+    pgOffset = await pgScalar('SELECT 1 AS v OFFSET 0');
+  } catch (error) {
+    pgOffset = `error:${error.code}`;
+  }
+  const myOffset = mysqlRun('SELECT 1 LIMIT 1 OFFSET 0');
+  const myOffsetAlone = mysqlError('SELECT 1 OFFSET 0');
+  record('OFFSET 写法', pgOffset, { withLimit: myOffset, alone: myOffsetAlone }, 'PG 允许 OFFSET 单独出现；MySQL 要求先有 LIMIT');
+  check('OFFSET 语法差异可复现', pgOffset === 1 && myOffset === '1' && myOffsetAlone?.includes('1064'), `pg=${pgOffset} mysql=${myOffsetAlone?.slice(0, 60)}`);
+
+  check('两侧均为真实数据库', /PostgreSQL 18/.test(evidence.pg) && /^8\.4\./.test(evidence.mysql), `${evidence.pg} | ${evidence.mysql}`);
+} finally {
+  fs.mkdirSync('evidence', { recursive: true });
+  fs.writeFileSync('evidence/dialects.json', JSON.stringify(evidence, null, 2) + '\n');
+  await pgClient.end().catch(() => {});
+}
+
+const failures = results.filter((r) => !r.ok).length;
+console.log(failures === 0 ? `DIALECT PASS ${results.length}/${results.length}` : `DIALECT FAIL ${failures}/${results.length}`);
+if (failures > 0) process.exitCode = 1;

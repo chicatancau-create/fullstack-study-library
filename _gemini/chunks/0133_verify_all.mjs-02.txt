@@ -1,0 +1,66 @@
+const sensitiveNames = /(^|\/)(\.env($|\..+)|id_rsa|id_ed25519|.*\.(pem|key|p12|pfx))$|(^|\/)node_modules\/|(^|\/)target\//;const secretPattern = /BEGIN (RSA|OPENSSH|EC) PRIVATE KEY|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{36}|sk-[A-Za-z0-9]{20,}/;
+
+if (practice) {
+  for (const [label, root, exclude] of [
+    ['practice secret names', practice, []],
+  ]) {
+    try {
+      const files = execFileSync('git', ['ls-files', '--', ...exclude], { cwd: root, encoding: 'utf8' }).split(String.fromCharCode(10)).filter(Boolean);
+      const bad = files.filter((file) => sensitiveNames.test(file));
+      checks.push({ label, ok: bad.length === 0, output: bad.length ? bad.join(',') : 'none' });
+    } catch (error) {
+      checks.push({ label, ok: false, output: error.message });
+    }
+  }
+  for (const [label, root, exclude] of [
+    ['practice secret patterns', practice, []],
+  ]) {
+    try {
+      execFileSync('git', ['grep', '-l', '-E', secretPattern.source, '--', '.', ...exclude], { cwd: root, encoding: 'utf8' });
+      checks.push({ label, ok: false, output: 'matched tracked files' });
+    } catch (error) {
+      checks.push({ label, ok: error.status === 1, output: error.status === 1 ? 'none' : error.message });
+    }
+  }
+} else {
+  checks.push({ label: 'practice secret scan', ok: true, output: 'not-enabled' });
+}
+
+if (offline || profile === 'quick') {
+  checks.push({ label: 'pages', ok: true, output: 'skipped (offline/quick)' });
+} else {
+const pageProbe = path.join(os.tmpdir(), `verify-all-pages-${process.pid}.txt`);
+try {
+  // 必须取目标站点最终状态码；HEAD 响应里的代理隧道行 "200 Connection Established"
+  // 会被 includes('200') 误判为通过，故改用 -w '%{http_code}'。
+  // 响应体写入临时文件：Node 直接 spawn Windows 版 curl 时 /dev/null 不会被转换。
+  const code = execFileSync('curl', ['-sS', '-o', pageProbe, '-w', '%{http_code}', '--max-time', '20', 'https://chicatancau-create.github.io/learning-blog-demo/'], { encoding: 'utf8' }).trim();
+  checks.push({ label: 'pages', ok: code === '200', output: `HTTP ${code}` });
+} catch (error) {
+  checks.push({ label: 'pages', ok: false, output: error.message.split(String.fromCharCode(10))[0] });
+} finally {
+    try { fs.unlinkSync(pageProbe); } catch { /* 探测失败时文件可能不存在 */ }
+  }
+}
+
+const checkers = [
+  ['08-bank', '08-判定题库/国内大厂真题/_工具/check_bank.mjs'],
+  ['08-answers', '08-判定题库/国内大厂真题/_工具/check_answers.mjs'],
+  ['08-frontend', '08-判定题库/国内大厂真题/_工具/check_frontend.mjs'],
+];
+for (const [label, rel] of checkers) {
+  const file = path.join(vault, rel);
+  if (fs.existsSync(file)) run(label, 'node', [file], path.dirname(file));
+  else checks.push({ label, ok: false, output: `missing ${rel}` });
+}
+
+const studentChecker = path.join(vault, 'scripts/check_student_packages.mjs');
+if (fs.existsSync(studentChecker)) run('G0-G9 packages', 'node', [studentChecker], vault);
+else checks.push({ label: 'G0-G9 packages', ok: false, output: 'missing scripts/check_student_packages.mjs' });
+
+const failed = checks.filter((check) => !check.ok);
+for (const check of checks) {
+  console.log(`${check.ok ? 'OK  ' : 'FAIL'} ${check.label}: ${check.output}`);
+}
+console.log(`\n${checks.length - failed.length}/${checks.length} checks passed`);
+process.exit(failed.length === 0 ? 0 : 1);

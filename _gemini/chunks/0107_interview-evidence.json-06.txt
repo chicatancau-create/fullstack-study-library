@@ -1,0 +1,17 @@
+      "raw_html_sha256": "9668a3591ebff20b2da863e134d0fd20be55813db825fb0c366c343d9027d9e4",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "42ddd61ee586e8c30e9a7aadd7a64579424a1bd7d3723c20c4960e7041a66594",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:23.668Z",
+        "http_status": 200,
+        "title_seen": "求腾讯瑞驰测开面经_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    }
+  ]
+}

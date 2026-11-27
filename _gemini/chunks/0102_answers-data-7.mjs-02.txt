@@ -1,0 +1,113 @@
+      indeg.set(w, indeg.get(w) - 1);
+      if (indeg.get(w) === 0) q.push(w);
+    }
+  }
+  return seen !== nodes.size;
+}`,
+    edge_cases: [
+      { call: '[[0,1],[1,2],[2,0]]', expected: true, why: '三点成环' },
+      { call: '[[0,1],[1,2]]', expected: false, why: '链式依赖无环' },
+      { call: '[]', expected: false, why: '空依赖无环' },
+    ],
+    common_mistakes: ['把 (a,b) 当成 a→b，拓扑方向反了', '入度只统计不递减', '忽略孤立节点导致误判'],
+    followups: ['DFS 三色标记法如何写？', '若存在环，如何输出环上的节点？'],
+    rubric: [
+      { point: '依赖方向 b→a 与入度一致', weight: 2 },
+      { point: '处理节点后递减出边入度', weight: 1 },
+      { point: '已处理数不足即存在环', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q085', title: '543. 二叉树的直径', question_url: 'https://leetcode.cn/problems/diameter-of-binary-tree/',
+    core_idea: '后序求高度：每个节点处用 左高+右高 更新直径，向父返回 1+max(左高,右高)。',
+    invariant: 'height(n) 是以 n 为根的子树高度；best 是已处理子树内的最大节点数路径。',
+    complexity: { time: 'O(n)', space: 'O(h)' },
+    code_lang: 'javascript',
+    code: `function solve(a) {
+  function build(arr) {
+    if (!arr.length || arr[0] === null) return null;
+    const root = { val: arr[0], left: null, right: null };
+    const q = [root];
+    let i = 1;
+    while (i < arr.length && q.length) {
+      const n = q.shift();
+      if (i < arr.length) { if (arr[i] !== null) { n.left = { val: arr[i], left: null, right: null }; q.push(n.left); } i++; }
+      if (i < arr.length) { if (arr[i] !== null) { n.right = { val: arr[i], left: null, right: null }; q.push(n.right); } i++; }
+    }
+    return root;
+  }
+  let best = 0;
+  function height(n) {
+    if (!n) return 0;
+    const l = height(n.left), r = height(n.right);
+    best = Math.max(best, l + r);
+    return 1 + Math.max(l, r);
+  }
+  height(build(a));
+  return best;
+}`,
+    edge_cases: [
+      { call: '[1,2,3,4,5]', expected: 3, why: '4-2-1-3 共 3 条边' },
+      { call: '[1,2]', expected: 1, why: '单边' },
+      { call: '[1]', expected: 0, why: '单节点直径为 0' },
+    ],
+    common_mistakes: ['返回节点数而不是边数', '只在根节点计算直径', '全局变量每轮重置'],
+    followups: ['若直径按节点数计，结果差多少？', '如何输出直径路径？'],
+    rubric: [
+      { point: '后序返回子树高度', weight: 2 },
+      { point: '每个节点处用左右高之和更新', weight: 1 },
+      { point: '直径按边计数', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q086', title: '402. 移掉K位数字', question_url: 'https://leetcode.cn/problems/remove-k-digits/',
+    core_idea: '单调栈：遇到比栈顶小的数字就弹出栈顶并消耗 k，得到最小的剩余序列；最后去掉前导零。',
+    invariant: '栈内数字单调不降，且已移除的数字数不超过 k。',
+    complexity: { time: 'O(n)', space: 'O(n)' },
+    code_lang: 'javascript',
+    code: `function solve(num, k) {
+  const st = [];
+  for (const ch of num) {
+    while (k > 0 && st.length && st[st.length - 1] > ch) {
+      st.pop();
+      k--;
+    }
+    st.push(ch);
+  }
+  while (k-- > 0) st.pop();
+  let i = 0;
+  while (i < st.length && st[i] === '0') i++;
+  const out = st.slice(i).join('');
+  return out === '' ? '0' : out;
+}`,
+    edge_cases: [
+      { call: '"1432219", 3', expected: '1219', why: '弹出 4、3、2' },
+      { call: '"10200", 1', expected: '200', why: '移除 1 后前导零被去掉' },
+      { call: '"10", 2', expected: '0', why: '全部移除返回 0' },
+    ],
+    common_mistakes: ['只删连续下降的一段，漏掉后续更优删除', '忘记处理剩余 k', '结果为空串而不是 "0"'],
+    followups: ['如何保证删除后数字位数最少？', '若要求保留恰好 k 位呢？'],
+    rubric: [
+      { point: '单调栈弹出更大栈顶并消耗 k', weight: 2 },
+      { point: '循环后仍有 k 则从尾部删除', weight: 1 },
+      { point: '去前导零并处理空结果', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q087', title: '207. 课程表', question_url: 'https://leetcode.cn/problems/course-schedule/',
+    core_idea: '建图后拓扑排序：入度为 0 的课先修，统计能修完的课程数，若小于总数说明有环。',
+    invariant: '队列只放当前可修的课；每修完一门，其后续课程入度减一。',
+    complexity: { time: 'O(V+E)', space: 'O(V+E)' },
+    code_lang: 'javascript',
+    code: `function solve(n, pre) {
+  const adj = Array.from({ length: n }, () => []);
+  const indeg = new Array(n).fill(0);
+  for (const [a, b] of pre) { adj[b].push(a); indeg[a]++; }
+  const q = [];
+  for (let i = 0; i < n; i++) if (indeg[i] === 0) q.push(i);
+  let done = 0;
+  while (q.length) {
+    const v = q.shift();
+    done++;
+    for (const w of adj[v]) if (--indeg[w] === 0) q.push(w);
+  }

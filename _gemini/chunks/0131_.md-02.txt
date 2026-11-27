@@ -1,0 +1,42 @@
+- [Python 文档](https://docs.python.org/3/)、[FastAPI](https://fastapi.tiangolo.com/)、[Django](https://docs.djangoproject.com/)、[pytest](https://docs.pytest.org/)：Python 后端与测试。
+- [Go 官方文档](https://go.dev/doc/)：语言、并发、模块、测试和工具链。
+- [.NET 文档](https://learn.microsoft.com/dotnet/)、[ASP.NET Core](https://learn.microsoft.com/aspnet/core/)：C# 企业后端。
+- [Laravel](https://laravel.com/docs)：PHP 现代 Web 生态。
+- [Rust 官方学习资料](https://www.rust-lang.org/learn)：所有权、Cargo、异步与系统方向。
+
+## 数据、搜索与消息扩展
+
+- [MongoDB](https://www.mongodb.com/docs/)：文档模型、查询、事务、索引和复制。
+- [Elasticsearch](https://www.elastic.co/guide/) / [OpenSearch](https://docs.opensearch.org/)：搜索、聚合、索引与集群。
+- [ClickHouse](https://clickhouse.com/docs)、[TimescaleDB](https://docs.timescale.com/)：分析与时序数据。
+- [Apache Kafka](https://kafka.apache.org/documentation/)、[RabbitMQ](https://www.rabbitmq.com/docs)、[RocketMQ](https://rocketmq.apache.org/docs/)：消息语义、可靠性与运维。
+- [Debezium](https://debezium.io/documentation/)：CDC 与数据变更捕获。
+- [Apache Airflow](https://airflow.apache.org/docs/)：批处理工作流与调度。
+
+## 云原生、交付与可靠性扩展
+
+- [Kubernetes](https://kubernetes.io/docs/home/)：工作负载、网络、配置、存储与调度。
+- [Helm](https://helm.sh/docs/)、[Kustomize](https://kustomize.io/)：K8s 配置与发布。
+- [Terraform](https://developer.hashicorp.com/terraform/docs) / [OpenTofu](https://opentofu.org/docs/)：基础设施即代码。
+- [Argo CD](https://argo-cd.readthedocs.io/)：GitOps 持续交付。
+- [Prometheus](https://prometheus.io/docs/)、[Grafana](https://grafana.com/docs/)：指标、告警与可视化。
+- [Jaeger](https://www.jaegertracing.io/docs/)、[Sentry](https://docs.sentry.io/)：分布式追踪与错误监控。
+- [Trivy](https://trivy.dev/latest/docs/)：容器、依赖、IaC 和供应链扫描。
+
+## 跨端、实时与 AI 扩展
+
+- [React Native](https://reactnative.dev/docs/getting-started)、[Flutter](https://docs.flutter.dev/)：移动跨端。
+- [Electron](https://www.electronjs.org/docs/latest/)、[Tauri](https://v2.tauri.app/)：桌面跨端。
+- [WebRTC](https://webrtc.org/getting-started/overview)：实时音视频与数据通道。
+- [D3.js](https://d3js.org/)、[Apache ECharts](https://echarts.apache.org/en/index.html)、[Three.js](https://threejs.org/docs/)：可视化与 3D。
+- [Model Context Protocol](https://modelcontextprotocol.io/docs)：模型工具与上下文协议。
+- [LangChain](https://docs.langchain.com/)、[LlamaIndex](https://docs.llamaindex.ai/)：LLM/RAG 工程框架；先掌握模型 API、评估、安全和成本，再选框架。
+
+## 每个阶段的阅读上限
+
+为避免资料囤积，建议：
+
+- 一个主题保留 1 份主教程 + 1 份官方参考。
+- 每周新增收藏不超过真正读完和复现的数量。
+- 读完必须产出代码、测试、图或自己的解释，否则只标记“看过”，不标记“掌握”。
+- 阶段验收前优先补弱项，不因为新文章或新框架更换主线。

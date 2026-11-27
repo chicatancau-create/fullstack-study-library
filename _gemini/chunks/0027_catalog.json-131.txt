@@ -1,0 +1,120 @@
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "题库/八股与基础",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 3243,
+        "bytes": 124243709,
+        "markdown_count": 192,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:28+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 107,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：3242 文件 -> 3243 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/CyC2018/CS-Notes",
+          "category": "题库/八股与基础",
+          "branch": null,
+          "archive_sha256": "d06a817b95a6cb8a1c3c8edc6c50a64f2a72b9adcbe41d0e528d1720e9b3cc9c",
+          "tarball_mb": 107,
+          "fetched": "2026-11-04 20:03",
+          "files": 3243,
+          "bytes": 124243709,
+          "mb": 118,
+          "top_extensions": {
+            ".test": 1143,
+            ".png": 1064,
+            ".js": 378,
+            ".md": 192,
+            ".html": 184,
+            ".jpg": 140,
+            ".gif": 90,
+            ".css": 19,
+            "(none)": 9,
+            ".py": 9
+          },
+          "license_files": [],
+          "license_detected": null,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：3242 文件 -> 3243 文件",
+          "measured": {
+            "pushed": "2026-11-04",
+            "stars": 186447
+          }
+        }
+      }
+    },
+    {
+      "id": "github:notharshhaa/devops-interview-questions",
+      "name": "NotHarshhaa/DevOps-Interview-Questions",
+      "source": {
+        "url": "https://github.com/NotHarshhaa/DevOps-Interview-Questions",
+        "canonical_url": "https://github.com/NotHarshhaa/DevOps-Interview-Questions",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-08-28",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:37+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "5081cf61629271e8e723d655db2f58a41ba1f993",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/八股与基础/NotHarshhaa/DevOps-Interview-Questions",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/NotHarshhaa/DevOps-Interview-Questions"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "ee2b9a1f5de7cf63981e0ec31443c4609f6e8cbdadaf093fd74a705d2ef1822e",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:52+08:00"
+        },
+        "legacy_fingerprint_12": "ee2b9a1f5de7"
+      },

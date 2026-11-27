@@ -1,0 +1,137 @@
+  selection: transition_selection,
+  transition: transition_transition,
+  call: selection_prototype.call,
+  nodes: selection_prototype.nodes,
+  node: selection_prototype.node,
+  size: selection_prototype.size,
+  empty: selection_prototype.empty,
+  each: selection_prototype.each,
+  on: transition_on,
+  attr: transition_attr,
+  attrTween: transition_attrTween,
+  style: transition_style,
+  styleTween: transition_styleTween,
+  text: transition_text,
+  textTween: transition_textTween,
+  remove: transition_remove,
+  tween: transition_tween,
+  delay: transition_delay,
+  duration: transition_duration,
+  ease: transition_ease,
+  end: transition_end
+};
+
+var defaultTiming = {
+  time: null, // Set on use.
+  delay: 0,
+  duration: 250,
+  ease: d3Ease.easeCubicInOut
+};
+
+function inherit(node, id) {
+  var timing;
+  while (!(timing = node.__transition) || !(timing = timing[id])) {
+    if (!(node = node.parentNode)) {
+      return defaultTiming.time = d3Timer.now(), defaultTiming;
+    }
+  }
+  return timing;
+}
+
+function selection_transition(name) {
+  var id,
+      timing;
+
+  if (name instanceof Transition) {
+    id = name._id, name = name._name;
+  } else {
+    id = newId(), (timing = defaultTiming).time = d3Timer.now(), name = name == null ? null : name + "";
+  }
+
+  for (var groups = this._groups, m = groups.length, j = 0; j < m; ++j) {
+    for (var group = groups[j], n = group.length, node, i = 0; i < n; ++i) {
+      if (node = group[i]) {
+        schedule(node, name, id, i, group, timing || inherit(node, id));
+      }
+    }
+  }
+
+  return new Transition(groups, this._parents, name, id);
+}
+
+d3Selection.selection.prototype.interrupt = selection_interrupt;
+d3Selection.selection.prototype.transition = selection_transition;
+
+var root = [null];
+
+function active(node, name) {
+  var schedules = node.__transition,
+      schedule,
+      i;
+
+  if (schedules) {
+    name = name == null ? null : name + "";
+    for (i in schedules) {
+      if ((schedule = schedules[i]).state > SCHEDULED && schedule.name === name) {
+        return new Transition([[node]], root, name, +i);
+      }
+    }
+  }
+
+  return null;
+}
+
+exports.active = active;
+exports.interrupt = interrupt;
+exports.transition = transition;
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+}));
+
+},{"d3-color":13,"d3-dispatch":14,"d3-ease":16,"d3-interpolate":21,"d3-selection":24,"d3-timer":27}],29:[function(require,module,exports){
+// https://d3js.org/d3-zoom/ v1.8.3 Copyright 2019 Mike Bostock
+(function (global, factory) {
+typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('d3-dispatch'), require('d3-drag'), require('d3-interpolate'), require('d3-selection'), require('d3-transition')) :
+typeof define === 'function' && define.amd ? define(['exports', 'd3-dispatch', 'd3-drag', 'd3-interpolate', 'd3-selection', 'd3-transition'], factory) :
+(global = global || self, factory(global.d3 = global.d3 || {}, global.d3, global.d3, global.d3, global.d3, global.d3));
+}(this, function (exports, d3Dispatch, d3Drag, d3Interpolate, d3Selection, d3Transition) { 'use strict';
+
+function constant(x) {
+  return function() {
+    return x;
+  };
+}
+
+function ZoomEvent(target, type, transform) {
+  this.target = target;
+  this.type = type;
+  this.transform = transform;
+}
+
+function Transform(k, x, y) {
+  this.k = k;
+  this.x = x;
+  this.y = y;
+}
+
+Transform.prototype = {
+  constructor: Transform,
+  scale: function(k) {
+    return k === 1 ? this : new Transform(this.k * k, this.x, this.y);
+  },
+  translate: function(x, y) {
+    return x === 0 & y === 0 ? this : new Transform(this.k, this.x + this.k * x, this.y + this.k * y);
+  },
+  apply: function(point) {
+    return [point[0] * this.k + this.x, point[1] * this.k + this.y];
+  },
+  applyX: function(x) {
+    return x * this.k + this.x;
+  },
+  applyY: function(y) {
+    return y * this.k + this.y;
+  },
+  invert: function(location) {
+    return [(location[0] - this.x) / this.k, (location[1] - this.y) / this.k];
+  },

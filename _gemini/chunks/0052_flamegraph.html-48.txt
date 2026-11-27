@@ -1,0 +1,171 @@
+                renderNode(context, hoverFrame, 1, STATE_UNHOVER)
+              })
+            }
+            hoverFrame = target
+
+            if (target) {
+              this.style.cursor = 'pointer'
+              withZoomTransform(context, function () {
+                renderNode(context, target, 1, STATE_HOVER)
+              })
+              if (target.parent) showTooltip(target)
+              else hideTooltip()
+            } else {
+              this.style.cursor = 'default'
+              hideTooltip()
+            }
+          })
+          .on('mouseout', function () {
+            hoverFrame = null
+            this.style.cursor = 'default'
+            hideTooltip()
+          })
+
+        if (opts.renderTooltip !== null) {
+          node.append('div')
+            .style('background', '#222')
+            .style('color', '#fff')
+            .style('border-radius', '3px')
+            .style('padding', '3px')
+            .style('font-size', '10pt')
+            .style('position', 'fixed')
+            .style('display', 'none')
+            .style('z-index', 1000)
+            .classed('d3-flame-graph-tooltip', true)
+            .on('mouseover', preventHideTooltip)
+            .on('mouseout', hideTooltip)
+        }
+
+        adjustForHighDpiScreen(node.select('canvas.d3-flame-graph'))
+      }
+
+      categorizeTree(data)
+      filter(data)
+
+      // first draw
+      update()
+    })
+  }
+
+  chart.height = function (_) {
+    if (!arguments.length) { return h }
+    h = _ < minHeight ? minHeight : _
+    onresize()
+    update()
+    return chart
+  }
+
+  chart.minHeight = function (_) {
+    if (!arguments.length) { return minHeight }
+    minHeight = _
+    h = h < minHeight ? minHeight : h
+    onresize()
+    update()
+    return chart
+  }
+
+  chart.width = function (_) {
+    if (!arguments.length) { return w }
+    w = _
+    onresize()
+    update()
+    return chart
+  }
+
+  chart.cellHeight = function (_) {
+    if (!arguments.length) { return c }
+    c = _
+    h = (maxDepth(tree) + 2) * c
+    h = h < minHeight ? minHeight : h
+    onresize()
+    update()
+    return chart
+  }
+
+  chart.transitionDuration = function (_) {
+    if (!arguments.length) { return transitionDuration }
+    transitionDuration = _
+    return chart
+  }
+
+  chart.transitionEase = function (_) {
+    if (!arguments.length) { return transitionEase }
+    transitionEase = _
+    return chart
+  }
+
+  chart.sort = function (_) {
+    if (!arguments.length) { return sort }
+    sort = _
+    return chart
+  }
+
+  chart.tiers = function (_) {
+    tiers = _
+    if (selection) update()
+    return chart
+  }
+
+  chart.search = function (term, color) {
+    selection.each(function (data) {
+      searchTree(data, term, color)
+      update()
+    })
+  }
+
+  chart.clear = function (color) {
+    selection.each(function (data) {
+      clear(data, color)
+      update()
+    })
+  }
+
+  chart.typeHide = function (type) {
+    if (!~filterTypes.indexOf(type)) {
+      filterTypes.push(type)
+      filterNeeded = true
+      if (selection) update()
+    }
+  }
+
+  chart.typeShow = function (type) {
+    var ix = filterTypes.indexOf(type)
+    if (!~ix) return
+    filterTypes.splice(ix, 1)
+    filterNeeded = true
+    if (selection) update()
+  }
+
+  chart.setGraphZoom = function (n) {
+    panZoom.scaleTo(d3.select(element).select('canvas.d3-flame-graph'), n)
+  }
+
+  chart.renderTree = function (data) {
+    d3.select(element).datum(d3.hierarchy(data, function (d) { return d.c || d.children }))
+    chart(true)
+  }
+
+  chart.colors = colors
+
+  chart.update = (hard) => {
+    if (hard) {
+      selection.each(function (data) {
+        allSamples = data.value
+
+        categorizeTree(data)
+        filter(data)
+
+        // first draw
+        update()
+      })
+    } else update()
+  }
+
+  chart.zoom = (nodeData = nodes[0].data) => {
+    // nodes[0] = root node
+    // users of this method can zoom in on a data point
+    // instead of a node.
+    const node = nodes.find(n => n.data === nodeData)
+    zoom(node || nodes[0])
+  }
+

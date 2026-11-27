@@ -1,0 +1,130 @@
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-11-02",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:26+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "8e91311a0527a4af818818f3ec6cb7150229013e",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/系统设计/pingcap/talent-plan",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/pingcap/talent-plan"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "93e2131f29d6932572e61ff923856732917135c6547f3c05ae0a7b213966ac12",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:06+08:00"
+        },
+        "legacy_fingerprint_12": "93e2131f29d6"
+      },
+      "classification": {
+        "primary_category": "知识库/系统设计",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F2"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 208,
+        "bytes": 3005408,
+        "markdown_count": 51,
+        "question_markers": 0,
+        "test_files": 5,
+        "observed_at": "2026-11-07T14:06:24+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 1,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/pingcap/talent-plan",
+          "category": "知识库/系统设计",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 1,
+          "fetched": "2026-11-05 11:12",
+          "files": 208,
+          "bytes": 3005408,
+          "mb": 2,
+          "top_extensions": {
+            ".rs": 91,
+            ".md": 51,
+            ".go": 13,
+            ".toml": 11,
+            "(none)": 8,
+            ".txt": 7,
+            ".lock": 6,
+            ".proto": 4,
+            ".jpg": 4,
+            ".mod": 3
+          },
+          "license_files": [],
+          "license_detected": null,
+          "round": 2,
+          "selection": "正文 51 篇；高采用(11036 star)+有正文(51篇)｜自动判定：keep",
+          "functions": [
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 51,
+            "md_share_pct": 9.1,
+            "question_markers": 0,
+            "tests": 5,
+            "images": 6,
+            "pdf": 0,
+            "stars": 11036,
+            "pushed": "2026-11-02",
+            "functions": [
+              "高并发",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "content_fingerprint": "93e2131f29d6932572e61ff923856732917135c6547f3c05ae0a7b213966ac12",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:exely/csapp-labs",
+      "name": "Exely/CSAPP-Labs",
+      "source": {
+        "url": "https://github.com/Exely/CSAPP-Labs",

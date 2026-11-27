@@ -1,0 +1,116 @@
+// MS10 原始面经采集器：渲染公开牛客页面，仅记录可核对的原文片段。
+// 规则：登录墙/仅作者可见/内容已删除 → 记 blocked，不绕过；匹配必须命中题号、slug 或公司内唯一题名。
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+import { launchBrowser, sleep } from '../../../06-实验代码/_shared/headless.mjs';
+
+const here = path.dirname(fileURLToPath(import.meta.url));
+const BANK = path.resolve(here, '..');
+const EVIDENCE_FILE = path.join(here, 'evidence', 'interview-evidence.json');
+const LOG_FILE = path.join(here, 'evidence', 'evidence-collection-log.json');
+
+const COMPANY_CODE = {
+  字节跳动: 'BD',
+  腾讯: 'TX',
+  阿里巴巴: 'ALI',
+  美团: 'MT',
+  滴滴: 'DD',
+  华为: 'HW',
+};
+const COMPANY_SHORT = {
+  字节跳动: '字节',
+  腾讯: '腾讯',
+  阿里巴巴: '阿里',
+  美团: '美团',
+  滴滴: '滴滴',
+  华为: '华为',
+};
+
+const args = Object.fromEntries(
+  process.argv.slice(2).map(a => {
+    const [k, v] = a.replace(/^--/, '').split('=');
+    return [k, v ?? 'true'];
+  })
+);
+const company = args.company;
+if (!COMPANY_CODE[company]) {
+  console.error('用法: node collect_interview_evidence.mjs --company=字节跳动 [--max-pages=3] [--max-posts=30] [--port=9515]');
+  process.exit(2);
+}
+const maxPages = Number(args['max-pages'] || 3);
+const maxPosts = Number(args['max-posts'] || 30);
+const port = Number(args.port || 9515);
+
+const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
+const SOFT_404 = ['页面不存在', '内容不存在', '仅作者可见', '该内容已被删除', '页面未找到'];
+const LOGIN_WALL = ['登录后查看', '请先登录', '登录后可查看'];
+
+const norm = s => String(s)
+  .replace(/\s+/g, '')
+  .replace(/[（）()【】\[\]:：、,，.。]/g, '')
+  .toLowerCase();
+
+// 从 "112. 路径总和" 拆出题号与题名
+function splitTitle(title) {
+  const m = String(title).match(/^\s*(\d+)\s*[.、]\s*(.+)$/);
+  if (m) return { num: m[1], name: m[2].trim() };
+  return { num: null, name: String(title).trim() };
+}
+
+// 只接受真 slug；题库里有补充题的 question_url 内嵌了微信/站外链接，必须排除
+function slugOf(url) {
+  const m = String(url).match(/leetcode\.(?:cn|com)\/problems\/([a-z0-9-]+)\/?$/i);
+  return m && !/^(https?|www)$/i.test(m[1]) ? m[1].toLowerCase() : null;
+}
+
+function buildMatchers(list) {
+  const items = list.map(q => {
+    const { num, name } = splitTitle(q.title);
+    return { id: q.id, title: q.title, num, name, nname: norm(name), slug: slugOf(q.question_url), link: q.question_url };
+  });
+  // 公司内题名唯一性：只有唯一且不被更长题名包含时才允许纯题名匹配
+  for (const it of items) {
+    const sameName = items.filter(o => o.nname === it.nname);
+    const longer = items.filter(o => o !== it && o.nname.length > it.nname.length && o.nname.includes(it.nname));
+    it.uniqueName = sameName.length === 1 && longer.length === 0 && it.nname.length >= 4;
+    it.aliases = buildAliases(it, items);
+  }
+  return items;
+}
+
+// 保守别名：只做无歧义的等价替换，且替换后在公司内仍唯一
+function buildAliases(it, items) {
+  const out = [];
+  const candidates = [];
+  // 纯 ASCII 缩写（LRU / LFU / KMP）在面经里常独立出现
+  if (/^(?:[A-Z]{2,6})$/.test(it.name) && it.name.length >= 3) candidates.push(it.name);
+  // 汉字近义：反转/翻转、环/圈
+  const swapped = it.name.replace(/反转/g, '翻转').replace(/翻转/g, '反转');
+  if (swapped !== it.name) candidates.push(swapped);
+  for (const c of candidates) {
+    const nc = norm(c);
+    if (nc.length < 3) continue;
+    const clash = items.filter(o => o !== it && (o.nname === nc || o.nname.includes(nc) || nc.includes(o.nname)));
+    if (clash.length === 0) out.push(c);
+  }
+  return out;
+}
+
+function matchText(text, matchers) {
+  const flat = norm(text);
+  const hits = [];
+  for (const it of matchers) {
+    let by = null;
+    let quote = null;
+    // slug 必须整段独立出现："longest-valid-parentheses" 内含 "valid-parentheses"，
+    // 不加边界会把 32 题误判成 20 题
+    if (it.slug && new RegExp(`(^|[^a-z0-9-])${escapeRe(it.slug)}([^a-z0-9-]|$)`).test(flat)) {
+      by = 'slug';
+      quote = lineAround(text, it.slug);
+    }
+    // 题号后必须跟题名或句读；"LeetCode 79 单词搜索" 与 "LeetCode 212 单词搜索" 不能混
+    if (!by && it.num) {
+      const re = new RegExp(`(?:leetcode|力扣)\\s*${it.num}(?!\\d)`, 'i');
+      const line = lineAroundRegex(text, re);

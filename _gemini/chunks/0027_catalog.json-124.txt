@@ -1,0 +1,132 @@
+          "default_branch": "main",
+          "head_commit_sha": "57673726396dd94acb23bdb1e67f27c78ee85a8e",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/AI与RAG/dair-ai/Prompt-Engineering-Guide",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "aed47b915dcbb6fb7335bf1b6e4fee621c66bc060befc716261151f0b152bd45",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:52+08:00"
+        },
+        "legacy_fingerprint_12": "aed47b915dcb"
+      },
+      "classification": {
+        "primary_category": "题库/AI与RAG",
+        "category_basis": "题面标记=40≥30，按规则归题库（原：知识库/AI与RAG）",
+        "functions": [
+          "F1",
+          "F2",
+          "F4",
+          "F5"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 1560,
+        "bytes": 79892495,
+        "markdown_count": 1111,
+        "question_markers": 40,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:28+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE.md"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 70,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/dair-ai/Prompt-Engineering-Guide",
+          "category": "题库/AI与RAG",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 70,
+          "fetched": "2026-11-05 11:12",
+          "files": 1560,
+          "bytes": 79892495,
+          "mb": 76,
+          "top_extensions": {
+            ".mdx": 1099,
+            ".png": 191,
+            ".json": 155,
+            ".svg": 31,
+            ".jpg": 20,
+            ".tsx": 15,
+            ".md": 12,
+            ".ipynb": 12,
+            ".js": 4,
+            ".ts": 3
+          },
+          "license_files": [
+            "LICENSE.md"
+          ],
+          "license_detected": "MIT",
+          "round": 2,
+          "selection": "正文 1111 篇；题面/问答标记 40 处；高采用(79822 star)+有正文(1111篇)；图解 247 张｜自动判定：keep",
+          "functions": [
+            "F1题面",
+            "F2解答",
+            "F4路线",
+            "F5图解"
+          ],
+          "measured": {
+            "md_n": 1111,
+            "md_share_pct": 6.3,
+            "question_markers": 40,
+            "tests": 0,
+            "images": 247,
+            "pdf": 1,
+            "stars": 79822,
+            "pushed": "2026-03-11",
+            "functions": [
+              "AI应用",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "category_basis": "题面标记=40≥30，按规则归题库（原：知识库/AI与RAG）",
+          "content_fingerprint": "aed47b915dcbb6fb7335bf1b6e4fee621c66bc060befc716261151f0b152bd45",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:harsh-belekar/leetcode-sql-50",

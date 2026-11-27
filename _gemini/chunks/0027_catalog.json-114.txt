@@ -1,0 +1,123 @@
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/JoshithReddyAleti/AI_Engineer_Interview_Prep",
+          "category": "题库/AI与Agent",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 0,
+          "fetched": "2026-11-05 11:12",
+          "files": 91,
+          "bytes": 2319455,
+          "mb": 2,
+          "top_extensions": {
+            ".md": 89,
+            ".pdf": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "round": 2,
+          "selection": "正文 89 篇；题面/问答标记 960 处；文档型仓库(md占比100%)｜自动判定：keep",
+          "functions": [
+            "F1题面",
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 89,
+            "md_share_pct": 99.5,
+            "question_markers": 960,
+            "tests": 0,
+            "images": 0,
+            "pdf": 1,
+            "stars": 159,
+            "pushed": "2026-10-27",
+            "functions": [
+              "SD题面",
+              "LLM题面"
+            ]
+          },
+          "category_basis": "人工定类：AI 工程师面试题准备",
+          "content_fingerprint": "e716abf6741ea3f3b4e3ccfefc1fbf7cbbf5f76954c23eb9b8d8080bc58235b8",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:lau-jonathan/llm-agent-interview-guide",
+      "name": "Lau-Jonathan/LLM-Agent-Interview-Guide",
+      "source": {
+        "url": "https://github.com/Lau-Jonathan/LLM-Agent-Interview-Guide",
+        "canonical_url": "https://github.com/Lau-Jonathan/LLM-Agent-Interview-Guide",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-02-28",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:01+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "5adfdb5355922854f6dd7ce593ca9e64c6c68eed",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/AI与Agent/Lau-Jonathan/LLM-Agent-Interview-Guide",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/Lau-Jonathan/LLM-Agent-Interview-Guide"
+      },
+      "integrity": {
+        "archive_sha256": "df86a83d9e2712d8b291cebdc6e9bec1a18d427c4be5291da61438b2ad5f3abe",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "题库/AI与Agent",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 19,
+        "bytes": 82166,
+        "markdown_count": 17,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:26+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "Apache-2.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,

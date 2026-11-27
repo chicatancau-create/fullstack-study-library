@@ -1,0 +1,144 @@
+  var sign = value < 0 ? "-" : "",
+      string = (sign ? -value : value) + "",
+      length = string.length;
+  return sign + (length < width ? new Array(width - length + 1).join(fill) + string : string);
+}
+
+function requote(s) {
+  return s.replace(requoteRe, "\\$&");
+}
+
+function formatRe(names) {
+  return new RegExp("^(?:" + names.map(requote).join("|") + ")", "i");
+}
+
+function formatLookup(names) {
+  var map = {}, i = -1, n = names.length;
+  while (++i < n) map[names[i].toLowerCase()] = i;
+  return map;
+}
+
+function parseWeekdayNumberSunday(d, string, i) {
+  var n = numberRe.exec(string.slice(i, i + 1));
+  return n ? (d.w = +n[0], i + n[0].length) : -1;
+}
+
+function parseWeekdayNumberMonday(d, string, i) {
+  var n = numberRe.exec(string.slice(i, i + 1));
+  return n ? (d.u = +n[0], i + n[0].length) : -1;
+}
+
+function parseWeekNumberSunday(d, string, i) {
+  var n = numberRe.exec(string.slice(i, i + 2));
+  return n ? (d.U = +n[0], i + n[0].length) : -1;
+}
+
+function parseWeekNumberISO(d, string, i) {
+  var n = numberRe.exec(string.slice(i, i + 2));
+  return n ? (d.V = +n[0], i + n[0].length) : -1;
+}
+
+function parseWeekNumberMonday(d, string, i) {
+  var n = numberRe.exec(string.slice(i, i + 2));
+  return n ? (d.W = +n[0], i + n[0].length) : -1;
+}
+
+function parseFullYear(d, string, i) {
+  var n = numberRe.exec(string.slice(i, i + 4));
+  return n ? (d.y = +n[0], i + n[0].length) : -1;
+}
+
+function parseYear(d, string, i) {
+  var n = numberRe.exec(string.slice(i, i + 2));
+  return n ? (d.y = +n[0] + (+n[0] > 68 ? 1900 : 2000), i + n[0].length) : -1;
+}
+
+function parseZone(d, string, i) {
+  var n = /^(Z)|([+-]\d\d)(?::?(\d\d))?/.exec(string.slice(i, i + 6));
+  return n ? (d.Z = n[1] ? 0 : -(n[2] + (n[3] || "00")), i + n[0].length) : -1;
+}
+
+function parseQuarter(d, string, i) {
+  var n = numberRe.exec(string.slice(i, i + 1));
+  return n ? (d.q = n[0] * 3 - 3, i + n[0].length) : -1;
+}
+
+function parseMonthNumber(d, string, i) {
+  var n = numberRe.exec(string.slice(i, i + 2));
+  return n ? (d.m = n[0] - 1, i + n[0].length) : -1;
+}
+
+function parseDayOfMonth(d, string, i) {
+  var n = numberRe.exec(string.slice(i, i + 2));
+  return n ? (d.d = +n[0], i + n[0].length) : -1;
+}
+
+function parseDayOfYear(d, string, i) {
+  var n = numberRe.exec(string.slice(i, i + 3));
+  return n ? (d.m = 0, d.d = +n[0], i + n[0].length) : -1;
+}
+
+function parseHour24(d, string, i) {
+  var n = numberRe.exec(string.slice(i, i + 2));
+  return n ? (d.H = +n[0], i + n[0].length) : -1;
+}
+
+function parseMinutes(d, string, i) {
+  var n = numberRe.exec(string.slice(i, i + 2));
+  return n ? (d.M = +n[0], i + n[0].length) : -1;
+}
+
+function parseSeconds(d, string, i) {
+  var n = numberRe.exec(string.slice(i, i + 2));
+  return n ? (d.S = +n[0], i + n[0].length) : -1;
+}
+
+function parseMilliseconds(d, string, i) {
+  var n = numberRe.exec(string.slice(i, i + 3));
+  return n ? (d.L = +n[0], i + n[0].length) : -1;
+}
+
+function parseMicroseconds(d, string, i) {
+  var n = numberRe.exec(string.slice(i, i + 6));
+  return n ? (d.L = Math.floor(n[0] / 1000), i + n[0].length) : -1;
+}
+
+function parseLiteralPercent(d, string, i) {
+  var n = percentRe.exec(string.slice(i, i + 1));
+  return n ? i + n[0].length : -1;
+}
+
+function parseUnixTimestamp(d, string, i) {
+  var n = numberRe.exec(string.slice(i));
+  return n ? (d.Q = +n[0], i + n[0].length) : -1;
+}
+
+function parseUnixTimestampSeconds(d, string, i) {
+  var n = numberRe.exec(string.slice(i));
+  return n ? (d.s = +n[0], i + n[0].length) : -1;
+}
+
+function formatDayOfMonth(d, p) {
+  return pad(d.getDate(), p, 2);
+}
+
+function formatHour24(d, p) {
+  return pad(d.getHours(), p, 2);
+}
+
+function formatHour12(d, p) {
+  return pad(d.getHours() % 12 || 12, p, 2);
+}
+
+function formatDayOfYear(d, p) {
+  return pad(1 + d3Time.timeDay.count(d3Time.timeYear(d), d), p, 3);
+}
+
+function formatMilliseconds(d, p) {
+  return pad(d.getMilliseconds(), p, 3);
+}
+
+function formatMicroseconds(d, p) {
+  return formatMilliseconds(d, p) + "000";
+}
+

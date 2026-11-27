@@ -1,0 +1,128 @@
+          "tarball_mb": 7,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/swisskyrepo/PayloadsAllTheThings",
+          "category": "题库/算法题解",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 7,
+          "fetched": "2026-11-05 11:12",
+          "files": 451,
+          "bytes": 12953006,
+          "mb": 12,
+          "top_extensions": {
+            ".md": 142,
+            ".txt": 66,
+            ".png": 37,
+            ".jpg": 27,
+            ".svg": 18,
+            ".xsl": 15,
+            "(none)": 14,
+            ".zip": 14,
+            ".php": 14,
+            ".py": 10
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "round": 2,
+          "selection": "正文 142 篇；高采用(82380 star)+有正文(142篇)；人工点名重点源｜自动判定：keep",
+          "functions": [
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 142,
+            "md_share_pct": 8.3,
+            "question_markers": 14,
+            "tests": 0,
+            "images": 87,
+            "pdf": 1,
+            "stars": 82380,
+            "pushed": "2026-10-30",
+            "functions": [
+              "注入-安全题面"
+            ]
+          },
+          "content_fingerprint": "b2b9a0b2a81b34b355328070f3c28fd8509b557143790270b5bf3be677acec7b",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:wisdompeak/leetcode",
+      "name": "wisdompeak/LeetCode",
+      "source": {
+        "url": "https://github.com/wisdompeak/LeetCode",
+        "canonical_url": "https://github.com/wisdompeak/LeetCode",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-06-15",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:47+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "9ad43c8952fa474f76597738a599774d081103fc",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/算法题解/wisdompeak/LeetCode",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/wisdompeak/LeetCode"
+      },
+      "integrity": {
+        "archive_sha256": "325c939d6d95f3607bedc0c66f873df8ecfcbcbce0c21d3ce966a5bb8df4deb3",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "题库/算法题解",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 3446,
+        "bytes": 4245331,
+        "markdown_count": 1496,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:32+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 1,

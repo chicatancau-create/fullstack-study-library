@@ -1,0 +1,129 @@
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 3,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/sunface/rust-course",
+          "category": "知识库/后端进阶",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 3,
+          "fetched": "2026-11-05 11:12",
+          "files": 572,
+          "bytes": 5663322,
+          "mb": 5,
+          "top_extensions": {
+            ".md": 409,
+            ".rs": 96,
+            ".png": 20,
+            ".jpg": 11,
+            ".toml": 7,
+            "(none)": 7,
+            ".svg": 6,
+            ".sh": 4,
+            ".yml": 3,
+            ".js": 2
+          },
+          "license_files": [],
+          "license_detected": null,
+          "round": 2,
+          "selection": "正文 409 篇；高采用(31102 star)+有正文(409篇)；文档型仓库(md占比44%)｜自动判定：keep",
+          "functions": [
+            "F2解答",
+            "F4路线"
+          ],
+          "measured": {
+            "md_n": 409,
+            "md_share_pct": 43.5,
+            "question_markers": 24,
+            "tests": 0,
+            "images": 37,
+            "pdf": 0,
+            "stars": 31102,
+            "pushed": "2026-10-30",
+            "functions": [
+              "主线-语言",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "content_fingerprint": "1a7d8d92d6dc86639d101093d8f3311220b2f2214142f390b53b9aec0ef8cae1",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:ty4z2008/qix",
+      "name": "ty4z2008/Qix",
+      "source": {
+        "url": "https://github.com/ty4z2008/Qix",
+        "canonical_url": "https://github.com/ty4z2008/Qix",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-09-06",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:58+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "91cd7835e8e2edd38e69d771bbb531271abff502",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/后端进阶/ty4z2008/Qix",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/ty4z2008/Qix"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "ca51aa4e2de4d112655c4166c352a318e09c49b38016419400d2b630b5837389",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:05+08:00"
+        },
+        "legacy_fingerprint_12": "ca51aa4e2de4"
+      },
+      "classification": {
+        "primary_category": "知识库/后端进阶",
+        "category_basis": "人工定类：C++/后端知识笔记",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 14,
+        "bytes": 465238,
+        "markdown_count": 12,
+        "question_markers": 2,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:23+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "License.md"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,

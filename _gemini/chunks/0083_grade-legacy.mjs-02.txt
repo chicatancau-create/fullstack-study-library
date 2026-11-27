@@ -1,0 +1,84 @@
+    process.env.JWT_SECRET = 'test-secret-0123456789';
+    const token = mod.signToken({ sub: 'alice' });
+    eq('B 有密钥时签验一致', mod.verifyToken(token)?.sub, 'alice');
+    eq('B 篡改签名被拒', mod.verifyToken(token.slice(0, -1) + 'X'), null);
+    restoreSecret();
+  });
+
+  // C. 内部错误不泄露
+  await step('C 错误泄露', async () => {
+    const r = await mod.safeQuery(db, 'SELECT * FROM g8_lab.not_a_table');
+    const text = JSON.stringify(r);
+    eq('C 不回 stack', /at\s|\.mjs|\.js:\d+/.test(text), false);
+    eq('C 回稳定错误码', r.error, 'internal_error');
+  });
+
+  // D. 丢失更新：同 version 并发只 1 个成功
+  await step('D 丢失更新', async () => {
+    const before = await db.query("SELECT version FROM g8_lab.task WHERE id='k-acme-1'");
+    eq('D 迁移后 version 存在', Number(before.rows[0].version), 1);
+    // 并发读写必须走 pool：同一个 Client 上并发 query 已被 pg 标记弃用
+    const attempts = Array.from({ length: 5 }, (_, i) => mod.updateTask(pool, {
+      tenantId: 't-acme', taskId: 'k-acme-1', title: `并发-${i}`, version: 1,
+    }));
+    const results = await Promise.all(attempts);
+    const winners = results.filter((r) => r && !r.conflict).length;
+    const after = await db.query("SELECT version FROM g8_lab.task WHERE id='k-acme-1'");
+    eq('D 同版本只有 1 个赢', [winners, Number(after.rows[0].version)], [1, 2]);
+  });
+
+  // E. 分页稳定：同 created_at 的行顺序必须按 (created_at, id) 确定。
+  //    种子里 k-acme-1 与 k-acme-2 的 created_at 完全相同，只按时间排序时顺序不稳。
+  await step('E 分页稳定', async () => {
+    const first = await mod.listTasks(db, { tenantId: 't-acme', limit: 1 });
+    const second = await mod.listTasks(db, { tenantId: 't-acme', limit: 1, cursor: first[0]?.id ?? null });
+    eq('E 两页不重复', first[0]?.id === second[0]?.id, false);
+    // 反向也取一次：不稳定排序在两种写法里至少有一种会翻
+    const all = await mod.listTasks(db, { tenantId: 't-acme', limit: 10 });
+    const ids = all.map((r) => r.id);
+    eq('E 同秒行按 id 降序', ids, ['k-acme-2', 'k-acme-1']);
+  });
+
+  // F. 跨租户读取必须为 null
+  await step('F 跨租户读', async () => {
+    const r = await mod.getTask(db, { tenantId: 't-acme', taskId: 'k-globex-1' });
+    eq('F 跨租户 getTask 返回 null', r, null);
+    const own = await mod.getTask(db, { tenantId: 't-acme', taskId: 'k-acme-1' });
+    eq('F 同租户能读', own?.id, 'k-acme-1');
+  });
+
+  // G. 前缀查询：不能把搜索词包成 '%x%'（前导通配索引失效），且前缀索引必须存在。
+  //    这条用「源码 + 索引」判，不靠 EXPLAIN：本机表太小，Seq Scan 也会很快，EXPLAIN 不可靠。
+  await step('G 前缀查询与索引', async () => {
+    const src = readFileSync(path.resolve(target), 'utf8');
+    const leadingWildcard = /'%'\s*\|\|\s*\$2\s*\|\|\s*'%'/.test(src);
+    eq('G 不用前导通配 %x%', leadingWildcard, false);
+    const { rows: idx } = await db.query(
+      "SELECT indexname FROM pg_indexes WHERE schemaname='g8_lab' AND tablename='task'",
+    );
+    const names = idx.map((r) => r.indexname);
+    eq('G 前缀索引存在', names.includes('idx_task_title_prefix'), true);
+    eq('G 稳定分页索引存在', names.includes('idx_task_stable'), true);
+  });
+} finally {
+  await setup();
+  await pool.end();
+  await db.end();
+}
+
+console.log(`checks=${checks} fails=${fails}`);
+if (baselineOnly) {
+  // 基线模式：A–G 每组都必须至少有一条 FAIL（缺陷确实存在）；
+  // 正向对照（B 签验一致、F 同租户可读等）允许 PASS。
+  const DEFECT_GROUPS = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+  const missing = DEFECT_GROUPS.filter((g) => (groupStatus.get(g)?.failed ?? 0) === 0);
+  const summary = DEFECT_GROUPS.map((g) => `${g}:${groupStatus.get(g)?.failed ?? 0}/${(groupStatus.get(g)?.failed ?? 0) + (groupStatus.get(g)?.passed ?? 0)}`).join(' ');
+  console.log(`baseline groups ${summary}`);
+  if (missing.length) {
+    console.log(`BASELINE NOT CLEAN：这些组没有复现缺陷 ${missing.join(',')}`);
+    process.exit(1);
+  }
+  console.log('BASELINE OK（A–G 七组缺陷全部复现）');
+  process.exit(0);
+}
+process.exit(fails === 0 ? 0 : 1);

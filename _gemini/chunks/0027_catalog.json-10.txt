@@ -1,0 +1,126 @@
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 85,
+          "fetched": "2026-11-05 11:12",
+          "files": 9830,
+          "bytes": 144822180,
+          "mb": 138,
+          "top_extensions": {
+            ".md": 2798,
+            ".py": 1882,
+            ".json": 1320,
+            ".js": 648,
+            ".txt": 586,
+            ".svg": 531,
+            "(none)": 379,
+            ".ts": 344,
+            ".png": 185,
+            ".go": 166
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "round": 2,
+          "selection": "正文 2798 篇；题面/问答标记 117 处；自带测试 610 个；图解 881 张｜自动判定：keep",
+          "functions": [
+            "F1题面",
+            "F2解答",
+            "F3可运行",
+            "F5图解"
+          ],
+          "measured": {
+            "md_n": 2798,
+            "md_share_pct": 15.4,
+            "question_markers": 117,
+            "tests": 610,
+            "images": 881,
+            "pdf": 0,
+            "stars": 1316,
+            "pushed": "2026-11-03",
+            "functions": [
+              "AI应用",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "category_basis": "人工覆核退回：从零构建 AI 工程的课程正文，不是题库（机械规则题面标记=117 属误判）",
+          "content_fingerprint": "727f4162b7d841090868755cb7feb248c21d9c8df1fa22f233ddefa4123e6fe3",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:limouren2000/llms-dev-study",
+      "name": "limouren2000/llms-dev-study",
+      "source": {
+        "url": "https://github.com/limouren2000/llms-dev-study",
+        "canonical_url": "https://github.com/limouren2000/llms-dev-study",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-10-12",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:57:50+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "fcb46f1c56121129e44aa57fefb196cbc06a69b8",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/AI与RAG/limouren2000/llms-dev-study",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/limouren2000/llms-dev-study"
+      },
+      "integrity": {
+        "archive_sha256": "e7afa239f0dcb9f4d557dfd22ca54bfd43745524e175c7e34aee4a5ad6f10882",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/AI与RAG",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 132,
+        "bytes": 106444573,
+        "markdown_count": 13,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:18+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {

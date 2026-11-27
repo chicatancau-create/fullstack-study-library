@@ -1,0 +1,11 @@
+.&lt;/li&gt; &lt;li&gt;",
+      "responsibilities": ""
+    },
+    {
+      "company": "gitlab",
+      "source": "Greenhouse official job board",
+      "title": "Backend Engineer (Ruby), Create: Change Record",
+      "location": "Remote, Poland; Remote, United Kingdom",
+      "experience": "",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8891301002",
+      "updated": "2026-11-06",

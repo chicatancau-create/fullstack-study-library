@@ -1,0 +1,118 @@
+        "archive_sha256": "6c0c2e9b61162b3156c24490d3700cb1ad632c93cbb133203d7ff9d8b740c4f5",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/全栈路线",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 15,
+        "bytes": 234757,
+        "markdown_count": 4,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:21+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE.md"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：14 文件 -> 15 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/practical-tutorials/project-based-learning",
+          "category": "知识库/全栈路线",
+          "branch": null,
+          "archive_sha256": "6c0c2e9b61162b3156c24490d3700cb1ad632c93cbb133203d7ff9d8b740c4f5",
+          "tarball_mb": 0,
+          "fetched": "2026-11-04 20:03",
+          "files": 15,
+          "bytes": 234757,
+          "mb": 0,
+          "top_extensions": {
+            ".yml": 6,
+            ".md": 4,
+            ".txt": 2,
+            ".json": 1,
+            ".py": 1
+          },
+          "license_files": [
+            "LICENSE.md"
+          ],
+          "license_detected": "MIT",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：14 文件 -> 15 文件",
+          "measured": {
+            "pushed": "2026-11-02",
+            "stars": 289090
+          }
+        }
+      }
+    },
+    {
+      "id": "github:frontendmasters/front-end-handbook-2018",
+      "name": "FrontendMasters/front-end-handbook-2018",
+      "source": {
+        "url": "https://github.com/FrontendMasters/front-end-handbook-2018",
+        "canonical_url": "https://github.com/FrontendMasters/front-end-handbook-2018",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2023-07-28",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:16+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "a925c3e62e0a95a8ff658b7c7a76e03f4daa9050",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/前端与Node/FrontendMasters/front-end-handbook-2018",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/FrontendMasters/front-end-handbook-2018"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "a16d19104add2a7d75b9f2974199a8053bb83a103096adab9d29ee55a003dedc",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:02+08:00"
+        },

@@ -1,0 +1,101 @@
+    cmd += ["ls-remote", "--symref", url, "HEAD"]
+    try:
+        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
+    except subprocess.TimeoutExpired:
+        return {"status": "timeout", **base, "note": f"ls-remote 超过 {timeout}s 未返回"}
+    if proc.returncode != 0:
+        detail = (proc.stderr or proc.stdout or "").strip().splitlines()
+        return {
+            "status": "unreachable",
+            **base,
+            "note": detail[0][:300] if detail else f"ls-remote 退出码 {proc.returncode}",
+        }
+    default_branch = None
+    head_sha = None
+    for line in proc.stdout.splitlines():
+        if line.endswith("\tHEAD") and line.startswith("ref: "):
+            default_branch = line[len("ref: "):].split("\t")[0].strip()
+            if default_branch.startswith("refs/heads/"):
+                default_branch = default_branch[len("refs/heads/"):]
+        elif line.endswith("\tHEAD"):
+            head_sha = line.split("\t")[0].strip()
+    if not head_sha:
+        return {"status": "no_head", **base, "default_branch": default_branch, "note": "未返回 HEAD 提交"}
+    return {
+        "status": "checked",
+        **base,
+        "default_branch": default_branch,
+        "head_commit_sha": head_sha,
+    }
+
+
+def cmd_snapshot(args: argparse.Namespace) -> int:
+    catalog = load_json(CATALOG)
+    tallies: Counter = Counter()
+    failures: list[tuple[str, str, str]] = []
+    changed = 0
+    for resource in catalog["resources"]:
+        current = resource["source"].get("upstream_snapshot") or {}
+        if current.get("status") == "checked" and not args.refresh:
+            tallies["skipped"] += 1
+            continue
+        if args.limit and changed >= args.limit:
+            tallies["deferred"] += 1
+            continue
+        result = check_upstream(resource["source"]["url"], args.proxy, args.timeout)
+        resource["source"]["upstream_snapshot"] = result
+        tallies[result["status"]] += 1
+        changed += 1
+        if result["status"] != "checked":
+            failures.append((resource["id"], result["status"], result["note"] or ""))
+        print(f"  {result['status']:<11} {resource['id']}", flush=True)
+    print(
+        "快照 active=%s｜checked=%s｜不可达=%s｜超时=%s｜跳过=%s｜延后=%s"
+        % (
+            len(catalog["resources"]),
+            tallies["checked"],
+            tallies["unreachable"],
+            tallies["timeout"],
+            tallies["skipped"],
+            tallies["deferred"],
+        )
+    )
+    for rid, status, note in failures[:30]:
+        print(f"  ! {rid} [{status}] {note}")
+    if args.write and changed:
+        write_json_atomic(CATALOG, catalog)
+        print(f"已写回 catalog：{changed} 条 upstream_snapshot（未改 source.branch / commit_sha）")
+    elif not args.write:
+        print("只读模式：未写盘。确认后使用 --write。")
+    return 0
+
+
+def cmd_generate(args: argparse.Namespace) -> int:
+    catalog = load_json(CATALOG)
+    materials = render_materials(catalog)
+    index = render_index(catalog, INDEX.read_text(encoding="utf-8-sig"))
+    if args.write:
+        write_text_atomic(MATERIALS, materials)
+        write_text_atomic(INDEX, index)
+        print(f"已生成 {MATERIALS.name} 与 {INDEX.name}")
+    else:
+        print(f"预览：材料清单 {len(materials.splitlines())} 行，资料索引 {len(index.splitlines())} 行。未写盘。")
+    return 0
+
+
+# --------------------------- validation ---------------------------
+
+def schema_validate(instance: Any, schema: Any, root: Any, path: str = "$") -> list[str]:
+    """Small dependency-free validator for the keywords used by catalog.schema.json."""
+    errors: list[str] = []
+    if "$ref" in schema:
+        ref = schema["$ref"]
+        if not ref.startswith("#/"):
+            return [f"{path}: 不支持的外部 $ref {ref}"]
+        target = root
+        for part in ref[2:].split("/"):
+            target = target[part]
+        return schema_validate(instance, target, root, path)
+
+    allowed_types = schema.get("type")
+    if allowed_types:

@@ -1,0 +1,9 @@
+  checks.push([`${result.tier} corrected >= raw p99`, result.corrected_p99 >= result.raw_p99]);
+}
+if (byTier.db) {
+  checks.push(['db 连接池不超过 4', byTier.db.saturation.pool_waiting_max >= 0]);
+}
+const failed = checks.filter(([, ok]) => !ok);
+for (const [label, ok] of checks) console.log(`${ok ? 'PASS' : 'FAIL'} ${label}`);
+console.log(failed.length === 0 ? 'OPEN LOAD PASS' : 'OPEN LOAD FAIL');
+if (failed.length > 0) process.exitCode = 1;

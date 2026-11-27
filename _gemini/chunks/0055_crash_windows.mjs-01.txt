@@ -1,0 +1,102 @@
+import http from 'node:http';
+import assert from 'node:assert/strict';
+import { connect, reset } from './db.mjs';
+import { connectBroker, resetBroker, publish, getOne } from './broker.mjs';
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const scenario = process.argv[2] || 'all';
+let broker;
+
+async function setup() {
+  await reset();
+  broker = await connectBroker();
+  await resetBroker(broker.channel);
+  return connect();
+}
+
+async function teardown() {
+  if (broker) {
+    await broker.channel.close().catch(() => {});
+    await broker.connection.close().catch(() => {});
+  }
+}
+
+async function phantom() {
+  const client = await setup();
+  try {
+    await client.query('BEGIN');
+    await client.query("INSERT INTO e10.orders (id, amount) VALUES ('o-phantom', 10)");
+    publish(broker.channel, { id: 'evt-phantom', orderId: 'o-phantom' });
+    await sleep(100);
+    await client.query('ROLLBACK');
+    const message = await getOne(broker.channel);
+    const order = await client.query("SELECT count(*)::int AS n FROM e10.orders WHERE id = 'o-phantom'");
+    assert.ok(message, '幻影消息应已发布');
+    assert.equal(order.rows[0].n, 0);
+    broker.channel.ack(message);
+    console.log(`naive publish-then-rollback: message=${message ? 'published' : 'none'} order_rows=${order.rows[0].n}`);
+
+    await client.query('BEGIN');
+    await client.query("INSERT INTO e10.orders (id, amount) VALUES ('o-rollback', 10)");
+    await client.query("INSERT INTO e10.outbox (event_id, payload) VALUES ('evt-rollback', '{}')");
+    await client.query('ROLLBACK');
+    const outbox = await client.query("SELECT count(*)::int AS n FROM e10.outbox WHERE event_id = 'evt-rollback'");
+    assert.equal(outbox.rows[0].n, 0);
+    console.log('outbox: rolled-back event invisible, nothing to publish');
+    console.log('PHANTOM PASS');
+  } finally {
+    await client.end();
+  }
+}
+
+async function crash() {
+  const client = await setup();
+  try {
+    await client.query('BEGIN');
+    await client.query("INSERT INTO e10.orders (id, amount) VALUES ('o-crash', 20)");
+    await client.query(
+      "INSERT INTO e10.outbox (event_id, payload) VALUES ('evt-crash', $1)",
+      [JSON.stringify({ id: 'evt-crash', orderId: 'o-crash' })],
+    );
+    await client.query('COMMIT');
+    const pendingBefore = await client.query('SELECT count(*)::int AS n FROM e10.outbox WHERE NOT published');
+    assert.equal(pendingBefore.rows[0].n, 1);
+
+    // relay 在发布前崩溃：关连接、不动 published
+    await broker.channel.close();
+    await broker.connection.close();
+    broker = await connectBroker();
+
+    const rows = (await client.query('SELECT payload FROM e10.outbox WHERE NOT published ORDER BY id')).rows;
+    for (const row of rows) publish(broker.channel, row.payload);
+    await client.query('UPDATE e10.outbox SET published = true WHERE NOT published');
+    const message = await getOne(broker.channel);
+    assert.ok(message, '恢复后应发布 pending 事件');
+    broker.channel.ack(message);
+    const pendingAfter = await client.query('SELECT count(*)::int AS n FROM e10.outbox WHERE NOT published');
+    assert.equal(pendingAfter.rows[0].n, 0);
+    console.log(`crash-after-commit: pending_before=1 pending_after=0 delivered=1`);
+    console.log('CRASH PASS');
+  } finally {
+    await client.end();
+  }
+}
+
+async function sideeffect() {
+  let realCharges = 0;
+  const ledger = new Map();
+  const server = http.createServer((req, res) => {
+    const key = req.headers['idempotency-key'];
+    if (ledger.has(key)) {
+      res.writeHead(200, { 'content-type': 'application/json' });
+      res.end(JSON.stringify({ chargeId: ledger.get(key), deduped: true }));
+      return;
+    }
+    realCharges += 1;
+    const chargeId = `ch_${realCharges}`;
+    ledger.set(key, chargeId);
+    res.writeHead(200, { 'content-type': 'application/json' });
+    res.end(JSON.stringify({ chargeId, deduped: false }));
+  });
+  await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+  const port = server.address().port;

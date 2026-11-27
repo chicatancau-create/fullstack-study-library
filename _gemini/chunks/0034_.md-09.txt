@@ -1,0 +1,30 @@
+| [florinpop17/app-ideas](<知识库/课程与路线/florinpop17/app-ideas/README.md>)（[在线回退](https://github.com/florinpop17/app-ideas)） | 102 | 0.45 | 96 | MIT | F2 | unknown |
+| [GitHubDaily/GitHubDaily](<知识库/课程与路线/GitHubDaily/GitHubDaily/README.md>)（[在线回退](https://github.com/GitHubDaily/GitHubDaily)） | 20 | 3.93 | 13 | 无 LICENSE | 未标注 | unknown |
+| [inancgumus/learngo](<知识库/课程与路线/inancgumus/learngo/README.md>)（[在线回退](https://github.com/inancgumus/learngo)） | 1,569 | 2.95 | 174 | CC-BY-NC-SA-4.0 | F2,F3,F4 | unknown |
+| [judasn/IntelliJ-IDEA-Tutorial](<知识库/课程与路线/judasn/IntelliJ-IDEA-Tutorial/README.md>)（[在线回退](https://github.com/judasn/IntelliJ-IDEA-Tutorial)） | 323 | 107.40 | 46 | GPL-3.0 | F2,F4,F5 | unknown |
+| [LeCoupa/awesome-cheatsheets](<知识库/课程与路线/LeCoupa/awesome-cheatsheets/README.md>)（[在线回退](https://github.com/LeCoupa/awesome-cheatsheets)） | 67 | 5.44 | 13 | MIT | F4 | unknown |
+| [mengxi-ream/read-frog](<知识库/课程与路线/mengxi-ream/read-frog/README.md>)（[在线回退](https://github.com/mengxi-ream/read-frog)） | 1,943 | 41.43 | 163 | GPL-3.0 | F2,F3 | unknown |
+| [PKUFlyingPig/cs-self-learning](<知识库/课程与路线/PKUFlyingPig/cs-self-learning/README.md>)（[在线回退](https://github.com/PKUFlyingPig/cs-self-learning)） | 287 | 1.78 | 273 | MIT | F2,F4 | unknown |
+| [TheOdinProject/curriculum](<知识库/课程与路线/TheOdinProject/curriculum/README.md>)（[在线回退](https://github.com/TheOdinProject/curriculum)） | 741 | 34.72 | 582 | CC-BY-NC-SA-4.0 | F2,F3,F4,F5 | unknown |
+| [unknwon/the-way-to-go_ZH_CN](<知识库/课程与路线/unknwon/the-way-to-go_ZH_CN/README.md>)（[在线回退](https://github.com/unknwon/the-way-to-go_ZH_CN)） | 768 | 3.29 | 214 | 无 LICENSE | F2 | unknown |
+
+### 知识库/资源目录（7 个仓库）
+
+| 仓库 | 文件 | MiB | md | 许可 | 功能 | 时效 |
+| --- | ---: | ---: | ---: | --- | --- | --- |
+| [Awesome-HarmonyOS/HarmonyOS](<知识库/资源目录/Awesome-HarmonyOS/HarmonyOS/README.md>)（[在线回退](https://github.com/Awesome-HarmonyOS/HarmonyOS)） | 2,584 | 61.57 | 38 | 未识别文件 | F2 | stale |
+| [doocs/technical-books](<知识库/资源目录/doocs/technical-books/README.md>)（[在线回退](https://github.com/doocs/technical-books)） | 29 | 4.88 | 3 | CC-BY-SA-4.0 | 未标注 | unknown |
+| [EbookFoundation/free-programming-books](<知识库/资源目录/EbookFoundation/free-programming-books/README.md>)（[在线回退](https://github.com/EbookFoundation/free-programming-books)） | 236 | 2.25 | 218 | CC-BY-4.0 | 未标注 | unknown |
+| [forthespada/CS-Books](<知识库/资源目录/forthespada/CS-Books/README.md>)（[在线回退](https://github.com/forthespada/CS-Books)） | 8 | 0.41 | 5 | 无 LICENSE | 未标注 | unknown |
+| [justjavac/free-programming-books-zh_CN](<知识库/资源目录/justjavac/free-programming-books-zh_CN/README.md>)（[在线回退](https://github.com/justjavac/free-programming-books-zh_CN)） | 9 | 0.09 | 4 | 未识别文件 | 未标注 | unknown |
+| [mlabonne/llm-course](<知识库/资源目录/mlabonne/llm-course/README.md>)（[在线回退](https://github.com/mlabonne/llm-course)） | 8 | 0.83 | 1 | 未识别文件 | 未标注 | unknown |
+| [ryanmcdermott/clean-code-javascript](<知识库/资源目录/ryanmcdermott/clean-code-javascript/README.md>)（[在线回退](https://github.com/ryanmcdermott/clean-code-javascript)） | 4 | 0.06 | 1 | 未识别文件 | 未标注 | unknown |
+
+### 知识库/运维与云原生（5 个仓库）
+
+| 仓库 | 文件 | MiB | md | 许可 | 功能 | 时效 |
+| --- | ---: | ---: | ---: | --- | --- | --- |
+| [bregman-arie/devops-resources](<知识库/运维与云原生/bregman-arie/devops-resources/README.md>)（[在线回退](https://github.com/bregman-arie/devops-resources)） | 108 | 1.83 | 47 | 无 LICENSE | F2 | unknown |
+| [litmuschaos/litmus](<知识库/运维与云原生/litmuschaos/litmus/README.md>)（[在线回退](https://github.com/litmuschaos/litmus)） | 2,777 | 83.73 | 236 | Apache-2.0 | F2,F3,F5 | unknown |
+| [NotHarshhaa/DevOps-Projects](<知识库/运维与云原生/NotHarshhaa/DevOps-Projects/README.md>)（[在线回退](https://github.com/NotHarshhaa/DevOps-Projects)） | 3,094 | 165.26 | 112 | 无 LICENSE | F2,F3,F5 | unknown |
+| [Tikam02/DevOps-Guide](<知识库/运维与云原生/Tikam02/DevOps-Guide/README.md>)（[在线回退](https://github.com/Tikam02/DevOps-Guide)） | 307 | 197.57 | 130 | MIT | F2,F4 | unknown |

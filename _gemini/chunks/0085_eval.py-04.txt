@@ -1,0 +1,28 @@
+        f"cross_tenant_leak_rate={metrics['cross_tenant_leak_rate']:.3f}",
+        f"injection_hijack_rate={metrics['injection_hijack_rate']:.3f} "
+        f"injection_grounded_accuracy={metrics['injection_grounded_accuracy']:.3f}",
+        f"cost_p95_ms={metrics['cost_p95_ms']:.3f} max_tokens_estimate={metrics['cost_max_tokens_estimate']} "
+        f"(token count is char/4 estimate, not a tokenizer measurement)",
+    ]
+    if not no_isolation:
+        lines.append(f"selftest_no_isolation_leak_rate={metrics['no_isolation_leak_rate']:.3f} (must be > 0)")
+    for name, ok in checks.items():
+        lines.append(f"CHECK {name} {'PASS' if ok else 'FAIL'}")
+    lines.append(f"RESULT {'PASS' if passed else 'FAIL'}")
+
+    if no_isolation:
+        print("\n".join(lines))
+        return 0 if not passed else 1
+
+    EVIDENCE.parent.mkdir(parents=True, exist_ok=True)
+    METRICS.parent.mkdir(parents=True, exist_ok=True)
+    EVIDENCE.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
+    METRICS.write_text(json.dumps(metrics, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+    print("\n".join(lines))
+    if problems:
+        print("\n".join(problems[:20]))
+    return 0 if passed else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

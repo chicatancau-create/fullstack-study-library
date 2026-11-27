@@ -1,0 +1,119 @@
+                            selectedIndex = i;
+                            break;
+                        }
+                        i++;
+                    }
+                    curChild = curChild.nextSibling;
+                    if (!curChild && optgroup) {
+                        curChild = optgroup.nextSibling;
+                        optgroup = null;
+                    }
+                }
+            }
+
+            fromEl.selectedIndex = selectedIndex;
+        }
+    }
+};
+
+var ELEMENT_NODE = 1;
+var DOCUMENT_FRAGMENT_NODE$1 = 11;
+var TEXT_NODE = 3;
+var COMMENT_NODE = 8;
+
+function noop() {}
+
+function defaultGetNodeKey(node) {
+  if (node) {
+    return (node.getAttribute && node.getAttribute('id')) || node.id;
+  }
+}
+
+function morphdomFactory(morphAttrs) {
+
+  return function morphdom(fromNode, toNode, options) {
+    if (!options) {
+      options = {};
+    }
+
+    if (typeof toNode === 'string') {
+      if (fromNode.nodeName === '#document' || fromNode.nodeName === 'HTML') {
+        var toNodeHtml = toNode;
+        toNode = doc.createElement('html');
+        toNode.innerHTML = toNodeHtml;
+      } else if (fromNode.nodeName === 'BODY') {
+        var toNodeBody = toNode;
+        toNode = doc.createElement('html');
+        toNode.innerHTML = toNodeBody;
+        // Extract the body element from the created HTML structure
+        var bodyElement = toNode.querySelector('body');
+        if (bodyElement) {
+          toNode = bodyElement;
+        }
+      } else {
+        toNode = toElement(toNode);
+      }
+    } else if (toNode.nodeType === DOCUMENT_FRAGMENT_NODE$1) {
+      toNode = toNode.firstElementChild;
+    }
+
+    var getNodeKey = options.getNodeKey || defaultGetNodeKey;
+    var onBeforeNodeAdded = options.onBeforeNodeAdded || noop;
+    var onNodeAdded = options.onNodeAdded || noop;
+    var onBeforeElUpdated = options.onBeforeElUpdated || noop;
+    var onElUpdated = options.onElUpdated || noop;
+    var onBeforeNodeDiscarded = options.onBeforeNodeDiscarded || noop;
+    var onNodeDiscarded = options.onNodeDiscarded || noop;
+    var onBeforeElChildrenUpdated = options.onBeforeElChildrenUpdated || noop;
+    var skipFromChildren = options.skipFromChildren || noop;
+    var addChild = options.addChild || function(parent, child){ return parent.appendChild(child); };
+    var childrenOnly = options.childrenOnly === true;
+
+    // This object is used as a lookup to quickly find all keyed elements in the original DOM tree.
+    var fromNodesLookup = Object.create(null);
+    var keyedRemovalList = [];
+
+    function addKeyedRemoval(key) {
+      keyedRemovalList.push(key);
+    }
+
+    function walkDiscardedChildNodes(node, skipKeyedNodes) {
+      if (node.nodeType === ELEMENT_NODE) {
+        var curChild = node.firstChild;
+        while (curChild) {
+
+          var key = undefined;
+
+          if (skipKeyedNodes && (key = getNodeKey(curChild))) {
+            // If we are skipping keyed nodes then we add the key
+            // to a list so that it can be handled at the very end.
+            addKeyedRemoval(key);
+          } else {
+            // Only report the node as discarded if it is not keyed. We do this because
+            // at the end we loop through all keyed elements that were unmatched
+            // and then discard them in one final pass.
+            onNodeDiscarded(curChild);
+            if (curChild.firstChild) {
+              walkDiscardedChildNodes(curChild, skipKeyedNodes);
+            }
+          }
+
+          curChild = curChild.nextSibling;
+        }
+      }
+    }
+
+    /**
+    * Removes a DOM node out of the original DOM
+    *
+    * @param  {Node} node The node to remove
+    * @param  {Node} parentNode The nodes parent
+    * @param  {Boolean} skipKeyedNodes If true then elements with keys will be skipped and not discarded.
+    * @return {undefined}
+    */
+    function removeNode(node, parentNode, skipKeyedNodes) {
+      if (onBeforeNodeDiscarded(node) === false) {
+        return;
+      }
+
+      if (parentNode) {

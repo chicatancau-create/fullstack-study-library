@@ -1,0 +1,72 @@
+- 边界（7.63 时点）：单节点、无多节点/LoadBalancer/公网；首轮 cloud-init `runcmd` 未执行，后续通过串口登录手动完成；两节点见 7.67。
+
+### 7.64 project02-spring Testcontainers（CI）
+
+- 本机无 Docker：本地 `mvn test` 为 10 条、1 条 Testcontainers 跳过；其余 9 条通过。
+- GitHub Actions 的 Docker 环境运行 `MySqlContainerTest`：Testcontainers 1.21.4，`mysql:8.4` 容器，
+  容器内建表/写入/查询通过；spring job 汇总 `Tests run: 10, Skipped: 0`，BUILD SUCCESS。
+- 证据：`projects/project02-spring/evidence/testcontainers-ci.txt`；CI run 42453215623。
+- 边界：只证明容器可启动与基本 SQL；不证明 Spring 应用切换到容器数据源后的全链路。
+
+### 7.65 E01 Linux/ASan 与泄漏检测（CI）
+
+- Ubuntu 24.04 + GCC 13，`scripts/asan_linux.sh`；CI run 42441007669（vault experiments / e01-asan）。
+- UAF：`fault_uaf_asan.c:12` 触发 `heap-use-after-free`，退出非零。
+- 泄漏：`leak_asan.c:6` 触发 LeakSanitizer，64 bytes leaked，退出非零。
+- 证据：`06-实验代码/E01-c-memory/evidence/asan_linux.txt`；两项断言均通过，脚本输出 `ASAN LINUX PASS`。
+- 边界：只覆盖两个注入夹具；Windows 守护页仍保留，UBSan/Valgrind 未做。
+
+### 7.66 项目01 临时公网 HTTPS（Cloudflare Quick Tunnel）
+
+- `vite preview` 绑定 127.0.0.1:4174，`cloudflared` 2026.10.7 Quick Tunnel 暴露为公网 HTTPS。
+- `curl https://fallen-olive-bruce-reaches.trycloudflare.com/`：HTTP 200，TLS 校验结果 0，标题「项目 01：学习笔记博客」；静态 JS 资源返回 200。
+- 证据：`projects/project01-blog/evidence/public-https.txt`。
+- 边界：临时 tunnel，无自定义域名/持久托管；tunnel 停止即失效；不是生产部署。
+
+### 7.67 project04 两节点 K3s（同一 VM）
+
+- `k8s-lab` 为 control-plane；`agent-1` 是同一 QEMU VM 内以特权容器运行的 K3s agent，使用同一 token 加入。
+- `kubectl get nodes`：两节点均 Ready（v1.37.2+k3s1）；`agent-pause` Pod 调度到 `agent-1` 并 Running（IP 10.42.1.10）。
+- 证据：`projects/project04-saas/deploy/evidence/multinode.txt`。
+- 边界：两节点在同一台 VM，不是多机/HA；镜像需本地导入以绕过 guest 外网限制。
+
+### 7.68 project04 外部告警通道（ntfy.sh）
+
+- Prometheus 3.5.0 + Alertmanager 0.28.1 加载 5s 本地规则，告警 JobBacklog 经 `https://ntfy.sh/<topic>` 投递。
+- `external_messages=1`、`jobbacklog_delivered=YES`，脚本输出 `EXTERNAL CHANNEL PASS`。
+- 证据：`projects/project04-saas/evidence/alertmanager-external.txt`。
+- 边界：公共 topic、合成告警、消息会过期；不是 Slack/邮件/PagerDuty，也不代表常驻监控。
+
+### 7.69 E02 父子进程 IPC 取消
+
+- 子进程 `src/cancel-child.mjs` 接收 `run`/`cancel`，用 `AbortController` 取消任务。
+- 测试：慢任务 80ms 后取消返回 `cancelled`；快任务返回 `done`；4 条断言全过。
+- 证据：`06-实验代码/E02-node-async/evidence/test_cross_process.txt`；CI 会随 `run_all.sh` 执行。
+- 边界：父子进程 IPC，不是多主机/分布式取消。
+
+### 7.70 项目01 GitHub Pages 持久 HTTPS
+
+- 公共仓库 `chicatancau-create/learning-blog-demo` 仅含构建产物；GitHub Pages 源为 `main:/`。
+- `https://chicatancau-create.github.io/learning-blog-demo/` 返回 200，标题「项目 01：学习笔记博客」；JS 资源 200。
+- 深链接用 `404.html` 做 SPA 回退，`BrowserRouter` basename 跟随 `BASE_URL`；headless 实测 `/posts/http-cache` 标题正确；无自定义域名/CDN。
+- 证据：`projects/project01-blog/evidence/public-pages.txt`。
+
+### 7.71 vault docs CI 门禁
+
+- GitHub Actions `experiments/docs`：source-only + E01–E13/G1 共 13 份 manifest（run `42452755152`）。
+- 首轮发现 E02 证据字节与 manifest 不一致（本地改动未提交）；提交证据后 run `42452269686` 全绿。
+- 证据：vault CI 日志；本地一键复核 `node scripts/verify_all.mjs` 28/28。
+- 2026-11-08 后续 run 因 GitHub 账户计费（付款失败/支出上限）已创建但 job 未执行（steps=0、无日志）；最近成功 run `42453771068`。
+
+### 7.15 干净克隆复验（批次 1 条件）
+
+```text
+git clone --depth 1 --branch chore/fullstack-upgrade file:///<资料库根> /tmp/fs-clean-clone
+cd /tmp/fs-clean-clone/06-实验代码/E01-c-memory && bash scripts/run_tests.sh   # exit 0
+cd /tmp/fs-clean-clone/06-实验代码/E02-node-async && bash scripts/run_all.sh  # exit 0
+```
+
+- 干净克隆只含已提交内容，不含 `build/`、`node_modules/`、未跟踪文件。
+- E01：72 + 4108 断言 PASS，越界/UAF 定位与门禁自检均通过。
+- E02：六组 172 条断言 PASS，场景无 `NO/不成立`。
+- 这是**同一台主机的干净克隆**，不是不同 OS/CI；ASan/worker_threads/CI 仍未验证。批次 1 因此可标“干净克隆通过”，但不能标“CI 通过”或“限定范围验收通过”。

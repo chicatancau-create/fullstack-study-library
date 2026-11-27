@@ -1,0 +1,118 @@
+        "bytes": 7764489,
+        "markdown_count": 33,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:28+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "stale",
+        "note": "以 JDK 8 口径为主，需按 JDK 17/21 LTS 复核新特性",
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 6,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：80 文件 -> 81 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/Snailclimb/JavaGuide-Interview",
+          "category": "题库/八股与基础",
+          "branch": null,
+          "archive_sha256": "c353fed86aee379671967dfa65e3c9d35b0dff8e959b72ae6cea4ab1231470c0",
+          "tarball_mb": 6,
+          "fetched": "2026-11-04 20:03",
+          "files": 81,
+          "bytes": 7764489,
+          "mb": 7,
+          "top_extensions": {
+            ".md": 33,
+            ".png": 26,
+            ".ts": 5,
+            ".scss": 3,
+            "(none)": 2,
+            ".json": 2,
+            ".html": 1,
+            ".sh": 1,
+            ".yaml": 1,
+            ".js": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：80 文件 -> 81 文件",
+          "freshness_flag": "以 JDK 8 口径为主，需按 JDK 17/21 LTS 复核新特性",
+          "measured": {
+            "pushed": "2026-03-16",
+            "stars": 2671
+          }
+        }
+      }
+    },
+    {
+      "id": "github:aasthas2022/sde-interview-and-prep-roadmap",
+      "name": "aasthas2022/SDE-Interview-and-Prep-Roadmap",
+      "source": {
+        "url": "https://github.com/aasthas2022/SDE-Interview-and-Prep-Roadmap",
+        "canonical_url": "https://github.com/aasthas2022/SDE-Interview-and-Prep-Roadmap",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-11-02",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:41+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "6ee75a9e3848f25d7f2cb090fd68916673b30e49",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/八股与基础/aasthas2022/SDE-Interview-and-Prep-Roadmap",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/aasthas2022/SDE-Interview-and-Prep-Roadmap"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "67eeaf0eca850547ab559dcd6a00281a562174866a184e50aac7c093380f1f48",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:52+08:00"
+        },
+        "legacy_fingerprint_12": "67eeaf0eca85"
+      },
+      "classification": {
+        "primary_category": "题库/八股与基础",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F1",
+          "F2",
+          "F4"
+        ],

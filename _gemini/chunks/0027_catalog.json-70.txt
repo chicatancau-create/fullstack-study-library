@@ -1,0 +1,123 @@
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "CC-BY-SA-4.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE.txt"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 2,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：46 文件 -> 47 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/jwasham/coding-interview-university",
+          "category": "知识库/计算机基础",
+          "branch": null,
+          "archive_sha256": "c9563275032a2416d7bada26712a24d70efee2044d520219c7e1f58471335e2f",
+          "tarball_mb": 2,
+          "fetched": "2026-11-04 20:03",
+          "files": 47,
+          "bytes": 6714334,
+          "mb": 6,
+          "top_extensions": {
+            ".md": 33,
+            ".pdf": 10,
+            "(none)": 1,
+            ".txt": 1,
+            ".yml": 1
+          },
+          "license_files": [
+            "LICENSE.txt"
+          ],
+          "license_detected": "CC-BY-SA-4.0",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：46 文件 -> 47 文件",
+          "measured": {
+            "pushed": "2025-08-28",
+            "stars": 363957
+          }
+        }
+      }
+    },
+    {
+      "id": "github:ossu/computer-science",
+      "name": "ossu/computer-science",
+      "source": {
+        "url": "https://github.com/ossu/computer-science",
+        "canonical_url": "https://github.com/ossu/computer-science",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-07-14",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:43+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "33d44a44e3526ede8e862bf1ad50ae5ae7a2f112",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/计算机基础/ossu/computer-science",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/ossu/computer-science"
+      },
+      "integrity": {
+        "archive_sha256": "66d2693343d62cf0e32bd81a1eb1e7a28f0669d8af43cbc2532905dd2cb6c00a",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/计算机基础",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 39,
+        "bytes": 531916,
+        "markdown_count": 22,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:24+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",

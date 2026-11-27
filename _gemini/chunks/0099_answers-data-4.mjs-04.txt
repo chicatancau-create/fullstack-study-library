@@ -1,0 +1,101 @@
+    id: 'Q042', title: '补充题4. 手撕快速排序', question_url: 'https://leetcode.cn/problems/sort-an-array/',
+    core_idea: '选基准做分区，小于基准的放左、大于的放右，递归处理两侧；本实现用额外数组分区，保证重复元素不会退化。',
+    invariant: '分区后左段元素 ≤ 基准 ≤ 右段元素，且基准位置已确定。',
+    complexity: { time: '平均 O(n log n)，最坏 O(n²)', space: 'O(n log n)' },
+    code_lang: 'javascript',
+    code: `function solve(nums) {
+  if (nums.length <= 1) return nums.slice();
+  const pivot = nums[Math.floor(nums.length / 2)];
+  const left = [], mid = [], right = [];
+  for (const v of nums) {
+    if (v < pivot) left.push(v);
+    else if (v > pivot) right.push(v);
+    else mid.push(v);
+  }
+  return [...solve(left), ...mid, ...solve(right)];
+}`,
+    edge_cases: [
+      { call: '[3,1,2]', expected: [1,2,3], why: '常规乱序' },
+      { call: '[5,5,1]', expected: [1,5,5], why: '重复元素不退化' },
+      { call: '[-2,10,0]', expected: [-2,0,10], why: '负数参与比较' },
+    ],
+    common_mistakes: ['三路分区缺失导致全相同元素 O(n²)', '基准取边界且已排序时退化', '原地分区时交换条件写错丢元素'],
+    followups: ['如何改成原地 Lomuto/Hoare 分区？', '随机基准为什么能把期望复杂度降到 O(n log n)？'],
+    rubric: [
+      { point: '划分保证左 ≤ 基准 ≤ 右', weight: 2 },
+      { point: '重复元素使用三路或等价处理', weight: 1 },
+      { point: '递归终止条件与切片不修改输入', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q043', title: '93. 复原IP地址', question_url: 'https://leetcode.cn/problems/restore-ip-addresses/',
+    core_idea: 'DFS 依次切出 4 段，每段长度 1–3 且数值 ≤255，禁止前导零（除了 "0" 本身）；四段用尽且恰好耗完字符串才收集。',
+    invariant: '已切出的段数 + 剩余字符数必须落在 [剩余段数, 3×剩余段数] 内，否则剪枝。',
+    complexity: { time: 'O(3^4)', space: 'O(4)' },
+    code_lang: 'javascript',
+    code: `function solve(s) {
+  const out = [];
+  function dfs(i, parts) {
+    if (parts.length === 4) {
+      if (i === s.length) out.push(parts.join('.'));
+      return;
+    }
+    if (s.length - i > (4 - parts.length) * 3) return;
+    let num = 0;
+    for (let j = i; j < s.length && j < i + 3; j++) {
+      num = num * 10 + (s.charCodeAt(j) - 48);
+      if (num > 255) break;
+      parts.push(s.slice(i, j + 1));
+      dfs(j + 1, parts);
+      parts.pop();
+      if (num === 0) break;
+    }
+  }
+  dfs(0, []);
+  return out;
+}`,
+    edge_cases: [
+      { call: '"25525511135"', expected: ['255.255.11.135','255.255.111.35'], why: '两种切法都合法' },
+      { call: '"0000"', expected: ['0.0.0.0'], why: '前导零禁止，但单个 0 合法' },
+    ],
+    common_mistakes: ['允许 "01" 这样的前导零段', '段数到 4 但字符串未耗完仍然收集', '忘记 num>255 后 break 导致后续更长段也尝试'],
+    followups: ['IPv6 的合法地址如何校验？', '如何把 DFS 改成迭代写法？'],
+    rubric: [
+      { point: '每段长度 1–3 且值 ≤255', weight: 2 },
+      { point: '禁止前导零（单 0 除外）并正确剪枝', weight: 1 },
+      { point: '四段耗尽且下标到末尾才收集', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q044', title: '101. 对称二叉树', question_url: 'https://leetcode.cn/problems/symmetric-tree/',
+    core_idea: '把“对称”转成两棵子树互为镜像：左子树的左孩子对右子树的右孩子，左子树的右孩子对右子树的左孩子。',
+    invariant: 'mirror(x,y) 为真当且仅当两棵以 x、y 为根的子树镜像相等。',
+    complexity: { time: 'O(n)', space: 'O(h)' },
+    code_lang: 'javascript',
+    code: `function solve(a) {
+  function build(arr) {
+    if (!arr.length || arr[0] === null) return null;
+    const root = { val: arr[0], left: null, right: null };
+    const q = [root];
+    let i = 1;
+    while (i < arr.length && q.length) {
+      const n = q.shift();
+      if (i < arr.length) { if (arr[i] !== null) { n.left = { val: arr[i], left: null, right: null }; q.push(n.left); } i++; }
+      if (i < arr.length) { if (arr[i] !== null) { n.right = { val: arr[i], left: null, right: null }; q.push(n.right); } i++; }
+    }
+    return root;
+  }
+  function mirror(x, y) {
+    if (!x && !y) return true;
+    if (!x || !y) return false;
+    return x.val === y.val && mirror(x.left, y.right) && mirror(x.right, y.left);
+  }
+  const root = build(a);
+  return root ? mirror(root.left, root.right) : true;
+}`,
+    edge_cases: [
+      { call: '[1,2,2,3,4,4,3]', expected: true, why: '左右完全镜像' },
+      { call: '[1,2,2,null,3,null,3]', expected: false, why: '3 都在右侧不再镜像' },
+      { call: '[1]', expected: true, why: '单节点对称' },
+    ],
+    common_mistakes: ['比较左右子树自身是否相等而不是镜像', '只比较值不比较结构', '镜像递归时交叉方向写反'],

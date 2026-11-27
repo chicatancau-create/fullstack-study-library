@@ -1,0 +1,103 @@
+import http from 'node:http';
+import pg from 'pg';
+
+const stage = process.argv[2] || 'all';
+let failures = 0;
+const check = (ok, label) => {
+  console.log(`${ok ? 'PASS' : 'FAIL'} ${label}`);
+  if (!ok) failures += 1;
+};
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+function makeApp(version, faults = { mode: 'off' }) {
+  const getFault = () => faults.mode;
+  const server = http.createServer(async (req, res) => {
+    const url = new URL(req.url, 'http://127.0.0.1');
+    if (url.pathname === '/fault') {
+      faults.mode = url.searchParams.get('mode') || 'off';
+      res.writeHead(200, { 'content-type': 'application/json' });
+      res.end(JSON.stringify({ fault: faults.mode }));
+      return;
+    }
+    if (getFault() === '500') {
+      res.writeHead(500, { 'content-type': 'application/json' });
+      res.end('{"error":"boom"}');
+      return;
+    }
+    if (getFault() === 'slow') await sleep(300);
+    res.writeHead(200, { 'content-type': 'application/json' });
+    res.end(JSON.stringify({ version }));
+  });
+  return {
+    server,
+    listen: () => new Promise((resolve) => server.listen(0, '127.0.0.1', () => resolve(server.address().port))),
+    close: () => new Promise((resolve) => server.close(resolve)),
+  };
+}
+
+async function makeGateway(weightRef) {
+  const counts = { v1: 0, v2: 0, errors: 0 };
+  let sequence = 0;
+  const server = http.createServer(async (req, res) => {
+    const url = new URL(req.url, 'http://127.0.0.1');
+    if (url.pathname === '/weight') {
+      weightRef.value = Number(url.searchParams.get('p'));
+      res.writeHead(200, { 'content-type': 'application/json' });
+      res.end(JSON.stringify({ weight: weightRef.value }));
+      return;
+    }
+    const target = (sequence++ % 100) < weightRef.value ? weightRef.v2Port : weightRef.v1Port;
+    try {
+      const upstream = await fetch(`http://127.0.0.1:${target}${url.pathname}`);
+      const body = await upstream.text();
+      const parsed = JSON.parse(body);
+      counts[parsed.version === 'v2' ? 'v2' : 'v1'] += 1;
+      res.writeHead(upstream.status, { 'content-type': 'application/json' });
+      res.end(body);
+    } catch {
+      counts.errors += 1;
+      res.writeHead(502);
+      res.end('{"error":"upstream"}');
+    }
+  });
+  const port = await new Promise((resolve) => server.listen(0, '127.0.0.1', () => resolve(server.address().port)));
+  return { server, port, counts, close: () => new Promise((resolve) => server.close(resolve)) };
+}
+
+async function pgConnect() {
+  const client = new pg.Client({
+    host: process.env.PGHOST || '127.0.0.1',
+    port: Number(process.env.PGPORT || 5432),
+    user: process.env.PGUSER || 'study',
+    password: process.env.PGPASSWORD,
+    database: process.env.PGDATABASE || 'study_lab',
+  });
+  await client.connect();
+  return client;
+}
+
+async function setupRelease() {
+  const faultsV2 = { mode: 'off' };
+  const v1 = makeApp('v1', { mode: 'off' });
+  const v2 = makeApp('v2', faultsV2);
+  const v1Port = await v1.listen();
+  const v2Port = await v2.listen();
+  const weightRef = { value: 0, v1Port, v2Port };
+  const gateway = await makeGateway(weightRef);
+  return { v1, v2, v1Port, v2Port, weightRef, gateway, faultsV2, base: `http://127.0.0.1:${gateway.port}` };
+}
+
+async function call(base, path = '/version') {
+  const response = await fetch(`${base}${path}`);
+  return { status: response.status, body: await response.text() };
+}
+
+async function blueGreen() {
+  const env = await setupRelease();
+  try {
+    const artifact = await call(`http://127.0.0.1:${env.v2Port}`);
+    check(artifact.status === 200 && JSON.parse(artifact.body).version === 'v2', 'green artifact version=v2 and healthy before traffic');
+    await call(env.base, '/weight?p=100');
+    const seen = new Set();
+    for (let i = 0; i < 10; i += 1) seen.add(JSON.parse((await call(env.base)).body).version);
+    check(seen.size === 1 && seen.has('v2'), `blue/green switch: traffic 100% v2 (${[...seen].join(',')})`);

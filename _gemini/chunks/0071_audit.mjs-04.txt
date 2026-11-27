@@ -1,0 +1,80 @@
+  await keyboardRun('mobile', 375, 812);
+  await keyboardRun('desktop', 1280, 800);
+
+  // ---------- D2. 空标题提交：错误可感知、焦点回到输入框 ----------
+  async function invalidSubmitRun(label, width, height) {
+    await page.viewport(width, height);
+    await page.goto(`${BASE}/task.html?id=2`);
+    const step = await tabUntil(i => i && i.tag === 'BUTTON');
+    await page.key('Enter');
+    await page.waitFor("!document.getElementById('form-error').hidden", { timeout: 5000 });
+    const state = await page.eval(`(() => {
+      const err = document.getElementById('form-error');
+      const title = document.getElementById('title');
+      return {
+        errorVisible: !err.hidden,
+        errorText: err.textContent,
+        ariaInvalid: title.getAttribute('aria-invalid'),
+        describedBy: title.getAttribute('aria-describedby'),
+        activeId: document.activeElement.id,
+        successHidden: document.getElementById('success').hidden,
+      };
+    })()`);
+    const checks = {
+      errorVisible: state.errorVisible,
+      errorDescribed: (state.describedBy || '').includes('form-error'),
+      ariaInvalidSet: state.ariaInvalid === 'true',
+      focusReturnedToTitle: state.activeId === 'title',
+      successStaysHidden: state.successHidden === true,
+    };
+    for (const [k, v] of Object.entries(checks)) if (!v) failures.push(`invalid-submit ${label}: ${k}`);
+    await page.shot(path.join(SHOTS, `task-error-${label}.png`));
+    results.keyboardInvalid.push({ viewport: label, checks, state, trace: step.trace });
+  }
+
+  await invalidSubmitRun('mobile', 375, 812);
+  await invalidSubmitRun('desktop', 1280, 800);
+
+  // ---------- E. axe ----------
+  const AXE_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'];
+  for (const p of PAGES) {
+    for (const vp of [WIDTHS[1], WIDTHS[3]]) {
+      await page.viewport(vp.width, vp.height);
+      await page.goto(p.url);
+      const report = await page.eval(`(async () => {
+        const r = await axe.run(document, { runOnly: { type: 'tag', values: ${JSON.stringify(AXE_TAGS)} } });
+        return {
+          violations: r.violations.map(v => ({
+            id: v.id, impact: v.impact, help: v.help,
+            nodes: v.nodes.map(n => ({ target: n.target, summary: n.failureSummary })),
+          })),
+          incomplete: r.incomplete.map(v => ({ id: v.id, impact: v.impact, nodes: v.nodes.length })),
+          passes: r.passes.length,
+          testEngine: r.testEngine,
+        };
+      })()`);
+      results.axe.push({ page: p.name, viewport: vp.label, axeVersion: axePkg.version, ...report });
+      const bad = report.violations.filter(v => v.impact === 'serious' || v.impact === 'critical');
+      ok(bad.length === 0, `axe ${p.name}@${vp.label}: serious/critical 违规 ${bad.map(v => v.id).join(',')}`);
+      fs.writeFileSync(path.join(EVIDENCE, `axe-${p.name}-${vp.label}.json`), JSON.stringify(report, null, 2));
+    }
+  }
+
+  // ---------- 输出 ----------
+  const env = {
+    captured_at: new Date().toISOString(),
+    browser: version.Browser,
+    node: process.version,
+    axe: axePkg.version,
+    base: BASE,
+    pages: PAGES.map(p => p.url),
+    viewports: WIDTHS.map(v => v.label),
+  };
+  fs.writeFileSync(path.join(EVIDENCE, 'env.json'), JSON.stringify(env, null, 2));
+  fs.writeFileSync(path.join(EVIDENCE, 'layout.json'), JSON.stringify({ layout: results.layout, textZoom: results.textZoom, reducedMotion: results.reducedMotion, skipLink: results.skipLink }, null, 2));
+  fs.writeFileSync(path.join(EVIDENCE, 'keyboard-mobile.json'), JSON.stringify(results.keyboard.mobile, null, 2));
+  fs.writeFileSync(path.join(EVIDENCE, 'keyboard-desktop.json'), JSON.stringify(results.keyboard.desktop, null, 2));
+  fs.writeFileSync(path.join(EVIDENCE, 'keyboard-invalid.json'), JSON.stringify(results.keyboardInvalid, null, 2));
+  fs.writeFileSync(path.join(EVIDENCE, 'axe-summary.json'), JSON.stringify(results.axe, null, 2));
+  fs.writeFileSync(path.join(EVIDENCE, 'failures.json'), JSON.stringify(failures, null, 2));
+

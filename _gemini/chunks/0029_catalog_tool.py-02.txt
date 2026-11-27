@@ -1,0 +1,109 @@
+def source_entries() -> list[tuple[Path, dict[str, Any]]]:
+    entries: list[tuple[Path, dict[str, Any]]] = []
+    for top in ("题库", "知识库"):
+        for dirpath, _dirs, filenames in os.walk(long_path(BASE / top)):
+            if ".source.json" not in filenames:
+                continue
+            plain = Path(dirpath[len(LONG_PREFIX):] if dirpath.startswith(LONG_PREFIX) else dirpath)
+            meta_path = plain / ".source.json"
+            meta = json.loads(meta_path.read_text(encoding="utf-8"))
+            entries.append((plain, meta))
+    if len(entries) != 178:
+        raise RuntimeError(f"期望 178 个活跃镜像，实际发现 {len(entries)} 个")
+    return sorted(entries, key=lambda item: norm_rel(item[0].relative_to(BASE)))
+
+
+def normalized_functions(meta: dict[str, Any], rid: str) -> list[str]:
+    result = []
+    for raw in meta.get("functions") or []:
+        if raw in FUNCTION_BY_SOURCE:
+            result.append(FUNCTION_BY_SOURCE[raw])
+    # Only verified additions are applied here; do not infer from repository names.
+    if rid in {"github:explodinggradients/ragas", "github:openai/evals"}:
+        result.append("F6")
+    if rid == "github:doocs/leetcode":
+        result.append("F1")
+    return [item for item in ALLOWED_FUNCTIONS if item in set(result)]
+
+
+def license_fields(meta: dict[str, Any]) -> dict[str, Any]:
+    spdx = meta.get("license_detected")
+    files = meta.get("license_files") or []
+    if spdx:
+        status = "detected"
+        restriction = (
+            "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+            if spdx not in RESTRICTED_LICENSES
+            else "仅限本机个人学习；传染性或非商业条款，不得并入对外发布产物。"
+        )
+    elif files:
+        status = "unrecognized_file"
+        restriction = "未识别许可证文件；仅限本机个人学习，不得再发布。"
+    else:
+        status = "no_license_file"
+        restriction = "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+    return {
+        "spdx": spdx,
+        "detection_status": status,
+        "license_files": sorted(str(x) for x in files),
+        "usage_restriction": restriction,
+    }
+
+
+def migration_record(path: Path, meta: dict[str, Any]) -> dict[str, Any]:
+    source_url = str(meta["repo"])
+    rid = resource_id(source_url)
+    name = canonical_name(source_url)
+    rel = norm_rel(path.relative_to(BASE))
+    metrics = disk_metrics(path)
+    fetched = meta.get("fetched") or None
+    source_meta_path = path / ".source.json"
+    fp_value = meta.get("content_fingerprint")
+    if fp_value and not re.fullmatch(r"[0-9a-f]{64}", str(fp_value)):
+        fp_value = None
+    note = str(meta.get("fingerprint_note") or "")
+    if "相对路径+字节数+mtime" in note:
+        fp_scope = "relative_path+size+mtime"
+    elif fp_value:
+        fp_scope = "legacy_local_metadata_scope_unrecorded"
+    else:
+        fp_scope = "not_available"
+    try:
+        fp_observed = dt.datetime.fromtimestamp(
+            source_meta_path.stat().st_mtime
+        ).astimezone().isoformat(timespec="seconds")
+    except OSError:
+        fp_observed = None
+    fingerprint = None
+    if fp_value:
+        fingerprint = {
+            "algorithm": "sha256",
+            "value": fp_value,
+            "scope": fp_scope,
+            "observed_at": fp_observed,
+        }
+    branch = meta.get("branch")
+    branch = None if not branch or str(branch).strip() in {"?", "None", ""} else str(branch)
+    measured = meta.get("measured") or {}
+    freshness_flag = meta.get("freshness_flag")
+    extras = {
+        "legacy_source_fields": {
+            key: value
+            for key, value in meta.items()
+            if key
+            not in {
+                "repo",
+                "category",
+                "branch",
+                "archive_sha256",
+                "fetched",
+                "files",
+                "bytes",
+                "mb",
+                "license_files",
+                "license_detected",
+                "content_fingerprint",
+                "fingerprint_note",
+                "measured",
+                "top_extensions",
+                "selection",

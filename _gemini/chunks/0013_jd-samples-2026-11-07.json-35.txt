@@ -1,0 +1,11 @@
+bout MongoDB&lt;/strong",
+      "responsibilities": ""
+    },
+    {
+      "company": "mongodb",
+      "source": "Greenhouse official job board",
+      "title": "2027 - Software Engineer Intern, Dublin - 6 Month Internship",
+      "location": "Dublin",
+      "experience": "",
+      "url": "https://www.mongodb.com/careers/job/?gh_jid=8258279",
+      "updated": "2026-11-05",

@@ -1,0 +1,128 @@
+        "online_fallback_url": "https://github.com/ather-techie/rag-interview-system"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "1be0a1e5048bc06200b20dd61b99f67c0852b6570c7d69bb2a01e338a2142f7f",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:52+08:00"
+        },
+        "legacy_fingerprint_12": "1be0a1e5048b"
+      },
+      "classification": {
+        "primary_category": "题库/AI与RAG",
+        "category_basis": "题面标记=1025≥30，按规则归题库（原：知识库/AI与RAG）",
+        "functions": [
+          "F1",
+          "F2"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 154,
+        "bytes": 4392229,
+        "markdown_count": 110,
+        "question_markers": 1025,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:28+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 1,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/ather-techie/rag-interview-system",
+          "category": "题库/AI与RAG",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 1,
+          "fetched": "2026-11-05 11:12",
+          "files": 154,
+          "bytes": 4392229,
+          "mb": 4,
+          "top_extensions": {
+            ".md": 110,
+            ".yml": 8,
+            ".mjs": 8,
+            "(none)": 7,
+            ".ipynb": 5,
+            ".js": 4,
+            ".png": 4,
+            ".json": 2,
+            ".example": 1,
+            ".py": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "round": 2,
+          "selection": "正文 110 篇；题面/问答标记 1025 处；文档型仓库(md占比87%)｜自动判定：keep",
+          "functions": [
+            "F1题面",
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 110,
+            "md_share_pct": 87.0,
+            "question_markers": 1025,
+            "tests": 0,
+            "images": 5,
+            "pdf": 0,
+            "stars": 182,
+            "pushed": "2026-11-02",
+            "functions": [
+              "SD题面"
+            ]
+          },
+          "category_basis": "题面标记=1025≥30，按规则归题库（原：知识库/AI与RAG）",
+          "content_fingerprint": "1be0a1e5048bc06200b20dd61b99f67c0852b6570c7d69bb2a01e338a2142f7f",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:dair-ai/prompt-engineering-guide",
+      "name": "dair-ai/Prompt-Engineering-Guide",
+      "source": {
+        "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
+        "canonical_url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-03-11",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:24+08:00",

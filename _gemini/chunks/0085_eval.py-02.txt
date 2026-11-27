@@ -1,0 +1,83 @@
+        self.stop_chars = STOP_CHARS
+
+    def _sentence_score(self, question: str, sentence: str, doc_sentences: list[str]) -> float:
+        qb = set(tokenize(question))
+        sb = set(tokenize(sentence))
+        n = len(doc_sentences)
+        bigram_score = 0.0
+        for token in qb & sb:
+            df = sum(1 for other in doc_sentences if token in tokenize(other))
+            bigram_score += math.log(1 + n / max(1, df))
+        qchars = {c for c in question if "一" <= c <= "鿿" and c not in self.stop_chars}
+        char_score = sum(self.char_idf.get(c, 0.0) for c in qchars & set(sentence))
+        return 3.0 * bigram_score + 0.5 * char_score
+
+    def answer(self, question: str, tenant: str) -> dict:
+        m = re.search(r"租户\s*([A-Za-z0-9]+)", question)
+        if m and self.isolate and f"tenant-{m.group(1).lower()}" != tenant:
+            return {"refused": True, "answer": "无法从当前知识库确认该问题。", "cited": [],
+                    "retrieved": [], "tenants": [], "tokens": 0, "overlap": 0.0}
+        qt = tokenize(question)
+        qset = set(qt)
+        candidates = [i for i, d in enumerate(self.docs) if not self.isolate or d.tenant == tenant]
+        ranked = sorted(candidates, key=lambda i: self.index.score(qt, i), reverse=True)[:3]
+        retrieved = [self.docs[i].id for i in ranked]
+        tenants = [self.docs[i].tenant for i in ranked]
+        refuse = {"refused": True, "answer": "无法从当前知识库确认该问题。", "cited": [],
+                  "retrieved": retrieved, "tenants": tenants, "tokens": 0, "overlap": 0.0}
+        if not ranked:
+            return refuse
+        top = self.docs[ranked[0]]
+        overlap = len(qset & set(top.tokens)) / max(1, len(qset))
+        if overlap < 0.34 or self.index.score(qt, ranked[0]) < 0.5:
+            return refuse
+        clean = sanitize(top.body)
+        sentences = split_sentences(clean) or [clean]
+        best = max(enumerate(sentences), key=lambda p: (self._sentence_score(question, p[1], sentences), p[0]))[1]
+        context = " ".join(sanitize(self.docs[i].body) for i in ranked[:2])
+        return {
+            "refused": False,
+            "answer": f"{best} [{top.id}]",
+            "cited": [top.id],
+            "retrieved": retrieved,
+            "tenants": tenants,
+            "tokens": math.ceil(len(question + context) / 4),
+            "overlap": round(overlap, 3),
+        }
+
+
+def p95(values: list[float]) -> float:
+    if not values:
+        return 0.0
+    ordered = sorted(values)
+    return ordered[min(len(ordered) - 1, math.ceil(0.95 * len(ordered)) - 1)]
+
+
+def run(docs: list[Doc], samples: list[dict], isolate: bool) -> tuple[dict, list[str]]:
+    rag = Rag(docs, isolate=isolate)
+    problems: list[str] = []
+    stats = {k: [] for k in ("retrieval", "refusal", "cross_tenant", "injection", "cost")}
+    latencies: list[float] = []
+
+    for s in samples:
+        repeat = s.get("repeat", 1) if s["type"] == "cost" else 1
+        result = None
+        elapsed = []
+        for _ in range(repeat):
+            started = time.perf_counter()
+            result = rag.answer(s["question"], s["principal"])
+            elapsed.append((time.perf_counter() - started) * 1000)
+        latencies.extend(elapsed)
+
+        if s["type"] == "retrieval":
+            hit = all(d in result["retrieved"] for d in s["expected_docs"])
+            precision = len(set(s["expected_docs"]) & set(result["retrieved"])) / 3
+            cited_ok = bool(result["cited"]) and result["cited"][0] in s["expected_docs"]
+            answer_ok = (s["acceptable_answer"] or "") in result["answer"]
+            stats["retrieval"].append((hit, precision, cited_ok, answer_ok))
+            if not (hit and cited_ok and answer_ok):
+                problems.append(f"{s['id']} retrieval hit={hit} cite={cited_ok} ans={answer_ok} got={result['answer'][:80]}")
+        elif s["type"] == "refusal":
+            ok = result["refused"]
+            stats["refusal"].append(ok)
+            if not ok:

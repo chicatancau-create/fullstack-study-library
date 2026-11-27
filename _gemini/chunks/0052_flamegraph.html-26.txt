@@ -1,0 +1,166 @@
+}
+
+function ascendingComparator(f) {
+  return (d, x) => ascending(f(d), x);
+}
+
+function number(x) {
+  return x === null ? NaN : +x;
+}
+
+function* numbers(values, valueof) {
+  if (valueof === undefined) {
+    for (let value of values) {
+      if (value != null && (value = +value) >= value) {
+        yield value;
+      }
+    }
+  } else {
+    let index = -1;
+    for (let value of values) {
+      if ((value = valueof(value, ++index, values)) != null && (value = +value) >= value) {
+        yield value;
+      }
+    }
+  }
+}
+
+const ascendingBisect = bisector(ascending);
+const bisectRight = ascendingBisect.right;
+const bisectLeft = ascendingBisect.left;
+const bisectCenter = bisector(number).center;
+
+function count(values, valueof) {
+  let count = 0;
+  if (valueof === undefined) {
+    for (let value of values) {
+      if (value != null && (value = +value) >= value) {
+        ++count;
+      }
+    }
+  } else {
+    let index = -1;
+    for (let value of values) {
+      if ((value = valueof(value, ++index, values)) != null && (value = +value) >= value) {
+        ++count;
+      }
+    }
+  }
+  return count;
+}
+
+function length$1(array) {
+  return array.length | 0;
+}
+
+function empty(length) {
+  return !(length > 0);
+}
+
+function arrayify(values) {
+  return typeof values !== "object" || "length" in values ? values : Array.from(values);
+}
+
+function reducer(reduce) {
+  return values => reduce(...values);
+}
+
+function cross(...values) {
+  const reduce = typeof values[values.length - 1] === "function" && reducer(values.pop());
+  values = values.map(arrayify);
+  const lengths = values.map(length$1);
+  const j = values.length - 1;
+  const index = new Array(j + 1).fill(0);
+  const product = [];
+  if (j < 0 || lengths.some(empty)) return product;
+  while (true) {
+    product.push(index.map((j, i) => values[i][j]));
+    let i = j;
+    while (++index[i] === lengths[i]) {
+      if (i === 0) return reduce ? product.map(reduce) : product;
+      index[i--] = 0;
+    }
+  }
+}
+
+function cumsum(values, valueof) {
+  var sum = 0, index = 0;
+  return Float64Array.from(values, valueof === undefined
+    ? v => (sum += +v || 0)
+    : v => (sum += +valueof(v, index++, values) || 0));
+}
+
+function descending(a, b) {
+  return b < a ? -1 : b > a ? 1 : b >= a ? 0 : NaN;
+}
+
+function variance(values, valueof) {
+  let count = 0;
+  let delta;
+  let mean = 0;
+  let sum = 0;
+  if (valueof === undefined) {
+    for (let value of values) {
+      if (value != null && (value = +value) >= value) {
+        delta = value - mean;
+        mean += delta / ++count;
+        sum += delta * (value - mean);
+      }
+    }
+  } else {
+    let index = -1;
+    for (let value of values) {
+      if ((value = valueof(value, ++index, values)) != null && (value = +value) >= value) {
+        delta = value - mean;
+        mean += delta / ++count;
+        sum += delta * (value - mean);
+      }
+    }
+  }
+  if (count > 1) return sum / (count - 1);
+}
+
+function deviation(values, valueof) {
+  const v = variance(values, valueof);
+  return v ? Math.sqrt(v) : v;
+}
+
+function extent(values, valueof) {
+  let min;
+  let max;
+  if (valueof === undefined) {
+    for (const value of values) {
+      if (value != null) {
+        if (min === undefined) {
+          if (value >= value) min = max = value;
+        } else {
+          if (min > value) min = value;
+          if (max < value) max = value;
+        }
+      }
+    }
+  } else {
+    let index = -1;
+    for (let value of values) {
+      if ((value = valueof(value, ++index, values)) != null) {
+        if (min === undefined) {
+          if (value >= value) min = max = value;
+        } else {
+          if (min > value) min = value;
+          if (max < value) max = value;
+        }
+      }
+    }
+  }
+  return [min, max];
+}
+
+// https://github.com/python/cpython/blob/a74eea238f5baba15797e2e8b570d153bc8690a7/Modules/mathmodule.c#L1423
+class Adder {
+  constructor() {
+    this._partials = new Float64Array(32);
+    this._n = 0;
+  }
+  add(x) {
+    const p = this._partials;
+    let i = 0;

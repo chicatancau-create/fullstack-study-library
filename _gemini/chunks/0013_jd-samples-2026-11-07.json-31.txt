@@ -1,0 +1,11 @@
+strong&gt;Preferred Qua",
+      "responsibilities": ""
+    },
+    {
+      "company": "stripe",
+      "source": "Greenhouse official job board",
+      "title": "\tBackend / API Engineer, Radar",
+      "location": "Toronto",
+      "experience": "",
+      "url": "https://stripe.com/jobs/search?gh_jid=8301379",
+      "updated": "2026-10-29",

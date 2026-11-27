@@ -1,0 +1,115 @@
+          "repo": "https://github.com/ashishps1/awesome-system-design-resources",
+          "category": "知识库/系统设计",
+          "branch": null,
+          "archive_sha256": "18a77c17deb696ec184dbcbf85ccd1c9bb107d3fe5647e9053d59ed19dc13c6f",
+          "tarball_mb": 1,
+          "fetched": "2026-11-04 20:03",
+          "files": 27,
+          "bytes": 1725755,
+          "mb": 1,
+          "top_extensions": {
+            ".java": 11,
+            ".py": 11,
+            ".png": 2,
+            "(none)": 1,
+            ".md": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "GPL-3.0",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：26 文件 -> 27 文件",
+          "measured": {
+            "pushed": "2026-11-01",
+            "stars": 43079
+          }
+        }
+      }
+    },
+    {
+      "id": "github:checkcheckzz/system-design-interview",
+      "name": "checkcheckzz/system-design-interview",
+      "source": {
+        "url": "https://github.com/checkcheckzz/system-design-interview",
+        "canonical_url": "https://github.com/checkcheckzz/system-design-interview",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2023-04-03",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:19+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "7c1d5d6debd51b0095d80d521bf23e929cab4117",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/系统设计/checkcheckzz/system-design-interview",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/checkcheckzz/system-design-interview"
+      },
+      "integrity": {
+        "archive_sha256": "933e4166c01ea74fd91058ab08d5b809db6bc3fe4164ca82ba1936c29cce66c5",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/系统设计",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 3,
+        "bytes": 212046,
+        "markdown_count": 1,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:24+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "stale",
+        "note": "2023-04 停更，纯链接索引；系统设计正文以 system-design-primer 与 NEXT 时代资料为主",
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：2 文件 -> 3 文件",
+          "pushed_upstream": "2023-04-03"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/checkcheckzz/system-design-interview",
+          "category": "知识库/系统设计",
+          "branch": null,
+          "archive_sha256": "933e4166c01ea74fd91058ab08d5b809db6bc3fe4164ca82ba1936c29cce66c5",
+          "tarball_mb": 0,

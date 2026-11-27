@@ -1,0 +1,126 @@
+          "repo": "https://github.com/rohitg00/ai-engineering-from-scratch",
+          "category": "题库/AI与Agent",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 66,
+          "fetched": "2026-11-05 11:12",
+          "files": 10788,
+          "bytes": 131804645,
+          "mb": 125,
+          "top_extensions": {
+            ".md": 3418,
+            ".py": 1890,
+            ".json": 1320,
+            ".txt": 956,
+            ".js": 577,
+            ".svg": 542,
+            "(none)": 377,
+            ".ts": 342,
+            ".png": 186,
+            ".go": 166
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "round": 2,
+          "selection": "正文 3418 篇；题面/问答标记 203 处；高采用(76872 star)+有正文(3418篇)；自带测试 599 个；图解 894 张｜自动判定：keep",
+          "functions": [
+            "F1题面",
+            "F2解答",
+            "F3可运行",
+            "F5图解"
+          ],
+          "measured": {
+            "md_n": 3418,
+            "md_share_pct": 23.2,
+            "question_markers": 203,
+            "tests": 599,
+            "images": 894,
+            "pdf": 0,
+            "stars": 76872,
+            "pushed": "2026-11-04",
+            "functions": [
+              "主线-语言",
+              "AI应用",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "category_basis": "按正文关键词判定（原按仓库名判定会错位）：{'AI': 490, '运维云原生': 45, '前端': 40, 'SQL与数据': 39}",
+          "content_fingerprint": "4cbb65cb4fe2b396a1030e99dd94455c4f2517894ad7d9ddfd2de2b544d2fede",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:zkywsg/daily-llm",
+      "name": "zkywsg/Daily-LLM",
+      "source": {
+        "url": "https://github.com/zkywsg/Daily-LLM",
+        "canonical_url": "https://github.com/zkywsg/Daily-LLM",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-09-25",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:16+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "20e367c0996c141b9c95713a44fdc9ed33069ebf",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/AI与Agent/zkywsg/Daily-LLM",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/zkywsg/Daily-LLM"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "f0e75795b23e97d4ad3a3ae5c47f19524b6d448903ef7db6b0b9504d48e179d8",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:52+08:00"
+        },
+        "legacy_fingerprint_12": "f0e75795b23e"
+      },
+      "classification": {
+        "primary_category": "题库/AI与Agent",
+        "category_basis": "人工定类：每日 LLM 面试题",
+        "functions": [
+          "F1",
+          "F2",
+          "F5"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 1802,
+        "bytes": 11027851,
+        "markdown_count": 395,
+        "question_markers": 109,
+        "test_files": 13,
+        "observed_at": "2026-11-07T14:06:28+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",

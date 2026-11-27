@@ -1,0 +1,122 @@
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:23+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 41,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：388 文件 -> 876 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/bin392328206/six-finger",
+          "category": "知识库/后端进阶",
+          "branch": null,
+          "archive_sha256": "647d1babf8a64cdbf5dcaf0e983c796056bdb3ac6173c28e6267c872f8c5fff7",
+          "tarball_mb": 41,
+          "fetched": "2026-11-04 20:03",
+          "files": 876,
+          "bytes": 100024448,
+          "mb": 95,
+          "top_extensions": {
+            ".md": 224,
+            ".png": 107,
+            ".java": 38,
+            ".pdf": 9,
+            ".jpg": 4,
+            ".xml": 2,
+            "(none)": 1,
+            ".yml": 1,
+            ".webp": 1,
+            ".js": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：388 文件 -> 876 文件",
+          "measured": {
+            "pushed": "2026-05-27",
+            "stars": 2154
+          }
+        }
+      }
+    },
+    {
+      "id": "github:crossoverjie/jcsprout",
+      "name": "crossoverJie/JCSprout",
+      "source": {
+        "url": "https://github.com/crossoverJie/JCSprout",
+        "canonical_url": "https://github.com/crossoverJie/JCSprout",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2024-05-21",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:41+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "fc4c6e5f6d1772c2aec4c0f94cb3c8e7eb04018f",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/后端进阶/crossoverJie/JCSprout",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/crossoverJie/JCSprout"
+      },
+      "integrity": {
+        "archive_sha256": "fbd6e79f8f25b08b889e41e931b2c0e9dc865cb824f3d3d4331c6e61af7cca60",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/后端进阶",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 605,
+        "bytes": 98920088,
+        "markdown_count": 101,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:23+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],

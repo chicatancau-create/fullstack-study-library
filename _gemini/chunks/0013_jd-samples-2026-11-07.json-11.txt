@@ -1,0 +1,11 @@
+ and experience.&lt;/li",
+      "responsibilities": ""
+    },
+    {
+      "company": "gitlab",
+      "source": "Greenhouse official job board",
+      "title": "Backend Engineer (Python),AI Engineering: Agent Foundations",
+      "location": "Remote, Canada; Remote, Poland; Remote, United Kingdom",
+      "experience": "",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8704363002",
+      "updated": "2026-11-06",

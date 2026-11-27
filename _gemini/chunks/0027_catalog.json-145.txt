@@ -1,0 +1,114 @@
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "stale",
+        "note": "2024-03 停更，多语言面试汇编；框架 API 需回官方文档核对",
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：225 文件 -> 226 文件",
+          "pushed_upstream": "2024-03-06"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/zijing2333/CSView",
+          "category": "题库/八股与基础",
+          "branch": null,
+          "archive_sha256": "c7206cfe486eca86ae8b3c9ba76f5ba1d05aab8a2ce42f8f5a37aaa85fbc305f",
+          "tarball_mb": 0,
+          "fetched": "2026-11-04 20:03",
+          "files": 226,
+          "bytes": 7833697,
+          "mb": 7,
+          "top_extensions": {
+            ".md": 111,
+            ".jpg": 73,
+            ".png": 30,
+            ".ts": 4,
+            ".scss": 3,
+            "(none)": 1,
+            ".json": 1,
+            ".ico": 1,
+            ".svg": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：225 文件 -> 226 文件",
+          "freshness_flag": "2024-03 停更，多语言面试汇编；框架 API 需回官方文档核对",
+          "pushed_upstream": "2024-03-06",
+          "measured": {
+            "pushed": "2024-03-06",
+            "stars": 774
+          }
+        }
+      }
+    },
+    {
+      "id": "github:krishnadey30/leetcode-questions-companywise",
+      "name": "krishnadey30/LeetCode-Questions-CompanyWise",
+      "source": {
+        "url": "https://github.com/krishnadey30/LeetCode-Questions-CompanyWise",
+        "canonical_url": "https://github.com/krishnadey30/LeetCode-Questions-CompanyWise",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2024-06-23",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:01+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "fb5f78b55eead7f948aada8459c5bfd31ae8abbc",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/公司高频题/krishnadey30/LeetCode-Questions-CompanyWise",
+        "entry_path": ".source.json",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/krishnadey30/LeetCode-Questions-CompanyWise"
+      },
+      "integrity": {
+        "archive_sha256": "880a59e8b129f60d8a0e04fa238f13c5499e23f9ef1d02370a9adc0888dd0859",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "题库/公司高频题",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 538,
+        "bytes": 2373189,
+        "markdown_count": 0,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:28+08:00",

@@ -1,0 +1,45 @@
+      "requirements": "1.深度理解游戏开发工作流，游戏行业从业经历5年以上，技术岗位3年以上； 2.学习能力强，学习主动性强，熟练使用AICoding，全面掌握上下文工具技术原理（skill，mcp，rag等），对上下文工程有自己的理解； 3.架构设计能力强，或者全链路沟通能力强； 4.涉猎广度优先，主程/主美/主策/制作人经历，前后端全栈经历，策划/美术经历，跨行业经历都是加分项； 5.动手能力优先，有自己的Agent作品，或搭建了个人AI工作环境优先。",
+      "responsibilities": "1.端到端的支撑对腾讯二方工作室的AI提效和AI赋能； 2.分析二方工作室的工作流，选择性的对工作流实施Agentic改造，并基于改造后的工作流打造最佳实践； 3.参与游戏行业智能NPC设计，实现和优化； 4.参与游戏行业DataAgent设计，实现和优化。"
+    },
+    {
+      "company": "腾讯",
+      "source": "careers.tencent.com (official API)",
+      "title": "混元AI Agent Harness Engineer（北京/深圳））",
+      "location": "北京",
+      "experience": "两年以上工作经验",
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2052685072754196480",
+      "updated": "2026年10月12",
+      "requirements": "1.使用 Cursor / Claude Code / Codex 等进行重度编程，对 agentic coding 的能力边界和 failure mode 有切身的体感； 2.极客精神，喜欢折腾新技术，享受新技术带来的生产力突破，拥有一定的全栈工程能力和系统设计功底； 3.熟悉 AI/Agent 技术栈，了解 LLM、Agent framework、prompt engineering； 4.代码质量要求严格，代码是给未来的 AI 和人一起维护的，可读性、架构性等缺一不可； 5.对Code Agent的未来有深刻思考，希望加入这股生产力变革的浪潮之中。",
+      "responsibilities": "1.参与设计并实现 Agent 执行全链路的 tracing & observability 系统； 2.参与构建 Agent 质量评估体系：自动化 eval pipeline、A/B testing、regression detection； 3.开发 Agent debugging 工具； 4.参与核心支撑平台（标注、SBS 评测、数据管道）的架构设计与开发； 5.和 AI 研究团队零距离，能第一时间触碰最新的模型能力，并与团队紧密协作，将大模型与 Agent 协同进化的研究成果工程化落地； 6.探索并实践 AI Agent的日常工作流。"
+    },
+    {
+      "company": "腾讯",
+      "source": "careers.tencent.com (official API)",
+      "title": "代号：Craft-高级工程师-Agentic Engineer",
+      "location": "深圳",
+      "experience": "三年以上工作经验",
+      "url": "https://careers.tencent.com/jobdesc.html?postId=2042527610751315968",
+      "updated": "2026年10月14",
+      "requirements": "1.拥有3年以上游戏行业技术岗位从业经验，熟悉游戏开发全流程及关键技术点； 2.具备主程经验者优先，同时欢迎前后端全栈工程师或具备策划/美术背景的复合型人才； 3.熟练掌握AICoding工具，对技能(Skill)、模型上下文协议(MCP)、检索增强生成(RAG)等技术原理有全面理解； 4.具备优秀的逻辑思维与问题解决能力，能够独立承担模块设计与优化任务； 5.良好的跨团队沟通与协作能力，能够推动技术方案在业务场景中的落地。",
+      "responsibilities": "1.负责轻游戏创作Agent的核心设计与开发，参与从需求分析到方案落地的全流程； 2.针对游戏开发流程，设计高效的上下文工程，提升Agent对开发场景的理解与响应能力； 3.规划并优化Agent的工作流，确保其能够高效适配游戏开发的各个环节，持续提升生成内容的质量； 4.深入分析二方工作室现有工作流，识别适合Agentic改造的环节，推动实施并验证效果； 5.基于改造后的工作流，总结并推广最佳实践，为团队提供可复用的方法论与工具支持。"
+    },
+    {
+      "company": "腾讯",
+      "source": "careers.tencent.com (official API)",
+      "title": "微信小程序-前端开发工程师-开发者方向",
+      "location": "广州",
+      "experience": "一年以上工作经验",
+      "url": "https://careers.tencent.com/jobdesc.html?postId=1891443603608215552",
+      "updated": "2026年10月08",
+      "requirements": "1. 本科及以上学历，计算机相关专业毕业 2. 掌握计算机学科基础知识，包括但不限于编程、算法、数据结构、网络、web 安全等基础 3. 前端基础扎实，深入理解前端工程化，包括工程构建、打包、部署等内容，掌握前端优化手段 4. 至少熟练掌握一种前端框架（React/Vue/…），了解小程序开发和原理 5. 具备全栈开发知识和能力（如 Node.js 或其他框架 / 语言） 6. 逻辑思维清晰，对技术 & 用户体验有持续追求，主动推进产品和技术优化 7. 良好的学习能力、沟通能力、团队协作能力，以及分析问题解决问题的能力，责任心强",
+      "responsibilities": "1. 负责小程序开发者生态 & 服务商相关项目的前端开发工作 2. 负责 AI 技术与小程序开发生态结合的相关工作，通过 AI 给开发者和商家提效、赋能 3. 参与技术基建，持续优化研发效能，提升团队工程效率"
+    },
+    {
+      "company": "腾讯",
+      "source": "careers.tencent.com (official API)",
+      "title": "企业微信-大模型训练框架开发工程师-AI Infra（成都/北京）",
+      "location": "广州",
+      "experience": "三年以上工作经验",
+      "url": "https://careers.tencent.com/jobdesc.html?postId=1976128424510644224",
+      "updated": "2026年10月12",
+      "requirements": "1.熟悉 C/C++、CUDA 或 Triton 编程，有 GPU 算子开发或性能优化经验； 2.熟悉 NVIDIA GPU 架构，理解 SM、Warp、Tensor Core、Shared Memory、Memory Coalescing、Occupancy 等概念； 3.熟悉大模型训练或推理流程，了解 Attention、GEMM、MoE、KV Cache、并行策略等核心模块； 4.熟悉分布式训练/推理优化，理解 TP、PP、DP、EP、NCCL、RDMA 等技术； 5.有实际 profiling 和性能调优经验，能够通过工具定位瓶颈并给出优化方案； 6.有 NVIDIA GPU 或 国产加速卡 实际优化经验者优先； 7.不要求候选人覆盖 AI 全栈所有方向，只要在大模型训练/推理、GPU 算子优化、分布式通信、性能调优、推理框架等任一方向有较深入理解和实践经验，均欢迎投递。",

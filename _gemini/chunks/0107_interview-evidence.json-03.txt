@@ -1,0 +1,121 @@
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "e111c18b66dc91b9565c48be8b42ba2487ba51a4dd596698678c7b562c434ddd",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:22.154Z",
+        "http_status": 200,
+        "title_seen": "字节面经 字节跳动后端开发岗面经-17_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-BD-008",
+      "url": "https://www.nowcoder.com/feed/main/detail/c687af27a503401888e6b41c0f5ece93",
+      "title": "10.13 秋招 字节 抖音架构 后端一面",
+      "published_at": "10-13 16:10（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "字节跳动",
+      "role": "后端",
+      "role_basis": "标题明确标注岗位",
+      "quote": "13、手撕：力扣3：无重复字符的最长字串",
+      "supports_questions": [
+        "Q001"
+      ],
+      "matches": [
+        {
+          "question": "Q001",
+          "by": "leetcode-number",
+          "quote": "13、手撕：力扣3：无重复字符的最长字串"
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 223621,
+      "raw_html_sha256": "60765ce25bf3793e0225511759ac209ebc4f17b269e946b3452b089069786426",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "a82360b0d64a4ab5127a0c7e289c63582b13722136312e5e5613ca321e0b2f6d",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:22.253Z",
+        "http_status": 200,
+        "title_seen": "10.13 秋招 字节 抖音架构 后端一面_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-BD-009",
+      "url": "https://www.nowcoder.com/feed/main/detail/cacc7228647242eea82c4591d0518efa",
+      "title": "字节跳动 后端开发实习生 一面 TikTok国际直播基础业务(时长一个小时)",
+      "published_at": "10-13 16:24（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "字节跳动",
+      "role": "后端",
+      "role_basis": "标题明确标注岗位",
+      "quote": "20. LeetCode 200：岛屿数量。",
+      "supports_questions": [
+        "Q006",
+        "Q079"
+      ],
+      "matches": [
+        {
+          "question": "Q006",
+          "by": "leetcode-number",
+          "quote": "20. LeetCode 200：岛屿数量。"
+        },
+        {
+          "question": "Q079",
+          "by": "leetcode-number",
+          "quote": "算法题第一题LeetCode152乘积最大子数组，因为前几天刚好背过，所以写的很快，几分钟就写完了，面试官看我写得快，又给我来了一题岛屿数量🤡🤡这题印象不深，没写完面试官就让我结束了，下次再写算法题我就算会也尽量装作思考的样子吧😄"
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 6668,
+      "raw_html_sha256": "21a3203ee8d28f12f689690e829a62d6714a0abed80059d4ed9bd0f16da68dfd",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "513d49bcce9e41dce95e628e2a249584a65585f3f5163f4ef4caf2dce8d70bd1",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:22.378Z",
+        "http_status": 200,
+        "title_seen": "字节跳动 后端开发实习生 一面 TikTok国际直播基础业务(时长一个小时)_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-BD-010",
+      "url": "https://www.nowcoder.com/feed/main/detail/1cf76a70672a4b7f86db1ec773189121",
+      "title": "字节后端实习一面",
+      "published_at": "10-14 22:01（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "字节跳动",
+      "role": "后端",
+      "role_basis": "标题明确标注岗位",
+      "quote": "1. 算法：无重复字符的最长子串（Hot100，mid）",
+      "supports_questions": [
+        "Q001",
+        "Q082"
+      ],
+      "matches": [
+        {
+          "question": "Q001",
+          "by": "unique-name",
+          "quote": "1. 算法：无重复字符的最长子串（Hot100，mid）"
+        },
+        {
+          "question": "Q082",
+          "by": "leetcode-number",
+          "quote": "力扣198打家劫舍原题"
+        }
+      ],
+      "http_status": 200,

@@ -1,0 +1,109 @@
+    cur = st.pop();
+    out.push(cur.val);
+    cur = cur.right;
+  }
+  return out;
+}`,
+    edge_cases: [
+      { call: '[1,null,2,3]', expected: [1,3,2], why: '标准示例' },
+      { call: '[]', expected: [], why: '空树' },
+      { call: '[1]', expected: [1], why: '单节点' },
+    ],
+    common_mistakes: ['先访问再压左孩子导致顺序错', '只压右孩子不压祖先链', '空树时仍尝试访问 root.val'],
+    followups: ['Morris 遍历如何做到 O(1) 空间？', '前序与后序的迭代写法差在哪？'],
+    rubric: [
+      { point: '沿左链压栈直到空', weight: 2 },
+      { point: '弹出即访问并转向右子树', weight: 1 },
+      { point: '空树返回空数组', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q071', title: '139. 单词拆分', question_url: 'https://leetcode.cn/problems/word-break/',
+    core_idea: 'DP：dp[i] 表示前 i 个字符可被拆分；枚举切点 j，若 dp[j] 为真且 s[j..i) 在词典中则 dp[i] 为真。',
+    invariant: 'dp[i] 只依赖更小的下标，因此按长度递增计算即可。',
+    complexity: { time: 'O(n²)', space: 'O(n)' },
+    code_lang: 'javascript',
+    code: `function solve(s, dict) {
+  const set = new Set(dict);
+  const dp = new Array(s.length + 1).fill(false);
+  dp[0] = true;
+  for (let i = 1; i <= s.length; i++) {
+    for (let j = 0; j < i; j++) {
+      if (dp[j] && set.has(s.slice(j, i))) { dp[i] = true; break; }
+    }
+  }
+  return dp[s.length];
+}`,
+    edge_cases: [
+      { call: '"leetcode", ["leet","code"]', expected: true, why: '恰好两段' },
+      { call: '"applepenapple", ["apple","pen"]', expected: true, why: '单词可重复使用' },
+      { call: '"catsandog", ["cats","dog","sand","and","cat"]', expected: false, why: '存在无法覆盖的字符' },
+    ],
+    common_mistakes: ['用贪心匹配最长单词，遇到死路不回溯', 'dp 只记录起点而忽略终点', '词典允许复用却按 0/1 处理后失效'],
+    followups: ['如何输出一种拆分方案？', 'Trie 优化能改善什么？'],
+    rubric: [
+      { point: 'dp[0] 为真并按下标递增计算', weight: 2 },
+      { point: '枚举切点要求 dp[j] 与子串同时在词典', weight: 1 },
+      { point: '单词可重复使用', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q072', title: '240. 搜索二维矩阵 II', question_url: 'https://leetcode.cn/problems/search-a-2d-matrix-ii/',
+    core_idea: '从右上角出发：当前值大于目标则左移，小于目标则下移；每步排除一行或一列。',
+    invariant: '搜索区域始终保持左上角为当前元素，目标若存在必在该区域内。',
+    complexity: { time: 'O(m+n)', space: 'O(1)' },
+    code_lang: 'javascript',
+    code: `function solve(matrix, target) {
+  if (!matrix.length || !matrix[0].length) return false;
+  let i = 0, j = matrix[0].length - 1;
+  while (i < matrix.length && j >= 0) {
+    if (matrix[i][j] === target) return true;
+    if (matrix[i][j] > target) j--;
+    else i++;
+  }
+  return false;
+}`,
+    edge_cases: [
+      { call: '[[1,4,7],[2,5,8],[3,6,9]], 5', expected: true, why: '中间值' },
+      { call: '[[1,4,7],[2,5,8],[3,6,9]], 10', expected: false, why: '越界后退出' },
+      { call: '[[-5]], -5', expected: true, why: '单元素负数' },
+    ],
+    common_mistakes: ['从左上角出发，两个方向都变大无法决策', '只比较一处就返回', '行列长度取错导致越界'],
+    followups: ['与 74 题（整体有序）的差别？', '如何用二分每行做到 O(m log n) 并比较复杂度？'],
+    rubric: [
+      { point: '从右上角开始搜索', weight: 2 },
+      { point: '大于目标左移、小于目标下移', weight: 1 },
+      { point: '空矩阵返回 false', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q073', title: '128. 最长连续序列', question_url: 'https://leetcode.cn/problems/longest-consecutive-sequence/',
+    core_idea: '哈希集合去重；只从“没有前驱”的数开始向后数连续长度，避免重复扫描。',
+    invariant: '每个连续段只在其最小元素处被完整遍历一次，总复杂度线性。',
+    complexity: { time: 'O(n)', space: 'O(n)' },
+    code_lang: 'javascript',
+    code: `function solve(nums) {
+  const set = new Set(nums);
+  let best = 0;
+  for (const v of set) {
+    if (set.has(v - 1)) continue;
+    let cur = v, len = 1;
+    while (set.has(cur + 1)) { cur++; len++; }
+    best = Math.max(best, len);
+  }
+  return best;
+}`,
+    edge_cases: [
+      { call: '[100,4,200,1,3,2]', expected: 4, why: '1,2,3,4' },
+      { call: '[0,3,7,2,5,8,4,6,0,1]', expected: 9, why: '0 到 8，含重复 0' },
+      { call: '[]', expected: 0, why: '空数组' },
+    ],
+    common_mistakes: ['对每个数都向后数，退化成 O(n²)', '用排序做到 O(n log n) 不符合要求', '忽略重复值导致长度虚高'],
+    followups: ['如果要求返回序列本身？', '集合迭代时增删元素有什么风险？'],
+    rubric: [
+      { point: '只从无前驱的元素起算', weight: 2 },
+      { point: '集合去重避免重复计数', weight: 1 },
+      { point: '空数组返回 0', weight: 1 },
+    ],
+  },
+  {

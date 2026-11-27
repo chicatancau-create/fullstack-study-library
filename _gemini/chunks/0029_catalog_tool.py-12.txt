@@ -1,0 +1,72 @@
+    tombstones = catalog.get("tombstones", [])
+    mirror_count = sum(1 for r in resources if r.get("payload", {}).get("mode") != "reference")
+    ref_count = len(resources) - mirror_count
+    if mirror_count != 178 or ref_count != 2:
+        errors.append(
+            f"catalog.resources: 活跃资源 {len(resources)}（镜像 {mirror_count} + reference {ref_count}），"
+            "基线应为 178 镜像 + 2 reference（增删需明确证据）"
+        )
+    ids = [r.get("id") for r in resources]
+    urls = [r.get("source", {}).get("canonical_url") for r in resources]
+    if len(ids) != len(set(ids)):
+        errors.append("catalog.resources: id 不唯一")
+    if len(urls) != len(set(urls)):
+        errors.append("catalog.resources: canonical_url 不唯一")
+    active_ids = set(ids)
+    for tomb in tombstones:
+        if tomb.get("id") in active_ids:
+            errors.append(f"tombstone {tomb.get('id')} 同时出现在 active 资源中")
+    for issue in catalog.get("open_issues", []):
+        for affected in issue.get("affected_ids", []):
+            if affected not in active_ids and not affected.startswith("github:trimstray/") and not affected.startswith("github:developer-y/"):
+                errors.append(f"open_issue {issue.get('id')}: 引用未知资源 {affected}")
+    all_ids = active_ids | {t.get("id") for t in tombstones}
+    for r in resources:
+        replacement = r.get("lifecycle", {}).get("replacement_id")
+        if replacement and replacement not in all_ids:
+            errors.append(f"{r.get('id')}: replacement_id {replacement} 不存在")
+        cat = r.get("classification", {}).get("primary_category", "")
+        payload = r.get("payload", {})
+        if payload.get("mode") == "reference":
+            if not str(payload.get("online_fallback_url", "")).startswith("https://"):
+                errors.append(f"{r.get('id')}: reference 缺少 https online_fallback_url")
+            continue
+        if not norm_rel(payload.get("mirror_path", "")).startswith(cat + "/"):
+            errors.append(f"{r.get('id')}: mirror_path 与 primary_category 不一致")
+    sums = {
+        "active": len(resources),
+        "tombstones": len(tombstones),
+        "files": sum(r["metrics"]["files"] for r in resources),
+        "bytes": sum(r["metrics"]["bytes"] for r in resources),
+        "markdown": sum((r["metrics"]["markdown_count"] or 0) for r in resources),
+    }
+    categories: dict[str, dict[str, int]] = defaultdict(lambda: {"repos": 0, "files": 0, "bytes": 0})
+    for r in resources:
+        cat = r["classification"]["primary_category"]
+        categories[cat]["repos"] += 1
+        categories[cat]["files"] += r["metrics"]["files"]
+        categories[cat]["bytes"] += r["metrics"]["bytes"]
+    if sum(x["files"] for x in categories.values()) != sums["files"]:
+        errors.append("catalog: 分类文件合计与总计不一致")
+    if sum(x["bytes"] for x in categories.values()) != sums["bytes"]:
+        errors.append("catalog: 分类 bytes 合计与总计不一致")
+    if MATERIALS.exists():
+        mat = MATERIALS.read_text(encoding="utf-8")
+        if mat.count("\n| 知识库/") + mat.count("\n| 题库/") != len(resources):
+            errors.append(f"材料清单.md: 活跃资源行不是 {len(resources)}")
+        if f"{sums['files']:,}" not in mat or f"{sums['bytes']:,}" not in mat:
+            errors.append("材料清单.md: 文件数或 bytes 与 catalog 不一致")
+        if "请勿手工编辑" not in mat:
+            errors.append("材料清单.md: 缺少生成标记")
+    if INDEX.exists():
+        idx = INDEX.read_text(encoding="utf-8")
+        if idx.count("\n| [") < 178:
+            errors.append("资料索引.md: 逐仓库行少于 178")
+        if "由 catalog 生成" not in idx:
+            errors.append("资料索引.md: 缺少生成标记")
+        for marker in ("catalog-summary", "curriculum-map", "catalog-categories", "catalog-repos"):
+            if f"<!-- {marker}:begin -->" not in idx:
+                errors.append(f"资料索引.md: 缺少 {marker} 标记")
+    if mode == "strict-mirror":
+        missing = [r["id"] for r in resources if not (BASE / r["payload"]["mirror_path"]).is_dir()]
+        if missing:

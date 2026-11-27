@@ -1,0 +1,103 @@
+        "| 仓库 | 状态 | 完整时效说明 |",
+        "| --- | --- | --- |",
+    ]
+    for r in stale:
+        lines.append(f"| {r['name']} | {r['freshness']['status']} | {r['freshness']['note']} |")
+    return "\n".join(lines)
+
+
+def repo_entry(resource: dict[str, Any]) -> str:
+    # entry_path is persisted during migration, so rendering is deterministic
+    # across the original machine and a clean clone.
+    payload = resource["payload"]
+    entry = payload.get("entry_path") or "README.md"
+    return f"{payload['mirror_path']}/{entry}"
+
+
+def repo_sections(catalog: dict[str, Any]) -> str:
+    groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for r in catalog["resources"]:
+        groups[r["classification"]["primary_category"]].append(r)
+    lines = [GENERATED_NOTICE, ""]
+    for cat in sorted(groups):
+        items = sorted(groups[cat], key=lambda r: r["name"].lower())
+        lines += [
+            f"### {cat}（{len(items)} 个仓库）",
+            "",
+            "| 仓库 | 文件 | MiB | md | 许可 | 功能 | 时效 |",
+            "| --- | ---: | ---: | ---: | --- | --- | --- |",
+        ]
+        for r in items:
+            lic = r["license"]["spdx"] or ("未识别文件" if r["license"]["license_files"] else "无 LICENSE")
+            local = repo_entry(r)
+            lines.append(
+                f"| [{r['name']}](<{local}>)（[在线回退]({r['source']['canonical_url']})） | "
+                f"{r['metrics']['files']:,} | {mib(r['metrics']['bytes'])} | {fmt_int(r['metrics']['markdown_count'])} | "
+                f"{lic} | {','.join(r['classification']['functions']) or '未标注'} | {r['freshness']['status']} |"
+            )
+        lines.append("")
+    return "\n".join(lines)
+
+
+def working_markdown_paths() -> list[Path]:
+    paths: list[Path] = []
+    for extra in ([], ["--others", "--exclude-standard"]):
+        command = ["git", "-C", str(ROOT), "ls-files", "-z", *extra, "--", "*.md"]
+        out = subprocess.run(command, capture_output=True, check=True).stdout
+        for raw in out.split(b"\0"):
+            if raw:
+                paths.append(ROOT / raw.decode("utf-8"))
+    unique = {p.resolve(): p for p in paths}
+    return [unique[key] for key in sorted(unique, key=lambda p: p.as_posix())]
+
+
+def course_docs() -> list[Path]:
+    docs = []
+    for p in working_markdown_paths():
+        rel = norm_rel(p.relative_to(ROOT))
+        if rel.startswith("01-阶段课程/") or rel.startswith("02-项目实战/"):
+            docs.append(p)
+    return docs
+
+
+def local_mirror_targets(doc: Path, resources: list[dict[str, Any]]) -> list[str]:
+    text = CODE_FENCE_RE.sub("", doc.read_text(encoding="utf-8-sig"))
+    found: set[str] = set()
+    for match in MDLINK_RE.finditer(text):
+        raw = match.group(1).strip().strip("<>")
+        if raw.startswith(("http://", "https://", "mailto:", "#")):
+            continue
+        target = raw.split("#")[0]
+        if not target:
+            continue
+        resolved = (doc.parent / target).resolve()
+        try:
+            rel = resolved.relative_to(BASE.resolve()).as_posix()
+        except ValueError:
+            continue
+        for resource in resources:
+            mirror = resource["payload"]["mirror_path"]
+            if rel == mirror or rel.startswith(mirror + "/"):
+                found.add(resource["id"])
+                break
+    return sorted(found)
+
+
+def curriculum_map(catalog: dict[str, Any]) -> str:
+    by_id = {r["id"]: r for r in catalog["resources"]}
+    rows = []
+    for doc in course_docs():
+        ids = local_mirror_targets(doc, catalog["resources"])
+        if not ids:
+            continue
+        rel = norm_rel(doc.relative_to(ROOT))
+        wiki_target = "../" + rel[:-3]
+        links = []
+        for rid in ids:
+            r = by_id[rid]
+            links.append(f"[{r['name']}](<{repo_entry(r)}>)")
+        rows.append(f"| [[{wiki_target}\\|{doc.stem}]] | {'、'.join(links)} |")
+    lines = [
+        GENERATED_NOTICE,
+        "",
+        f"下表由课程与项目正文中的实际本地资料链接自动扫描生成，共 {len(rows)} 个文档、"

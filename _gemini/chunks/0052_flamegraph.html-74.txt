@@ -1,0 +1,134 @@
+  return date.getUTCSeconds();
+});
+var seconds = second.range;
+
+var minute = newInterval(function(date) {
+  date.setTime(date - date.getMilliseconds() - date.getSeconds() * durationSecond);
+}, function(date, step) {
+  date.setTime(+date + step * durationMinute);
+}, function(start, end) {
+  return (end - start) / durationMinute;
+}, function(date) {
+  return date.getMinutes();
+});
+var minutes = minute.range;
+
+var hour = newInterval(function(date) {
+  date.setTime(date - date.getMilliseconds() - date.getSeconds() * durationSecond - date.getMinutes() * durationMinute);
+}, function(date, step) {
+  date.setTime(+date + step * durationHour);
+}, function(start, end) {
+  return (end - start) / durationHour;
+}, function(date) {
+  return date.getHours();
+});
+var hours = hour.range;
+
+var day = newInterval(
+  date => date.setHours(0, 0, 0, 0),
+  (date, step) => date.setDate(date.getDate() + step),
+  (start, end) => (end - start - (end.getTimezoneOffset() - start.getTimezoneOffset()) * durationMinute) / durationDay,
+  date => date.getDate() - 1
+);
+var days = day.range;
+
+function weekday(i) {
+  return newInterval(function(date) {
+    date.setDate(date.getDate() - (date.getDay() + 7 - i) % 7);
+    date.setHours(0, 0, 0, 0);
+  }, function(date, step) {
+    date.setDate(date.getDate() + step * 7);
+  }, function(start, end) {
+    return (end - start - (end.getTimezoneOffset() - start.getTimezoneOffset()) * durationMinute) / durationWeek;
+  });
+}
+
+var sunday = weekday(0);
+var monday = weekday(1);
+var tuesday = weekday(2);
+var wednesday = weekday(3);
+var thursday = weekday(4);
+var friday = weekday(5);
+var saturday = weekday(6);
+
+var sundays = sunday.range;
+var mondays = monday.range;
+var tuesdays = tuesday.range;
+var wednesdays = wednesday.range;
+var thursdays = thursday.range;
+var fridays = friday.range;
+var saturdays = saturday.range;
+
+var month = newInterval(function(date) {
+  date.setDate(1);
+  date.setHours(0, 0, 0, 0);
+}, function(date, step) {
+  date.setMonth(date.getMonth() + step);
+}, function(start, end) {
+  return end.getMonth() - start.getMonth() + (end.getFullYear() - start.getFullYear()) * 12;
+}, function(date) {
+  return date.getMonth();
+});
+var months = month.range;
+
+var year = newInterval(function(date) {
+  date.setMonth(0, 1);
+  date.setHours(0, 0, 0, 0);
+}, function(date, step) {
+  date.setFullYear(date.getFullYear() + step);
+}, function(start, end) {
+  return end.getFullYear() - start.getFullYear();
+}, function(date) {
+  return date.getFullYear();
+});
+
+// An optimized implementation for this simple case.
+year.every = function(k) {
+  return !isFinite(k = Math.floor(k)) || !(k > 0) ? null : newInterval(function(date) {
+    date.setFullYear(Math.floor(date.getFullYear() / k) * k);
+    date.setMonth(0, 1);
+    date.setHours(0, 0, 0, 0);
+  }, function(date, step) {
+    date.setFullYear(date.getFullYear() + step * k);
+  });
+};
+var years = year.range;
+
+var utcMinute = newInterval(function(date) {
+  date.setUTCSeconds(0, 0);
+}, function(date, step) {
+  date.setTime(+date + step * durationMinute);
+}, function(start, end) {
+  return (end - start) / durationMinute;
+}, function(date) {
+  return date.getUTCMinutes();
+});
+var utcMinutes = utcMinute.range;
+
+var utcHour = newInterval(function(date) {
+  date.setUTCMinutes(0, 0, 0);
+}, function(date, step) {
+  date.setTime(+date + step * durationHour);
+}, function(start, end) {
+  return (end - start) / durationHour;
+}, function(date) {
+  return date.getUTCHours();
+});
+var utcHours = utcHour.range;
+
+var utcDay = newInterval(function(date) {
+  date.setUTCHours(0, 0, 0, 0);
+}, function(date, step) {
+  date.setUTCDate(date.getUTCDate() + step);
+}, function(start, end) {
+  return (end - start) / durationDay;
+}, function(date) {
+  return date.getUTCDate() - 1;
+});
+var utcDays = utcDay.range;
+
+function utcWeekday(i) {
+  return newInterval(function(date) {
+    date.setUTCDate(date.getUTCDate() - (date.getUTCDay() + 7 - i) % 7);
+    date.setUTCHours(0, 0, 0, 0);
+  }, function(date, step) {

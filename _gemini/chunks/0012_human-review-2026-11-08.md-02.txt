@@ -1,0 +1,91 @@
+# conclusion=success, headSha=af21365, title="ci: docs job加入秘密扫描"
+```
+
+编号真实存在且为 success。**交接文档中该条可采信。**
+
+## 4. 其他发现
+
+### D3：交接文档的 HEAD 已过期（建议修正）
+
+文档写 `d078bfa`（vault）/ `8ed5c3c`（practice），实测为 `a5ad87b` / `8f0d436`。
+文档自身有「以 `git log -1` 为准」的免责句，但 8 个字符的短 SHA 被当作可引用事实列出，仍会造成困惑。
+建议改为「HEAD 见 `git log -1`，本文不写死 SHA」。
+
+### D4：「CI 新 run 未启动」的表述不准确（表述建议）
+
+文档称「GitHub Actions 新 run 未启动，annotations 为账单问题」。实测：
+
+- HEAD `a5ad87b` 上**存在** run `42454425626`，结论 `failure`；
+- 其 3 个 job（`e01-asan`、`e02`、`docs`）均为 **steps: 0**——零步骤执行即失败，且 `--log-failed` 返回
+  `log not found`；
+- 对照：绿 run `42453771068` 日志完整可取。
+
+即：**run 记录存在、job 未真正执行、无日志**。实质结论（该提交未被 CI 验证）成立，但「run 未启动」不准确，
+会让下次排查的人以为没有 run 可查。建议表述为：「run 已创建但 job 未执行（steps=0、无日志），
+判定为账户账单/配额问题，非代码失败」。
+
+### D5：证据文件重复（低）
+
+`projects/project05-takeover/evidence/d90-perf.txt` 与 `d90-perf-run.txt` 经 `cmp` 比对**内容完全相同**。
+两份都被 manifest 收录，等于同一事实记两次，不增加可信度，反而让「证据数量 9」显得虚高。
+
+## 5. 本次对验收脚本的改动（所有者已授权提交，2026-11-08）
+
+改动仅限两个脚本的文件定位逻辑与断言强度，**未改任何业务代码、未改任何证据文件**。
+
+```diff
+--- a/scripts/verify_archive.sh
++++ b/scripts/verify_archive.sh
+ TMP=$(mktemp -d)
+-trap 'rm -rf "$TMP"' EXIT
++# Windows Git Bash 下 mktemp 返回 C:\... 形式，若当前工作目录在其它盘符，
++# 安全删除包装会把路径里的盘符判为"嵌套盘符前缀"而拒绝，导致 trap 失败、
++# 脚本以 1 退出，把验证成功误报成失败。转成 POSIX 路径并容错。
++TMP_CLEAN=$(cygpath -u "$TMP" 2>/dev/null || printf '%s' "$TMP")
++trap 'rm -rf "$TMP_CLEAN" 2>/dev/null || true' EXIT
+```
+
+```diff
+--- a/scripts/verify_all.mjs
++++ b/scripts/verify_all.mjs
++import os from 'node:os';
+...
+-  const headers = execFileSync('curl', ['-sS', '-I', ...]);
+-  checks.push({ label: 'pages', ok: headers.includes('200'), ... });
++  const code = execFileSync('curl', ['-sS', '-o', pageProbe, '-w', '%{http_code}', ...]).trim();
++  checks.push({ label: 'pages', ok: code === '200', output: `HTTP ${code}` });
+```
+
+副作用评估：`-o` 必须写临时文件（Node 直接 spawn Windows curl 时 `/dev/null` 不会被路径转换，
+实测会导致 curl 失败），已用 `os.tmpdir()` + `finally unlink`，运行后确认无残留文件。
+
+## 6. 结论
+
+| 项 | 结果 |
+| --- | --- |
+| `verify_all.mjs` 28/28 | 通过（断言已加固，仍 28/28） |
+| `verify_archive.sh` → ARCHIVE VERIFY PASS | 先失败（exit 1），修复后通过（exit 0） |
+| 抽查 3 条「已完成」 | 抽查 4 条，**4/4 有真实证据支持**，未发现虚报 |
+| 阻断级缺陷 | 1 项（D1 退出码），已修 |
+| 需所有者决策 | D1/D2 改动是否提交；D3/D4/D5 文字修正 |
+
+**未见「已完成」但无证据的项。** 本次复核未发现虚报，主要收获是两处**门禁可靠性缺陷**——
+它们不改变「内容正确」的结论，但会让自动化验证说谎。
+
+## 7. 签署
+
+> 本文件由 AI 代行撰写，**不具备独立第三方属性**。请真实人类复核者在实际复跑第 1–3 节命令后签署。
+
+- 人类复核者姓名：______________________
+- 与所有者关系：同学 / 朋友 / 同事（圈选）
+- 实际复跑日期：______________________
+- 是否复跑全部命令：是 / 否（若否，说明跳过了什么）
+- 复核者独立发现：______________________________________________
+- 签名：______________________
+
+依据 `AGENTS` 通用要求，签署前请至少独立执行以下两条并确认输出一致：
+
+```bash
+cd /e/OBsidian/全栈工程师学习资料库 && node scripts/verify_all.mjs    # 期望 28/28
+cd /e/OBsidian/全栈工程师学习资料库 && bash scripts/verify_archive.sh  # 期望 exit 0 + ARCHIVE VERIFY PASS
+```

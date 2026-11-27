@@ -1,0 +1,162 @@
+  chart.getNodeRect = nodeData => {
+    // returns the node position and size on canvas, or null.
+    const node = nodes.find(n => n.data === nodeData)
+    return getNodeRect(node)
+  }
+
+  chart.on = dispatch.on.bind(dispatch)
+
+  exclude.forEach(chart.typeHide)
+  d3.select(element).datum(d3.hierarchy(tree, function (d) { return d.c || d.children }))
+  chart()
+
+  return chart
+}
+
+function defaultIsNodeExcluded (node, filterTypes) {
+  return ~filterTypes.indexOf(node.data.type)
+}
+
+function defaultColorHash (d, perc, allSamples, tiers) {
+  if (!d.name) {
+    return perc ? 'rgb(127, 127, 127)' : 'rgba(0, 0, 0, 0)'
+  }
+
+  perc = perc || 1
+  var type = d.type || 'def'
+
+  var key
+
+  if (!tiers) key = colors.def
+
+  if (tiers) key = colors[type]
+
+  var h = key.h
+  var s = key.s
+  var l = key.l
+  var top = stackTop(d)
+  var vector = ((top / allSamples) * 100) + 1
+
+  s *= vector
+  l += (vector * 2)
+
+  s /= 100
+  l /= 100
+
+  s *= perc
+  l *= perc
+
+  var a = 0.8
+  if (l > 0.8) {
+    a += diffScale(l - 0.8)
+    l = 0.8
+  }
+
+  var rgb = hsl(h, s, l)
+  var res = 'rgba(' + rgb + ', ' + a + ')'
+
+  return res
+}
+
+function stackTop (d) {
+  if (!d.children) return d.top
+  var top = d.top
+
+  d.children
+    .forEach(function (child) {
+      if (
+        !child.children ||
+          child.children.filter(function (c) { return c.hide }).length
+      ) {
+        if (child.hide) {
+          top += stackTop(child)
+        }
+      }
+    })
+
+  return top
+}
+
+function maxDepth (tree) {
+  if (!tree.children) {
+    return 1
+  }
+  return tree.children.map(maxDepth).reduce((prev, next) => Math.max(prev, next), 0) + 1
+}
+
+function createAnimation (opts, render, done) {
+  var start = Date.now()
+  var animationFrame = null
+  var dt = 0
+  var ease = 0
+
+  function nextFrame () {
+    dt = (Date.now() - start) / opts.duration
+    ease = opts.ease(dt > 1 ? 1 : dt)
+    render(ease)
+
+    if (ease === 1) {
+      animationFrame = null
+      done()
+    } else {
+      animationFrame = window.requestAnimationFrame(nextFrame)
+    }
+  }
+  animationFrame = window.requestAnimationFrame(nextFrame)
+
+  return {
+    cancel () {
+      window.cancelAnimationFrame(animationFrame)
+    },
+    currentX (node) {
+      var prev = node.data.prev
+      return {
+        x0: interpolate(prev.x0, node.x0, ease),
+        x1: interpolate(prev.x1, node.x1, ease)
+      }
+    }
+  }
+}
+
+function interpolate (start, end, ease) {
+  return start + ease * (end - start)
+}
+
+module.exports = flameGraph
+module.exports.colors = colors
+module.exports.colorHash = defaultColorHash
+
+},{"d3-array":12,"d3-dispatch":14,"d3-ease":16,"d3-hierarchy":20,"d3-scale":22,"d3-selection":24,"d3-zoom":29,"escape-string-regexp":18,"hsl-to-rgb-for-reals":31}],18:[function(require,module,exports){
+'use strict';
+
+var matchOperatorsRe = /[|\\{}()[\]^$+*?.]/g;
+
+module.exports = function (str) {
+	if (typeof str !== 'string') {
+		throw new TypeError('Expected a string');
+	}
+
+	return str.replace(matchOperatorsRe, '\\$&');
+};
+
+},{}],19:[function(require,module,exports){
+// https://d3js.org/d3-format/ v1.4.5 Copyright 2020 Mike Bostock
+(function (global, factory) {
+typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+typeof define === 'function' && define.amd ? define(['exports'], factory) :
+(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.d3 = global.d3 || {}));
+}(this, (function (exports) { 'use strict';
+
+function formatDecimal(x) {
+  return Math.abs(x = Math.round(x)) >= 1e21
+      ? x.toLocaleString("en").replace(/,/g, "")
+      : x.toString(10);
+}
+
+// Computes the decimal coefficient and exponent of the specified number x with
+// significant digits p, where x is positive and p is in [1, 21] or undefined.
+// For example, formatDecimalParts(1.23) returns ["123", 0].
+function formatDecimalParts(x, p) {
+  if ((i = (x = p ? x.toExponential(p - 1) : x.toExponential()).indexOf("e")) < 0) return null; // NaN, ±Infinity
+  var i, coefficient = x.slice(0, i);
+

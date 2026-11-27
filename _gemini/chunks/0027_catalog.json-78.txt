@@ -1,0 +1,128 @@
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 30,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/TheOdinProject/curriculum",
+          "category": "知识库/课程与路线",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 30,
+          "fetched": "2026-11-05 11:12",
+          "files": 741,
+          "bytes": 36403494,
+          "mb": 34,
+          "top_extensions": {
+            ".md": 582,
+            ".png": 107,
+            ".js": 28,
+            ".yml": 8,
+            ".jpg": 4,
+            "(none)": 3,
+            ".json": 2,
+            ".csv": 2,
+            ".yaml": 2,
+            ".jsonc": 1
+          },
+          "license_files": [
+            "license.md"
+          ],
+          "license_detected": "CC-BY-NC-SA-4.0",
+          "round": 2,
+          "selection": "正文 582 篇；高采用(13209 star)+有正文(582篇)；自带测试 15 个；命中计划缺口方向｜自动判定：keep",
+          "functions": [
+            "F2解答",
+            "F3可运行",
+            "F4路线",
+            "F5图解"
+          ],
+          "measured": {
+            "md_n": 582,
+            "md_share_pct": 11.5,
+            "question_markers": 10,
+            "tests": 15,
+            "images": 112,
+            "pdf": 0,
+            "stars": 13209,
+            "pushed": "2026-11-04",
+            "functions": [
+              "F3可运行验证",
+              "主线-后端",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "content_fingerprint": "bdfb8b0a1c22930d47a3b3b71a34b7002a33154bfe24f04aa75f82d2d34b4e62",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:cd-home/root",
+      "name": "cd-home/Root",
+      "source": {
+        "url": "https://github.com/cd-home/Root",
+        "canonical_url": "https://github.com/cd-home/Root",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2023-05-14",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:57+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "b73a110ffdc8eec09fe34cefaa8ea547e8d4ad9a",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/课程与路线/cd-home/Root",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/cd-home/Root"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "fb77db888bb606aafa6401cb19d380ea0c14eec2eff4e188ba62e643546a3e0d",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:06+08:00"
+        },
+        "legacy_fingerprint_12": "fb77db888bb6"
+      },
+      "classification": {
+        "primary_category": "知识库/课程与路线",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F2",
+          "F5"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 455,
+        "bytes": 21351730,
+        "markdown_count": 232,
+        "question_markers": 8,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:24+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {

@@ -1,0 +1,121 @@
+// E04：零依赖 HTTP 服务端。只监听 127.0.0.1，用于本地受控取证。
+// 8787 = API/跨源目标；8788 = 静态 CORS 客户端页（不同端口 = 不同源）。
+import http from 'node:http';
+import crypto from 'node:crypto';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const API_PORT = Number(process.env.API_PORT || 8787);
+const WEB_PORT = Number(process.env.WEB_PORT || 8788);
+const ALLOWED_ORIGIN = `http://127.0.0.1:${WEB_PORT}`;
+const SESSION_SID = crypto.randomBytes(12).toString('hex');
+
+const here = path.dirname(fileURLToPath(import.meta.url));
+
+const items = [
+  { id: 1, title: '读 HTTP 缓存语义', done: false },
+  { id: 2, title: '用键盘走完主路径', done: true },
+];
+let nextId = 3;
+const sessions = new Map();
+
+const baseHeaders = {
+  'X-Content-Type-Options': 'nosniff',
+};
+
+function json(res, status, body, extra = {}) {
+  const payload = body === undefined ? '' : JSON.stringify(body);
+  res.writeHead(status, {
+    ...baseHeaders,
+    'Content-Type': 'application/json; charset=utf-8',
+    'Content-Length': Buffer.byteLength(payload),
+    ...extra,
+  });
+  res.end(payload);
+}
+
+function readBody(req, limit = 8192) {
+  return new Promise((resolve, reject) => {
+    let size = 0;
+    const chunks = [];
+    req.on('data', c => {
+      size += c.length;
+      if (size > limit) { reject(new Error('body too large')); req.destroy(); return; }
+      chunks.push(c);
+    });
+    req.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
+    req.on('error', reject);
+  });
+}
+
+function parseCookies(req) {
+  const out = {};
+  for (const part of (req.headers.cookie || '').split(';')) {
+    const i = part.indexOf('=');
+    if (i > 0) out[part.slice(0, i).trim()] = part.slice(i + 1).trim();
+  }
+  return out;
+}
+
+function corsHeaders(req, { credentials = false } = {}) {
+  const origin = req.headers.origin;
+  if (origin !== ALLOWED_ORIGIN) return { Vary: 'Origin' };
+  return {
+    'Access-Control-Allow-Origin': origin,
+    'Access-Control-Allow-Credentials': credentials ? 'true' : 'false',
+    // 默认 JS 读不到 ACAO（非安全列表响应头），显式暴露才能让取证页读出它。
+    'Access-Control-Expose-Headers': 'Access-Control-Allow-Origin',
+    Vary: 'Origin',
+  };
+}
+
+function preflight(req, res, { credentials = false, methods = 'GET, POST, OPTIONS', headers = 'content-type' } = {}) {
+  const allowed = req.headers.origin === ALLOWED_ORIGIN;
+  res.writeHead(204, allowed ? {
+    ...baseHeaders,
+    ...corsHeaders(req, { credentials }),
+    'Access-Control-Allow-Methods': methods,
+    'Access-Control-Allow-Headers': headers,
+    'Access-Control-Max-Age': '600',
+  } : { ...baseHeaders, Vary: 'Origin' });
+  res.end();
+}
+
+const api = http.createServer(async (req, res) => {
+  const url = new URL(req.url, `http://127.0.0.1:${API_PORT}`);
+  const p = url.pathname;
+  const method = req.method;
+
+  console.log(`[req] ${new Date().toISOString()} ${method} ${p} origin=${req.headers.origin || '-'} cookie=${req.headers.cookie ? 'present' : '-'}`);
+
+  try {
+    if (method === 'GET' && p === '/api/items') {
+      const etag = '"items-v1"';
+      const headers = {
+        ...baseHeaders,
+        ETag: etag,
+        'Cache-Control': 'public, max-age=60',
+        Vary: 'Accept-Language, Origin',
+      };
+      if (req.headers['if-none-match'] === etag) {
+        res.writeHead(304, headers);
+        res.end();
+        return;
+      }
+      return json(res, 200, { items }, headers);
+    }
+
+    if (method === 'POST' && p === '/api/items') {
+      const raw = await readBody(req);
+      let body;
+      try { body = JSON.parse(raw || '{}'); } catch { return json(res, 400, { error: 'invalid_json' }); }
+      const title = typeof body.title === 'string' ? body.title.trim() : '';
+      if (title.length < 1 || title.length > 60) {
+        return json(res, 422, { error: 'validation_failed', field: 'title', rule: '1..60 chars' });
+      }
+      const item = { id: nextId++, title, done: false };
+      items.push(item);
+      return json(res, 201, item, { Location: `/api/items/${item.id}` });
+    }
+

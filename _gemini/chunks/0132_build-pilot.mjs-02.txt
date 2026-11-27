@@ -1,0 +1,116 @@
+      contentHash: sha256(stableStringify({ headingPath, body })),
+      fileHash,
+      isEmpty: !body,
+    }
+  })
+}
+function sectionBody(text, title) {
+  const lines = normalize(text).split('\n')
+  const marks = parseHeadings(text)
+  const mark = marks.find((candidate) => candidate.level === 1 && candidate.title === title)
+  if (!mark) throw new Error(`规则来源缺少标题：${title}`)
+  const next = marks.find((candidate) => candidate.line > mark.line && candidate.level <= 1)
+  const end = next ? next.line - 1 : lines.length
+  return lines.slice(mark.line, end).join('\n').trim()
+}
+
+const sourceRaw = readFileSync(join(VAULT, SOURCE_REL))
+const sourceHash = createHash('sha256').update(sourceRaw).digest('hex')
+if (sourceHash !== EXPECTED_SOURCE_SHA256) {
+  throw new Error(`源单元已变化，拒绝静默重建投影。请先复核 U01 原文，再更新 EXPECTED_SOURCE_SHA256。\n期望 ${EXPECTED_SOURCE_SHA256}\n实际 ${sourceHash}`)
+}
+const sourceText = normalize(sourceRaw.toString('utf8'))
+const rewritten = rewriteRelativeLinks(sourceText).trim()
+const projection = [
+  '---',
+  'type: knowledge-volume',
+  'topic_levels: [2]',
+  'updated: 2026-11-20',
+  `source_ids: [${SOURCE_ID}]`,
+  'verification_status: 库内已存在',
+  `source_path: ${SOURCE_REL}`,
+  `source_sha256: ${sourceHash}`,
+  '---',
+  '',
+  `> 来源：\`${SOURCE_REL}\`。本页由 CodeWeave 适配生成器投影，不直接编辑；修改请改原文后重跑生成器。`,
+  '',
+  rewritten,
+  '',
+].join('\n')
+write(PROJECTION_REL, projection)
+const projectionHash = sha256(projection)
+const records = topicRecords(projection, projectionHash)
+
+const oldManifest = readJson('CodeWeave/content-manifest.json')
+const oldTopics = Array.isArray(oldManifest?.topics) ? oldManifest.topics : []
+const keyOf = (topic) => `${topic.path}#${topic.headingPath.join(' > ')}`
+const existingByKey = new Map(oldTopics.map((topic) => [keyOf(topic), topic]))
+let nextSequence = oldTopics.reduce((max, topic) => Math.max(max, Number(/(\d+)$/.exec(topic.topicId)?.[1] ?? 0)), 0)
+const currentTopics = records.map((record) => {
+  const old = existingByKey.get(keyOf(record))
+  const topicId = old?.topicId ?? `topic-${String(++nextSequence).padStart(4, '0')}`
+  return { topicId, ...record, status: 'active' }
+})
+const currentKeys = new Set(currentTopics.map(keyOf))
+const retiredTopics = oldTopics
+  .filter((topic) => !currentKeys.has(keyOf(topic)))
+  .map((topic) => ({ ...topic, status: 'retired', retiredReason: 'generator: 不再由 CodeWeave 首批试点投影生成' }))
+
+const topicIndex = [
+  '# CodeWeave 主题定位索引',
+  '',
+  `## ${PROJECTION_REL.replace(/\.md$/, '')}`,
+  ...records.map((record) => `- [[${PROJECTION_REL.replace(/\.md$/, '')}#${record.title}]]`),
+  '',
+].join('\n')
+write(TOPIC_INDEX_REL, topicIndex)
+
+const ruleBody = [
+  `- ${STAGE_ID} 开发环境与工程习惯：首批只接入 U01 Git 与 Shell；完成示例、练习和证据不等于 G0 通过。`,
+  '- 复习间隔按 0、1、3 天登记；自测与盲测必须由学习者独立完成，资料库不代填掌握度。',
+].join('\n')
+const rulesText = `# 阶段与复习规则\n\n${ruleBody}\n`
+write(RULES_REL, rulesText)
+const ruleFingerprint = sha256(sectionBody(rulesText, '阶段与复习规则'))
+const rules = {
+  schemaVersion: 2,
+  ruleVersion: '2026-11-20-pilot.1',
+  sourceRefs: [{ path: RULES_REL, headingPath: ['阶段与复习规则'] }],
+  ruleSections: [{
+    id: 'R-PILOT-STAGES',
+    path: RULES_REL,
+    headingPath: ['阶段与复习规则'],
+    covers: ['stages', 'reviewOffsetsDays'],
+  }],
+  sectionReviews: {
+    'R-PILOT-STAGES': {
+      reviewedAt: '2026-11-20',
+      reviewer: 'CodeWeave 首批接入',
+      fingerprint: ruleFingerprint,
+    },
+  },
+  stages: [{
+    id: STAGE_ID,
+    title: '开发环境与工程习惯',
+    checkpoint: '完成 U01 示例、练习与独立盲测并保留证据；不代表 G0 已通过。',
+    deliverables: ['Git 提交历史', '冲突解决记录', 'Shell 退出码证据'],
+    prerequisites: [],
+  }],
+  reviewOffsetsDays: [0, 1, 3],
+}
+writeJson(RULES_JSON_REL, rules)
+
+const sourceCard = [
+  `# ${SOURCE_ID}：U01 Git 与 Shell`,
+  '',
+  '| 字段 | 值 |',
+  '| --- | --- |',
+  `| source_id | \`${SOURCE_ID}\` |`,
+  '| 核验状态 | 库内已存在 |',
+  `| 原始路径 | \`${SOURCE_REL}\` |`,
+  `| 原始 SHA-256 | \`${sourceHash}\` |`,
+  `| 投影路径 | \`${PROJECTION_REL}\` |`,
+  '',
+  '本卡登记资料库内自包含教学单元；投影由 `CodeWeave/scripts/build-pilot.mjs` 生成，不替代原单元的独立练习与盲测。',
+  '',
+].join('\n')

@@ -1,0 +1,94 @@
+  for (const [url, label] of targets) {
+    await sleep(1800);
+    let page = null;
+    try {
+      await b.page.goto(url);
+      await sleep(3200);
+      page = await b.page.eval(`(() => {
+        const t = document.body ? document.body.innerText : '';
+        return { title: document.title, text: t };
+      })()`);
+    } catch (e) {
+      attempts.push({ url, title: label || '', result: 'blocked', reason: `渲染失败: ${e.message}` });
+      console.log(`BLOCK ${url} 渲染失败`);
+      continue;
+    }
+
+    const body = page.text || '';
+    const soft = SOFT_404.filter(k => body.includes(k));
+    const wall = LOGIN_WALL.filter(k => body.includes(k));
+    if (soft.length || wall.length) {
+      attempts.push({ url, title: page.title, result: 'blocked', reason: `命中 ${[...soft, ...wall].join('/')}` });
+      console.log(`BLOCK ${url} ${[...soft, ...wall].join('/')}`);
+      continue;
+    }
+
+    // 必须是面经帖：标题或正文出现面试语境；博客合集/资料清单不算
+    const INTERVIEW_CTX = /(面经|面试|一面|二面|三面|四面|手撕|秋招|春招|实习面|凉经|oc|offer)/i;
+    if (!INTERVIEW_CTX.test(page.title) && !INTERVIEW_CTX.test(body.slice(0, 1200))) {
+      attempts.push({ url, title: page.title, result: 'not-interview', reason: '缺少面经语境' });
+      console.log(`SKIP-NOTINTERVIEW ${page.title.slice(0, 24)}`);
+      continue;
+    }
+    // 资料/博客合集：正文以站内外链为主（如"10k"博客清单）
+    const blogLinks = (body.match(/https?:\/\/[^\s)]+/g) || []).length;
+    if (blogLinks > 8) {
+      attempts.push({ url, title: page.title, result: 'link-dump', reason: `外链 ${blogLinks} 条，属资料合集` });
+      console.log(`SKIP-LINKDUMP ${page.title.slice(0, 24)} (${blogLinks} links)`);
+      continue;
+    }
+
+    // 公司相关性：标题或正文必须出现目标公司，避免把别家面经验证成本家题目
+    const companyHit = page.title.includes(company) || page.title.includes(COMPANY_SHORT[company]) || body.includes(company) || body.includes(COMPANY_SHORT[company]);
+    if (!companyHit) {
+      attempts.push({ url, title: page.title, result: 'wrong-company', reason: `未出现「${company}」字样` });
+      console.log(`SKIP-COMPANY ${page.title.slice(0, 26)}`);
+      continue;
+    }
+    // 多公司合辑帖：题面无法归属到单一公司，不能当本家原始面经
+    const others = Object.keys(COMPANY_SHORT).filter(c => c !== company
+      && (page.title.includes(c) || page.title.includes(COMPANY_SHORT[c])));
+    if (others.length) {
+      attempts.push({ url, title: page.title, result: 'multi-company', reason: `标题含其他公司: ${others.join('/')}` });
+      console.log(`SKIP-MULTI ${page.title.slice(0, 26)}`);
+      continue;
+    }
+
+    const hits = matchText(body, matchers);
+    if (!hits.length) {
+      attempts.push({ url, title: page.title, result: 'no-match', reason: '正文未命中题库题号/题名' });
+      console.log(`NOMATCH ${page.title.slice(0, 30)}`);
+      continue;
+    }
+
+    // 同一面经常被重复发帖：按正文核心区指纹去重（去掉页头作者/时间与页尾计数）
+    const fingerprint = crypto.createHash('sha256').update(coreOf(body)).digest('hex');    if (seenFingerprints.has(fingerprint)) {
+      attempts.push({ url, title: page.title, result: 'duplicate', reason: '与已采页面正文重复' });
+      console.log(`DUP ${page.title.slice(0, 30)}`);
+      continue;
+    }
+    seenFingerprints.add(fingerprint);
+
+    const shell = await sha256Of(url);
+    const cleanTitle = page.title.replace(/_牛客网$/, '');
+    const role = detectRole(cleanTitle, body);
+    const id = `NC-${COMPANY_CODE[company]}-${String(nextSeq++).padStart(3, '0')}`;
+    const record = {
+      id,
+      url,
+      title: cleanTitle,
+      published_at: extractPublishedAt(body),
+      accessed_at: new Date().toISOString().slice(0, 10),
+      company,
+      role: role.role,
+      role_basis: role.basis,
+      quote: hits[0].quote,
+      supports_questions: [...new Set(hits.map(h => h.id))],
+      matches: hits.map(h => ({ question: h.id, by: h.by, quote: h.quote })),
+      http_status: shell.status,
+      raw_html_bytes: shell.bytes,
+      raw_html_sha256: shell.sha,
+      hash_scope: 'raw_html_shell；正文由客户端渲染，引文经渲染抓取核对',
+      body_fingerprint: fingerprint,
+      login_required: false,
+      retrieval: 'headless CDP 渲染 + curl 取壳哈希',

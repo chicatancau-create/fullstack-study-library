@@ -1,0 +1,139 @@
+      "id": "github:dcloudio/hello-uniapp",
+      "name": "dcloudio/hello-uniapp",
+      "source": {
+        "url": "https://github.com/dcloudio/hello-uniapp",
+        "canonical_url": "https://github.com/dcloudio/hello-uniapp",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 20:23",
+        "upstream_pushed_at": "2026-05-29",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:48+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "ab80c34681013d844be2a9feb362bf96ffeca3ee",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/鸿蒙与跨端/dcloudio/hello-uniapp",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/dcloudio/hello-uniapp"
+      },
+      "integrity": {
+        "archive_sha256": "04efcbf3db1a378e6fe65836db133f9a2c0482ba172949889e3434dd65d1767b",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/鸿蒙与跨端",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F3",
+          "F4"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 775,
+        "bytes": 3715996,
+        "markdown_count": 105,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:26+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE",
+          "README.md"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "round": 4,
+          "extract_skipped_bulk": 0,
+          "upstream_description": "uni-app框架演示示例"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/dcloudio/hello-uniapp",
+          "category": "知识库/鸿蒙与跨端",
+          "branch": "master",
+          "archive_sha256": "04efcbf3db1a378e6fe65836db133f9a2c0482ba172949889e3434dd65d1767b",
+          "fetched": "2026-11-05 20:23",
+          "files": 774,
+          "bytes": 3714984,
+          "license_files": [
+            "LICENSE",
+            "README.md"
+          ],
+          "license_detected": "MIT",
+          "round": 4,
+          "selection": "uni-app 官方演示工程：全端组件与 API 用例",
+          "functions": [
+            "F4路线",
+            "F3可运行"
+          ],
+          "measured": {
+            "md_n": 105,
+            "images": 95,
+            "code": 487,
+            "pushed": "2026-05-29",
+            "stars": 3051,
+            "question_markers": null
+          },
+          "top_extensions": [
+            [
+              ".vue",
+              231
+            ],
+            [
+              ".md",
+              105
+            ],
+            [
+              ".json",
+              102
+            ],
+            [
+              ".js",
+              96
+            ],
+            [
+              ".png",
+              94
+            ],
+            [
+              ".nvue",
+              43
+            ],
+            [
+              ".ts",
+              19

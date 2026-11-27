@@ -1,0 +1,121 @@
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 1,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：164 文件 -> 165 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/puge-up/programming-play",
+          "category": "知识库/计算机基础",
+          "branch": null,
+          "archive_sha256": "0e58333795cfdaff2f281448e19f4caaa5179e75541e28621ec00c1c39a0269d",
+          "tarball_mb": 1,
+          "fetched": "2026-11-04 20:03",
+          "files": 165,
+          "bytes": 2519465,
+          "mb": 2,
+          "top_extensions": {
+            ".md": 160,
+            ".png": 2,
+            "(none)": 1,
+            ".jpeg": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：164 文件 -> 165 文件",
+          "measured": {
+            "pushed": "2025-02-18",
+            "stars": 1796
+          }
+        }
+      }
+    },
+    {
+      "id": "github:xiaolincoder/cs-base",
+      "name": "xiaolincoder/CS-Base",
+      "source": {
+        "url": "https://github.com/xiaolincoder/CS-Base",
+        "canonical_url": "https://github.com/xiaolincoder/CS-Base",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2024-11-27",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:47+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "381b846137c4b7c25373804f44eb44ed8a31ea55",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/计算机基础/xiaolincoder/CS-Base",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/xiaolincoder/CS-Base"
+      },
+      "integrity": {
+        "archive_sha256": "9b751c0554fbe6fabb86a66e721b4d84ddf38fa4e14197f8dee61f908bede58f",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/计算机基础",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 1697,
+        "bytes": 192570006,
+        "markdown_count": 123,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:24+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：1696 文件 -> 1697 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/xiaolincoder/CS-Base",
+          "category": "知识库/计算机基础",
+          "branch": null,

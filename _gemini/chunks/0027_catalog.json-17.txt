@@ -1,0 +1,116 @@
+          "license_detected": null,
+          "round": 2,
+          "selection": "正文 96 篇；高采用(15362 star)+有正文(96篇)；图解 725 张｜自动判定：keep",
+          "functions": [
+            "F2解答",
+            "F5图解"
+          ],
+          "measured": {
+            "md_n": 96,
+            "md_share_pct": 0.9,
+            "question_markers": 14,
+            "tests": 0,
+            "images": 725,
+            "pdf": 12,
+            "stars": 15362,
+            "pushed": "2026-06-14",
+            "functions": [
+              "F1离线题面",
+              "AI应用",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "category_basis": "按正文关键词判定（原按仓库名判定会错位）：{'AI': 817, '前端': 35, '系统基础': 34, 'SQL与数据': 33}",
+          "content_fingerprint": "ca1512919ec704cb0057422d099612eb5fdac85706fcb3e65d52c969f95782a1",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:codecrafters-io/build-your-own-x",
+      "name": "codecrafters-io/build-your-own-x",
+      "source": {
+        "url": "https://github.com/codecrafters-io/build-your-own-x",
+        "canonical_url": "https://github.com/codecrafters-io/build-your-own-x",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-07-14",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:03+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "aa17439b62f384511a5561ce308e9598b94d8989",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/全栈路线/codecrafters-io/build-your-own-x",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/codecrafters-io/build-your-own-x"
+      },
+      "integrity": {
+        "archive_sha256": "1a095b9d545d07496e1a681fd46ddb4847ce3565428729b6d30e51b9f0688aa3",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/全栈路线",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 5,
+        "bytes": 73632,
+        "markdown_count": 2,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:20+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：4 文件 -> 5 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/codecrafters-io/build-your-own-x",
+          "category": "知识库/全栈路线",
+          "branch": null,
+          "archive_sha256": "1a095b9d545d07496e1a681fd46ddb4847ce3565428729b6d30e51b9f0688aa3",
+          "tarball_mb": 0,
+          "fetched": "2026-11-04 20:03",
+          "files": 5,
+          "bytes": 73632,

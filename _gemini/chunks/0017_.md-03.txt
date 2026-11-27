@@ -1,0 +1,53 @@
+- [uni-app](https://uniapp.dcloud.net.cn/tutorial/)、[uni-app x](https://doc.dcloud.net.cn/uni-app-x/)：Vue 跨端框架、编译器、运行时、生命周期、条件编译、原生扩展与多端发布。官方页写明计划于 2027 年初停止老 App/VDOM 平台维护，详见 [迁移指南](https://doc.dcloud.net.cn/uni-app-x/uniapptox.html) 与 [[../01-阶段课程/专项-uni-app跨端应用开发|uni-app 跨端专项]]；以访问当日页面为准。
+- [React Native](https://reactnative.dev/docs/getting-started)、[Flutter](https://docs.flutter.dev/)：移动跨端。
+- [Electron](https://www.electronjs.org/docs/latest/)、[Tauri](https://v2.tauri.app/)：桌面跨端。
+- [WebRTC](https://webrtc.org/getting-started/overview)：实时音视频与数据通道。
+- [D3.js](https://d3js.org/)、[Apache ECharts](https://echarts.apache.org/en/index.html)、[Three.js](https://threejs.org/docs/)：可视化与 3D。
+- [Model Context Protocol](https://modelcontextprotocol.io/docs)：模型工具与上下文协议。
+- [LangChain](https://docs.langchain.com/)、[LlamaIndex](https://docs.llamaindex.ai/)：LLM/RAG 工程框架；先掌握模型 API、评估、安全和成本，再选框架。Ragas 只是可选实现，不是评估标准。
+- [Bun](https://bun.sh/docs)、[Deno](https://docs.deno.com/)：本地无镜像，按 `payload.mode=reference` 记录官方在线入口；除非项目需要，不下载大型镜像或替换主线 Node.js。
+
+## 算法、系统与多语言深度
+
+全部语言先使用 [[../01-阶段课程/专项-多语言知识树与课程导航|多语言知识树与课程导航]] 选择对应文档；每份语言文档末尾有官方参考，以下为共用补充。
+
+- [LeetCode 热题 100](https://leetcode.cn/problem-list/2cktkvj/) 与 [LeetCode 学习计划](https://leetcode.cn/studyplan/)：按 [[../01-阶段课程/专项-算法与数据结构深度训练|算法训练]] 使用，题解只能用于复盘。
+- [cppreference](https://en.cppreference.com/w/)：高质量社区参考，不是 ISO 或编译器官方规范；C/C++ 行为以所用标准、编译器和标准库官方资料为准。
+- [Go 官方文档](https://go.dev/doc/)：语言、并发、模块、测试、pprof 与工具链。
+- [Python 官方文档](https://docs.python.org/3/)：对象模型、asyncio、标准库和打包。
+- [.NET/C# 文档](https://learn.microsoft.com/dotnet/csharp/)：CLR、异步、ASP.NET Core、EF Core 与诊断。
+- [Linux 内核文档](https://www.kernel.org/doc/html/latest/)：系统调用、内存、I/O 和进程主题的深入参考。
+- [Designing Data-Intensive Applications](https://dataintensive.net/)：存储、复制、分区、事务和分布式系统；配合实验而非只读书。
+
+## AI 编程工具链
+
+- [GitHub Copilot 文档](https://docs.github.com/copilot)：IDE 辅助、Agent、代码审查与企业协作。
+- [Cursor 文档](https://docs.cursor.com/)：仓库上下文、Agent、diff 审查和规则配置。
+- [Claude Code 文档](https://code.claude.com/docs/en/overview)：终端 Agent、测试执行、工具权限和自动化工作流。
+
+三者选择一种完成阶段 00 的完整 AI 工单即可；不比较“谁最聪明”，只验证需求理解、修改范围、测试、审查、秘密保护和人工接管能力。
+
+## 每个阶段的阅读上限
+
+为避免资料囤积，建议：
+
+- 一个主题保留 1 份主教程 + 1 份官方参考。
+- 每周新增收藏不超过真正读完和复现的数量。
+- 读完必须产出代码、测试、图或自己的解释，否则只标记“看过”，不标记“掌握”。
+- 阶段验收前优先补弱项，不因为新文章或新框架更换主线。
+
+## 深度实验的主阅读与验收
+
+下面是稳定入口与建议阅读范围，不表示本次逐页核验所有外部链接或远程内容；访问时确认站点、版本、维护状态与日期。每主题最多一份主资料与一份官方参考，完成对应实验后再扩展。
+
+| 主题 | 主资料 / 官方入口 | 阅读后产出 |
+| --- | --- | --- |
+| 系统与并发 | [OSTEP](https://pages.cs.wisc.edu/~remzi/OSTEP/) 的进程/内存/并发/持久化选章；Linux 文档 | E01/E06 的资源与失败实验，不要求通读内核 |
+| 算法基础 | [MIT 6.006](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/) 选讲；既有专题题单 | 不变量、复杂度、陌生变体与工程迁移 |
+| 数据库 | PG 官方事务隔离/索引/EXPLAIN/备份章节；MySQL InnoDB 对照 | E07/E08 的并发交错、计划与恢复证据 |
+| 分布式 | [MIT 6.5840](https://pdos.csail.mit.edu/6.824/) 按岗位选读；DDIA 与消息产品官方语义 | E09/E10 的崩溃窗口与恢复，不要求主线实现完整共识系统 |
+| 安全验证 | [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/)；既有 Cheat Sheets | E11 的适用控制→测试→证据，Top 10 之外的验证依据 |
+| Web 性能 | [Web Vitals](https://web.dev/articles/vitals)；React/浏览器官方性能文档 | E05/E12，区分实验室指标与真实用户数据 |
+| 可靠性 | [SRE Workbook](https://sre.google/workbook/table-of-contents/) 的 SLO/告警/事件响应选章 | E13 的目标、测量、告警和 Runbook |
+
+具体算法题、产品版本、漏洞分类和平台接口可能变化；不将固定年份或 latest 文档自动套用到旧项目。新资料先归入当前问题，不再无限增加完整课程。

@@ -1,0 +1,71 @@
+	at java.lang.ref.ReferenceQueue.remove(java.base@25.0.2/ReferenceQueue.java:201)
+	- locked <0x00000000ffd50eb0> (a java.lang.ref.ReferenceQueue$Lock)
+	at jdk.internal.ref.CleanerImpl.run(java.base@25.0.2/CleanerImpl.java:146)
+	at java.lang.Thread.runWith(java.base@25.0.2/Thread.java:1487)
+	at java.lang.Thread.run(java.base@25.0.2/Thread.java:1474)
+	at jdk.internal.misc.InnocuousThread.run(java.base@25.0.2/InnocuousThread.java:148)
+
+"deadlock-t1" #39 [68064] prio=5 os_prio=0 cpu=0.00ms elapsed=0.97s tid=0x000000f047759fa0 nid=68064 waiting for monitor entry  [0x000000f047dff000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+	at Deadlock.lambda$main$0(Deadlock.java:8)
+	- waiting to lock <0x00000000ffd56b90> (a java.lang.Object)
+	- locked <0x00000000ffd56b80> (a java.lang.Object)
+	at Deadlock$$Lambda/0x0000000016040210.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@25.0.2/Thread.java:1487)
+	at java.lang.Thread.run(java.base@25.0.2/Thread.java:1474)
+
+"deadlock-t2" #40 [34560] prio=5 os_prio=0 cpu=0.00ms elapsed=0.97s tid=0x000000f04775a760 nid=34560 waiting for monitor entry  [0x000000f047eff000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+	at Deadlock.lambda$main$1(Deadlock.java:14)
+	- waiting to lock <0x00000000ffd56b80> (a java.lang.Object)
+	- locked <0x00000000ffd56b90> (a java.lang.Object)
+	at Deadlock$$Lambda/0x0000000016040438.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@25.0.2/Thread.java:1487)
+	at java.lang.Thread.run(java.base@25.0.2/Thread.java:1474)
+
+"VM Thread" os_prio=2 cpu=0.00ms elapsed=1.00s tid=0x000000f042988460 nid=69076 runnable  
+
+"VM Periodic Task Thread" os_prio=2 cpu=0.00ms elapsed=1.00s tid=0x000000f042973360 nid=75432 waiting on condition  
+
+"G1 Service" os_prio=2 cpu=0.00ms elapsed=1.01s tid=0x000000f042839590 nid=22076 runnable  
+
+"G1 Refine#0" os_prio=2 cpu=0.00ms elapsed=1.01s tid=0x000000f03124e8c0 nid=60636 runnable  
+
+"G1 Conc#0" os_prio=2 cpu=0.00ms elapsed=1.01s tid=0x000000f0311b3d60 nid=67912 runnable  
+
+"G1 Main Marker" os_prio=2 cpu=0.00ms elapsed=1.01s tid=0x000000f0311b2050 nid=41876 runnable  
+
+"GC Thread#0" os_prio=2 cpu=0.00ms elapsed=1.01s tid=0x000000f0311b02d0 nid=56288 runnable  
+
+JNI global refs: 17, weak refs: 0
+
+
+Found one Java-level deadlock:
+=============================
+"deadlock-t1":
+  waiting to lock monitor 0x000000f04775f7f0 (object 0x00000000ffd56b90, a java.lang.Object),
+  which is held by "deadlock-t2"
+
+"deadlock-t2":
+  waiting to lock monitor 0x000000f04775f4b0 (object 0x00000000ffd56b80, a java.lang.Object),
+  which is held by "deadlock-t1"
+
+Java stack information for the threads listed above:
+===================================================
+"deadlock-t1":
+	at Deadlock.lambda$main$0(Deadlock.java:8)
+	- waiting to lock <0x00000000ffd56b90> (a java.lang.Object)
+	- locked <0x00000000ffd56b80> (a java.lang.Object)
+	at Deadlock$$Lambda/0x0000000016040210.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@25.0.2/Thread.java:1487)
+	at java.lang.Thread.run(java.base@25.0.2/Thread.java:1474)
+"deadlock-t2":
+	at Deadlock.lambda$main$1(Deadlock.java:14)
+	- waiting to lock <0x00000000ffd56b80> (a java.lang.Object)
+	- locked <0x00000000ffd56b90> (a java.lang.Object)
+	at Deadlock$$Lambda/0x0000000016040438.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@25.0.2/Thread.java:1487)
+	at java.lang.Thread.run(java.base@25.0.2/Thread.java:1474)
+
+Found 1 deadlock.
+

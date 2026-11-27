@@ -1,0 +1,144 @@
+        "branch": "alpha",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 20:23",
+        "upstream_pushed_at": "2026-08-11",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:46+08:00",
+          "default_branch": "alpha",
+          "head_commit_sha": "f8e077d6552a097ab84eb2415131a3390716aee4",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/鸿蒙与跨端/dcloudio/hello-uni-app-x",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/dcloudio/hello-uni-app-x"
+      },
+      "integrity": {
+        "archive_sha256": "4c9108362a35473d220107432729bc9518d5b0690e22086ecc710a1d5814ad25",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/鸿蒙与跨端",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F3",
+          "F4"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 1317,
+        "bytes": 11247763,
+        "markdown_count": 89,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:26+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "unrecognized_file",
+        "license_files": [
+          "readme.md"
+        ],
+        "usage_restriction": "未识别许可证文件；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "round": 4,
+          "extract_skipped_bulk": 3,
+          "upstream_description": "uni-app x 跨平台框架的演示示例，包括组件、API、模板等"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/dcloudio/hello-uni-app-x",
+          "category": "知识库/鸿蒙与跨端",
+          "branch": "alpha",
+          "archive_sha256": "4c9108362a35473d220107432729bc9518d5b0690e22086ecc710a1d5814ad25",
+          "fetched": "2026-11-05 20:23",
+          "files": 1316,
+          "bytes": 11246703,
+          "license_files": [
+            "readme.md"
+          ],
+          "license_detected": null,
+          "round": 4,
+          "selection": "uni-app x 官方演示工程：组件、API、模板可运行样例",
+          "functions": [
+            "F4路线",
+            "F3可运行"
+          ],
+          "measured": {
+            "md_n": 89,
+            "images": 64,
+            "code": 1085,
+            "pushed": "2026-08-11",
+            "stars": 42,
+            "question_markers": null
+          },
+          "top_extensions": [
+            [
+              ".uvue",
+              523
+            ],
+            [
+              ".js",
+              320
+            ],
+            [
+              ".json",
+              104
+            ],
+            [
+              ".uts",
+              95
+            ],
+            [
+              ".md",
+              89
+            ],
+            [
+              ".png",
+              51
+            ],
+            [
+              ".ts",
+              20
+            ],
+            [
+              ".wxss",
+              13
+            ]
+          ],
+          "extract_skipped_bulk": 3,
+          "upstream_description": "uni-app x 跨平台框架的演示示例，包括组件、API、模板等",
+          "mb": 10
+        }
+      }
+    },
+    {

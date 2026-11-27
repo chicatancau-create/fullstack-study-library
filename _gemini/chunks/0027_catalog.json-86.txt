@@ -1,0 +1,130 @@
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/mengxi-ream/read-frog"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "5a82d9d81780e7c8ec64e70926170f16b050fe96735d99db94dce102f33fc142",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:07+08:00"
+        },
+        "legacy_fingerprint_12": "5a82d9d81780"
+      },
+      "classification": {
+        "primary_category": "知识库/课程与路线",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [
+          "F2",
+          "F3"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 1943,
+        "bytes": 43441976,
+        "markdown_count": 163,
+        "question_markers": 5,
+        "test_files": 425,
+        "observed_at": "2026-11-07T14:06:25+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "GPL-3.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；传染性或非商业条款，不得并入对外发布产物。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 29,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/mengxi-ream/read-frog",
+          "category": "知识库/课程与路线",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 29,
+          "fetched": "2026-11-05 11:12",
+          "files": 1943,
+          "bytes": 43441976,
+          "mb": 41,
+          "top_extensions": {
+            ".ts": 1105,
+            ".tsx": 492,
+            ".md": 163,
+            ".png": 72,
+            ".yml": 24,
+            ".js": 18,
+            ".json": 16,
+            ".svg": 10,
+            ".css": 8,
+            "(none)": 6
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "GPL-3.0",
+          "round": 2,
+          "selection": "正文 163 篇；高采用(10287 star)+有正文(163篇)；自带测试 425 个｜自动判定：keep",
+          "functions": [
+            "F2解答",
+            "F3可运行"
+          ],
+          "measured": {
+            "md_n": 163,
+            "md_share_pct": 2.5,
+            "question_markers": 5,
+            "tests": 425,
+            "images": 88,
+            "pdf": 0,
+            "stars": 10287,
+            "pushed": "2026-11-05",
+            "functions": [
+              "卡片复习",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "content_fingerprint": "5a82d9d81780e7c8ec64e70926170f16b050fe96735d99db94dce102f33fc142",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:unknwon/the-way-to-go_zh_cn",
+      "name": "unknwon/the-way-to-go_ZH_CN",
+      "source": {
+        "url": "https://github.com/unknwon/the-way-to-go_ZH_CN",
+        "canonical_url": "https://github.com/unknwon/the-way-to-go_ZH_CN",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2024-08-14",
+        "upstream_snapshot": {
+          "status": "checked",

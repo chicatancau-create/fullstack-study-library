@@ -1,0 +1,128 @@
+- 退出码 **0**，`evidence/run.txt` 末尾 `DEMO PASS` / `exit=0`。
+- 实测覆盖：合并冲突 exit 1 + 冲突标记、解决后 `commit_count=4`、detached HEAD、`false|true` 默认 0 / `pipefail` 1、非空行统计 3。
+- `evidence/manifest.json`：1 个证据文件，SHA-256 校验 OK，commit `14ebd19`。
+- 边界：U01 只是 9 个教学单元中的第 1 个；U02–U09 未开始；盲测未执行，不能据此宣称公共能力已覆盖。
+
+### 7.7 批次 2 U02（本机自测）
+
+```text
+cd 01-阶段课程/教学单元/U02-HTML与CSS
+bash scripts/run_unit.sh
+```
+
+- 退出码 **0**，`checks: PASS`。
+- 320px：1 列、溢出 0；1280px：3 列、溢出 0；200% 文本溢出 0、无控件越界。
+- 第一次 Tab 是“跳到主要内容”，outline 3px solid；axe 6 条 WCAG 标签规则：violations 0、incomplete 0、passes 22。
+- `evidence/manifest.json`：4 个证据文件（run/report/两张截图），SHA-256 校验 OK。
+- 边界：读屏、真实手机、跨浏览器未测；U03–U09 仍未开始。
+
+### 7.8 批次 2 U03（本机自测）
+
+```text
+cd 01-阶段课程/教学单元/U03-JavaScript与TypeScript
+bash scripts/run_unit.sh
+```
+
+- 退出码 **0**：`tsc --noEmit` 0 error；`node:test` 12/12 通过；事件循环 demo 输出 `sync -> microtask -> after-await -> timeout -> after-timeout`，`DEMO PASS`。
+- `unknown` + 运行时逐字段校验，坏输入抛 `ValidationError`（含 field）；`parseRecord` 不接受 `as` 绕过。
+- `evidence/manifest.json`：4 个证据文件，SHA-256 校验 OK。
+- 边界：浏览器 DOM、真实网络、类型体操未覆盖；U04–U09 未开始。
+
+### 7.9 批次 2 U05（本机自测）
+
+```text
+cd 01-阶段课程/教学单元/U05-Node与Fastify
+bash scripts/run_unit.sh
+```
+
+- 退出码 **0**：语法检查 0 错；`node:test` 8/8 通过；真实 `listen` + `fetch` demo 通过并 `DEMO PASS`。
+- 覆盖 200/201/204/400/404；额外字段因 Ajv 默认 `removeAdditional` 被静默移除，显式改为 `removeAdditional:false` 后返回 400。
+- `evidence/manifest.json`：4 个证据文件，SHA-256 校验 OK。
+- 边界：无真实 DB/认证/OpenAPI/部署；未做并发与故障注入；U04、U06–U09 未开始。
+
+### 7.10 批次 2 U04（本机自测）
+
+```text
+cd 01-阶段课程/教学单元/U04-React
+bash scripts/run_unit.sh
+```
+
+- 退出码 **0**：`tsc --noEmit` 0 error；Vitest 4/4 通过；Vite 生产构建成功（JS 221.12 kB / gzip 69.40 kB）。
+- 竞态测试用 deferred 控制顺序：先 resolve 新筛选、再 resolve 旧筛选，旧结果不得覆盖；覆盖 loading/empty/error/重试与 `aria-pressed`。
+- `evidence/manifest.json`：4 个证据文件，SHA-256 校验 OK。
+- 边界：无 E2E、浏览器视觉、SSR/路由/表单；U04 是教学示例，不替代 E03；U06–U09 未开始。
+
+### 7.11 批次 2 U06（本机自测）
+
+```text
+cd 01-阶段课程/教学单元/U06-SQL
+bash scripts/run_unit.sh
+```
+
+- 退出码 **0**：`unittest` 10/10 OK；演示 `DEMO PASS`。
+- 覆盖外键、唯一、CHECK、级联删除、事务回滚、LEFT JOIN 聚合、复合索引计划；计划命中 `idx_records_user_status`。
+- `evidence/manifest.json`：3 个证据文件，SHA-256 校验 OK。
+- 边界：SQLite 单机，不是 PostgreSQL；未做真实并发/隔离/锁/备份恢复；不代表 E07/E08 或 G4。
+
+### 7.12 批次 2 U08（本机自测）
+
+```text
+cd 01-阶段课程/教学单元/U08-网络
+bash scripts/run_unit.sh
+```
+
+- 退出码 **0**：`checks=13 fails=0`。
+- 覆盖 200/201/304/404/500/302、ETag/`If-None-Match`、`Vary`、原始 TCP 状态行 `HTTP/1.1 200`。
+- `evidence/manifest.json`：1 个证据文件，SHA-256 校验 OK。
+- 边界：本地 127.0.0.1 HTTP/1.1；未测 DNS/TLS/HTTP2/CORS 预检；Linux 单元与 U09 未开始。
+
+### 7.13 批次 2 U07（部分）
+
+```text
+cd 01-阶段课程/教学单元/U07-Linux
+bash scripts/run_unit.sh
+```
+
+- 退出码 **0**：`checks=10 fails=0`，平台行 `MINGW64_NT-10.0-28000`。
+- 覆盖 `find -print0`、`sort -u`、管道/pipefail、日志 grep、权限位、后台进程与 `kill`、`ulimit`。
+- `evidence/manifest.json`：1 个证据文件，SHA-256 校验 OK。
+- 边界：**不是 Linux**；本机无 WSL 发行版，systemd/cgroup/真实 POSIX 权限/端口冲突未验证；U07 只标“部分”，不能用于 G5 或生产 Linux 结论。
+
+### 7.14 批次 2 U09（本机自测）
+
+```text
+cd 01-阶段课程/教学单元/U09-数据结构与算法
+bash scripts/run_unit.sh
+```
+
+- 退出码 **0**：`unittest` 8/8 OK；演示 `DEMO PASS`；1024 元素二分 11 步。
+- 覆盖二分首尾/空/重复、lower_bound、two sum、区间合并、MinStack、LRU 淘汰、环形缓冲回绕。
+- `evidence/manifest.json`：3 个证据文件，SHA-256 校验 OK。
+- 边界：无限时套题/面试评分/并发/内存测量；不能据此宣称 G2/G9 算法关通过。
+
+### 7.16 批次 3 E03（本机自测）
+
+```text
+cd 06-实验代码/E03-react-race
+npm ci
+bash scripts/run_unit.sh
+```
+
+- 退出码 **0**：tsc 0 error；Vitest 3 个文件、5/5 测试通过；Vite build 成功。
+- 反例 `BadList` 实测 A 迟到覆盖 B（`A-late` 出现、`B-item` 消失）；修复版 `GoodList` 用 abort + `cancelled` 后 B 保持。
+- 乐观保存失败回滚、卸载后 abort/no console.error 均通过。
+- `evidence/manifest.json`：4 个证据文件，SHA-256 校验 OK。
+- 边界：无 E2E/真实浏览器/Profiler/路由/SSR；E03 只覆盖竞态/回滚/卸载，不代表 G3。
+
+### 7.17 批次 3 E05（本机自测）
+
+```text
+cd 06-实验代码/E05-build-render
+npm ci
+bash scripts/run_unit.sh
+```
+
+- 退出码 **0**：tsc 0 error；Vitest 2/2；Vite build 成功；`SSR PASS bytes=343`；`INSPECT PASS`；`CACHE PASS`。
+- 构建入口 `assets/index-DEFdGYln.js` 存在，总 220,207 bytes；非 `VITE_` 的 `E05_SECRET` 未进入产物。
+- 缓存：HTML `no-cache`、asset `immutable` + ETag、条件请求 304。
+- `evidence/manifest.json`：9 个证据文件，SHA-256 校验 OK。

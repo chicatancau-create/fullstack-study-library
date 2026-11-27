@@ -1,0 +1,21 @@
+    if (ratings[i] > ratings[i - 1]) candies[i] = candies[i - 1] + 1;
+  }
+  for (let i = n - 2; i >= 0; i--) {
+    if (ratings[i] > ratings[i + 1]) candies[i] = Math.max(candies[i], candies[i + 1] + 1);
+  }
+  return candies.reduce((a, b) => a + b, 0);
+}`,
+    edge_cases: [
+      { call: '[1,0,2]', expected: 5, why: '1,2,1 共 5 颗' },
+      { call: '[1,2,2]', expected: 4, why: '相等不要求更多' },
+      { call: '[1]', expected: 1, why: '单孩子' },
+    ],
+    common_mistakes: ['只从左扫一遍，右侧下降段不足', '相等时也加一导致浪费', '第二轮直接赋值而不是取较大值'],
+    followups: ['环形排列（补充题）如何分情况？', '如何用 O(1) 空间完成？'],
+    rubric: [
+      { point: '左到右处理左邻约束', weight: 2 },
+      { point: '右到左处理右邻约束并取 max', weight: 1 },
+      { point: '相等时不多给', weight: 1 },
+    ],
+  },
+];

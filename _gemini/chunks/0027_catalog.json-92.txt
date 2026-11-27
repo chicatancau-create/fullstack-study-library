@@ -1,0 +1,125 @@
+        "archive_sha256": "059d8135418136f46ece6501b31c4729f8762c7751ecfb4d04e8390f14e67991",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/资源目录",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 9,
+        "bytes": 96202,
+        "markdown_count": 4,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:25+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "unrecognized_file",
+        "license_files": [
+          "LICENSE",
+          "README.md"
+        ],
+        "usage_restriction": "未识别许可证文件；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "round": 2,
+          "tar_mb": 0,
+          "ledger_refreshed": "补图/改名后重算：8 文件 -> 9 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/justjavac/free-programming-books-zh_CN",
+          "category": "知识库/资源目录",
+          "branch": "main",
+          "archive_sha256": "059d8135418136f46ece6501b31c4729f8762c7751ecfb4d04e8390f14e67991",
+          "fetched": "2026-11-05 16:54",
+          "files": 9,
+          "bytes": 96202,
+          "mb": 0,
+          "license_files": [
+            "LICENSE",
+            "README.md"
+          ],
+          "round": 2,
+          "tar_mb": 0,
+          "selection": "抢救收录：清单/索引型资料，正文集中在少数 README，自动判据会因 md 篇数少而误杀",
+          "measured": {
+            "md_n": 4,
+            "question_markers": null,
+            "tests": null,
+            "pushed": "2026-07-29",
+            "stars": 119507
+          },
+          "ledger_refreshed": "补图/改名后重算：8 文件 -> 9 文件"
+        }
+      }
+    },
+    {
+      "id": "github:mlabonne/llm-course",
+      "name": "mlabonne/llm-course",
+      "source": {
+        "url": "https://github.com/mlabonne/llm-course",
+        "canonical_url": "https://github.com/mlabonne/llm-course",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 16:52",
+        "upstream_pushed_at": "2026-02-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:25+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "7abd96e8284bfae232048fdb77b52397a2114847",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/资源目录/mlabonne/llm-course",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/mlabonne/llm-course"
+      },
+      "integrity": {
+        "archive_sha256": "39ba16a8497dd9dbe45fde8c5c027109743779b6a4531300952c7829c46c63fc",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/资源目录",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 8,
+        "bytes": 868517,
+        "markdown_count": 1,
+        "question_markers": null,
+        "test_files": null,

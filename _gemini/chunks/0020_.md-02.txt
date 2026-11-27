@@ -1,0 +1,30 @@
+| Java/Spring Boot/Spring Security/MySQL | M06/M07 | 阶段 09 | project02-spring 同契约子集 | JUnit 本地9/9、CI10/10（含死锁/池耗尽/Testcontainers） | 最后 Owner 并发、邀请重复、审计越权、死锁 1213 | project02-spring | JUnit/security/mysql evidence | 部分（主路径 + 邀请/审计/备份/死锁/池耗尽/EXPLAIN/Testcontainers；无复制/PITR） |
+| JVM/JMM/连接池/GC/JFR | M02/M11 | 阶段 09 | JDK 25 + HikariCP 诊断 | 40 并发读、行锁等待、池上限、死锁、单连接池耗尽 | 池饥饿为受控单池实验 | project02-spring | jvm/locks/pool/diagnostics evidence | 部分（GC/线程/锁/池/死锁/耗尽恢复/EXPLAIN/Testcontainers；无 JFR） |
+| Express/Nest 对照迁移 | M06 | 阶段 09 | project02-frameworks 同契约 | 2/2 | Nest 默认 201 等差异 | 框架对照 | frameworks evidence | 完成（子集对照，2/2） |
+
+### 4. 数据、缓存、消息与分布式
+
+| 子能力 | M | 教学 | 示例 | 练习 | 失败/反例 | 项目/考核 | 证据 | 状态 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| PostgreSQL/MySQL 约束、事务、MVCC、索引、迁移、恢复 | M07 | [E07](../06-实验代码/E07-pg-owner-race/README.md)、[E08](../06-实验代码/E08-pg-plan-migrate/README.md)、项目 02/03/04、Java 迁移 | E07/E08 + 项目 02/03/04 真实 PG + MySQL 同契约子集 | 有写偏差/父行锁/索引/迁移/库存锁/席位锁练习 | 最后 Owner、负库存、池饥饿、席位超卖、计划误判 | 项目 02/03/04 真实 PG；MySQL JUnit 9/9 | E07/E08/项目02/03/04 + project02-spring | 部分（PG 并发/计划/迁移/恢复；MySQL 仅主路径，无复制/PITR） |
+| Redis Cache Aside/失效/淘汰/复制/故障 | M08 | [E09](../06-实验代码/E09-redis-cache/README.md)、阶段 05 | E09 真实 Redis | 有陈旧回填/版本键/降级练习 | 缓存不是事实源、旧写回 | 无真实 DB/集群 | E09 evidence | 部分（Cache Aside/陈旧/降级；无淘汰/复制/故障切换） |
+| MQ/Outbox/幂等/重复/死信/积压/对账 | M08 | [E10](../06-实验代码/E10-mq-outbox/README.md)、项目 03、阶段 06 | E10 RabbitMQ + PG + 项目 03 支付 Outbox/Inbox | 有重复/崩溃/DLQ/对账练习 | 重复投递、消费后崩溃、非法消息、30 条积压 | 项目 03 真实 RabbitMQ | E10 + project03-trade evidence | 部分（Outbox/幂等/DLQ/对账/1000条积压重放/3容器集群成员+分区恢复；无多机/顺序保证） |
+| 文档数据库建模/索引/事务/恢复 | M07 | 阶段 05 | 无 | 无 | 无 | 未安排 | — | 缺失 |
+| 模块化单体/微服务治理 | M08/M13 | 阶段 07–09 | 项目 04 模块化单体 + B5-05 取舍对照 | 有部署/回滚/后台任务边界 | 无第二服务/服务网格 | 项目 04 + 对照文档 | 项目 04 evidence；B5-05 | 部分（单体与取舍已建；无第二服务实战） |
+
+### 5. 测试、安全、性能与可靠性
+
+| 子能力 | M | 教学 | 示例 | 练习 | 失败/反例 | 项目/考核 | 证据 | 状态 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 单元/集成/契约/E2E/属性/状态机 | M09 | 阶段 06 | E01/E02 单元 + 项目 01 组件/E2E + 项目 03/04 状态机 | 有断言门禁 | 部分失败注入、取消/支付竞争、审计失败回滚 | 项目 01 E2E、项目 03/04 真实 DB | E01/E02/项目01/03/04 | 部分（组件/E2E/状态机已建；无契约/属性测试） |
+| OWASP/威胁建模/越权/注入/XSS/CSRF/SSRF/上传/供应链 | M10 | [E11](../06-实验代码/E11-authz-matrix/README.md)、项目 02/03/04、阶段 06 | E11 两租户 + 项目 02 认证/租户 + 项目 03 回调签名 + 项目 04 RBAC/审计 | 有跨租户/角色/上传/导出练习 | 路径穿越、缓存串租户、CSV 注入、伪造回调、审计绕过 | 项目 02/03/04 真实 DB 越权测试 | E11/项目02/03/04 evidence | 部分（对象级授权/上传/导出/回调验签/RBAC；无 SQL/XSS 执行/CSRF/SSRF） |
+| 负载模型/P50/P95/P99/饱和度/容量/成本 | M11 | [E12](../06-实验代码/E12-load-capacity/README.md)、项目 03、阶段 06 | E12 本地闭环 + 项目 03 下单压测 | 有三轮采样/百分位/并发练习 | 闭环掩盖排队、无 coordinated omission、连接池饥饿 | 项目 03 真实 PG 压测 | E12/项目03 evidence | 部分（本地闭环；无开放模型/饱和度/容量） |
+| SLI/SLO/错误预算/RPO/RTO/告警/Runbook/回滚/复盘 | M12 | [E13](../06-实验代码/E13-slo-fault/README.md)、阶段 07 | E13 本地 SLO/故障 | 有 SLO/Runbook 练习 | 5xx 预算、超时、宕机、重启恢复 | 无真实告警/备份 | E13 evidence | 部分（SLO/故障/重启；无告警/回滚/RTO/多实例） |
+
+### 6. Linux、交付与云原生
+
+| 子能力 | M | 教学 | 示例 | 练习 | 失败/反例 | 项目/考核 | 证据 | 状态 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Linux 权限/进程/端口/日志/网络诊断 | M02/M12 | [U07](../01-阶段课程/教学单元/U07-Linux/README.md)、阶段 07 | U07 Git Bash 检查 | 有进程/日志/管道练习 | 杀错 PID、空格文件名、权限误判 | 无真实 Linux | U07 evidence | 部分（仅 Git Bash；无 Linux 内核/systemd） |
+| Docker/Compose/多阶段构建/CI/CD/SBOM/秘密扫描 | M12 | 阶段 07 | 项目 04 Dockerfile/Compose + GitHub Actions 9 job | 有容器/Compose/回滚演练 | 镜像导入、探针失败 | 项目 04 | `deploy/evidence/docker-k8s.txt`；CI run 42453215623 | 部分（容器/Compose/CI/CD 已建；无 SBOM/镜像签名） |
+| Kubernetes 探针/配置/滚动/回滚/Pod 故障 | M12 | 阶段 07 | K3s 1.37.2（QEMU Ubuntu） | rollout restart/undo、删 Pod 自愈、requests/limits | 镜像拉取/ContainerCreating | 项目 04 | `deploy/k8s-web.yaml`、`deploy/k8s-ingress.yaml`；deploy/rollback/ingress evidence | 部分（两节点同 VM；单节点 Ingress 已验证；无多机/公网） |

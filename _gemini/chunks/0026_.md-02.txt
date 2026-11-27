@@ -1,0 +1,107 @@
+- 阶段 03 增加 React 19 Actions、`useActionState`、`useOptimistic`、`useFormStatus` 与手工 pending/失败恢复对照，不把 React Compiler/RSC 自动升级为必修。
+- 阶段 05 增加 Redis `maxmemory-policy`、RDB/AOF、异步复制与故障切换损失窗口实验。
+- 阶段 07 增加 ingress-nginx 退役提示、Gateway API 对照、API→DB OpenTelemetry Trace、SBOM 与 build provenance。
+- 阶段 10 和项目 04 增加版本化 RAG golden set、检索/忠实度/引用/拒答/越权/延迟/成本指标；Ragas 仅为可选实现。
+- Bun/Deno 以 `reference` 在线入口登记，不下载大型镜像、不替换主线 Node。
+- 所有快速变化版本不写死“最新版本号”，要求记录实际版本与访问日期。
+
+## 七、验证结果
+
+### 已执行命令
+
+```text
+git status --short --branch
+git log -5 --oneline
+python 05-外部资料库/tools/catalog_tool.py migrate --write --force
+python -m json.tool 05-外部资料库/catalog.json
+python -m json.tool 05-外部资料库/catalog.schema.json
+python 05-外部资料库/tools/catalog_tool.py scan
+python 05-外部资料库/tools/catalog_tool.py snapshot --write --proxy http://127.0.0.1:7897
+python 05-外部资料库/tools/catalog_tool.py generate --write
+python 05-外部资料库/tools/catalog_tool.py validate --mode strict-mirror
+python 05-外部资料库/tools/catalog_tool.py validate --mode source-only
+```
+
+最终结果见本报告末尾“最终校验记录”。初次 validate 曾因审查表未转义竖线和新增文档未创建而失败；已修复后继续验证，没有通过弱化规则或删除内容绕过。
+
+## 八、仍未闭合
+
+1. 抓取时证据仍缺：77 条 `source.branch`、178 条 `source.commit_sha`、87 条 archive SHA、91 条内容指纹、部分功能标签。2026-11-07 已补 **178/178 当前上游快照**（默认分支 + HEAD），但它只证明检查时刻，**不能回填**成抓取证据，上述字段继续为 `null`。
+2. 真实 JD 已于 2026-11-07 完成四轮采集：**12 份有效（均有完整任职要求，频次分母 12）**，覆盖腾讯 6、美团 3（JD-07 AI全栈、JD-08 全栈、JD-11 社招 STL）、字节 1、Thoughtworks 2，全栈/后端/前端三个方向，明细见 [[真实JD样本与差距记录|真实 JD 样本与差距记录]]。另有补充记录 D-01（美团同名校招岗位·四城·页面显示“当前职位无法投递”），单列不计入，不替代任何样本。字节官方页属“静态抓取失败、真实浏览器可读”，JD-12 即由浏览器取得；阿里为 SPA 空壳，京东匿名访问跳登录，两者仍取不到正文。
+3. G8/G9 固定题库、SQL 离线题集和 RAG golden set 尚未制作；E01–E13 实验资产均已落地（E03–E13 统一 `npm run evidence`，本机复跑通过），但每个实验只覆盖其声明范围，不代表对应 G 关口通过。
+
+> **2026-11-08 MS1 增量**：“项目无实现仓库”已部分闭合：P02 协作任务平台在 `07-项目实现/P02-协作任务平台/` 落地（Fastify + Prisma + PostgreSQL，6/6 测试、OpenAPI 7/7、Owner 并发与事务回滚证据）；P03 电商交易 Demo 在 `07-项目实现/P03-电商交易Demo/` 落地（15/15 测试、并发压测 P50/P95/P99、RabbitMQ Outbox/DLQ/积压对账、备份恢复）；P04 综合 SaaS 在 `07-项目实现/P04-综合SaaS/` 落地（15/15 测试、多租户/RBAC/审计、Redis 登录令牌桶、OTel、后台任务与告警）。五个项目实战中 02–04 已有实现仓库，01/05 的代码在练习仓库，不在本次 MS1 范围。
+4. 两个抢救后失踪仓库的最终去向和 PayloadsAllTheThings 分类移动待人工确认。
+5. 配图缺口只是**呈现层**修好了口径，数字本身没有重算：46 仓 / 68,371 处 / 21 仓未展开 / 16,799 处均标记为历史账本，本机 `assets.json`（81 仓、`remote` 54,093）和 `remote_urls.json` 都无法复算，原文标注的出处不成立，已按 `IMAGE-GAP` 登记待重算。
+6. Obsidian GUI、外部链接在线可用性、第三方项目构建、移动端真机均未验证。
+7. 未做正式发布；提交与推送按用户 2026-11-07 的明确授权单独执行，见第十一节。
+
+## 九、下一步优先级
+
+- **P0**：真实 JD 已采 12 份有效（4 家、分母 12）并完成频次重算；剩余为补分支/commit/archive SHA 的可用证据。
+- **P1**：制作 G8/G9 与 P0 实验资产；SQL 题库与 RAG golden set；核实功能标签和历史异常。
+- **P2**：配图缺口重算、公司题时效、Go/C++ 教材。
+
+## 十、实际文件清单
+
+新增正式文件：
+
+- `04-资源与评估/项目审计与优化报告.md`
+- `04-资源与评估/真实JD样本与差距记录.md`（2026-11-07 追加：12 份有效的官方 JD 原文记录，频次分母 12，含 1 条不计入的补充记录）
+- `05-外部资料库/catalog.json`
+- `05-外部资料库/catalog.schema.json`
+- `05-外部资料库/资料入库与扩充规范.md`
+- `05-外部资料库/资料补缺清单.md`
+
+修改文件：
+
+- `000-学习总览.md`
+- `01-阶段课程/专项-uni-app跨端应用开发.md`
+- `01-阶段课程/专项-多语言知识树与课程导航.md`
+- `01-阶段课程/专项-算法与数据结构深度训练.md`
+- `01-阶段课程/专项-计算机系统与多语言深度.md`
+- `01-阶段课程/专项-语言-C.md`
+- `01-阶段课程/专项-语言-CPlusPlus.md`
+- `01-阶段课程/专项-语言-SQL.md`
+- `01-阶段课程/阶段03-React前端工程.md`
+- `01-阶段课程/阶段05-数据库与缓存.md`
+- `01-阶段课程/阶段07-部署运维与系统设计.md`
+- `01-阶段课程/阶段09-中线技术栈与多语言交付.md`
+- `01-阶段课程/阶段10-长期扩展与专项深化.md`
+- `02-项目实战/项目04-综合SaaS毕业项目.md`
+- `03-执行计划/深度路线与工时预算.md`
+- `03-执行计划/进度看板.md`
+- `03-执行计划/长期学习路线.md`
+- `04-资源与评估/官方学习资源.md`
+- `04-资源与评估/岗位能力矩阵与验收标准.md`
+- `04-资源与评估/技术栈全景地图.md`
+- `04-资源与评估/改版说明与文档验证.md`
+- `04-资源与评估/知识库目录与维护规则.md`
+- `04-资源与评估/能力自检清单.md`
+- `05-外部资料库/README.md`
+- `05-外部资料库/对抗式审查-第二轮.md`
+- `05-外部资料库/材料清单.md`
+- `05-外部资料库/评估报告-对本计划的帮助.md`
+- `05-外部资料库/资料索引.md`
+
+辅助记忆（不参与正式正文统计）：
+
+- 修改 `.workbuddy/memory/MEMORY.md`
+- 新增 `.workbuddy/memory/2026-11-07.md`
+
+随库版本化的工具（2026-11-07 新增，唯一例外）：
+
+- `05-外部资料库/tools/catalog_tool.py`（`.gitignore` 用 `05-外部资料库/_采集暂存/*` + 单文件取反放行；其余脚本、原始下载物与 JSON 账本仍不进远端）
+
+未改：历史归档、镜像正文、学习状态、已有学习证据、G0–G9 评估状态。`.gitignore` 仅为放行该工具改了两行，镜像仍不进远端。
+
+## 十一、最终校验记录
+
+### 严格镜像模式
+
+实际命令：
+
+```text
+python 05-外部资料库/tools/catalog_tool.py validate --mode strict-mirror
+```
+

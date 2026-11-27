@@ -1,0 +1,126 @@
+- 边界：无 hydration/路由/CDN/性能测量；E05 只覆盖构建/渲染/缓存子集，不代表 G3/G6。
+
+### 7.18 批次 3 E06（本机自测）
+
+```text
+cd 06-实验代码/E06-runtime-diag
+bash scripts/run_evidence.sh
+```
+
+- 退出码 **0**：`cpu exit=0`、`heap=HEAP PASS`、`fd=FD PASS`、`loop=LOOP PASS`、`gate_failures: 0`。
+- CPU profile 13,335 bytes，`nodes/samples` 非空；堆增长 >5MB 后释放回落；100 个 interval 句柄清理后回落；`monitorEventLoopDelay max≈200ms`。
+- `evidence/manifest.json`：7 个证据文件，SHA-256 校验 OK。
+- 边界：单进程 Node；无 OS 级 fd/连接池/容器/真实故障；不代表 E06 全量或 G5/G7。
+
+### 7.19 批次 3 E12（本机自测）
+
+```text
+cd 06-实验代码/E12-load-capacity
+bash scripts/run_unit.sh
+```
+
+- 退出码 **0**：3 轮、每轮 300 请求、0 失败；`LOAD PASS`。
+- 吞吐约 1202–1292 rps；P50 15.4–15.7ms；P95 16.65–23.33ms；P99 17.23–25.95ms。
+- `evidence/load.json` 保存三轮原始汇总；`evidence/manifest.json` 3 个证据文件，SHA-256 校验 OK。
+- 边界：本地闭环、合成 10ms 下游、同机压测；无开放到达率/coordinated omission/CPU/连接池饱和度；不能外推为生产容量。
+
+### 7.20 批次 3 E13（本机自测）
+
+```text
+cd 06-实验代码/E13-slo-fault
+bash scripts/run_evidence.sh
+```
+
+- 退出码 **0**：`checks=9 fails=0 : PASS`。
+- 95×200 + 5×500 → SLI=0.95，99% 目标允许坏事件 1、消耗 5，预算超出；慢响应 50ms 客户端超时、服务仍健康；进程宕机后请求失败；重启后 health 200、`state.ok=95`。
+- `evidence/manifest.json`：4 个证据文件，SHA-256 校验 OK。
+- 边界：合成一次性窗口；无真实告警/回滚/备份/RPO/RTO/多实例；不代表 E13 全量或 G5/G6。
+
+### 7.21 批次 3 E11（本机自测）
+
+```text
+cd 06-实验代码/E11-authz-matrix
+npm ci
+bash scripts/run_unit.sh
+```
+
+- 退出码 **0**：语法 0 错误；`node:test` 13/13 通过。
+- 覆盖跨租户列表/详情/搜索/统计/文件/导出/任务/消息/日志、owner/member 角色、上传类型/大小/路径、CSV 公式前缀、logout/TTL、XSS 载荷 JSON+nosniff。
+- `evidence/manifest.json`：3 个证据文件，SHA-256 校验 OK。
+- 边界：内存数据；无真实 DB/SQL、浏览器 XSS/CSRF、SSRF、TLS、限流/MFA；不代表 E11 全量或 G4–G6。
+
+### 7.22 批次 3 E07（本机自测）
+
+```text
+cd 06-实验代码/E07-pg-owner-race
+PGPASSWORD=<local-test-password> bash scripts/run_evidence.sh
+```
+
+- 退出码 **0**：PostgreSQL 18.6；`tests 3 pass 3 fail 0`。
+- 写偏差反例：两连接各自 count=2 后删自己，最终 `ownerCount=0`。
+- 父行锁修复：第二个事务等待后 count=1、回滚，最终 `ownerCount=1`。
+- 库存：条件扣减一个成功、一个 0 行，`qty=0`，不为负。
+- `evidence/manifest.json`：3 个证据文件，SHA-256 校验 OK；密码只从 `PGPASSWORD` 读取，未写入仓库。
+- 边界：单机 READ COMMITTED；无 Serializable/死锁/连接池/迁移恢复；不代表 G4。
+
+### 7.23 批次 3 E09（本机自测）
+
+```text
+cd 06-实验代码/E09-redis-cache
+bash scripts/run_evidence.sh
+```
+
+- 退出码 **0**：Redis `3.0.504`；`tests 5 pass 5 fail 0`。
+- Cache Aside miss/hit；陈旧回填复现（缓存 old、DB new）；版本键 `v2` 保持 new；连接 6399 失败时 `degraded=true` 回落 DB。
+- 实验只用 Redis DB 15 + `e09:*` 前缀；`evidence/manifest.json` 3 个证据文件，SHA-256 校验 OK。
+- 边界：Redis 旧版；无集群/哨兵/持久化/淘汰/真实 DB；不代表 E09 全量或 G5。
+
+### 7.24 批次 3 E08（本机自测）
+
+```text
+cd 06-实验代码/E08-pg-plan-migrate
+PGPASSWORD=<local-test-password> bash scripts/run_evidence.sh
+```
+
+- 退出码 **0**：PostgreSQL 18.6；50,000 行合成数据；`gate_failures: 0`。
+- 索引前 `Seq Scan 2.605ms`，建 `(tenant,kind,created_at DESC)` 后 `Index Scan 0.081ms`（单次同机，不作容量结论）。
+- 迁移：加 `note` 可空→回填→NOT NULL，`nulls=0`，旧列查询仍可用。
+- `pg_dump` 2,402,823 bytes → DROP schema → restore：50,000 行、`note NOT NULL`、8 约束。
+- `evidence/manifest.json`：8 个证据文件，SHA-256 校验 OK；dump 不进 Git，可由脚本重生成。
+- 边界：单次/同机/合成；无 RPO/RTO/多方案/旧新应用兼容矩阵；不代表 G4/G6。
+
+### 7.25 批次 3 E10（本机自测）
+
+```text
+cd 06-实验代码/E10-mq-outbox
+PGPASSWORD=<local-test-password> bash scripts/run_evidence.sh
+```
+
+- 退出码 **0**：RabbitMQ 4.4.0 + PostgreSQL 18.6；`E10 PASS`。
+- 订单+Outbox 同事务；发布后未标记崩溃→重复发布；消费后未 ack 崩溃→重投；inbox 唯一键使第二次 `duplicate`，side_effects=1。
+- 非法消息 nack→DLQ；对账 orders=1、outbox=1、inbox=1、side_effects=1、queue=0、dlq=1。
+- `evidence/manifest.json`：3 个证据文件，SHA-256 校验 OK。
+- 边界：单节点；无积压/重放/集群/外部副作用；RabbitMQ 4.4 要求 durable 队列，实验已用 durable/persistent。
+
+### 7.26 批次 4 项目 01（本机自测）
+
+```text
+cd <练习仓库>/projects\project01-blog
+npm ci
+bash scripts/run_project.sh
+```
+
+- 退出码 **0**：tsc 0 error；Vitest 7/7；Vite build 成功；headless Edge E2E 通过。
+- E2E：首页 5 篇、Tab→跳转链接→main、搜索 1 条、进入 `/posts/http-cache`；axe 首页 0 violations/22 passes、详情 0/17；320px 与 200% 文本零溢出。
+- 代码提交 `7806d67`；manifest `8cd7b5d`，8 个证据文件 SHA-256 校验 OK。
+- 边界：未部署公网；无后端/DB/认证/SSR；未测 Firefox/Safari/真实手机/读屏；JS 382 kB/gzip 120 kB，未做路由级代码分割。
+
+### 7.27 批次 4 项目 02（本机自测）
+
+```text
+cd <练习仓库>/projects/project02-collab
+npm ci
+export PGPASSWORD=<local-test-password>
+bash scripts/run_project.sh
+```
+

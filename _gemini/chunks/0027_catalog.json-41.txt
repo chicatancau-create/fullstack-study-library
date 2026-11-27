@@ -1,0 +1,131 @@
+          "fetched": "2026-11-04 20:03",
+          "files": 1233,
+          "bytes": 53080273,
+          "mb": 50,
+          "top_extensions": {
+            ".md": 992,
+            ".json": 61,
+            ".png": 50,
+            ".xml": 22,
+            ".jpg": 19,
+            ".ts": 11,
+            ".py": 10,
+            ".svg": 10,
+            ".js": 8,
+            "(none)": 7
+          },
+          "license_files": [],
+          "license_detected": null,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：1232 文件 -> 1233 文件",
+          "measured": {
+            "pushed": "2026-11-05",
+            "stars": 17825
+          }
+        }
+      }
+    },
+    {
+      "id": "github:macrozheng/mall-learning",
+      "name": "macrozheng/mall-learning",
+      "source": {
+        "url": "https://github.com/macrozheng/mall-learning",
+        "canonical_url": "https://github.com/macrozheng/mall-learning",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2024-09-15",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:58:50+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "cd02c000e57c693e49f1f72986dbfa6e4c952e09",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/后端进阶/macrozheng/mall-learning",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/macrozheng/mall-learning"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "878ded08350bcff482ae13bc4ea1867a8a49dc4d500a0fddacc7cf9e6b9bef4d",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:05+08:00"
+        },
+        "legacy_fingerprint_12": "878ded08350b"
+      },
+      "classification": {
+        "primary_category": "知识库/后端进阶",
+        "category_basis": "人工定类：Java 电商项目教程",
+        "functions": [
+          "F2",
+          "F4",
+          "F5"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 2473,
+        "bytes": 45463661,
+        "markdown_count": 145,
+        "question_markers": 15,
+        "test_files": 4,
+        "observed_at": "2026-11-07T14:06:23+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 36,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/macrozheng/mall-learning",
+          "category": "知识库/后端进阶",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 36,
+          "fetched": "2026-11-05 11:12",
+          "files": 2473,
+          "bytes": 45463661,
+          "mb": 43,
+          "top_extensions": {
+            ".png": 1498,
+            ".java": 623,
+            ".md": 145,
+            ".xml": 74,
+            "(none)": 26,
+            ".yml": 26,

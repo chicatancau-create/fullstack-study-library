@@ -1,0 +1,13 @@
+CodeWeave/README.md
+CodeWeave/content-manifest.json
+CodeWeave/mappings/legacy-map.json
+CodeWeave/mappings/topic-id-map.json
+CodeWeave/rules/teaching-rules.json
+CodeWeave/rules/教学规则.md
+CodeWeave/scripts/build-pilot.mjs
+CodeWeave/主题定位索引.md
+CodeWeave/发布正文/U01-Git与Shell.md
+CodeWeave/同步报告/同步记录.json
+CodeWeave/教学单元/U01-Git与Shell.md
+CodeWeave/知识来源/SRC-U01-GIT.md
+CodeWeave/练习/EX-U01-PIPEFAIL.md

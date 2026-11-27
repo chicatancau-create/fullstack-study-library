@@ -1,0 +1,16 @@
+| 题库/算法题解 | [wisdompeak/LeetCode](https://github.com/wisdompeak/LeetCode) | — | 2026-11-04 20:03 | 2026-06-15 | 3446 | 4,245,331 | 4.05 | 1,496 | 325c939d6d95 | 未知 | 无 LICENSE | unknown |
+| 题库/算法题解 | [youngyangyang04/leetcode-master](https://github.com/youngyangyang04/leetcode-master) | — | 2026-11-04 20:03 | 2026-10-24 | 1222 | 202,015,665 | 192.66 | 314 | b94f8fbf0121 | 未知 | 无 LICENSE | unknown |
+| 题库/课程与路线 | [frank-lam/fullstack-tutorial](https://github.com/frank-lam/fullstack-tutorial) | master | 2026-11-05 11:12 | 2022-12-02 | 874 | 93,031,107 | 88.72 | 211 | 未知 | e2f09db264f7 | 无 LICENSE | unknown |
+| 题库/课程与路线 | [franklesniak/EFingPlanner](https://github.com/franklesniak/EFingPlanner) | main | 2026-11-05 11:12 | 2026-10-31 | 452 | 10,655,868 | 10.16 | 238 | 未知 | a5b23f442ba0 | CC-BY-NC-SA-4.0 | unknown |
+| 题库/运维与DevOps | [bregman-arie/devops-exercises](https://github.com/bregman-arie/devops-exercises) | — | 2026-11-04 20:03 | 2025-12-27 | 430 | 6,999,660 | 6.68 | 295 | 36631cfc5b3b | 未知 | 未识别文件 | unknown |
+| 题库/运维与DevOps | [nomankhn9/devops-exercises](https://github.com/nomankhn9/devops-exercises) | master | 2026-11-05 11:12 | 2026-10-12 | 426 | 8,481,606 | 8.09 | 290 | 未知 | f2dc5ce47262 | 未识别文件 | unknown |
+| 题库/运维与DevOps | [ramesh-852000/devops-practices-and-interview-prep](https://github.com/ramesh-852000/devops-practices-and-interview-prep) | main | 2026-11-05 11:12 | 2025-08-29 | 402 | 3,313,557 | 3.16 | 276 | 未知 | 205b23e57355 | 未识别文件 | unknown |
+| 题库/鸿蒙与跨端 | [HarmonyOS-Next/interview-handbook-project](https://github.com/HarmonyOS-Next/interview-handbook-project) | main | 2026-11-05 18:24 | 2025-07-01 | 192 | 13,701,947 | 13.07 | 12 | 未知 | 5710e86a9990 | 未识别文件 | unknown |
+| **合计** | **180 条活跃资源（镜像 178 + reference 2）** |  |  |  | **323,321** | **13,943,121,367** | **13297.20** | **131,586** |  |  |  |  |
+
+## 说明
+
+- 计数范围：all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图。
+- 前 12 位指纹只用于人工比对，不是完整 archive SHA-256；不得由它反推完整哈希。
+- 已归档或拒绝的 7 个历史候选位于 `catalog.json.tombstones`，不计入本表活跃仓库。
+- 生成器、Schema 和校验入口见 [[资料入库与扩充规范]]；未闭合数据缺口见 [[资料补缺清单]]。

@@ -1,0 +1,108 @@
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:23.345Z",
+        "http_status": 200,
+        "title_seen": "字节Agent全三轮面经_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-TX-001",
+      "url": "https://www.nowcoder.com/discuss/939827187992088576",
+      "title": "腾讯内推腾讯面经",
+      "published_at": "10-14 10:17（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "腾讯",
+      "role": "后端",
+      "role_basis": "正文首段含「后端」相关字样",
+      "quote": "“字节面试出乎意料地没有八股，全程围绕实习项目和 AI 使用习惯。面试官问：‘你如何确保 AI 生成的代码逻辑不烂？’我答得磕磕绊绊。手撕反转链表，后面追问线程池。面试官说：‘校招生应具备用 AI 提效但能兜 ...  查看更多",
+      "supports_questions": [
+        "Q002"
+      ],
+      "matches": [
+        {
+          "question": "Q002",
+          "by": "unique-name",
+          "quote": "“字节面试出乎意料地没有八股，全程围绕实习项目和 AI 使用习惯。面试官问：‘你如何确保 AI 生成的代码逻辑不烂？’我答得磕磕绊绊。手撕反转链表，后面追问线程池。面试官说：‘校招生应具备用 AI 提效但能兜 ...  查看更多"
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 6314,
+      "raw_html_sha256": "20008de51f3dc18213620b534fae030ece5bbfc838b0c21564a82337a335bfa6",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "0e69f567abac7a9cbc47775b03ebfe3c3b2af8ab02c8144298004b409e61bad2",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:23.443Z",
+        "http_status": 200,
+        "title_seen": "腾讯内推腾讯面经_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-TX-002",
+      "url": "https://www.nowcoder.com/discuss/940391491124391936",
+      "title": "腾讯面经 腾讯测试开发岗面经-03",
+      "published_at": "10-15 23:40（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "腾讯",
+      "role": "测试开发岗",
+      "role_basis": "正文 3 场面试的岗位标注，最常见为「测试开发岗」（1 场）",
+      "quote": "面经 01面试岗位：快手 测试开发岗 ｜ 面试时间：2025 年 3 月 5 日对侧开的认识MySQL事务特性MySQL聚簇索引定位慢sql 优化jvm设置内存是否可以手动GC对电商的理解手撕两数之和但是快手那个输入输出有问题不 ...",
+      "supports_questions": [
+        "Q019"
+      ],
+      "matches": [
+        {
+          "question": "Q019",
+          "by": "unique-name",
+          "quote": "面经 01面试岗位：快手 测试开发岗 ｜ 面试时间：2025 年 3 月 5 日对侧开的认识MySQL事务特性MySQL聚簇索引定位慢sql 优化jvm设置内存是否可以手动GC对电商的理解手撕两数之和但是快手那个输入输出有问题不 ..."
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 267521,
+      "raw_html_sha256": "bf3acd32070a88737ca4573db2e783d7b6b28dfbc4b46116f536640351bfeab4",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "3110a7c49dcadf9e258561609ec1de4e49cac8930a8d05677eefce2600c07bc6",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:23.551Z",
+        "http_status": 200,
+        "title_seen": "腾讯面经 腾讯测试开发岗面经-03_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-TX-003",
+      "url": "https://www.nowcoder.com/feed/main/detail/1e6300b2c3834e6eabaa560d2daabcc2",
+      "title": "求腾讯瑞驰测开面经",
+      "published_at": "10-14 13:34（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "腾讯",
+      "role": "快手 测试开发岗",
+      "role_basis": "正文标注「面试岗位：快手 测试开发岗」",
+      "quote": "面经 01面试岗位：快手 测试开发岗 ｜ 面试时间：2025 年 3 月 5 日对侧开的认识MySQL事务特性MySQL聚簇索引定位慢sql 优化jvm设置内存是否可以手动GC对电商的理解手撕两数之和但是快手那个输入输出有问题不 ...",
+      "supports_questions": [
+        "Q019"
+      ],
+      "matches": [
+        {
+          "question": "Q019",
+          "by": "unique-name",
+          "quote": "面经 01面试岗位：快手 测试开发岗 ｜ 面试时间：2025 年 3 月 5 日对侧开的认识MySQL事务特性MySQL聚簇索引定位慢sql 优化jvm设置内存是否可以手动GC对电商的理解手撕两数之和但是快手那个输入输出有问题不 ..."
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 159046,

@@ -1,0 +1,80 @@
+    assert.deepEqual(statsA.json(), { total: 2, draft: 1, done: 1 });
+    assert.deepEqual(statsB.json(), { total: 1, draft: 1, done: 0 });
+  });
+});
+
+test('文件：本租户可读，跨租户 404，路径穿越 400', async () => {
+  await withApp(async (app) => {
+    const a = await login(app, 't1', 'alice');
+    const own = await app.inject({ method: 'GET', url: '/files/report.txt', headers: auth(a) });
+    const other = await app.inject({ method: 'GET', url: '/files/secret.txt', headers: auth(a) });
+    const traversal = await app.inject({ method: 'GET', url: '/files/..%2Ft2%2Fsecret.txt', headers: auth(a) });
+    assert.equal(own.statusCode, 200);
+    assert.equal(own.body, 'A report');
+    assert.equal(other.statusCode, 404);
+    assert.equal(traversal.statusCode, 400);
+  });
+});
+
+test('上传：类型/大小/路径校验', async () => {
+  await withApp(async (app) => {
+    const a = await login(app, 't1', 'alice');
+    const ok = await app.inject({ method: 'POST', url: '/upload', headers: auth(a), payload: { name: 'a.png', type: 'image/png', size: 3, content: 'png' } });
+    const badType = await app.inject({ method: 'POST', url: '/upload', headers: auth(a), payload: { name: 'a.exe', type: 'application/x-msdownload', size: 1, content: 'x' } });
+    const tooLarge = await app.inject({ method: 'POST', url: '/upload', headers: auth(a), payload: { name: 'a.txt', type: 'text/plain', size: 2000, content: 'x' } });
+    const traversal = await app.inject({ method: 'POST', url: '/upload', headers: auth(a), payload: { name: '../x.txt', type: 'text/plain', size: 1, content: 'x' } });
+    assert.equal(ok.statusCode, 201);
+    assert.equal(badType.statusCode, 415);
+    assert.equal(tooLarge.statusCode, 413);
+    assert.equal(traversal.statusCode, 400);
+  });
+});
+
+test('导出：只含本租户，公式单元格加前缀', async () => {
+  await withApp(async (app) => {
+    const a = await login(app, 't1', 'alice');
+    await app.inject({ method: 'POST', url: '/items', headers: auth(a), payload: { title: '=cmd' } });
+    const csv = await app.inject({ method: 'GET', url: '/export', headers: auth(a) });
+    assert.equal(csv.statusCode, 200);
+    assert.ok(!csv.body.includes('B secret'));
+    assert.ok(csv.body.includes("'=cmd"));
+  });
+});
+
+test('后台任务/消息/日志：跨租户不可见', async () => {
+  await withApp(async (app) => {
+    const a = await login(app, 't1', 'alice');
+    const b = await login(app, 't2', 'carol');
+    const jobOther = await app.inject({ method: 'GET', url: '/jobs/2', headers: auth(a) });
+    const jobOwn = await app.inject({ method: 'GET', url: '/jobs/1', headers: auth(a) });
+    const messages = await app.inject({ method: 'GET', url: '/messages', headers: auth(a) });
+    const logs = await app.inject({ method: 'GET', url: '/logs', headers: auth(a) });
+    assert.equal(jobOther.statusCode, 404);
+    assert.equal(jobOwn.statusCode, 200);
+    assert.ok(!messages.body.includes('B message'));
+    assert.ok(!logs.body.includes('t2'));
+    assert.ok(!logs.body.includes('alice-pass'));
+    assert.ok(!logs.body.includes(a));
+  });
+});
+
+test('会话：logout 后 401，过期后 401', async () => {
+  await withApp(async (app) => {
+    const token = await login(app, 't1', 'alice');
+    const out = await app.inject({ method: 'POST', url: '/logout', headers: auth(token) });
+    assert.equal(out.statusCode, 204);
+    const after = await app.inject({ method: 'GET', url: '/me', headers: auth(token) });
+    assert.equal(after.statusCode, 401);
+
+    const short = await login(app, 't1', 'alice', 10);
+    await new Promise((resolve) => setTimeout(resolve, 30));
+    const expired = await app.inject({ method: 'GET', url: '/me', headers: auth(short) });
+    assert.equal(expired.statusCode, 401);
+  });
+});
+
+test('XSS 载荷以 JSON 返回，响应不得是 HTML', async () => {
+  await withApp(async (app) => {
+    const a = await login(app, 't1', 'alice');
+    await app.inject({ method: 'POST', url: '/items', headers: auth(a), payload: { title: '<script>alert(1)</script>' } });
+    const list = await app.inject({ method: 'GET', url: '/items', headers: auth(a) });

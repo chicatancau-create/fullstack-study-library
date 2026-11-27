@@ -1,0 +1,106 @@
+  return done === n;
+}`,
+    edge_cases: [
+      { call: '2, [[1,0]]', expected: true, why: '先修 0 再修 1' },
+      { call: '2, [[1,0],[0,1]]', expected: false, why: '互相依赖成环' },
+      { call: '1, []', expected: true, why: '无依赖' },
+    ],
+    common_mistakes: ['边方向建成 a→b 但入度加在 b 上', '只判断直接自环，漏掉长环', '课程编号不从 0 开始时越界'],
+    followups: ['如何输出一个合法修课顺序（210）？', 'DFS 版本如何检测环？'],
+    rubric: [
+      { point: '边 b→a 与入度累加一致', weight: 2 },
+      { point: '入度归零才入队', weight: 1 },
+      { point: '完成数等于 n 才无环', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q088', title: '62. 不同路径', question_url: 'https://leetcode.cn/problems/unique-paths/',
+    core_idea: 'DP：dp[i][j]=dp[i-1][j]+dp[i][j-1]；第一行第一列均为 1，可滚动成一维。',
+    invariant: 'dp[j] 在处理第 i 行时先表示上方值，加上左侧 dp[j-1] 后表示当前格。',
+    complexity: { time: 'O(mn)', space: 'O(n)' },
+    code_lang: 'javascript',
+    code: `function solve(m, n) {
+  const dp = new Array(n).fill(1);
+  for (let i = 1; i < m; i++) {
+    for (let j = 1; j < n; j++) {
+      dp[j] += dp[j - 1];
+    }
+  }
+  return dp[n - 1];
+}`,
+    edge_cases: [
+      { call: '3, 7', expected: 28, why: '标准示例' },
+      { call: '3, 2', expected: 3, why: '小网格' },
+      { call: '1, 1', expected: 1, why: '单格' },
+    ],
+    common_mistakes: ['第一行初始化成 0', '滚动数组先更新 dp[j-1] 再读导致重复', '把路径数当组合数溢出'],
+    followups: ['有障碍物（63）如何改？', '为什么答案等于 C(m+n-2, m-1)？'],
+    rubric: [
+      { point: '一维 dp 初始全 1 对应第一行', weight: 2 },
+      { point: '逐行累加左值与上值', weight: 1 },
+      { point: '单行/单列返回 1', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q089', title: '补充题2. 圆环回原点问题', question_url: 'https://leetcode.cn/problems/count-all-possible-routes/',
+    core_idea: '环上 0..n-1 每次走 ±1，求恰好 k 步回到 0 的方案数；dp[step][pos] 由 step-1 的左右邻转移。',
+    invariant: 'dp 只依赖上一步状态，按步数递增计算即可；位置取模保证环形。',
+    complexity: { time: 'O(kn)', space: 'O(n)' },
+    code_lang: 'javascript',
+    code: `function solve(n, k) {
+  let dp = new Array(n).fill(0);
+  dp[0] = 1;
+  for (let s = 0; s < k; s++) {
+    const next = new Array(n).fill(0);
+    for (let i = 0; i < n; i++) {
+      if (!dp[i]) continue;
+      next[(i + 1) % n] += dp[i];
+      next[(i - 1 + n) % n] += dp[i];
+    }
+    dp = next;
+  }
+  return dp[0];
+}`,
+    edge_cases: [
+      { call: '10, 1', expected: 0, why: '一步无法回到原点' },
+      { call: '10, 2', expected: 2, why: '顺时针或逆时针各一步再返回' },
+      { call: '3, 2', expected: 2, why: '三节点环两条往返路径' },
+    ],
+    common_mistakes: ['不做取模导致下标越界', '把 k 步写成最多 k 步并累加', 'n=1 时左右邻居重合需累加两次'],
+    followups: ['n=2 时答案与什么数列有关？', '如何用矩阵快速幂做到 O(n³ log k)？'],
+    rubric: [
+      { point: 'dp 状态为步数与位置', weight: 2 },
+      { point: '左右邻居按模运算回绕', weight: 1 },
+      { point: '恰好 k 步而不是至多 k 步', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q090', title: '179. 最大数', question_url: 'https://leetcode.cn/problems/largest-number/',
+    core_idea: '自定义比较器：a 排在 b 前当且仅当 a+b > b+a（字符串拼接比较），排序后拼接并处理全零。',
+    invariant: '比较器满足传递性，因此排序结果使任意相邻交换都不会得到更大的拼接数。',
+    complexity: { time: 'O(n log n)', space: 'O(n)' },
+    code_lang: 'javascript',
+    code: `function solve(nums) {
+  const strs = nums.map(String);
+  strs.sort((a, b) => (b + a).localeCompare(a + b));
+  if (strs[0] === '0') return '0';
+  return strs.join('');
+}`,
+    edge_cases: [
+      { call: '[10,2]', expected: '210', why: '210 > 102' },
+      { call: '[3,30,34,5,9]', expected: '9534330', why: '标准示例' },
+      { call: '[0,0]', expected: '0', why: '全零返回单个 0' },
+    ],
+    common_mistakes: ['按数值降序排序，30 会排在 3 前面', '比较 a+b 与 b+a 时用数值相减导致溢出', '全零时返回 "00"'],
+    followups: ['比较器为什么满足传递性？', '若拼接后的数超过 64 位如何处理？'],
+    rubric: [
+      { point: '比较器按 a+b 与 b+a 的字典序', weight: 2 },
+      { point: '排序后直接拼接', weight: 1 },
+      { point: '全零结果返回 "0"', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q091', title: '24. 两两交换链表中的节点', question_url: 'https://leetcode.cn/problems/swap-nodes-in-pairs/',
+    core_idea: '哑节点 + 迭代：每轮取 first、second 两个节点，让 second 接到前驱后、first 接到 second 后，并把 second 的后继作为下一轮起点。',
+    invariant: 'prev 始终指向已处理部分的最后一个节点，其 next 指向待处理段的第一个节点。',
+    complexity: { time: 'O(n)', space: 'O(1)' },

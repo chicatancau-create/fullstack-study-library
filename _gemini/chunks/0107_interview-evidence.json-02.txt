@@ -1,0 +1,128 @@
+      "body_fingerprint": "a3c0ba358a32a1309aabc17902bb970bdf4c0575d962c77cb171e96b333e7c3d",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:21.240Z",
+        "http_status": 200,
+        "title_seen": "字节面经 字节跳动后端开发岗面经-18_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-BD-005",
+      "url": "https://www.nowcoder.com/discuss/940040254214389760",
+      "title": "字节面经 字节跳动AI Agent开发岗面经-08",
+      "published_at": "10-15 00:24（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "字节跳动",
+      "role": "未标注",
+      "role_basis": "标题与正文首段未明确岗位",
+      "quote": "有效的括号，先讲解思路，再实现代码。",
+      "supports_questions": [
+        "Q023",
+        "Q025"
+      ],
+      "matches": [
+        {
+          "question": "Q023",
+          "by": "unique-name",
+          "quote": "有效的括号，先讲解思路，再实现代码。"
+        },
+        {
+          "question": "Q025",
+          "by": "unique-name",
+          "quote": "手撕二叉树的右视图"
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 6308,
+      "raw_html_sha256": "0b9e42a30039fb51fd3ebc94ee98b9426c640879a33d6454cdc080fc6072afca",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "5b3ddfccb9c7e36cfdf581fed862c3b8e4220acc5e442d53e74d0482bc5e09f8",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:21.964Z",
+        "http_status": 200,
+        "title_seen": "字节面经 字节跳动AI Agent开发岗面经-08_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-BD-006",
+      "url": "https://www.nowcoder.com/discuss/940040388780232704",
+      "title": "字节面经 字节跳动后端开发岗面经-19",
+      "published_at": "10-15 00:24（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "字节跳动",
+      "role": "后端",
+      "role_basis": "标题明确标注岗位",
+      "quote": "岛屿数量算法题。",
+      "supports_questions": [
+        "Q006"
+      ],
+      "matches": [
+        {
+          "question": "Q006",
+          "by": "unique-name",
+          "quote": "岛屿数量算法题。"
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 6377,
+      "raw_html_sha256": "3cc9bcbde513bff870c83b28da3cf4954f95610a2d52001e76c23dd478b8656f",
+      "hash_scope": "raw_html_shell；正文由客户端渲染，引文经渲染抓取核对",
+      "body_fingerprint": "eb9861e88d1e67bc6d18d4f0a9a72f7f3ba67c466a0d067a122c851fb874ddf7",
+      "login_required": false,
+      "retrieval": "headless CDP 渲染 + curl 取壳哈希",
+      "verifier": "qoder-agent",
+      "status": "verified-public",
+      "link_check": {
+        "checked_at": "2026-11-12T05:31:22.064Z",
+        "http_status": 200,
+        "title_seen": "字节面经 字节跳动后端开发岗面经-19_牛客网",
+        "soft404_markers": [],
+        "ok": true
+      }
+    },
+    {
+      "id": "NC-BD-007",
+      "url": "https://www.nowcoder.com/discuss/940040633475928064",
+      "title": "字节面经 字节跳动后端开发岗面经-17",
+      "published_at": "10-15 00:25（页面仅显示月日）",
+      "accessed_at": "2026-11-12",
+      "company": "字节跳动",
+      "role": "后端",
+      "role_basis": "标题明确标注岗位",
+      "quote": "手撕：力扣3：无重复字符的最长字串",
+      "supports_questions": [
+        "Q001",
+        "Q006",
+        "Q079"
+      ],
+      "matches": [
+        {
+          "question": "Q001",
+          "by": "leetcode-number",
+          "quote": "手撕：力扣3：无重复字符的最长字串"
+        },
+        {
+          "question": "Q006",
+          "by": "leetcode-number",
+          "quote": "LeetCode 200：岛屿数量。"
+        },
+        {
+          "question": "Q079",
+          "by": "leetcode-number",
+          "quote": "算法题第一题LeetCode152乘积最大子数组"
+        }
+      ],
+      "http_status": 200,
+      "raw_html_bytes": 179134,
+      "raw_html_sha256": "b285874bff407c98f9db73f4467c617f1adf5676f26d1d990d193b251617ab72",

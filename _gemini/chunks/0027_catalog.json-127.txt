@@ -1,0 +1,117 @@
+          "content_fingerprint": "973a6481e210802738853b1be0e03011b7c57ea57ba0473ab3c9c8a83384ff72",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:0voice/campus_recruitment_interview_questions",
+      "name": "0voice/Campus_recruitment_interview_questions",
+      "source": {
+        "url": "https://github.com/0voice/Campus_recruitment_interview_questions",
+        "canonical_url": "https://github.com/0voice/Campus_recruitment_interview_questions",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2025-07-16",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:28+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "8b9539fbe3b9239fd512ffb63faa705897db51b1",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/八股与基础/0voice/Campus_recruitment_interview_questions",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/0voice/Campus_recruitment_interview_questions"
+      },
+      "integrity": {
+        "archive_sha256": "9d1cca9dbf25c4e4124b4b22902083a3eb82d358239ea0ddbd48dbf073c47c5f",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "题库/八股与基础",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 128,
+        "bytes": 1202087,
+        "markdown_count": 69,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:28+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "CC-BY-NC-SA-4.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE.md"
+        ],
+        "usage_restriction": "仅限本机个人学习；传染性或非商业条款，不得并入对外发布产物。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：127 文件 -> 128 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/0voice/Campus_recruitment_interview_questions",
+          "category": "题库/八股与基础",
+          "branch": null,
+          "archive_sha256": "9d1cca9dbf25c4e4124b4b22902083a3eb82d358239ea0ddbd48dbf073c47c5f",
+          "tarball_mb": 0,
+          "fetched": "2026-11-04 20:03",
+          "files": 128,
+          "bytes": 1202087,
+          "mb": 1,
+          "top_extensions": {
+            ".md": 69,
+            ".txt": 37,
+            ".png": 12,
+            ".jpg": 8,
+            "(none)": 1
+          },
+          "license_files": [
+            "LICENSE.md"
+          ],
+          "license_detected": "CC-BY-NC-SA-4.0",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：127 文件 -> 128 文件",
+          "measured": {
+            "pushed": "2025-07-16",
+            "stars": 4062
+          }
+        }
+      }
+    },
+    {

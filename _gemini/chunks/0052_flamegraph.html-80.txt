@@ -1,0 +1,173 @@
+function classList(node) {
+  return node.classList || new ClassList(node);
+}
+
+function ClassList(node) {
+  this._node = node;
+  this._names = classArray(node.getAttribute("class") || "");
+}
+
+ClassList.prototype = {
+  add: function(name) {
+    var i = this._names.indexOf(name);
+    if (i < 0) {
+      this._names.push(name);
+      this._node.setAttribute("class", this._names.join(" "));
+    }
+  },
+  remove: function(name) {
+    var i = this._names.indexOf(name);
+    if (i >= 0) {
+      this._names.splice(i, 1);
+      this._node.setAttribute("class", this._names.join(" "));
+    }
+  },
+  contains: function(name) {
+    return this._names.indexOf(name) >= 0;
+  }
+};
+
+function classedAdd(node, names) {
+  var list = classList(node), i = -1, n = names.length;
+  while (++i < n) list.add(names[i]);
+}
+
+function classedRemove(node, names) {
+  var list = classList(node), i = -1, n = names.length;
+  while (++i < n) list.remove(names[i]);
+}
+
+function classedTrue(names) {
+  return function() {
+    classedAdd(this, names);
+  };
+}
+
+function classedFalse(names) {
+  return function() {
+    classedRemove(this, names);
+  };
+}
+
+function classedFunction(names, value) {
+  return function() {
+    (value.apply(this, arguments) ? classedAdd : classedRemove)(this, names);
+  };
+}
+
+function selection_classed(name, value) {
+  var names = classArray(name + "");
+
+  if (arguments.length < 2) {
+    var list = classList(this.node()), i = -1, n = names.length;
+    while (++i < n) if (!list.contains(names[i])) return false;
+    return true;
+  }
+
+  return this.each((typeof value === "function"
+      ? classedFunction : value
+      ? classedTrue
+      : classedFalse)(names, value));
+}
+
+function textRemove() {
+  this.textContent = "";
+}
+
+function textConstant(value) {
+  return function() {
+    this.textContent = value;
+  };
+}
+
+function textFunction(value) {
+  return function() {
+    var v = value.apply(this, arguments);
+    this.textContent = v == null ? "" : v;
+  };
+}
+
+function selection_text(value) {
+  return arguments.length
+      ? this.each(value == null
+          ? textRemove : (typeof value === "function"
+          ? textFunction
+          : textConstant)(value))
+      : this.node().textContent;
+}
+
+function htmlRemove() {
+  this.innerHTML = "";
+}
+
+function htmlConstant(value) {
+  return function() {
+    this.innerHTML = value;
+  };
+}
+
+function htmlFunction(value) {
+  return function() {
+    var v = value.apply(this, arguments);
+    this.innerHTML = v == null ? "" : v;
+  };
+}
+
+function selection_html(value) {
+  return arguments.length
+      ? this.each(value == null
+          ? htmlRemove : (typeof value === "function"
+          ? htmlFunction
+          : htmlConstant)(value))
+      : this.node().innerHTML;
+}
+
+function raise() {
+  if (this.nextSibling) this.parentNode.appendChild(this);
+}
+
+function selection_raise() {
+  return this.each(raise);
+}
+
+function lower() {
+  if (this.previousSibling) this.parentNode.insertBefore(this, this.parentNode.firstChild);
+}
+
+function selection_lower() {
+  return this.each(lower);
+}
+
+function selection_append(name) {
+  var create = typeof name === "function" ? name : creator(name);
+  return this.select(function() {
+    return this.appendChild(create.apply(this, arguments));
+  });
+}
+
+function constantNull() {
+  return null;
+}
+
+function selection_insert(name, before) {
+  var create = typeof name === "function" ? name : creator(name),
+      select = before == null ? constantNull : typeof before === "function" ? before : selector(before);
+  return this.select(function() {
+    return this.insertBefore(create.apply(this, arguments), select.apply(this, arguments) || null);
+  });
+}
+
+function remove() {
+  var parent = this.parentNode;
+  if (parent) parent.removeChild(this);
+}
+
+function selection_remove() {
+  return this.each(remove);
+}
+
+function selection_cloneShallow() {
+  var clone = this.cloneNode(false), parent = this.parentNode;
+  return parent ? parent.insertBefore(clone, this.nextSibling) : clone;
+}
+

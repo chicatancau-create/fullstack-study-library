@@ -1,0 +1,88 @@
+| 链接/空白/占位 | `node <TEMP>/b0-validate.mjs` | 0 | 75 份现行文档、696 条链接、**0 失效**；5 处既有行尾空格；0 个待办标记 |
+| 本批空白 | `git diff --check` | 0 | 无本批空白错误 |
+| 秘密扫描 | `node <TEMP>/sensitive-scan.mjs` | 0 | 260 文件；0 秘密；24 处元数据 |
+
+## 五、本批修正
+
+| 项 | 文件 | 修正 |
+| --- | --- | --- |
+| 施工总账 | `04-资源与评估/全栈能力补全施工看板.md` | 新建；批次 0–8 任务、证据、状态、阻断、提交、验证日期 |
+| 技能覆盖 | `04-资源与评估/技能覆盖矩阵.md` | 新建；10 类能力逐项标注教学/示例/练习/失败/项目/考核 |
+| 验证报告 | `04-资源与评估/施工验证报告.md` | 新建；本文件 |
+| 入链 | `000-学习总览.md`、`知识库目录与维护规则.md` | 三份总账接入权威入口 |
+| JD M 映射 | `04-资源与评估/真实JD样本与差距记录.md` | 逐行复核：数据库→M07、安全→M10、性能→M11、发布→M12、需求设计→M13、协作→M14、表达→M15；拆分 JS/TS 与 React、Node 运行时与 API；登记 AI/大数据无独立 M 编号 |
+| 过期口径 | `项目审计与优化报告.md`、`技术栈全景地图.md`、`阶段08-毕业项目与求职.md` | E01–E13“全未制作”改为按现状；36 周主线/毕业改为 D/G 口径；C 周次标明为旧索引 |
+| E01 映射 | `06-实验代码/E01-c-memory/README.md` | 键盘项从“E05”改为 G1 响应式站点；声明 E05 属 G3/G6 |
+| 维护规则 | `知识库目录与维护规则.md` | 增加 G1/G2 关口站点目录约定；`.workbuddy` 默认不新增版本化 |
+| 敏感新增阻断 | `.gitignore` | 增加 `.workbuddy/`；不处理历史跟踪 |
+
+## 六、未关闭项
+
+1. **AtomGit 401**：用户指定主仓库的 git endpoint 需要凭据，本机未配置；分支已推送 GitHub/GitCode 两个镜像。
+2. **`.workbuddy`**：已按用户确认取消跟踪（`ad41928`），历史未改写；本地 5 个文件保留。
+3. **E01 未覆盖**：ASan/UBSan/LSan/Valgrind 仍不可用；UAF 只有 Windows 页级替代；并发与跨平台未验证。
+4. **E02 未覆盖**：worker_threads、跨进程取消、真实连接池/HTTP 下游、failFast 多任务同时失败的原子性、堆上限。（11-08：worker_threads 与父子 IPC 取消已补；其余仍未覆盖。）
+   （11-08：worker_threads 已用 4 workers 对照补测；其余仍未覆盖。）
+5. **B1-11 的 CI 未实跑**：README 模板、manifest、工具链与 CI 模板已建；远端流水线尚未启用，不能写“CI 通过”。（11-08：远端已启用，9 个 job 全绿；E02 Linux 通过，E01 因 Windows 页级夹具不适用。）
+6. **真实环境**：PostgreSQL 18.6、Redis 3.0.504、RabbitMQ 4.4.0 已安装；K8s、MySQL、LLM 端点仍未就绪；E07–E10 与项目 02 已真实跑，K8s/AI/MySQL 迁移仍阻断。（11-08：MySQL 8.4、QEMU/K3s、本地 Qwen 已落地。）
+7. **AI 能力编号**：M01–M15 无独立 AI 应用域，M16/专项编号待批次 6 前决策。
+8. **外部工具（2026-11-07 更新）**：PostgreSQL 18.6、Redis 3.0.504、RabbitMQ 4.4.0/Erlang 29 已安装；`java 25.0.2`/`maven 3.9.16` 可用；`docker`、`kubectl`、MySQL 仍不可用。K8s、Java+MySQL 迁移、AI 应用仍不能真实验证。（11-08：Docker/K3s 在 QEMU 内可用，MySQL 8.4.13 与 Java 迁移已实跑。）
+9. **项目代码工作区**：用户已确认 `<练习仓库>`；项目 01–04 已落地，项目 05 未开始。（11-08：项目 05 已完成受控修复演练 7/7。）
+10. **个人能力**：G0–G9、M01–M15 与项目状态未因本批资产复验而改变。
+
+## 七、批次 1 复验（2026-11-07）
+
+### 7.1 E01
+
+```text
+bash scripts/run_tests.sh
+```
+
+- 退出码 **0**；`test_dynarray checks=72 fails=0`、`test_hashmap checks=4108 fails=0`。
+- 越界注入 exit 139，SIGSEGV 定位 `tests/fault_guard.c:78`；修复版 exit 0。
+- UAF 注入 exit 139，定位 `tests/fault_uaf.c:37`；修复版 exit 0。
+- `bash scripts/selftest_gate.sh` 退出码 **0**：临时副本破坏 `replaced=1` 后，门禁 exit **1**，`test_hashmap ... fails=1 : FAIL`。
+
+### 7.2 E02
+
+```text
+bash scripts/run_all.sh
+```
+
+- 退出码 **0**；六个测试 `28+11+27+37+32+37 = 172` 条断言 0 失败。
+- 三个反例与三档速率对照均为预期；场景无 `NO`/“不成立”。
+- `bash scripts/selftest_gate.sh` 退出码 **0**：临时副本禁用 `submit` 的 `failFastTriggered` 分支后，门禁 exit **1**，`test_regressions` 出现 5 个 `not ok`。
+
+### 7.3 本批修复
+
+| 项 | 修复 | 证据 |
+| --- | --- | --- |
+| E01 hashmap 桶数截断/模零 | `HM_MAX_BUCKETS=UINT32_MAX`，分配前拒绝；grow 超限拒绝 | `test_hashmap` 桶上限用例；修复前 ENOMEM/1 次分配 |
+| E01 节点分配失败/初始化/空参数/平衡 | 新增 4 组用例 + `fault_alloc_live()` | `test_hashmap` 4108 条 |
+| E01 UAF | `fault_uaf.c` 页级替代 | `evidence/fault_uaf.txt` |
+| E01 门禁 | 精确退出码/信号/源码行；失败非零 | `evidence/gate_selftest.txt` |
+| E02 空池等位 | 有空槽立即返回；槽位释放唤醒 | `test_regressions` 前 4 条 |
+| E02 close 遗留队列 | 删除 `dropQueued:false`，统一拒绝排队 | `test_regressions` 关闭用例 |
+| E02 failFast 假值 | `#failFastTriggered` 布尔标记 | 5 组假值 × 3 条 |
+| E02 监听器/waiter | `#detachAbort`；drain 超时自注销 | listenerCount=0、idleWaiters=0 |
+| E02 timeout 参数 | 非法值抛 `RangeError` | 5 组参数矩阵 |
+| E02 门禁 | 缺测试/PASS/not ok/场景不成立均非零 | `evidence/gate_selftest.txt` |
+
+### 7.4 B1-11 模板与 manifest
+
+- 新增 `06-实验代码/_template/`：README 模板、`manifest.mjs`、`toolchain.json`、`ci.yml`、使用说明。
+- E01 manifest：9 个证据文件，commit `fdb4c0d`，`manifest OK`。
+- E02 manifest：13 个证据文件，commit `fdb4c0d`，`manifest OK`。
+- CI 模板未在远端实跑；不能据此写“干净环境通过”或“CI 通过”。
+
+### 7.5 仍未完成
+
+E01：ASan/UBSan/LSan/Valgrind、并发、跨平台；E02：真实连接池、failFast 同时失败原子性。CI 未实跑。批次 1 记为“本机自测通过（11/11，CI 未实跑）”，不标为整批限定范围验收通过。
+
+### 7.6 批次 2 U01（本机自测）
+
+```text
+cd 01-阶段课程/教学单元/U01-Git与Shell
+bash scripts/run_unit.sh
+```
+

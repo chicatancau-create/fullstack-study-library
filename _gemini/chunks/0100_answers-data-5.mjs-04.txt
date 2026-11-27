@@ -1,0 +1,105 @@
+    complexity: { time: 'O(n)', space: 'O(1)' },
+    code_lang: 'javascript',
+    code: `function solve(arr) {
+  const d = { next: null };
+  let tail = d, i = 0;
+  while (i < arr.length) {
+    let j = i;
+    while (j < arr.length && arr[j] === arr[i]) j++;
+    if (j - i === 1) { tail.next = { val: arr[i], next: null }; tail = tail.next; }
+    i = j;
+  }
+  const out = [];
+  for (let p = d.next; p; p = p.next) out.push(p.val);
+  return out;
+}`,
+    edge_cases: [
+      { call: '[1,2,3,3,4,4,5]', expected: [1,2,5], why: '3 与 4 成对删除' },
+      { call: '[1,1,1,2,3]', expected: [2,3], why: '连续三个重复全删' },
+      { call: '[1]', expected: [1], why: '单节点保留' },
+    ],
+    common_mistakes: ['只删相邻重复中的一个（那是 83 题）', '删完重复后忘记接回 tail', '用哈希计数破坏 O(1) 空间'],
+    followups: ['83 题只去重一个元素，代码差在哪？', '无序链表怎么做？'],
+    rubric: [
+      { point: '按相同值分段统计长度', weight: 2 },
+      { point: '长度大于 1 整段丢弃', weight: 1 },
+      { point: '哑节点 + tail 接链不丢头', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q058', title: '43. 字符串相乘', question_url: 'https://leetcode.cn/problems/multiply-strings/',
+    core_idea: '竖式乘法：长度为 m、n 的两数乘积最多 m+n 位，逐位相乘累加到结果数组，再统一处理进位并去前导零。',
+    invariant: 'res[i+j+1] 先存部分积的低位，进位加到 res[i+j]，处理完后 res 即十进制结果。',
+    complexity: { time: 'O(mn)', space: 'O(m+n)' },
+    code_lang: 'javascript',
+    code: `function solve(a, b) {
+  if (a === '0' || b === '0') return '0';
+  const m = a.length, n = b.length;
+  const res = new Array(m + n).fill(0);
+  for (let i = m - 1; i >= 0; i--) {
+    for (let j = n - 1; j >= 0; j--) {
+      const mul = (a.charCodeAt(i) - 48) * (b.charCodeAt(j) - 48);
+      const p1 = i + j, p2 = i + j + 1;
+      const sum = mul + res[p2];
+      res[p2] = sum % 10;
+      res[p1] += Math.floor(sum / 10);
+    }
+  }
+  let k = 0;
+  while (k < res.length && res[k] === 0) k++;
+  return res.slice(k).join('');
+}`,
+    edge_cases: [
+      { call: '"2", "3"', expected: '6', why: '单位数' },
+      { call: '"123", "456"', expected: '56088', why: '标准竖式' },
+      { call: '"0", "0"', expected: '0', why: '零结果不能返回空串' },
+    ],
+    common_mistakes: ['用 Number 相乘，超过 2^53 精度丢失', '结果数组长度取 m+n-1 导致最高位无处进位', '忘记去掉前导零'],
+    followups: ['如何支持负数与小数？', 'Karatsuba 如何把复杂度降到约 O(n^1.585)？'],
+    rubric: [
+      { point: '结果数组长度为 m+n 并按下标累加', weight: 2 },
+      { point: '进位并入高位而非只取模', weight: 1 },
+      { point: '零结果与去前导零正确', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q059', title: '142. 环形链表 II', question_url: 'https://leetcode.cn/problems/linked-list-cycle-ii/',
+    core_idea: 'Floyd 判圈：快慢指针相遇后，一个指针回到头，两指针同速前进，再次相遇处即入环点。',
+    invariant: '设头到环入口为 a、入口到相遇点为 b、环长 c，则相遇时 2(a+b)=a+b+kc，故 a=(k-1)c+(c-b)。',
+    complexity: { time: 'O(n)', space: 'O(1)' },
+    code_lang: 'javascript',
+    code: `function solve(arr, pos) {
+  if (!arr.length) return -1;
+  const nodes = arr.map((v) => ({ val: v, next: null }));
+  for (let i = 0; i < nodes.length - 1; i++) nodes[i].next = nodes[i + 1];
+  if (pos >= 0) nodes[nodes.length - 1].next = nodes[pos];
+  let slow = nodes[0], fast = nodes[0];
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+    if (slow === fast) {
+      let p = nodes[0];
+      while (p !== slow) { p = p.next; slow = slow.next; }
+      return nodes.indexOf(p);
+    }
+  }
+  return -1;
+}`,
+    edge_cases: [
+      { call: '[3,2,0,-4], 1', expected: 1, why: '环入口在第二个节点' },
+      { call: '[1,2], 0', expected: 0, why: '入口是头节点' },
+      { call: '[1], -1', expected: -1, why: '无环' },
+    ],
+    common_mistakes: ['相遇后直接返回相遇点而不是入环点', '快指针步进前不检查 fast.next', '用哈希集合冒充 O(1) 空间'],
+    followups: ['如何求环长？', '为什么第二次相遇一定在入口？'],
+    rubric: [
+      { point: '快慢指针先判是否有环', weight: 1 },
+      { point: '相遇后一指针回头同速再相遇', weight: 2 },
+      { point: '无环返回 -1 且不越界', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q060', title: '162. 寻找峰值', question_url: 'https://leetcode.cn/problems/find-peak-element/',
+    core_idea: '二分：比较 nums[mid] 与 nums[mid+1]，上升则峰值在右半，下降则峰值在左半（含 mid）。',
+    invariant: '区间 [lo,hi] 内必存在至少一个峰值，因为两端视为负无穷。',
+    complexity: { time: 'O(log n)', space: 'O(1)' },

@@ -1,0 +1,112 @@
+write(SOURCE_CARD_REL, sourceCard)
+
+const primary = records.find((record) => record.title.startsWith('2. ')) ?? records[0]
+if (!primary) throw new Error('投影没有可发布的二级主题')
+const primaryTopic = currentTopics.find((topic) => keyOf(topic) === keyOf(primary))
+const sectionRefs = currentTopics.map((topic) => `${topic.path}#${topic.headingPath.join(' > ')}`)
+const primaryRef = `${primaryTopic.path}#${primaryTopic.headingPath.join(' > ')}`
+const unit = [
+  '---',
+  'schemaVersion: 1',
+  'type: teaching-unit',
+  `contentId: ${CONTENT_ID}`,
+  `primaryTopicId: ${primaryTopic.topicId}`,
+  `primaryTopicRef: ${JSON.stringify(primaryRef)}`,
+  `stageIds: [${STAGE_ID}]`,
+  'titleRef: "U01：Git 与 Shell"',
+  'subject: Git',
+  'language: shell',
+  'objective: "理解 Git 提交图、分支与冲突，并能识别 Shell 管道退出码被掩盖的场景。"',
+  'lessonKind: guided',
+  'prerequisiteRefs: []',
+  `sectionRefs: ${inlineList(sectionRefs)}`,
+  `exerciseIds: [${EXERCISE_ID}]`,
+  'projectTaskRef: ""',
+  'runEnvironment: external',
+  'executionPolicy: external',
+  'estimatedMinutes: 45',
+  'reviewOffsetsDays: [0, 1, 3]',
+  'verificationStatus: 库内已存在',
+  `sourceIds: [${SOURCE_ID}]`,
+  'status: published',
+  'legacyRefs: []',
+  '---',
+  '',
+  '本单元由资料库 U01 原文投影，保留原有示例、练习和盲测边界。',
+  '',
+].join('\n')
+write('CodeWeave/教学单元/U01-Git与Shell.md', unit)
+
+const exercise = [
+  '---',
+  'schemaVersion: 1',
+  'type: exercise',
+  `exerciseId: ${EXERCISE_ID}`,
+  `primaryLessonId: ${CONTENT_ID}`,
+  `supportingTopicIds: [${primaryTopic.topicId}]`,
+  'title: "用 pipefail 暴露管道上游失败"',
+  'prompt: "在临时目录运行 false | true，再启用 set -o pipefail 重跑；记录两次退出码，并解释为什么默认管道会掩盖上游失败。"',
+  'inputConvention: "在 Bash 中提交命令、退出码与一段解释；不要用 || true 吞掉失败。"',
+  'testCases: ["默认 false | true 返回 0", "set -o pipefail 后同一管道返回非 0"]',
+  'hintLevels: [L1, L2]',
+  'executionPolicy: external',
+  'language: shell',
+  'version: 1',
+  'expectedOutput: ["默认退出码=0", "pipefail退出码=1"]',
+  'evidenceChecklist: ["命令原文", "两次退出码", "失败传播解释"]',
+  'rubric: ["能复现默认掩盖", "能证明 pipefail 生效", "不伪造退出码"]',
+  '---',
+  '',
+  '```bash',
+  'false | true; echo $?',
+  'set -o pipefail',
+  'false | true; echo $?',
+  '```',
+  '',
+  '外部执行，不把终端输出自动判定为通过。',
+  '',
+].join('\n')
+write('CodeWeave/练习/EX-U01-PIPEFAIL.md', exercise)
+
+writeJson('CodeWeave/mappings/topic-id-map.json', { schemaVersion: 1, entries: [] })
+writeJson('CodeWeave/mappings/legacy-map.json', { mapVersion: '2026-11-20-pilot.1', entries: [] })
+const manifest = {
+  schemaVersion: 1,
+  vaultId: oldManifest?.vaultId ?? 'fullstack-study-library',
+  publishWhitelist: {
+    contentRoot: 'CodeWeave/发布正文',
+    contentTypes: ['knowledge-volume'],
+    excludedPathSegments: [],
+    teachingUnitDir: 'CodeWeave/教学单元',
+    exerciseDir: 'CodeWeave/练习',
+    sourceRoot: 'CodeWeave/知识来源',
+    rulesPath: RULES_JSON_REL,
+    legacyMapPath: 'CodeWeave/mappings/legacy-map.json',
+    topicIdMapPath: 'CodeWeave/mappings/topic-id-map.json',
+    topicIndexPath: TOPIC_INDEX_REL,
+  },
+  sourceRegistry: {
+    ...(oldManifest?.sourceRegistry ?? {}),
+    [SOURCE_ID]: { verificationStatus: '库内已存在', path: SOURCE_REL },
+  },
+  topics: [...currentTopics, ...retiredTopics],
+  publishedContentIds: oldManifest?.publishedContentIds ?? [],
+}
+writeJson('CodeWeave/content-manifest.json', manifest)
+
+console.log(JSON.stringify({
+  source: SOURCE_REL,
+  sourceSha256: sourceHash,
+  projection: PROJECTION_REL,
+  projectionSha256: projectionHash,
+  topics: currentTopics.length,
+  retiredTopics: retiredTopics.length,
+  primaryTopicId: primaryTopic.topicId,
+  rulesFingerprint: ruleFingerprint,
+  files: [
+    'CodeWeave/content-manifest.json', PROJECTION_REL, TOPIC_INDEX_REL,
+    'CodeWeave/教学单元/U01-Git与Shell.md', 'CodeWeave/练习/EX-U01-PIPEFAIL.md',
+    SOURCE_CARD_REL, RULES_REL, RULES_JSON_REL,
+    'CodeWeave/mappings/topic-id-map.json', 'CodeWeave/mappings/legacy-map.json',
+  ],
+}, null, 2))

@@ -1,0 +1,153 @@
+        d.d = "W" in d ? (d.w + 6) % 7 + d.W * 7 - (day + 5) % 7 : d.w + d.U * 7 - (day + 6) % 7;
+      }
+
+      // If a time zone is specified, all fields are interpreted as UTC and then
+      // offset according to the specified time zone.
+      if ("Z" in d) {
+        d.H += d.Z / 100 | 0;
+        d.M += d.Z % 100;
+        return utcDate(d);
+      }
+
+      // Otherwise, all fields are in local time.
+      return localDate(d);
+    };
+  }
+
+  function parseSpecifier(d, specifier, string, j) {
+    var i = 0,
+        n = specifier.length,
+        m = string.length,
+        c,
+        parse;
+
+    while (i < n) {
+      if (j >= m) return -1;
+      c = specifier.charCodeAt(i++);
+      if (c === 37) {
+        c = specifier.charAt(i++);
+        parse = parses[c in pads ? specifier.charAt(i++) : c];
+        if (!parse || ((j = parse(d, string, j)) < 0)) return -1;
+      } else if (c != string.charCodeAt(j++)) {
+        return -1;
+      }
+    }
+
+    return j;
+  }
+
+  function parsePeriod(d, string, i) {
+    var n = periodRe.exec(string.slice(i));
+    return n ? (d.p = periodLookup[n[0].toLowerCase()], i + n[0].length) : -1;
+  }
+
+  function parseShortWeekday(d, string, i) {
+    var n = shortWeekdayRe.exec(string.slice(i));
+    return n ? (d.w = shortWeekdayLookup[n[0].toLowerCase()], i + n[0].length) : -1;
+  }
+
+  function parseWeekday(d, string, i) {
+    var n = weekdayRe.exec(string.slice(i));
+    return n ? (d.w = weekdayLookup[n[0].toLowerCase()], i + n[0].length) : -1;
+  }
+
+  function parseShortMonth(d, string, i) {
+    var n = shortMonthRe.exec(string.slice(i));
+    return n ? (d.m = shortMonthLookup[n[0].toLowerCase()], i + n[0].length) : -1;
+  }
+
+  function parseMonth(d, string, i) {
+    var n = monthRe.exec(string.slice(i));
+    return n ? (d.m = monthLookup[n[0].toLowerCase()], i + n[0].length) : -1;
+  }
+
+  function parseLocaleDateTime(d, string, i) {
+    return parseSpecifier(d, locale_dateTime, string, i);
+  }
+
+  function parseLocaleDate(d, string, i) {
+    return parseSpecifier(d, locale_date, string, i);
+  }
+
+  function parseLocaleTime(d, string, i) {
+    return parseSpecifier(d, locale_time, string, i);
+  }
+
+  function formatShortWeekday(d) {
+    return locale_shortWeekdays[d.getDay()];
+  }
+
+  function formatWeekday(d) {
+    return locale_weekdays[d.getDay()];
+  }
+
+  function formatShortMonth(d) {
+    return locale_shortMonths[d.getMonth()];
+  }
+
+  function formatMonth(d) {
+    return locale_months[d.getMonth()];
+  }
+
+  function formatPeriod(d) {
+    return locale_periods[+(d.getHours() >= 12)];
+  }
+
+  function formatQuarter(d) {
+    return 1 + ~~(d.getMonth() / 3);
+  }
+
+  function formatUTCShortWeekday(d) {
+    return locale_shortWeekdays[d.getUTCDay()];
+  }
+
+  function formatUTCWeekday(d) {
+    return locale_weekdays[d.getUTCDay()];
+  }
+
+  function formatUTCShortMonth(d) {
+    return locale_shortMonths[d.getUTCMonth()];
+  }
+
+  function formatUTCMonth(d) {
+    return locale_months[d.getUTCMonth()];
+  }
+
+  function formatUTCPeriod(d) {
+    return locale_periods[+(d.getUTCHours() >= 12)];
+  }
+
+  function formatUTCQuarter(d) {
+    return 1 + ~~(d.getUTCMonth() / 3);
+  }
+
+  return {
+    format: function(specifier) {
+      var f = newFormat(specifier += "", formats);
+      f.toString = function() { return specifier; };
+      return f;
+    },
+    parse: function(specifier) {
+      var p = newParse(specifier += "", false);
+      p.toString = function() { return specifier; };
+      return p;
+    },
+    utcFormat: function(specifier) {
+      var f = newFormat(specifier += "", utcFormats);
+      f.toString = function() { return specifier; };
+      return f;
+    },
+    utcParse: function(specifier) {
+      var p = newParse(specifier += "", true);
+      p.toString = function() { return specifier; };
+      return p;
+    }
+  };
+}
+
+var pads = {"-": "", "_": " ", "0": "0"},
+    numberRe = /^\s*\d+/, // note: ignores next directive
+    percentRe = /^%/,
+    requoteRe = /[\\^$*+?|[\]().{}]/g;
+
+function pad(value, fill, width) {

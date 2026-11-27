@@ -1,0 +1,165 @@
+  return nodes;
+}
+
+function selection_node() {
+
+  for (var groups = this._groups, j = 0, m = groups.length; j < m; ++j) {
+    for (var group = groups[j], i = 0, n = group.length; i < n; ++i) {
+      var node = group[i];
+      if (node) return node;
+    }
+  }
+
+  return null;
+}
+
+function selection_size() {
+  var size = 0;
+  this.each(function() { ++size; });
+  return size;
+}
+
+function selection_empty() {
+  return !this.node();
+}
+
+function selection_each(callback) {
+
+  for (var groups = this._groups, j = 0, m = groups.length; j < m; ++j) {
+    for (var group = groups[j], i = 0, n = group.length, node; i < n; ++i) {
+      if (node = group[i]) callback.call(node, node.__data__, i, group);
+    }
+  }
+
+  return this;
+}
+
+function attrRemove(name) {
+  return function() {
+    this.removeAttribute(name);
+  };
+}
+
+function attrRemoveNS(fullname) {
+  return function() {
+    this.removeAttributeNS(fullname.space, fullname.local);
+  };
+}
+
+function attrConstant(name, value) {
+  return function() {
+    this.setAttribute(name, value);
+  };
+}
+
+function attrConstantNS(fullname, value) {
+  return function() {
+    this.setAttributeNS(fullname.space, fullname.local, value);
+  };
+}
+
+function attrFunction(name, value) {
+  return function() {
+    var v = value.apply(this, arguments);
+    if (v == null) this.removeAttribute(name);
+    else this.setAttribute(name, v);
+  };
+}
+
+function attrFunctionNS(fullname, value) {
+  return function() {
+    var v = value.apply(this, arguments);
+    if (v == null) this.removeAttributeNS(fullname.space, fullname.local);
+    else this.setAttributeNS(fullname.space, fullname.local, v);
+  };
+}
+
+function selection_attr(name, value) {
+  var fullname = namespace(name);
+
+  if (arguments.length < 2) {
+    var node = this.node();
+    return fullname.local
+        ? node.getAttributeNS(fullname.space, fullname.local)
+        : node.getAttribute(fullname);
+  }
+
+  return this.each((value == null
+      ? (fullname.local ? attrRemoveNS : attrRemove) : (typeof value === "function"
+      ? (fullname.local ? attrFunctionNS : attrFunction)
+      : (fullname.local ? attrConstantNS : attrConstant)))(fullname, value));
+}
+
+function defaultView(node) {
+  return (node.ownerDocument && node.ownerDocument.defaultView) // node is a Node
+      || (node.document && node) // node is a Window
+      || node.defaultView; // node is a Document
+}
+
+function styleRemove(name) {
+  return function() {
+    this.style.removeProperty(name);
+  };
+}
+
+function styleConstant(name, value, priority) {
+  return function() {
+    this.style.setProperty(name, value, priority);
+  };
+}
+
+function styleFunction(name, value, priority) {
+  return function() {
+    var v = value.apply(this, arguments);
+    if (v == null) this.style.removeProperty(name);
+    else this.style.setProperty(name, v, priority);
+  };
+}
+
+function selection_style(name, value, priority) {
+  return arguments.length > 1
+      ? this.each((value == null
+            ? styleRemove : typeof value === "function"
+            ? styleFunction
+            : styleConstant)(name, value, priority == null ? "" : priority))
+      : styleValue(this.node(), name);
+}
+
+function styleValue(node, name) {
+  return node.style.getPropertyValue(name)
+      || defaultView(node).getComputedStyle(node, null).getPropertyValue(name);
+}
+
+function propertyRemove(name) {
+  return function() {
+    delete this[name];
+  };
+}
+
+function propertyConstant(name, value) {
+  return function() {
+    this[name] = value;
+  };
+}
+
+function propertyFunction(name, value) {
+  return function() {
+    var v = value.apply(this, arguments);
+    if (v == null) delete this[name];
+    else this[name] = v;
+  };
+}
+
+function selection_property(name, value) {
+  return arguments.length > 1
+      ? this.each((value == null
+          ? propertyRemove : typeof value === "function"
+          ? propertyFunction
+          : propertyConstant)(name, value))
+      : this.node()[name];
+}
+
+function classArray(string) {
+  return string.trim().split(/^|\s+/);
+}
+

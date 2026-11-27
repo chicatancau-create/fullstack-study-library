@@ -1,0 +1,147 @@
+    if (i !== i0) t0 = (i0 = i) && attrInterpolate(name, i);
+    return t0;
+  }
+  tween._value = value;
+  return tween;
+}
+
+function transition_attrTween(name, value) {
+  var key = "attr." + name;
+  if (arguments.length < 2) return (key = this.tween(key)) && key._value;
+  if (value == null) return this.tween(key, null);
+  if (typeof value !== "function") throw new Error;
+  var fullname = d3Selection.namespace(name);
+  return this.tween(key, (fullname.local ? attrTweenNS : attrTween)(fullname, value));
+}
+
+function delayFunction(id, value) {
+  return function() {
+    init(this, id).delay = +value.apply(this, arguments);
+  };
+}
+
+function delayConstant(id, value) {
+  return value = +value, function() {
+    init(this, id).delay = value;
+  };
+}
+
+function transition_delay(value) {
+  var id = this._id;
+
+  return arguments.length
+      ? this.each((typeof value === "function"
+          ? delayFunction
+          : delayConstant)(id, value))
+      : get(this.node(), id).delay;
+}
+
+function durationFunction(id, value) {
+  return function() {
+    set(this, id).duration = +value.apply(this, arguments);
+  };
+}
+
+function durationConstant(id, value) {
+  return value = +value, function() {
+    set(this, id).duration = value;
+  };
+}
+
+function transition_duration(value) {
+  var id = this._id;
+
+  return arguments.length
+      ? this.each((typeof value === "function"
+          ? durationFunction
+          : durationConstant)(id, value))
+      : get(this.node(), id).duration;
+}
+
+function easeConstant(id, value) {
+  if (typeof value !== "function") throw new Error;
+  return function() {
+    set(this, id).ease = value;
+  };
+}
+
+function transition_ease(value) {
+  var id = this._id;
+
+  return arguments.length
+      ? this.each(easeConstant(id, value))
+      : get(this.node(), id).ease;
+}
+
+function transition_filter(match) {
+  if (typeof match !== "function") match = d3Selection.matcher(match);
+
+  for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
+    for (var group = groups[j], n = group.length, subgroup = subgroups[j] = [], node, i = 0; i < n; ++i) {
+      if ((node = group[i]) && match.call(node, node.__data__, i, group)) {
+        subgroup.push(node);
+      }
+    }
+  }
+
+  return new Transition(subgroups, this._parents, this._name, this._id);
+}
+
+function transition_merge(transition) {
+  if (transition._id !== this._id) throw new Error;
+
+  for (var groups0 = this._groups, groups1 = transition._groups, m0 = groups0.length, m1 = groups1.length, m = Math.min(m0, m1), merges = new Array(m0), j = 0; j < m; ++j) {
+    for (var group0 = groups0[j], group1 = groups1[j], n = group0.length, merge = merges[j] = new Array(n), node, i = 0; i < n; ++i) {
+      if (node = group0[i] || group1[i]) {
+        merge[i] = node;
+      }
+    }
+  }
+
+  for (; j < m0; ++j) {
+    merges[j] = groups0[j];
+  }
+
+  return new Transition(merges, this._parents, this._name, this._id);
+}
+
+function start(name) {
+  return (name + "").trim().split(/^|\s+/).every(function(t) {
+    var i = t.indexOf(".");
+    if (i >= 0) t = t.slice(0, i);
+    return !t || t === "start";
+  });
+}
+
+function onFunction(id, name, listener) {
+  var on0, on1, sit = start(name) ? init : set;
+  return function() {
+    var schedule = sit(this, id),
+        on = schedule.on;
+
+    // If this node shared a dispatch with the previous node,
+    // just assign the updated shared dispatch and we’re done!
+    // Otherwise, copy-on-write.
+    if (on !== on0) (on1 = (on0 = on).copy()).on(name, listener);
+
+    schedule.on = on1;
+  };
+}
+
+function transition_on(name, listener) {
+  var id = this._id;
+
+  return arguments.length < 2
+      ? get(this.node(), id).on.on(name)
+      : this.each(onFunction(id, name, listener));
+}
+
+function removeFunction(id) {
+  return function() {
+    var parent = this.parentNode;
+    for (var i in this.__transition) if (+i !== id) return;
+    if (parent) parent.removeChild(this);
+  };
+}
+
+function transition_remove() {

@@ -1,0 +1,128 @@
+        "files": 2777,
+        "bytes": 87793736,
+        "markdown_count": 236,
+        "question_markers": 2,
+        "test_files": 78,
+        "observed_at": "2026-11-07T14:06:25+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "Apache-2.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 32,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/litmuschaos/litmus",
+          "category": "知识库/运维与云原生",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 32,
+          "fetched": "2026-11-05 11:12",
+          "files": 2777,
+          "bytes": 87793736,
+          "mb": 83,
+          "top_extensions": {
+            ".yaml": 801,
+            ".ts": 549,
+            ".tsx": 376,
+            ".md": 236,
+            ".go": 236,
+            ".scss": 127,
+            ".png": 110,
+            ".svg": 87,
+            ".yml": 84,
+            "(none)": 38
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "Apache-2.0",
+          "round": 2,
+          "selection": "正文 236 篇；自带测试 78 个｜自动判定：keep",
+          "functions": [
+            "F2解答",
+            "F3可运行",
+            "F5图解"
+          ],
+          "measured": {
+            "md_n": 236,
+            "md_share_pct": 1.6,
+            "question_markers": 2,
+            "tests": 78,
+            "images": 199,
+            "pdf": 0,
+            "stars": 5739,
+            "pushed": "2026-11-04",
+            "functions": [
+              "部署运维",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "content_fingerprint": "49abc57a6f2ddbc1cb0d498801e49e40d93d7b75006e253539c6a135a39d4663",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:yeasy/docker_practice",
+      "name": "yeasy/docker_practice",
+      "source": {
+        "url": "https://github.com/yeasy/docker_practice",
+        "canonical_url": "https://github.com/yeasy/docker_practice",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-10-31",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:34+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "c803802f95471cd14e55d14c85fae66b13e3d620",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/运维与云原生/yeasy/docker_practice",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/yeasy/docker_practice"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "f0fff4a4acb025ff3687c3883269c35018e2ad539345bd5316c8b15b4dc488f3",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:39:07+08:00"
+        },

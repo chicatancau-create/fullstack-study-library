@@ -1,0 +1,35 @@
+- `[通过]` E11 ZAP 门禁：baseline 之外新增加固对照面 `/scan-safe`（完整 CSP 指令 + `X-Frame-Options: DENY` + 输出编码），要求该面 Medium/High 均为 0 且漏洞面必须报出 Medium（证明扫描器生效），两条同时满足才 `ZAP BASELINE PASS`。本轮实测：漏洞面 `High 0 / Medium 4`，加固面 `High 0 / Medium 0` → gate PASS，退出码 0；`evidence/zap.txt` 写入 `hardened_target`、`hardened_alerts_summary`、`gate:` 三行。第一版 CSP 只有 `default-src 'none'; frame-ancestors 'none'`，ZAP 报 `CSP: Failure to Define Directive with No Fallback` Medium×2，补齐 smscript/style/img/connect/font/object/media/frame/worker/base-uri/form-action 后归零。
+- `[通过]` E11 单测扩到 22 条：新增「A05 加固面补齐 CSP 与 X-Frame-Options，且输出编码」同时断言加固面不回显 `<img`、对照面必回显 `<img`、对照面无 `x-frame-options`；`npm test` 22/22 通过，manifest 8 artifacts 校验通过。
+- `[未执行]` ZAP 主动扫描（会改数据、耗时长）；90-历史归档/ 未改动。
+
+## 十五、2026-11-09 MS8 自测题库自学化
+
+- `[通过]` G0–G9 共 10 个包由“学生包/教师包”改为统一自学结构：`题面.md`、`起始代码/`、`参考答案/`、`自测脚本/`、`故障变体/`、`评分指南.md`、`自评指南.md`；答案与脚本全部公开。
+- `[通过]` 10/10 运行 `bash scripts/evidence.sh` 均输出 `SELF-TEST PASS`，同时满足“参考答案通过、起始代码被拒绝”。
+- `[通过]` G8 增加“陌生系统接手练习”说明与公开缺陷清单（去重/负值/金额重算）；G9 增加 90 分钟计时、12 分自评与复盘模板。
+- `[未验证]` 结构迁移只验证了自测脚本与证据；未逐包人工复核题面难度与学习顺序。
+- `[未执行]` `08-判定题库` 目录名未改（避免全库 Wiki 链接批量失效），按 MS8 允许的“保留名字改内部结构”执行；90-历史归档/ 未改动。
+
+## 十六、2026-11-09 MS9 真实环境增量（SQL50）
+
+- `[通过]` SQL50 新增 `真实环境/`：PostgreSQL 18.6 双连接写偏差（RC/RR）、Serializable `40001`、死锁 `40P01`、`lock_timeout 55P03`，6/6 通过。
+- `[通过]` EXPLAIN 判定：5000 行 + `ANALYZE` + `(tenant,status)` 索引；事务内临时删索引模拟无索引变体，4/4 通过；证据在 `专题题库/SQL50/真实环境/evidence/`，manifest 校验通过。
+- `[通过]` 英文面试 10 套新增可执行自测页 `web/`：抽题、60 分钟分段计时（5/25/20/10）、浏览器本地 MediaRecorder 录音、四维加权分、红线封顶、导出 JSON；`node --test` 7/7 通过，`evidence/` 四项产物 manifest 校验通过。
+- `[通过]` SQL50 新增在线迁移与回滚：v1→v2 加列 + 触发器双写、事务回填、脏数据导致 `23514` 回滚、前向修复、并发写不漂移、新应用×旧 schema `42703`、回滚比对金额、切读后删旧列，11/11 通过；manifest 8 项产物校验通过。
+- `[通过]` SQL50 新增 PostgreSQL/MySQL 方言对照：同一批题在 PG 18.6 与 MySQL 8.4.13 真实执行，覆盖拼接/NULL 排序/非法转换/JSON/日期截断/UPSERT/OFFSET，8/8 通过。
+- `[通过]` 后端 30 C 组（C01–C06）升级为 PostgreSQL 双连接：乐观锁、冲突重试、部分唯一索引 `23505`、advisory 锁 `55P03`、过期认领、按 Key 串行，7/7 通过。
+- `[通过]` 后端 30 D 组（D01–D04）升级为 PostgreSQL Outbox + RabbitMQ：同事务落库、消息去重、3 次重试进 DLQ、发布对账，4/4 通过。
+- `[通过]` 后端 30 E 组（E01–E04）使用真实 JDK 25：GC 日志 1474 次停顿、JFR 可解析、32m OOM 生成 35 MB 堆快照、jstack 死锁环与线程状态统计，5/5 通过。
+- `[通过]` 后端 30 B 组（B01–B08）升级为 PostgreSQL RLS：跨租户读取过滤、写入 `42501`、Owner/Admin 更新策略、字段隐藏与邮箱脱敏视图、角色判断、拒绝审计，8/8 通过。
+- `[通过]` 后端 30 A 组（A01–A08）升级为真实 Fastify HTTP：OpenAPI 3.1 文档、废弃字段/端点、次版本递增、V1→V2 载荷迁移、Accept 协商 406、`Deprecation` 头，8/8 通过。
+- `[通过]` RAG65 新增真实环境层：PostgreSQL 分块与 `float8[]` 向量、租户过滤 + BM25 + 向量 + 文档级加权 RRF，检索 recall@3 100%、跨租户泄漏 0、P95 个位数毫秒，9/9 通过。
+- `[通过]` MS10 字节 408 去重账本：13 个 CSV、650 条原始记录、211 道唯一题、与现有 100 题交集 76、CSV 独有 101、24 题仅 CodeTop；每条记录均有去向，原始面经证据仍为 0。
+- `[通过]` MS10 字段分离：250 题拆出题面/聚合/原始面经字段，岗位统一标注“岗位未标注”，质量门禁 6/6；原始面经证据仍为 0。
+- `[通过]` MS10 逐题答案已覆盖字节 Top 100（Q001–Q100）全部含专属答案与评分点，代码与边界用例实际执行，质量门禁 5/5；证据 manifest 102 项校验通过，无 pending 条目。
+- `[通过]` MS10 前端/全栈补充题 16 道（前端 10、全栈 6，覆盖 14 个题型），每题含专属答案、≥3 评分点与 ≥2 追问，来源为官方文档并按规则标为模拟题；`check_frontend.mjs` 5/5 通过。
+- `[通过]` MS10 公司×岗位×题型矩阵由脚本生成：266 道 = 算法 250（岗位未标注）+ 前端 10 + 全栈 6，`role-matrix.json` 记录 20 行汇总与 `verified_raw_evidence = 0`。
+- `[通过]` MS10 原始面经首批核源：3 条公开可访问的牛客面经（无需登录）已结构化落库 `_工具/evidence/interview-evidence.json`，覆盖 Q002（LRU，2 条）与 Q067（112. 路径总和，1 条）；`link_evidence.mjs` 将证据写回索引，`check_bank.mjs` 6/6 通过（含 B06 证据结构与状态一致性）。
+- `[未验证]` MS6 的代码不在本仓库：`07-项目实现/` 只有索引 README，P02–P04 源码与 `evidence/` 均在 `<练习仓库>/`（私有仓库）。本仓库 CI 无法构建、测试或复跑三项目，因此 MS6 只能记为“外部仓库本机验收”，不能算本仓库内完整版闭合。
+- `[未验证]` 因此 MS11 中依赖 07 的 workflow（P02/P03/P04 lint/test/coverage/build）无法在本仓库执行；若要真正“CI 全覆盖”，必须先决定是否把项目源码（不含 node_modules/构建产物）迁回本仓库。
+- `[通过]` MS11 工具现代化（第一批）：`scripts/verify_all.mjs` 改为从 `import.meta.url` 推导仓库根，practice 只在显式传参时启用（显式路径不存在即失败），新增 `--profile=quick|full|ci`、`--offline`；自动发现 `06-实验代码/*/evidence/manifest.json`，并把 08 三个门禁纳入。本机 `--profile=ci --offline` 实测 20/20 通过。
+- `[通过]` MS11 CI 覆盖（第一批）：新增 `.github/workflows/ms5-sources.yml`（08 结构/答案/前端/矩阵/缺口/manifest + artifact）与 `.github/workflows/verify-all.yml`（全仓校验 + `git diff --check` + artifact）。

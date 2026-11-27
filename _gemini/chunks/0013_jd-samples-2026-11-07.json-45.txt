@@ -1,0 +1,22 @@
+correctness, security, ",
+      "responsibilities": ""
+    },
+    {
+      "company": "mozilla",
+      "source": "Greenhouse official job board",
+      "title": "Contract Staff Software Engineer-Bug Burndown",
+      "location": "Remote Germany",
+      "experience": "",
+      "url": "https://job-boards.greenhouse.io/mozilla/jobs/8303336",
+      "updated": "2026-10-20",
+      "requirements": "&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;You will help reduce Firefox’s WebCompat bug backlog by finishing or verifying the diagnosis of the long tail of site-breakage bugs, and by writing interventions or simple fixes (often with AI assistance). You turn a large queue of reported breakages into diagnosed, actionable, or fixed bugs.&lt;/span&gt;&lt;/p&gt; &lt;h2&gt;&lt;strong&gt;Responsibilities&lt;/strong&gt;&lt;/h2&gt; &lt;ul&gt; &lt;li style=&quot;font-weight: 400;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Finish diagnosing, or verify the diagnosis of, long-tail WebCompat bugs.&lt;/span&gt;&lt;/li&gt; &lt;li style=&quot;font-weight: 400;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Write WebCompat interventions where appropriate.&lt;/span&gt;&lt;/li&gt; &lt;li style=&quot;font-weight: 400;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Write simple fixes (AI-assisted) and land them.&lt;/span&gt;&lt;/li&gt; &lt;li style=&quot;font-weight: 400;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Reproduce and triage incoming site-breakage reports.&lt;/span&gt;&lt;/li&gt; &lt;/ul&gt; &lt;h2&gt;&lt;strong&gt;Required qualifications&lt;/strong&gt;&lt;/h2&gt; &lt;ul&gt; &lt;li style=&quot;font-weight: 400;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Solid web development (HTML, CSS, JavaScript) and comfort debugging real-world site breakage.&lt;/span&gt;&lt;/li&gt; &lt;li style=&quot;font-weight: 400;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Fluent with browser devtools and cross-browser diagnosis.&lt;/span&gt;&lt;/li&gt; &lt;li style=&quot;font-weight: 400;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Comfortable using AI tooling to speed up diagnosis and fixes.&lt;/span&gt;&lt;/li&gt; &lt;/ul&gt; &lt;h2&gt;&lt;strong&gt;Preferred&lt;/strong&gt;&lt;/h2&gt; &lt;ul&gt; &lt;li style=&quot;font-weight: 400;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Gecko knowledge is a strong plus (but can be taught).&lt;/span&gt;&lt;/li&gt; &lt;li style=&quot;font-weight: 400;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Prior WebCompat or web-standards experience.&lt;/span&gt;&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt;",
+      "responsibilities": ""
+    },
+    {
+      "company": "mozilla",
+      "source": "Greenhouse official job board",
+      "title": "Contract Staff Software Engineer-Bug Burndown",
+      "location": "Remote UK",
+      "experience": "",
+      "url": "https://job-boards.greenhouse.io/mozilla/jobs/8303335",
+      "updated": "2026-10-20",

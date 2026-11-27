@@ -1,0 +1,88 @@
+    for doc in docs:
+        stats["markdown_docs"] += 1
+        raw = doc.read_bytes()
+        rel = norm_rel(doc.relative_to(ROOT))
+        if raw.startswith(b"\xef\xbb\xbf"):
+            errors.append(f"{rel}: 文件带 BOM")
+        try:
+            text = raw.decode("utf-8")
+        except UnicodeDecodeError as exc:
+            errors.append(f"{rel}: 非 UTF-8 ({exc})")
+            continue
+        prose = CODE_FENCE_RE.sub("", text)
+        h1 = [line for line in prose.splitlines() if line.startswith("# ")]
+        if len(h1) != 1:
+            errors.append(f"{rel}: 一级标题 {len(h1)} 个，应为 1")
+        if text.count("```") % 2:
+            errors.append(f"{rel}: 代码围栏未配对")
+        # Tables: reject unescaped pipes inside cells and mismatched column counts.
+        in_fence = False
+        header_cols = None
+        for lineno, line in enumerate(text.splitlines(), 1):
+            stripped = line.strip()
+            if stripped.startswith("```"):
+                in_fence = not in_fence
+                header_cols = None
+                continue
+            if in_fence or not stripped.startswith("|"):
+                header_cols = None
+                continue
+            cells = split_table_row(stripped)
+            if re.fullmatch(r"\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?", stripped):
+                continue
+            if header_cols is None:
+                header_cols = len(cells)
+                if len(cells) < 2:
+                    errors.append(f"{rel}:{lineno}: 表格列数异常")
+            elif len(cells) != header_cols:
+                errors.append(f"{rel}:{lineno}: 表格列数 {len(cells)}，表头 {header_cols}")
+        # Wiki links
+        stat_paths_rel = {norm_rel(p.relative_to(ROOT)): p for p in docs}
+        stems: dict[str, list[Path]] = defaultdict(list)
+        for p in docs:
+            stems[p.stem].append(p)
+            stems[norm_rel(p.relative_to(ROOT))[:-3]].append(p)
+        for match in WIKI_RE.finditer(prose):
+            target = match.group(1).strip().rstrip("\\")
+            if not target:
+                continue
+            stats["wiki_links"] += 1
+            candidates = [doc.parent / target, ROOT / target]
+            ok = any(c.is_file() or c.with_suffix(".md").is_file() or c.is_dir() for c in candidates)
+            if not ok:
+                ok = target in stems or Path(target).name in stems
+            if not ok:
+                # A valid archive explanation page may be linked explicitly.
+                if (doc.parent / target).exists() or (ROOT / target).exists():
+                    ok = True
+            if not ok:
+                lineno = prose[: match.start()].count("\n") + 1
+                errors.append(f"{rel}:{lineno}: 失效 Wiki 链接 [[{target}]]")
+        for match in MDLINK_RE.finditer(prose):
+            raw_target = match.group(1).strip().strip("<>")
+            if raw_target.startswith(("http://", "https://", "mailto:", "#")):
+                continue
+            target = raw_target.split("#")[0]
+            if not target or target.startswith(("E:/", "\\\\")):
+                continue
+            stats["local_markdown_links"] += 1
+            resolved = (doc.parent / target).resolve()
+            if resolved.exists():
+                continue
+            try:
+                rel_target = resolved.relative_to(BASE.resolve()).as_posix()
+            except ValueError:
+                lineno = prose[: match.start()].count("\n") + 1
+                errors.append(f"{rel}:{lineno}: 失效本地链接 {target}")
+                continue
+            if mode == "source-only":
+                stats["unavailable_mirror_links"] += 1
+            else:
+                errors.append(f"{rel}:{lineno}: strict-mirror 缺失 {rel_target}")
+    stats["tracked_docs"] = len(docs)
+    return errors, stats
+
+
+def catalog_checks(catalog: dict[str, Any], schema: dict[str, Any], mode: str) -> tuple[list[str], dict[str, Any]]:
+    errors = schema_validate(catalog, schema, schema)
+    resources = catalog.get("resources", [])

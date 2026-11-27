@@ -1,0 +1,43 @@
+| Python | pytest、coverage | Hypothesis、Factory Boy、Responses/Respx、Playwright |
+| Go/.NET/PHP | 标准 testing/xUnit 或 NUnit/PHPUnit | Testcontainers、Mock 框架、集成与契约测试 |
+| API 调试 | OpenAPI、curl、HTTP 客户端 | Postman、Apifox、Insomnia、Bruno、Hoppscotch |
+| 性能 | 浏览器/Node/JVM Profiler、k6 | JMeter、Gatling、Locust、wrk、perf、FlameGraph、async-profiler |
+| 高级质量 | 风险驱动、故障注入、代码审查 | 属性测试、模糊测试、变异测试、契约测试、视觉回归、混沌工程 |
+| 质量治理 | CI 门禁、覆盖率趋势、缺陷复盘 | DORA 指标、SLO/错误预算、架构规则与依赖治理 |
+
+## 九、AI、数据、实时与媒体扩展
+
+| 方向 | 应包含内容 | 最低交付证据 |
+| --- | --- | --- |
+| AI 应用 | LLM API、结构化输出、工具调用、流式响应、上下文、Token/成本、超时与重试 | 可评估的 AI 小应用，处理失败、注入和敏感信息 |
+| RAG | 文档解析、切块、Embedding、向量检索、重排、引用、权限过滤、评测 | 有测试集、引用与无答案策略的检索应用 |
+| Agent/MCP | 工具 schema、权限、Human-in-the-loop、MCP、状态、轨迹与评测 | 受控工具调用演示，禁止越权和无界执行 |
+| AI 工程框架 | Vercel AI SDK、LangChain、LlamaIndex、LangGraph 等按语言选学 | 能解释框架价值，不把框架当核心能力 |
+| 数据科学 | Jupyter、NumPy、Pandas、Polars、可视化、数据清洗 | 可重复的数据分析笔记本和结论边界 |
+| 机器学习 | scikit-learn、PyTorch、TensorFlow、训练/验证/推理基础 | 仅在数据/AI 专项深入，不作为全栈主线前置 |
+| 实时协作 | WebSocket/SSE、CRDT、OT、Yjs、在线状态与冲突处理 | 断线重连、冲突和权限测试 |
+| 音视频 | WebRTC、Media API、FFmpeg、HLS/DASH、对象存储与转码任务 | 浏览器兼容、弱网、权限、成本与隐私验证 |
+| 图像/文件 | Sharp、ImageMagick、PDF/Office 处理、病毒扫描与隔离 | 大小/类型限制、资源耗尽和恶意文件测试 |
+| 可视化/3D | ECharts/D3/AntV、Three.js、WebGL/WebGPU | 数据量、交互与性能报告 |
+
+## 十、业务与通用非功能能力
+
+以下不属于某个框架，但任何完整全栈计划都应包含：
+
+- **需求与产品**：用户研究、用户故事、验收标准、MVP、领域建模、流程与原型。
+- **架构文档**：C4、ER、状态机、时序图、ADR、Runbook、威胁模型。
+- **协作交付**：Scrum/Kanban 基础、估算、代码审查、版本策略、CHANGELOG、SemVer。
+- **非功能需求**：性能、可靠性、可用性、可访问性、国际化、可维护性、成本和隐私。
+- **合规意识**：个人信息保护、数据最小化、保留与删除、审计、Cookie/同意、跨境和许可；具体项目需专业审查。
+- **开源与许可证**：依赖许可证、NOTICE、SBOM、贡献流程和供应链风险。
+- **运营增长（扩展）**：SEO、Web Analytics、A/B 测试、Feature Flags、反馈与业务指标。
+- **故障与沟通**：事件分级、止损、状态同步、无责复盘、行动项跟踪。
+
+## 十一、如何使用这张地图
+
+1. **当前在 36 周主线内**：只执行 P0；其他技术加入候选，不打断项目。
+2. **进入中线**：按 [[../01-阶段课程/阶段09-中线技术栈与多语言交付|阶段 09]] 完成 Java/Vue/MySQL 交付。
+3. **选择专项**：按 [[../01-阶段课程/阶段10-长期扩展与专项深化|阶段 10]] 的入口条件和交付物选择，不要求按表格逐行学习。
+4. **每个 P2/P3 技术建立技术卡片**：解决的问题、核心模型、最小示例、测试、成本、替代方案、退出条件。
+5. **每季度复审**：依据目标岗位、真实项目和官方维护状态调整层级；记录变更原因，不因短期热度频繁换栈。
+6. **淘汰与迁移**：技术退出主线不等于知识作废，保留原理、决策和迁移记录，停止无目的维护旧练习。

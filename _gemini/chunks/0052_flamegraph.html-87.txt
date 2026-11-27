@@ -1,0 +1,172 @@
+function formatMonthNumber(d, p) {
+  return pad(d.getMonth() + 1, p, 2);
+}
+
+function formatMinutes(d, p) {
+  return pad(d.getMinutes(), p, 2);
+}
+
+function formatSeconds(d, p) {
+  return pad(d.getSeconds(), p, 2);
+}
+
+function formatWeekdayNumberMonday(d) {
+  var day = d.getDay();
+  return day === 0 ? 7 : day;
+}
+
+function formatWeekNumberSunday(d, p) {
+  return pad(d3Time.timeSunday.count(d3Time.timeYear(d) - 1, d), p, 2);
+}
+
+function dISO(d) {
+  var day = d.getDay();
+  return (day >= 4 || day === 0) ? d3Time.timeThursday(d) : d3Time.timeThursday.ceil(d);
+}
+
+function formatWeekNumberISO(d, p) {
+  d = dISO(d);
+  return pad(d3Time.timeThursday.count(d3Time.timeYear(d), d) + (d3Time.timeYear(d).getDay() === 4), p, 2);
+}
+
+function formatWeekdayNumberSunday(d) {
+  return d.getDay();
+}
+
+function formatWeekNumberMonday(d, p) {
+  return pad(d3Time.timeMonday.count(d3Time.timeYear(d) - 1, d), p, 2);
+}
+
+function formatYear(d, p) {
+  return pad(d.getFullYear() % 100, p, 2);
+}
+
+function formatYearISO(d, p) {
+  d = dISO(d);
+  return pad(d.getFullYear() % 100, p, 2);
+}
+
+function formatFullYear(d, p) {
+  return pad(d.getFullYear() % 10000, p, 4);
+}
+
+function formatFullYearISO(d, p) {
+  var day = d.getDay();
+  d = (day >= 4 || day === 0) ? d3Time.timeThursday(d) : d3Time.timeThursday.ceil(d);
+  return pad(d.getFullYear() % 10000, p, 4);
+}
+
+function formatZone(d) {
+  var z = d.getTimezoneOffset();
+  return (z > 0 ? "-" : (z *= -1, "+"))
+      + pad(z / 60 | 0, "0", 2)
+      + pad(z % 60, "0", 2);
+}
+
+function formatUTCDayOfMonth(d, p) {
+  return pad(d.getUTCDate(), p, 2);
+}
+
+function formatUTCHour24(d, p) {
+  return pad(d.getUTCHours(), p, 2);
+}
+
+function formatUTCHour12(d, p) {
+  return pad(d.getUTCHours() % 12 || 12, p, 2);
+}
+
+function formatUTCDayOfYear(d, p) {
+  return pad(1 + d3Time.utcDay.count(d3Time.utcYear(d), d), p, 3);
+}
+
+function formatUTCMilliseconds(d, p) {
+  return pad(d.getUTCMilliseconds(), p, 3);
+}
+
+function formatUTCMicroseconds(d, p) {
+  return formatUTCMilliseconds(d, p) + "000";
+}
+
+function formatUTCMonthNumber(d, p) {
+  return pad(d.getUTCMonth() + 1, p, 2);
+}
+
+function formatUTCMinutes(d, p) {
+  return pad(d.getUTCMinutes(), p, 2);
+}
+
+function formatUTCSeconds(d, p) {
+  return pad(d.getUTCSeconds(), p, 2);
+}
+
+function formatUTCWeekdayNumberMonday(d) {
+  var dow = d.getUTCDay();
+  return dow === 0 ? 7 : dow;
+}
+
+function formatUTCWeekNumberSunday(d, p) {
+  return pad(d3Time.utcSunday.count(d3Time.utcYear(d) - 1, d), p, 2);
+}
+
+function UTCdISO(d) {
+  var day = d.getUTCDay();
+  return (day >= 4 || day === 0) ? d3Time.utcThursday(d) : d3Time.utcThursday.ceil(d);
+}
+
+function formatUTCWeekNumberISO(d, p) {
+  d = UTCdISO(d);
+  return pad(d3Time.utcThursday.count(d3Time.utcYear(d), d) + (d3Time.utcYear(d).getUTCDay() === 4), p, 2);
+}
+
+function formatUTCWeekdayNumberSunday(d) {
+  return d.getUTCDay();
+}
+
+function formatUTCWeekNumberMonday(d, p) {
+  return pad(d3Time.utcMonday.count(d3Time.utcYear(d) - 1, d), p, 2);
+}
+
+function formatUTCYear(d, p) {
+  return pad(d.getUTCFullYear() % 100, p, 2);
+}
+
+function formatUTCYearISO(d, p) {
+  d = UTCdISO(d);
+  return pad(d.getUTCFullYear() % 100, p, 2);
+}
+
+function formatUTCFullYear(d, p) {
+  return pad(d.getUTCFullYear() % 10000, p, 4);
+}
+
+function formatUTCFullYearISO(d, p) {
+  var day = d.getUTCDay();
+  d = (day >= 4 || day === 0) ? d3Time.utcThursday(d) : d3Time.utcThursday.ceil(d);
+  return pad(d.getUTCFullYear() % 10000, p, 4);
+}
+
+function formatUTCZone() {
+  return "+0000";
+}
+
+function formatLiteralPercent() {
+  return "%";
+}
+
+function formatUnixTimestamp(d) {
+  return +d;
+}
+
+function formatUnixTimestampSeconds(d) {
+  return Math.floor(+d / 1000);
+}
+
+var locale;
+
+defaultLocale({
+  dateTime: "%x, %X",
+  date: "%-m/%-d/%Y",
+  time: "%-I:%M:%S %p",
+  periods: ["AM", "PM"],
+  days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+  shortDays: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],

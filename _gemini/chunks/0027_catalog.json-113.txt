@@ -1,0 +1,135 @@
+          "category": "知识库/鸿蒙与跨端",
+          "branch": "main",
+          "archive_sha256": "82776173b073952e440a27256bcf98bd4a678d28f7106278c49d1d67aaf34cb9",
+          "fetched": "2026-11-05 23:02",
+          "files": 2085,
+          "bytes": 58841802,
+          "license_files": [
+            "LICENSE",
+            "README.md"
+          ],
+          "license_detected": "AGPL-3.0",
+          "round": 4,
+          "selection": "鸿蒙 NEXT 原生闪卡应用源码（ArkTS/ArkUI + 锁定版本 Anki Rust core），可作 ArkTS 实例与陌生系统接手材料；AGPL-3.0 仅本机学习",
+          "functions": [
+            "F3可运行",
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 205,
+            "images": 310,
+            "code": 1486,
+            "pushed": "2026-11-01",
+            "stars": 24,
+            "question_markers": null
+          },
+          "top_extensions": [
+            [
+              ".ets",
+              504
+            ],
+            [
+              ".mjs",
+              427
+            ],
+            [
+              ".ts",
+              395
+            ],
+            [
+              ".svg",
+              246
+            ],
+            [
+              ".md",
+              178
+            ],
+            [
+              ".json",
+              67
+            ],
+            [
+              ".rs",
+              57
+            ],
+            [
+              ".png",
+              48
+            ]
+          ],
+          "extract_skipped_bulk": 0,
+          "upstream_description": "基于 HarmonyOS 的 Anki 卡片学习客户端，复用 Anki Rust 后端",
+          "mb": 56
+        }
+      }
+    },
+    {
+      "id": "github:joshithreddyaleti/ai_engineer_interview_prep",
+      "name": "JoshithReddyAleti/AI_Engineer_Interview_Prep",
+      "source": {
+        "url": "https://github.com/JoshithReddyAleti/AI_Engineer_Interview_Prep",
+        "canonical_url": "https://github.com/JoshithReddyAleti/AI_Engineer_Interview_Prep",
+        "aliases": [],
+        "branch": "main",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-10-27",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:00:58+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "c7ec869d719c751febc99693a095429a804c86dd",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/AI与Agent/JoshithReddyAleti/AI_Engineer_Interview_Prep",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/JoshithReddyAleti/AI_Engineer_Interview_Prep"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "e716abf6741ea3f3b4e3ccfefc1fbf7cbbf5f76954c23eb9b8d8080bc58235b8",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:50+08:00"
+        },
+        "legacy_fingerprint_12": "e716abf6741e"
+      },
+      "classification": {
+        "primary_category": "题库/AI与Agent",
+        "category_basis": "人工定类：AI 工程师面试题准备",
+        "functions": [
+          "F1",
+          "F2"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 91,
+        "bytes": 2319455,
+        "markdown_count": 89,
+        "question_markers": 960,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:26+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,

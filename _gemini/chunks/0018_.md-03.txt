@@ -1,0 +1,5 @@
+| Thoughtworks Software Developer 西安 2 年+ | [官方页](https://www.thoughtworks.com/zh-cn/careers/jobs/8330382) / 2026-11-05 | 语言 + OOP；整洁代码；Agile/CI-CD/TDD；**英语流利（Must have）** | 必需；AWS/Docker/K8s 为加分 | M04、M09、M12、M15 | 待学习者填写 | 见明细第五节 | 2027-02-07 |
+| Thoughtworks Senior Developer 西安 资深 | [官方页](https://www.thoughtworks.com/zh-cn/careers/jobs/8330381) / 2026-11-05 | 多语言；可测代码；微服务与分布式；指导他人 | 必需；云平台为加分 | M04、M08、M09、M13、M14、M15 | 待学习者填写 | 见明细第五节 | 2027-02-07 |
+| ~~腾讯 游可爱-AI全栈 深圳 不限~~ | [详情页](https://careers.tencent.com/jobdesc.html?postId=2090336234487595008) / 2026-09-18 | 详情页返回空壳，疑似下线 | — | — | 失效 | 保留记录，不替换 | 已失效 |
+
+投递前复核岗位是否有效、技术版本/业务范围是否变化。必需项没有证据时标记“待岗位补强”；不能因通用课程完成就填写“完全满足”。作品只引用本人职责和可验证结果，不能伪造用户量或生产事故。

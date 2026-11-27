@@ -1,0 +1,147 @@
+        subgroup[i] = subnode;
+      }
+    }
+  }
+
+  return new Selection(subgroups, this._parents);
+}
+
+function empty() {
+  return [];
+}
+
+function selectorAll(selector) {
+  return selector == null ? empty : function() {
+    return this.querySelectorAll(selector);
+  };
+}
+
+function selection_selectAll(select) {
+  if (typeof select !== "function") select = selectorAll(select);
+
+  for (var groups = this._groups, m = groups.length, subgroups = [], parents = [], j = 0; j < m; ++j) {
+    for (var group = groups[j], n = group.length, node, i = 0; i < n; ++i) {
+      if (node = group[i]) {
+        subgroups.push(select.call(node, node.__data__, i, group));
+        parents.push(node);
+      }
+    }
+  }
+
+  return new Selection(subgroups, parents);
+}
+
+function matcher(selector) {
+  return function() {
+    return this.matches(selector);
+  };
+}
+
+function selection_filter(match) {
+  if (typeof match !== "function") match = matcher(match);
+
+  for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
+    for (var group = groups[j], n = group.length, subgroup = subgroups[j] = [], node, i = 0; i < n; ++i) {
+      if ((node = group[i]) && match.call(node, node.__data__, i, group)) {
+        subgroup.push(node);
+      }
+    }
+  }
+
+  return new Selection(subgroups, this._parents);
+}
+
+function sparse(update) {
+  return new Array(update.length);
+}
+
+function selection_enter() {
+  return new Selection(this._enter || this._groups.map(sparse), this._parents);
+}
+
+function EnterNode(parent, datum) {
+  this.ownerDocument = parent.ownerDocument;
+  this.namespaceURI = parent.namespaceURI;
+  this._next = null;
+  this._parent = parent;
+  this.__data__ = datum;
+}
+
+EnterNode.prototype = {
+  constructor: EnterNode,
+  appendChild: function(child) { return this._parent.insertBefore(child, this._next); },
+  insertBefore: function(child, next) { return this._parent.insertBefore(child, next); },
+  querySelector: function(selector) { return this._parent.querySelector(selector); },
+  querySelectorAll: function(selector) { return this._parent.querySelectorAll(selector); }
+};
+
+function constant(x) {
+  return function() {
+    return x;
+  };
+}
+
+var keyPrefix = "$"; // Protect against keys like “__proto__”.
+
+function bindIndex(parent, group, enter, update, exit, data) {
+  var i = 0,
+      node,
+      groupLength = group.length,
+      dataLength = data.length;
+
+  // Put any non-null nodes that fit into update.
+  // Put any null nodes into enter.
+  // Put any remaining data into enter.
+  for (; i < dataLength; ++i) {
+    if (node = group[i]) {
+      node.__data__ = data[i];
+      update[i] = node;
+    } else {
+      enter[i] = new EnterNode(parent, data[i]);
+    }
+  }
+
+  // Put any non-null nodes that don’t fit into exit.
+  for (; i < groupLength; ++i) {
+    if (node = group[i]) {
+      exit[i] = node;
+    }
+  }
+}
+
+function bindKey(parent, group, enter, update, exit, data, key) {
+  var i,
+      node,
+      nodeByKeyValue = {},
+      groupLength = group.length,
+      dataLength = data.length,
+      keyValues = new Array(groupLength),
+      keyValue;
+
+  // Compute the key for each node.
+  // If multiple nodes have the same key, the duplicates are added to exit.
+  for (i = 0; i < groupLength; ++i) {
+    if (node = group[i]) {
+      keyValues[i] = keyValue = keyPrefix + key.call(node, node.__data__, i, group);
+      if (keyValue in nodeByKeyValue) {
+        exit[i] = node;
+      } else {
+        nodeByKeyValue[keyValue] = node;
+      }
+    }
+  }
+
+  // Compute the key for each datum.
+  // If there a node associated with this key, join and add it to update.
+  // If there is not (or the key is a duplicate), add it to enter.
+  for (i = 0; i < dataLength; ++i) {
+    keyValue = keyPrefix + key.call(parent, data[i], i, data);
+    if (node = nodeByKeyValue[keyValue]) {
+      update[i] = node;
+      node.__data__ = data[i];
+      nodeByKeyValue[keyValue] = null;
+    } else {
+      enter[i] = new EnterNode(parent, data[i]);
+    }
+  }
+

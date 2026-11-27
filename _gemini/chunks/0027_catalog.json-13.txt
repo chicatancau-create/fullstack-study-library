@@ -1,0 +1,125 @@
+          "fetched": "2026-11-04 20:03",
+          "files": 15714,
+          "bytes": 1499129886,
+          "mb": 1429,
+          "top_extensions": {
+            ".webp": 10010,
+            ".md": 3925,
+            ".ipynb": 1400,
+            ".png": 169,
+            ".json": 137,
+            ".jpg": 13,
+            ".js": 12,
+            ".csv": 10,
+            "(none)": 8,
+            ".vue": 8
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "MIT",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：15713 文件 -> 15714 文件",
+          "measured": {
+            "pushed": "2026-10-21",
+            "stars": 37949
+          }
+        }
+      }
+    },
+    {
+      "id": "github:microsoft/ml-for-beginners",
+      "name": "microsoft/ML-For-Beginners",
+      "source": {
+        "url": "https://github.com/microsoft/ML-For-Beginners",
+        "canonical_url": "https://github.com/microsoft/ML-For-Beginners",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-11-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:57:55+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "8e5c0dfffdb56181450363f9ccd880bc69737ae8",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/AI与RAG/microsoft/ML-For-Beginners",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/microsoft/ML-For-Beginners"
+      },
+      "integrity": {
+        "archive_sha256": "8247bc9147ea73d4e767f374b8635e4315b2d7ed6bb6bbcd943822bf6c3381bb",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/AI与RAG",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 17445,
+        "bytes": 1221822352,
+        "markdown_count": 5581,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:20+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 907,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：17444 文件 -> 17445 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/microsoft/ML-For-Beginners",
+          "category": "知识库/AI与RAG",
+          "branch": null,
+          "archive_sha256": "8247bc9147ea73d4e767f374b8635e4315b2d7ed6bb6bbcd943822bf6c3381bb",
+          "tarball_mb": 907,
+          "fetched": "2026-11-04 20:03",
+          "files": 17445,
+          "bytes": 1221822352,
+          "mb": 1165,
+          "top_extensions": {
+            ".webp": 8635,
+            ".md": 5581,
+            ".ipynb": 2856,
+            ".png": 138,

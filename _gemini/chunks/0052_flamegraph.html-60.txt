@@ -1,0 +1,138 @@
+    root.eachBefore(positionNode);
+    paddingStack = [0];
+    if (round) root.eachBefore(roundNode);
+    return root;
+  }
+
+  function positionNode(node) {
+    var p = paddingStack[node.depth],
+        x0 = node.x0 + p,
+        y0 = node.y0 + p,
+        x1 = node.x1 - p,
+        y1 = node.y1 - p;
+    if (x1 < x0) x0 = x1 = (x0 + x1) / 2;
+    if (y1 < y0) y0 = y1 = (y0 + y1) / 2;
+    node.x0 = x0;
+    node.y0 = y0;
+    node.x1 = x1;
+    node.y1 = y1;
+    if (node.children) {
+      p = paddingStack[node.depth + 1] = paddingInner(node) / 2;
+      x0 += paddingLeft(node) - p;
+      y0 += paddingTop(node) - p;
+      x1 -= paddingRight(node) - p;
+      y1 -= paddingBottom(node) - p;
+      if (x1 < x0) x0 = x1 = (x0 + x1) / 2;
+      if (y1 < y0) y0 = y1 = (y0 + y1) / 2;
+      tile(node, x0, y0, x1, y1);
+    }
+  }
+
+  treemap.round = function(x) {
+    return arguments.length ? (round = !!x, treemap) : round;
+  };
+
+  treemap.size = function(x) {
+    return arguments.length ? (dx = +x[0], dy = +x[1], treemap) : [dx, dy];
+  };
+
+  treemap.tile = function(x) {
+    return arguments.length ? (tile = required(x), treemap) : tile;
+  };
+
+  treemap.padding = function(x) {
+    return arguments.length ? treemap.paddingInner(x).paddingOuter(x) : treemap.paddingInner();
+  };
+
+  treemap.paddingInner = function(x) {
+    return arguments.length ? (paddingInner = typeof x === "function" ? x : constant(+x), treemap) : paddingInner;
+  };
+
+  treemap.paddingOuter = function(x) {
+    return arguments.length ? treemap.paddingTop(x).paddingRight(x).paddingBottom(x).paddingLeft(x) : treemap.paddingTop();
+  };
+
+  treemap.paddingTop = function(x) {
+    return arguments.length ? (paddingTop = typeof x === "function" ? x : constant(+x), treemap) : paddingTop;
+  };
+
+  treemap.paddingRight = function(x) {
+    return arguments.length ? (paddingRight = typeof x === "function" ? x : constant(+x), treemap) : paddingRight;
+  };
+
+  treemap.paddingBottom = function(x) {
+    return arguments.length ? (paddingBottom = typeof x === "function" ? x : constant(+x), treemap) : paddingBottom;
+  };
+
+  treemap.paddingLeft = function(x) {
+    return arguments.length ? (paddingLeft = typeof x === "function" ? x : constant(+x), treemap) : paddingLeft;
+  };
+
+  return treemap;
+}
+
+function binary(parent, x0, y0, x1, y1) {
+  var nodes = parent.children,
+      i, n = nodes.length,
+      sum, sums = new Array(n + 1);
+
+  for (sums[0] = sum = i = 0; i < n; ++i) {
+    sums[i + 1] = sum += nodes[i].value;
+  }
+
+  partition(0, n, parent.value, x0, y0, x1, y1);
+
+  function partition(i, j, value, x0, y0, x1, y1) {
+    if (i >= j - 1) {
+      var node = nodes[i];
+      node.x0 = x0, node.y0 = y0;
+      node.x1 = x1, node.y1 = y1;
+      return;
+    }
+
+    var valueOffset = sums[i],
+        valueTarget = (value / 2) + valueOffset,
+        k = i + 1,
+        hi = j - 1;
+
+    while (k < hi) {
+      var mid = k + hi >>> 1;
+      if (sums[mid] < valueTarget) k = mid + 1;
+      else hi = mid;
+    }
+
+    if ((valueTarget - sums[k - 1]) < (sums[k] - valueTarget) && i + 1 < k) --k;
+
+    var valueLeft = sums[k] - valueOffset,
+        valueRight = value - valueLeft;
+
+    if ((x1 - x0) > (y1 - y0)) {
+      var xk = (x0 * valueRight + x1 * valueLeft) / value;
+      partition(i, k, valueLeft, x0, y0, xk, y1);
+      partition(k, j, valueRight, xk, y0, x1, y1);
+    } else {
+      var yk = (y0 * valueRight + y1 * valueLeft) / value;
+      partition(i, k, valueLeft, x0, y0, x1, yk);
+      partition(k, j, valueRight, x0, yk, x1, y1);
+    }
+  }
+}
+
+function sliceDice(parent, x0, y0, x1, y1) {
+  (parent.depth & 1 ? treemapSlice : treemapDice)(parent, x0, y0, x1, y1);
+}
+
+var resquarify = (function custom(ratio) {
+
+  function resquarify(parent, x0, y0, x1, y1) {
+    if ((rows = parent._squarify) && (rows.ratio === ratio)) {
+      var rows,
+          row,
+          nodes,
+          i,
+          j = -1,
+          n,
+          m = rows.length,
+          value = parent.value;
+
+      while (++j < m) {

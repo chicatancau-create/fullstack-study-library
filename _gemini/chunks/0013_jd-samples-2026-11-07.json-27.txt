@@ -1,0 +1,11 @@
+ont-weight: 400;&quot;&",
+      "responsibilities": ""
+    },
+    {
+      "company": "stripe",
+      "source": "Greenhouse official job board",
+      "title": "Backend/API Engineer, Money as a Service",
+      "location": "US",
+      "experience": "",
+      "url": "https://stripe.com/jobs/search?gh_jid=6176758",
+      "updated": "2026-11-03",

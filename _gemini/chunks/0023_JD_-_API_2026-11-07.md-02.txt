@@ -1,0 +1,24 @@
+| S-24 | 腾讯 | 商业分析师/商业分析经理（金融科技方向） | 深圳 | 一年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2096921842119000064) | 2026年10月26 |
+| S-25 | 腾讯 | 微信公众号-客户端开发工程师 | 广州 | 一年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=1980268719548551168) | 2026年10月20 |
+| S-26 | 腾讯 | 微信小程序-大模型应用开发工程师-智能体方向 | 广州 | 一年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2086789748948643840) | 2026年10月09 |
+| S-27 | 腾讯 | AI技术型产品运营 | 深圳 | 三年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2104460194154201088) | 2026年10月09 |
+| S-28 | 腾讯 | 游戏Agentic Engineer | 深圳 | 三年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2039533180888973312) | 2026年10月16 |
+| S-29 | 腾讯 | 混元AI Agent Harness Engineer（北京/深圳）） | 北京 | 两年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2052685072754196480) | 2026年10月12 |
+| S-30 | 腾讯 | 代号：Craft-高级工程师-Agentic Engineer | 深圳 | 三年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2042527610751315968) | 2026年10月14 |
+| S-31 | 腾讯 | 微信小程序-前端开发工程师-开发者方向 | 广州 | 一年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=1891443603608215552) | 2026年10月08 |
+| S-32 | 腾讯 | 企业微信-大模型训练框架开发工程师-AI Infra（成都/北京） | 广州 | 三年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=1976128424510644224) | 2026年10月12 |
+| S-33 | 腾讯 | 腾讯专有云（TCE）解决方案架构师 | 深圳 | 五年以上工作经验 | [原文](https://careers.tencent.com/jobdesc.html?postId=2115625079432986624) | 2026年11月05 |
+| S-34 | gitlab | Backend Engineer, GitLab Orbit | Remote, Canada; Remote, United States | — | [原文](https://job-boards.greenhouse.io/gitlab/jobs/8771512002) | 2026-11-06 |
+| S-35 | gitlab | Backend Engineer (Python),AI Engineering: Agent Foundations | Remote, Canada; Remote, Poland; Remote, United Kingdom | — | [原文](https://job-boards.greenhouse.io/gitlab/jobs/8704363002) | 2026-11-06 |
+| S-36 | gitlab | Backend Engineer (Ruby), Create: Change Record | Remote, Poland; Remote, United Kingdom | — | [原文](https://job-boards.greenhouse.io/gitlab/jobs/8891301002) | 2026-11-06 |
+| S-37 | cloudflare | Principal Software Engineer: Distributed Systems (Config, Test, & Deployment) | Hybrid | — | [原文](https://boards.greenhouse.io/cloudflare/jobs/8038898?gh_jid=8038898) | 2026-10-30 |
+| S-38 | cloudflare | Principal Software Engineer, Enterprise Integrations | Hybrid | — | [原文](https://boards.greenhouse.io/cloudflare/jobs/8155495?gh_jid=8155495) | 2026-11-06 |
+| S-39 | cloudflare | Principal Software Engineer - Fintech | Hybrid | — | [原文](https://boards.greenhouse.io/cloudflare/jobs/8105716?gh_jid=8105716) | 2026-10-30 |
+| S-40 | datadog | Senior Software Engineer  | Boston, Massachusetts, USA; New York, New York, USA | — | [原文](https://careers.datadoghq.com/detail/3851935/?gh_jid=3851935) | 2026-11-05 |
+| S-41 | datadog | Senior Software Engineer - Autonomous Ops & Maintenance (ATOM) | Paris, France | — | [原文](https://careers.datadoghq.com/detail/8248968/?gh_jid=8248968) | 2026-11-05 |
+| S-42 | datadog | Senior Software Engineer - Distributed Systems | Paris, France | — | [原文](https://careers.datadoghq.com/detail/4599111/?gh_jid=4599111) | 2026-11-05 |
+| S-43 | stripe | Backend/API Engineer, Money as a Service | US | — | [原文](https://stripe.com/jobs/search?gh_jid=6176758) | 2026-11-03 |
+| S-44 | stripe | Backend/API Engineer, Money as a Service (Product)  | United Kingdom | — | [原文](https://stripe.com/jobs/search?gh_jid=7369543) | 2026-11-03 |
+| S-45 | stripe | 	Backend / API Engineer, Radar | Toronto | — | [原文](https://stripe.com/jobs/search?gh_jid=8301379) | 2026-10-29 |
+| S-46 | mongodb | 2027 - Software Engineering Intern, AMER | Austin; New York City; San Francisco | — | [原文](https://www.mongodb.com/careers/job/?gh_jid=8209134) | 2026-11-05 |
+| S-47 | mongodb | 2027 - Software Engineer Intern, Dublin - 6 Month Internship | Dublin | — | [原文](https://www.mongodb.com/careers/job/?gh_jid=8258279) | 2026-11-05 |

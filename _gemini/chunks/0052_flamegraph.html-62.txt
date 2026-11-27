@@ -1,0 +1,168 @@
+      g[i] = color.g || 0;
+      b[i] = color.b || 0;
+    }
+    r = spline(r);
+    g = spline(g);
+    b = spline(b);
+    color.opacity = 1;
+    return function(t) {
+      color.r = r(t);
+      color.g = g(t);
+      color.b = b(t);
+      return color + "";
+    };
+  };
+}
+
+var rgbBasis = rgbSpline(basis$1);
+var rgbBasisClosed = rgbSpline(basisClosed);
+
+function numberArray(a, b) {
+  if (!b) b = [];
+  var n = a ? Math.min(b.length, a.length) : 0,
+      c = b.slice(),
+      i;
+  return function(t) {
+    for (i = 0; i < n; ++i) c[i] = a[i] * (1 - t) + b[i] * t;
+    return c;
+  };
+}
+
+function isNumberArray(x) {
+  return ArrayBuffer.isView(x) && !(x instanceof DataView);
+}
+
+function array(a, b) {
+  return (isNumberArray(b) ? numberArray : genericArray)(a, b);
+}
+
+function genericArray(a, b) {
+  var nb = b ? b.length : 0,
+      na = a ? Math.min(nb, a.length) : 0,
+      x = new Array(na),
+      c = new Array(nb),
+      i;
+
+  for (i = 0; i < na; ++i) x[i] = value(a[i], b[i]);
+  for (; i < nb; ++i) c[i] = b[i];
+
+  return function(t) {
+    for (i = 0; i < na; ++i) c[i] = x[i](t);
+    return c;
+  };
+}
+
+function date(a, b) {
+  var d = new Date;
+  return a = +a, b = +b, function(t) {
+    return d.setTime(a * (1 - t) + b * t), d;
+  };
+}
+
+function number(a, b) {
+  return a = +a, b = +b, function(t) {
+    return a * (1 - t) + b * t;
+  };
+}
+
+function object(a, b) {
+  var i = {},
+      c = {},
+      k;
+
+  if (a === null || typeof a !== "object") a = {};
+  if (b === null || typeof b !== "object") b = {};
+
+  for (k in b) {
+    if (k in a) {
+      i[k] = value(a[k], b[k]);
+    } else {
+      c[k] = b[k];
+    }
+  }
+
+  return function(t) {
+    for (k in i) c[k] = i[k](t);
+    return c;
+  };
+}
+
+var reA = /[-+]?(?:\d+\.?\d*|\.?\d+)(?:[eE][-+]?\d+)?/g,
+    reB = new RegExp(reA.source, "g");
+
+function zero(b) {
+  return function() {
+    return b;
+  };
+}
+
+function one(b) {
+  return function(t) {
+    return b(t) + "";
+  };
+}
+
+function string(a, b) {
+  var bi = reA.lastIndex = reB.lastIndex = 0, // scan index for next number in b
+      am, // current match in a
+      bm, // current match in b
+      bs, // string preceding current number in b, if any
+      i = -1, // index in s
+      s = [], // string constants and placeholders
+      q = []; // number interpolators
+
+  // Coerce inputs to strings.
+  a = a + "", b = b + "";
+
+  // Interpolate pairs of numbers in a & b.
+  while ((am = reA.exec(a))
+      && (bm = reB.exec(b))) {
+    if ((bs = bm.index) > bi) { // a string precedes the next number in b
+      bs = b.slice(bi, bs);
+      if (s[i]) s[i] += bs; // coalesce with previous string
+      else s[++i] = bs;
+    }
+    if ((am = am[0]) === (bm = bm[0])) { // numbers in a & b match
+      if (s[i]) s[i] += bm; // coalesce with previous string
+      else s[++i] = bm;
+    } else { // interpolate non-matching numbers
+      s[++i] = null;
+      q.push({i: i, x: number(am, bm)});
+    }
+    bi = reB.lastIndex;
+  }
+
+  // Add remains of b.
+  if (bi < b.length) {
+    bs = b.slice(bi);
+    if (s[i]) s[i] += bs; // coalesce with previous string
+    else s[++i] = bs;
+  }
+
+  // Special optimization for only a single match.
+  // Otherwise, interpolate each of the numbers and rejoin the string.
+  return s.length < 2 ? (q[0]
+      ? one(q[0].x)
+      : zero(b))
+      : (b = q.length, function(t) {
+          for (var i = 0, o; i < b; ++i) s[(o = q[i]).i] = o.x(t);
+          return s.join("");
+        });
+}
+
+function value(a, b) {
+  var t = typeof b, c;
+  return b == null || t === "boolean" ? constant(b)
+      : (t === "number" ? number
+      : t === "string" ? ((c = d3Color.color(b)) ? (b = c, rgb) : string)
+      : b instanceof d3Color.color ? rgb
+      : b instanceof Date ? date
+      : isNumberArray(b) ? numberArray
+      : Array.isArray(b) ? genericArray
+      : typeof b.valueOf !== "function" && typeof b.toString !== "function" || isNaN(b) ? object
+      : number)(a, b);
+}
+
+function discrete(range) {
+  var n = range.length;
+  return function(t) {

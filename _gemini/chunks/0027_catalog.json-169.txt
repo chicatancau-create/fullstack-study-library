@@ -1,0 +1,126 @@
+          "fetched": "2026-11-05 11:12",
+          "files": 301,
+          "bytes": 2213263,
+          "mb": 2,
+          "top_extensions": {
+            ".py": 179,
+            ".astro": 52,
+            ".ts": 33,
+            ".md": 13,
+            "(none)": 3,
+            ".json": 3,
+            ".java": 3,
+            ".cpp": 3,
+            ".go": 3,
+            ".mjs": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "round": 2,
+          "selection": "自带测试 17 个；命中计划缺口方向｜自动判定：keep",
+          "functions": [
+            "F3可运行"
+          ],
+          "measured": {
+            "md_n": 13,
+            "md_share_pct": 10.9,
+            "question_markers": 3,
+            "tests": 17,
+            "images": 1,
+            "pdf": 0,
+            "stars": 2,
+            "pushed": "2026-10-28",
+            "functions": [
+              "F5图解",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "content_fingerprint": "7005684836fd43e693a7fe4324bd87a06f96d88b11b60514699df84ca25a2bdb",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:swisskyrepo/payloadsallthethings",
+      "name": "swisskyrepo/PayloadsAllTheThings",
+      "source": {
+        "url": "https://github.com/swisskyrepo/PayloadsAllTheThings",
+        "canonical_url": "https://github.com/swisskyrepo/PayloadsAllTheThings",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-10-30",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:44+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "08ea40e77db3f42ef8f20c65196f3936a19b6c86",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/安全/swisskyrepo/PayloadsAllTheThings",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/swisskyrepo/PayloadsAllTheThings"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "b2b9a0b2a81b34b355328070f3c28fd8509b557143790270b5bf3be677acec7b",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:55+08:00"
+        },
+        "legacy_fingerprint_12": "b2b9a0b2a81b"
+      },
+      "classification": {
+        "primary_category": "知识库/安全",
+        "category_basis": "人工复核 2026-11-08：实际为安全 payload 参考库（知识库属性，非算法题解），从题库/算法题解迁入知识库/安全；旧镜像路径保持不变以维持证据稳定",
+        "functions": [
+          "F2"
+        ],
+        "topics": ["security", "owasp", "payload"]
+      },
+      "metrics": {
+        "files": 451,
+        "bytes": 12953006,
+        "markdown_count": 142,
+        "question_markers": 14,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:32+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "MIT",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {

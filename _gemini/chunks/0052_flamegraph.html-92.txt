@@ -1,0 +1,124 @@
+  }, delay, time);
+  return t;
+}
+
+function interval$1(callback, delay, time) {
+  var t = new Timer, total = delay;
+  if (delay == null) return t.restart(callback, delay, time), t;
+  delay = +delay, time = time == null ? now() : +time;
+  t.restart(function tick(elapsed) {
+    elapsed += total;
+    t.restart(tick, total += delay, time);
+    callback(elapsed);
+  }, delay, time);
+  return t;
+}
+
+exports.interval = interval$1;
+exports.now = now;
+exports.timeout = timeout$1;
+exports.timer = timer;
+exports.timerFlush = timerFlush;
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+}));
+
+},{}],28:[function(require,module,exports){
+// https://d3js.org/d3-transition/ v1.3.2 Copyright 2019 Mike Bostock
+(function (global, factory) {
+typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('d3-selection'), require('d3-dispatch'), require('d3-timer'), require('d3-interpolate'), require('d3-color'), require('d3-ease')) :
+typeof define === 'function' && define.amd ? define(['exports', 'd3-selection', 'd3-dispatch', 'd3-timer', 'd3-interpolate', 'd3-color', 'd3-ease'], factory) :
+(global = global || self, factory(global.d3 = global.d3 || {}, global.d3, global.d3, global.d3, global.d3, global.d3, global.d3));
+}(this, function (exports, d3Selection, d3Dispatch, d3Timer, d3Interpolate, d3Color, d3Ease) { 'use strict';
+
+var emptyOn = d3Dispatch.dispatch("start", "end", "cancel", "interrupt");
+var emptyTween = [];
+
+var CREATED = 0;
+var SCHEDULED = 1;
+var STARTING = 2;
+var STARTED = 3;
+var RUNNING = 4;
+var ENDING = 5;
+var ENDED = 6;
+
+function schedule(node, name, id, index, group, timing) {
+  var schedules = node.__transition;
+  if (!schedules) node.__transition = {};
+  else if (id in schedules) return;
+  create(node, id, {
+    name: name,
+    index: index, // For context during callback.
+    group: group, // For context during callback.
+    on: emptyOn,
+    tween: emptyTween,
+    time: timing.time,
+    delay: timing.delay,
+    duration: timing.duration,
+    ease: timing.ease,
+    timer: null,
+    state: CREATED
+  });
+}
+
+function init(node, id) {
+  var schedule = get(node, id);
+  if (schedule.state > CREATED) throw new Error("too late; already scheduled");
+  return schedule;
+}
+
+function set(node, id) {
+  var schedule = get(node, id);
+  if (schedule.state > STARTED) throw new Error("too late; already running");
+  return schedule;
+}
+
+function get(node, id) {
+  var schedule = node.__transition;
+  if (!schedule || !(schedule = schedule[id])) throw new Error("transition not found");
+  return schedule;
+}
+
+function create(node, id, self) {
+  var schedules = node.__transition,
+      tween;
+
+  // Initialize the self timer when the transition is created.
+  // Note the actual delay is not known until the first callback!
+  schedules[id] = self;
+  self.timer = d3Timer.timer(schedule, 0, self.time);
+
+  function schedule(elapsed) {
+    self.state = SCHEDULED;
+    self.timer.restart(start, self.delay, self.time);
+
+    // If the elapsed delay is less than our first sleep, start immediately.
+    if (self.delay <= elapsed) start(elapsed - self.delay);
+  }
+
+  function start(elapsed) {
+    var i, j, n, o;
+
+    // If the state is not SCHEDULED, then we previously errored on start.
+    if (self.state !== SCHEDULED) return stop();
+
+    for (i in schedules) {
+      o = schedules[i];
+      if (o.name !== self.name) continue;
+
+      // While this element already has a starting transition during this frame,
+      // defer starting an interrupting transition until that transition has a
+      // chance to tick (and possibly end); see d3/d3-transition#54!
+      if (o.state === STARTED) return d3Timer.timeout(start);
+
+      // Interrupt the active transition, if any.
+      if (o.state === RUNNING) {
+        o.state = ENDED;
+        o.timer.stop();
+        o.on.call("interrupt", node, node.__data__, o.index, o.group);
+        delete schedules[i];
+      }
+
+      // Cancel any pre-empted transitions.
+      else if (+i < id) {

@@ -1,0 +1,129 @@
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "8e34e52ff2b977af362f9e82c357f91c560eb4be7ecf174650c08fe134ad99eb",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:52+08:00"
+        },
+        "legacy_fingerprint_12": "8e34e52ff2b9"
+      },
+      "classification": {
+        "primary_category": "题库/八股与基础",
+        "category_basis": "人工定类：PHP 面试问答集",
+        "functions": [
+          "F1",
+          "F2"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 173,
+        "bytes": 1455234,
+        "markdown_count": 163,
+        "question_markers": 366,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:28+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "Apache-2.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/colinlet/PHP-Interview-QA",
+          "category": "题库/八股与基础",
+          "branch": "main",
+          "archive_sha256": null,
+          "tarball_mb": 0,
+          "fetched": "2026-11-05 11:12",
+          "files": 173,
+          "bytes": 1455234,
+          "mb": 1,
+          "top_extensions": {
+            ".md": 163,
+            "(none)": 3,
+            ".json": 2,
+            ".yml": 2,
+            ".jpg": 1,
+            ".ts": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "Apache-2.0",
+          "round": 2,
+          "selection": "正文 163 篇；题面/问答标记 366 处；文档型仓库(md占比70%)｜自动判定：keep",
+          "functions": [
+            "F1题面",
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 163,
+            "md_share_pct": 70.1,
+            "question_markers": 366,
+            "tests": 0,
+            "images": 1,
+            "pdf": 0,
+            "stars": 2966,
+            "pushed": "2026-10-27",
+            "functions": [
+              "F2可对照解答",
+              "第一轮候选(描述含学习词)"
+            ]
+          },
+          "category_basis": "人工定类：PHP 面试问答集",
+          "content_fingerprint": "8e34e52ff2b977af362f9e82c357f91c560eb4be7ecf174650c08fe134ad99eb",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:geektutu/interview-questions",
+      "name": "geektutu/interview-questions",
+      "source": {
+        "url": "https://github.com/geektutu/interview-questions",
+        "canonical_url": "https://github.com/geektutu/interview-questions",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2026-09-05",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:01:48+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "51e244d51bbd9f83fbd6b6eef34fadd2ee255a21",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/八股与基础/geektutu/interview-questions",

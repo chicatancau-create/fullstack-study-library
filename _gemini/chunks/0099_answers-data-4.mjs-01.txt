@@ -1,0 +1,99 @@
+export const ANSWERS4 = [
+  {
+    id: 'Q033', title: '124. 二叉树中的最大路径和', question_url: 'https://leetcode.cn/problems/binary-tree-maximum-path-sum/',
+    core_idea: '后序递归：每个节点向父节点返回“以该节点为端点的最大向下路径和”，同时在节点处用 左增益+节点值+右增益 更新全局最大值。负增益截断为 0。',
+    invariant: 'gain(n) 返回从 n 向下走且不折返的最大路径和；best 是已处理子树内任意路径的最大和。',
+    complexity: { time: 'O(n)', space: 'O(h)' },
+    code_lang: 'javascript',
+    code: `function solve(a) {
+  function build(arr) {
+    if (!arr.length || arr[0] === null) return null;
+    const root = { val: arr[0], left: null, right: null };
+    const q = [root];
+    let i = 1;
+    while (i < arr.length && q.length) {
+      const n = q.shift();
+      if (i < arr.length) { if (arr[i] !== null) { n.left = { val: arr[i], left: null, right: null }; q.push(n.left); } i++; }
+      if (i < arr.length) { if (arr[i] !== null) { n.right = { val: arr[i], left: null, right: null }; q.push(n.right); } i++; }
+    }
+    return root;
+  }
+  const root = build(a);
+  let best = -Infinity;
+  function gain(n) {
+    if (!n) return 0;
+    const l = Math.max(0, gain(n.left));
+    const r = Math.max(0, gain(n.right));
+    best = Math.max(best, n.val + l + r);
+    return n.val + Math.max(l, r);
+  }
+  gain(root);
+  return best;
+}`,
+    edge_cases: [
+      { call: '[1,2,3]', expected: 6, why: '2-1-3 走遍全树' },
+      { call: '[-10,9,20,null,null,15,7]', expected: 42, why: '15-20-7，负根不参与' },
+      { call: '[-3]', expected: -3, why: '全负时至少取一个节点' },
+    ],
+    common_mistakes: ['把 best 初始化为 0，全负树返回 0', '向父节点返回时返回了左右都取的折返和', '忘记对负增益截断为 0'],
+    followups: ['如何同时返回最大路径的节点列表？', '如果路径必须经过根节点，怎么改？'],
+    rubric: [
+      { point: 'gain 的语义是单边向下且负增益截断为 0', weight: 2 },
+      { point: '在节点处用左+中+右更新 best', weight: 1 },
+      { point: '全负树返回最大单节点值', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q034', title: '41. 缺失的第一个正数', question_url: 'https://leetcode.cn/problems/first-missing-positive/',
+    core_idea: '原地哈希：把值 v∈[1,n] 放到下标 v-1，使 nums[i]=i+1；最后第一个不满足的位置即答案，否则答案是 n+1。',
+    invariant: '扫描结束后 [0,i) 区间内 nums[j]=j+1；交换只发生在值域内且目标位置尚未正确时。',
+    complexity: { time: 'O(n)', space: 'O(1)' },
+    code_lang: 'javascript',
+    code: `function solve(nums) {
+  const n = nums.length;
+  for (let i = 0; i < n; i++) {
+    while (nums[i] > 0 && nums[i] <= n && nums[nums[i] - 1] !== nums[i]) {
+      const j = nums[i] - 1;
+      [nums[i], nums[j]] = [nums[j], nums[i]];
+    }
+  }
+  for (let i = 0; i < n; i++) if (nums[i] !== i + 1) return i + 1;
+  return n + 1;
+}`,
+    edge_cases: [
+      { call: '[1,2,0]', expected: 3, why: '1..n 都在位，答案 n+1' },
+      { call: '[3,4,-1,1]', expected: 2, why: '2 缺失' },
+      { call: '[7,8,9,11,12]', expected: 1, why: '1 缺失，越界值不参与' },
+    ],
+    common_mistakes: ['用排序 O(n log n) 冒充 O(n)', 'while 条件写成 if，漏掉被换来的值仍需归位', '把 0 和负数也放进桶'],
+    followups: ['为什么交换次数总计是 O(n)？', '若允许修改输入数组，如何用符号标记法？'],
+    rubric: [
+      { point: '值 v 映射到下标 v-1 且只处理 1..n', weight: 2 },
+      { point: '用 while 处理换入的未归位值', weight: 1 },
+      { point: '全都在位时返回 n+1', weight: 1 },
+    ],
+  },
+  {
+    id: 'Q035', title: '165. 比较版本号', question_url: 'https://leetcode.cn/problems/compare-version-numbers/',
+    core_idea: '按点切分，逐段转数字比较；缺失段视为 0，因此 1.0 与 1.0.0 相等，前导零无意义。',
+    invariant: '每轮比较第 i 段时，两版本的前 i-1 段已判定相等。',
+    complexity: { time: 'O(m+n)', space: 'O(m+n)' },
+    code_lang: 'javascript',
+    code: `function solve(a, b) {
+  const x = a.split('.'), y = b.split('.');
+  const n = Math.max(x.length, y.length);
+  for (let i = 0; i < n; i++) {
+    const p = Number(x[i] || 0), q = Number(y[i] || 0);
+    if (p > q) return 1;
+    if (p < q) return -1;
+  }
+  return 0;
+}`,
+    edge_cases: [
+      { call: '"1.01", "1.001"', expected: 0, why: '前导零不影响数值' },
+      { call: '"1.0", "1.0.0"', expected: 0, why: '缺失段补 0' },
+      { call: '"1.2", "1.10"', expected: -1, why: '按数值而不是字典序比较' },
+    ],
+    common_mistakes: ['按字符串字典序比较，得到 1.10 < 1.2 的错误结论', '只比较到较短长度', '用 parseInt 处理超长版本号导致精度丢失'],
+    followups: ['版本号段可能超过 Number 安全整数时怎么办？', '如何支持 pre-release 后缀（1.0.0-beta）？'],
+    rubric: [

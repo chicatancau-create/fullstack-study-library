@@ -1,0 +1,95 @@
+import pg from 'pg';
+import fs from 'node:fs';
+
+const password = process.env.PGPASSWORD;
+if (!password) {
+  console.error('需要 PGPASSWORD（只从环境变量读取）');
+  process.exit(2);
+}
+
+const config = {
+  host: process.env.PGHOST || '127.0.0.1',
+  port: Number(process.env.PGPORT || 5432),
+  user: process.env.PGUSER || 'study',
+  password,
+  database: process.env.PGDATABASE || 'study_lab',
+};
+
+const results = [];
+const evidence = { captured_at: new Date().toISOString(), checks: [] };
+function check(name, ok, detail = '') {
+  results.push({ name, ok, detail });
+  evidence.checks.push({ name, ok, detail });
+  console.log(`${ok ? 'PASS' : 'FAIL'} ${name}${detail ? ` (${detail})` : ''}`);
+}
+
+const c = new pg.Client(config);
+await c.connect();
+await c.query("SELECT set_config('app.tenant_id', '1', false), set_config('app.user_id', '1', false), set_config('app.role', 'member', false)");
+
+async function asTenant(tenantId, userId, role, fn) {
+  await c.query('BEGIN');
+  await c.query("SELECT set_config('app.tenant_id', $1, true)", [String(tenantId)]);
+  await c.query("SELECT set_config('app.user_id', $1, true)", [userId]);
+  await c.query("SELECT set_config('app.role', $1, true)", [role]);
+  try {
+    const out = await fn();
+    await c.query('COMMIT');
+    return out;
+  } catch (error) {
+    await c.query('ROLLBACK').catch(() => {});
+    throw error;
+  }
+}
+
+try {
+  await c.query('DROP SCHEMA IF EXISTS backend30_b CASCADE');
+  await c.query('CREATE SCHEMA backend30_b');
+  await c.query(`
+    CREATE TABLE backend30_b.tenants (id int PRIMARY KEY, name text NOT NULL);
+    CREATE TABLE backend30_b.users (
+      id int PRIMARY KEY, tenant_id int NOT NULL REFERENCES backend30_b.tenants(id),
+      name text NOT NULL, email text NOT NULL, role text NOT NULL CHECK (role IN ('member','admin'))
+    );
+    CREATE TABLE backend30_b.tasks (
+      id int PRIMARY KEY, tenant_id int NOT NULL REFERENCES backend30_b.tenants(id),
+      owner_id int NOT NULL REFERENCES backend30_b.users(id),
+      title text NOT NULL, status text NOT NULL DEFAULT 'open', internal_note text
+    );
+    CREATE TABLE backend30_b.audit (
+      id bigserial PRIMARY KEY, tenant_id int NOT NULL, actor text NOT NULL, action text NOT NULL, allowed boolean NOT NULL
+    );
+    INSERT INTO backend30_b.tenants VALUES (1, 'tenant-a'), (2, 'tenant-b');
+    INSERT INTO backend30_b.users VALUES
+      (1, 1, 'alice', 'alice@example.com', 'member'),
+      (2, 1, 'bob', 'bob@example.com', 'member'),
+      (3, 1, 'root', 'root@example.com', 'admin'),
+      (4, 2, 'carol', 'carol@example.com', 'member');
+    INSERT INTO backend30_b.tasks VALUES
+      (1, 1, 1, 't1', 'open', 'secret-a1'),
+      (2, 1, 2, 't2', 'open', 'secret-a2'),
+      (3, 1, 1, 't3', 'open', 'secret-a3'),
+      (4, 2, 4, 't4', 'open', 'secret-b1'),
+      (5, 2, 4, 't5', 'open', 'secret-b2');
+  `);
+
+  await c.query(`
+    ALTER TABLE backend30_b.tasks ENABLE ROW LEVEL SECURITY;
+    ALTER TABLE backend30_b.tasks FORCE ROW LEVEL SECURITY;
+    ALTER TABLE backend30_b.users ENABLE ROW LEVEL SECURITY;
+    ALTER TABLE backend30_b.users FORCE ROW LEVEL SECURITY;
+    CREATE POLICY tasks_tenant ON backend30_b.tasks
+      USING (tenant_id = current_setting('app.tenant_id', true)::int)
+      WITH CHECK (tenant_id = current_setting('app.tenant_id', true)::int);
+    CREATE POLICY tasks_owner_or_admin ON backend30_b.tasks AS RESTRICTIVE FOR UPDATE
+      USING (
+        owner_id = current_setting('app.user_id', true)::int
+        OR current_setting('app.role', true) = 'admin'
+      );
+    CREATE POLICY users_tenant ON backend30_b.users
+      USING (tenant_id = current_setting('app.tenant_id', true)::int)
+      WITH CHECK (tenant_id = current_setting('app.tenant_id', true)::int);
+    CREATE VIEW backend30_b.tasks_public AS
+      SELECT id, title, status FROM backend30_b.tasks WHERE tenant_id = current_setting('app.tenant_id', true)::int;
+    CREATE VIEW backend30_b.users_masked AS
+      SELECT id, name,

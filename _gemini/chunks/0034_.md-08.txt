@@ -1,0 +1,30 @@
+| [greatfrontend/awesome-front-end-system-design](<知识库/系统设计/greatfrontend/awesome-front-end-system-design/README.md>)（[在线回退](https://github.com/greatfrontend/awesome-front-end-system-design)） | 4 | 0.22 | 1 | MIT | 未标注 | unknown |
+| [karanpratapsingh/system-design](<知识库/系统设计/karanpratapsingh/system-design/README.md>)（[在线回退](https://github.com/karanpratapsingh/system-design)） | 55 | 12.00 | 6 | 未识别文件 | 未标注 | unknown |
+| [pingcap/talent-plan](<知识库/系统设计/pingcap/talent-plan/README.md>)（[在线回退](https://github.com/pingcap/talent-plan)） | 208 | 2.87 | 51 | 无 LICENSE | F2 | unknown |
+
+### 知识库/计算机基础（12 个仓库）
+
+| 仓库 | 文件 | MiB | md | 许可 | 功能 | 时效 |
+| --- | ---: | ---: | ---: | --- | --- | --- |
+| [chenxi101w/408-first-round](<知识库/计算机基础/chenxi101w/408-first-round/README.md>)（[在线回退](https://github.com/chenxi101w/408-first-round)） | 41 | 2.43 | 32 | 无 LICENSE | 未标注 | unknown |
+| [cunyu1943/JavaPark](<知识库/计算机基础/cunyu1943/JavaPark/README.md>)（[在线回退](https://github.com/cunyu1943/JavaPark)） | 1,143 | 90.54 | 137 | CC-BY-4.0 | 未标注 | unknown |
+| [Exely/CSAPP-Labs](<知识库/计算机基础/Exely/CSAPP-Labs/README.md>)（[在线回退](https://github.com/Exely/CSAPP-Labs)） | 341 | 38.33 | 8 | 未识别文件 | 未标注 | stale |
+| [forthespada/InterviewGuide](<知识库/计算机基础/forthespada/InterviewGuide/README.md>)（[在线回退](https://github.com/forthespada/InterviewGuide)） | 1,810 | 418.58 | 698 | Apache-2.0 | 未标注 | unknown |
+| [jlevy/the-art-of-command-line](<知识库/计算机基础/jlevy/the-art-of-command-line/README.md>)（[在线回退](https://github.com/jlevy/the-art-of-command-line)） | 24 | 1.02 | 20 | 无 LICENSE | 未标注 | unknown |
+| [jwasham/coding-interview-university](<知识库/计算机基础/jwasham/coding-interview-university/README.md>)（[在线回退](https://github.com/jwasham/coding-interview-university)） | 47 | 6.40 | 33 | CC-BY-SA-4.0 | 未标注 | unknown |
+| [LamberttLiu/CS-Basic-SelfLearning](<知识库/计算机基础/LamberttLiu/CS-Basic-SelfLearning/README.md>)（[在线回退](https://github.com/LamberttLiu/CS-Basic-SelfLearning)） | 628 | 181.26 | 62 | MIT | 未标注 | unknown |
+| [ossu/computer-science](<知识库/计算机基础/ossu/computer-science/README.md>)（[在线回退](https://github.com/ossu/computer-science)） | 39 | 0.51 | 22 | MIT | 未标注 | unknown |
+| [puge-up/programming-play](<知识库/计算机基础/puge-up/programming-play/README.md>)（[在线回退](https://github.com/puge-up/programming-play)） | 165 | 2.40 | 160 | MIT | 未标注 | unknown |
+| [Snailclimb/JavaGuide](<知识库/计算机基础/Snailclimb/JavaGuide/README.md>)（[在线回退](https://github.com/Snailclimb/JavaGuide)） | 2,573 | 175.99 | 457 | Apache-2.0 | 未标注 | unknown |
+| [xiaolincoder/CS-Base](<知识库/计算机基础/xiaolincoder/CS-Base/README.md>)（[在线回退](https://github.com/xiaolincoder/CS-Base)） | 1,697 | 183.65 | 123 | 无 LICENSE | 未标注 | unknown |
+| [ZhongYi-LinuxDriverDev/EmbeddedSoftwareEngineerInterview](<知识库/计算机基础/ZhongYi-LinuxDriverDev/EmbeddedSoftwareEngineerInterview/README.md>)（[在线回退](https://github.com/ZhongYi-LinuxDriverDev/EmbeddedSoftwareEngineerInterview)） | 25 | 0.24 | 22 | 无 LICENSE | 未标注 | unknown |
+
+### 知识库/课程与路线（14 个仓库）
+
+| 仓库 | 文件 | MiB | md | 许可 | 功能 | 时效 |
+| --- | ---: | ---: | ---: | --- | --- | --- |
+| [cd-home/Root](<知识库/课程与路线/cd-home/Root/README.md>)（[在线回退](https://github.com/cd-home/Root)） | 455 | 20.36 | 232 | 无 LICENSE | F2,F5 | unknown |
+| [CharonChui/FullStack-Notes](<知识库/课程与路线/CharonChui/FullStack-Notes/README.md>)（[在线回退](https://github.com/CharonChui/FullStack-Notes)） | 667 | 17.19 | 644 | 未识别文件 | F1,F2 | unknown |
+| [ctrlaltwill/LearnKit](<知识库/课程与路线/ctrlaltwill/LearnKit/README.md>)（[在线回退](https://github.com/ctrlaltwill/LearnKit)） | 580 | 18.22 | 60 | MIT | F2,F3,F4 | unknown |
+| [dominostars/playtranslate](<知识库/课程与路线/dominostars/playtranslate/README.md>)（[在线回退](https://github.com/dominostars/playtranslate)） | 1,550 | 37.56 | 45 | GPL-3.0 | F2 | unknown |
+| [doocs/md](<知识库/课程与路线/doocs/md/README.md>)（[在线回退](https://github.com/doocs/md)） | 803 | 3.83 | 36 | 未识别文件 | F3 | unknown |

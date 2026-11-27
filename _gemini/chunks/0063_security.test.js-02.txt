@@ -1,0 +1,53 @@
+  const redirect = await app.inject({ method: 'GET', url: `/lab/fetch?url=${enc(`http://127.0.0.1:${targetPort}/redirect`)}`, headers: auth() });
+  const ok = await app.inject({ method: 'GET', url: `/lab/fetch?url=${enc(`http://127.0.0.1:${targetPort}/ok`)}`, headers: auth() });
+  const vuln = await app.inject({ method: 'GET', url: `/lab/fetch?mode=vuln&url=${enc(`http://127.0.0.1:${targetPort}/redirect`)}`, headers: auth() });
+  assert.equal(file.statusCode, 400);
+  assert.equal(metadata.statusCode, 403);
+  assert.equal(redirect.statusCode, 403);
+  assert.equal(ok.statusCode, 200);
+  assert.equal(ok.json().body, 'target-ok');
+  assert.equal(vuln.json().body, 'internal-secret');
+});
+
+test('A04/A07 登录失败 5 次后锁定', async () => {
+  for (let i = 0; i < 5; i += 1) {
+    await app.inject({
+      method: 'POST',
+      url: '/lab/login',
+      payload: { tenant: 't2', user: 'carol', password: 'wrong' },
+    });
+  }
+  const locked = await app.inject({
+    method: 'POST',
+    url: '/lab/login',
+    payload: { tenant: 't2', user: 'carol', password: 'carol-pass' },
+  });
+  assert.equal(locked.statusCode, 429);
+});
+
+test('A09 审计日志记录了登录与转账', async () => {
+  const db = await labConnect();
+  try {
+    const rows = (await db.query('SELECT event FROM e11.audit')).rows;
+    assert.ok(rows.length >= 3);
+    assert.ok(rows.some((row) => row.event === 'login_ok'));
+  } finally {
+    await db.end();
+  }
+});
+
+test('A05 加固面补齐 CSP 与 X-Frame-Options，且输出编码', async () => {
+  const page = await app.inject({ method: 'GET', url: '/scan-safe' });
+  assert.equal(page.statusCode, 200);
+  assert.match(String(page.headers['content-security-policy']), /frame-ancestors 'none'/);
+  assert.equal(page.headers['x-frame-options'], 'DENY');
+
+  const echo = await app.inject({ method: 'GET', url: '/scan-safe/echo?q=' + encodeURIComponent(XSS) });
+  assert.equal(echo.statusCode, 200);
+  assert.ok(!echo.body.includes('<img src=x'), '加固面必须输出编码，不能回显原始标签');
+  assert.ok(echo.body.includes('&lt;img'));
+
+  const vuln = await app.inject({ method: 'GET', url: '/scan/echo?q=' + encodeURIComponent(XSS) });
+  assert.ok(vuln.body.includes('<img src=x'), '对照面必须保留未编码回显，证明两者确有差别');
+  assert.equal(vuln.headers['x-frame-options'], undefined);
+});

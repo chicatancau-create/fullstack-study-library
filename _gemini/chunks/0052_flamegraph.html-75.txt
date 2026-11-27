@@ -1,0 +1,113 @@
+    date.setUTCDate(date.getUTCDate() + step * 7);
+  }, function(start, end) {
+    return (end - start) / durationWeek;
+  });
+}
+
+var utcSunday = utcWeekday(0);
+var utcMonday = utcWeekday(1);
+var utcTuesday = utcWeekday(2);
+var utcWednesday = utcWeekday(3);
+var utcThursday = utcWeekday(4);
+var utcFriday = utcWeekday(5);
+var utcSaturday = utcWeekday(6);
+
+var utcSundays = utcSunday.range;
+var utcMondays = utcMonday.range;
+var utcTuesdays = utcTuesday.range;
+var utcWednesdays = utcWednesday.range;
+var utcThursdays = utcThursday.range;
+var utcFridays = utcFriday.range;
+var utcSaturdays = utcSaturday.range;
+
+var utcMonth = newInterval(function(date) {
+  date.setUTCDate(1);
+  date.setUTCHours(0, 0, 0, 0);
+}, function(date, step) {
+  date.setUTCMonth(date.getUTCMonth() + step);
+}, function(start, end) {
+  return end.getUTCMonth() - start.getUTCMonth() + (end.getUTCFullYear() - start.getUTCFullYear()) * 12;
+}, function(date) {
+  return date.getUTCMonth();
+});
+var utcMonths = utcMonth.range;
+
+var utcYear = newInterval(function(date) {
+  date.setUTCMonth(0, 1);
+  date.setUTCHours(0, 0, 0, 0);
+}, function(date, step) {
+  date.setUTCFullYear(date.getUTCFullYear() + step);
+}, function(start, end) {
+  return end.getUTCFullYear() - start.getUTCFullYear();
+}, function(date) {
+  return date.getUTCFullYear();
+});
+
+// An optimized implementation for this simple case.
+utcYear.every = function(k) {
+  return !isFinite(k = Math.floor(k)) || !(k > 0) ? null : newInterval(function(date) {
+    date.setUTCFullYear(Math.floor(date.getUTCFullYear() / k) * k);
+    date.setUTCMonth(0, 1);
+    date.setUTCHours(0, 0, 0, 0);
+  }, function(date, step) {
+    date.setUTCFullYear(date.getUTCFullYear() + step * k);
+  });
+};
+var utcYears = utcYear.range;
+
+function ticker(year, month, week, day, hour, minute) {
+
+  const tickIntervals = [
+    [second,  1,      durationSecond],
+    [second,  5,  5 * durationSecond],
+    [second, 15, 15 * durationSecond],
+    [second, 30, 30 * durationSecond],
+    [minute,  1,      durationMinute],
+    [minute,  5,  5 * durationMinute],
+    [minute, 15, 15 * durationMinute],
+    [minute, 30, 30 * durationMinute],
+    [  hour,  1,      durationHour  ],
+    [  hour,  3,  3 * durationHour  ],
+    [  hour,  6,  6 * durationHour  ],
+    [  hour, 12, 12 * durationHour  ],
+    [   day,  1,      durationDay   ],
+    [   day,  2,  2 * durationDay   ],
+    [  week,  1,      durationWeek  ],
+    [ month,  1,      durationMonth ],
+    [ month,  3,  3 * durationMonth ],
+    [  year,  1,      durationYear  ]
+  ];
+
+  function ticks(start, stop, count) {
+    const reverse = stop < start;
+    if (reverse) [start, stop] = [stop, start];
+    const interval = count && typeof count.range === "function" ? count : tickInterval(start, stop, count);
+    const ticks = interval ? interval.range(start, +stop + 1) : []; // inclusive stop
+    return reverse ? ticks.reverse() : ticks;
+  }
+
+  function tickInterval(start, stop, count) {
+    const target = Math.abs(stop - start) / count;
+    const i = d3Array.bisector(([,, step]) => step).right(tickIntervals, target);
+    if (i === tickIntervals.length) return year.every(d3Array.tickStep(start / durationYear, stop / durationYear, count));
+    if (i === 0) return millisecond.every(Math.max(d3Array.tickStep(start, stop, count), 1));
+    const [t, step] = tickIntervals[target / tickIntervals[i - 1][2] < tickIntervals[i][2] / target ? i - 1 : i];
+    return t.every(step);
+  }
+
+  return [ticks, tickInterval];
+}
+
+const [utcTicks, utcTickInterval] = ticker(utcYear, utcMonth, utcSunday, utcDay, utcHour, utcMinute);
+const [timeTicks, timeTickInterval] = ticker(year, month, sunday, day, hour, minute);
+
+exports.timeDay = day;
+exports.timeDays = days;
+exports.timeFriday = friday;
+exports.timeFridays = fridays;
+exports.timeHour = hour;
+exports.timeHours = hours;
+exports.timeInterval = newInterval;
+exports.timeMillisecond = millisecond;
+exports.timeMilliseconds = milliseconds;
+exports.timeMinute = minute;

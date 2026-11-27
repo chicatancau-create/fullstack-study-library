@@ -1,0 +1,130 @@
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 17,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：391 文件 -> 392 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/OWASP/CheatSheetSeries",
+          "category": "知识库/安全",
+          "branch": null,
+          "archive_sha256": "1b1f0312f0ac809117fb2f0f65cd6356f7844676245b6c8ee81b3dcbf66c8768",
+          "tarball_mb": 17,
+          "fetched": "2026-11-04 20:03",
+          "files": 392,
+          "bytes": 24074597,
+          "mb": 22,
+          "top_extensions": {
+            ".md": 170,
+            ".png": 95,
+            ".drawio": 34,
+            ".svg": 33,
+            ".js": 14,
+            ".yml": 10,
+            ".json": 7,
+            "(none)": 6,
+            ".py": 6,
+            ".pdf": 5
+          },
+          "license_files": [
+            "LICENSE.md"
+          ],
+          "license_detected": "CC-BY-SA-4.0",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：391 文件 -> 392 文件",
+          "measured": {
+            "pushed": "2026-11-03",
+            "stars": 33895
+          }
+        }
+      }
+    },
+    {
+      "id": "github:owasp/top10",
+      "name": "OWASP/Top10",
+      "source": {
+        "url": "https://github.com/OWASP/Top10",
+        "canonical_url": "https://github.com/OWASP/Top10",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-09-24",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:07+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "3a31f35346c3f4e90f350395124382fa53af2afe",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/安全/OWASP/Top10",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/OWASP/Top10"
+      },
+      "integrity": {
+        "archive_sha256": "eca322edc98d3b3ad2fd54b1ca9c76575b66e965c47fe4996f00620f61153ae0",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/安全",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 1140,
+        "bytes": 277154340,
+        "markdown_count": 727,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:23+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "CC-BY-SA-4.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,

@@ -1,0 +1,58 @@
+| [[../02-项目实战/项目02-协作任务平台\|项目02-协作任务平台]] | [donnemartin/system-design-primer](<知识库/系统设计/donnemartin/system-design-primer/README.md>)、[goldbergyoni/nodebestpractices](<知识库/后端进阶/goldbergyoni/nodebestpractices/README.md>)、[OWASP/CheatSheetSeries](<知识库/安全/OWASP/CheatSheetSeries/README.md>) |
+| [[../02-项目实战/项目03-电商交易Demo\|项目03-电商交易Demo]] | [donnemartin/system-design-primer](<知识库/系统设计/donnemartin/system-design-primer/README.md>)、[macrozheng/mall-learning](<知识库/后端进阶/macrozheng/mall-learning/README.md>)、[OWASP/CheatSheetSeries](<知识库/安全/OWASP/CheatSheetSeries/README.md>) |
+| [[../02-项目实战/项目04-综合SaaS毕业项目\|项目04-综合SaaS毕业项目]] | [donnemartin/system-design-primer](<知识库/系统设计/donnemartin/system-design-primer/README.md>)、[goldbergyoni/nodebestpractices](<知识库/后端进阶/goldbergyoni/nodebestpractices/README.md>)、[OWASP/CheatSheetSeries](<知识库/安全/OWASP/CheatSheetSeries/README.md>)、[OWASP/Top10](<知识库/安全/OWASP/Top10/README.md>) |
+| [[../02-项目实战/项目05-陌生系统接手与团队交付\|项目05-陌生系统接手与团队交付]] | [freeCodeCamp/freeCodeCamp](<知识库/全栈路线/freeCodeCamp/freeCodeCamp/README.md>)、[goldbergyoni/nodebestpractices](<知识库/后端进阶/goldbergyoni/nodebestpractices/README.md>)、[xiaolincoder/CS-Base](<知识库/计算机基础/xiaolincoder/CS-Base/README.md>) |
+<!-- curriculum-map:end -->
+## 二、目录分布
+
+<!-- catalog-categories:begin -->
+<!-- 由 05-外部资料库/tools/catalog_tool.py generate 生成，请勿手工编辑。 -->
+
+| 分类 | 仓库数 | 文件 | bytes | MiB |
+| --- | ---: | ---: | ---: | ---: |
+| 知识库/AI与RAG | 16 | 71,103 | 6,302,345,952 | 6010.39 |
+| 知识库/全栈路线 | 7 | 46,078 | 675,036,761 | 643.77 |
+| 知识库/前端与Node | 10 | 19,722 | 214,743,143 | 204.80 |
+| 知识库/后端进阶 | 15 | 10,540 | 1,097,906,996 | 1047.05 |
+| 知识库/安全 | 4 | 2,107 | 320,590,235 | 305.74 |
+| 知识库/算法与数据结构 | 4 | 15,150 | 334,241,658 | 318.76 |
+| 知识库/系统设计 | 7 | 1,263 | 476,137,489 | 454.08 |
+| 知识库/计算机基础 | 12 | 8,533 | 1,154,857,201 | 1101.36 |
+| 知识库/课程与路线 | 14 | 9,875 | 313,039,734 | 298.54 |
+| 知识库/资源目录 | 7 | 2,878 | 73,494,595 | 70.09 |
+| 知识库/运维与云原生 | 5 | 6,634 | 475,787,674 | 453.75 |
+| 知识库/运行时官方文档 | 2 | 0 | 0 | 0.00 |
+| 知识库/面试综合 | 1 | 604 | 21,238,320 | 20.25 |
+| 知识库/鸿蒙与跨端 | 12 | 25,251 | 325,048,826 | 309.99 |
+| 题库/AI与Agent | 7 | 13,634 | 157,954,188 | 150.64 |
+| 题库/AI与RAG | 4 | 2,529 | 99,958,315 | 95.33 |
+| 题库/SQL与数据 | 2 | 333 | 6,399,345 | 6.10 |
+| 题库/八股与基础 | 19 | 5,439 | 391,245,025 | 373.12 |
+| 题库/公司高频题 | 3 | 4,538 | 12,604,384 | 12.02 |
+| 题库/前端 | 4 | 1,858 | 30,183,047 | 28.78 |
+| 题库/前端与Node | 4 | 1,619 | 21,922,680 | 20.91 |
+| 题库/算法题解 | 15 | 70,857 | 1,302,202,054 | 1241.88 |
+| 题库/课程与路线 | 2 | 1,326 | 103,686,975 | 98.88 |
+| 题库/运维与DevOps | 3 | 1,258 | 18,794,823 | 17.92 |
+| 题库/鸿蒙与跨端 | 1 | 192 | 13,701,947 | 13.07 |
+| **合计** | **180** | **323,321** | **13,943,121,367** | **13297.20** |
+
+### 时效标注（16 个仓库，原文来自 .source.json）
+
+| 仓库 | 状态 | 完整时效说明 |
+| --- | --- | --- |
+| 0voice/from_coder_to_expert | stale | 2024-05 停更，697 MB 文章/PDF 堆，仅 1 篇 md；按需用，不进学习主线 |
+| AobingJava/JavaFamily | stale | 以 JDK 8 口径为主，按 17/21 复核 |
+| Awesome-HarmonyOS/HarmonyOS | stale | 最后更新 2024-07，早于 HarmonyOS NEXT 当前 API；只当索引用，实现以本地官方文档镜像为准 |
+| Bun 官方文档 | unknown | 仅在线参考，未做本地镜像 |
+| checkcheckzz/system-design-interview | stale | 2023-04 停更，纯链接索引；系统设计正文以 system-design-primer 与 NEXT 时代资料为主 |
+| CoderLeixiaoshuai/java-eight-part | stale | 2023-11 停更，JDK 8 口径为主；新特性按 JDK 17/21 LTS 复核 |
+| crossoverJie/JCSprout | stale | 2024-05 有推送但正文为 2019 前后口径（JDK 8、旧 Spring）；只作历史参考 |
+| Deno 官方文档 | unknown | 仅在线参考，未做本地镜像 |
+| Exely/CSAPP-Labs | stale | 2023-02 停更；CSAPP 实验本身版本稳定，可用，但需按教材第三版与当前工具链复核 |
+| FAQGURU/FAQGURU | stale | 索引型，含 AngularJS/jQuery 等历史主题条目；只取仍属当前栈的部分 |
+| febobo/web-interview | stale | 含 Vue 2 源码向题目（new Vue()、$scopedSlots）与 React 旧 API 示例；作原理对照用，写代码按 Vue 3 / React 当前官方文档 |
+| haizlin/fe-interview | stale | 每日一题含 Vue 2 条目；按 Vue 3 复核后再背 |
+| hello-java-maker/JavaInterview | stale | 以 JDK 8 口径为主，按 17/21 复核 |
+| Snailclimb/JavaGuide-Interview | stale | 以 JDK 8 口径为主，需按 JDK 17/21 LTS 复核新特性 |
+| xingshaocheng/architect-awesome | stale | 2024-04 停更，架构清单索引（6万 star 但正文薄）；只当检查表用 |

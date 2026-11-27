@@ -1,0 +1,122 @@
+          "fetched": "2026-11-05 11:12",
+          "files": 826,
+          "bytes": 444794520,
+          "mb": 424,
+          "top_extensions": {
+            ".md": 418,
+            "(none)": 1,
+            ".json": 1,
+            ".yaml": 1,
+            ".jpg": 1,
+            ".yml": 1,
+            ".ts": 1
+          },
+          "license_files": [
+            "LICENSE.md"
+          ],
+          "license_detected": null,
+          "round": 2,
+          "selection": "正文 418 篇；高采用(91014 star)+有正文(418篇)；文档型仓库(md占比41%)；人工点名重点源｜自动判定：keep",
+          "functions": [
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 418,
+            "md_share_pct": 41.1,
+            "question_markers": 7,
+            "tests": 0,
+            "images": 1,
+            "pdf": 0,
+            "stars": 91014,
+            "pushed": "2025-04-04",
+            "functions": [
+              "注入-图解系统设计"
+            ]
+          },
+          "content_fingerprint": "499f1e3d0c1b14cb54e9cb341bb6309a5f346c355cc89d47944a30e1185bfebc",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准"
+        }
+      }
+    },
+    {
+      "id": "github:ashishps1/awesome-system-design-resources",
+      "name": "ashishps1/awesome-system-design-resources",
+      "source": {
+        "url": "https://github.com/ashishps1/awesome-system-design-resources",
+        "canonical_url": "https://github.com/ashishps1/awesome-system-design-resources",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2026-11-01",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:18+08:00",
+          "default_branch": "main",
+          "head_commit_sha": "58bf0b48badf1e6d62d1e3d024e9578ff809c95f",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/系统设计/ashishps1/awesome-system-design-resources",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/ashishps1/awesome-system-design-resources"
+      },
+      "integrity": {
+        "archive_sha256": "18a77c17deb696ec184dbcbf85ccd1c9bb107d3fe5647e9053d59ed19dc13c6f",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/系统设计",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 27,
+        "bytes": 1725755,
+        "markdown_count": 1,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:24+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "GPL-3.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；传染性或非商业条款，不得并入对外发布产物。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 1,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：26 文件 -> 27 文件"
+        },
+        "original_source_json": {

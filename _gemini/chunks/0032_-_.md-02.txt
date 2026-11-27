@@ -1,0 +1,46 @@
+  - AI 应用：有 RAG/Agent 教程与 ragas/openai-evals 实现；版本化 golden set、权限过滤和成本基线仍须自建。
+  - 上述四项都需要真实 JD 和目标作品重新校准，见 [[资料补缺清单|资料补缺清单]]。
+
+## 二、逐项缺口对照
+
+| 计划里的要求 | 原状 | 现在补到什么 | 直接用哪里 |
+| --- | --- | --- | --- |
+| 算法专项：Hot 100 → 面试经典 150 → SQL 50 → 专题题单 → 公司高频（第 21–29 行） | 只有 5 个外链 | 有序题单 + 多语言题解 + 公司标签 CSV | `题库/算法题解/youngyangyang04/leetcode-master`（772 篇题解、224 个专题文件）、`neetcode-gh/leetcode`（929 篇 + 8 语言实现）、`wisdompeak/LeetCode`（1,496 篇）、`kamyu104/LeetCode-Solutions`（含 MySQL 目录） |
+| 公司高频题不能替代通用能力（第 29 行） | 无 | 三套 ByteDance/TikTok 标签 CSV，并与本地题面连接 | `题库/公司高频题/`：ByteDance All 实测 59／116／63 行，TikTok All 317 行；其中 **408 道能在本地直接取到题面**（`题库/算法题解/_派生视图/生成说明.md`） |
+| 计算机系统与多语言：进程线程、虚拟内存、I/O、TCP、事务、MVCC、缓存与消息语义（第 154 行） | 只有官方文档链接 | 图解式叙述 + 追问式问答 | `知识库/计算机基础/xiaolincoder/CS-Base`（1,513 张图解已补）、`CyC2018/CS-Notes`（917 个专题标题）、`wolverinn/Waking-Up`（问题+追问+答案体例） |
+| 高并发与系统设计：十二类设计题、容量估算、故障与成本（专项第 26–39 行） | 无参考解答 | 系统设计主参考 + 案例库 + Anki 卡片 | `知识库/系统设计/donnemartin/system-design-primer`、`karanpratapsingh/system-design`、`ashishps1/awesome-system-design-resources`；前端侧 `greatfrontend/awesome-front-end-system-design` |
+| 阶段 06：OWASP Top 10:2025 逐项映射 A01–A10 | 只有 2 个 OWASP 链接 | 官方原文进库，可逐条建立风险映射；Top10 仓库含 2003–2025 历史版本与十余种译本，只取 `2025/docs/en/` | `知识库/安全/OWASP/Top10/2025/docs/en/`（A01–A10 的 2025 英文版 10 篇齐全，实测）+ `OWASP/CheatSheetSeries`（170 md，认证/会话/CSRF/XSS/上传逐项防御） |
+| 阶段 04 Node/API、阶段 03 React 自测 | 无题 | 2026 更新的 JS/React 高频问答 + 41 道 React 机试 | `题库/前端/greatfrontend/top-javascript-interview-questions`（193 题目录）、`top-reactjs-interview-questions`（50 题目录）、`sanchit0496/reactjs-machine-coding-challenges`（41 篇） |
+| 中线 Java/Vue/MySQL（阶段 09、D69–D84） | 只有官方文档 | 中文八股与 JVM/并发/分布式成册 | `Snailclimb/JavaGuide`（457 md + 1,945 张图）、`doocs/advanced-java`、`CoderLeixiaoshuai/java-eight-part`、`AobingJava/JavaFamily`、`Snailclimb/JavaGuide-Interview` |
+| AI 模块 D：RAG 混合召回+重排、评测集、Token 与 P95、提示注入（专项第 63–67 行） | 完全无材料 | 中文 RAG/Agent 教程 + 评测框架实现 + 2,038 题面试库 | `知识库/AI与RAG/datawhalechina/llm-universe`、`hello-agents`（259 md）、`explodinggradients/ragas`、`openai/evals`；题库 `cdavid817/agent-interview`（3,783 个标题） |
+| 阶段 07 部署运维、K8s 最低实操（清单第 88 行） | 无题 | 570 道运维/容器/K8s/CI 问答 | `题库/运维与DevOps/bregman-arie/devops-exercises` |
+| 阶段 00／01 课程化练习与测验 | 无 | 带课后测的成套课程 | `知识库/全栈路线/microsoft/Web-Dev-For-Beginners`、`freeCodeCamp/freeCodeCamp`（curriculum 挑战正文 1.7 万 md） |
+
+## 三、使用优先级（别一次吞下）
+
+第一轮只开这 6 处，其余按需再查，否则会撞上计划自己写的「资料囤积」红线：
+
+1. `题库/算法题解/youngyangyang04/leetcode-master` —— 替代自己拼题单，直接决定 D03–D44 的刷题顺序。
+2. `题库/算法题解/neetcode-gh/leetcode` —— Hot 100 之后的结构化路线 + 主力语言之外的第二语言实现。
+3. `知识库/计算机基础/xiaolincoder/CS-Base` + `CyC2018/CS-Notes` —— G1/G4 的计基与存储自测。
+4. `知识库/安全/OWASP/*` —— 阶段 06 的 A01–A10 映射表直接照此写。
+5. `知识库/系统设计/donnemartin/system-design-primer` —— 每四周一次的设计题原型。
+6. `知识库/AI与RAG/*` + `题库/AI与Agent/cdavid817/agent-interview` —— 阶段 10 的 AI 专项与模块 D 评测口径。
+
+## 三·五、派生视图（本轮新增的机制，不是新资料）
+
+`题库/算法题解/_派生视图/` 由本地脚本从 doocs 生成，解决「题面与解法同页」的结构性问题：题面 4,100 个（实测 0 个残留解法章节、4,100 个含题目描述、4,093 含示例、3,735 含提示约束）、答案 4,100 个、`索引.csv` 可按难度/标签筛题。原文未改动一行。
+
+## 四、没补上的（诚实清单）
+
+| 未补齐项 | 具体情况 | 建议 |
+| --- | --- | --- |
+| SQL 专项离线题库 | 缺口确证：doocs 的 4,104 题里**路径含 SQL 的只有 1 道**（正文顺带提到 SQL 关键词的 285 道不等于数据库题）；只有 `wisdompeak/LeetCode/SQL`、`kamyu104/.../MySQL`、`devops-exercises/topics/sql`、`0voice/interview_internal_reference/09.MySQL篇` 可当题解参照 | 题面仍需回 LeetCode 在线做。**第二轮已专找此源并实测**：全库仅 `Harsh-Belekar/LeetCode-SQL-50`（51 md）与 `shawlu95/Beyond-LeetCode-SQL`（33 md）两个，公开 GitHub 无更优者 |
+| 字节「最新」高频题 | 三套 CSV 都是历史抓取（2024–2026-07），LeetCode 公司标签官方已收紧 | 只当题型池，不要写成「当前高频」 |
+| 成体系 Go 面试仓库 | `xiaobaiTech/golangFamily` 已被删空（本地仅 2 文件），`0voice/Introduction-to-GO` 地址 404 | Go 靠 halfrost 题解 + `hoanhan101/ultimate-go` + 官方 Tour |
+| 面试鸭等「题库网站」 | `liyupi/mianshiya` 仓库只有网站代码，题库在服务端，离线取不到题 | 放弃离线化，需要时在线用 |
+| 部分配图永久丢失 | `azl397985856/leetcode` 1,167 张、`halfrost` 与 `doocs` 合计 82+ 张为上游 404；`AobingJava/JavaFamily` 262 张防盗链失败、`crossoverJie/JCSprout` 132 张失败 | 正文完整，只缺图；本轮外链图整体取回率 7,099/9,166 ≈ 77% |
+| 机制类缺口不在本批能解决 | 计划的 AI 工单、压测/故障注入、G8 陌生系统接手、外部复核 | 这批资料不提供，仍按 D/G 关口自做 |
+
+## 五、风险与合规
+

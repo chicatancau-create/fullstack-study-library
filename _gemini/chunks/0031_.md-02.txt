@@ -1,0 +1,20 @@
+| 知识库/全栈路线 | [codecrafters-io/build-your-own-x](https://github.com/codecrafters-io/build-your-own-x) | — | 2026-11-04 20:03 | 2026-07-14 | 5 | 73,632 | 0.07 | 2 | 1a095b9d545d | 未知 | 无 LICENSE | unknown |
+| 知识库/全栈路线 | [freeCodeCamp/freeCodeCamp](https://github.com/freeCodeCamp/freeCodeCamp) | — | 2026-11-04 20:03 | 2026-11-05 | 19802 | 84,456,151 | 80.54 | 17,037 | 13d76297914b | 未知 | BSD | unknown |
+| 知识库/全栈路线 | [liyupi/codefather](https://github.com/liyupi/codefather) | — | 2026-11-04 20:03 | 2026-07-11 | 1056 | 10,293,561 | 9.82 | 998 | 6a2055ea5826 | 未知 | 无 LICENSE | unknown |
+| 知识库/全栈路线 | [microsoft/Web-Dev-For-Beginners](https://github.com/microsoft/Web-Dev-For-Beginners) | — | 2026-11-04 20:03 | 2026-11-05 | 13865 | 571,903,801 | 545.41 | 5,596 | 1022ea54d752 | 未知 | MIT | unknown |
+| 知识库/全栈路线 | [mtdvio/every-programmer-should-know](https://github.com/mtdvio/every-programmer-should-know) | — | 2026-11-04 20:03 | 2025-12-29 | 5 | 45,161 | 0.04 | 2 | 99548cd5f42d | 未知 | CC-BY-4.0 | unknown |
+| 知识库/全栈路线 | [nilbuild/developer-roadmap](https://github.com/nilbuild/developer-roadmap) | — | 2026-11-04 20:03 | 2026-11-05 | 11330 | 8,029,698 | 7.66 | 11,297 | ae328fa427df | 未知 | 未识别文件 | unknown |
+| 知识库/全栈路线 | [practical-tutorials/project-based-learning](https://github.com/practical-tutorials/project-based-learning) | — | 2026-11-04 20:03 | 2026-11-02 | 15 | 234,757 | 0.22 | 4 | 6c0c2e9b6116 | 未知 | MIT | unknown |
+| 知识库/前端与Node | [airbnb/javascript](https://github.com/airbnb/javascript) | master | 2026-11-05 11:12 | 2026-04-16 | 60 | 363,611 | 0.35 | 11 | 未知 | 8b29549be0ab | MIT | unknown |
+| 知识库/前端与Node | [chodocs/chodocs](https://github.com/chodocs/chodocs) | — | 2026-11-04 20:03 | 2026-02-05 | 364 | 24,473,034 | 23.34 | 187 | 1915190edb85 | 未知 | MIT | unknown |
+| 知识库/前端与Node | [febobo/web-interview](https://github.com/febobo/web-interview) | master | 2026-11-05 11:12 | 2025-05-14 | 288 | 4,669,188 | 4.45 | 236 | 未知 | 348230ce2cd9 | 无 LICENSE | stale |
+| 知识库/前端与Node | [FrontendMasters/front-end-handbook-2018](https://github.com/FrontendMasters/front-end-handbook-2018) | master | 2026-11-05 11:12 | 2023-07-28 | 166 | 12,711,142 | 12.12 | 108 | 未知 | a16d19104add | 无 LICENSE | unknown |
+| 知识库/前端与Node | [getify/You-Dont-Know-JS](https://github.com/getify/You-Dont-Know-JS) | — | 2026-11-04 20:03 | 2026-10-31 | 10 | 28,277 | 0.03 | 8 | 387771c7151a | 未知 | 未识别文件 | unknown |
+| 知识库/前端与Node | [mdn/content](https://github.com/mdn/content) | main | 2026-11-05 11:12 | 2026-11-04 | 16406 | 115,739,037 | 110.38 | 14,753 | 未知 | ab2006226c9e | CC-BY-SA-4.0 | unknown |
+| 知识库/前端与Node | [microsoft/TypeScript-Website](https://github.com/microsoft/TypeScript-Website) | v2 | 2026-11-05 16:52 | 2026-11-05 | 1065 | 19,771,928 | 18.86 | 365 | 535891fe66cc | 未知 | 未识别文件 | unknown |
+| 知识库/前端与Node | [reactjs/react.dev](https://github.com/reactjs/react.dev) | main | 2026-11-05 11:12 | 2026-11-01 | 792 | 30,804,838 | 29.38 | 252 | 未知 | ef58d54ee08b | CC-BY-4.0 | unknown |
+| 知识库/前端与Node | [verekia/js-stack-from-scratch](https://github.com/verekia/js-stack-from-scratch) | master | 2026-11-05 11:12 | 2024-06-05 | 55 | 354,319 | 0.34 | 13 | 未知 | 138b4bf3079a | MIT | unknown |
+| 知识库/前端与Node | [vuejs/docs](https://github.com/vuejs/docs) | main | 2026-11-05 11:12 | 2026-10-28 | 516 | 5,827,769 | 5.56 | 122 | 未知 | 74300670c0fc | CC-BY-4.0 | unknown |
+| 知识库/后端进阶 | [0voice/from_coder_to_expert](https://github.com/0voice/from_coder_to_expert) | — | 2026-11-04 20:03 | 2024-05-20 | 179 | 730,979,820 | 697.12 | 1 | 36054c144fbc | 未知 | 无 LICENSE | stale |
+| 知识库/后端进阶 | [bin392328206/six-finger](https://github.com/bin392328206/six-finger) | — | 2026-11-04 20:03 | 2026-05-27 | 876 | 100,024,448 | 95.39 | 224 | 647d1babf8a6 | 未知 | 无 LICENSE | unknown |
+| 知识库/后端进阶 | [crossoverJie/JCSprout](https://github.com/crossoverJie/JCSprout) | — | 2026-11-04 20:03 | 2024-05-21 | 605 | 98,920,088 | 94.34 | 101 | fbd6e79f8f25 | 未知 | MIT | stale |

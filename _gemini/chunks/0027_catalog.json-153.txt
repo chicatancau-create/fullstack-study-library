@@ -1,0 +1,117 @@
+          "category_basis": "按正文关键词判定（原按仓库名判定会错位）：{'前端': 650, 'AI': 74, 'Node后端': 41, 'SQL与数据': 31}",
+          "content_fingerprint": "db5d19fb53dd8583b9a5f0925c4aeb168c3526d74d65a6628a0bf04bad0788cf",
+          "fingerprint_note": "本机内容指纹（相对路径+字节数+mtime），生成于压缩包删除之后；第二轮未保留上游 tar 的 sha256，因此可复现性以「来源URL+分支+采集日期」为准",
+          "freshness_flag": "索引型，含 AngularJS/jQuery 等历史主题条目；只取仍属当前栈的部分"
+        }
+      }
+    },
+    {
+      "id": "github:markerikson/react-redux-links",
+      "name": "markerikson/react-redux-links",
+      "source": {
+        "url": "https://github.com/markerikson/react-redux-links",
+        "canonical_url": "https://github.com/markerikson/react-redux-links",
+        "aliases": [],
+        "branch": "master",
+        "commit_sha": null,
+        "fetched_at": "2026-11-05 11:12",
+        "upstream_pushed_at": "2024-07-15",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T11:02:16+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "65d47d9099b697e23a36b9df617410c217a14dbb",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "题库/前端与Node/markerikson/react-redux-links",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/markerikson/react-redux-links"
+      },
+      "integrity": {
+        "archive_sha256": null,
+        "content_fingerprint": {
+          "algorithm": "sha256",
+          "value": "e4d2f5bcc746207efcdc6a6af87cb5e4076067b7443747bb564bc3dfee91861c",
+          "scope": "relative_path+size+mtime",
+          "observed_at": "2026-11-05T19:38:53+08:00"
+        },
+        "legacy_fingerprint_12": "e4d2f5bcc746"
+      },
+      "classification": {
+        "primary_category": "题库/前端与Node",
+        "category_basis": "按正文关键词判定（原按仓库名判定会错位）：{'前端': 1708, 'Node后端': 140, 'AI': 20, '运维云原生': 3}",
+        "functions": [
+          "F2"
+        ],
+        "topics": []
+      },
+      "metrics": {
+        "files": 51,
+        "bytes": 611551,
+        "markdown_count": 48,
+        "question_markers": 1,
+        "test_files": 0,
+        "observed_at": "2026-11-07T14:06:29+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": null,
+        "detection_status": "no_license_file",
+        "license_files": [],
+        "usage_restriction": "上游未提供 LICENSE；仅限本机个人学习，不得再发布。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 0,
+          "round": 2
+        },
+        "original_source_json": {
+          "repo": "https://github.com/markerikson/react-redux-links",
+          "category": "题库/前端与Node",
+          "branch": "master",
+          "archive_sha256": null,
+          "tarball_mb": 0,
+          "fetched": "2026-11-05 11:12",
+          "files": 51,
+          "bytes": 611551,
+          "mb": 0,
+          "top_extensions": {
+            ".md": 48,
+            ".json": 1,
+            ".yml": 1
+          },
+          "license_files": [],
+          "license_detected": null,
+          "round": 2,
+          "selection": "正文 48 篇；高采用(22496 star)+有正文(48篇)；文档型仓库(md占比100%)；命中计划缺口方向｜自动判定：keep",
+          "functions": [
+            "F2解答"
+          ],
+          "measured": {
+            "md_n": 48,
+            "md_share_pct": 99.9,

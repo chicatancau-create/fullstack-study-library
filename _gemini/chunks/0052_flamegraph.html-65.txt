@@ -1,0 +1,130 @@
+exports.interpolateDate = date;
+exports.interpolateDiscrete = discrete;
+exports.interpolateHcl = hcl$1;
+exports.interpolateHclLong = hclLong;
+exports.interpolateHsl = hsl$1;
+exports.interpolateHslLong = hslLong;
+exports.interpolateHue = hue$1;
+exports.interpolateLab = lab;
+exports.interpolateNumber = number;
+exports.interpolateNumberArray = numberArray;
+exports.interpolateObject = object;
+exports.interpolateRgb = rgb;
+exports.interpolateRgbBasis = rgbBasis;
+exports.interpolateRgbBasisClosed = rgbBasisClosed;
+exports.interpolateRound = round;
+exports.interpolateString = string;
+exports.interpolateTransformCss = interpolateTransformCss;
+exports.interpolateTransformSvg = interpolateTransformSvg;
+exports.interpolateZoom = zoom;
+exports.piecewise = piecewise;
+exports.quantize = quantize;
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+}));
+
+},{"d3-color":13}],22:[function(require,module,exports){
+// https://d3js.org/d3-scale/ v3.3.0 Copyright 2021 Mike Bostock
+(function (global, factory) {
+typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('d3-array'), require('d3-interpolate'), require('d3-format'), require('d3-time'), require('d3-time-format')) :
+typeof define === 'function' && define.amd ? define(['exports', 'd3-array', 'd3-interpolate', 'd3-format', 'd3-time', 'd3-time-format'], factory) :
+(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.d3 = global.d3 || {}, global.d3, global.d3, global.d3, global.d3, global.d3));
+}(this, (function (exports, d3Array, d3Interpolate, d3Format, d3Time, d3TimeFormat) { 'use strict';
+
+function initRange(domain, range) {
+  switch (arguments.length) {
+    case 0: break;
+    case 1: this.range(domain); break;
+    default: this.range(range).domain(domain); break;
+  }
+  return this;
+}
+
+function initInterpolator(domain, interpolator) {
+  switch (arguments.length) {
+    case 0: break;
+    case 1: {
+      if (typeof domain === "function") this.interpolator(domain);
+      else this.range(domain);
+      break;
+    }
+    default: {
+      this.domain(domain);
+      if (typeof interpolator === "function") this.interpolator(interpolator);
+      else this.range(interpolator);
+      break;
+    }
+  }
+  return this;
+}
+
+const implicit = Symbol("implicit");
+
+function ordinal() {
+  var index = new Map(),
+      domain = [],
+      range = [],
+      unknown = implicit;
+
+  function scale(d) {
+    var key = d + "", i = index.get(key);
+    if (!i) {
+      if (unknown !== implicit) return unknown;
+      index.set(key, i = domain.push(d));
+    }
+    return range[(i - 1) % range.length];
+  }
+
+  scale.domain = function(_) {
+    if (!arguments.length) return domain.slice();
+    domain = [], index = new Map();
+    for (const value of _) {
+      const key = value + "";
+      if (index.has(key)) continue;
+      index.set(key, domain.push(value));
+    }
+    return scale;
+  };
+
+  scale.range = function(_) {
+    return arguments.length ? (range = Array.from(_), scale) : range.slice();
+  };
+
+  scale.unknown = function(_) {
+    return arguments.length ? (unknown = _, scale) : unknown;
+  };
+
+  scale.copy = function() {
+    return ordinal(domain, range).unknown(unknown);
+  };
+
+  initRange.apply(scale, arguments);
+
+  return scale;
+}
+
+function band() {
+  var scale = ordinal().unknown(undefined),
+      domain = scale.domain,
+      ordinalRange = scale.range,
+      r0 = 0,
+      r1 = 1,
+      step,
+      bandwidth,
+      round = false,
+      paddingInner = 0,
+      paddingOuter = 0,
+      align = 0.5;
+
+  delete scale.unknown;
+
+  function rescale() {
+    var n = domain().length,
+        reverse = r1 < r0,
+        start = reverse ? r1 : r0,
+        stop = reverse ? r0 : r1;
+    step = (stop - start) / Math.max(1, n - paddingInner + paddingOuter * 2);
+    if (round) step = Math.floor(step);
+    start += (stop - start - step * (n - paddingInner)) * align;
+    bandwidth = step * (1 - paddingInner);

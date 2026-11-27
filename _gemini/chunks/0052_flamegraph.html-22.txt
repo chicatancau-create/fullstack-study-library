@@ -1,0 +1,133 @@
+        if (!oldExclude.has(name)) {
+          flamegraph.typeHide(name)
+        }
+      })
+      state.typeFilters.exclude = newExclude
+      state.typeFilters.bgs = state.control.tiers
+        ? highlightTypeFilters()
+        : state.typeFilters.unhighlighted
+
+      flamegraph.renderTree(merged ? state.trees.merged : state.trees.unmerged)
+      const { idsToNodes } = merged ? mergedTags : unmergedTags
+      flamegraph.zoom(idsToNodes.get(nodeId))
+
+      emit(state)
+    }
+  }
+}
+
+// This just uses incrementing IDs but it will only
+// be used for a single dataset, and it's deterministic enough for that
+function tagNodesWithIds (data) {
+  let id = 0
+  const idsToNodes = new Map()
+  const nodesToIds = new Map()
+  tagNodes(data)
+
+  return {
+    idsToNodes,
+    nodesToIds
+  }
+
+  function tag (node) {
+    idsToNodes.set(id, node)
+    nodesToIds.set(node, id)
+    id++
+  }
+  function tagNodes (node) {
+    tag(node)
+    if (node.children) node.children.forEach(tagNodes)
+  }
+}
+
+function stringifyHistoryState (state) {
+  // Just use JSON I guess
+  return JSON.stringify(state)
+}
+
+},{}],2:[function(require,module,exports){
+'use strict'
+
+const button = (render) => ({ label, pressed, disabled, width }, action) => render`
+  <button
+    class="f6 pointer br2 ba ph3 pv1 dib black mb2 mt1 ml1 mr1 ${disabled ? 'o-50 bg-silver' : ''}"
+    ${disabled ? 'disabled' : ''}
+    style="
+      ${pressed ? 'box-shadow: 0 0 0 .125em black;' : ''}
+      ${width ? 'width: ' + width + ';' : ''}
+    "
+    onclick=${action}
+  >
+    ${label}
+  </button>
+`
+
+module.exports = (render) => (state, action) => {
+  const tiers = button(render)({ label: 'Tiers', pressed: state.tiers }, () => action({ type: 'tiers' }))
+  const view = state.renderMergedBtn && !state.visualizeCpuProfile
+    ? button(render)({
+        label: state.merged ? 'Unmerge' : 'Merge',
+        width: '6.85em',
+        pressed: state.merged
+      }, () => action({ type: 'view' }))
+    : ''
+  const optimized = state.visualizeCpuProfile
+    ? ''
+    : button(render)({
+      label: 'Optimized',
+      pressed: !state.merged && state.optimized,
+      disabled: state.merged
+    }, () => action({ type: 'optimized' }))
+  const unoptimized = state.visualizeCpuProfile
+    ? ''
+    : button(render)({
+      label: 'Unoptimized',
+      pressed: !state.merged && state.unoptimized,
+      disabled: state.merged
+    }, () => action({ type: 'not-optimized' }))
+
+  return render`
+    <div style="">
+      ${tiers}${view}${optimized}${unoptimized}
+    </div>
+  `
+}
+
+},{}],3:[function(require,module,exports){
+'use strict'
+
+module.exports = (render) => Object.assign(() => render`
+  <chart
+    class='db overflow-y-scroll overflow-x-hidden relative'
+    style='padding-left: 5%; padding-right: 5%; height: calc(100vh - 66px)'
+  >
+  </chart>
+`, { v8cats })
+
+function includesPathSeperator (name) {
+  if (name.indexOf('/') !== -1) return true
+  return includesWindowsSeperator(name)
+}
+
+function includesWindowsSeperator (name) {
+  return (name.indexOf('\\') !== -1)
+}
+
+function isInternalPath (name) {
+  // Match like `~someFunction internal/bootstrap/node.js:1:2`
+  // not like `~someFunction /some internal/path to/file.js:1:2`, windows or posix
+  return /^[^/\\]* internal[/\\]/.test(name)
+}
+
+function v8cats (child) {
+  const name = child.name
+  if (child.type) return { type: child.type }
+  // RegExp and Eval can contain anything (a method name defined in eval could be any string)
+  if (/\[CODE:RegExp]$/.test(name)) return { type: 'regexp' }
+  // Unless we create an eval checkbox, "native" is the next best label - cannot tell if the eval is from app, deps, core
+  if (/\[eval]:\d+:\d+$/.test(name)) return { type: 'native' }
+  // wasm has no location data either, but typically has lots more frames than [eval], so it gets its very own category
+  if (/\[WASM:\w+]$/.test(name)) return { type: 'wasm' }
+
+  if (/\[INIT]$/.test(name)) return { type: 'init' }
+  if (/\[INLINABLE]$/.test(name)) return { type: 'inlinable' }

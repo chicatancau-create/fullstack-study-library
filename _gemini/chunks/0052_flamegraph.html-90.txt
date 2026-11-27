@@ -1,0 +1,131 @@
+var utcHour = newInterval(function(date) {
+  date.setUTCMinutes(0, 0, 0);
+}, function(date, step) {
+  date.setTime(+date + step * durationHour);
+}, function(start, end) {
+  return (end - start) / durationHour;
+}, function(date) {
+  return date.getUTCHours();
+});
+var utcHours = utcHour.range;
+
+var utcDay = newInterval(function(date) {
+  date.setUTCHours(0, 0, 0, 0);
+}, function(date, step) {
+  date.setUTCDate(date.getUTCDate() + step);
+}, function(start, end) {
+  return (end - start) / durationDay;
+}, function(date) {
+  return date.getUTCDate() - 1;
+});
+var utcDays = utcDay.range;
+
+function utcWeekday(i) {
+  return newInterval(function(date) {
+    date.setUTCDate(date.getUTCDate() - (date.getUTCDay() + 7 - i) % 7);
+    date.setUTCHours(0, 0, 0, 0);
+  }, function(date, step) {
+    date.setUTCDate(date.getUTCDate() + step * 7);
+  }, function(start, end) {
+    return (end - start) / durationWeek;
+  });
+}
+
+var utcSunday = utcWeekday(0);
+var utcMonday = utcWeekday(1);
+var utcTuesday = utcWeekday(2);
+var utcWednesday = utcWeekday(3);
+var utcThursday = utcWeekday(4);
+var utcFriday = utcWeekday(5);
+var utcSaturday = utcWeekday(6);
+
+var utcSundays = utcSunday.range;
+var utcMondays = utcMonday.range;
+var utcTuesdays = utcTuesday.range;
+var utcWednesdays = utcWednesday.range;
+var utcThursdays = utcThursday.range;
+var utcFridays = utcFriday.range;
+var utcSaturdays = utcSaturday.range;
+
+var utcMonth = newInterval(function(date) {
+  date.setUTCDate(1);
+  date.setUTCHours(0, 0, 0, 0);
+}, function(date, step) {
+  date.setUTCMonth(date.getUTCMonth() + step);
+}, function(start, end) {
+  return end.getUTCMonth() - start.getUTCMonth() + (end.getUTCFullYear() - start.getUTCFullYear()) * 12;
+}, function(date) {
+  return date.getUTCMonth();
+});
+var utcMonths = utcMonth.range;
+
+var utcYear = newInterval(function(date) {
+  date.setUTCMonth(0, 1);
+  date.setUTCHours(0, 0, 0, 0);
+}, function(date, step) {
+  date.setUTCFullYear(date.getUTCFullYear() + step);
+}, function(start, end) {
+  return end.getUTCFullYear() - start.getUTCFullYear();
+}, function(date) {
+  return date.getUTCFullYear();
+});
+
+// An optimized implementation for this simple case.
+utcYear.every = function(k) {
+  return !isFinite(k = Math.floor(k)) || !(k > 0) ? null : newInterval(function(date) {
+    date.setUTCFullYear(Math.floor(date.getUTCFullYear() / k) * k);
+    date.setUTCMonth(0, 1);
+    date.setUTCHours(0, 0, 0, 0);
+  }, function(date, step) {
+    date.setUTCFullYear(date.getUTCFullYear() + step * k);
+  });
+};
+var utcYears = utcYear.range;
+
+exports.timeDay = day;
+exports.timeDays = days;
+exports.timeFriday = friday;
+exports.timeFridays = fridays;
+exports.timeHour = hour;
+exports.timeHours = hours;
+exports.timeInterval = newInterval;
+exports.timeMillisecond = millisecond;
+exports.timeMilliseconds = milliseconds;
+exports.timeMinute = minute;
+exports.timeMinutes = minutes;
+exports.timeMonday = monday;
+exports.timeMondays = mondays;
+exports.timeMonth = month;
+exports.timeMonths = months;
+exports.timeSaturday = saturday;
+exports.timeSaturdays = saturdays;
+exports.timeSecond = second;
+exports.timeSeconds = seconds;
+exports.timeSunday = sunday;
+exports.timeSundays = sundays;
+exports.timeThursday = thursday;
+exports.timeThursdays = thursdays;
+exports.timeTuesday = tuesday;
+exports.timeTuesdays = tuesdays;
+exports.timeWednesday = wednesday;
+exports.timeWednesdays = wednesdays;
+exports.timeWeek = sunday;
+exports.timeWeeks = sundays;
+exports.timeYear = year;
+exports.timeYears = years;
+exports.utcDay = utcDay;
+exports.utcDays = utcDays;
+exports.utcFriday = utcFriday;
+exports.utcFridays = utcFridays;
+exports.utcHour = utcHour;
+exports.utcHours = utcHours;
+exports.utcMillisecond = millisecond;
+exports.utcMilliseconds = milliseconds;
+exports.utcMinute = utcMinute;
+exports.utcMinutes = utcMinutes;
+exports.utcMonday = utcMonday;
+exports.utcMondays = utcMondays;
+exports.utcMonth = utcMonth;
+exports.utcMonths = utcMonths;
+exports.utcSaturday = utcSaturday;
+exports.utcSaturdays = utcSaturdays;

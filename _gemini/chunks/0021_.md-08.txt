@@ -1,0 +1,75 @@
+- K3s 1.37.2：节点 Ready；ConfigMap/Deployment/Service 创建，Deployment rolled out，2/2 Pod Running；
+  删除 Pod 后重建 2/2 Running；readiness/liveness 探针在清单中。
+- 后续用单平台镜像导入 + `rollout restart` 产生 revision：2/2 Pod Running，`rollout restart` 与 `rollout undo` 均
+  `successfully rolled out`；早期失败与网络重置保留在证据中。未做 Ingress/多节点/生产告警/公网。
+- 证据：`projects/project04-saas/deploy/evidence/docker-k8s.txt`；提交 `f7eb725`（run9）与 `22de0f3`（run10 资源限制），manifest 17 文件校验 OK。
+
+### 7.55 项目 04 指标与告警判定（部分）
+
+- `/metrics` 暴露 HTTP 计数、pending/failed 任务；`deploy/alert-rules.yml` 定义 HighErrorRate 与 JobBacklog。
+- 本地制造 59% 错误率、60 条积压，告警判定均触发：`ALERTS PASS`。
+- 门禁：tests/backup/otel/jobs/alerts 全 PASS；提交 `921c89f`，manifest 17 文件校验 OK。
+- 边界：无 Prometheus/Alertmanager 实例，规则与判定是本地静态验证；未接通知渠道。
+
+### 7.56 全项目 GitHub Actions CI（完成）
+
+- 练习仓库 9 个 job 全绿：项目 01/02/03/04/05、Java/MySQL、Express/Nest、AI mock；run 42402810914。
+- 项目 03 使用 PostgreSQL 18 + RabbitMQ 4 服务；项目 02/04/05 使用 PostgreSQL；Java 使用 MySQL 8.4。
+- 资料库仓库 E02 在 Ubuntu + Node 24 通过（run 42403182919）；E01 因 Windows 页级 UAF 夹具不纳入 Linux CI，
+  保留 Windows 本机证据与“ASan/Linux 未覆盖”边界。
+- 证据：[data/ci-github-all-2026-11-07.txt](data/ci-github-all-2026-11-07.txt)。
+- 边界：CI 覆盖安装/迁移/单元与部分集成；不覆盖 E2E、K8s、部署、真实 LLM。
+
+- 仓库 `chicatancau-create/fullstack-code`，workflow `.github/workflows/ci.yml`：Ubuntu runner + PostgreSQL 18 service，
+  `npm ci` → `npm run migrate` → `npm test`。
+- run [42402004192](https://github.com/chicatancau-create/fullstack-code/actions/runs/42402004192)：**success**，
+  install/migrate/test/停止容器全部成功；commit `2d11826`。
+- 证据：[data/ci-github-2026-11-07.txt](data/ci-github-2026-11-07.txt)。
+- 边界：只覆盖项目 04 的安装/迁移/测试；未覆盖 E2E、K8s、部署；私有仓库的 Actions 分钟数受账户配额影响。（11-08：project01 E2E 已进 CI；K8s/部署仍未覆盖。）
+
+### 7.57 项目 04 真实 Prometheus 规则加载（部分）
+
+- Prometheus 3.5.0 抓取项目 04 `/metrics`（Bearer token），加载 2 条规则（2 rules / 1 group）。
+- 60 条待处理任务被查询为 `p04_jobs_pending=60`；`JobBacklog` 进入 pending；`PROMETHEUS PASS`。
+- 未接 Alertmanager：通知、抑制、路由未验证。
+- 证据：`projects/project04-saas/evidence/prometheus.txt`；提交 `cf12be7`，manifest 19 文件校验 OK。
+
+### 7.58 项目 04 Prometheus→Alertmanager 通知（完成本地链路）
+
+- Prometheus 3.5.0 抓取 `/metrics` 并加载 2 条规则；Alertmanager 0.28.1 接收触发告警。
+- 60 条积压使 `JobBacklog` 触发，本地 webhook 实际收到 1 个 payload，`ALERTMANAGER PASS`。
+- 未接邮件/IM/短信；仅证明规则→告警→webhook 链路。
+- 证据：`projects/project04-saas/evidence/alertmanager.txt`；提交 `0c12240`，manifest 20 文件校验 OK。
+
+### 7.59 项目 05 独立 AI 接手复现（部分）
+
+- 独立 AI 仅按 README/handover 复现：`npm ci`、迁移、测试 7/7、manifest OK。
+- 发现并修复：测试会清共享库 → 独立库 `study_lab_p05`；`start/backup` 指向不存在文件 → 删除；
+  负向用例假绿 → 补正向删除/降级/并发互删；补充修复前复现文档；统一文档矛盾；提示重跑会使 manifest 失效。
+- CI：项目 05 使用独立 PostgreSQL 库，GitHub Actions 通过。
+- 提交 `d6b7cb3`；记录 `docs/handover-reproduction-ai.md`。
+- 边界（记录 7.59 时点）：AI 接收人不是人类；当时 D88–D90、真实陌生仓库未做。
+  （11-08：D88–D90 已完成，见 7.60。）
+
+### 7.60 项目 05 D88–D90 接手增量（完成受控演练）
+
+- D88：`PATCH /workspaces/:id/tasks/batch`，最多 50 项，逐项 `ok/error/changed`；跨工作区逐项 404，同状态幂等。
+- D89：`migrations/002_task_events.sql` 追加事件表 + 回填；兼容矩阵与回滚限制见 `docs/d89-compatibility.md`。
+- D90：10,000 行状态过滤（索引 1.04 ms vs 强制顺序 1.37 ms）；50 条逐条更新中位 11.17 ms vs 集合 1.33 ms；
+  原始计划 `evidence/d90-perf.txt`，限制（全缓存/单连接）见 `docs/d90-performance.md`。
+- 回归：**12/12 pass**；提交 `b22ba00`、manifest `d4366f9`。
+- 边界：非生产容量结论；无人类接收人复现；事件审计仅覆盖任务状态。
+
+### 7.61 E10 积压与重放（1000 条）
+
+- 脚本 `src/backlog_replay.mjs`：先发布 1000 条再消费，`checkQueue=1000`；prefetch=20 排空后 queue=0、inbox=1000、side_effects=1000。
+- 重放同一批 1000 条：inbox 冲突 1000 次，side_effects 仍为 1000，证明重放不重复副作用。
+- 本机读数：首次消费约 697ms，重放约 103ms；绝对值只用于同口径比较。
+- 证据 `evidence/backlog_replay.txt`；边界：单节点、单消费者、无顺序保证/集群/持续压测。
+
+### 7.63 project04 单节点 Ingress（Traefik）
+
+- 环境：QEMU Ubuntu 24.04 + K3s 1.37.2 单节点；`kubectl create ingress web --class=traefik --rule="web.local/*=web:80"`。
+- 结果：Ingress `web`（class traefik，host web.local，address 10.0.2.15），Service `web` ClusterIP，Pod `1/1 Running`；
+  `curl -H 'Host: web.local' http://127.0.0.1/` 返回 `<title>Welcome to nginx!</title>`。
+- 证据：`projects/project04-saas/deploy/evidence/ingress.txt` 与 `deploy/k8s-ingress.yaml`（练习仓库，仓库外）。

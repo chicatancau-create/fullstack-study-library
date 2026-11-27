@@ -1,0 +1,119 @@
+        "archive_sha256": "ea4689493e0940949bccfda6fd927afd3ac6cb4bae22451d515bf1ae5a64d9f0",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/计算机基础",
+        "category_basis": "legacy_imported: category from .source.json",
+        "functions": [],
+        "topics": []
+      },
+      "metrics": {
+        "files": 1810,
+        "bytes": 438914979,
+        "markdown_count": 698,
+        "question_markers": null,
+        "test_files": null,
+        "observed_at": "2026-11-07T14:06:24+08:00",
+        "count_scope": "all regular files below mirror_path, including .source.json and _remote_assets; excludes the sibling _派生视图"
+      },
+      "license": {
+        "spdx": "Apache-2.0",
+        "detection_status": "detected",
+        "license_files": [
+          "LICENSE"
+        ],
+        "usage_restriction": "仅限本机个人学习；复制、改编或再发布须遵守上游许可证。"
+      },
+      "freshness": {
+        "status": "unknown",
+        "note": null,
+        "last_checked_at": null,
+        "next_review_at": null
+      },
+      "lifecycle": {
+        "status": "active",
+        "reason": null,
+        "archived_at": null,
+        "replacement_id": null
+      },
+      "review": {
+        "status": "legacy_imported",
+        "reviewed_at": null,
+        "evidence": [
+          ".source.json",
+          "migrated from baseline c807c8b; no new human approval implied"
+        ]
+      },
+      "extensions": {
+        "legacy_source_fields": {
+          "tarball_mb": 407,
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：1809 文件 -> 1810 文件"
+        },
+        "original_source_json": {
+          "repo": "https://github.com/forthespada/InterviewGuide",
+          "category": "知识库/计算机基础",
+          "branch": null,
+          "archive_sha256": "ea4689493e0940949bccfda6fd927afd3ac6cb4bae22451d515bf1ae5a64d9f0",
+          "tarball_mb": 407,
+          "fetched": "2026-11-04 20:03",
+          "files": 1810,
+          "bytes": 438914979,
+          "mb": 418,
+          "top_extensions": {
+            ".png": 971,
+            ".md": 698,
+            "(none)": 60,
+            ".jpeg": 34,
+            ".jpg": 33,
+            ".gif": 12,
+            ".svg": 1
+          },
+          "license_files": [
+            "LICENSE"
+          ],
+          "license_detected": "Apache-2.0",
+          "note": "正文按原仓库相对路径存放；_remote_assets/ 下是从仓库外链 CDN 补下的配图",
+          "ledger_refreshed": "补图/改名后重算：1809 文件 -> 1810 文件",
+          "measured": {
+            "pushed": "2025-08-02",
+            "stars": 5961
+          }
+        }
+      }
+    },
+    {
+      "id": "github:jlevy/the-art-of-command-line",
+      "name": "jlevy/the-art-of-command-line",
+      "source": {
+        "url": "https://github.com/jlevy/the-art-of-command-line",
+        "canonical_url": "https://github.com/jlevy/the-art-of-command-line",
+        "aliases": [],
+        "branch": null,
+        "commit_sha": null,
+        "fetched_at": "2026-11-04 20:03",
+        "upstream_pushed_at": "2024-06-25",
+        "upstream_snapshot": {
+          "status": "checked",
+          "checked_at": "2026-11-07T10:59:40+08:00",
+          "default_branch": "master",
+          "head_commit_sha": "6b50745d2e788add2e8f1ed29010e72659a9a074",
+          "note": null
+        }
+      },
+      "payload": {
+        "mode": "mirror",
+        "mirror_path": "知识库/计算机基础/jlevy/the-art-of-command-line",
+        "entry_path": "README.md",
+        "included_in_git": false,
+        "availability": "not_packaged",
+        "online_fallback_url": "https://github.com/jlevy/the-art-of-command-line"
+      },
+      "integrity": {
+        "archive_sha256": "c1909cf70537f98a82917cfbc57389b7ed4d62d003372d434485412bcfb2a7b6",
+        "content_fingerprint": null,
+        "legacy_fingerprint_12": null
+      },
+      "classification": {
+        "primary_category": "知识库/计算机基础",
